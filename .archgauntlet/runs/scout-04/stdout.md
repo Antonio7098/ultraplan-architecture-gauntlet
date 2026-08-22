@@ -8,7 +8,7 @@ Key discovery: `init` scaffolds only config/README/studies — the entire govern
 `contract-mapping-protocol.md` is referenced by nothing — its role is fulfilled by per-template "Contract Mapping" sections instead. Checking whether any protocol references it, verifying the web boundary test, and how the review runtime sources protocol text.
 The runtime recognizes `.ultra/system/...` paths (`internal/sprint/reasoning.go:184`), but this workspace has `system/` at root with no `.ultra` directory. Checking how the workspace root and system catalogs are actually resolved.
 `.ultra/` prefix is explicitly normalized legacy (prompts.go:233, reasoning_defaults.go:48) — resolved as intentional boundary translation. Now verifying the project-index contract catalog wiring, the frontend.md dangling reference, and the untested-productstate claim.
-Two important leads: (1) project-index points at `/home/antonioborgerees/...` absolute paths while the gauntlet repos live under `/home/antonio/gauntlet-run/`; (2) the Active Contract Pool lists only 13 of 19 contracts — the web-surface contracts (api-contracts, frontend, accessibility) are absent despite Phase 4 being complete. Verifying both.
+Two important leads: (1) project-index points at `/home/antonioborgerees/...` absolute paths while the gauntlet repos live under `/home/antonioborgerees/coding/ultraplan/gauntlet-run/`; (2) the Active Contract Pool lists only 13 of 19 contracts — the web-surface contracts (api-contracts, frontend, accessibility) are absent despite Phase 4 being complete. Verifying both.
 Confirmed: sprint 30 selected only pool-listed contracts (no API/Frontend/A11y contracts exist in the pool), and the stale absolute paths don't resolve in this environment. Checking whether the roadmap ever intended to extend the contract pool for Phase 4, and cross-checking the two architecture documents for authority conflicts.
 Roadmap demands accessibility gates for Phase 4 but never extends the contract pool — the catalog is a hard gate (`internal/sprint/index.go:129` rejects unlisted entries), so API/Frontend/A11y contracts could never be selected. Now checking the two architecture documents for authority overlap.
 Architecture docs are consistent across workspace and repo (same dependency graph). One last verification: `productstate` and `runcontrol` were both described as owning `.ultraplan/run-control.db` — checking for storage-authority overlap, plus corpus change history to classify the pool lag.
@@ -22,14 +22,14 @@ All verification threads are closed. Compiling the cartography report.
 
 ### Scope inspected
 
-**Planning workspace `/home/antonio/gauntlet-run/ultraplan-workspace` @ 368a789** (clean):
+**Planning workspace `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace` @ 368a789** (clean):
 - `system/contracts/**` — all 19 contract files read/inventoried (9 core, 5 runtime, 5 surfaces; 166 requirement IDs)
 - `system/protocols/` — all 6 protocols (`architecture-review-protocol.md` 472 L, `contract-mapping-protocol.md`, `plan-sprint-protocol.md`, `review-sprint-protocol.md`, `deep-smoke-sprint-protocol.md`, `sprint-review-protocol.md`)
 - `system/reasoning/` — all 18 templates (structure + contract-mapping tables)
 - `projects/ultraplan-go/` — `project-index.md` (read in full), `roadmap.md`, `docs/{PRD,TRD,ARCHITECTURE}.md`, sampled sprints 01/23/30/34/35 incl. `sprint-index.md`, `review.md`, `execute.md`, `flow-state.json`
 - `projects/aren-phase-01-execution-lifecycle/`, `studies/{go-cli-study, agent-harness-study, ultraplan-daemon-events-study}`, `previews/`, `.agents/skills/` (10 skills)
 
-**Implementation repo `/home/antonio/gauntlet-run/ultraplan-go` @ eeaa034** (clean):
+**Implementation repo `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go` @ eeaa034** (clean):
 - Import graph across `cmd/` + all 12 internal packages; composition root `cmd/ultraplan/main.go` → `internal/app`
 - Architecture-encoding tests read directly: `internal/web/import_boundary_test.go`, `internal/runcontrol/import_boundary_test.go`, `internal/app/run_control_inventory_test.go`, `internal/web/api_compatibility_test.go` (via worker, spot-verified)
 - Storage authority: `internal/productstate/store.go`, `internal/runcontrol/sqlite.go`, `migration_test.go`

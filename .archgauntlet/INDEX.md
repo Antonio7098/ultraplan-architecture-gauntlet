@@ -1,0 +1,125 @@
+# Architecture Gauntlet Run Index
+
+Target: `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go`
+
+## Scout
+
+- `scout-01` — **succeeded** — Repository cartography — [result](runs/scout-01/stdout.md)
+- `scout-02` — **succeeded** — Dependency cartography — [result](runs/scout-02/stdout.md)
+- `scout-03` — **succeeded** — Product-contract cartography — [result](runs/scout-03/stdout.md)
+- `scout-04` — **succeeded** — Governance cartography — [result](runs/scout-04/stdout.md)
+- `scout-05` — **succeeded** — State/lifecycle cartography — [result](runs/scout-05/stdout.md)
+- `scout-06` — **succeeded** — Execution cartography — [result](runs/scout-06/stdout.md)
+
+## Generalist
+
+- `generalist-01` — **pending** — Whole-system ownership review — [result](runs/generalist-01/stdout.md)
+- `generalist-02` — **pending** — Whole-system simplicity review — [result](runs/generalist-02/stdout.md)
+- `generalist-03` — **pending** — Whole-system failure review — [result](runs/generalist-03/stdout.md)
+- `generalist-04` — **pending** — Whole-system evolution review — [result](runs/generalist-04/stdout.md)
+
+## Specialist
+
+- `specialist-01a` — **pending** — Module ownership and authority (independent a) — [result](runs/specialist-01a/stdout.md)
+- `specialist-01b` — **pending** — Module ownership and authority (independent b) — [result](runs/specialist-01b/stdout.md)
+- `specialist-02a` — **pending** — Go dependency graph (independent a) — [result](runs/specialist-02a/stdout.md)
+- `specialist-02b` — **pending** — Go dependency graph (independent b) — [result](runs/specialist-02b/stdout.md)
+- `specialist-03a` — **pending** — Study lifecycle (independent a) — [result](runs/specialist-03a/stdout.md)
+- `specialist-03b` — **pending** — Study lifecycle (independent b) — [result](runs/specialist-03b/stdout.md)
+- `specialist-04a` — **pending** — Project catalogue (independent a) — [result](runs/specialist-04a/stdout.md)
+- `specialist-04b` — **pending** — Project catalogue (independent b) — [result](runs/specialist-04b/stdout.md)
+- `specialist-05a` — **pending** — Sprint state machine (independent a) — [result](runs/specialist-05a/stdout.md)
+- `specialist-05b` — **pending** — Sprint state machine (independent b) — [result](runs/specialist-05b/stdout.md)
+- `specialist-06a` — **pending** — Execute-review-smoke (independent a) — [result](runs/specialist-06a/stdout.md)
+- `specialist-06b` — **pending** — Execute-review-smoke (independent b) — [result](runs/specialist-06b/stdout.md)
+- `specialist-07a` — **pending** — Runcontrol (independent a) — [result](runs/specialist-07a/stdout.md)
+- `specialist-07b` — **pending** — Runcontrol (independent b) — [result](runs/specialist-07b/stdout.md)
+- `specialist-08a` — **pending** — Productstate (independent a) — [result](runs/specialist-08a/stdout.md)
+- `specialist-08b` — **pending** — Productstate (independent b) — [result](runs/specialist-08b/stdout.md)
+- `specialist-09a` — **pending** — Operational vs product state (independent a) — [result](runs/specialist-09a/stdout.md)
+- `specialist-09b` — **pending** — Operational vs product state (independent b) — [result](runs/specialist-09b/stdout.md)
+- `specialist-10a` — **pending** — App composition/use cases (independent a) — [result](runs/specialist-10a/stdout.md)
+- `specialist-10b` — **pending** — App composition/use cases (independent b) — [result](runs/specialist-10b/stdout.md)
+- `specialist-11a` — **pending** — CLI/TUI/web parity (independent a) — [result](runs/specialist-11a/stdout.md)
+- `specialist-11b` — **pending** — CLI/TUI/web parity (independent b) — [result](runs/specialist-11b/stdout.md)
+- `specialist-12a` — **pending** — Web lifecycle and SSE (independent a) — [result](runs/specialist-12a/stdout.md)
+- `specialist-12b` — **pending** — Web lifecycle and SSE (independent b) — [result](runs/specialist-12b/stdout.md)
+- `specialist-13a` — **pending** — Runtime/agentwrap/OpenCode (independent a) — [result](runs/specialist-13a/stdout.md)
+- `specialist-13b` — **pending** — Runtime/agentwrap/OpenCode (independent b) — [result](runs/specialist-13b/stdout.md)
+- `specialist-14a` — **pending** — Process/smoke harness (independent a) — [result](runs/specialist-14a/stdout.md)
+- `specialist-14b` — **pending** — Process/smoke harness (independent b) — [result](runs/specialist-14b/stdout.md)
+- `specialist-15a` — **pending** — Filesystem/artifact persistence (independent a) — [result](runs/specialist-15a/stdout.md)
+- `specialist-15b` — **pending** — Filesystem/artifact persistence (independent b) — [result](runs/specialist-15b/stdout.md)
+- `specialist-16a` — **pending** — Configuration/model selection (independent a) — [result](runs/specialist-16a/stdout.md)
+- `specialist-16b` — **pending** — Configuration/model selection (independent b) — [result](runs/specialist-16b/stdout.md)
+- `specialist-17a` — **pending** — Errors/retry/idempotency/recovery (independent a) — [result](runs/specialist-17a/stdout.md)
+- `specialist-17b` — **pending** — Errors/retry/idempotency/recovery (independent b) — [result](runs/specialist-17b/stdout.md)
+- `specialist-18a` — **pending** — Observability (independent a) — [result](runs/specialist-18a/stdout.md)
+- `specialist-18b` — **pending** — Observability (independent b) — [result](runs/specialist-18b/stdout.md)
+- `specialist-19a` — **pending** — Concurrency/resources (independent a) — [result](runs/specialist-19a/stdout.md)
+- `specialist-19b` — **pending** — Concurrency/resources (independent b) — [result](runs/specialist-19b/stdout.md)
+- `specialist-20a` — **pending** — Test architecture (independent a) — [result](runs/specialist-20a/stdout.md)
+- `specialist-20b` — **pending** — Test architecture (independent b) — [result](runs/specialist-20b/stdout.md)
+- `specialist-21a` — **pending** — Security/trust boundaries (independent a) — [result](runs/specialist-21a/stdout.md)
+- `specialist-21b` — **pending** — Security/trust boundaries (independent b) — [result](runs/specialist-21b/stdout.md)
+- `specialist-22a` — **pending** — Agent architecture (independent a) — [result](runs/specialist-22a/stdout.md)
+- `specialist-22b` — **pending** — Agent architecture (independent b) — [result](runs/specialist-22b/stdout.md)
+- `specialist-23a` — **pending** — Simplicity and earned complexity (independent a) — [result](runs/specialist-23a/stdout.md)
+- `specialist-23b` — **pending** — Simplicity and earned complexity (independent b) — [result](runs/specialist-23b/stdout.md)
+- `specialist-24a` — **pending** — Evolution/change locality (independent a) — [result](runs/specialist-24a/stdout.md)
+- `specialist-24b` — **pending** — Evolution/change locality (independent b) — [result](runs/specialist-24b/stdout.md)
+
+## Failure
+
+- `failure-01` — **pending** — Crash during durable acceptance — [result](runs/failure-01/stdout.md)
+- `failure-02` — **pending** — Owner death after work begins — [result](runs/failure-02/stdout.md)
+- `failure-03` — **pending** — Stale fenced owner — [result](runs/failure-03/stdout.md)
+- `failure-04` — **pending** — CLI/web concurrent mutation — [result](runs/failure-04/stdout.md)
+- `failure-05` — **pending** — Browser disconnect — [result](runs/failure-05/stdout.md)
+- `failure-06` — **pending** — Server shutdown — [result](runs/failure-06/stdout.md)
+- `failure-07` — **pending** — Cancellation vs completion race — [result](runs/failure-07/stdout.md)
+- `failure-08` — **pending** — Slow SSE subscriber — [result](runs/failure-08/stdout.md)
+- `failure-09` — **pending** — Persistence failure — [result](runs/failure-09/stdout.md)
+- `failure-10` — **pending** — Migration/restart — [result](runs/failure-10/stdout.md)
+- `failure-11` — **pending** — Smoke harness timeout — [result](runs/failure-11/stdout.md)
+- `failure-12` — **pending** — Corrupt or stale state — [result](runs/failure-12/stdout.md)
+
+## Change
+
+- `change-01` — **pending** — Add sprint stage — [result](runs/change-01/stdout.md)
+- `change-02` — **pending** — Add local interface — [result](runs/change-02/stdout.md)
+- `change-03` — **pending** — Add runtime adapter — [result](runs/change-03/stdout.md)
+- `change-04` — **pending** — Add run event — [result](runs/change-04/stdout.md)
+- `change-05` — **pending** — Change product-state schema — [result](runs/change-05/stdout.md)
+- `change-06` — **pending** — Add review/smoke strategy — [result](runs/change-06/stdout.md)
+- `change-07` — **pending** — Change reasoning resolution — [result](runs/change-07/stdout.md)
+- `change-08` — **pending** — Add execution status — [result](runs/change-08/stdout.md)
+
+## Challenge
+
+- `challenge-01` — **pending** — Product/domain tribunal — [result](runs/challenge-01/stdout.md)
+- `challenge-02` — **pending** — Execution tribunal — [result](runs/challenge-02/stdout.md)
+- `challenge-03` — **pending** — State tribunal — [result](runs/challenge-03/stdout.md)
+- `challenge-04` — **pending** — Interface tribunal — [result](runs/challenge-04/stdout.md)
+- `challenge-05` — **pending** — Quality tribunal — [result](runs/challenge-05/stdout.md)
+- `challenge-06` — **pending** — Evolution tribunal — [result](runs/challenge-06/stdout.md)
+
+## Chair
+
+- `chair-01` — **pending** — Product/domain tribunal synthesis — [result](runs/chair-01/stdout.md)
+- `chair-02` — **pending** — Execution tribunal synthesis — [result](runs/chair-02/stdout.md)
+- `chair-03` — **pending** — State tribunal synthesis — [result](runs/chair-03/stdout.md)
+- `chair-04` — **pending** — Interface tribunal synthesis — [result](runs/chair-04/stdout.md)
+- `chair-05` — **pending** — Quality tribunal synthesis — [result](runs/chair-05/stdout.md)
+- `chair-06` — **pending** — Evolution tribunal synthesis — [result](runs/chair-06/stdout.md)
+
+## Synth
+
+- `synth-01` — **pending** — Independent system synthesis 1 — [result](runs/synth-01/stdout.md)
+- `synth-02` — **pending** — Independent system synthesis 2 — [result](runs/synth-02/stdout.md)
+- `synth-03` — **pending** — Independent system synthesis 3 — [result](runs/synth-03/stdout.md)
+
+## Arbiter
+
+- `arbiter-01` — **pending** — Chief architect arbiter — [result](runs/arbiter-01/stdout.md)
+

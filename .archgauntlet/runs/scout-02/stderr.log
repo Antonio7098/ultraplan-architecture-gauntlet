@@ -4,111 +4,26 @@
 [0m
 [0m→ [0mSkill "ultraplan-architecture-gauntlet"
 [0m
-[0m$ [0mgit log --oneline -3 && git status --short | wc -l && go version
+[0m$ [0mls -la /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go log --oneline -3 && git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go status --short | head -5
+total 32
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   136 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    62 Aug 22 16:23 ..
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    18 Aug 22 16:23 cmd
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   232 Aug 22 16:23 dist
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   596 Aug 22 16:23 docs
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   122 Aug 22 16:23 .git
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    18 Aug 22 16:23 .github
+-rw-r--r--. 1 antonioborgerees antonioborgerees    10 Aug 22 16:23 .gitignore
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2188 Aug 22 16:23 go.mod
+-rw-r--r--. 1 antonioborgerees antonioborgerees 11725 Aug 22 16:23 go.sum
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 internal
+-rw-r--r--. 1 antonioborgerees antonioborgerees 10930 Aug 22 16:23 README.md
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   188 Aug 22 16:23 scripts
 eeaa034 observability: promote nested runtime payload facts to top level
 c455510 observability: surface agent stream details in durable run events
 4f440ca Show session continuation and harness session ID in run agent modal
-0
-go version go1.26.5 linux/amd64
 [0m
-[0m$ [0mgo list ./... 2>&1 | head -100
-github.com/Antonio7098/ultraplan-go/cmd/ultraplan
-github.com/Antonio7098/ultraplan-go/internal/app
-github.com/Antonio7098/ultraplan-go/internal/codeextract
-github.com/Antonio7098/ultraplan-go/internal/platform/config
-github.com/Antonio7098/ultraplan-go/internal/platform/filesystem
-github.com/Antonio7098/ultraplan-go/internal/platform/logging
-github.com/Antonio7098/ultraplan-go/internal/platform/process
-github.com/Antonio7098/ultraplan-go/internal/platform/runtime
-github.com/Antonio7098/ultraplan-go/internal/productstate
-github.com/Antonio7098/ultraplan-go/internal/project
-github.com/Antonio7098/ultraplan-go/internal/runcontrol
-github.com/Antonio7098/ultraplan-go/internal/sprint
-github.com/Antonio7098/ultraplan-go/internal/study
-github.com/Antonio7098/ultraplan-go/internal/tui
-github.com/Antonio7098/ultraplan-go/internal/web
-github.com/Antonio7098/ultraplan-go/internal/workspace
-[0m
-[0m$ [0mgo list -f '{{.ImportPath}} |{{join .Imports ","}}' ./... > /tmp/opencode/allimports.txt 2>&1; wc -l /tmp/opencode/allimports.txt
-16 /tmp/opencode/allimports.txt
-[0m
-[0m$ [0mpython3 - <<'EOF'
-import re
-rows=[]
-for line in open('/tmp/opencode/allimports.txt'):
-    path, imports = line.strip().split(' |',1)
-    imps = [i for i in imports.split(',') if i]
-    internal = [i for i in imps if 'ultraplan-go' in i]
-    rows.append((path, internal, len(imps)-len(internal)))
-for path, internal, extn in rows:
-    short = path.replace('github.com/Antonio7098/ultraplan-go/','')
-    print(f"{short}  (ext={extn})")
-    for i in internal:
-        print("   ->", i.replace('github.com/Antonio7098/ultraplan-go/',''))
-EOF
-cmd/ultraplan  (ext=8)
-   -> internal/app
-   -> internal/tui
-   -> internal/web
-internal/app  (ext=25)
-   -> internal/codeextract
-   -> internal/platform/config
-   -> internal/platform/runtime
-   -> internal/productstate
-   -> internal/project
-   -> internal/runcontrol
-   -> internal/sprint
-   -> internal/study
-   -> internal/workspace
-internal/codeextract  (ext=9)
-internal/platform/config  (ext=7)
-internal/platform/filesystem  (ext=0)
-internal/platform/logging  (ext=4)
-   -> internal/platform/config
-internal/platform/process  (ext=10)
-internal/platform/runtime  (ext=12)
-   -> internal/platform/config
-internal/productstate  (ext=12)
-internal/project  (ext=7)
-   -> internal/workspace
-internal/runcontrol  (ext=23)
-internal/sprint  (ext=23)
-   -> internal/platform/config
-   -> internal/platform/process
-   -> internal/platform/runtime
-   -> internal/productstate
-   -> internal/project
-   -> internal/workspace
-internal/study  (ext=24)
-   -> internal/platform/runtime
-   -> internal/productstate
-   -> internal/workspace
-internal/tui  (ext=15)
-   -> internal/app
-internal/web  (ext=25)
-   -> internal/app
-internal/workspace  (ext=6)
-[0m
-[0m$ [0mfor p in cmd/ultraplan internal/app internal/codeextract internal/platform/config internal/platform/filesystem internal/platform/logging internal/platform/process internal/platform/runtime internal/productstate internal/project internal/runcontrol internal/sprint internal/study internal/tui internal/web internal/workspace; do n=$(find $p -name '*.go' | wc -l); loc=$(cat $(find $p -name '*.go') 2>/dev/null | wc -l); echo "$p files=$n loc=$loc"; done
-cmd/ultraplan files=1 loc=62
-internal/app files=59 loc=13719
-internal/codeextract files=6 loc=669
-internal/platform/config files=4 loc=842
-internal/platform/filesystem files=1 loc=6
-internal/platform/logging files=3 loc=102
-internal/platform/process files=4 loc=408
-internal/platform/runtime files=9 loc=1936
-internal/productstate files=1 loc=206
-internal/project files=10 loc=1205
-internal/runcontrol files=28 loc=5464
-internal/sprint files=62 loc=18300
-internal/study files=56 loc=10498
-internal/tui files=14 loc=2812
-internal/web files=24 loc=6963
-internal/workspace files=9 loc=1443
-[0m
-[0m$ [0mgrep -rn "internal/platform/filesystem" --include='*.go' . | head -20; echo ---; cat go.mod
----
+[0m$ [0mcat /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/go.mod
 module github.com/Antonio7098/ultraplan-go
 
 go 1.26
@@ -161,164 +76,947 @@ require (
 	modernc.org/memory v1.11.0 // indirect
 )
 [0m
-[0m$ [0mgo list -f '{{.ImportPath}}{{"\n"}}{{range .Imports}}  {{.}}{{"\n"}}{{end}}' ./internal/runcontrol ./internal/app ./internal/study ./internal/sprint ./internal/web ./internal/productstate 2>/dev/null | grep -v '^  internal' | sed 's|github.com/Antonio7098/ultraplan-go||'
-/internal/runcontrol
-  bufio
-  context
-  crypto/rand
-  crypto/sha256
-  database/sql
-  encoding/base32
-  encoding/base64
-  encoding/hex
-  encoding/json
-  errors
-  fmt
-  io
-  io/fs
-  modernc.org/sqlite
-  net/url
-  os
-  path/filepath
-  sort
-  strconv
-  strings
-  sync
-  sync/atomic
-  time
-/internal/app
-  bufio
-  bytes
-  context
-  crypto/hmac
-  crypto/rand
-  crypto/sha256
-  encoding/base64
-  encoding/hex
-  encoding/json
-  errors
-  flag
-  fmt
-  /internal/codeextract
-  /internal/platform/config
-  /internal/platform/runtime
-  /internal/productstate
-  /internal/project
-  /internal/runcontrol
-  /internal/sprint
-  /internal/study
-  /internal/workspace
-  github.com/yuin/goldmark
-  github.com/yuin/goldmark/extension
-  io
-  io/fs
-  net
-  os
-  path/filepath
-  runtime
-  sort
-  strconv
-  strings
-  sync
-  time
-/internal/study
-  bufio
-  bytes
-  context
-  crypto/sha256
-  encoding/csv
-  encoding/hex
-  encoding/json
-  errors
-  fmt
-  github.com/Antonio7098/agentwrap
-  /internal/platform/runtime
-  /internal/productstate
-  /internal/workspace
-  gopkg.in/yaml.v3
-  io
-  io/fs
-  os
-  os/exec
-  path/filepath
-  regexp
-  runtime
-  sort
-  strconv
-  strings
-  sync
-  syscall
-  time
-/internal/sprint
-  bufio
-  bytes
-  context
-  crypto/sha256
-  encoding/hex
-  encoding/json
-  errors
-  fmt
-  github.com/Antonio7098/agentwrap
-  /internal/platform/config
-  /internal/platform/process
-  /internal/platform/runtime
-  /internal/productstate
-  /internal/project
-  /internal/workspace
-  io
-  io/fs
-  os
-  os/exec
-  path/filepath
-  regexp
-  sort
-  strconv
-  strings
-  sync
-  sync/atomic
-  syscall
-  time
-  unicode/utf8
-/internal/web
-  bytes
-  context
-  crypto/hmac
-  crypto/rand
-  crypto/sha256
-  crypto/subtle
-  embed
-  encoding/hex
-  encoding/json
-  errors
-  fmt
-  /internal/app
-  html/template
-  io
-  io/fs
-  net
-  net/http
-  net/url
-  regexp
-  sort
-  strconv
-  strings
-  sync
-  sync/atomic
-  text/template/parse
-  time
-/internal/productstate
-  context
-  crypto/sha256
-  database/sql
-  errors
-  fmt
-  modernc.org/sqlite
-  net/url
-  os
-  path/filepath
-  strconv
-  sync
-  time
+[0m$ [0mfind internal cmd -type d | sort && echo '---' && find . -name '*.go' | wc -l && echo '---' && find . -name '*_test.go' | sort
+cmd
+cmd/ultraplan
+internal
+internal/app
+internal/codeextract
+internal/platform
+internal/platform/config
+internal/platform/filesystem
+internal/platform/logging
+internal/platform/process
+internal/platform/runtime
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/web/static
+internal/web/static/css
+internal/web/static/js
+internal/web/templates
+internal/web/templates/components
+internal/web/templates/layouts
+internal/web/templates/pages
+internal/web/templates/primitives
+internal/workspace
+internal/workspace/scaffold
+internal/workspace/scaffold/prompts
+internal/workspace/scaffold/templates
+---
+291
+---
+./internal/app/app_test.go
+./internal/app/code_commands_test.go
+./internal/app/durable_operations_test.go
+./internal/app/health_commands_test.go
+./internal/app/markdown_test.go
+./internal/app/project_commands_test.go
+./internal/app/run_commands_test.go
+./internal/app/run_control_inventory_test.go
+./internal/app/run_control_test.go
+./internal/app/serve_commands_test.go
+./internal/app/skills_commands_test.go
+./internal/app/sprint_commands_test.go
+./internal/app/sprint_error_test.go
+./internal/app/sprint_usecases_test.go
+./internal/app/sprint_verify_commands_test.go
+./internal/app/study_commands_test.go
+./internal/app/study_init_commands_test.go
+./internal/app/study_prompt_commands_test.go
+./internal/app/study_run_all_commands_test.go
+./internal/app/study_run_commands_test.go
+./internal/app/study_run_loop_commands_test.go
+./internal/app/study_runs_commands_test.go
+./internal/app/study_status_commands_test.go
+./internal/app/study_summary_commands_test.go
+./internal/app/study_validate_commands_test.go
+./internal/app/tui_commands_test.go
+./internal/app/usecases_test.go
+./internal/app/web_operations_test.go
+./internal/app/web_usecases_test.go
+./internal/codeextract/codeextract_test.go
+./internal/platform/config/config_test.go
+./internal/platform/logging/logging_test.go
+./internal/platform/process/process_test.go
+./internal/platform/runtime/cache_test.go
+./internal/platform/runtime/opencode_test.go
+./internal/platform/runtime/runtime_test.go
+./internal/project/project_test.go
+./internal/project/reasoning_defaults_test.go
+./internal/runcontrol/benchmark_test.go
+./internal/runcontrol/fault_test.go
+./internal/runcontrol/id_test.go
+./internal/runcontrol/import_boundary_test.go
+./internal/runcontrol/lifecycle_test.go
+./internal/runcontrol/local_log_test.go
+./internal/runcontrol/migration_test.go
+./internal/runcontrol/model_test.go
+./internal/runcontrol/process_integration_test.go
+./internal/runcontrol/retention_test.go
+./internal/runcontrol/sanitize_test.go
+./internal/runcontrol/sqlite_test.go
+./internal/sprint/cleanup_uncertain_test.go
+./internal/sprint/code_context_test.go
+./internal/sprint/direct_inputs_test.go
+./internal/sprint/efficiency_improvements_test.go
+./internal/sprint/efficiency_metrics_test.go
+./internal/sprint/execute_model_test.go
+./internal/sprint/execute_plan_test.go
+./internal/sprint/execute_state_test.go
+./internal/sprint/execute_target_test.go
+./internal/sprint/handbook_test.go
+./internal/sprint/locks_test.go
+./internal/sprint/plan_test.go
+./internal/sprint/prompt_context_test.go
+./internal/sprint/reasoning_test.go
+./internal/sprint/review_test.go
+./internal/sprint/runtime_progress_test.go
+./internal/sprint/session_state_test.go
+./internal/sprint/smoke_test.go
+./internal/sprint/sprint_index_test.go
+./internal/sprint/sprint_test.go
+./internal/sprint/verification_lock_test.go
+./internal/sprint/verify_test.go
+./internal/study/cleanup_uncertain_test.go
+./internal/study/config_test.go
+./internal/study/init_test.go
+./internal/study/locks_test.go
+./internal/study/prompts_test.go
+./internal/study/rating_test.go
+./internal/study/run_all_test.go
+./internal/study/run_history_test.go
+./internal/study/run_loop_diagnostics_test.go
+./internal/study/run_loop_test.go
+./internal/study/run_test.go
+./internal/study/runtime_metadata_test.go
+./internal/study/state_test.go
+./internal/study/study_test.go
+./internal/study/summary_test.go
+./internal/study/validation_command_test.go
+./internal/study/validation_test.go
+./internal/tui/model_test.go
+./internal/tui/run_view_test.go
+./internal/tui/test_fakes_test.go
+./internal/tui/verify_test.go
+./internal/tui/viewport_test.go
+./internal/tui/views_test.go
+./internal/web/api_compatibility_test.go
+./internal/web/artifacts_test.go
+./internal/web/import_boundary_test.go
+./internal/web/integration_test.go
+./internal/web/operations_contract_test.go
+./internal/web/operations_test.go
+./internal/web/packaging_test.go
+./internal/web/routes_test.go
+./internal/web/run_handlers_test.go
+./internal/web/security_test.go
+./internal/web/server_policy_test.go
+./internal/web/server_test.go
+./internal/web/sse_test.go
+./internal/web/templates_test.go
+./internal/web/test_fakes_test.go
+./internal/workspace/skills_test.go
+./internal/workspace/workspace_test.go
 [0m
-[0m• [0mMap runcontrol subsystem deeply[90m Explore Agent[0m
-[0m• [0mMap app hub structure[90m Explore Agent[0m
+[0m$ [0mgo list -f '{{.ImportPath}}|{{join .Imports ","}}' ./... 2>&1
+github.com/Antonio7098/ultraplan-go/cmd/ultraplan|context,fmt,github.com/Antonio7098/ultraplan-go/internal/app,github.com/Antonio7098/ultraplan-go/internal/tui,github.com/Antonio7098/ultraplan-go/internal/web,os,os/exec,os/signal,runtime,syscall,time
+github.com/Antonio7098/ultraplan-go/internal/app|bufio,bytes,context,crypto/hmac,crypto/rand,crypto/sha256,encoding/base64,encoding/hex,encoding/json,errors,flag,fmt,github.com/Antonio7098/ultraplan-go/internal/codeextract,github.com/Antonio7098/ultraplan-go/internal/platform/config,github.com/Antonio7098/ultraplan-go/internal/platform/runtime,github.com/Antonio7098/ultraplan-go/internal/productstate,github.com/Antonio7098/ultraplan-go/internal/project,github.com/Antonio7098/ultraplan-go/internal/runcontrol,github.com/Antonio7098/ultraplan-go/internal/sprint,github.com/Antonio7098/ultraplan-go/internal/study,github.com/Antonio7098/ultraplan-go/internal/workspace,github.com/yuin/goldmark,github.com/yuin/goldmark/extension,io,io/fs,net,os,path/filepath,runtime,sort,strconv,strings,sync,time
+github.com/Antonio7098/ultraplan-go/internal/codeextract|encoding/json,fmt,io,os,path/filepath,regexp,sort,strconv,strings
+github.com/Antonio7098/ultraplan-go/internal/platform/config|bufio,fmt,os,path/filepath,strconv,strings,time
+github.com/Antonio7098/ultraplan-go/internal/platform/filesystem|
+github.com/Antonio7098/ultraplan-go/internal/platform/logging|encoding/json,fmt,github.com/Antonio7098/ultraplan-go/internal/platform/config,io,sort
+github.com/Antonio7098/ultraplan-go/internal/platform/process|bytes,context,errors,fmt,io,os,os/exec,sync,syscall,time
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime|context,crypto/sha256,encoding/hex,encoding/json,errors,fmt,github.com/Antonio7098/agentwrap,github.com/Antonio7098/agentwrap/opencode,github.com/Antonio7098/ultraplan-go/internal/platform/config,runtime,sort,strings,time
+github.com/Antonio7098/ultraplan-go/internal/productstate|context,crypto/sha256,database/sql,errors,fmt,modernc.org/sqlite,net/url,os,path/filepath,strconv,sync,time
+github.com/Antonio7098/ultraplan-go/internal/project|fmt,github.com/Antonio7098/ultraplan-go/internal/workspace,net/url,os,path/filepath,regexp,sort,strings
+github.com/Antonio7098/ultraplan-go/internal/runcontrol|bufio,context,crypto/rand,crypto/sha256,database/sql,encoding/base32,encoding/base64,encoding/hex,encoding/json,errors,fmt,io,io/fs,modernc.org/sqlite,net/url,os,path/filepath,sort,strconv,strings,sync,sync/atomic,time
+github.com/Antonio7098/ultraplan-go/internal/sprint|bufio,bytes,context,crypto/sha256,encoding/hex,encoding/json,errors,fmt,github.com/Antonio7098/agentwrap,github.com/Antonio7098/ultraplan-go/internal/platform/config,github.com/Antonio7098/ultraplan-go/internal/platform/process,github.com/Antonio7098/ultraplan-go/internal/platform/runtime,github.com/Antonio7098/ultraplan-go/internal/productstate,github.com/Antonio7098/ultraplan-go/internal/project,github.com/Antonio7098/ultraplan-go/internal/workspace,io,io/fs,os,os/exec,path/filepath,regexp,sort,strconv,strings,sync,sync/atomic,syscall,time,unicode/utf8
+github.com/Antonio7098/ultraplan-go/internal/study|bufio,bytes,context,crypto/sha256,encoding/csv,encoding/hex,encoding/json,errors,fmt,github.com/Antonio7098/agentwrap,github.com/Antonio7098/ultraplan-go/internal/platform/runtime,github.com/Antonio7098/ultraplan-go/internal/productstate,github.com/Antonio7098/ultraplan-go/internal/workspace,gopkg.in/yaml.v3,io,io/fs,os,os/exec,path/filepath,regexp,runtime,sort,strconv,strings,sync,syscall,time
+github.com/Antonio7098/ultraplan-go/internal/tui|context,crypto/sha256,encoding/hex,errors,fmt,github.com/Antonio7098/ultraplan-go/internal/app,github.com/charmbracelet/bubbletea,github.com/charmbracelet/glamour,github.com/charmbracelet/glamour/ansi,github.com/charmbracelet/glamour/styles,github.com/charmbracelet/lipgloss,io,path/filepath,strconv,strings,time
+github.com/Antonio7098/ultraplan-go/internal/web|bytes,context,crypto/hmac,crypto/rand,crypto/sha256,crypto/subtle,embed,encoding/hex,encoding/json,errors,fmt,github.com/Antonio7098/ultraplan-go/internal/app,html/template,io,io/fs,net,net/http,net/url,regexp,sort,strconv,strings,sync,sync/atomic,text/template/parse,time
+github.com/Antonio7098/ultraplan-go/internal/workspace|embed,fmt,os,path/filepath,sort,strings
+[0m
+[0m$ [0mgo list -deps -test ./internal/runcontrol ./internal/web 2>/dev/null | grep ultraplan-go | head -50; echo '==='; go version
+github.com/Antonio7098/ultraplan-go/internal/runcontrol
+github.com/Antonio7098/ultraplan-go/internal/codeextract
+github.com/Antonio7098/ultraplan-go/internal/platform/config
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime
+github.com/Antonio7098/ultraplan-go/internal/productstate
+github.com/Antonio7098/ultraplan-go/internal/workspace
+github.com/Antonio7098/ultraplan-go/internal/project
+github.com/Antonio7098/ultraplan-go/internal/platform/process
+github.com/Antonio7098/ultraplan-go/internal/sprint
+github.com/Antonio7098/ultraplan-go/internal/study
+github.com/Antonio7098/ultraplan-go/internal/app
+github.com/Antonio7098/ultraplan-go/internal/web
+github.com/Antonio7098/ultraplan-go/internal/runcontrol [github.com/Antonio7098/ultraplan-go/internal/runcontrol.test]
+github.com/Antonio7098/ultraplan-go/internal/runcontrol.test
+github.com/Antonio7098/ultraplan-go/internal/web [github.com/Antonio7098/ultraplan-go/internal/web.test]
+github.com/Antonio7098/ultraplan-go/internal/web.test
+===
+go version go1.26.6-X:nodwarf5 linux/amd64
+[0m
+[0m$ [0mgo list -test -f '{{.ImportPath}} | TESTS: {{join .TestImports ","}} | XTESTS: {{join .XTestImports ","}}' ./... 2>/dev/null
+github.com/Antonio7098/ultraplan-go/cmd/ultraplan | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/app | TESTS: bytes,context,encoding/json,errors,fmt,github.com/Antonio7098/ultraplan-go/internal/platform/config,github.com/Antonio7098/ultraplan-go/internal/platform/runtime,github.com/Antonio7098/ultraplan-go/internal/runcontrol,github.com/Antonio7098/ultraplan-go/internal/sprint,github.com/Antonio7098/ultraplan-go/internal/study,os,path/filepath,reflect,runtime,strings,testing,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/codeextract | TESTS: bytes,os,path/filepath,testing | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/platform/config | TESTS: os,path/filepath,testing,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/platform/filesystem | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/platform/logging | TESTS: bytes,encoding/json,strings,testing | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/platform/process | TESTS: context,os,path/filepath,runtime,strconv,strings,syscall,testing,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime | TESTS: context,errors,github.com/Antonio7098/agentwrap,strings,testing,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/productstate | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/project | TESTS: os,path/filepath,strings,testing | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/runcontrol | TESTS: bytes,context,database/sql,encoding/json,errors,fmt,go/parser,go/token,os,os/exec,path/filepath,sort,strconv,strings,sync,testing,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/sprint | TESTS: context,encoding/json,errors,fmt,github.com/Antonio7098/agentwrap,github.com/Antonio7098/ultraplan-go/internal/platform/config,github.com/Antonio7098/ultraplan-go/internal/platform/process,github.com/Antonio7098/ultraplan-go/internal/platform/runtime,github.com/Antonio7098/ultraplan-go/internal/project,github.com/Antonio7098/ultraplan-go/internal/workspace,os,path/filepath,reflect,strings,sync,sync/atomic,testing,time,unicode/utf8 | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/study | TESTS: bufio,context,encoding/json,errors,github.com/Antonio7098/ultraplan-go/internal/platform/runtime,os,path/filepath,strings,sync,testing,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/tui | TESTS: context,github.com/Antonio7098/ultraplan-go/internal/app,github.com/Antonio7098/ultraplan-go/internal/runcontrol,github.com/Antonio7098/ultraplan-go/internal/sprint,github.com/charmbracelet/bubbletea,strings,testing,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/web | TESTS: bytes,context,encoding/json,errors,fmt,github.com/Antonio7098/ultraplan-go/internal/app,github.com/Antonio7098/ultraplan-go/internal/runcontrol,github.com/Antonio7098/ultraplan-go/internal/sprint,go/parser,go/token,net,net/http,net/http/httptest,net/url,os,os/exec,path/filepath,reflect,regexp,runtime,sort,strconv,strings,sync,testing,testing/fstest,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/workspace | TESTS: os,path/filepath,strings,testing | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/app.test | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/app [github.com/Antonio7098/ultraplan-go/internal/app.test] | TESTS: bytes,context,encoding/json,errors,fmt,github.com/Antonio7098/ultraplan-go/internal/platform/config,github.com/Antonio7098/ultraplan-go/internal/platform/runtime,github.com/Antonio7098/ultraplan-go/internal/runcontrol,github.com/Antonio7098/ultraplan-go/internal/sprint,github.com/Antonio7098/ultraplan-go/internal/study,os,path/filepath,reflect,runtime,strings,testing,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/codeextract.test | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/codeextract [github.com/Antonio7098/ultraplan-go/internal/codeextract.test] | TESTS: bytes,os,path/filepath,testing | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/platform/config.test | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/platform/config [github.com/Antonio7098/ultraplan-go/internal/platform/config.test] | TESTS: os,path/filepath,testing,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/platform/logging.test | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/platform/logging [github.com/Antonio7098/ultraplan-go/internal/platform/logging.test] | TESTS: bytes,encoding/json,strings,testing | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/platform/process.test | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/platform/process [github.com/Antonio7098/ultraplan-go/internal/platform/process.test] | TESTS: context,os,path/filepath,runtime,strconv,strings,syscall,testing,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime.test | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime [github.com/Antonio7098/ultraplan-go/internal/platform/runtime.test] | TESTS: context,errors,github.com/Antonio7098/agentwrap,strings,testing,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/project.test | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/project [github.com/Antonio7098/ultraplan-go/internal/project.test] | TESTS: os,path/filepath,strings,testing | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/runcontrol.test | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/runcontrol [github.com/Antonio7098/ultraplan-go/internal/runcontrol.test] | TESTS: bytes,context,database/sql,encoding/json,errors,fmt,go/parser,go/token,os,os/exec,path/filepath,sort,strconv,strings,sync,testing,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/sprint.test | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/sprint [github.com/Antonio7098/ultraplan-go/internal/sprint.test] | TESTS: context,encoding/json,errors,fmt,github.com/Antonio7098/agentwrap,github.com/Antonio7098/ultraplan-go/internal/platform/config,github.com/Antonio7098/ultraplan-go/internal/platform/process,github.com/Antonio7098/ultraplan-go/internal/platform/runtime,github.com/Antonio7098/ultraplan-go/internal/project,github.com/Antonio7098/ultraplan-go/internal/workspace,os,path/filepath,reflect,strings,sync,sync/atomic,testing,time,unicode/utf8 | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/study.test | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/study [github.com/Antonio7098/ultraplan-go/internal/study.test] | TESTS: bufio,context,encoding/json,errors,github.com/Antonio7098/ultraplan-go/internal/platform/runtime,os,path/filepath,strings,sync,testing,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/tui.test | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/tui [github.com/Antonio7098/ultraplan-go/internal/tui.test] | TESTS: context,github.com/Antonio7098/ultraplan-go/internal/app,github.com/Antonio7098/ultraplan-go/internal/runcontrol,github.com/Antonio7098/ultraplan-go/internal/sprint,github.com/charmbracelet/bubbletea,strings,testing,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/web.test | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/web [github.com/Antonio7098/ultraplan-go/internal/web.test] | TESTS: bytes,context,encoding/json,errors,fmt,github.com/Antonio7098/ultraplan-go/internal/app,github.com/Antonio7098/ultraplan-go/internal/runcontrol,github.com/Antonio7098/ultraplan-go/internal/sprint,go/parser,go/token,net,net/http,net/http/httptest,net/url,os,os/exec,path/filepath,reflect,regexp,runtime,sort,strconv,strings,sync,testing,testing/fstest,time | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/workspace.test | TESTS:  | XTESTS: 
+github.com/Antonio7098/ultraplan-go/internal/workspace [github.com/Antonio7098/ultraplan-go/internal/workspace.test] | TESTS: os,path/filepath,strings,testing | XTESTS:
+[0m
+[0m$ [0mgrep -rn 'ultraplan-go/internal/platform/filesystem\|ultraplan-go/internal/platform/logging' --include='*.go' . ; echo "EXIT:$?"
+EXIT:1
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/import_boundary_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/import_boundary_test.go
+[0m
+[0m$ [0mfor d in cmd/ultraplan internal/app internal/codeextract internal/platform/config internal/platform/filesystem internal/platform/logging internal/platform/process internal/platform/runtime internal/productstate internal/project internal/runcontrol internal/sprint internal/study internal/tui internal/web internal/workspace; do loc=$(find $d -maxdepth 1 -name '*.go' ! -name '*_test.go' | xargs wc -l 2>/dev/null | tail -1 | awk '{print $1}'); tloc=$(find $d -maxdepth 1 -name '*_test.go' | xargs wc -l 2>/dev/null | tail -1 | awk '{print $1}'); files=$(find $d -maxdepth 1 -name '*.go' ! -name '*_test.go' | wc -l); echo "$d: src=$loc ($files files) test=$tloc"; done
+cmd/ultraplan: src=62 (1 files) test=0
+internal/app: src=9213 (30 files) test=4506
+internal/codeextract: src=569 (5 files) test=100
+internal/platform/config: src=629 (3 files) test=213
+internal/platform/filesystem: src=6 (1 files) test=0
+internal/platform/logging: src=72 (2 files) test=30
+internal/platform/process: src=310 (3 files) test=98
+internal/platform/runtime: src=1318 (6 files) test=618
+internal/productstate: src=206 (1 files) test=0
+internal/project: src=807 (8 files) test=398
+internal/runcontrol: src=3560 (16 files) test=1904
+internal/sprint: src=12984 (40 files) test=5316
+internal/study: src=7148 (39 files) test=3350
+internal/tui: src=1945 (8 files) test=867
+internal/web: src=4072 (9 files) test=2891
+internal/workspace: src=1003 (7 files) test=440
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+[0m• [0mTrace runcontrol usage patterns[90m Explore Agent[0m
+[0m✓ [0mTrace runcontrol usage patterns[90m Explore Agent[0m
+[0m• [0mCompare sprint vs study module structure[90m Explore Agent[0m
+[0m✓ [0mCompare sprint vs study module structure[90m Explore Agent[0m
+[0m• [0mMap internal/app hub API surface[90m Explore Agent[0m
+[0m✓ [0mMap internal/app hub API surface[90m Explore Agent[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go[90m [limit=100, command=cat internal/platform/filesystem/*.go internal/platform/logging/*.go && git log --oneline --all -- internal/platform/filesystem | tail -3 && git log --oneline -2 -- internal/platform/logging, workdir=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go][0m
+[0m
+[0m$ [0mcat internal/platform/filesystem/*.go internal/platform/logging/*.go; echo '=== GIT HISTORY ==='; git log --oneline --follow -- internal/platform/filesystem | tail -3; echo '---logging---'; git log --oneline --follow -- internal/platform/logging | tail -3
+// Package filesystem documents the future boundary for generic filesystem
+// helpers.
+//
+// Workspace discovery, workspace path rules, path validation, and product
+// persistence behavior are deferred to owning modules in later sprints.
+package filesystem
+// Package logging documents the future boundary for process-neutral logging
+// infrastructure.
+//
+// Structured logging, diagnostic records, runtime event logging, and log
+// configuration behavior are deferred to a later sprint.
+package logging
+package logging
+
+import (
+	"encoding/json"
+	"fmt"
+	"io"
+	"sort"
+
+	"github.com/Antonio7098/ultraplan-go/internal/platform/config"
+)
+
+type Logger struct {
+	out    io.Writer
+	format string
+	level  string
+}
+
+func New(out io.Writer, format, level string) Logger {
+	if out == nil {
+		out = io.Discard
+	}
+	if format == "" {
+		format = "text"
+	}
+	if level == "" {
+		level = "info"
+	}
+	return Logger{out: out, format: format, level: level}
+}
+
+func (l Logger) Info(message string, fields map[string]string) error {
+	return l.log("info", message, fields)
+}
+
+func (l Logger) Error(message string, fields map[string]string) error {
+	return l.log("error", message, fields)
+}
+
+func (l Logger) log(level, message string, fields map[string]string) error {
+	redacted := make(map[string]string, len(fields))
+	for k, v := range fields {
+		redacted[k] = config.RedactValue(k, v)
+	}
+	if l.format == "json" {
+		payload := map[string]any{"level": level, "message": config.RedactValue("message", message)}
+		for k, v := range redacted {
+			payload[k] = v
+		}
+		return json.NewEncoder(l.out).Encode(payload)
+	}
+	keys := make([]string, 0, len(redacted))
+	for k := range redacted {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	if _, err := fmt.Fprintf(l.out, "level=%s message=%q", level, config.RedactValue("message", message)); err != nil {
+		return err
+	}
+	for _, k := range keys {
+		if _, err := fmt.Fprintf(l.out, " %s=%q", k, redacted[k]); err != nil {
+			return err
+		}
+	}
+	_, err := fmt.Fprintln(l.out)
+	return err
+}
+package logging
+
+import (
+	"bytes"
+	"encoding/json"
+	"strings"
+	"testing"
+)
+
+func TestLoggerRedactsTextAndJSON(t *testing.T) {
+	var text bytes.Buffer
+	if err := New(&text, "text", "info").Info("hello", map[string]string{"token": "secret-token"}); err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(text.String(), "secret-token") || !strings.Contains(text.String(), "[REDACTED]") {
+		t.Fatalf("text log not redacted: %s", text.String())
+	}
+
+	var js bytes.Buffer
+	if err := New(&js, "json", "info").Error("bad", map[string]string{"api_key": "secret-key"}); err != nil {
+		t.Fatal(err)
+	}
+	var payload map[string]any
+	if err := json.Unmarshal(js.Bytes(), &payload); err != nil {
+		t.Fatal(err)
+	}
+	if payload["api_key"] != "[REDACTED]" {
+		t.Fatalf("json log not redacted: %+v", payload)
+	}
+}
+=== GIT HISTORY ===
+a959f57 feat: bootstrap ultraplan CLI foundation
+---logging---
+3ba8402 Use canonical Go module path
+6bea2c8 workspace config health
+a959f57 feat: bootstrap ultraplan CLI foundation
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go[90m [offset=160, limit=110][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go[90m [limit=120, offset=150][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go[90m [limit=106, offset=100, command=ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs][0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace; echo '==='; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+===
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+[0m
+[0m$ [0mgrep -n -i 'package\|module\|import\|depend\|boundary\|layer' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md | head -40
+3:UltraPlan is module-driven. Product modules own their state and workflows;
+8:The process entry point explicitly constructs the independent TUI and web
+18:internal/app -> product and platform modules
+23:package-global mutable registry, `init` callback, service locator, or
+24:context-carried dependency. Web templates, HTTP state, and the listener are
+29:## Web Adapter Boundary
+51:It does not import project, sprint, study, workspace, runtime, process, or CLI
+52:handler packages. It cannot decide workflow semantics, persist product state,
+77:Opaque artifact references are issued by the app boundary. Resolution repeats
+85:Go embeds the namespaced template hierarchy and all layered CSS/JavaScript under
+88:same-layer dependencies before a request can be accepted. Pages render to a
+95:utilities layers. Dependency-free JavaScript separates baseline page lifetime,
+113:independent product lock.
+121:expires, the app boundary atomically persists a product-owned sprint recovery
+123:state so the web layer never races a live lease holder; startup consumes it
+132:does not depend on the bounded retained-event tail.
+141:## Grounded Planning And Shared Prompt Boundary
+143:`internal/sprint` owns `code-context` generation, validation, source-reference resolution, and downstream prompt composition. The complete common prefix is rendered once per top-level operation in this fixed order: stable shared instructions; project/sprint identity; an external frame containing the exact stored `requirements.md` bytes; an external frame containing the exact stored reference-only `code-context.md` bytes; transient resolved source evidence in authored order; and one constant stage-specific boundary as the final prefix bytes. Stage names, output paths/contracts, task and reviewer identities, model/run/session/attempt data, timestamps, and smoke scope occur only after that boundary or in runtime metadata.
+147:After code-context validation, UltraPlan may persist a bounded, content-addressed, disposable context pack under `.ultra/cache/sprint-context/`; existing sprints create one lazily on their first runtime composition while prompt previews stay read-only. Its identity is derived only from the exact requirements, exact code-context artifact, and canonical target; it freezes the resolved source bytes so execution edits do not churn the planning prefix. It is an acceleration layer, never provenance or freshness authority: write failure is non-fatal, missing or invalid packs fall back to live resolution, and artifact changes select a different identity without invalidating, rerunning, or reopening completed stages. Exact-match dependency freshness remains disabled.
+149:`internal/platform/runtime` receives the final ordinary prompt plus content-free cache metadata: the stable-prefix digest, byte breakpoint, and a provider/model/work-directory cohort key. The current agentwrap/OpenCode boundary transports these values as metadata only; it cannot yet place a native cache-control breakpoint inside the single provider message, so no cache hit is guaranteed. Planning, execute, independent review requests, and agent-backed smoke authoring call the sprint-owned composition boundary explicitly. Review fan-out shares one immutable prefix. Runtime results append bounded, content-free prompt, token, cache-read/cache-write, cost, and timing measurements to the sprint's `.runtime-metrics.json`; `sprint ... metrics` exposes them. Prepared handoff packets and per-stage input contracts minimize downstream artifact reads without becoming dependency fingerprints; when present, the technical handbook's `Examples Worth Investigating` (or legacy `Examples Worth Inspecting`) section is copied directly into plan and execute prompts.
+151:Execute owns one reusable runtime session for the ordered pending-task queue rather than one independent agent per task. Its initial turn carries the shared sprint prefix, queue primer, current task, safety instructions, and optional handbook examples. After each task UltraPlan persists task-specific evidence and status, then submits only the next task delta with `SessionAction=continue`. A missing runtime session ID degrades safely to another complete prompt; failure or cancellation stops queue advancement, while explicit deferral may advance to the next task. Cross-command session reuse is based on model and target compatibility, not exact artifact fingerprints.
+159:lock, artifact, and Git modules remain authoritative for their own product
+165:that boundary. IDs are opaque 128-bit `run_*` and `att_*` values. Writers use
+[0m
+[0m$ [0mgrep -rn -i 'run-control.db\|product state\|productstate' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/migration-product-state.md /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system 2>/dev/null | head -30
+(no output)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md
+[0m
+[0m$ [0mhead -60 docs/migration-product-state.md; echo '====='; grep -rn 'run-control' docs/migration-product-state.md | head
+# Product-state SQLite migration
+
+UltraPlan can store mutable study and sprint execution state in the workspace
+database instead of rewriting complete JSON documents after each transition.
+
+Preview the migration:
+
+```sh
+scripts/migrate-product-state.sh /path/to/workspace --dry-run
+```
+
+Import every valid state artifact:
+
+```sh
+scripts/migrate-product-state.sh /path/to/workspace
+```
+
+The command discovers study `run-state.json`, sprint `flow-state.json`, and
+sprint `.run-state.json` files. It validates each file with the existing product
+validator before importing it. Invalid files remain unchanged and produce a
+partial-failure exit status. Re-running the command skips records already in the
+database.
+
+After import, SQLite is authoritative for that record. Existing JSON files stay
+in place as compatibility checkpoints. Unmigrated records remain file-backed,
+so migration can be performed incrementally.
+
+The normalized tables are `product_states` and `product_state_items`. Study
+tasks, sprint stages, and sprint execute tasks occupy separate ordered rows.
+Large generated reports, prompts, and diagnostics remain files.
+=====
+[0m
+[0m$ [0mgrep -rn 'agentwrap' --include='*.go' internal/sprint internal/study | grep -v _test | sed 's/:.*import//' | head; echo '=== SYMBOLS USED ==='; grep -rhn 'agentwrap\.[A-Za-z]*' --include='*.go' internal/sprint internal/study internal/platform/runtime -o | sort | uniq -c | sort -rn
+internal/sprint/prompt_bundle.go:25:// CacheTransport is deliberately candid: the current OpenCode/agentwrap
+internal/sprint/prompt_bundle.go:71:	explanation := PromptExplanation{SchemaVersion: promptExplanationSchemaVersion, TotalBytes: len(prompt), CacheTransport: "agentwrap-metadata-only"}
+internal/sprint/review_runtime_validation.go:11:	"github.com/Antonio7098/agentwrap"
+internal/sprint/review_runtime_validation.go:57:func (s Service) reviewValidationSpec(m ReviewManifest, coverage ReviewInput, captured *reviewOutputCapture) *agentwrap.ValidationSpec {
+internal/sprint/review_runtime_validation.go:58:	return &agentwrap.ValidationSpec{
+internal/sprint/review_runtime_validation.go:59:		Validators: []agentwrap.Validator{agentwrap.ValidatorFunc(func(ctx context.Context, vctx agentwrap.ValidationContext) agentwrap.ValidationCheck {
+internal/sprint/review_runtime_validation.go:74:		Repair: agentwrap.RepairConfig{
+internal/sprint/review_runtime_validation.go:76:			SessionAction:               agentwrap.SessionActionContinue,
+internal/sprint/review_runtime_validation.go:79:			BuildPrompt: func(ctx agentwrap.RepairContext) string {
+internal/sprint/review_runtime_validation.go:82:			OverrideRequest: func(ctx agentwrap.RepairContext, req agentwrap.RunRequest) agentwrap.RunRequest {
+=== SYMBOLS USED ===
+      2 82:agentwrap.RunRequest
+      2 51:agentwrap.RunRequest
+      2 494:agentwrap.RunRequest
+      2 22:agentwrap.RawPayload
+      2 135:agentwrap.RunRequest
+      1 9:agentwrap.HealthCheckID
+      1 98:agentwrap.ValidationMetadata
+      1 98:agentwrap.ExpectationRequired
+      1 97:agentwrap.ValidatePermissionPolicy
+      1 97:agentwrap.ExpectationCustom
+      1 95:agentwrap.ValidationCheck
+      1 95:agentwrap.ExpectationRequired
+      1 94:agentwrap.ValidationCheck
+      1 94:agentwrap.RequiredHealthFailure
+      1 94:agentwrap.PermissionAction
+      1 94:agentwrap.ExpectationCustom
+      1 92:agentwrap.ValidationCheck
+      1 92:agentwrap.PermissionPathRule
+      1 90:agentwrap.HealthUnsupported
+      1 89:agentwrap.ValidatorFunc
+      1 89:agentwrap.Validator
+      1 89:agentwrap.ValidationContext
+      1 89:agentwrap.ValidationCheck
+      1 89:agentwrap.HealthReady
+      1 89:agentwrap.ErrorRateLimit
+      1 88:agentwrap.ValidationSpec
+      1 88:agentwrap.SDKError
+      1 87:agentwrap.ValidationSpec
+      1 86:agentwrap.SessionActionFresh
+      1 86:agentwrap.PermissionTool
+      1 86:agentwrap.PermissionAction
+      1 83:agentwrap.ValidationFailure
+      1 82:agentwrap.RepairContext
+      1 82:agentwrap.PermissionUnsupportedBehavior
+      1 81:agentwrap.PermissionTool
+      1 81:agentwrap.PermissionAction
+      1 81:agentwrap.Capabilities
+      1 80:agentwrap.PermissionAction
+      1 79:agentwrap.RepairContext
+      1 79:agentwrap.PermissionPolicy
+      1 78:agentwrap.PolicyMetadata
+      1 77:agentwrap.ValidationSpec
+      1 77:agentwrap.PolicyDecisionRetry
+      1 76:agentwrap.SessionActionContinue
+      1 76:agentwrap.RunMetadata
+      1 76:agentwrap.PolicyMetadata
+      1 76:agentwrap.PolicyDecisionRecord
+      1 75:agentwrap.PermissionPolicy
+      1 74:agentwrap.StatusFailed
+      1 74:agentwrap.RepairConfig
+      1 73:agentwrap.RunRequest
+      1 73:agentwrap.Run
+      1 72:agentwrap.RunResult
+      1 70:agentwrap.Runtime
+      1 69:agentwrap.WithRetryAfter
+      1 69:agentwrap.Runtime
+      1 69:agentwrap.NewError
+      1 69:agentwrap.ErrorRateLimit
+      1 694:agentwrap.SDKError
+      1 67:agentwrap.ValidationSpec
+      1 67:agentwrap.CapabilityValidationEvents
+      1 673:agentwrap.SDKError
+      1 65:agentwrap.CapabilityUsage
+      1 63:agentwrap.CapabilityPermissions
+      1 636:agentwrap.Usage
+      1 61:agentwrap.ValidationSpec
+      1 61:agentwrap.CapabilityArtifacts
+      1 60:agentwrap.PersistencePolicy
+      1 59:agentwrap.ValidatorFunc
+      1 59:agentwrap.Validator
+      1 59:agentwrap.ValidationContext
+      1 59:agentwrap.ValidationCheck
+      1 59:agentwrap.ModelID
+      1 59:agentwrap.ErrorRateLimit
+      1 59:agentwrap.CapabilityRawPayloads
+      1 58:agentwrap.ValidationSpec
+      1 58:agentwrap.SDKError
+      1 58:agentwrap.ProviderID
+      1 57:agentwrap.ValidationSpec
+      1 57:agentwrap.CapabilityStructuredEvents
+      1 56:agentwrap.RuntimeContext
+      1 56:agentwrap.ProviderID
+      1 56:agentwrap.ModelID
+      1 565:agentwrap.Event
+      1 55:agentwrap.PolicyRunner
+      1 55:agentwrap.HealthCheckRequest
+      1 55:agentwrap.CapabilityCancellation
+      1 54:agentwrap.ValidatingRuntime
+      1 54:agentwrap.SessionActionFresh
+      1 53:agentwrap.ObservingRuntime
+      1 53:agentwrap.CapabilitySessionRelease
+      1 538:agentwrap.RunResult
+      1 532:agentwrap.PermissionMode
+      1 531:agentwrap.SandboxMode
+      1 52:agentwrap.StatusFailed
+      1 52:agentwrap.RunResult
+      1 527:agentwrap.StatusCancelled
+      1 527:agentwrap.RunResult
+      1 526:agentwrap.ModelID
+      1 525:agentwrap.ProviderID
+      1 524:agentwrap.SessionAction
+      1 524:agentwrap.RunResult
+      1 523:agentwrap.SessionID
+      1 520:agentwrap.RunRequest
+      1 51:agentwrap.WithRetryAfter
+      1 51:agentwrap.ValidationSpec
+      1 51:agentwrap.RepairContext
+      1 51:agentwrap.NewError
+      1 51:agentwrap.ErrorRateLimit
+      1 51:agentwrap.CapabilitySessionReplace
+      1 516:agentwrap.Event
+      1 515:agentwrap.Event
+      1 513:agentwrap.RunID
+      1 50:agentwrap.AttemptSummary
+      1 507:agentwrap.RunResult
+      1 506:agentwrap.Event
+      1 505:agentwrap.RunID
+      1 502:agentwrap.ValidationContext
+      1 502:agentwrap.RunResult
+      1 502:agentwrap.RunRequest
+      1 500:agentwrap.CapabilityStructuredEvents
+      1 49:agentwrap.ModelID
+      1 49:agentwrap.CapabilitySessionFork
+      1 499:agentwrap.CapabilitySupport
+      1 499:agentwrap.Capability
+      1 499:agentwrap.Capabilities
+      1 498:agentwrap.RunRequest
+      1 498:agentwrap.Capabilities
+      1 494:agentwrap.Run
+      1 491:agentwrap.RunRequest
+      1 48:agentwrap.RepairContext
+      1 48:agentwrap.ProviderID
+      1 47:agentwrap.CapabilitySessionContinue
+      1 45:agentwrap.SessionActionContinue
+      1 45:agentwrap.RuntimeContext
+      1 45:agentwrap.CapabilitySessions
+      1 452:agentwrap.PermissionActionDeny
+      1 43:agentwrap.RepairConfig
+      1 43:agentwrap.ModelID
+      1 43:agentwrap.CostEstimate
+      1 42:agentwrap.RunRequest
+      1 42:agentwrap.ProviderID
+      1 41:agentwrap.RunRequest
+      1 40:agentwrap.ValidationSpec
+      1 409:agentwrap.CostEstimate
+      1 408:agentwrap.RepairMetadata
+      1 408:agentwrap.RepairAttemptSummary
+      1 405:agentwrap.SDKError
+      1 405:agentwrap.NewError
+      1 405:agentwrap.ErrorValidation
+      1 402:agentwrap.ValidationResult
+      1 400:agentwrap.ValidationMetadata
+      1 39:agentwrap.FallbackAlternative
+      1 39:agentwrap.Capability
+      1 399:agentwrap.CleanupMetadata
+      1 394:agentwrap.PermissionFeatureSupport
+      1 393:agentwrap.PermissionPolicySummary
+      1 393:agentwrap.PermissionActionAsk
+      1 390:agentwrap.PermissionMetadata
+      1 38:agentwrap.ValidationSpec
+      1 38:agentwrap.Capability
+      1 387:agentwrap.PolicyDecisionFallback
+      1 386:agentwrap.PolicyDecisionRetry
+      1 385:agentwrap.PolicyDecisionRecord
+      1 380:agentwrap.PolicyMetadata
+      1 378:agentwrap.RateLimitInfo
+      1 377:agentwrap.ErrorRateLimit
+      1 376:agentwrap.RuntimeContext
+      1 375:agentwrap.StatusFailed
+      1 370:agentwrap.AttemptSummary
+      1 369:agentwrap.RunMetadata
+      1 368:agentwrap.Usage
+      1 367:agentwrap.StatusFailed
+      1 365:agentwrap.RunResult
+      1 35:agentwrap.RunRequest
+      1 34:agentwrap.ExponentialBackoff
+      1 345:agentwrap.StatusCompleted
+      1 345:agentwrap.RunResult
+      1 343:agentwrap.EventPayloadWithKind
+      1 343:agentwrap.EventPayload
+      1 343:agentwrap.EventMessage
+      1 339:agentwrap.Event
+      1 32:agentwrap.BasicPolicy
+      1 31:agentwrap.ValidationCheck
+      1 31:agentwrap.ExpectationRequired
+      1 31:agentwrap.ExpectationCustom
+      1 30:agentwrap.ValidationSpec
+      1 30:agentwrap.HealthCheckRuntimePaths
+      1 308:agentwrap.Usage
+      1 307:agentwrap.StatusCompleted
+      1 305:agentwrap.RunResult
+      1 302:agentwrap.RunResult
+      1 29:agentwrap.Runtime
+      1 29:agentwrap.PolicyMetadata
+      1 29:agentwrap.ArtifactRef
+      1 299:agentwrap.EventWarning
+      1 299:agentwrap.EventPayloadWithKind
+      1 299:agentwrap.EventPayload
+      1 295:agentwrap.Event
+      1 293:agentwrap.RunResult
+      1 28:agentwrap.ValidationCheck
+      1 28:agentwrap.Runtime
+      1 28:agentwrap.RunMetadata
+      1 28:agentwrap.HealthCheckAuthentication
+      1 28:agentwrap.ExpectationRequired
+      1 28:agentwrap.ExpectationCustom
+      1 27:agentwrap.Usage
+      1 26:agentwrap.ValidatorFunc
+      1 26:agentwrap.Validator
+      1 26:agentwrap.ValidationContext
+      1 26:agentwrap.ValidationCheck
+      1 26:agentwrap.StatusCompleted
+      1 26:agentwrap.HealthCheckModel
+      1 266:agentwrap.StatusCompleted
+      1 266:agentwrap.RunResult
+      1 260:agentwrap.EventPayloadWithKind
+      1 260:agentwrap.EventPayload
+      1 260:agentwrap.EventMessage
+      1 258:agentwrap.HealthChecker
+      1 257:agentwrap.EventID
+      1 256:agentwrap.Runtime
+      1 256:agentwrap.Event
+      1 254:agentwrap.Event
+      1 253:agentwrap.HealthChecker
+      1 252:agentwrap.Runtime
+      1 24:agentwrap.RunResult
+      1 24:agentwrap.HealthCheckProvider
+      1 245:agentwrap.ErrorMalformedEvent
+      1 244:agentwrap.SDKError
+      1 236:agentwrap.StatusFailed
+      1 236:agentwrap.RunResult
+      1 234:agentwrap.RawPayload
+      1 233:agentwrap.EventPayloadWithKind
+      1 233:agentwrap.EventPayload
+      1 233:agentwrap.EventNativeExtension
+      1 22:agentwrap.HealthCheckConfig
+      1 22:agentwrap.ExpectationRequired
+      1 229:agentwrap.Event
+      1 226:agentwrap.NewError
+      1 226:agentwrap.ErrorMalformedEvent
+      1 21:agentwrap.ExpectationFile
+      1 21:agentwrap.EventPayloadWithKind
+      1 21:agentwrap.EventPayload
+      1 21:agentwrap.EventMessage
+      1 214:agentwrap.SDKError
+      1 20:agentwrap.HealthCheckWorkDir
+      1 20:agentwrap.Capabilities
+      1 206:agentwrap.RunResult
+      1 203:agentwrap.NewError
+      1 19:agentwrap.ValidationExpectation
+      1 19:agentwrap.Capabilities
+      1 199:agentwrap.StatusFailed
+      1 199:agentwrap.ErrorTimeout
+      1 198:agentwrap.StatusCancelled
+      1 198:agentwrap.ErrorCancellation
+      1 195:agentwrap.RunStatus
+      1 194:agentwrap.ErrorCategory
+      1 18:agentwrap.ValidationSpec
+      1 18:agentwrap.HealthCheckStructuredOutput
+      1 17:agentwrap.Event
+      1 177:agentwrap.EventPayloadWithKind
+      1 177:agentwrap.EventPayload
+      1 174:agentwrap.EventID
+      1 173:agentwrap.Event
+      1 171:agentwrap.ExpectationRequired
+      1 170:agentwrap.ExpectationCustom
+      1 16:agentwrap.HealthCheckRuntimeAvailable
+      1 169:agentwrap.EventNativeExtension
+      1 168:agentwrap.ValidationFailure
+      1 168:agentwrap.EventFinalResult
+      1 167:agentwrap.EventFallback
+      1 166:agentwrap.ValidationFailure
+      1 166:agentwrap.EventRetry
+      1 165:agentwrap.EventValidation
+      1 164:agentwrap.EventRateLimit
+      1 163:agentwrap.EventFatalError
+      1 162:agentwrap.EventWarning
+      1 161:agentwrap.EventUsage
+      1 160:agentwrap.EventBlocking
+      1 15:agentwrap.RawPayload
+      1 159:agentwrap.EventPermission
+      1 158:agentwrap.EventArtifact
+      1 157:agentwrap.EventTool
+      1 156:agentwrap.EventProgress
+      1 155:agentwrap.EventMessage
+      1 154:agentwrap.EventSession
+      1 153:agentwrap.EventLifecycle
+      1 152:agentwrap.EventKind
+      1 14:agentwrap.RunRequest
+      1 14:agentwrap.Run
+      1 146:agentwrap.ValidationFailure
+      1 139:agentwrap.ErrorRuntimeExit
+      1 139:agentwrap.AttemptSummary
+      1 138:agentwrap.StatusFailed
+      1 138:agentwrap.SessionActionFresh
+      1 138:agentwrap.RunResult
+      1 138:agentwrap.RunMetadata
+      1 138:agentwrap.RepairMetadata
+      1 135:agentwrap.WithDebugDetail
+      1 135:agentwrap.RepairContext
+      1 135:agentwrap.NewError
+      1 135:agentwrap.ErrorRuntimeExit
+      1 132:agentwrap.RepairContext
+      1 129:agentwrap.SessionActionContinue
+      1 129:agentwrap.CleanupMetadata
+      1 127:agentwrap.RepairConfig
+      1 11:agentwrap.ValidationSpec
+      1 119:agentwrap.ExpectationRequired
+      1 118:agentwrap.ExpectationCustom
+      1 117:agentwrap.SDKError
+      1 117:agentwrap.HealthUnsupported
+      1 117:agentwrap.HealthUnknown
+      1 117:agentwrap.HealthDegraded
+      1 116:agentwrap.ValidationCheck
+      1 115:agentwrap.HealthSkipped
+      1 115:agentwrap.HealthReady
+      1 113:agentwrap.ValidationFailure
+      1 113:agentwrap.PermissionMetadata
+      1 113:agentwrap.HealthStatus
+      1 10:agentwrap.HealthCheckID
+      1 109:agentwrap.StatusFailed
+      1 109:agentwrap.RunResult
+      1 109:agentwrap.ExpectationRequired
+      1 108:agentwrap.ExpectationCustom
+      1 106:agentwrap.ValidationCheck
+      1 105:agentwrap.Capabilities
+      1 104:agentwrap.NewError
+      1 104:agentwrap.ErrorProviderUnavailable
+[0m
+[0m$ [0mgrep -n 'Runtime ' internal/sprint/service.go | head -5; grep -rn 'type Runtime' internal/sprint/*.go internal/study/*.go internal/platform/runtime/*.go; echo '=== sprint Runtime def ==='; grep -rn 'agentwrap' internal/sprint/runtime_validation.go | head -8; echo '=== study Runtime def ==='; grep -n -A6 'type Runtime interface' internal/study/service.go; echo '=== app-facing agentwrap? ==='; grep -rn 'agentwrap' internal/app internal/tui internal/web --include='*.go' | grep -v _test | wc -l
+28:	stageRuntime      map[PlanningStage]StageRuntime
+58:type StageRuntime struct {
+123:	s.stageRuntime = map[PlanningStage]StageRuntime{}
+internal/sprint/flow.go:13:type Runtime interface {
+internal/sprint/runtime_metrics.go:22:type RuntimeTokenMetric struct {
+internal/sprint/service.go:108:type RuntimeProgress struct {
+internal/study/service.go:25:type Runtime interface {
+internal/platform/runtime/runtime.go:245:type Runtime interface {
+=== sprint Runtime def ===
+8:	"github.com/Antonio7098/agentwrap"
+30:func (s Service) requirementsValidationSpec(sp Sprint) *agentwrap.ValidationSpec {
+40:func (s Service) sprintIndexValidationSpec(sp Sprint, catalog project.ProjectIndex) *agentwrap.ValidationSpec {
+51:func (s Service) technicalHandbookValidationSpec(sp Sprint, manifest HandbookManifest) *agentwrap.ValidationSpec {
+61:func (s Service) areaReasoningEntryValidationSpec(manifest ReasoningManifest, entry ReasoningTemplateEntry) *agentwrap.ValidationSpec {
+67:func (s Service) finalReasoningValidationSpec(sp Sprint, manifest ReasoningManifest) *agentwrap.ValidationSpec {
+77:func (s Service) planValidationSpec(sp Sprint, manifest PlanManifest) *agentwrap.ValidationSpec {
+87:func generatedArtifactValidationSpec(id, path string, validate func() []ValidationFinding) *agentwrap.ValidationSpec {
+=== study Runtime def ===
+25:type Runtime interface {
+26-	StartRun(ctx context.Context, req runtimepkg.Request) (runtimepkg.Result, error)
+27-}
+28-
+29-func WithRuntime(rt Runtime, req runtimepkg.Request) Option {
+30-	return func(s *Service) {
+31-		s.runtime = rt
+=== app-facing agentwrap? ===
+8
+[0m
+[0m$ [0mgrep -rn 'agentwrap' internal/app internal/tui internal/web --include='*.go' | grep -v _test; echo '=== sprint Runtime interface ==='; sed -n '10,30p' internal/sprint/flow.go
+internal/app/config_commands.go:84:	fmt.Fprintf(deps.stdout, "agentwrap.executable: %s\n", redacted.Agentwrap.Executable)
+internal/app/config_commands.go:85:	fmt.Fprintf(deps.stdout, "agentwrap.required_health: %s\n", strings.Join(redacted.Agentwrap.RequiredHealth, ", "))
+internal/app/config_commands.go:86:	fmt.Fprintf(deps.stdout, "agentwrap.required_capabilities: %s\n", strings.Join(redacted.Agentwrap.RequiredCapabilities, ", "))
+internal/app/config_commands.go:87:	fmt.Fprintf(deps.stdout, "agentwrap.stderr_limit: %d\n", redacted.Agentwrap.StderrLimit)
+internal/app/config_commands.go:88:	fmt.Fprintf(deps.stdout, "agentwrap.sandbox: %s\n", redacted.Agentwrap.Sandbox)
+internal/app/config_commands.go:89:	fmt.Fprintf(deps.stdout, "agentwrap.permission_mode: %s\n", redacted.Agentwrap.PermissionMode)
+internal/app/health_commands.go:115:		return []healthCheck{{ID: "runtime.opencode", Name: "runtime.opencode", Status: "fail", Message: config.RedactValue("runtime.error", err.Error()), Guidance: "check runtime executable and agentwrap configuration"}}, err
+internal/app/study_commands.go:1370:This command renders prompt text and a deterministic input manifest only. It does not execute runtime analysis, synthesis, agentwrap, OpenCode, providers, network calls, or subprocesses.
+=== sprint Runtime interface ===
+	"github.com/Antonio7098/ultraplan-go/internal/platform/runtime"
+)
+
+type Runtime interface {
+	StartRun(context.Context, runtime.Request) (runtime.Result, error)
+}
+
+type FlowRequest struct {
+	To              PlanningStage
+	DryRun          bool
+	ModelOverride   string
+	VariantOverride string
+	Review          ReviewRequest
+	Smoke           SmokeRequest
+	Progress        func(FlowProgress)
+}
+
+type FlowProgress struct {
+	Stage   PlanningStage
+	State   string
+	Message string
+[0m
+[0m$ [0mgrep -n -A20 'type Request struct\|type Result struct' internal/platform/runtime/runtime.go | head -60; echo '=== agentwrap in runtime pkg ==='; grep -c 'agentwrap\.' internal/platform/runtime/*.go
+21:type Request struct {
+22-	Prompt        string
+23-	PromptRef     PromptReference
+24-	TraceID       string
+25-	ParentTraceID string
+26-	WorkDir       string
+27-	SessionID     string
+28-	SessionAction string
+29-	Provider      string
+30-	Model         string
+31-	Timeout       time.Duration
+32-	Metadata      map[string]string
+33-	RequireHealth []string
+34-	RequireCaps   []string
+35-	Sandbox       string
+36-	Permissions   string
+37-	Policy        PermissionPolicy
+38-	Validation    *agentwrap.ValidationSpec
+39-	OnEvent       func(Event)
+40-	Cache         CacheDirective
+41-}
+--
+77:type Result struct {
+78-	RunID          string
+79-	SessionID      string
+80-	TurnID         string
+81-	Status         string
+82-	TerminalOutput string
+83-	Events         []Event
+84-	EventStats     EventStats
+85-	Memory         MemoryStats
+86-	Artifacts      []Artifact
+87-	Warnings       []string
+88-	Attempts       []AttemptSummary
+89-	Usage          Usage
+90-	EstimatedCost  *CostEstimate
+91-	Policy         PolicySummary
+92-	Permissions    PermissionSummary
+93-	Cleanup        CleanupSummary
+94-	Validation     ValidationSummary
+95-	Repair         RepairSummary
+96-	Error          *Error
+97-	StartedAt      time.Time
+=== agentwrap in runtime pkg ===
+internal/platform/runtime/agentwrap.go:33
+internal/platform/runtime/cache_test.go:0
+internal/platform/runtime/events.go:10
+internal/platform/runtime/health.go:11
+internal/platform/runtime/opencode.go:18
+internal/platform/runtime/opencode_test.go:6
+internal/platform/runtime/policy.go:0
+internal/platform/runtime/runtime.go:23
+internal/platform/runtime/runtime_test.go:108
+[0m
+[0m$ [0mls internal/tui/*boundary* 2>/dev/null; echo "no-boundary-test-rc=$?"; grep -n 'ultraplan-go/internal' internal/tui/*_test.go | head; echo '=== tui prod imports of internal ==='; grep -rn 'ultraplan-go/internal' internal/tui/*.go | grep -v _test
+no-boundary-test-rc=2
+internal/tui/model_test.go:8:	"github.com/Antonio7098/ultraplan-go/internal/app"
+internal/tui/run_view_test.go:9:	"github.com/Antonio7098/ultraplan-go/internal/app"
+internal/tui/run_view_test.go:10:	"github.com/Antonio7098/ultraplan-go/internal/runcontrol"
+internal/tui/test_fakes_test.go:6:	"github.com/Antonio7098/ultraplan-go/internal/app"
+internal/tui/verify_test.go:7:	"github.com/Antonio7098/ultraplan-go/internal/app"
+internal/tui/verify_test.go:8:	"github.com/Antonio7098/ultraplan-go/internal/sprint"
+internal/tui/views_test.go:7:	"github.com/Antonio7098/ultraplan-go/internal/app"
+=== tui prod imports of internal ===
+internal/tui/app.go:13:	"github.com/Antonio7098/ultraplan-go/internal/app"
+internal/tui/model.go:9:	"github.com/Antonio7098/ultraplan-go/internal/app"
+internal/tui/views.go:8:	"github.com/Antonio7098/ultraplan-go/internal/app"
+[0m

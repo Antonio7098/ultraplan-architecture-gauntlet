@@ -4,7 +4,7 @@
 [0m
 [0m→ [0mSkill "ultraplan-architecture-gauntlet"
 [0m
-[0m$ [0mls /home/antonio/gauntlet-run/ultraplan-go && git -C /home/antonio/gauntlet-run/ultraplan-go log --oneline -3 && git -C /home/antonio/gauntlet-run/ultraplan-workspace log --oneline -3
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go log --oneline -3 && git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace log --oneline -3
 cmd
 dist
 docs
@@ -20,28 +20,28 @@ c455510 observability: surface agent stream details in durable run events
 2dc3b74 Advance sprints 30-35 and harden review/smoke flow
 0e151a0 update reconciliation smoke skill
 [0m
-[0m$ [0mfind /home/antonio/gauntlet-run/ultraplan-go -type f -name "*.go" | wc -l && find /home/antonio/gauntlet-run/ultraplan-go/internal -maxdepth 1 -type d | sort
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go -type f -name "*.go" | wc -l && find /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal -maxdepth 1 -type d | sort
 291
-/home/antonio/gauntlet-run/ultraplan-go/internal
-/home/antonio/gauntlet-run/ultraplan-go/internal/app
-/home/antonio/gauntlet-run/ultraplan-go/internal/codeextract
-/home/antonio/gauntlet-run/ultraplan-go/internal/platform
-/home/antonio/gauntlet-run/ultraplan-go/internal/productstate
-/home/antonio/gauntlet-run/ultraplan-go/internal/project
-/home/antonio/gauntlet-run/ultraplan-go/internal/runcontrol
-/home/antonio/gauntlet-run/ultraplan-go/internal/sprint
-/home/antonio/gauntlet-run/ultraplan-go/internal/study
-/home/antonio/gauntlet-run/ultraplan-go/internal/tui
-/home/antonio/gauntlet-run/ultraplan-go/internal/web
-/home/antonio/gauntlet-run/ultraplan-go/internal/workspace
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace
 [0m
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/go.mod
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/go.mod
 [0m
-[0m$ [0mls /home/antonio/gauntlet-run/ultraplan-go/cmd /home/antonio/gauntlet-run/ultraplan-go/scripts /home/antonio/gauntlet-run/ultraplan-go/dist /home/antonio/gauntlet-run/ultraplan-go/docs && wc -l /home/antonio/gauntlet-run/ultraplan-go/cmd/*/*.go
-/home/antonio/gauntlet-run/ultraplan-go/cmd:
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/scripts /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/dist /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs && wc -l /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/*/*.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd:
 ultraplan
 
-/home/antonio/gauntlet-run/ultraplan-go/dist:
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/dist:
 checksums.txt
 smoke-evidence.md
 ultraplan-darwin-amd64
@@ -49,7 +49,7 @@ ultraplan-darwin-arm64
 ultraplan-linux-amd64
 ultraplan-linux-arm64
 
-/home/antonio/gauntlet-run/ultraplan-go/docs:
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs:
 architecture.md
 cli-reference.md
 configuration.md
@@ -69,14 +69,14 @@ ui-audit.md
 user-guide.md
 web-compatibility-baseline.md
 
-/home/antonio/gauntlet-run/ultraplan-go/scripts:
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/scripts:
 install-ultraplan.sh
 migrate-legacy-sprint-state.sh
 migrate-product-state.sh
 reset-opencode-db.sh
-62 /home/antonio/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+62 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
 [0m
-[0m$ [0mfor d in /home/antonio/gauntlet-run/ultraplan-go/internal/*/; do n=$(find "$d" -name '*.go' | wc -l); l=$(find "$d" -name '*.go' -exec cat {} + | wc -l); echo "$(basename $d): files=$n lines=$l"; done
+[0m$ [0mfor d in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/*/; do n=$(find "$d" -name '*.go' | wc -l); l=$(find "$d" -name '*.go' -exec cat {} + | wc -l); echo "$(basename $d): files=$n lines=$l"; done
 app: files=59 lines=13719
 codeextract: files=6 lines=669
 platform: files=21 lines=3294
@@ -115,10 +115,10 @@ github.com/Antonio7098/ultraplan-go/cmd/ultraplan <- [app,tui,web]
 [0m✓ [0mMap study and runcontrol packages[90m Explore Agent[0m
 [0m• [0mMap sprint and platform packages[90m Explore Agent[0m
 [0m✓ [0mMap sprint and platform packages[90m Explore Agent[0m
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/sprint/execute_target.go
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/sprint/freshness_policy.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_target.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/freshness_policy.go
 [0m
-[0m$ [0msed -n 560/,625p /home/antonio/gauntlet-run/ultraplan-go/internal/app/run_control.go 2>/dev/null || sed -n '560,625p' /home/antonio/gauntlet-run/ultraplan-go/internal/app/run_control.go
+[0m$ [0msed -n 560/,625p /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go 2>/dev/null || sed -n '560,625p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
 encoded, err := jsonMarshalTruncated(v)
 		if err != nil {
 			return fmt.Sprintf("%v", v)
@@ -202,7 +202,7 @@ internal/app/run_control.go:560:		encoded, err := jsonMarshalTruncated(v)
 internal/app/run_control.go:570:func jsonMarshalTruncated(v any) (string, error) {
 ---productstate in sprint tests---
 [0m
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/docs/architecture.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md
 [0m
 [0m$ [0mgrep -rn "approved\|ApprovedExecuteTargetPath\|target implementation" docs/cli-reference.md docs/user-guide.md docs/configuration.md README.md 2>/dev/null | head -10; echo "---study db tests---"; ls internal/study/*test* | xargs grep -ln "productstate\|state_database\|LoadRunStateDatabase" 2>/dev/null; echo "---app storage tests---"; ls internal/app/storage_commands_test.go internal/app/run_control_inventory_test.go 2>/dev/null; echo "---payload fmt---"; sed -n '520,560p' internal/app/run_control.go
 docs/cli-reference.md:314:Executes validated top-level `plan.md` task checkboxes through one reusable generic-runtime agent session. The first turn receives the shared sprint context, ordered queue, and current task; each later task is a compact continuation in that session. UltraPlan checkpoints each task before advancing, stops the queue on failure/cancellation, writes `.run-state.json` and `execute.md`, requires runtime evidence or a safe diagnostic before marking a task complete, and constrains work to the project index target implementation directory. If the runtime supplies no reusable session ID, execution safely falls back to complete independent prompts.

@@ -6,9 +6,9 @@ TASK ID: specialist-12b
 
 ## Target
 
-- implementation repository: /home/antonio/gauntlet-run/ultraplan-go
+- implementation repository: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
 - implementation commit: eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
-- authoritative planning workspace: /home/antonio/gauntlet-run/ultraplan-workspace
+- authoritative planning workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
 - planning workspace commit: 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
 
 ## Assignment

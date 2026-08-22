@@ -1,12 +1,12 @@
 {
   "version": 1,
   "created_at": "2026-08-22T11:46:58.055387891Z",
-  "updated_at": "2026-08-22T14:05:00Z",
-  "target_path": "/home/antonio/gauntlet-run/ultraplan-go",
+  "updated_at": "2026-08-22T16:20:07.149551798Z",
+  "target_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go",
   "target_commit": "eeaa034cb1e520ea10e806870f6026cf1bb6c4f7",
-  "workspace_path": "/home/antonio/gauntlet-run/ultraplan-workspace",
+  "workspace_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace",
   "workspace_commit": "368a78926ad81abd6f566e9d860df6c3e324c312",
-  "output_path": "/home/antonio/gauntlet-run/ultraplan-architecture-gauntlet/.archgauntlet",
+  "output_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/.archgauntlet",
   "model": "openrouter/stealth/ox-alpha",
   "tasks": [
     {
@@ -28,10 +28,10 @@
       "role": "arch-scout",
       "focus": "Build the actual Go package/import graph. Identify cycles, dependency directions, cross-module imports, and unusual fan-in/fan-out.",
       "broad": true,
-      "status": "failed",
-      "attempts": 3,
-      "started_at": "2026-08-22T13:47:29.031198826Z",
-      "completed_at": "2026-08-22T12:53:23.15472256Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-22T15:26:30.927793915Z",
+      "completed_at": "2026-08-22T16:20:07.149546141Z"
     },
     {
       "id": "scout-03",
@@ -40,10 +40,10 @@
       "role": "arch-scout",
       "focus": "Map PRD, TRD, architecture, project index, roadmap, and current-vs-future requirements. Classify evidence as REALITY, CURRENT-CONTRACT, FUTURE-INTENT, or HISTORY.",
       "broad": true,
-      "status": "failed",
-      "attempts": 3,
-      "started_at": "2026-08-22T13:47:29.032505893Z",
-      "completed_at": "2026-08-22T12:53:23.130594319Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-22T15:26:30.93015553Z",
+      "completed_at": "2026-08-22T16:02:20.004628289Z"
     },
     {
       "id": "scout-04",
@@ -728,10 +728,9 @@
       "role": "arch-inspector",
       "focus": "Without implementing, trace every required edit to add a new governed sprint stage and assess unrelated change surface.",
       "broad": false,
-      "status": "failed",
-      "attempts": 1,
+      "status": "pending",
+      "attempts": 0,
       "last_error": "exit status 1",
-      "started_at": "2026-08-22T12:41:34.944525569Z",
       "completed_at": "2026-08-22T12:41:37.804699959Z"
     },
     {
@@ -741,10 +740,9 @@
       "role": "arch-inspector",
       "focus": "Trace every required edit to add another local UI surface over existing use cases without duplicating workflow semantics.",
       "broad": false,
-      "status": "failed",
-      "attempts": 1,
+      "status": "pending",
+      "attempts": 0,
       "last_error": "exit status 1",
-      "started_at": "2026-08-22T12:41:34.955681406Z",
       "completed_at": "2026-08-22T12:41:37.748838544Z"
     },
     {
@@ -754,9 +752,8 @@
       "role": "arch-inspector",
       "focus": "Trace adding a second runtime/provider adapter while preserving generic runtime contracts and product semantics.",
       "broad": false,
-      "status": "failed",
-      "attempts": 1,
-      "started_at": "2026-08-22T12:41:34.961483729Z"
+      "status": "pending",
+      "attempts": 0
     },
     {
       "id": "change-04",
@@ -765,9 +762,8 @@
       "role": "arch-inspector",
       "focus": "Trace adding a new durable run event end-to-end: schema, persistence, projection, replay, surfaces, retention, tests.",
       "broad": false,
-      "status": "failed",
-      "attempts": 1,
-      "started_at": "2026-08-22T12:41:34.950095314Z"
+      "status": "pending",
+      "attempts": 0
     },
     {
       "id": "change-05",
@@ -776,9 +772,8 @@
       "role": "arch-inspector",
       "focus": "Trace a schema evolution across persistence, migration, product owners, recovery, and compatibility.",
       "broad": false,
-      "status": "failed",
-      "attempts": 1,
-      "started_at": "2026-08-22T12:41:37.753789365Z"
+      "status": "pending",
+      "attempts": 0
     },
     {
       "id": "change-06",
@@ -787,9 +782,8 @@
       "role": "arch-inspector",
       "focus": "Trace adding a new review or smoke strategy without creating parallel workflow authorities.",
       "broad": false,
-      "status": "failed",
-      "attempts": 1,
-      "started_at": "2026-08-22T12:41:37.81161375Z"
+      "status": "pending",
+      "attempts": 0
     },
     {
       "id": "change-07",

@@ -251,10 +251,10 @@ internal/sprint/prompt_bundle.go
 [0m✓ [0mTrace process lifecycle paths[90m General Agent[0m
 [0m✓ [0mMap boundary import graph[90m Explore Agent[0m
 [0m✓ [0mLifecycle test coverage survey[90m Explore Agent[0m
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
-[0m✗ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/study/locks.go failed[90m [offset=555, limit=90][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
+[0m✗ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks.go failed[90m [offset=555, limit=90][0m
 [91m[1mError: [0mOffset 555 is out of range for this file (202 lines)
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=200, offset=395][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=200, offset=395][0m
 [0m
 [0m$ [0mgit show --stat eeaa034 | head -25 && echo "=====" && git show --stat c455510 | head -25
 commit eeaa034cb1e520ea10e806870f6026cf1bb6c4f7
@@ -297,19 +297,19 @@ Date:   Sat Aug 22 10:48:48 2026 +0100
  internal/web/templates/run.html        |   2 +-
  4 files changed, 246 insertions(+), 10 deletions(-)
 [0m
-[0m✱ [0mGrep "payload\.(title|text|delta|detail)|JSON\.parse"[90m in /home/antonio/gauntlet-run/ultraplan-go/internal/web/static · 4 matches[0m
-[0m✱ [0mGrep "sanitizeEventDraft|firstNonEmptyPayload|DetailText"[90m in /home/antonio/gauntlet-run/ultraplan-go · 8 matches[0m
+[0m✱ [0mGrep "payload\.(title|text|delta|detail)|JSON\.parse"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static · 4 matches[0m
+[0m✱ [0mGrep "sanitizeEventDraft|firstNonEmptyPayload|DetailText"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 8 matches[0m
 [0m
 [0m$ [0mgit log --oneline -- internal/runcontrol/sanitize.go && echo "=== tests asserting promoted keys ===" && grep -rn "\"title\"\|\"delta\"\|\"detail\"\|\"text\"" --include="*_test.go" internal/app internal/web internal/tui | grep -i "payload\|event" | head -15
 e09d394 Add durable run control and adaptive study execution
 === tests asserting promoted keys ===
 internal/app/app_test.go:237:	if payload.Command != "config show" || payload.Status != "ok" || payload.Result.Version != 1 || payload.Result.Logging.Format != "text" {
 [0m
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/tui/app.go
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/app/health_commands.go[90m [limit=60, offset=95][0m
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/study/locks.go
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=20, offset=18][0m
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/app/study_commands.go[90m [limit=30, offset=14, command=grep -n "studyRuntimeFactory" internal/app/*.go && echo "=== smoke Request ===" && grep -n "pprocess.Request{" -A 10 internal/sprint/smoke.go | head -30, workdir=/home/antonio/gauntlet-run/ultraplan-go][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/app.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands.go[90m [limit=60, offset=95][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=20, offset=18][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go[90m [limit=30, offset=14, command=grep -n "studyRuntimeFactory" internal/app/*.go && echo "=== smoke Request ===" && grep -n "pprocess.Request{" -A 10 internal/sprint/smoke.go | head -30, workdir=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go][0m
 [0m
 [0m$ [0mgrep -n "pprocess.Request{" -A 12 internal/sprint/smoke.go | head -40
 75:	discoveryProcess, discoveryErr := s.processRunner.Run(ctx, pprocess.Request{Executable: prepared.Executable, Args: discoveryArgs, Dir: prepared.CWD, Env: env, Timeout: s.smokeSettings.DiscoveryTimeout, StdoutLimit: s.smokeSettings.StdoutLimit, StderrLimit: s.smokeSettings.StderrLimit, CleanupGrace: s.smokeSettings.CleanupGrace})
@@ -340,7 +340,7 @@ internal/app/app_test.go:237:	if payload.Command != "config show" || payload.Sta
 139-			return smokeFailedResult(result, classifyProcessSmokeError("run", runProcess, runErr))
 140-		}
 [0m
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go[90m [limit=70, offset=264][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go[90m [limit=70, offset=264][0m
 [0m
 [0m$ [0mls studies system docs 2>/dev/null && echo === && grep -rln "daemon" studies system 2>/dev/null | head
 studies:
@@ -353,7 +353,7 @@ contracts
 protocols
 reasoning
 [0m
-[0m$ [0mls studies/ultraplan-daemon-events-study system/reasoning | head -30 && echo "=== shutdown contract status ===" && grep -n -i "sprint\|status\|future\|planned\|grace" /home/antonio/gauntlet-run/ultraplan-go/docs/plans/server-shutdown-run-cancellation-contract.md | head -20
+[0m$ [0mls studies/ultraplan-daemon-events-study system/reasoning | head -30 && echo "=== shutdown contract status ===" && grep -n -i "sprint\|status\|future\|planned\|grace" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/plans/server-shutdown-run-cancellation-contract.md | head -20
 studies/ultraplan-daemon-events-study:
 dimensions
 sources
@@ -401,5 +401,5 @@ testing-strategy-reasoning-template.md
 248:### 9.1 Graceful shutdown
 257:- bounded grace-period expiry;
 [0m
-[0m✱ [0mGrep "OpenSQLite\("[90m in /home/antonio/gauntlet-run/ultraplan-go/internal · 41 matches[0m
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=120, offset=116][0m
+[0m✱ [0mGrep "OpenSQLite\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 41 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=120, offset=116][0m

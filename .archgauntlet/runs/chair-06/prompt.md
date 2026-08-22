@@ -6,9 +6,9 @@ TASK ID: chair-06
 
 ## Target
 
-- implementation repository: /home/antonio/gauntlet-run/ultraplan-go
+- implementation repository: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
 - implementation commit: eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
-- authoritative planning workspace: /home/antonio/gauntlet-run/ultraplan-workspace
+- authoritative planning workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
 - planning workspace commit: 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
 
 ## Assignment
@@ -31,7 +31,7 @@ Distinguish evidence:
 
 Never report missing FUTURE-INTENT as a current defect.
 
-Read prior review outputs under /home/antonio/gauntlet-run/ultraplan-architecture-gauntlet/.archgauntlet/runs as required for this synthesis stage. Preserve provenance and never promote an unsupported claim.
+Read prior review outputs under /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/.archgauntlet/runs as required for this synthesis stage. Preserve provenance and never promote an unsupported claim.
 
 ## Mandatory investigation rules
 

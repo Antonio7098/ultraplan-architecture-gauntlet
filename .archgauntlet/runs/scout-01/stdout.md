@@ -7,7 +7,7 @@ All key claims independently verified. Composing the scout report.
 
 ## Scope inspected
 
-**Repo**: `/home/antonio/gauntlet-run/ultraplan-go` @ eeaa034 (clean tree). ~291 Go files, ~64k LOC, 11 packages under `internal/`, single binary `cmd/ultraplan`.
+**Repo**: `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go` @ eeaa034 (clean tree). ~291 Go files, ~64k LOC, 11 packages under `internal/`, single binary `cmd/ultraplan`.
 
 **Direct inspection**: `go.mod` (deps: yaml.v3, agentwrap, bubbletea/glamour/lipgloss/goldmark, modernc.org/sqlite); import DAG via `go list`; `docs/architecture.md` (authoritative, 191 lines, read in full); verification reads of `internal/sprint/execute_target.go`, `internal/sprint/freshness_policy.go`, `internal/app/run_control.go` (:520–625), `internal/app/durable_operations.go` (:82–135), diff of `study/cleanup_uncertain.go` vs `sprint/cleanup_uncertain.go`; targeted greps (generated-code markers, `productstate` in tests, `antonioborgerees` references, git history of `execute_target.go`).
 

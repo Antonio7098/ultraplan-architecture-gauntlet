@@ -19,7 +19,7 @@ All verification complete. Writing the scout report:
 
 ## Scope inspected
 
-**Implementation repo** (`/home/antonio/gauntlet-run/ultraplan-go` @ `eeaa034`, clean):
+**Implementation repo** (`/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go` @ `eeaa034`, clean):
 - `internal/runcontrol`: `sqlite.go` (schema, Append/Claim/ProposeTerminal/fencing), `lifecycle.go` (heartbeat/cancel/Reconcile/reconcileUnclaimed), `lifecycle_test.go`, `sanitize.go`, `migration.go`, `model.go`, `retention.go`, `local_log.go`
 - `internal/app`: `run_control.go` (controlledRuntime, runtimeEventDraft, terminalOutcome), `durable_operations.go`, `run_commands.go`, `sprint_commands.go`
 - `internal/study`: `state.go`, `locks.go`, `run_loop.go`, `run_state*.go`, `run_history*.go`, `cleanup_uncertain.go`, `summary.go`
@@ -27,7 +27,7 @@ All verification complete. Writing the scout report:
 - `internal/productstate/store.go`; `internal/project/index.go`, `validation.go`, `domain.go`; `internal/platform/runtime/{runtime.go,agentwrap.go}`; `internal/web/{server.go,run_handlers.go,operations.go,static/app.js}`; `internal/workspace/init.go`, `scaffold/templates/project-index.md`
 - Commands run: targeted `git log -p` on `sanitize.go`, greps for enum writers, template consumers
 
-**Workspace** (`/home/antonio/gauntlet-run/ultraplan-workspace` @ `368a789`): `ultraplan.yml`, `system/protocols/{plan-sprint,review-sprint,deep-smoke-sprint}-protocol.md`, `projects/ultraplan-go/project-index.md` (headings + Target line), `projects/aren-phase-01-execution-lifecycle/project-index.md` (headings), `sprints/{28,33,34}*/smoke.md` headings, git-tracked state JSON census (`git ls-files | grep -c "run-state\|flow-state"` → 107), `.ultraplan/` presence on disk (none).
+**Workspace** (`/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace` @ `368a789`): `ultraplan.yml`, `system/protocols/{plan-sprint,review-sprint,deep-smoke-sprint}-protocol.md`, `projects/ultraplan-go/project-index.md` (headings + Target line), `projects/aren-phase-01-execution-lifecycle/project-index.md` (headings), `sprints/{28,33,34}*/smoke.md` headings, git-tracked state JSON census (`git ls-files | grep -c "run-state\|flow-state"` → 107), `.ultraplan/` presence on disk (none).
 
 Four parallel discovery subagents covered locks/leases, lifecycle traces, the event system, and workspace coupling; every reported finding below was re-derived from primary source before inclusion.
 
@@ -93,7 +93,7 @@ Stressed: the **Markdown artifact contract has no closed vocabulary** — headin
 ### SCOUT-05-F04
 - **Priority**: P3
 - **Claim**: The approved execute target is dual-homed — compiled into the binary and restated in the authored workspace artifact — must byte-match at execute time, and nothing detects skew until then.
-- **Evidence**: `const ApprovedExecuteTargetPath = "/home/antonioborgerees/coding/ultraplan/ultraplan-go"` (`internal/sprint/execute_target.go:11`), exact-match rejection at :22-24; workspace artifact repeats the same machine-specific absolute path (`projects/ultraplan-go/project-index.md:10`). On this checkout (`/home/antonio/gauntlet-run/ultraplan-go`) the pair cannot match, so `sprint … execute` fails with "unsupported execute target" until either source is edited.
+- **Evidence**: `const ApprovedExecuteTargetPath = "/home/antonioborgerees/coding/ultraplan/ultraplan-go"` (`internal/sprint/execute_target.go:11`), exact-match rejection at :22-24; workspace artifact repeats the same machine-specific absolute path (`projects/ultraplan-go/project-index.md:10`). On this checkout (`/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go`) the pair cannot match, so `sprint … execute` fails with "unsupported execute target" until either source is edited.
 - **Architectural reason**: authority/boundary. Environment identity is encoded as policy in two media (source constant + Markdown) with no startup consistency check; approval semantics and environment coupling are conflated.
 - **Concrete consequence**: repository relocation or binary/workspace version skew surfaces only at execute time, with remediation text ("Update project-index.md or defer alternate target support") pointing authors at the artifact half of a two-copy constraint.
 - **Counter-evidence searched**: the finding text at `execute_target.go:24` explicitly defers alternate-target support to a later sprint — the single-target policy itself is declared FUTURE-INTENT debt and is not challenged here; tests were searched for earlier skew detection (none found). Only the dual-homing/skew-latency aspect is reported.

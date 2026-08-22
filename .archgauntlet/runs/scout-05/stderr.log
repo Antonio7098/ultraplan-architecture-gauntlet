@@ -114,7 +114,7 @@ internal/workspace/scaffold
 [0m✓ [0mTrace run lifecycle states[90m Explore Agent[0m
 [0m✓ [0mFind locks leases concurrency[90m Explore Agent[0m
 [0m✓ [0mMap workspace artifact coupling[90m Explore Agent[0m
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
 [0m
 [0m$ [0mgrep -rn "LivenessOwnerUnreachable\|LivenessInterrupted\|LivenessCleanupUncertain\|CancellationUncertain\|cancellation_uncertain" internal --include="*.go" | grep -v "_test.go"
 internal/runcontrol/model.go:60:	LivenessOwnerUnreachable Liveness = "owner_unreachable"
@@ -128,7 +128,7 @@ internal/runcontrol/model.go:400:	CancellationUncertain int           `json:"can
 internal/runcontrol/sqlite.go:877:	if err := r.db.QueryRowContext(ctx, `SELECT COUNT(*) FROM runs WHERE cancellation_state = 'uncertain'`).Scan(&health.CancellationUncertain); err != nil {
 internal/app/run_commands.go:271:		health.CancellationUncertain, health.ReconciliationBacklog, health.OldestBacklogAge)
 [0m
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [offset=370, limit=130, command=grep -rn "firstNonEmptyPayload\|\"text\"\|\"delta\"" internal/web/run_handlers.go internal/tui/*.go | head -30, workdir=/home/antonio/gauntlet-run/ultraplan-go][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [offset=370, limit=130, command=grep -rn "firstNonEmptyPayload\|\"text\"\|\"delta\"" internal/web/run_handlers.go internal/tui/*.go | head -30, workdir=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go][0m
 [0m
 [0m$ [0mgrep -n "firstNonEmptyPayload\|Payload," internal/web/run_handlers.go | head; echo ---; grep -n "payload\.\|payload\[" internal/web/static/app.js | head -40
 288:	text := firstNonEmptyPayload(event.Payload, "text", "delta", "detail", "message", "content", "title", "output")
@@ -163,15 +163,15 @@ e09d394 Add durable run control and adaptive study execution
 ---
 internal/runcontrol/sanitize_test.go:50:	if event.Type != EventWarning || event.Payload["code"] != "event_detail_oversize" || event.Omission == nil {
 [0m
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/platform/runtime/agentwrap.go[90m [limit=80, offset=60][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/agentwrap.go[90m [limit=80, offset=60][0m
 [0m
 [0m$ [0mgrep -rn "\"title\"\|\"detail\"\|\"text\"\|\"delta\"" internal/platform/runtime/*.go | grep -v _test | head -20
 internal/platform/runtime/runtime.go:413:		for _, key := range []string{"structured_output", "output", "content", "text", "message", "part"} {
 internal/platform/runtime/runtime.go:596:	for _, key := range []string{"tool", "name", "title", "detail", "text", "delta", "output", "message", "state", "status", "action", "phase"} {
 [0m
-[0m✗ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/sprint/execute_target.go failed[90m [limit=90, offset=400][0m
+[0m✗ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_target.go failed[90m [limit=90, offset=400][0m
 [91m[1mError: [0mOffset 400 is out of range for this file (73 lines)
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/sprint/execute_target.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_target.go
 [0m
 [0m$ [0msed -n '430,480p' internal/runcontrol/lifecycle.go
 now := r.now()
@@ -225,7 +225,7 @@ WHERE run_id = ? AND current_attempt_id IS NULL AND terminal_outcome IS NULL`,
 	return true, nil
 }
 [0m
-[0m$ [0msed -n '1,20p' internal/project/index.go; echo "=== aren headings ==="; grep -n "^## " /home/antonio/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/project-index.md; echo "=== ultraplan-go index target+headings ==="; grep -n "^## \|Target Implementation Directory" /home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/project-index.md
+[0m$ [0msed -n '1,20p' internal/project/index.go; echo "=== aren headings ==="; grep -n "^## " /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/project-index.md; echo "=== ultraplan-go index target+headings ==="; grep -n "^## \|Target Implementation Directory" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/project-index.md
 package project
 
 import (
@@ -527,37 +527,37 @@ local filesystem. Multi-host access, network filesystems without reliable
 SQLite WAL/locking semantics, worker adoption, brokers, and remote signalling
 are outside the supported topology.
 [0m
-[0m$ [0mgrep -n "^## " /home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/*/smoke.md 2>/dev/null | tail -25
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:13:## Review Gate
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:20:## Harness And Protocol
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:25:## Smoke Authoring
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:32:## Selected Scope And Rationale
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:41:## Preconditions And Environment
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:48:## Safe Invocation
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:52:## Run Evidence
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:74:## Findings
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:78:## Open Issues
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:82:## Resolved Issues
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:86:## Mutation And Safety Check
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:90:## Verdict And Next Action
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:7:## Smoke Context
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:13:## Review Gate
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:20:## Harness And Protocol
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:25:## Smoke Authoring
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:32:## Selected Scope And Rationale
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:41:## Preconditions And Environment
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:48:## Safe Invocation
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:52:## Run Evidence
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:68:## Findings
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:72:## Open Issues
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:76:## Resolved Issues
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:80:## Mutation And Safety Check
-/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:84:## Verdict And Next Action
+[0m$ [0mgrep -n "^## " /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/*/smoke.md 2>/dev/null | tail -25
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:13:## Review Gate
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:20:## Harness And Protocol
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:25:## Smoke Authoring
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:32:## Selected Scope And Rationale
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:41:## Preconditions And Environment
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:48:## Safe Invocation
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:52:## Run Evidence
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:74:## Findings
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:78:## Open Issues
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:82:## Resolved Issues
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:86:## Mutation And Safety Check
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:90:## Verdict And Next Action
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:7:## Smoke Context
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:13:## Review Gate
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:20:## Harness And Protocol
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:25:## Smoke Authoring
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:32:## Selected Scope And Rationale
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:41:## Preconditions And Environment
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:48:## Safe Invocation
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:52:## Run Evidence
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:68:## Findings
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:72:## Open Issues
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:76:## Resolved Issues
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:80:## Mutation And Safety Check
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:84:## Verdict And Next Action
 [0m
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/productstate/store.go[90m [limit=120, offset=100][0m
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/study/state.go[90m [limit=75, offset=18][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go[90m [limit=120, offset=100][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state.go[90m [limit=75, offset=18][0m
 [0m
-[0m$ [0mcd /home/antonio/gauntlet-run/ultraplan-workspace && git ls-files | grep -c "run-state\|flow-state"; echo "---tracked sample---"; git ls-files | grep "flow-state" | head -3; echo "---ultraplan dirs on disk---"; find projects -maxdepth 4 -name ".ultraplan" -o -maxdepth 4 -name "run-control.db" | head -5; echo "---gitignore---"; cat .gitignore 2>/dev/null
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace && git ls-files | grep -c "run-state\|flow-state"; echo "---tracked sample---"; git ls-files | grep "flow-state" | head -3; echo "---ultraplan dirs on disk---"; find projects -maxdepth 4 -name ".ultraplan" -o -maxdepth 4 -name "run-control.db" | head -5; echo "---gitignore---"; cat .gitignore 2>/dev/null
 107
 ---tracked sample---
 projects/ultraplan-go/sprints/01-cli-foundation/flow-state.json
@@ -701,7 +701,7 @@ func entryFromRow(section CatalogSection, headers, cells []string) (CatalogEntry
 		}
 		for _, rel := range ReasoningDefaultPaths() {
 [0m
-[0m$ [0mls /home/antonio/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/sprints/ 2>/dev/null; echo ---; grep -l "Selected Evidence\|Selected Contracts" /home/antonio/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/sprints/*/sprint-index.md 2>/dev/null | head -3; echo ---; grep -A4 "Selected Evidence Reports" /home/antonio/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/sprints/*/sprint-index.md 2>/dev/null | head -12
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/sprints/ 2>/dev/null; echo ---; grep -l "Selected Evidence\|Selected Contracts" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/sprints/*/sprint-index.md 2>/dev/null | head -3; echo ---; grep -A4 "Selected Evidence Reports" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/sprints/*/sprint-index.md 2>/dev/null | head -12
 ---
 ---
 [0m
@@ -723,14 +723,14 @@ func entryFromRow(section CatalogSection, headers, cells []string) (CatalogEntry
 1015:    for (const failure of JSON.parse(payload.textContent || "[]")) {
 1022:    for (const item of JSON.parse(payload.textContent || "[]")) {
 [0m
-[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/web/run_handlers.go[90m [limit=45, offset=270][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers.go[90m [limit=45, offset=270][0m
 [0m
 [0m$ [0mgrep -rn "ApprovedExecuteTargetPath" internal/ --include="*.go" | grep -v _test; echo ---; grep -rn "later sprint\|alternate target" internal/sprint/*_test.go | head -3
 internal/sprint/execute_target.go:11:const ApprovedExecuteTargetPath = "/home/antonioborgerees/coding/ultraplan/ultraplan-go"
 internal/sprint/execute_target.go:22:	approved := filepath.Clean(ApprovedExecuteTargetPath)
 ---
 [0m
-[0m$ [0mgrep -n "^## \|^### " /home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/deep-smoke-sprint-protocol.md | head -25
+[0m$ [0mgrep -n "^## \|^### " /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/deep-smoke-sprint-protocol.md | head -25
 11:## Order
 19:## 1. Discover Context
 23:## 2. Author The Sprint Suite
@@ -741,7 +741,7 @@ internal/sprint/execute_target.go:22:	approved := filepath.Clean(ApprovedExecute
 49:## 7. Write `smoke.md`
 55:## 8. TUI Parity
 [0m
-[0m$ [0msed -n '49,60p' /home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/deep-smoke-sprint-protocol.md
+[0m$ [0msed -n '49,60p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/deep-smoke-sprint-protocol.md
 ## 7. Write `smoke.md`
 
 Atomically write sections for Smoke Context, Review Gate, Selected Scope And Rationale, Preconditions And Environment, Run Evidence, Findings, Open Issues, Resolved Issues, Mutation And Safety Check, and Verdict And Next Action.
