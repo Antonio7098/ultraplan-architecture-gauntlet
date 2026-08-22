@@ -16,7 +16,7 @@ func TestInitMaterializesPrompts(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if r.Model != "opencode-go/ox-alpha-free" {
+	if r.Model != "openrouter/stealth/ox-alpha" {
 		t.Fatalf("model %s", r.Model)
 	}
 	b, err := os.ReadFile(filepath.Join(out, "runs", "generalist-01", "prompt.md"))
