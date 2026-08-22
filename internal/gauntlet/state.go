@@ -35,7 +35,7 @@ func Init(out, target, workspace, model string) (*Review, error) {
 		}
 	}
 	if model == "" {
-		model = "opencode-go/ox-alpha-free"
+		model = "openrouter/stealth/ox-alpha"
 	}
 	absOut, err := filepath.Abs(out)
 	if err != nil {
