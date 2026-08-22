@@ -37,7 +37,7 @@ Run from this repository so OpenCode can discover the bundled `.opencode/agents/
 ./bin/archgauntlet init \
   --target ../ultraplan-go \
   --workspace ../ultraplan-workspace \
-  --model opencode-go/ox-alpha-free
+  --model openrouter/stealth/ox-alpha
 ```
 
 This creates `.archgauntlet/` containing `review.json` plus one immutable-ish prompt directory per job:
