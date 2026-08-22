@@ -45,7 +45,7 @@ func usage() {
 	fmt.Print(`archgauntlet — one-off UltraPlan architecture review orchestrator
 
 Usage:
-  archgauntlet init   --target PATH [--workspace PATH] [--out .archgauntlet] [--model opencode-go/ox-alpha-free]
+  archgauntlet init   --target PATH [--workspace PATH] [--out .archgauntlet] [--model openrouter/stealth/ox-alpha]
   archgauntlet status [--out .archgauntlet]
   archgauntlet next   [--out .archgauntlet]
   archgauntlet prompt --id TASK [--out .archgauntlet]
@@ -62,7 +62,7 @@ func cmdInit(args []string) error {
 	target := fs.String("target", "", "implementation repo")
 	workspace := fs.String("workspace", "", "planning workspace")
 	out := fs.String("out", ".archgauntlet", "run directory")
-	model := fs.String("model", "opencode-go/ox-alpha-free", "model")
+	model := fs.String("model", "openrouter/stealth/ox-alpha", "model")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
