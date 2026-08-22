@@ -1,0 +1,405 @@
+[93m[1m! [0m agent "arch-scout" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mls /home/antonio/gauntlet-run/ultraplan-go && git -C /home/antonio/gauntlet-run/ultraplan-go log --oneline -3 && git -C /home/antonio/gauntlet-run/ultraplan-workspace log --oneline -3
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+368a789 Add UltraPlan daemon and event system study
+2dc3b74 Advance sprints 30-35 and harden review/smoke flow
+0e151a0 update reconciliation smoke skill
+[0m
+[0m$ [0mfind /home/antonio/gauntlet-run/ultraplan-go -type f -name "*.go" | wc -l && find /home/antonio/gauntlet-run/ultraplan-go/internal -maxdepth 1 -type d | sort
+291
+/home/antonio/gauntlet-run/ultraplan-go/internal
+/home/antonio/gauntlet-run/ultraplan-go/internal/app
+/home/antonio/gauntlet-run/ultraplan-go/internal/codeextract
+/home/antonio/gauntlet-run/ultraplan-go/internal/platform
+/home/antonio/gauntlet-run/ultraplan-go/internal/productstate
+/home/antonio/gauntlet-run/ultraplan-go/internal/project
+/home/antonio/gauntlet-run/ultraplan-go/internal/runcontrol
+/home/antonio/gauntlet-run/ultraplan-go/internal/sprint
+/home/antonio/gauntlet-run/ultraplan-go/internal/study
+/home/antonio/gauntlet-run/ultraplan-go/internal/tui
+/home/antonio/gauntlet-run/ultraplan-go/internal/web
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace
+[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/go.mod
+[0m
+[0m$ [0mls /home/antonio/gauntlet-run/ultraplan-go/cmd /home/antonio/gauntlet-run/ultraplan-go/scripts /home/antonio/gauntlet-run/ultraplan-go/dist /home/antonio/gauntlet-run/ultraplan-go/docs && wc -l /home/antonio/gauntlet-run/ultraplan-go/cmd/*/*.go
+/home/antonio/gauntlet-run/ultraplan-go/cmd:
+ultraplan
+
+/home/antonio/gauntlet-run/ultraplan-go/dist:
+checksums.txt
+smoke-evidence.md
+ultraplan-darwin-amd64
+ultraplan-darwin-arm64
+ultraplan-linux-amd64
+ultraplan-linux-arm64
+
+/home/antonio/gauntlet-run/ultraplan-go/docs:
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+
+/home/antonio/gauntlet-run/ultraplan-go/scripts:
+install-ultraplan.sh
+migrate-legacy-sprint-state.sh
+migrate-product-state.sh
+reset-opencode-db.sh
+62 /home/antonio/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+[0m
+[0m$ [0mfor d in /home/antonio/gauntlet-run/ultraplan-go/internal/*/; do n=$(find "$d" -name '*.go' | wc -l); l=$(find "$d" -name '*.go' -exec cat {} + | wc -l); echo "$(basename $d): files=$n lines=$l"; done
+app: files=59 lines=13719
+codeextract: files=6 lines=669
+platform: files=21 lines=3294
+productstate: files=1 lines=206
+project: files=10 lines=1205
+runcontrol: files=28 lines=5464
+sprint: files=62 lines=18300
+study: files=56 lines=10498
+tui: files=14 lines=2812
+web: files=24 lines=6963
+workspace: files=9 lines=1443
+[0m
+[0m$ [0mgo list -deps ./... > /tmp/opencode/alldeps.txt 2>/dev/null; for pkg in $(go list ./internal/... ./cmd/...); do imports=$(go list -f '{{join .Imports "\n"}}' $pkg 2>/dev/null | grep 'ultraplan-go/internal' | sed "s|github.com/Antonio7098/ultraplan-go/internal/||" | tr '\n' ',' | sed 's/,$//'); echo "$pkg <- [$imports]"; done
+github.com/Antonio7098/ultraplan-go/internal/app <- [codeextract,platform/config,platform/runtime,productstate,project,runcontrol,sprint,study,workspace]
+github.com/Antonio7098/ultraplan-go/internal/codeextract <- []
+github.com/Antonio7098/ultraplan-go/internal/platform/config <- []
+github.com/Antonio7098/ultraplan-go/internal/platform/filesystem <- []
+github.com/Antonio7098/ultraplan-go/internal/platform/logging <- [platform/config]
+github.com/Antonio7098/ultraplan-go/internal/platform/process <- []
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime <- [platform/config]
+github.com/Antonio7098/ultraplan-go/internal/productstate <- []
+github.com/Antonio7098/ultraplan-go/internal/project <- [workspace]
+github.com/Antonio7098/ultraplan-go/internal/runcontrol <- []
+github.com/Antonio7098/ultraplan-go/internal/sprint <- [platform/config,platform/process,platform/runtime,productstate,project,workspace]
+github.com/Antonio7098/ultraplan-go/internal/study <- [platform/runtime,productstate,workspace]
+github.com/Antonio7098/ultraplan-go/internal/tui <- [app]
+github.com/Antonio7098/ultraplan-go/internal/web <- [app]
+github.com/Antonio7098/ultraplan-go/internal/workspace <- []
+github.com/Antonio7098/ultraplan-go/cmd/ultraplan <- [app,tui,web]
+[0m
+[0m• [0mMap entrypoint and app wiring[90m Explore Agent[0m
+[0m• [0mMap study and runcontrol packages[90m Explore Agent[0m
+[0m• [0mMap web and tui layers[90m Explore Agent[0m
+[0m✓ [0mMap web and tui layers[90m Explore Agent[0m
+[0m✓ [0mMap entrypoint and app wiring[90m Explore Agent[0m
+[0m✓ [0mMap study and runcontrol packages[90m Explore Agent[0m
+[0m• [0mMap sprint and platform packages[90m Explore Agent[0m
+[0m✓ [0mMap sprint and platform packages[90m Explore Agent[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/sprint/execute_target.go
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/sprint/freshness_policy.go
+[0m
+[0m$ [0msed -n 560/,625p /home/antonio/gauntlet-run/ultraplan-go/internal/app/run_control.go 2>/dev/null || sed -n '560,625p' /home/antonio/gauntlet-run/ultraplan-go/internal/app/run_control.go
+encoded, err := jsonMarshalTruncated(v)
+		if err != nil {
+			return fmt.Sprintf("%v", v)
+		}
+		return encoded
+	default:
+		return fmt.Sprintf("%v", v)
+	}
+}
+
+func jsonMarshalTruncated(v any) (string, error) {
+	// Lightweight JSON marshal with truncation; avoid importing encoding/json at top if already there – use fmt.
+	// We use a small helper to avoid cycle; marshal then truncate to safe limit.
+	// This is called only for map/slice payloads which are rare.
+	return fmt.Sprintf("%v", v), nil
+}
+
+func boundedPayloadValue(value string) string {
+	value = strings.Map(func(r rune) rune {
+		if r == 0 || r == '\r' || r == '\n' {
+			return -1
+		}
+		return r
+	}, strings.TrimSpace(value))
+	if len(value) > runcontrol.MaxSafeValueBytes {
+		value = value[:runcontrol.MaxSafeValueBytes]
+	}
+	return value
+}
+
+func payloadHash(payload map[string]string) string {
+	if len(payload) == 0 {
+		return ""
+	}
+	// Stable hash of payload content for coalescing: include type/kind and any payload_* keys.
+	keys := make([]string, 0, len(payload))
+	for k := range payload {
+		if k == "runtime_event_id" || k == "runtime_run_id" || k == "session_id" {
+			continue
+		}
+		keys = append(keys, k)
+	}
+	// Keep deterministic order by sorting.
+	sortStrings(keys)
+	var b strings.Builder
+	for _, k := range keys {
+		b.WriteString(k)
+		b.WriteString("=")
+		b.WriteString(payload[k])
+		b.WriteString("\x00")
+	}
+	return b.String()
+}
+
+func sortStrings(values []string) {
+	// Insertion sort for small slices – avoid importing sort for minimal diff; keep stdlib sort if available.
+	for i := 1; i < len(values); i++ {
+		j := i
+		for j > 0 && values[j-1] > values[j] {
+			values[j-1], values[j] = values[j], values[j-1]
+			j--
+		}
+	}
+}
+
+func terminalOutcome(result runtimepkg.Result, runErr error, parent context.Context) (runcontrol.TerminalOutcome, string) {
+[0m
+[0m$ [0mgit log --oneline -5 -- internal/sprint/execute_target.go && grep -rn "antonioborgerees" --include="*.go" --include="*.md" . | grep -v "_test.go:" | head; echo "---callers---"; grep -rn "jsonMarshalTruncated" internal/ | head; echo "---productstate in sprint tests---"; grep -rln "productstate\|FlowStateInDatabase\|loadFlowStateDatabase" internal/sprint/*_test.go | head
+9545e91 fix sprint execute target after repository move
+d21b305 Add execute state and plan extraction primitives
+./dist/smoke-evidence.md:5:Working directory: `/home/antonioborgerees/coding/ultraplan-go`
+./dist/smoke-evidence.md:43:| `cd /home/antonioborgerees/coding/agentwrap && go test ./...` | pass | Native dependency tests passed before push. |
+./dist/smoke-evidence.md:44:| `cd /home/antonioborgerees/coding/agentwrap && GOOS=darwin GOARCH=amd64 go test -c -o /tmp/agentwrap-opencode-darwin-amd64.test ./opencode` | pass | Darwin amd64 compile check passed before push; test binary was not executed on Linux host. |
+./dist/smoke-evidence.md:45:| `cd /home/antonioborgerees/coding/agentwrap && GOOS=darwin GOARCH=arm64 go test -c -o /tmp/agentwrap-opencode-darwin-arm64.test ./opencode` | pass | Darwin arm64 compile check passed before push; test binary was not executed on Linux host. |
+./dist/smoke-evidence.md:99:Evidence repository: `/home/antonioborgerees/coding/ultraplan-go-smoke`.
+./dist/smoke-evidence.md:119:Residual risk: the full smoke baseline has historical open failures documented in `/home/antonioborgerees/coding/ultraplan-go-smoke/README.md`; no new full smoke run was executed after the packaging-only dependency update. Offline fake-first tests, native build, dependency compile checks, and all release package builds passed against the pushed non-local dependency.
+./internal/sprint/execute_target.go:11:const ApprovedExecuteTargetPath = "/home/antonioborgerees/coding/ultraplan/ultraplan-go"
+./docs/reports/sprint-efficiency.md:6:Worktree: `/home/antonioborgerees/coding/ultraplan/ultraplan-go-sprint-efficiency`
+---callers---
+internal/app/run_control.go:560:		encoded, err := jsonMarshalTruncated(v)
+internal/app/run_control.go:570:func jsonMarshalTruncated(v any) (string, error) {
+---productstate in sprint tests---
+[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/docs/architecture.md
+[0m
+[0m$ [0mgrep -rn "approved\|ApprovedExecuteTargetPath\|target implementation" docs/cli-reference.md docs/user-guide.md docs/configuration.md README.md 2>/dev/null | head -10; echo "---study db tests---"; ls internal/study/*test* | xargs grep -ln "productstate\|state_database\|LoadRunStateDatabase" 2>/dev/null; echo "---app storage tests---"; ls internal/app/storage_commands_test.go internal/app/run_control_inventory_test.go 2>/dev/null; echo "---payload fmt---"; sed -n '520,560p' internal/app/run_control.go
+docs/cli-reference.md:314:Executes validated top-level `plan.md` task checkboxes through one reusable generic-runtime agent session. The first turn receives the shared sprint context, ordered queue, and current task; each later task is a compact continuation in that session. UltraPlan checkpoints each task before advancing, stops the queue on failure/cancellation, writes `.run-state.json` and `execute.md`, requires runtime evidence or a safe diagnostic before marking a task complete, and constrains work to the project index target implementation directory. If the runtime supplies no reusable session ID, execution safely falls back to complete independent prompts.
+---study db tests---
+---app storage tests---
+internal/app/run_control_inventory_test.go
+---payload fmt---
+					if s, ok := innerMap[want].(string); ok && strings.TrimSpace(s) != "" {
+						return s
+					}
+				}
+			}
+		}
+	}
+	return ""
+}
+
+func payloadValueString(value any) string {
+	switch v := value.(type) {
+	case string:
+		return v
+	case []byte:
+		if len(v) == 0 {
+			return ""
+		}
+		return string(v)
+	case bool:
+		if v {
+			return "true"
+		}
+		return "false"
+	case int:
+		return fmt.Sprintf("%d", v)
+	case int8:
+		return fmt.Sprintf("%d", v)
+	case int16:
+		return fmt.Sprintf("%d", v)
+	case int32:
+		return fmt.Sprintf("%d", v)
+	case int64:
+		return fmt.Sprintf("%d", v)
+	case uint, uint8, uint16, uint32, uint64:
+		return fmt.Sprintf("%d", v)
+	case float32, float64:
+		return fmt.Sprintf("%v", v)
+	case map[string]any, map[string]string, []any, []string:
+		// Encode structured values compactly.
+		encoded, err := jsonMarshalTruncated(v)
+[0m
+[0m$ [0mgrep -rln "productstate" --include="*_test.go" . ; echo "---dist tracked---"; git ls-files dist | head; echo "---cleanup twin check---"; diff <(sed 's/study/PKG/g' internal/study/cleanup_uncertain.go) <(sed 's/sprint/PKG/g' internal/sprint/cleanup_uncertain.go) | head -30
+---dist tracked---
+dist/checksums.txt
+dist/smoke-evidence.md
+dist/ultraplan-darwin-amd64
+dist/ultraplan-darwin-arm64
+dist/ultraplan-linux-amd64
+dist/ultraplan-linux-arm64
+---cleanup twin check---
+15c15
+< const cleanupUncertainFileName = "cleanup-uncertain.json"
+---
+> const cleanupUncertainFileName = ".cleanup-uncertain.json"
+28,31c28,31
+< // RecordCleanupUncertain writes a separate PKG-owned recovery marker. It
+< // does not acquire the run-loop lock because the original owner may still
+< // hold that lock when the server's shutdown deadline expires.
+< func (s Service) RecordCleanupUncertain(ctx context.Context, PKGRef string, record CleanupUncertainRecord) error {
+---
+> // RecordCleanupUncertain writes a separate product-owned recovery marker. It
+> // deliberately does not rewrite canonical run state or acquire the mutation
+> // lease: at deadline exhaustion the original owner may still hold that lease.
+> func (s Service) RecordCleanupUncertain(ctx context.Context, projectRef, PKGRef string, record CleanupUncertainRecord) error {
+35c35
+< 	st, err := s.resolveCleanupStudy(PKGRef)
+---
+> 	sp, err := s.resolveMutationSprint(projectRef, PKGRef)
+45c45
+< 		record.RecordedAt = time.Now().UTC()
+---
+> 		record.RecordedAt = s.now().UTC()
+57,153c57
+< 	path := cleanupUncertainPath(st)
+< 	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+< 		return fmt.Errorf("create cleanup uncertainty directory %s: %w", filepath.Dir(path), err)
+< 	}
+< 	return atomicWriteFile(path, data, "."+cleanupUncertainFileName+".*.tmp")
+< }
+<
+[0m
+[0m$ [0msed -n '82,135p' internal/app/durable_operations.go; echo "====run_control===="; sed -n '122,175p' internal/app/run_control.go
+func (m *durableOperationManager) AcceptOperation(ctx context.Context, confirmation Confirmation, digest string) (AcceptedOperation, error) {
+	req := confirmation.Request
+	target := runcontrol.Target{
+		Kind: "operation", Operation: string(req.Kind), Project: req.Project, Sprint: req.Sprint,
+		Study: req.Study, Stage: req.Stage, Task: req.Task,
+	}
+	snapshot, err := m.repository.Accept(ctx, runcontrol.Acceptance{
+		Target: target, ProductStatus: "prepared", OperationAlias: digest, ConfirmationDigest: digest,
+	})
+	if err != nil && digest != "" && errors.Is(err, runcontrol.ErrConflict) {
+		existing, resolveErr := m.repository.ResolveOperationAlias(ctx, digest)
+		if resolveErr != nil {
+			return AcceptedOperation{}, errors.Join(err, resolveErr)
+		}
+		return AcceptedOperation{RunID: string(existing.RunID), Context: ctx, Existing: true, Lifecycle: string(existing.Lifecycle)}, nil
+	}
+	if err != nil {
+		return AcceptedOperation{}, fmt.Errorf("persist confirmed operation acceptance: %w", err)
+	}
+	attempt, _, err := m.repository.Claim(ctx, runcontrol.Claim{RunID: snapshot.RunID, Owner: m.owner, Lease: runcontrol.OwnerLeaseDuration})
+	if err != nil {
+		return AcceptedOperation{}, fmt.Errorf("persist confirmed operation owner claim: %w", err)
+	}
+	fence := runcontrol.Fence{RunID: snapshot.RunID, AttemptID: attempt.ID, OwnerID: m.owner.ID, FencingGeneration: attempt.FencingGeneration}
+	if _, _, err := appendRunEventWithRetry(ctx, m.repository, fence, runcontrol.EventDraft{
+		Type: runcontrol.EventLifecycle, Lifecycle: runcontrol.LifecycleRunning,
+		Payload: map[string]string{"lifecycle": string(runcontrol.LifecycleRunning)},
+	}); err != nil {
+		terminalCtx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+		_, _, _ = proposeRunTerminalWithRetry(terminalCtx, m.repository, fence, runcontrol.TerminalProposal{Outcome: runcontrol.TerminalPersistenceLost, Reason: "operation start persistence failed", ProposedBy: m.owner.ID})
+		cancel()
+		return AcceptedOperation{}, fmt.Errorf("persist confirmed operation start: %w", err)
+	}
+	operationCtx, cancel := context.WithCancel(ctx)
+	owned := &ownedDurableOperation{fence: fence, cancel: cancel, stop: make(chan struct{}), done: make(chan struct{})}
+	m.mu.Lock()
+	m.owned[string(snapshot.RunID)] = owned
+	m.mu.Unlock()
+	go m.controlOperation(operationCtx, owned)
+	return AcceptedOperation{RunID: string(snapshot.RunID), Context: operationCtx, Lifecycle: string(runcontrol.LifecycleRunning)}, nil
+}
+
+func (m *durableOperationManager) RecordOperationEvent(ctx context.Context, runID string, event OperationEvent) (bool, error) {
+	m.mu.Lock()
+	owned := m.owned[runID]
+	m.mu.Unlock()
+	if owned == nil {
+		return false, runcontrol.ErrNotFound
+	}
+	owned.eventMu.Lock()
+	defer owned.eventMu.Unlock()
+	eventType := runcontrol.EventProgress
+	if event.State == OperationFailed {
+		eventType = runcontrol.EventWarning
+====run_control====
+func (r controlledRuntime) StartRun(ctx context.Context, req runtimepkg.Request) (runtimepkg.Result, error) {
+	target := targetFromRuntimeRequest(req)
+	correlation := runcontrol.Correlation{ProductTaskID: boundedSafe(req.TraceID)}
+	snapshot, err := r.repository.Accept(ctx, runcontrol.Acceptance{
+		Target:        target,
+		Correlation:   correlation,
+		ProductStatus: "accepted",
+	})
+	if err != nil {
+		return runtimepkg.Result{}, fmt.Errorf("durable run acceptance failed: %w", err)
+	}
+	attempt, _, err := r.repository.Claim(ctx, runcontrol.Claim{
+		RunID: snapshot.RunID, Owner: r.owner, Lease: runControlLease, Correlation: correlation,
+	})
+	if err != nil {
+		return runtimepkg.Result{}, fmt.Errorf("durable run ownership failed: %w", err)
+	}
+	fence := runcontrol.Fence{
+		RunID: snapshot.RunID, AttemptID: attempt.ID, OwnerID: r.owner.ID,
+		FencingGeneration: attempt.FencingGeneration,
+	}
+
+	runCtx, cancel := context.WithCancel(ctx)
+	defer cancel()
+	req.Metadata = cloneRuntimeMetadata(req.Metadata)
+	req.Metadata["run_control_run_id"] = string(snapshot.RunID)
+	configuredOnEvent := req.OnEvent
+	var eventMu sync.Mutex
+	var persistenceErr error
+	var progressKey string
+	var progressCommittedAt time.Time
+	var progressOmitted uint64
+	var progressOmittedFirst time.Time
+	var progressOmittedLast time.Time
+	setPersistenceErr := func(value error) {
+		eventMu.Lock()
+		defer eventMu.Unlock()
+		if persistenceErr == nil {
+			persistenceErr = value
+			cancel()
+		}
+	}
+	req.OnEvent = func(event runtimepkg.Event) {
+		eventMu.Lock()
+		defer eventMu.Unlock()
+		if persistenceErr != nil {
+			return
+		}
+		draft := runtimeEventDraft(req, event)
+		eventAt := event.Time.UTC()
+		if eventAt.IsZero() {
+			eventAt = time.Now().UTC()
+		}
+		// Content-aware coalescing: only collapse identical progress payloads within the window.
+[0m

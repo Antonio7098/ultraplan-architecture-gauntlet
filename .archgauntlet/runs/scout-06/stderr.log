@@ -1,0 +1,405 @@
+[93m[1m! [0m agent "arch-scout" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -3 && git status --porcelain | wc -l && echo "---" && ls
+368a789 Add UltraPlan daemon and event system study
+2dc3b74 Advance sprints 30-35 and harden review/smoke flow
+0e151a0 update reconciliation smoke skill
+0
+---
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m$ [0mgit log --oneline -3 && git status --porcelain | wc -l && echo "---" && ls && echo "---" && find . -maxdepth 2 -type d -not -path '*/.git*' | sort
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0
+---
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+---
+.
+./cmd
+./cmd/ultraplan
+./dist
+./docs
+./docs/plans
+./docs/reports
+./internal
+./internal/app
+./internal/codeextract
+./internal/platform
+./internal/productstate
+./internal/project
+./internal/runcontrol
+./internal/sprint
+./internal/study
+./internal/tui
+./internal/web
+./internal/workspace
+./scripts
+[0m
+[0m$ [0mls internal/app internal/tui internal/web cmd/ultraplan 2>/dev/null && echo "=== go.mod ===" && cat go.mod | head -20
+cmd/ultraplan:
+main.go
+
+internal/app:
+app.go
+app_test.go
+code_commands.go
+code_commands_test.go
+config_commands.go
+defaults_commands.go
+durable_operations.go
+durable_operations_test.go
+health_commands.go
+health_commands_test.go
+json_output.go
+markdown.go
+markdown_test.go
+operation_runner.go
+operations.go
+project_commands.go
+project_commands_test.go
+project_usecases.go
+run_commands.go
+run_commands_test.go
+run_control.go
+run_control_inventory_test.go
+run_control_test.go
+run_usecases.go
+serve_commands.go
+serve_commands_test.go
+skills_commands.go
+skills_commands_test.go
+sprint_commands.go
+sprint_commands_test.go
+sprint_error_test.go
+sprint_usecases.go
+sprint_usecases_test.go
+sprint_verify_commands_test.go
+status_json.go
+storage_commands.go
+study_commands.go
+study_commands_test.go
+study_init_commands_test.go
+study_prompt_commands_test.go
+study_run_all_commands_test.go
+study_run_commands_test.go
+study_run_loop_commands_test.go
+study_runs_commands.go
+study_runs_commands_test.go
+study_status_commands_test.go
+study_summary_commands_test.go
+study_usecases.go
+study_validate_commands_test.go
+surfaces.go
+tui_commands.go
+tui_commands_test.go
+usecases.go
+usecases_test.go
+version.go
+web_operations_test.go
+web_usecases.go
+web_usecases_test.go
+workspace_commands.go
+
+internal/tui:
+app.go
+doc.go
+keys.go
+markdown.go
+model.go
+model_test.go
+run_view_test.go
+test_fakes_test.go
+theme.go
+verify_test.go
+viewport.go
+viewport_test.go
+views.go
+views_test.go
+
+internal/web:
+api_compatibility_test.go
+artifacts.go
+artifacts_test.go
+handlers.go
+import_boundary_test.go
+integration_test.go
+operation_handlers.go
+operations_contract_test.go
+operations.go
+operations_test.go
+packaging_test.go
+routes.go
+routes_test.go
+run_handlers.go
+run_handlers_test.go
+security.go
+security_test.go
+server.go
+server_policy.go
+server_policy_test.go
+server_test.go
+sse_test.go
+static
+templates
+templates_test.go
+test_fakes_test.go
+=== go.mod ===
+module github.com/Antonio7098/ultraplan-go
+
+go 1.26
+
+require gopkg.in/yaml.v3 v3.0.1
+
+require (
+	github.com/Antonio7098/agentwrap v0.0.0-20260821190033-e79a38a58da3
+	github.com/charmbracelet/bubbletea v1.3.10
+	github.com/charmbracelet/glamour v1.0.0
+	github.com/charmbracelet/lipgloss v1.1.1-0.20250404203927-76690c660834
+	github.com/yuin/goldmark v1.7.13
+	golang.org/x/sys v0.47.0
+	modernc.org/sqlite v1.57.0
+)
+
+require (
+	github.com/alecthomas/chroma/v2 v2.20.0 // indirect
+	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
+	github.com/aymerick/douceur v0.2.0 // indirect
+[0m
+[0m$ [0mfind internal -type d | sort && echo "=== grep for runtime/process pkgs ===" && grep -rl "agentwrap" --include="*.go" internal cmd | head -30
+internal
+internal/app
+internal/codeextract
+internal/platform
+internal/platform/config
+internal/platform/filesystem
+internal/platform/logging
+internal/platform/process
+internal/platform/runtime
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/web/static
+internal/web/static/css
+internal/web/static/js
+internal/web/templates
+internal/web/templates/components
+internal/web/templates/layouts
+internal/web/templates/pages
+internal/web/templates/primitives
+internal/workspace
+internal/workspace/scaffold
+internal/workspace/scaffold/prompts
+internal/workspace/scaffold/templates
+=== grep for runtime/process pkgs ===
+internal/runcontrol/model.go
+internal/runcontrol/sanitize_test.go
+internal/runcontrol/sanitize.go
+internal/platform/runtime/health.go
+internal/platform/runtime/runtime.go
+internal/platform/runtime/opencode.go
+internal/platform/runtime/opencode_test.go
+internal/platform/runtime/agentwrap.go
+internal/platform/runtime/events.go
+internal/platform/runtime/runtime_test.go
+internal/platform/config/redaction.go
+internal/platform/config/config.go
+internal/platform/config/config_test.go
+internal/app/config_commands.go
+internal/app/sprint_commands_test.go
+internal/app/study_commands.go
+internal/app/study_prompt_commands_test.go
+internal/app/app_test.go
+internal/app/health_commands.go
+internal/study/runtime_validation.go
+internal/workspace/init.go
+internal/sprint/runtime_validation.go
+internal/sprint/review_test.go
+internal/sprint/efficiency_improvements_test.go
+internal/sprint/review_runtime_validation.go
+internal/sprint/prompt_bundle.go
+[0m
+[0m• [0mMap boundary import graph[90m Explore Agent[0m
+[0m• [0mTrace process lifecycle paths[90m General Agent[0m
+[0m• [0mTrace cancellation/shutdown flows[90m General Agent[0m
+[0m• [0mTrace observation/event paths[90m General Agent[0m
+[0m• [0mLifecycle test coverage survey[90m Explore Agent[0m
+[0m✓ [0mTrace observation/event paths[90m General Agent[0m
+[0m✓ [0mTrace cancellation/shutdown flows[90m General Agent[0m
+[0m✓ [0mTrace process lifecycle paths[90m General Agent[0m
+[0m✓ [0mMap boundary import graph[90m Explore Agent[0m
+[0m✓ [0mLifecycle test coverage survey[90m Explore Agent[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
+[0m✗ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/study/locks.go failed[90m [offset=555, limit=90][0m
+[91m[1mError: [0mOffset 555 is out of range for this file (202 lines)
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=200, offset=395][0m
+[0m
+[0m$ [0mgit show --stat eeaa034 | head -25 && echo "=====" && git show --stat c455510 | head -25
+commit eeaa034cb1e520ea10e806870f6026cf1bb6c4f7
+Author: antonio <antoniorees74@gmail.com>
+Date:   Sat Aug 22 11:01:06 2026 +0100
+
+    observability: promote nested runtime payload facts to top level
+    
+    opencode events nest tool names, titles, and text under part/state/properties
+    maps. Downstream consumers (run-loop progress summaries, durable operation
+    journal, web timeline) only read top-level payload keys, so every event
+    rendered as a generic 'runtime' row with empty tool names.
+    
+    promoteObservablePayloadFields() lifts tool/name/title/detail/text/delta/
+    output/message/state/status/action/phase from nested maps (depth 4,
+    deterministic traversal) onto the payload top level in mapEvent(), without
+    overwriting existing top-level values.
+
+ internal/platform/runtime/runtime.go | 55 +++++++++++++++++++++++++++++++++++-
+ 1 file changed, 54 insertions(+), 1 deletion(-)
+=====
+commit c45551008e151538268c0f7a6421ce8f38b4a4b5
+Author: antonio <antoniorees74@gmail.com>
+Date:   Sat Aug 22 10:48:48 2026 +0100
+
+    observability: surface agent stream details in durable run events
+    
+    - widen platform runtime sanitize limits (64 fields, 16 slice, depth 3, 8k strings)
+    - preserve safe payload fields into runcontrol with nested flattening
+    - make progress coalescing content-aware via payloadHash
+    - map reasoning/text as EventMessage, tool_use as distinct progress
+    - expose DetailText in run event view and render in run.html timeline
+    - keeps SSE plumbing (already text/event-stream) but now carries tool/action/title
+    
+    Fixes generic 'runtime'/'Tool call' rows seen on agent-harness-study
+
+ internal/app/run_control.go            | 229 ++++++++++++++++++++++++++++++++-
+ internal/platform/runtime/agentwrap.go |   8 +-
+ internal/web/run_handlers.go           |  17 ++-
+ internal/web/templates/run.html        |   2 +-
+ 4 files changed, 246 insertions(+), 10 deletions(-)
+[0m
+[0m✱ [0mGrep "payload\.(title|text|delta|detail)|JSON\.parse"[90m in /home/antonio/gauntlet-run/ultraplan-go/internal/web/static · 4 matches[0m
+[0m✱ [0mGrep "sanitizeEventDraft|firstNonEmptyPayload|DetailText"[90m in /home/antonio/gauntlet-run/ultraplan-go · 8 matches[0m
+[0m
+[0m$ [0mgit log --oneline -- internal/runcontrol/sanitize.go && echo "=== tests asserting promoted keys ===" && grep -rn "\"title\"\|\"delta\"\|\"detail\"\|\"text\"" --include="*_test.go" internal/app internal/web internal/tui | grep -i "payload\|event" | head -15
+e09d394 Add durable run control and adaptive study execution
+=== tests asserting promoted keys ===
+internal/app/app_test.go:237:	if payload.Command != "config show" || payload.Status != "ok" || payload.Result.Version != 1 || payload.Result.Logging.Format != "text" {
+[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/tui/app.go
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/app/health_commands.go[90m [limit=60, offset=95][0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/study/locks.go
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=20, offset=18][0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/app/study_commands.go[90m [limit=30, offset=14, command=grep -n "studyRuntimeFactory" internal/app/*.go && echo "=== smoke Request ===" && grep -n "pprocess.Request{" -A 10 internal/sprint/smoke.go | head -30, workdir=/home/antonio/gauntlet-run/ultraplan-go][0m
+[0m
+[0m$ [0mgrep -n "pprocess.Request{" -A 12 internal/sprint/smoke.go | head -40
+75:	discoveryProcess, discoveryErr := s.processRunner.Run(ctx, pprocess.Request{Executable: prepared.Executable, Args: discoveryArgs, Dir: prepared.CWD, Env: env, Timeout: s.smokeSettings.DiscoveryTimeout, StdoutLimit: s.smokeSettings.StdoutLimit, StderrLimit: s.smokeSettings.StderrLimit, CleanupGrace: s.smokeSettings.CleanupGrace})
+76-	if discoveryErr != nil {
+77-		return smokeFailedResult(result, classifyProcessSmokeError("discovery", discoveryProcess, discoveryErr))
+78-	}
+79-	if discoveryProcess.StdoutTruncated {
+80-		return smokeFailedResult(result, smokeError("smoke_discovery_truncated", "protocol", "discovery output exceeded the configured bound", "Increase the bounded capture limit or reduce discovery output.", nil))
+81-	}
+82-	var discovery smokeDiscovery
+83-	if err := decodeOneJSON(discoveryProcess.Stdout, &discovery); err != nil {
+84-		return smokeFailedResult(result, smokeError("smoke_discovery_malformed", "protocol", "discovery did not return one valid JSON object", "Fix the harness discovery command.", err))
+85-	}
+86-	if err := validateSmokeDiscovery(discovery, prepared.Manifest); err != nil {
+87-		return smokeFailedResult(result, err)
+--
+128:	runProcess, runErr := s.processRunner.Run(ctx, pprocess.Request{Executable: prepared.Executable, Args: runArgs, Dir: prepared.CWD, Env: env, Timeout: result.EffectiveTimeout, StdoutLimit: s.smokeSettings.StdoutLimit, StderrLimit: s.smokeSettings.StderrLimit, CleanupGrace: s.smokeSettings.CleanupGrace, Progress: func(event pprocess.Event) { emit(SmokeProgress{Phase: SmokePhaseRunning, Message: "harness progress"}) }})
+129-	if runProcess.DroppedEvents > 0 {
+130-		result.Diagnostics = append(result.Diagnostics, fmt.Sprintf("%d progress events were dropped", runProcess.DroppedEvents))
+131-	}
+132-	if runProcess.StdoutTruncated {
+133-		return smokeFailedResult(result, smokeError("smoke_run_truncated", "process", "run response exceeded the configured stdout bound", "Increase the bounded capture limit or reduce run output.", nil))
+134-	}
+135-	var response smokeRunResponse
+136-	decodeErr := decodeOneJSON(runProcess.Stdout, &response)
+137-	if decodeErr != nil {
+138-		if runErr != nil {
+139-			return smokeFailedResult(result, classifyProcessSmokeError("run", runProcess, runErr))
+140-		}
+[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go[90m [limit=70, offset=264][0m
+[0m
+[0m$ [0mls studies system docs 2>/dev/null && echo === && grep -rln "daemon" studies system 2>/dev/null | head
+studies:
+agent-harness-study
+go-cli-study
+ultraplan-daemon-events-study
+
+system:
+contracts
+protocols
+reasoning
+[0m
+[0m$ [0mls studies/ultraplan-daemon-events-study system/reasoning | head -30 && echo "=== shutdown contract status ===" && grep -n -i "sprint\|status\|future\|planned\|grace" /home/antonio/gauntlet-run/ultraplan-go/docs/plans/server-shutdown-run-cancellation-contract.md | head -20
+studies/ultraplan-daemon-events-study:
+dimensions
+sources
+study-init.yml
+study.json
+
+system/reasoning:
+api-design-reasoning-template.md
+architecture_reasoning_template.md
+cli-design-reasoning-template.md
+data-privacy-reasoning-template.md
+errors_reasoning_template.md
+eval-design-reasoning-template.md
+frontend-design-reasoning-template.md
+frontend-reasoning-template.md
+frontend-state-placement-template.md
+llm-feature-reasoning-template.md
+observability-reasoning-template.md
+package-api-reasoning-template.md
+performance-reasoning-template.md
+persistence-reasoning-template.md
+prompt-change-reasoning-template.md
+release-reasoning-template.md
+security-threat-reasoning-template.md
+testing-strategy-reasoning-template.md
+=== shutdown contract status ===
+3:**Status:** Proposed, normative addendum  
+9:> Gracefully stopping the UltraPlan server cancels every active run owned by that server.
+11:The initial local server must not leave agent processes, study run loops, sprint flows, verification attempts, repairs, shell commands, or other server-started operations running after the server that owns their lifecycle, locks, progress streams, and cancellation controls has stopped.
+40:A future durable worker architecture may change ownership so runs survive control-plane restart, but that must be introduced as an explicit later contract with durable workers, leases, heartbeats, and reconciliation. It must not emerge accidentally from orphaned local processes.
+42:## 3. Graceful shutdown sequence
+44:When graceful shutdown begins, the server must perform this sequence:
+93:The server must wait for a configured, bounded shutdown grace period.
+117:terminal_status: cancelled
+144:- gracefully stop the HTTP server;
+145:- exit after all operations have reached a durable outcome or the grace period has expired and uncertainty has been recorded.
+165:`SIGINT` and `SIGTERM` cannot depend on an interactive confirmation. They must begin the graceful shutdown sequence immediately.
+167:A second termination signal may shorten the remaining grace period, but it should still attempt final state persistence before forced exit where possible.
+183:`SIGKILL`, host failure, power loss, runtime crash, or an unrecoverable server panic cannot guarantee graceful cancellation.
+195:7. expose a recovery recommendation in CLI, TUI, and browser status.
+211:The server may expose a bounded shutdown grace period, for example:
+215:  shutdown_grace_period: 30s
+239:cleanup_status
+240:terminal_status
+248:### 9.1 Graceful shutdown
+257:- bounded grace-period expiry;
+[0m
+[0m✱ [0mGrep "OpenSQLite\("[90m in /home/antonio/gauntlet-run/ultraplan-go/internal · 41 matches[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=120, offset=116][0m

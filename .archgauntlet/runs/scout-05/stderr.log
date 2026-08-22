@@ -1,0 +1,754 @@
+[93m[1m! [0m agent "arch-scout" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -3 && git status --short | head -5 && echo "---" && ls
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+---
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+[0m
+[0m$ [0mgit log --oneline -3 && echo "---" && ls
+368a789 Add UltraPlan daemon and event system study
+2dc3b74 Advance sprints 30-35 and harden review/smoke flow
+0e151a0 update reconciliation smoke skill
+---
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m$ [0mls projects/ && echo "---" && ls system/ 2>/dev/null | head -30 && echo "---" && cat ultraplan.yml 2>/dev/null | head -50
+aren-phase-01-execution-lifecycle
+ultraplan-go
+---
+contracts
+protocols
+reasoning
+---
+version: 1
+runtime:
+  default: opencode
+models:
+  default: minimax-coding-plan/MiniMax-M3
+  primary: minimax-coding-plan/MiniMax-M3
+  backup: minimax-coding-plan/MiniMax-M3
+execution:
+  default_variant: high
+  default_parallel: 5
+  default_timeout: 12m
+  default_retries: 1
+planning:
+  requirements_model: openai/gpt-5.6-sol
+  requirements_variant: high
+  code_context_model: openai/gpt-5.6-sol
+  code_context_variant: low
+  sprint_index_model: openai/gpt-5.6-sol
+  sprint_index_variant: high
+  technical_handbook_model: openai/gpt-5.6-sol
+  technical_handbook_variant: high
+  area_reasoning_model: openai/gpt-5.6-sol
+  area_reasoning_variant: high
+  reasoning_model: openai/gpt-5.6-sol
+  reasoning_variant: high
+  plan_model: openai/gpt-5.6-sol
+  plan_variant: high
+  review_model: minimax-coding-plan/MiniMax-M3
+  smoke_model: openai/gpt-5.6-sol
+  smoke_variant: low
+  execute_model: openai/gpt-5.6-sol
+  execute_variant: high
+logging:
+  format: text
+  level: debug
+agentwrap:
+  executable: opencode
+  permission_default: allow
+  required_health:
+    - runtime_available
+    - structured_output
+    - workdir
+[0m
+[0m$ [0mfind internal cmd -maxdepth 2 -type d | sort
+cmd
+cmd/ultraplan
+internal
+internal/app
+internal/codeextract
+internal/platform
+internal/platform/config
+internal/platform/filesystem
+internal/platform/logging
+internal/platform/process
+internal/platform/runtime
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/web/static
+internal/web/templates
+internal/workspace
+internal/workspace/scaffold
+[0m
+[0m• [0mFind locks leases concurrency[90m Explore Agent[0m
+[0m• [0mTrace run lifecycle states[90m Explore Agent[0m
+[0m• [0mMap durable event system[90m Explore Agent[0m
+[0m• [0mMap workspace artifact coupling[90m Explore Agent[0m
+[0m✓ [0mMap durable event system[90m Explore Agent[0m
+[0m✓ [0mTrace run lifecycle states[90m Explore Agent[0m
+[0m✓ [0mFind locks leases concurrency[90m Explore Agent[0m
+[0m✓ [0mMap workspace artifact coupling[90m Explore Agent[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
+[0m
+[0m$ [0mgrep -rn "LivenessOwnerUnreachable\|LivenessInterrupted\|LivenessCleanupUncertain\|CancellationUncertain\|cancellation_uncertain" internal --include="*.go" | grep -v "_test.go"
+internal/runcontrol/model.go:60:	LivenessOwnerUnreachable Liveness = "owner_unreachable"
+internal/runcontrol/model.go:61:	LivenessInterrupted      Liveness = "interrupted"
+internal/runcontrol/model.go:62:	LivenessCleanupUncertain Liveness = "cleanup_uncertain"
+internal/runcontrol/model.go:68:	case LivenessUnknown, LivenessLive, LivenessStalled, LivenessOwnerUnreachable,
+internal/runcontrol/model.go:69:		LivenessInterrupted, LivenessCleanupUncertain, LivenessTerminal:
+internal/runcontrol/model.go:82:	CancellationUncertain    CancellationState = "uncertain"
+internal/runcontrol/model.go:87:	case CancellationNone, CancellationRequested, CancellationAcknowledged, CancellationUncertain:
+internal/runcontrol/model.go:400:	CancellationUncertain int           `json:"cancellation_uncertain"`
+internal/runcontrol/sqlite.go:877:	if err := r.db.QueryRowContext(ctx, `SELECT COUNT(*) FROM runs WHERE cancellation_state = 'uncertain'`).Scan(&health.CancellationUncertain); err != nil {
+internal/app/run_commands.go:271:		health.CancellationUncertain, health.ReconciliationBacklog, health.OldestBacklogAge)
+[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [offset=370, limit=130, command=grep -rn "firstNonEmptyPayload\|\"text\"\|\"delta\"" internal/web/run_handlers.go internal/tui/*.go | head -30, workdir=/home/antonio/gauntlet-run/ultraplan-go][0m
+[0m
+[0m$ [0mgrep -n "firstNonEmptyPayload\|Payload," internal/web/run_handlers.go | head; echo ---; grep -n "payload\.\|payload\[" internal/web/static/app.js | head -40
+288:	text := firstNonEmptyPayload(event.Payload, "text", "delta", "detail", "message", "content", "title", "output")
+296:func firstNonEmptyPayload(payload map[string]string, keys ...string) string {
+---
+32:        const entries = Array.isArray(payload.data) ? payload.data : [];
+284:        const runs = Array.isArray(payload?.data?.runs) ? payload.data.runs : [];
+693:    const context = [payload.stage, payload.task].filter(Boolean).join(" · ");
+694:    const progress = payload.total > 0 ? ` (${payload.completed || 0}/${payload.total})` : "";
+705:    if (payload.event_kind === "tool") return `Used ${payload.tool || "a tool"}${payload.action ? ` · ${payload.action}` : ""}`;
+706:    if (payload.event_kind === "artifact") return "Produced an artifact";
+707:    if (payload.event_kind === "usage") return "Updated usage totals";
+708:    if (payload.event_kind === "permission") return "Checked tool permissions";
+709:    if (payload.event_kind === "retry") return "Retrying the agent run";
+710:    if (payload.event_kind === "lifecycle") return payload.action ? `Agent is ${String(payload.action).replaceAll("_", " ")}` : "Agent status changed";
+711:    return payload.message || payload.state || payload.reason || fallback;
+716:    if (payload.task) activeAgents.add(payload.task);
+720:    if (payload.event_kind === "tool") {
+1015:    for (const failure of JSON.parse(payload.textContent || "[]")) {
+1022:    for (const item of JSON.parse(payload.textContent || "[]")) {
+1082:    if (payload.kind === "tool") return `Tool call${payload.tool ? ` · ${payload.tool}` : ""}`;
+1085:    if (event.stage === "runtime" && payload.action) return humanizeRunText(payload.action);
+1283:    if (payload.kind === "tool") agent.toolCalls++;
+1289:    const entry = {label, detail: payload.action && payload.kind !== "tool" ? humanizeRunText(payload.action) : "", time: event.committed_at || ""};
+[0m
+[0m$ [0mgrep -n "sanitizeEventDraft" internal/runcontrol/*.go | grep -v _test; echo ---; git log --oneline -3 -- internal/runcontrol/sanitize.go; echo ---; grep -rn "unsafe event detail omitted\|event_detail_oversize" internal --include="*_test.go" | head -10
+internal/runcontrol/sanitize.go:19:// sanitizeEventDraft is the final storage gate. Producers may only submit
+internal/runcontrol/sanitize.go:22:func sanitizeEventDraft(input EventDraft) EventDraft {
+internal/runcontrol/sqlite.go:617:	draft = sanitizeEventDraft(draft)
+---
+e09d394 Add durable run control and adaptive study execution
+---
+internal/runcontrol/sanitize_test.go:50:	if event.Type != EventWarning || event.Payload["code"] != "event_detail_oversize" || event.Omission == nil {
+[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/platform/runtime/agentwrap.go[90m [limit=80, offset=60][0m
+[0m
+[0m$ [0mgrep -rn "\"title\"\|\"detail\"\|\"text\"\|\"delta\"" internal/platform/runtime/*.go | grep -v _test | head -20
+internal/platform/runtime/runtime.go:413:		for _, key := range []string{"structured_output", "output", "content", "text", "message", "part"} {
+internal/platform/runtime/runtime.go:596:	for _, key := range []string{"tool", "name", "title", "detail", "text", "delta", "output", "message", "state", "status", "action", "phase"} {
+[0m
+[0m✗ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/sprint/execute_target.go failed[90m [limit=90, offset=400][0m
+[91m[1mError: [0mOffset 400 is out of range for this file (73 lines)
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/sprint/execute_target.go
+[0m
+[0m$ [0msed -n '430,480p' internal/runcontrol/lifecycle.go
+now := r.now()
+	tx, err := r.db.BeginTx(ctx, nil)
+	if err != nil {
+		return false, classifyStoreError("reconcile_unclaimed_begin", "begin unclaimed reconciliation failed", err)
+	}
+	defer tx.Rollback()
+	current, err := loadSnapshot(ctx, tx, runID)
+	if err != nil {
+		if errors.Is(err, ErrNotFound) {
+			return false, nil
+		}
+		return false, err
+	}
+	if current.Terminal != nil || current.CurrentAttemptID != "" {
+		return false, nil
+	}
+	sequence := current.LastSequence + 1
+	reason := "owner_never_claimed_after_grace"
+	payload, err := marshalBounded(map[string]string{"outcome": string(TerminalInterrupted), "reason": reason}, MaxSafeValueBytes*2)
+	if err != nil {
+		return false, err
+	}
+	if _, err := tx.ExecContext(ctx, `INSERT INTO events (run_id, sequence, committed_at, event_type, payload_json)
+VALUES (?, ?, ?, 'terminal', ?)`, string(runID), sequence, formatTime(now), payload); err != nil {
+		return false, classifyStoreError("reconcile_unclaimed_event", "persist unclaimed terminal event failed", err)
+	}
+	result, err := tx.ExecContext(ctx, `UPDATE runs SET lifecycle = ?, liveness = ?, finished_at = ?, updated_at = ?, last_sequence = ?,
+terminal_outcome = ?, terminal_reason = ?, terminal_at = ?, terminal_proposed_by = 'reconciler'
+WHERE run_id = ? AND current_attempt_id IS NULL AND terminal_outcome IS NULL`,
+		string(LifecycleInterrupted), string(LivenessTerminal), formatTime(now), formatTime(now), sequence,
+		string(TerminalInterrupted), reason, formatTime(now), string(runID))
+	if err != nil {
+		return false, classifyStoreError("reconcile_unclaimed_cas", "persist unclaimed terminal state failed", err)
+	}
+	changed, err := result.RowsAffected()
+	if err != nil {
+		return false, classifyStoreError("reconcile_unclaimed_cas", "inspect unclaimed terminal state failed", err)
+	}
+	if changed != 1 {
+		return false, nil
+	}
+	if err := tx.Commit(); err != nil {
+		return false, classifyStoreError("reconcile_unclaimed_commit", "commit unclaimed reconciliation failed", err)
+	}
+	r.notify(runID, sequence)
+	r.log(ctx, LogInfo, "unclaimed run reconciled",
+		LogField{Key: "run_id", Value: string(runID)}, LogField{Key: "sequence", Value: fmt.Sprint(sequence)},
+		LogField{Key: "terminal_outcome", Value: string(TerminalInterrupted)})
+	return true, nil
+}
+[0m
+[0m$ [0msed -n '1,20p' internal/project/index.go; echo "=== aren headings ==="; grep -n "^## " /home/antonio/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/project-index.md; echo "=== ultraplan-go index target+headings ==="; grep -n "^## \|Target Implementation Directory" /home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/project-index.md
+package project
+
+import (
+	"fmt"
+	"net/url"
+	"path/filepath"
+	"strings"
+)
+
+var recognizedSections = map[string]CatalogSection{
+	string(SectionSourceDocuments):            SectionSourceDocuments,
+	string(SectionActiveContractPool):         SectionActiveContractPool,
+	string(SectionAvailableEvidenceReports):   SectionAvailableEvidenceReports,
+	string(SectionAvailableReasoningTemplate): SectionAvailableReasoningTemplate,
+	string(SectionReviewProtocols):            SectionReviewProtocols,
+	string(SectionSmokeHarnesses):             SectionSmokeHarnesses,
+}
+
+func ParseProjectIndex(content string) (ProjectIndex, []ValidationFinding) {
+	var index ProjectIndex
+=== aren headings ===
+6:## Project Scope
+17:## Source Documents
+26:## Active Contract Pool
+41:## Available Studies
+48:## Available Agent-Harness Evidence Reports
+66:## Available Supporting Go CLI Reports
+78:## Reasoning Strategy
+101:## Prior Decisions
+117:## Cross-Sprint Decision Carry-Forward
+131:## Review Protocols
+139:## Maintenance Notes
+=== ultraplan-go index target+headings ===
+6:## Project Scope
+10:- **Target Implementation Directory:** `/home/antonioborgerees/coding/ultraplan/ultraplan-go`
+19:## Source Documents
+27:## Active Contract Pool
+47:## Phase 2 Planning And Execute Context
+64:## Phase 3 Review And Smoke Context
+82:## Phase 4 Local Web Context
+97:## Available Studies
+103:## Available Evidence Reports
+123:## Available Reasoning Templates
+131:## Smoke Harnesses
+137:## Prior Decisions
+141:## Review Protocols
+149:## Maintenance Notes
+[0m
+[0m$ [0mgrep -n "^## \|Evidence" internal/workspace/scaffold/templates/project-index.md | head; echo "=== smoke headings ==="; grep -n "requiredSmokeHeadings\|smokeHeadings :=\|\"## " internal/sprint/smoke.go | head -20
+8:## Project Scope
+16:## Active Contract Pool
+22:## Available Reasoning Templates
+29:## Available Studies
+35:## Available Evidence Packs And Reports
+37:| Evidence | Path | Summary | Use When |
+41:## Prior Decisions
+47:## Review Protocols
+53:## Selection Rules
+63:## Maintenance Notes
+=== smoke headings ===
+465:	fmt.Fprintf(&b, "## Smoke Context\n\nProject: `%s`\nSprint: `%s`\nArtifact: `%s`\n\n", r.Project, r.Sprint, r.Artifact)
+466:	fmt.Fprintf(&b, "## Review Gate\n\nReview verdict: `%s`\nReview fingerprint: `%s`\nDiagnostic override: `%t`\nOverride rationale: %s\n\n", r.ReviewVerdict, r.ReviewFingerprint, r.ReviewOverride, printable(r.OverrideRationale))
+467:	fmt.Fprintf(&b, "## Harness And Protocol\n\nHarness: `%s`\nProtocol: `%s`\n\n", r.Harness, r.Protocol)
+468:	fmt.Fprintf(&b, "## Smoke Authoring\n\nAuthor run ID: `%s`\nAuthor model: `%s`\nChanged harness paths:\n", printable(r.AuthorRunID), printable(r.AuthorModel))
+478:		fmt.Fprintf(&b, "## Coverage Mapping\n\nComplete: `%t`\nRequired coverage: `%s`\nRationale: %s\n\n", mapping.Complete, strings.Join(mapping.RequiredCoverage, "`, `"), printable(mapping.Rationale))
+488:	fmt.Fprintf(&b, "## Selected Scope And Rationale\n\nScope kind: `%s`\nScope: `%s`\nRationale: %s\nDuration class: `%s`\nCost class: `%s`\nDiagnostic only: `%t`\n\n", printable(r.ScopeKind), printable(r.Scope), printable(r.ScopeRationale), printable(r.DurationClass), printable(r.CostClass), r.DiagnosticOnly)
+489:	fmt.Fprintf(&b, "## Preconditions And Environment\n\nPrerequisites: %s\nEnvironment: bounded allowlist; values not persisted\nEvidence roots: `%s`\nEffective timeout: `%s` (source `%s`)\n\n", printable(strings.Join(r.Prerequisites, "; ")), printable(strings.Join(r.EvidenceRoots, ", ")), r.EffectiveTimeout, printable(r.TimeoutSource))
+490:	fmt.Fprintf(&b, "## Safe Invocation\n\nArgv: `%s`\n\n", printable(r.SafeArgv))
+491:	fmt.Fprintf(&b, "## Run Evidence\n\nRun ID: `%s`\nTotal: `%d`\nPassed: `%d`\nFailed: `%d`\nSkipped: `%d`\nErrors: `%d`\nDuration: `%s`\nRuntime: `%s`\nModel: `%s`\n\n", printable(r.RunID), r.Counts.Total, r.Counts.Passed, r.Counts.Failed, r.Counts.Skipped, r.Counts.Errors, r.Duration, printable(r.Runtime), printable(r.Model))
+551:	fmt.Fprintf(&b, "## Verdict And Next Action\n\nVerdict: `%s`\nNext action: %s\n", r.Verdict, printable(r.NextAction))
+[0m
+[0m$ [0msed -n '60,120p' internal/runcontrol/lifecycle_test.go
+}
+	acknowledged, changed, err := repository.AcknowledgeCancellation(ctx, fence)
+	if err != nil || !changed || acknowledged.Cancellation.State != CancellationAcknowledged {
+		t.Fatalf("ack snapshot=%+v changed=%v err=%v", acknowledged, changed, err)
+	}
+	acknowledgedAgain, changed, err := repository.AcknowledgeCancellation(ctx, fence)
+	if err != nil || changed || acknowledgedAgain.LastSequence != acknowledged.LastSequence {
+		t.Fatalf("duplicate ack snapshot=%+v changed=%v err=%v", acknowledgedAgain, changed, err)
+	}
+
+	stale := fence
+	stale.OwnerID = "wrong-owner"
+	if _, err := repository.Heartbeat(ctx, stale, OwnerLeaseDuration); !errors.Is(err, ErrStaleFence) {
+		t.Fatalf("stale heartbeat error = %v", err)
+	}
+	if _, _, err := repository.AcknowledgeCancellation(ctx, stale); !errors.Is(err, ErrStaleFence) {
+		t.Fatalf("stale cancellation acknowledgement error = %v", err)
+	}
+}
+
+func TestCompletionMayWinAfterCancellationAndTerminalCancelIsIdempotent(t *testing.T) {
+	ctx := context.Background()
+	repository, err := OpenSQLite(ctx, t.TempDir(), SQLiteOptions{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer repository.Close()
+	runID, fence := acceptedClaimedRun(t, repository)
+	requested, changed, err := repository.RequestCancellation(ctx, runID, "user_requested")
+	if err != nil || !changed || requested.Cancellation.State != CancellationRequested {
+		t.Fatalf("request cancellation: changed=%t snapshot=%+v err=%v", changed, requested, err)
+	}
+	winner, won, err := repository.ProposeTerminal(ctx, fence, TerminalProposal{Outcome: TerminalSucceeded, Reason: "completion already committed", ProposedBy: "owner-test"})
+	if err != nil || !won || winner.Lifecycle != LifecycleSucceeded || winner.Cancellation.State != CancellationRequested {
+		t.Fatalf("completion winner: won=%t snapshot=%+v err=%v", won, winner, err)
+	}
+	again, changed, err := repository.RequestCancellation(ctx, runID, "user_requested")
+	if err != nil || changed || again.Lifecycle != LifecycleSucceeded || again.LastSequence != winner.LastSequence {
+		t.Fatalf("terminal cancellation retry rewrote winner: changed=%t snapshot=%+v err=%v", changed, again, err)
+	}
+}
+
+func TestEveryTerminalOutcomeUsesOneImmutableArbitrationPath(t *testing.T) {
+	outcomes := []TerminalOutcome{TerminalSucceeded, TerminalFailed, TerminalCancelled, TerminalTimedOut, TerminalInterrupted, TerminalCleanupUncertain, TerminalPersistenceLost}
+	for _, outcome := range outcomes {
+		t.Run(string(outcome), func(t *testing.T) {
+			repository, fence := openClaimedRepository(t)
+			winner, won, err := repository.ProposeTerminal(context.Background(), fence, TerminalProposal{Outcome: outcome, Reason: "table-driven terminal", ProposedBy: "test"})
+			if err != nil || !won || winner.Lifecycle != outcome.Lifecycle() || winner.Terminal == nil || winner.Terminal.Outcome != outcome {
+				t.Fatalf("winner=%+v won=%t err=%v", winner, won, err)
+			}
+			unchanged, wonAgain, err := repository.ProposeTerminal(context.Background(), fence, TerminalProposal{Outcome: TerminalFailed, Reason: "late loser", ProposedBy: "other"})
+			if err != nil || wonAgain || unchanged.Terminal == nil || unchanged.Terminal.Outcome != outcome || unchanged.LastSequence != winner.LastSequence {
+				t.Fatalf("immutable winner=%+v won=%t err=%v", unchanged, wonAgain, err)
+			}
+		})
+	}
+}
+
+func TestCancellationAndTerminalRacePreservesOneWinnerAndIdempotentCommand(t *testing.T) {
+	ctx := context.Background()
+[0m
+[0m$ [0mgrep -n "Section.*= \|SectionAvailableEvidenceReports\b" internal/project/index.go | head -12; echo ---; grep -n "requiredSmoke\|smokeRequiredSections\|requiredSections" internal/sprint/smoke.go | head -5
+10:var recognizedSections = map[string]CatalogSection{
+13:	string(SectionAvailableEvidenceReports):   SectionAvailableEvidenceReports,
+92:	if section == SectionSmokeHarnesses && entry.Manifest == "" {
+---
+[0m
+[0m$ [0msed -n '1,60p' internal/sprint/validation.go
+package sprint
+
+import (
+	"strings"
+
+	"github.com/Antonio7098/ultraplan-go/internal/project"
+)
+
+func ValidateSprintIndexContent(content string, catalog project.ProjectIndex) (SprintIndex, []ValidationFinding) {
+	index, findings := ParseSprintIndex(content)
+	findings = append(findings, validateSubset(index.Contracts, catalog, project.SectionActiveContractPool, "Selected Contracts")...)
+	findings = append(findings, validateSubset(index.EvidenceReports, catalog, project.SectionAvailableEvidenceReports, "Selected Evidence Reports")...)
+	findings = append(findings, validateReasoningTemplates(index.ReasoningTemplates, catalog)...)
+	findings = append(findings, validateSubset(index.ReviewProtocols, catalog, project.SectionReviewProtocols, "Required Review Protocols")...)
+	findings = append(findings, validateExcluded(index.ExcludedContexts)...)
+	sortSprintFindings(findings)
+	return index, findings
+}
+
+func validateSubset(items []SelectedItem, catalog project.ProjectIndex, section project.CatalogSection, label string) []ValidationFinding {
+	var findings []ValidationFinding
+	for _, item := range items {
+		var byName []project.CatalogEntry
+		for _, entry := range catalog.Entries {
+			if entry.Section == section && strings.EqualFold(entry.Name, item.Name) {
+				byName = append(byName, entry)
+			}
+		}
+		if len(byName) == 0 {
+			findings = append(findings, finding(label, item.Name, item.Path, "selected entry not in project index", "no catalog entry with this name exists in the required section", "Select an entry listed in project-index.md."))
+			continue
+		}
+		if item.Path == "" || section == project.SectionActiveContractPool {
+			continue
+		}
+		foundPath := false
+		for _, entry := range byName {
+			if entry.Path == item.Path {
+				foundPath = true
+				break
+			}
+		}
+		if !foundPath {
+			findings = append(findings, finding(label, item.Name, item.Path, "selected path does not match project index", "catalog entry name exists but with a different path", "Use the exact path from project-index.md."))
+		}
+	}
+	return findings
+}
+
+func validateReasoningTemplates(items []SelectedItem, catalog project.ProjectIndex) []ValidationFinding {
+	var findings []ValidationFinding
+	for _, item := range items {
+		foundName := false
+		for _, entry := range catalog.Entries {
+			if entry.Section == project.SectionAvailableReasoningTemplate && strings.EqualFold(entry.Name, item.Name) {
+				foundName = true
+				break
+			}
+		}
+		if !foundName {
+[0m
+[0m$ [0mgrep -n "parent\|child\|operation-level\|runtime-level\|two run\|second run\|correlation" docs/architecture.md | head -15; echo ---; grep -rn "OperationRunID\|parent_run\|operation_run_id" internal/runcontrol/model.go internal/app/durable_operations.go | head -10
+160:state; run control only projects their safe correlations and status.
+162:Each start is accepted and claimed in SQLite before a goroutine, runtime child,
+164:commands, TUI actions, web operations, and individual runtime children share
+186:terminal correlation vocabulary exposed by diagnostics and support export.
+---
+[0m
+[0m$ [0mgrep -rn "Available Evidence Reports\|AvailableReasoningTemplate\b" internal/project/domain.go internal/project/*.go | grep "=" | head -8; echo ---; sed -n '540,580p' internal/sprint/smoke.go
+internal/project/domain.go:13:	SectionAvailableEvidenceReports   CatalogSection = "Available Evidence Reports"
+internal/project/domain.go:14:	SectionAvailableReasoningTemplate CatalogSection = "Available Reasoning Templates"
+internal/project/domain.go:13:	SectionAvailableEvidenceReports   CatalogSection = "Available Evidence Reports"
+internal/project/domain.go:14:	SectionAvailableReasoningTemplate CatalogSection = "Available Reasoning Templates"
+internal/project/service.go:41:		if entry.Section == SectionAvailableReasoningTemplate && len(path) > len(projectReasoningPrefix) && path[:len(projectReasoningPrefix)] == projectReasoningPrefix {
+internal/project/validation.go:58:			if entry.Section == SectionAvailableReasoningTemplate {
+---
+	resolved := false
+	for _, issue := range r.Issues {
+		if issue.Status == "resolved" {
+			resolved = true
+			fmt.Fprintf(&b, "- `%s` `%s`\n", issue.ID, issue.Path)
+		}
+	}
+	if !resolved {
+		b.WriteString("- none\n")
+	}
+	b.WriteString("\n## Mutation And Safety Check\n\nOnly smoke.md, flow-state.json, manifest-declared harness authoring paths, and manifest-declared external evidence roots were approved for mutation. Product source and governed sprint inputs were identity-checked before and after authoring.\n\n")
+	fmt.Fprintf(&b, "## Verdict And Next Action\n\nVerdict: `%s`\nNext action: %s\n", r.Verdict, printable(r.NextAction))
+	return b.String()
+}
+
+func ValidateSmokeContent(content string) []ValidationFinding {
+	var findings []ValidationFinding
+	if strings.TrimSpace(content) == "" || containsPlaceholder(content) {
+		findings = append(findings, finding("smoke.md", "", "", "empty or placeholder smoke summary", "summary is incomplete", "Generate a complete evidence-backed summary."))
+	}
+	for _, heading := range []string{"Smoke Context", "Review Gate", "Harness And Protocol", "Smoke Authoring", "Selected Scope And Rationale", "Preconditions And Environment", "Safe Invocation", "Run Evidence", "Findings", "Open Issues", "Resolved Issues", "Mutation And Safety Check", "Verdict And Next Action"} {
+		if !markdownHeadingPresent(content, heading) {
+			findings = append(findings, finding("smoke.md", heading, "", "missing required section", "section was not found", "Regenerate smoke.md."))
+		}
+	}
+	verdict := SmokeVerdict(fieldBacktick(content, "Verdict:"))
+	if !validSmokeVerdict(verdict) {
+		findings = append(findings, finding("smoke.md", "Verdict", "", "invalid verdict", string(verdict), "Use one of the five smoke verdicts."))
+	}
+	for _, forbidden := range []string{"-----BEGIN", "Authorization: Bearer", "\"stdout\":", "\"stderr\":"} {
+		if strings.Contains(content, forbidden) {
+			findings = append(findings, finding("smoke.md", "Safety", "", "raw or secret-bearing content detected", forbidden, "Keep raw streams and secrets in external evidence only."))
+		}
+	}
+	if !strings.Contains(content, "Next action:") {
+		findings = append(findings, finding("smoke.md", "Next Action", "", "next action is missing", "no actionable terminal guidance", "Record the required next action."))
+	}
+	sortSprintFindings(findings)
+	return findings
+}
+[0m
+[0m$ [0msed -n '150,195p' docs/architecture.md
+Execute owns one reusable runtime session for the ordered pending-task queue rather than one independent agent per task. Its initial turn carries the shared sprint prefix, queue primer, current task, safety instructions, and optional handbook examples. After each task UltraPlan persists task-specific evidence and status, then submits only the next task delta with `SessionAction=continue`. A missing runtime session ID degrades safely to another complete prompt; failure or cancellation stops queue advancement, while explicit deferral may advance to the next task. Cross-command session reuse is based on model and target compatibility, not exact artifact fingerprints.
+
+## Durable run control
+
+UltraPlan records runtime-backed and asynchronous work in the workspace-local
+`.ultraplan/run-control.db`. `internal/runcontrol` owns operational identity,
+lifecycle, owner leases, fencing, cancellation commands, sanitized event
+ordering, retention, and terminal arbitration. Sprint, study, smoke, runtime,
+lock, artifact, and Git modules remain authoritative for their own product
+state; run control only projects their safe correlations and status.
+
+Each start is accepted and claimed in SQLite before a goroutine, runtime child,
+or external harness starts. A failed required write fails closed. Direct CLI
+commands, TUI actions, web operations, and individual runtime children share
+that boundary. IDs are opaque 128-bit `run_*` and `att_*` values. Writers use
+short transactions, WAL, `synchronous=FULL`, foreign keys, a five-second busy
+timeout, and repository-allocated fencing generations.
+
+Owners tick every second, persist heartbeats every five seconds with a
+15-second lease, and reconcile every ten seconds. Reconciliation waits 45
+seconds beyond lease expiry and uses exact process-birth identity where the
+platform can provide it. An accepted run that never acquired its first claim
+is interrupted after the same grace window, with no fabricated attempt or
+process evidence. Reconciliation never adopts a worker, signals a PID based on
+PID alone, or infers success from artifacts, locks, or product state. One
+immutable terminal proposal wins; a cancellation request may therefore coexist
+with a later successful completion.
+
+Events are sanitized and committed before delivery. Payloads are allowlisted,
+bounded to 16 KiB, and omit prompts, provider-native payloads, credentials,
+absolute paths, and unrestricted output. Consumers resume by `(run_id,
+sequence)` from SQLite; in-process notifications are only an optimization.
+Safe structured repository diagnostics are also written to the private bounded
+`.ultraplan/run-control.log` JSONL file. The log is capped at 1 MiB and uses the
+same run, attempt, owner/fence, sequence, cancellation, reconciliation, and
+terminal correlation vocabulary exposed by diagnostics and support export.
+
+This design supports direct writers and observers on one host and a trustworthy
+local filesystem. Multi-host access, network filesystems without reliable
+SQLite WAL/locking semantics, worker adoption, brokers, and remote signalling
+are outside the supported topology.
+[0m
+[0m$ [0mgrep -n "^## " /home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/*/smoke.md 2>/dev/null | tail -25
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:13:## Review Gate
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:20:## Harness And Protocol
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:25:## Smoke Authoring
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:32:## Selected Scope And Rationale
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:41:## Preconditions And Environment
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:48:## Safe Invocation
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:52:## Run Evidence
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:74:## Findings
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:78:## Open Issues
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:82:## Resolved Issues
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:86:## Mutation And Safety Check
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/smoke.md:90:## Verdict And Next Action
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:7:## Smoke Context
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:13:## Review Gate
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:20:## Harness And Protocol
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:25:## Smoke Authoring
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:32:## Selected Scope And Rationale
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:41:## Preconditions And Environment
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:48:## Safe Invocation
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:52:## Run Evidence
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:68:## Findings
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:72:## Open Issues
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:76:## Resolved Issues
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:80:## Mutation And Safety Check
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/smoke.md:84:## Verdict And Next Action
+[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/productstate/store.go[90m [limit=120, offset=100][0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/study/state.go[90m [limit=75, offset=18][0m
+[0m
+[0m$ [0mcd /home/antonio/gauntlet-run/ultraplan-workspace && git ls-files | grep -c "run-state\|flow-state"; echo "---tracked sample---"; git ls-files | grep "flow-state" | head -3; echo "---ultraplan dirs on disk---"; find projects -maxdepth 4 -name ".ultraplan" -o -maxdepth 4 -name "run-control.db" | head -5; echo "---gitignore---"; cat .gitignore 2>/dev/null
+107
+---tracked sample---
+projects/ultraplan-go/sprints/01-cli-foundation/flow-state.json
+projects/ultraplan-go/sprints/01-cli-foundation/flow-state.legacy-v1.json
+projects/ultraplan-go/sprints/02-workspace-config-health/flow-state.json
+---ultraplan dirs on disk---
+---gitignore---
+.DS_Store
+*.swp
+*.swo
+*~
+__pycache__
+*.pyc
+.env
+node_modules
+[0m
+[0m$ [0mgrep -rn "liveness" internal/runcontrol/sqlite.go | grep -i "update\|set\|'" | head -8
+246:    liveness TEXT NOT NULL CHECK (liveness IN ('unknown','live','stalled','owner_unreachable','interrupted','cleanup_uncertain','terminal')),
+432:    lifecycle, liveness, record_state, accepted_at, updated_at, correlation_json,
+563:SET current_attempt_id = ?, lifecycle = ?, liveness = ?, started_at = COALESCE(started_at, ?), updated_at = ?
+771:SET lifecycle = ?, liveness = ?, finished_at = ?, updated_at = ?, last_sequence = ?,
+874:	if err := r.db.QueryRowContext(ctx, `SELECT COUNT(*) FROM runs WHERE terminal_outcome IS NULL AND liveness = 'stalled'`).Scan(&health.StalledRuns); err != nil {
+922:	var lifecycle, liveness, recordState, accepted, updated string
+932:       lifecycle, liveness, record_state, accepted_at, updated_at, started_at, finished_at,
+940:		&lifecycle, &liveness, &recordState, &accepted, &updated, &started, &finished,
+[0m
+[0m$ [0mgrep -rn "project-index" internal/workspace/init.go internal/workspace/scaffold/*.go 2>/dev/null | head -8; echo ---; grep -rn "ParseProjectIndex\|projectIndexContent" internal/sprint/prompts.go internal/app/*.go | grep -v _test | head -8; echo ---; grep -rln "scaffold/templates/project-index\|templates/project-index.md" internal/ | head -5
+internal/workspace/init.go:69://go:embed scaffold/templates/project-index.md
+internal/workspace/init.go:124:	"templates/project-index.md":           defaultProjectIndexTemplate,
+---
+---
+internal/workspace/init.go
+[0m
+[0m$ [0mgrep -rn "defaultProjectIndexTemplate\|projectIndexTemplate" internal/ --include="*.go" | grep -v _test | head; echo ---; grep -rn "project-index.md" internal/project/store_fs.go internal/workspace/*.go 2>/dev/null | grep -v scaffold | head -8
+internal/workspace/init.go:70:var defaultProjectIndexTemplate string
+internal/workspace/init.go:124:	"templates/project-index.md":           defaultProjectIndexTemplate,
+---
+internal/project/store_fs.go:59:	indexPath := filepath.Join(projectRoot, "project-index.md")
+internal/project/store_fs.go:64:			return ProjectFiles{}, fmt.Errorf("read project-index.md: %w", err)
+internal/workspace/init.go:124:	"templates/project-index.md":           defaultProjectIndexTemplate,
+internal/workspace/skills.go:56:   - Resolve the implementation target from project-index.md and inspect its current status and diff. Preserve unrelated user changes.
+internal/workspace/skills.go:199:			StageWorkflow: `For example, the input ` + "`projects/ultraplan-go/sprints/30-web-foundations/`" + ` resolves to project ` + "`ultraplan-go`" + `, sprint ` + "`30-web-foundations`" + `, and the target implementation directory declared in ` + "`projects/ultraplan-go/project-index.md`" + `. It does not resolve to the workspace repository or to a nested source checkout.
+internal/workspace/skills.go:400:1. Treat a supplied sprint path as UltraPlan stage input, not as a Git target. For an input such as `+"`projects/<project>/sprints/<sprint>/`"+` or `+"`.ultra/projects/<project>/sprints/<sprint>/`"+`, find the workspace root, derive `+"`<project>`"+` and `+"`<sprint>`"+` from the path, and read the matching `+"`project-index.md`"+`. The sprint directory contains governed stage artifacts; when implementation access is required, resolve its repository from `+"`Target Implementation Directory`"+`, falling back to `+"`Repository`"+` only when the target field is absent. Resolve relative repository paths against the workspace root and verify the result before using it. Do not search nested source repositories for a similarly named skill, and do not ask what target to use merely because the supplied input is a directory.
+internal/workspace/skills_test.go:124:		"read the matching `project-index.md`",
+[0m
+[0m$ [0msed -n '19,60p' internal/project/index.go; echo "=== validation ==="; sed -n '28,80p' internal/project/validation.go
+func ParseProjectIndex(content string) (ProjectIndex, []ValidationFinding) {
+	var index ProjectIndex
+	var findings []ValidationFinding
+	var section CatalogSection
+	var headers []string
+	lines := strings.Split(content, "\n")
+	for i, line := range lines {
+		trimmed := strings.TrimSpace(line)
+		if strings.HasPrefix(trimmed, "## ") {
+			headers = nil
+			name := strings.TrimSpace(strings.TrimPrefix(trimmed, "## "))
+			section = recognizedSections[name]
+			continue
+		}
+		if section == "" || !strings.HasPrefix(trimmed, "|") {
+			continue
+		}
+		cells := parseTableRow(trimmed)
+		if len(cells) == 0 || isSeparatorRow(cells) {
+			continue
+		}
+		if headers == nil {
+			headers = cells
+			continue
+		}
+		entry, err := entryFromRow(section, headers, cells)
+		if err != nil {
+			findings = append(findings, ValidationFinding{
+				Severity:   SeverityError,
+				Section:    section,
+				Problem:    "malformed catalog row",
+				Cause:      fmt.Sprintf("line %d: %s", i+1, err),
+				Suggestion: "Fix the table row so it includes the required name and path columns.",
+			})
+			continue
+		}
+		index.Entries = append(index.Entries, entry)
+	}
+	return index, findings
+}
+
+func entryFromRow(section CatalogSection, headers, cells []string) (CatalogEntry, error) {
+=== validation ===
+	if !files.DocsDirExists {
+		add(projectRel(p.Name, "docs"), "missing docs directory", "docs directory was not found", "Create docs/ with project Markdown documents.", nil)
+	} else if len(files.MarkdownDocs) == 0 {
+		add(projectRel(p.Name, "docs"), "empty docs directory", "no Markdown documents were found under docs/*.md", "Add at least one Markdown project document.", nil)
+	}
+	if !files.RoadmapExists {
+		add(projectRel(p.Name, "roadmap.md"), "missing roadmap", "roadmap.md was not found", "Create roadmap.md for project sequencing.", nil)
+	}
+	if !files.ProjectIndexExists {
+		add(projectRel(p.Name, "project-index.md"), "missing project index", "project-index.md was not found", "Create project-index.md with catalog tables.", nil)
+	}
+	if !files.SprintsDirExists {
+		add(projectRel(p.Name, "sprints"), "missing sprints directory", "sprints directory was not found", "Create sprints/ for planning sprint artifacts.", nil)
+	}
+	if files.ProjectIndexExists {
+		if deprecatedSmokeHarnessDirectoryField.MatchString(files.IndexContent) {
+			add(projectRel(p.Name, "project-index.md"), "duplicate smoke harness source", "Project Scope declares Smoke Harness Directory even though the Smoke Harnesses catalog is authoritative", "Remove Smoke Harness Directory from Project Scope and keep the root only in the Smoke Harnesses catalog Path column.", nil)
+		}
+		index, parseFindings := ParseProjectIndex(files.IndexContent)
+		findings = append(findings, parseFindings...)
+		for _, entry := range index.Entries {
+			if entry.Section == SectionSmokeHarnesses {
+				if err := validateSmokeHarnessEntry(entry); err != nil {
+					findings = append(findings, catalogFinding(entry, "invalid smoke harness catalog entry", err.Error(), "Use an absolute existing harness root and a manifest contained by that root.", err))
+				}
+				continue
+			}
+			if entry.External {
+				continue
+			}
+			if entry.Section == SectionAvailableReasoningTemplate {
+				path := normalizeCatalogPath(entry.Path)
+				projectsPrefix := "projects/"
+				ownProjectPrefix := "projects/" + p.Name + "/"
+				if strings.HasPrefix(path, projectsPrefix) && !strings.HasPrefix(path, ownProjectPrefix) {
+					findings = append(findings, catalogFinding(entry, "cross-project reasoning template", "reasoning templates under projects/ must belong to the selected project", "Move the template into projects/"+p.Name+"/reasoning/ or use a shared workspace path outside projects/.", nil))
+					continue
+				}
+			}
+			full, err := workspace.ResolveInside(root, filepath.FromSlash(entry.Path))
+			if err != nil {
+				findings = append(findings, catalogFinding(entry, "catalog path escapes workspace", err.Error(), "Use a workspace-relative path inside this workspace.", err))
+				continue
+			}
+			if _, err := os.Stat(full); err != nil {
+				if os.IsNotExist(err) {
+					findings = append(findings, catalogFinding(entry, "catalog path not found", fmt.Sprintf("%s does not exist", entry.Path), "Create the referenced artifact or update the catalog path.", err))
+					continue
+				}
+				findings = append(findings, catalogFinding(entry, "catalog path cannot be read", err.Error(), "Fix filesystem permissions or update the catalog path.", err))
+			}
+		}
+		for _, rel := range ReasoningDefaultPaths() {
+[0m
+[0m$ [0mls /home/antonio/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/sprints/ 2>/dev/null; echo ---; grep -l "Selected Evidence\|Selected Contracts" /home/antonio/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/sprints/*/sprint-index.md 2>/dev/null | head -3; echo ---; grep -A4 "Selected Evidence Reports" /home/antonio/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/sprints/*/sprint-index.md 2>/dev/null | head -12
+---
+---
+[0m
+[0m$ [0mgrep -n "\.text\|\.delta\|\.detail\b\|payload.title" internal/web/static/app.js | head -12
+7:      if (refreshStatus) refreshStatus.textContent = "Refreshing current workspace state.";
+37:          empty.textContent = "Nothing here yet.";
+44:          link.textContent = entry.name;
+50:        items.firstElementChild.textContent = "Could not load navigation.";
+123:      if (id) id.textContent = trigger.dataset.coverageId || "Requirement";
+125:        status.textContent = trigger.dataset.coverageStatus || "unknown";
+128:      if (description) description.textContent = trigger.dataset.coverageDescription || "No governed description was available.";
+129:      if (tests) tests.textContent = trigger.dataset.coverageTests || "None";
+226:      count.textContent = String(operations.length);
+229:      status.textContent = operations.length ? `${operations.length} active` : "None active";
+234:        empty.textContent = "No processes are running.";
+245:          title.textContent = `Study · ${operation.study}`;
+[0m
+[0m$ [0mgrep -n "payload\.text\|payload\.delta\|payload\.title\|payload\.detail\|payload\.output" internal/web/static/app.js
+1015:    for (const failure of JSON.parse(payload.textContent || "[]")) {
+1022:    for (const item of JSON.parse(payload.textContent || "[]")) {
+[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/web/run_handlers.go[90m [limit=45, offset=270][0m
+[0m
+[0m$ [0mgrep -rn "ApprovedExecuteTargetPath" internal/ --include="*.go" | grep -v _test; echo ---; grep -rn "later sprint\|alternate target" internal/sprint/*_test.go | head -3
+internal/sprint/execute_target.go:11:const ApprovedExecuteTargetPath = "/home/antonioborgerees/coding/ultraplan/ultraplan-go"
+internal/sprint/execute_target.go:22:	approved := filepath.Clean(ApprovedExecuteTargetPath)
+---
+[0m
+[0m$ [0mgrep -n "^## \|^### " /home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/deep-smoke-sprint-protocol.md | head -25
+11:## Order
+19:## 1. Discover Context
+23:## 2. Author The Sprint Suite
+29:## 3. Read The Machine Harness Contract
+33:## 4. Select Scope
+39:## 5. Run Safely
+43:## 6. Classify And Rerun
+49:## 7. Write `smoke.md`
+55:## 8. TUI Parity
+[0m
+[0m$ [0msed -n '49,60p' /home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/deep-smoke-sprint-protocol.md
+## 7. Write `smoke.md`
+
+Atomically write sections for Smoke Context, Review Gate, Selected Scope And Rationale, Preconditions And Environment, Run Evidence, Findings, Open Issues, Resolved Issues, Mutation And Safety Check, and Verdict And Next Action.
+
+Verdicts are `pass`, `pass_with_open_issues`, `fail`, `blocked`, or `not_applicable`. Missing prerequisites/coverage never pass; runtime-free scope is `not_applicable`. Failed/cancelled runs do not corrupt the last complete artifact. A successful explicit run may replace older `deep-smoke.md`/`smoke.md`.
+
+## 8. TUI Parity
+
+The TUI exposes the same typed smoke use case: review gate, scope, prerequisites, duration/cost class, confirmation, progress, cancellation, result, issues, evidence links, reruns, recovery, and `smoke.md` preview. It must not call CLI handlers, parse terminal output, or own harness execution.
+[0m

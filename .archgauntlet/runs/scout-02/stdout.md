@@ -1,0 +1,2 @@
+Single Go module, 16 packages, no compile-time cycles possible (Go enforces acyclic imports). Now let me get quantitative data before delegating bounded questions to subagents.
+Clear shape emerging: `app` is the hub (fan-out 9); `workspace`, `productstate`, `platform/*` are leaves; `runcontrol` is a 5.5k-LOC leaf with zero internal imports but its own sqlite store, while `productstate` is a second sqlite store. Now delegating bounded discovery questions to parallel subagents.

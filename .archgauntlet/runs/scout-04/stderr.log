@@ -1,0 +1,679 @@
+[93m[1m! [0m agent "arch-scout" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit -C /home/antonio/gauntlet-run/ultraplan-go log --oneline -3 && git -C /home/antonio/gauntlet-run/ultraplan-go status --short | head -5
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+[0m
+[0m$ [0mgit -C /home/antonio/gauntlet-run/ultraplan-workspace log --oneline -3 && git -C /home/antonio/gauntlet-run/ultraplan-workspace status --short | head -5
+368a789 Add UltraPlan daemon and event system study
+2dc3b74 Advance sprints 30-35 and harden review/smoke flow
+0e151a0 update reconciliation smoke skill
+[0m
+[0m$ [0mfind /home/antonio/gauntlet-run/ultraplan-go -maxdepth 2 -type d -not -path '*/.git*' -not -path '*/node_modules*' | sort
+/home/antonio/gauntlet-run/ultraplan-go
+/home/antonio/gauntlet-run/ultraplan-go/cmd
+/home/antonio/gauntlet-run/ultraplan-go/cmd/ultraplan
+/home/antonio/gauntlet-run/ultraplan-go/dist
+/home/antonio/gauntlet-run/ultraplan-go/docs
+/home/antonio/gauntlet-run/ultraplan-go/docs/plans
+/home/antonio/gauntlet-run/ultraplan-go/docs/reports
+/home/antonio/gauntlet-run/ultraplan-go/internal
+/home/antonio/gauntlet-run/ultraplan-go/internal/app
+/home/antonio/gauntlet-run/ultraplan-go/internal/codeextract
+/home/antonio/gauntlet-run/ultraplan-go/internal/platform
+/home/antonio/gauntlet-run/ultraplan-go/internal/productstate
+/home/antonio/gauntlet-run/ultraplan-go/internal/project
+/home/antonio/gauntlet-run/ultraplan-go/internal/runcontrol
+/home/antonio/gauntlet-run/ultraplan-go/internal/sprint
+/home/antonio/gauntlet-run/ultraplan-go/internal/study
+/home/antonio/gauntlet-run/ultraplan-go/internal/tui
+/home/antonio/gauntlet-run/ultraplan-go/internal/web
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace
+/home/antonio/gauntlet-run/ultraplan-go/scripts
+[0m
+[0m$ [0mfind /home/antonio/gauntlet-run/ultraplan-workspace -maxdepth 3 -not -path '*/.git/*' | sort | head -120
+/home/antonio/gauntlet-run/ultraplan-workspace
+/home/antonio/gauntlet-run/ultraplan-workspace/.agents
+/home/antonio/gauntlet-run/ultraplan-workspace/.agents/skills
+/home/antonio/gauntlet-run/ultraplan-workspace/.agents/skills/ultraplan-area-reasoning
+/home/antonio/gauntlet-run/ultraplan-workspace/.agents/skills/ultraplan-execute
+/home/antonio/gauntlet-run/ultraplan-workspace/.agents/skills/ultraplan-plan
+/home/antonio/gauntlet-run/ultraplan-workspace/.agents/skills/ultraplan-reasoning
+/home/antonio/gauntlet-run/ultraplan-workspace/.agents/skills/ultraplan-reconcile-review-smoke
+/home/antonio/gauntlet-run/ultraplan-workspace/.agents/skills/ultraplan-requirements
+/home/antonio/gauntlet-run/ultraplan-workspace/.agents/skills/ultraplan-review
+/home/antonio/gauntlet-run/ultraplan-workspace/.agents/skills/ultraplan-smoke
+/home/antonio/gauntlet-run/ultraplan-workspace/.agents/skills/ultraplan-sprint-index
+/home/antonio/gauntlet-run/ultraplan-workspace/.agents/skills/ultraplan-technical-handbook
+/home/antonio/gauntlet-run/ultraplan-workspace/.git
+/home/antonio/gauntlet-run/ultraplan-workspace/.gitignore
+/home/antonio/gauntlet-run/ultraplan-workspace/previews
+/home/antonio/gauntlet-run/ultraplan-workspace/previews/agent-harness-24.01-langgraph-prompt.md
+/home/antonio/gauntlet-run/ultraplan-workspace/previews/builtin-fallback-24.01-langgraph.md
+/home/antonio/gauntlet-run/ultraplan-workspace/previews/builtin-fallback-24.02-langgraph.md
+/home/antonio/gauntlet-run/ultraplan-workspace/previews/fresh-run-24.01-langgraph-prompt-after-abs-path.md
+/home/antonio/gauntlet-run/ultraplan-workspace/previews/fresh-run-24.01-langgraph-prompt-after-output-fix.md
+/home/antonio/gauntlet-run/ultraplan-workspace/previews/fresh-run-24.01-langgraph-prompt.md
+/home/antonio/gauntlet-run/ultraplan-workspace/previews/injected-analysis-check.md
+/home/antonio/gauntlet-run/ultraplan-workspace/previews/single-source-dimension-check.md
+/home/antonio/gauntlet-run/ultraplan-workspace/previews/spike-24.01-langgraph-after-path-fix.md
+/home/antonio/gauntlet-run/ultraplan-workspace/previews/spike-24.01-langgraph-full-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/previews/spike-24.01-langgraph.md
+/home/antonio/gauntlet-run/ultraplan-workspace/previews/spike-24.02-langgraph-full-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/projects
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/docs
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/project-index.md
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/roadmap.md
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/project-index.md
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md
+/home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints
+/home/antonio/gauntlet-run/ultraplan-workspace/README.md
+/home/antonio/gauntlet-run/ultraplan-workspace/scripts
+/home/antonio/gauntlet-run/ultraplan-workspace/scripts/build-and-serve-ultraplan.sh
+/home/antonio/gauntlet-run/ultraplan-workspace/scripts/restart-ultraplan-server.sh
+/home/antonio/gauntlet-run/ultraplan-workspace/studies
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/agent-harness-study
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/dimensions
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/reports
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/sources
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/study-init.yml
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/study.json
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/summary.csv
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/.ultraplan
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/go-cli-study
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/go-cli-study/dimensions
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/go-cli-study/README.md
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/go-cli-study/reports
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/sources
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/study-init.yml
+/home/antonio/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/study.json
+/home/antonio/gauntlet-run/ultraplan-workspace/system
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/core
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/runtime
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/surfaces
+/home/antonio/gauntlet-run/ultraplan-workspace/system/protocols
+/home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/architecture-review-protocol.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/contract-mapping-protocol.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/deep-smoke-sprint-protocol.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/plan-sprint-protocol.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/review-sprint-protocol.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/sprint-review-protocol.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/api-design-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/architecture_reasoning_template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/cli-design-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/data-privacy-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/errors_reasoning_template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/eval-design-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/frontend-design-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/frontend-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/frontend-state-placement-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/llm-feature-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/observability-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/package-api-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/performance-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/persistence-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/prompt-change-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/release-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/security-threat-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/testing-strategy-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/ultraplan.yml
+[0m
+[0m$ [0mfind /home/antonio/gauntlet-run/ultraplan-workspace/system -type f | sort && wc -l $(find /home/antonio/gauntlet-run/ultraplan-workspace/system -type f) | tail -5
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/core/architecture.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/core/configuration.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/core/documentation.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/core/errors.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/core/observability.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/core/privacy-and-data.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/core/release-versioning.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/core/security.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/core/testing.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/runtime/llm-evaluation-cost-safety.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/runtime/llm.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/runtime/performance.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/runtime/persistence-and-migrations.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/runtime/workflows.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/surfaces/accessibility.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/surfaces/api-contracts.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/surfaces/cli.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/surfaces/frontend.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/surfaces/package-public-api.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/architecture-review-protocol.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/contract-mapping-protocol.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/deep-smoke-sprint-protocol.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/plan-sprint-protocol.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/review-sprint-protocol.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/sprint-review-protocol.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/api-design-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/architecture_reasoning_template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/cli-design-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/data-privacy-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/errors_reasoning_template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/eval-design-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/frontend-design-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/frontend-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/frontend-state-placement-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/llm-feature-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/observability-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/package-api-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/performance-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/persistence-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/prompt-change-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/release-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/security-threat-reasoning-template.md
+/home/antonio/gauntlet-run/ultraplan-workspace/system/reasoning/testing-strategy-reasoning-template.md
+    15 /home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/sprint-review-protocol.md
+   472 /home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/architecture-review-protocol.md
+    84 /home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/review-sprint-protocol.md
+   373 /home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/plan-sprint-protocol.md
+  9688 total
+[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-workspace/README.md
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-workspace/ultraplan.yml
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/architecture-review-protocol.md
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/contract-mapping-protocol.md
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/core/architecture.md
+[0m• [0mInventory workspace contract files[90m Explore Agent[0m
+[0m• [0mMap planning projects and sprints[90m Explore Agent[0m
+[0m• [0mMap go repo tests and imports[90m Explore Agent[0m
+[0m• [0mMap studies skills and reasoning flow[90m Explore Agent[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/review-sprint-protocol.md
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/sprint-review-protocol.md
+[0m✓ [0mMap planning projects and sprints[90m Explore Agent[0m
+[0m✓ [0mInventory workspace contract files[90m Explore Agent[0m
+[0m✓ [0mMap go repo tests and imports[90m Explore Agent[0m
+[0m✓ [0mMap studies skills and reasoning flow[90m Explore Agent[0m
+[0m
+[0m$ [0mls -la /home/antonio/gauntlet-run/ultraplan-workspace/ | grep -v '^total' && find /home/antonio/gauntlet-run/ultraplan-go/internal/workspace -type f | sort
+drwxrwxr-x 9 antonio antonio 4096 Aug 22 11:46 .
+drwxrwxr-x 5 antonio antonio 4096 Aug 22 12:42 ..
+drwxrwxr-x 3 antonio antonio 4096 Aug 22 11:46 .agents
+drwxrwxr-x 8 antonio antonio 4096 Aug 22 12:53 .git
+-rw-rw-r-- 1 antonio antonio   62 Aug 22 11:46 .gitignore
+drwxrwxr-x 2 antonio antonio 4096 Aug 22 11:46 previews
+drwxrwxr-x 4 antonio antonio 4096 Aug 22 11:46 projects
+-rw-rw-r-- 1 antonio antonio 1330 Aug 22 11:46 README.md
+drwxrwxr-x 2 antonio antonio 4096 Aug 22 11:46 scripts
+drwxrwxr-x 5 antonio antonio 4096 Aug 22 11:46 studies
+drwxrwxr-x 5 antonio antonio 4096 Aug 22 11:46 system
+-rw-rw-r-- 1 antonio antonio 1111 Aug 22 11:46 ultraplan.yml
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/defaults.go
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/discovery.go
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/doc.go
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/init.go
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/paths.go
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/base.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/create-area-reasoning.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/create-code-context.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/create-requirements.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/create-sprint-index.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/create-sprint-reasoning.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/create-technical-handbook.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/execute-sprint.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/meta-plan.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/meta-synthesize.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/plan-sprint.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/review.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/smoke.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/synthesize.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/code-context.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/meta-report.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/project-index.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/README.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/repo-analysis.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/report.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/requirements.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/review.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/smoke.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/sprint-index.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/sprint-plan.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/sprint-reasoning.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/technical-handbook.md
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/skills.go
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/skills_test.go
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/validation.go
+/home/antonio/gauntlet-run/ultraplan-go/internal/workspace/workspace_test.go
+[0m
+[0m$ [0mrg -l "contract-mapping|contract_mapping" /home/antonio/gauntlet-run/ultraplan-workspace --glob '!.git' ; rg -c "contract-mapping" /home/antonio/gauntlet-run/ultraplan-go -g '*.go' 2>/dev/null | head; echo ---; rg -n "architecture-review-protocol|review-sprint-protocol|deep-smoke-sprint-protocol|plan-sprint-protocol" /home/antonio/gauntlet-run/ultraplan-go -g '*.go' -l | head -20
+/bin/bash: line 1: rg: command not found
+---
+/bin/bash: line 1: rg: command not found
+[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/docs/architecture.md
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/workspace/init.go
+[0m✱ [0mGrep "contract-mapping"[90m in /home/antonio/gauntlet-run/ultraplan-workspace · 0 matches[0m
+[0m✱ [0mGrep "contract-mapping|architecture-review-protocol"[90m in /home/antonio/gauntlet-run/ultraplan-go · 0 matches[0m
+[0m✱ [0mGrep "Contract Mapping"[90m in /home/antonio/gauntlet-run/ultraplan-workspace · 15 matches[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/app/run_control_inventory_test.go
+[0m✱ [0mGrep "contract-mapping|\.ultra|protocols/"[90m in /home/antonio/gauntlet-run/ultraplan-workspace/system/protocols · 3 matches[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/web/import_boundary_test.go[90m [include=*.go, path=/home/antonio/gauntlet-run/ultraplan-go/internal/sprint, pattern=protocol-v1|protocolV1|"protocol"|Protocol][0m
+[0m✱ [0mGrep "protocol"[90m in /home/antonio/gauntlet-run/ultraplan-go/internal/sprint · 60 matches[0m
+[0m
+[0m$ [0mls /home/antonio/gauntlet-run/ultraplan-workspace/.agents/skills/ultraplan-review/ && grep -n "\.ultra" /home/antonio/gauntlet-run/ultraplan-workspace/.agents/skills/ultraplan-review/SKILL.md | head -10
+agents
+SKILL.md
+12:1. Treat a supplied sprint path as UltraPlan stage input, not as a Git target. For an input such as `projects/<project>/sprints/<sprint>/` or `.ultra/projects/<project>/sprints/<sprint>/`, find the workspace root, derive `<project>` and `<sprint>` from the path, and read the matching `project-index.md`. The sprint directory contains governed stage artifacts; when implementation access is required, resolve its repository from `Target Implementation Directory`, falling back to `Repository` only when the target field is absent. Resolve relative repository paths against the workspace root and verify the result before using it. Do not search nested source repositories for a similarly named skill, and do not ask what target to use merely because the supplied input is a directory.
+[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/sprint/reasoning.go[90m [offset=150, limit=80][0m
+[0m✱ [0mGrep ""\.ultra"|\.ultra/|ultraRoot|UltraDir"[90m in /home/antonio/gauntlet-run/ultraplan-go/internal · 38 matches[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/project-index.md
+[0m
+[0m$ [0msed -n 10,18p /home/antonio/gauntlet-run/ultraplan-workspace/system/contracts/surfaces/frontend.md; echo ===; find /home/antonio/gauntlet-run/ultraplan-go/internal/productstate /home/antonio/gauntlet-run/ultraplan-go/internal/runcontrol -name '*_test.go' | sed 's|.*/||' | sort | uniq -c
+- state placement strategy
+- API boundary handling
+- testing and extension discipline
+
+It does not replace the general contracts in `ops/operational-contract/`.
+Use those contracts alongside this document for testing, error handling, observability, and broader architectural review.
+
+## Scope
+This contract applies when a change:
+===
+      1 benchmark_test.go
+      1 fault_test.go
+      1 id_test.go
+      1 import_boundary_test.go
+      1 lifecycle_test.go
+      1 local_log_test.go
+      1 migration_test.go
+      1 model_test.go
+      1 process_integration_test.go
+      1 retention_test.go
+      1 sanitize_test.go
+      1 sqlite_test.go
+[0m
+[0m$ [0mls /home/antonioborgerees 2>&1 | head -3; echo ===; grep -n -A 20 "Selected Contracts\|## .*Contracts" /home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/30-web-foundations/sprint-index.md | head -40
+ls: cannot access '/home/antonioborgerees': No such file or directory
+===
+21:## Selected Contracts
+22-
+23-Each contract applies as a flat whole to this sprint. All paths must appear in the project index's "Active Contract Pool" table.
+24-
+25-| Contract | Why Selected |
+26-| --- | --- |
+27-| Architecture | Governs explicit interface composition, `internal/web -> internal/app` dependency direction, thin transport boundaries, package-cycle avoidance, and authoritative product state ownership. |
+28-| Errors | Applies to serve-command exit mapping, structured API errors, safe HTTP error projection, method/not-found handling, startup failures, and actionable diagnostics. |
+29-| Configuration | Applies to workspace discovery, command preflight, explicit listen/browser options, loopback-address validation, precedence, and redaction. |
+30-| Observability | Applies to truthful health and status projections, request/server diagnostics, redaction, lifecycle visibility, and read-only display of existing run and flow state. |
+31-| Security | Applies to loopback-only binding, Host/Origin and same-origin policy, request limits, security headers, workspace path containment, artifact allowlisting, hostile-content handling, and secret redaction. |
+32-| Testing | Applies to deterministic app and HTTP fakes, `httptest`, route/security/template/artifact coverage, lifecycle and shutdown tests, race tests, and CLI/TUI non-regression checks. |
+33-| Documentation | Applies to serve help, local-web usage and troubleshooting, CLI reference updates, architecture boundary documentation, and accurate read-only limitations. |
+34-| CLI Surface | Applies to the `serve` command shape, flags, help, workspace selection, output discipline, shutdown behavior, and exit codes without changing existing CLI behavior. |
+35-| Performance | Applies to bounded HTTP timeouts and request sizes, server lifecycle, embedded-asset startup, and bounded artifact reads without accidental large workspace scans. |
+36-
+37-## Selected Evidence Reports
+38-
+39-Copied from the project index's "Available Evidence Reports" table. These tell the technical handbook which reports to read – the project index is the authoritative source.
+40-
+41-| Report | Path | Covers |
+[0m
+[0m$ [0mhead -60 /home/antonio/gauntlet-run/ultraplan-workspace/system/protocols/plan-sprint-protocol.md; echo ====SCAFFOLD====; head -40 /home/antonio/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/plan-sprint.md
+# Plan Sprint Protocol
+
+> Role: sprint planning protocol.
+> Used by: agents preparing `ultraplan-go-workspace/projects/<project>/sprints/<sprint>/plan.md`.
+> Sources: `ultraplan-go-workspace/README.md`, project/sprint inputs, and the prompts/templates embedded in UltraPlan.
+
+This protocol instructs the agent to work from sprint requirements and project index through the Ultra sprint planning artifacts, ending with an evidence-grounded sprint plan. It is a planning protocol only. Do not implement code while using it.
+
+## Purpose
+
+Use this protocol when asked to plan a sprint or produce the planning artifacts for one sprint.
+
+The goal is to produce a sprint plan that can be executed without reopening architecture, while preserving traceability back to:
+
+- sprint requirements
+- project docs
+- project index selections
+- selected evidence reports
+- technical handbook findings
+- area reasoning, when selected
+- sprint reasoning decisions
+
+The final output is:
+
+```text
+ultraplan-go-workspace/projects/<project>/sprints/<sprint-slug>/plan.md
+```
+
+Planning may also create or validate these prerequisite artifacts:
+
+```text
+ultraplan-go-workspace/projects/<project>/sprints/<sprint-slug>/requirements.md
+ultraplan-go-workspace/projects/<project>/sprints/<sprint-slug>/sprint-index.md
+ultraplan-go-workspace/projects/<project>/sprints/<sprint-slug>/technical-handbook.md
+ultraplan-go-workspace/projects/<project>/sprints/<sprint-slug>/reasoning/*.md
+ultraplan-go-workspace/projects/<project>/sprints/<sprint-slug>/reasoning.md
+```
+
+---
+
+## 1. Establish Sprint Context
+
+### Required identifiers
+
+Identify:
+
+```text
+Project: <project>
+Sprint: <sprint-slug>
+Sprint directory: ultraplan-go-workspace/projects/<project>/sprints/<sprint-slug>/
+```
+
+### Required workspace sources
+
+Read the workspace workflow guidance before writing planning artifacts:
+
+```text
+ultraplan-go-workspace/README.md
+```
+
+====SCAFFOLD====
+# Sprint Planning - Evidence-Grounded Implementation Plan
+
+> **Inputs:** project-index.md, requirements.md, docs/*.md, sprint-index.md, technical-handbook.md, area reasoning (if any), reasoning.md, injected sprint-plan template
+
+---
+
+Use this prompt to plan one implementation sprint for an Ultra project.
+
+The outputs are a sprint reasoning document and then a sprint plan. Do not implement code. Do not make ungrounded architecture decisions. Every important decision must trace to project requirements, roadmap scope, evolved study evidence, or an explicitly named open question.
+
+## Required Inputs
+
+Load these files first:
+
+1. Project index: `.ultra/projects/{project}/project-index.md`
+2. Sprint requirements: `.ultra/projects/{project}/sprints/{sprint-slug}/requirements.md`
+3. Project docs: all markdown files in `.ultra/projects/{project}/docs/*.md`
+5. Sprint index: `.ultra/projects/{project}/sprints/{sprint-slug}/sprint-index.md`
+6. Technical handbook: `.ultra/projects/{project}/sprints/{sprint-slug}/technical-handbook.md`
+7. Area reasoning: `.ultra/projects/{project}/sprints/{sprint-slug}/reasoning/*.md` (if present)
+8. Sprint reasoning: `.ultra/projects/{project}/sprints/{sprint-slug}/reasoning.md`
+9. Injected sprint-plan template section in this prompt
+
+## Evidence Loading Order
+
+Use this order so the plan stays grounded:
+
+1. Read `requirements.md` first.
+2. Read the sprint reasoning to understand what was decided and why.
+3. Read the sprint index to understand selected context.
+4. Read the technical handbook for evidence.
+5. Read area reasoning for area-specific decisions.
+6. Read the PRD and TRD sections relevant to this sprint.
+7. Read the project index for traceability back to selected studies/contracts if needed.
+8. Open linked final reports only when a specific decision needs deeper evidence.
+9. Resolve code references only for specific implementation questions.
+10. At the top of `plan.md`, write an `> **Inputs Used:**` line that lists the exact files used for this document.
+
+If context is too large:
+[0m
+[0m$ [0mgrep -n -i "contract pool\|active contract\|api-contracts\|frontend.md\|accessibility\|privacy-and-data\|release-versioning" /home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md | head -20
+1179:- accessibility and keyboard-navigation pass for dashboard, details, confirmations, progress, findings, and errors
+1204:- no high-severity local-web security, path, redaction, concurrency, cancellation, shutdown, or accessibility finding remains
+1207:- template parsing, component rendering, hostile-content escaping, accessibility semantics, and embedded asset paths are covered by focused tests
+[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/runcontrol/import_boundary_test.go[90m [command=grep -n "^#\|^##" /home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md | head -40][0m
+[0m
+[0m$ [0mgrep -n "^#\+ " /home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md | head -30; echo ===; grep -n -i "internal/app\|composition\|dependency direction\|tui -> \|web -> " /home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md | head -15
+1:# UltraPlan Go Architecture
+3:## Architecture Philosophy
+25:## Core Rule
+55:## Target Layout
+174:## Module Ownership
+176:### `study`
+219:### `project`
+237:### `sprint`
+284:### `app`
+310:### `tui`
+330:### `web`
+351:### Durable execution control boundary
+388:### `platform/runtime`
+430:### `platform/process`
+455:### `workspace`
+499:### `codeextract`
+516:## Dependency Rules
+554:## Encapsulation in Practice
+586:## Interface Guidance
+601:## Contract Interpretation For Go Sprints
+626:## Reuse Boundary For Phase 2
+657:## Gated Architecture Evolution After Durable Run Control
+675:### Authoritative versus derived state
+691:### Content and retrieval boundary
+697:### Verification and repair boundary
+710:### Persistence boundary
+718:### Knowledge graph boundary
+722:### Stop/go rule
+726:## Final Principle
+===
+37:internal/app owns local composition and shared use-case wiring for CLI, TUI, and web
+66:    app.go                  # composition root, dependency wiring, CLI adapters
+88:        pages/              # route-level page composition only
+286:`app` is the local composition and use-case boundary. It owns:
+308:Side-effectful surface runners should be constructed explicitly in `cmd/ultraplan` and passed into app composition. Do not add package-global mutable runner registration as each interface is introduced.
+382:- **Pages** are route-level compositions that bind explicit typed view models to layouts and components.
+422:The dependency direction is:
+446:The dependency direction is:
+529:Expected dependency direction for the current build:
+532:cmd/ultraplan -> internal/app
+534:internal/app -> product modules + platform modules
+535:internal/tui -> internal/app
+536:internal/web -> internal/app
+666:-> read-only QA decomposition and synthesis
+716:Filesystem and any later SQLite adapters must pass shared contract suites. Persistence selection occurs once at composition, one authority is active at a time, and migration/import/export is explicit. Source repositories, Git operations, code search, builds/tests, and agent execution workspaces remain real filesystems. No silent dual writes or synchronization precede an explicit authority decision.
+[0m
+[0m✱ [0mGrep "run-control\.db|product-state|productstate\.db"[90m in /home/antonio/gauntlet-run/ultraplan-go · 6 matches[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/productstate/store.go[90m [limit=80][0m
+[0m
+[0m$ [0mcd /home/antonio/gauntlet-run/ultraplan-workspace && git log --oneline -5 -- system/contracts/ && echo === && git log --oneline -5 -- projects/ultraplan-go/project-index.md && echo === && git log --oneline -3 -- system/protocols/plan-sprint-protocol.md && git log --oneline -3 -- system/protocols/contract-mapping-protocol.md
+94fa263 Initial commit
+===
+2dc3b74 Advance sprints 30-35 and harden review/smoke flow
+9b40756 unignore run state files and update project docs
+69690c4 docs: complete phase 3 review planning
+94fa263 Initial commit
+===
+69690c4 docs: complete phase 3 review planning
+94fa263 Initial commit
+94fa263 Initial commit
+[0m
+[0m$ [0mgrep -n "user_version\|userVersion\|CREATE TABLE\|createSchema\|schemaVersion\|PRAGMA" /home/antonio/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go | head -20; echo ===PRODUCTSTATE===; grep -n "user_version\|CREATE TABLE\|createSchema\|PRAGMA" /home/antonio/gauntlet-run/ultraplan-go/internal/productstate/store.go
+219:		if err := db.QueryRowContext(ctx, "PRAGMA "+check.name).Scan(&got); err != nil {
+230:CREATE TABLE IF NOT EXISTS app_schema (
+236:CREATE TABLE IF NOT EXISTS runs (
+273:CREATE TABLE IF NOT EXISTS attempts (
+292:CREATE TABLE IF NOT EXISTS events (
+306:CREATE TABLE IF NOT EXISTS operation_aliases (
+316:CREATE TABLE IF NOT EXISTS reconciliation_log (
+359:	if _, err := tx.ExecContext(ctx, `PRAGMA user_version = 1`); err != nil {
+360:		return classifyStoreError("record_user_version", "record SQLite user version failed", err)
+859:	if err := r.db.QueryRowContext(ctx, "PRAGMA journal_mode").Scan(&health.JournalMode); err != nil {
+863:	if err := r.db.QueryRowContext(ctx, "PRAGMA synchronous").Scan(&synchronous); err != nil {
+867:	if err := r.db.QueryRowContext(ctx, "PRAGMA foreign_keys").Scan(&foreignKeys); err != nil {
+===PRODUCTSTATE===
+79:	if err := createSchema(context.Background(), db); err != nil {
+92:func createSchema(ctx context.Context, db *sql.DB) error {
+94:CREATE TABLE IF NOT EXISTS product_states (
+103:CREATE TABLE IF NOT EXISTS product_state_items (
+[0m
+[0m✱ [0mGrep "run-control\.db"[90m in /home/antonio/gauntlet-run/ultraplan-go/docs · 2 matches[0m
+[0m
+[0m$ [0mgrep -rn "run-control.db" /home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md | head -8; echo ===; grep -n -B2 -A6 "user_version" /home/antonio/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go | sed -n 1,30p; echo ===MIGRATION===; sed -n 40,100p /home/antonio/gauntlet-run/ultraplan-go/internal/runcontrol/migration_test.go
+===
+357-		return classifyStoreError("record_schema", "record run-control schema version failed", err)
+358-	}
+359:	if _, err := tx.ExecContext(ctx, `PRAGMA user_version = 1`); err != nil {
+360:		return classifyStoreError("record_user_version", "record SQLite user version failed", err)
+361-	}
+362-	if err := tx.Commit(); err != nil {
+363-		return classifyStoreError("commit_schema", "commit run-control schema failed", err)
+364-	}
+365-	return nil
+366-}
+===MIGRATION===
+		t.Fatal(err)
+	}
+	if userVersion != CurrentSchemaVersion || appVersion != CurrentSchemaVersion {
+		t.Fatalf("schema versions user=%d app=%d", userVersion, appVersion)
+	}
+	entries, err := os.ReadDir(directory)
+	if err != nil {
+		t.Fatal(err)
+	}
+	backups := 0
+	for _, entry := range entries {
+		if strings.HasPrefix(entry.Name(), "run-control.db.bak.") {
+			backups++
+			info, err := entry.Info()
+			if err != nil {
+				t.Fatal(err)
+			}
+			if info.Mode().Perm() != 0o600 {
+				t.Fatalf("backup mode = %04o", info.Mode().Perm())
+			}
+		}
+	}
+	if backups != 1 {
+		t.Fatalf("migration backups = %d, want 1", backups)
+	}
+}
+
+func TestMigrationRejectsNewerSchemaAndConcurrentLock(t *testing.T) {
+	t.Parallel()
+	root := t.TempDir()
+	repository := openTestRepository(t, root)
+	if _, err := repository.db.Exec(`PRAGMA user_version = 99`); err != nil {
+		t.Fatal(err)
+	}
+	if err := repository.Close(); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := OpenSQLite(context.Background(), root, SQLiteOptions{}); !errors.Is(err, ErrUnsupportedSchema) {
+		t.Fatalf("newer schema error = %v, want unsupported schema", err)
+	}
+
+	root = t.TempDir()
+	if err := os.Mkdir(filepath.Join(root, ".ultraplan"), 0o700); err != nil {
+		t.Fatal(err)
+	}
+	lockPath := filepath.Join(root, DatabaseRelativePath) + ".migrate.lock"
+	if err := os.WriteFile(lockPath, []byte("owned"), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := OpenSQLite(context.Background(), root, SQLiteOptions{}); !errors.Is(err, ErrBusy) {
+		t.Fatalf("migration lock error = %v, want busy", err)
+	}
+}
+
+func TestMigrationReclaimsExactlyProvenStaleLock(t *testing.T) {
+	t.Parallel()
+	root := t.TempDir()
+	if err := os.Mkdir(filepath.Join(root, ".ultraplan"), 0o700); err != nil {
+		t.Fatal(err)
+	}
+	lockPath := filepath.Join(root, DatabaseRelativePath) + ".migrate.lock"
+[0m
+[0m$ [0msed -n 351,392p /home/antonio/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md
+### Durable execution control boundary
+
+Sprint 35 introduces a product-owned operational boundary shared by CLI, TUI, and web. Its semantic responsibilities are fixed even though its concrete package, coordinator topology, and store are reasoning decisions:
+
+```text
+accept run durably before starting work
+assign stable run / attempt / stage / task correlations
+publish one workspace-wide lifecycle projection
+record sanitized monotonically ordered events before fan-out
+track owner lease, heartbeat, fencing, and process/runtime identity
+route authorized idempotent cancellation to the current owner
+arbitrate exactly one terminal outcome
+reconcile stale, interrupted, and cleanup-uncertain work conservatively
+apply bounded retention with explicit cursor gaps and tombstones
+```
+
+Product modules still decide whether their own stages and artifacts succeeded. The shared boundary records and projects execution facts; it does not replace sprint flow state, study run state, execute task state, Markdown artifacts, Git/source state, or external smoke evidence.
+
+The final design must reason explicitly about a dedicated product module versus package-owned repositories coordinated through `app`; filesystem journal versus SQLite or another local store; one coordinator versus fenced multi-process writers; worker cancellation versus adoption after owner loss; and same-host versus shared-filesystem multi-host guarantees. Whichever choices are selected must satisfy the same public lifecycle, replay, security, migration, and fault-injection contracts.
+
+The first web UI is server-rendered and progressively enhanced. A frontend framework or JavaScript build pipeline is not part of the Phase 4 foundation; add one only after real client-side complexity earns it.
+
+Sprint 32 formalizes the template hierarchy:
+
+```text
+page -> layout -> component -> primitive
+```
+
+- **Primitives** are presentation-only atoms such as buttons, badges, links, icons, and code blocks.
+- **Components** combine primitives into reusable UI such as breadcrumbs, validation summaries, artifact previews, operation status, progress panels, tables, empty states, and error panels.
+- **Layouts** define shared shells and arrangements such as base, dashboard, and detail layouts.
+- **Pages** are route-level compositions that bind explicit typed view models to layouts and components.
+
+Dependencies flow downward only. A primitive must not render a component, and no template reads workspace files, calls an app use case, interprets product state, or performs transport validation. Handlers map typed app results into explicit page/component view models before rendering.
+
+Template definitions use stable, namespaced names such as `primitive/button`, `component/breadcrumb`, `layout/base`, and `page/sprint` so parsing the embedded tree cannot silently collide. CSS follows the same layering and design tokens remain presentation concerns. JavaScript stays dependency-free and capability-focused; it enhances server-rendered behavior but never becomes the authoritative router, store, or workflow engine.
+
+### `platform/runtime`
+
+Runtime is platform-level because it is generic execution infrastructure, not study behavior.
+
+It may understand:
+[0m
+[0m→ [0mRead /home/antonio/gauntlet-run/ultraplan-go/internal/sprint/index.go[90m [limit=55, offset=100][0m
+[0m
+[0m$ [0mgrep -n "func resolve\|SectionContracts\|not.*catalog\|unknown\|unselected" /home/antonio/gauntlet-run/ultraplan-go/internal/sprint/review.go | head; echo ===; sed -n 300,340p /home/antonio/gauntlet-run/ultraplan-go/internal/sprint/review.go
+680:		return nil, nil, fmt.Errorf("focused review names unknown coverage")
+===
+		if pathErr != nil {
+			findings = append(findings, finding("Review manifest", selected.Name, path, "unsafe catalog path", pathErr.Error(), "Use a contained workspace path."))
+			return
+		}
+		data, readErr := os.ReadFile(full)
+		if readErr != nil {
+			manifest.Inputs = append(manifest.Inputs, ReviewInput{ID: prefix + "-" + slugReviewID(selected.Name), Kind: kind, Name: selected.Name, Path: path, Hash: "missing"})
+			findings = append(findings, finding("Review manifest", selected.Name, path, "unreadable catalog entry", readErr.Error(), "Restore the selected catalog file."))
+			return
+		}
+		id := prefix + "-" + slugReviewID(selected.Name)
+		in := reviewInput(id, kind, selected.Name, path, string(data))
+		manifest.Inputs = append(manifest.Inputs, in)
+		if reviewer {
+			manifest.Coverage = append(manifest.Coverage, in)
+		}
+		manifest.Contents[path] = string(data)
+	}
+	for _, selected := range idx.Contracts {
+		resolve(selected, project.SectionActiveContractPool, "contract", "contract", true)
+	}
+	for _, selected := range idx.ReviewProtocols {
+		resolve(selected, project.SectionReviewProtocols, "protocol", "protocol", false)
+	}
+	if unresolvedExecutePlanTasks(manifest.Contents[ArtifactRelPath(sp, StagePlan)], manifest.Contents[runPath], planManifest) {
+		findings = append(findings, finding("Plan Execution", "tasks", ArtifactRelPath(sp, StagePlan), "plan tasks are not resolved", "one or more unchecked top-level tasks lack an explicit deferred run-state outcome", "Complete each executable task or defer it with an explicit rationale before review."))
+	}
+	// The handbook receives an independent reviewer even though it is also a governed input.
+	if handbook := findReviewInput(manifest.Inputs, "technical-handbook"); handbook.Path != "" {
+		handbook.ID, handbook.Kind, handbook.Name = "handbook", "handbook", "Technical Handbook"
+		manifest.Coverage = append(manifest.Coverage, handbook)
+	}
+	if strings.TrimSpace(manifest.Model) == "" || manifest.Model == "unresolved" {
+		findings = append(findings, finding("Configuration", "review model", "", "missing review model", "no review, plan, or runtime model is configured", "Set planning.review_model or planning.plan_model."))
+	}
+	for _, command := range reviewVerificationCommands(manifest.Contents[ArtifactRelPath(sp, StagePlan)]) {
+		if !strings.Contains(manifest.Contents[ArtifactRelPath(sp, StageExecute)], command) {
+			findings = append(findings, finding("Verification Evidence", command, ArtifactRelPath(sp, StageExecute), "approved verification evidence missing", "execute.md does not record the planned command", "Run the approved command and record its result in execute.md."))
+		}
+	}
+	if run := manifest.Contents[runPath]; run != "" && reviewRunStateIncomplete([]byte(run)) {
+[0m

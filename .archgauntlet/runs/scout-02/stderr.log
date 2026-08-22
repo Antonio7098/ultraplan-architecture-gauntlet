@@ -1,0 +1,324 @@
+[93m[1m! [0m agent "arch-scout" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -3 && git status --short | wc -l && go version
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0
+go version go1.26.5 linux/amd64
+[0m
+[0m$ [0mgo list ./... 2>&1 | head -100
+github.com/Antonio7098/ultraplan-go/cmd/ultraplan
+github.com/Antonio7098/ultraplan-go/internal/app
+github.com/Antonio7098/ultraplan-go/internal/codeextract
+github.com/Antonio7098/ultraplan-go/internal/platform/config
+github.com/Antonio7098/ultraplan-go/internal/platform/filesystem
+github.com/Antonio7098/ultraplan-go/internal/platform/logging
+github.com/Antonio7098/ultraplan-go/internal/platform/process
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime
+github.com/Antonio7098/ultraplan-go/internal/productstate
+github.com/Antonio7098/ultraplan-go/internal/project
+github.com/Antonio7098/ultraplan-go/internal/runcontrol
+github.com/Antonio7098/ultraplan-go/internal/sprint
+github.com/Antonio7098/ultraplan-go/internal/study
+github.com/Antonio7098/ultraplan-go/internal/tui
+github.com/Antonio7098/ultraplan-go/internal/web
+github.com/Antonio7098/ultraplan-go/internal/workspace
+[0m
+[0m$ [0mgo list -f '{{.ImportPath}} |{{join .Imports ","}}' ./... > /tmp/opencode/allimports.txt 2>&1; wc -l /tmp/opencode/allimports.txt
+16 /tmp/opencode/allimports.txt
+[0m
+[0m$ [0mpython3 - <<'EOF'
+import re
+rows=[]
+for line in open('/tmp/opencode/allimports.txt'):
+    path, imports = line.strip().split(' |',1)
+    imps = [i for i in imports.split(',') if i]
+    internal = [i for i in imps if 'ultraplan-go' in i]
+    rows.append((path, internal, len(imps)-len(internal)))
+for path, internal, extn in rows:
+    short = path.replace('github.com/Antonio7098/ultraplan-go/','')
+    print(f"{short}  (ext={extn})")
+    for i in internal:
+        print("   ->", i.replace('github.com/Antonio7098/ultraplan-go/',''))
+EOF
+cmd/ultraplan  (ext=8)
+   -> internal/app
+   -> internal/tui
+   -> internal/web
+internal/app  (ext=25)
+   -> internal/codeextract
+   -> internal/platform/config
+   -> internal/platform/runtime
+   -> internal/productstate
+   -> internal/project
+   -> internal/runcontrol
+   -> internal/sprint
+   -> internal/study
+   -> internal/workspace
+internal/codeextract  (ext=9)
+internal/platform/config  (ext=7)
+internal/platform/filesystem  (ext=0)
+internal/platform/logging  (ext=4)
+   -> internal/platform/config
+internal/platform/process  (ext=10)
+internal/platform/runtime  (ext=12)
+   -> internal/platform/config
+internal/productstate  (ext=12)
+internal/project  (ext=7)
+   -> internal/workspace
+internal/runcontrol  (ext=23)
+internal/sprint  (ext=23)
+   -> internal/platform/config
+   -> internal/platform/process
+   -> internal/platform/runtime
+   -> internal/productstate
+   -> internal/project
+   -> internal/workspace
+internal/study  (ext=24)
+   -> internal/platform/runtime
+   -> internal/productstate
+   -> internal/workspace
+internal/tui  (ext=15)
+   -> internal/app
+internal/web  (ext=25)
+   -> internal/app
+internal/workspace  (ext=6)
+[0m
+[0m$ [0mfor p in cmd/ultraplan internal/app internal/codeextract internal/platform/config internal/platform/filesystem internal/platform/logging internal/platform/process internal/platform/runtime internal/productstate internal/project internal/runcontrol internal/sprint internal/study internal/tui internal/web internal/workspace; do n=$(find $p -name '*.go' | wc -l); loc=$(cat $(find $p -name '*.go') 2>/dev/null | wc -l); echo "$p files=$n loc=$loc"; done
+cmd/ultraplan files=1 loc=62
+internal/app files=59 loc=13719
+internal/codeextract files=6 loc=669
+internal/platform/config files=4 loc=842
+internal/platform/filesystem files=1 loc=6
+internal/platform/logging files=3 loc=102
+internal/platform/process files=4 loc=408
+internal/platform/runtime files=9 loc=1936
+internal/productstate files=1 loc=206
+internal/project files=10 loc=1205
+internal/runcontrol files=28 loc=5464
+internal/sprint files=62 loc=18300
+internal/study files=56 loc=10498
+internal/tui files=14 loc=2812
+internal/web files=24 loc=6963
+internal/workspace files=9 loc=1443
+[0m
+[0m$ [0mgrep -rn "internal/platform/filesystem" --include='*.go' . | head -20; echo ---; cat go.mod
+---
+module github.com/Antonio7098/ultraplan-go
+
+go 1.26
+
+require gopkg.in/yaml.v3 v3.0.1
+
+require (
+	github.com/Antonio7098/agentwrap v0.0.0-20260821190033-e79a38a58da3
+	github.com/charmbracelet/bubbletea v1.3.10
+	github.com/charmbracelet/glamour v1.0.0
+	github.com/charmbracelet/lipgloss v1.1.1-0.20250404203927-76690c660834
+	github.com/yuin/goldmark v1.7.13
+	golang.org/x/sys v0.47.0
+	modernc.org/sqlite v1.57.0
+)
+
+require (
+	github.com/alecthomas/chroma/v2 v2.20.0 // indirect
+	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
+	github.com/aymerick/douceur v0.2.0 // indirect
+	github.com/charmbracelet/colorprofile v0.2.3-0.20250311203215-f60798e515dc // indirect
+	github.com/charmbracelet/x/ansi v0.10.2 // indirect
+	github.com/charmbracelet/x/cellbuf v0.0.13 // indirect
+	github.com/charmbracelet/x/exp/slice v0.0.0-20250327172914-2fdc97757edf // indirect
+	github.com/charmbracelet/x/term v0.2.1 // indirect
+	github.com/dlclark/regexp2 v1.11.5 // indirect
+	github.com/dustin/go-humanize v1.0.1 // indirect
+	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
+	github.com/google/uuid v1.6.0 // indirect
+	github.com/gorilla/css v1.0.1 // indirect
+	github.com/lucasb-eyer/go-colorful v1.3.0 // indirect
+	github.com/mattn/go-isatty v0.0.24 // indirect
+	github.com/mattn/go-localereader v0.0.1 // indirect
+	github.com/mattn/go-runewidth v0.0.17 // indirect
+	github.com/microcosm-cc/bluemonday v1.0.27 // indirect
+	github.com/muesli/ansi v0.0.0-20230316100256-276c6243b2f6 // indirect
+	github.com/muesli/cancelreader v0.2.2 // indirect
+	github.com/muesli/reflow v0.3.0 // indirect
+	github.com/muesli/termenv v0.16.0 // indirect
+	github.com/ncruces/go-strftime v1.0.0 // indirect
+	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
+	github.com/rivo/uniseg v0.4.7 // indirect
+	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
+	github.com/yuin/goldmark-emoji v1.0.6 // indirect
+	golang.org/x/net v0.38.0 // indirect
+	golang.org/x/term v0.36.0 // indirect
+	golang.org/x/text v0.30.0 // indirect
+	modernc.org/libc v1.74.4 // indirect
+	modernc.org/mathutil v1.7.1 // indirect
+	modernc.org/memory v1.11.0 // indirect
+)
+[0m
+[0m$ [0mgo list -f '{{.ImportPath}}{{"\n"}}{{range .Imports}}  {{.}}{{"\n"}}{{end}}' ./internal/runcontrol ./internal/app ./internal/study ./internal/sprint ./internal/web ./internal/productstate 2>/dev/null | grep -v '^  internal' | sed 's|github.com/Antonio7098/ultraplan-go||'
+/internal/runcontrol
+  bufio
+  context
+  crypto/rand
+  crypto/sha256
+  database/sql
+  encoding/base32
+  encoding/base64
+  encoding/hex
+  encoding/json
+  errors
+  fmt
+  io
+  io/fs
+  modernc.org/sqlite
+  net/url
+  os
+  path/filepath
+  sort
+  strconv
+  strings
+  sync
+  sync/atomic
+  time
+/internal/app
+  bufio
+  bytes
+  context
+  crypto/hmac
+  crypto/rand
+  crypto/sha256
+  encoding/base64
+  encoding/hex
+  encoding/json
+  errors
+  flag
+  fmt
+  /internal/codeextract
+  /internal/platform/config
+  /internal/platform/runtime
+  /internal/productstate
+  /internal/project
+  /internal/runcontrol
+  /internal/sprint
+  /internal/study
+  /internal/workspace
+  github.com/yuin/goldmark
+  github.com/yuin/goldmark/extension
+  io
+  io/fs
+  net
+  os
+  path/filepath
+  runtime
+  sort
+  strconv
+  strings
+  sync
+  time
+/internal/study
+  bufio
+  bytes
+  context
+  crypto/sha256
+  encoding/csv
+  encoding/hex
+  encoding/json
+  errors
+  fmt
+  github.com/Antonio7098/agentwrap
+  /internal/platform/runtime
+  /internal/productstate
+  /internal/workspace
+  gopkg.in/yaml.v3
+  io
+  io/fs
+  os
+  os/exec
+  path/filepath
+  regexp
+  runtime
+  sort
+  strconv
+  strings
+  sync
+  syscall
+  time
+/internal/sprint
+  bufio
+  bytes
+  context
+  crypto/sha256
+  encoding/hex
+  encoding/json
+  errors
+  fmt
+  github.com/Antonio7098/agentwrap
+  /internal/platform/config
+  /internal/platform/process
+  /internal/platform/runtime
+  /internal/productstate
+  /internal/project
+  /internal/workspace
+  io
+  io/fs
+  os
+  os/exec
+  path/filepath
+  regexp
+  sort
+  strconv
+  strings
+  sync
+  sync/atomic
+  syscall
+  time
+  unicode/utf8
+/internal/web
+  bytes
+  context
+  crypto/hmac
+  crypto/rand
+  crypto/sha256
+  crypto/subtle
+  embed
+  encoding/hex
+  encoding/json
+  errors
+  fmt
+  /internal/app
+  html/template
+  io
+  io/fs
+  net
+  net/http
+  net/url
+  regexp
+  sort
+  strconv
+  strings
+  sync
+  sync/atomic
+  text/template/parse
+  time
+/internal/productstate
+  context
+  crypto/sha256
+  database/sql
+  errors
+  fmt
+  modernc.org/sqlite
+  net/url
+  os
+  path/filepath
+  strconv
+  sync
+  time
+[0m
+[0m• [0mMap runcontrol subsystem deeply[90m Explore Agent[0m
+[0m• [0mMap app hub structure[90m Explore Agent[0m
