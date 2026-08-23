@@ -1,0 +1,2326 @@
+[93m[1m! [0m agent "arch-orchestrator" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/finding-contract.md
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/review-lenses.md
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/fault-scenarios.md
+[0m
+[0m$ [0mls -la /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go:
+total 32
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   136 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    62 Aug 22 16:23 ..
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    18 Aug 22 16:23 cmd
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   232 Aug 22 16:23 dist
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   596 Aug 22 16:23 docs
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   122 Aug 23 15:30 .git
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    18 Aug 22 16:23 .github
+-rw-r--r--. 1 antonioborgerees antonioborgerees    10 Aug 22 16:23 .gitignore
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2188 Aug 22 16:23 go.mod
+-rw-r--r--. 1 antonioborgerees antonioborgerees 11725 Aug 22 16:23 go.sum
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 internal
+-rw-r--r--. 1 antonioborgerees antonioborgerees 10930 Aug 22 16:23 README.md
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   188 Aug 22 16:23 scripts
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace:
+total 12
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  158 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   62 Aug 22 16:23 ..
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   12 Aug 22 16:23 .agents
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  122 Aug 22 17:21 .git
+-rw-r--r--. 1 antonioborgerees antonioborgerees   62 Aug 22 16:23 .gitignore
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  886 Aug 22 16:23 previews
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   90 Aug 22 16:23 projects
+-rw-r--r--. 1 antonioborgerees antonioborgerees 1330 Aug 22 16:23 README.md
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  110 Aug 22 16:23 scripts
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  120 Aug 22 16:23 studies
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   54 Aug 22 16:23 system
+-rw-r--r--. 1 antonioborgerees antonioborgerees 1111 Aug 22 16:23 ultraplan.yml
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace -type f | sed 's|/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/||' | sort
+...output truncated...
+
+Full output saved to: /home/antonioborgerees/.local/share/opencode/tool-output/tool_02fe2d1a9001TIRdwZ68X1jYeV
+
+studies/agent-harness-study/dimensions/04.05-tool-permissions-approval-metadata.md
+studies/agent-harness-study/dimensions/04.06-tool-result-contract-error-envelope.md
+studies/agent-harness-study/dimensions/04.07-external-tool-protocols-mcp.md
+studies/agent-harness-study/dimensions/04.08-agent-as-tool-composition.md
+studies/agent-harness-study/dimensions/05.01-short-term-conversation-memory.md
+studies/agent-harness-study/dimensions/05.02-working-memory-scratchpad.md
+studies/agent-harness-study/dimensions/05.03-long-term-user-project-domain-memory.md
+studies/agent-harness-study/dimensions/05.04-retrieval-augmented-memory.md
+studies/agent-harness-study/dimensions/05.05-memory-write-policy.md
+studies/agent-harness-study/dimensions/05.06-memory-compression-summarization.md
+studies/agent-harness-study/dimensions/05.07-memory-privacy-scope-deletion.md
+studies/agent-harness-study/dimensions/05.08-memory-evaluation-freshness.md
+studies/agent-harness-study/dimensions/06.01-planning-location-responsibility.md
+studies/agent-harness-study/dimensions/06.02-task-decomposition-representation.md
+studies/agent-harness-study/dimensions/06.03-plan-lifecycle-and-revision.md
+studies/agent-harness-study/dimensions/06.04-planner-executor-contract.md
+studies/agent-harness-study/dimensions/06.05-objective-progress-tracking.md
+studies/agent-harness-study/dimensions/06.06-search-backtracking-alternatives.md
+studies/agent-harness-study/dimensions/06.07-plan-observability-evaluation.md
+studies/agent-harness-study/dimensions/07.01-tool-scheduling-and-dispatch.md
+studies/agent-harness-study/dimensions/07.02-sequential-vs-parallel-tool-execution.md
+studies/agent-harness-study/dimensions/07.03-idempotency-and-retry-semantics.md
+studies/agent-harness-study/dimensions/07.04-timeouts-and-cancellation.md
+studies/agent-harness-study/dimensions/07.05-resource-locking-and-isolation.md
+studies/agent-harness-study/dimensions/07.06-side-effect-ledger-transaction-boundaries.md
+studies/agent-harness-study/dimensions/07.07-tool-output-streaming.md
+studies/agent-harness-study/dimensions/07.08-tool-failure-escalation.md
+studies/agent-harness-study/dimensions/08.01-capability-model-trust-boundaries.md
+studies/agent-harness-study/dimensions/08.02-permission-policy-approval-gates.md
+studies/agent-harness-study/dimensions/08.03-secrets-identity-environment.md
+studies/agent-harness-study/dimensions/08.04-security-auditability.md
+studies/agent-harness-study/dimensions/09.01-policy-injection-points.md
+studies/agent-harness-study/dimensions/09.02-risk-taxonomy-control-mapping.md
+studies/agent-harness-study/dimensions/09.03-governance-ux-operator-workflow.md
+studies/agent-harness-study/dimensions/09.04-governance-evidence-generation.md
+studies/agent-harness-study/dimensions/10.01-span-hierarchy-run-tree.md
+studies/agent-harness-study/dimensions/10.02-event-schema-lifecycle-events.md
+studies/agent-harness-study/dimensions/10.03-causal-links-lineage.md
+studies/agent-harness-study/dimensions/10.04-export-interoperability-observability.md
+studies/agent-harness-study/dimensions/10.05-event-retention-observer-delivery-backpressure.md
+studies/agent-harness-study/dimensions/11.01-context-selection-policy.md
+studies/agent-harness-study/dimensions/11.02-token-budgeting-and-compression.md
+studies/agent-harness-study/dimensions/11.03-repository-workspace-context-maps.md
+studies/agent-harness-study/dimensions/11.04-context-provenance-integrity.md
+studies/agent-harness-study/dimensions/12.01-prompt-storage-versioning.md
+studies/agent-harness-study/dimensions/12.02-prompt-templating-variable-contracts.md
+studies/agent-harness-study/dimensions/12.03-prompt-evaluation-experiments.md
+studies/agent-harness-study/dimensions/12.04-prompt-rollback-change-control.md
+studies/agent-harness-study/dimensions/13.01-error-taxonomy.md
+studies/agent-harness-study/dimensions/13.02-retry-fallback-degraded-mode.md
+studies/agent-harness-study/dimensions/13.03-failure-visibility.md
+studies/agent-harness-study/dimensions/13.04-recovery-vs-escalation.md
+studies/agent-harness-study/dimensions/14.01-human-in-the-loop-trigger-policy.md
+studies/agent-harness-study/dimensions/14.02-approval-session-design.md
+studies/agent-harness-study/dimensions/14.03-human-intervention-takeover.md
+studies/agent-harness-study/dimensions/15.01-coordination-topology.md
+studies/agent-harness-study/dimensions/15.02-message-routing-termination.md
+studies/agent-harness-study/dimensions/15.03-shared-state-conflict-resolution.md
+studies/agent-harness-study/dimensions/16.01-artifact-lifecycle.md
+studies/agent-harness-study/dimensions/16.02-diff-review-rollback.md
+studies/agent-harness-study/dimensions/16.03-artifact-provenance-reproducibility.md
+studies/agent-harness-study/dimensions/17.01-sandbox-boundary.md
+studies/agent-harness-study/dimensions/17.02-filesystem-network-process-controls.md
+studies/agent-harness-study/dimensions/17.03-isolation-observability-escape-handling.md
+studies/agent-harness-study/dimensions/18.01-dataset-golden-task-management.md
+studies/agent-harness-study/dimensions/18.02-trajectory-evaluation.md
+studies/agent-harness-study/dimensions/18.03-regression-gating-ci-integration.md
+studies/agent-harness-study/dimensions/18.04-cost-latency-quality-evaluation.md
+studies/agent-harness-study/dimensions/18.05-lifecycle-concurrency-invariant-verification.md
+studies/agent-harness-study/dimensions/19.01-protocol-compatibility.md
+studies/agent-harness-study/dimensions/19.02-portable-trace-eval-prompt-schemas.md
+studies/agent-harness-study/dimensions/19.03-adapter-interop-boundary-design.md
+studies/agent-harness-study/dimensions/20.01-token-cost-accounting.md
+studies/agent-harness-study/dimensions/20.02-caching-batching-reuse.md
+studies/agent-harness-study/dimensions/20.03-quality-cost-routing.md
+studies/agent-harness-study/dimensions/21.01-plugin-extension-points.md
+studies/agent-harness-study/dimensions/21.02-provider-backend-adapters.md
+studies/agent-harness-study/dimensions/21.03-extension-compatibility-testing.md
+studies/agent-harness-study/dimensions/22.01-package-module-boundaries.md
+studies/agent-harness-study/dimensions/22.02-configuration-deployment-shape.md
+studies/agent-harness-study/dimensions/22.03-docs-examples-contributor-workflow.md
+studies/agent-harness-study/dimensions/23.01-autonomy-boundary.md
+studies/agent-harness-study/dimensions/23.02-persistence-vs-escalation-philosophy.md
+studies/agent-harness-study/dimensions/23.03-responsibility-accountability-model.md
+studies/agent-harness-study/dimensions/24.01-public-api-surface.md
+studies/agent-harness-study/dimensions/24.02-interface-contract-design.md
+studies/agent-harness-study/dimensions/24.03-api-versioning-compatibility.md
+studies/agent-harness-study/dimensions/24.04-embedding-and-host-integration-ergonomics.md
+studies/agent-harness-study/reports/final/01.01-execution-model-taxonomy.md
+studies/agent-harness-study/reports/final/01.02-control-flow-ownership.md
+studies/agent-harness-study/reports/final/01.03-step-turn-task-atomicity.md
+studies/agent-harness-study/reports/final/01.04-termination-and-loop-bounds.md
+studies/agent-harness-study/reports/final/01.05-pause-resume-interrupt-semantics.md
+studies/agent-harness-study/reports/final/01.06-scheduling-and-trigger-semantics.md
+studies/agent-harness-study/reports/final/01.07-concurrency-and-parallel-advancement.md
+studies/agent-harness-study/reports/final/01.08-streaming-execution-semantics.md
+studies/agent-harness-study/reports/final/01.09-delivery-guarantees-and-idempotency.md
+studies/agent-harness-study/reports/final/01.09-delivery-guarantees-idempotency.md
+studies/agent-harness-study/reports/final/01.10-replay-and-determinism.md
+studies/agent-harness-study/reports/final/02.01-state-taxonomy-and-ownership.md
+studies/agent-harness-study/reports/final/02.02-snapshot-and-checkpoint-architecture.md
+studies/agent-harness-study/reports/final/02.03-event-sourcing-and-replay-state.md
+studies/agent-harness-study/reports/final/02.04-mutation-discipline-and-state-transitions.md
+studies/agent-harness-study/reports/final/02.05-persistence-durability-tiers.md
+studies/agent-harness-study/reports/final/02.06-schema-versioning-and-migration.md
+studies/agent-harness-study/reports/final/02.07-session-thread-user-boundaries.md
+studies/agent-harness-study/reports/final/02.08-crash-recovery-and-reconstruction.md
+studies/agent-harness-study/reports/final/02.09-state-pruning-compaction-retention.md
+studies/agent-harness-study/reports/final/03.01-llm-turn-loop-structure.md
+studies/agent-harness-study/reports/final/03.02-reason-act-observe-cadence.md
+studies/agent-harness-study/reports/final/03.03-tool-calling-roundtrip-control.md
+studies/agent-harness-study/reports/final/03.04-planner-executor-separation.md
+studies/agent-harness-study/reports/final/03.05-reflection-reask-self-correction.md
+studies/agent-harness-study/reports/final/03.06-stuck-doom-loop-detection.md
+studies/agent-harness-study/reports/final/03.07-context-refresh-inside-loop.md
+studies/agent-harness-study/reports/final/03.08-subagent-forked-loop-design.md
+studies/agent-harness-study/reports/final/03.09-completion-and-finalization-semantics.md
+studies/agent-harness-study/reports/final/04.01-tool-definition-and-registration.md
+studies/agent-harness-study/reports/final/04.02-tool-schema-generation-validation.md
+studies/agent-harness-study/reports/final/04.03-tool-catalog-discovery-routing.md
+studies/agent-harness-study/reports/final/04.04-tool-context-dependency-injection.md
+studies/agent-harness-study/reports/final/04.05-tool-permissions-approval-metadata.md
+studies/agent-harness-study/reports/source/01.01-execution-model-taxonomy/agent-framework.md
+studies/agent-harness-study/reports/source/01.01-execution-model-taxonomy/crewai.md
+studies/agent-harness-study/reports/source/01.01-execution-model-taxonomy/langgraph.md
+studies/agent-harness-study/reports/source/01.01-execution-model-taxonomy/letta.md
+studies/agent-harness-study/reports/source/01.01-execution-model-taxonomy/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/01.01-execution-model-taxonomy/openhands.md
+studies/agent-harness-study/reports/source/01.01-execution-model-taxonomy/pydantic-ai.md
+studies/agent-harness-study/reports/source/01.01-execution-model-taxonomy/temporal.md
+studies/agent-harness-study/reports/source/01.02-control-flow-ownership/agent-framework.md
+studies/agent-harness-study/reports/source/01.02-control-flow-ownership/crewai.md
+studies/agent-harness-study/reports/source/01.02-control-flow-ownership/langgraph.md
+studies/agent-harness-study/reports/source/01.02-control-flow-ownership/letta.md
+studies/agent-harness-study/reports/source/01.02-control-flow-ownership/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/01.02-control-flow-ownership/openhands.md
+studies/agent-harness-study/reports/source/01.02-control-flow-ownership/pydantic-ai.md
+studies/agent-harness-study/reports/source/01.02-control-flow-ownership/temporal.md
+studies/agent-harness-study/reports/source/01.03-step-turn-task-atomicity/agent-framework.md
+studies/agent-harness-study/reports/source/01.03-step-turn-task-atomicity/crewai.md
+studies/agent-harness-study/reports/source/01.03-step-turn-task-atomicity/langgraph.md
+studies/agent-harness-study/reports/source/01.03-step-turn-task-atomicity/letta.md
+studies/agent-harness-study/reports/source/01.03-step-turn-task-atomicity/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/01.03-step-turn-task-atomicity/openhands.md
+studies/agent-harness-study/reports/source/01.03-step-turn-task-atomicity/pydantic-ai.md
+studies/agent-harness-study/reports/source/01.03-step-turn-task-atomicity/temporal.md
+studies/agent-harness-study/reports/source/01.04-termination-and-loop-bounds/agent-framework.md
+studies/agent-harness-study/reports/source/01.04-termination-and-loop-bounds/crewai.md
+studies/agent-harness-study/reports/source/01.04-termination-and-loop-bounds/langgraph.md
+studies/agent-harness-study/reports/source/01.04-termination-and-loop-bounds/letta.md
+studies/agent-harness-study/reports/source/01.04-termination-and-loop-bounds/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/01.04-termination-and-loop-bounds/openhands.md
+studies/agent-harness-study/reports/source/01.04-termination-and-loop-bounds/pydantic-ai.md
+studies/agent-harness-study/reports/source/01.04-termination-and-loop-bounds/temporal.md
+studies/agent-harness-study/reports/source/01.05-pause-resume-interrupt-semantics/agent-framework.md
+studies/agent-harness-study/reports/source/01.05-pause-resume-interrupt-semantics/langgraph.md
+studies/agent-harness-study/reports/source/01.05-pause-resume-interrupt-semantics/letta.md
+studies/agent-harness-study/reports/source/01.05-pause-resume-interrupt-semantics/openhands.md
+studies/agent-harness-study/reports/source/01.05-pause-resume-interrupt-semantics/temporal.md
+studies/agent-harness-study/reports/source/01.06-scheduling-and-trigger-semantics/agent-framework.md
+studies/agent-harness-study/reports/source/01.06-scheduling-and-trigger-semantics/crewai.md
+studies/agent-harness-study/reports/source/01.06-scheduling-and-trigger-semantics/langgraph.md
+studies/agent-harness-study/reports/source/01.06-scheduling-and-trigger-semantics/openhands.md
+studies/agent-harness-study/reports/source/01.06-scheduling-and-trigger-semantics/temporal.md
+studies/agent-harness-study/reports/source/01.07-concurrency-and-parallel-advancement/agent-framework.md
+studies/agent-harness-study/reports/source/01.07-concurrency-and-parallel-advancement/crewai.md
+studies/agent-harness-study/reports/source/01.07-concurrency-and-parallel-advancement/langgraph.md
+studies/agent-harness-study/reports/source/01.07-concurrency-and-parallel-advancement/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/01.07-concurrency-and-parallel-advancement/openhands.md
+studies/agent-harness-study/reports/source/01.07-concurrency-and-parallel-advancement/pydantic-ai.md
+studies/agent-harness-study/reports/source/01.07-concurrency-and-parallel-advancement/temporal.md
+studies/agent-harness-study/reports/source/01.08-streaming-execution-semantics/agent-framework.md
+studies/agent-harness-study/reports/source/01.08-streaming-execution-semantics/crewai.md
+studies/agent-harness-study/reports/source/01.08-streaming-execution-semantics/langgraph.md
+studies/agent-harness-study/reports/source/01.08-streaming-execution-semantics/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/01.08-streaming-execution-semantics/openhands.md
+studies/agent-harness-study/reports/source/01.08-streaming-execution-semantics/pydantic-ai.md
+studies/agent-harness-study/reports/source/01.08-streaming-execution-semantics/temporal.md
+studies/agent-harness-study/reports/source/01.09-delivery-guarantees-idempotency/agent-framework.md
+studies/agent-harness-study/reports/source/01.09-delivery-guarantees-idempotency/langgraph.md
+studies/agent-harness-study/reports/source/01.09-delivery-guarantees-idempotency/openhands.md
+studies/agent-harness-study/reports/source/01.09-delivery-guarantees-idempotency/temporal.md
+studies/agent-harness-study/reports/source/01.10-replay-and-determinism/langgraph.md
+studies/agent-harness-study/reports/source/01.10-replay-and-determinism/temporal.md
+studies/agent-harness-study/reports/source/02.01-state-taxonomy-and-ownership/agent-framework.md
+studies/agent-harness-study/reports/source/02.01-state-taxonomy-and-ownership/langfuse.md
+studies/agent-harness-study/reports/source/02.01-state-taxonomy-and-ownership/langgraph.md
+studies/agent-harness-study/reports/source/02.01-state-taxonomy-and-ownership/letta.md
+studies/agent-harness-study/reports/source/02.01-state-taxonomy-and-ownership/openhands.md
+studies/agent-harness-study/reports/source/02.01-state-taxonomy-and-ownership/temporal.md
+studies/agent-harness-study/reports/source/02.02-snapshot-and-checkpoint-architecture/agent-framework.md
+studies/agent-harness-study/reports/source/02.02-snapshot-and-checkpoint-architecture/langgraph.md
+studies/agent-harness-study/reports/source/02.02-snapshot-and-checkpoint-architecture/letta.md
+studies/agent-harness-study/reports/source/02.02-snapshot-and-checkpoint-architecture/openhands.md
+studies/agent-harness-study/reports/source/02.02-snapshot-and-checkpoint-architecture/temporal.md
+studies/agent-harness-study/reports/source/02.03-event-sourcing-and-replay-state/langgraph.md
+studies/agent-harness-study/reports/source/02.03-event-sourcing-and-replay-state/temporal.md
+studies/agent-harness-study/reports/source/02.04-mutation-discipline-and-state-transitions/agent-framework.md
+studies/agent-harness-study/reports/source/02.04-mutation-discipline-and-state-transitions/langgraph.md
+studies/agent-harness-study/reports/source/02.04-mutation-discipline-and-state-transitions/letta.md
+studies/agent-harness-study/reports/source/02.04-mutation-discipline-and-state-transitions/openhands.md
+studies/agent-harness-study/reports/source/02.04-mutation-discipline-and-state-transitions/temporal.md
+studies/agent-harness-study/reports/source/02.05-persistence-durability-tiers/agent-framework.md
+studies/agent-harness-study/reports/source/02.05-persistence-durability-tiers/langfuse.md
+studies/agent-harness-study/reports/source/02.05-persistence-durability-tiers/langgraph.md
+studies/agent-harness-study/reports/source/02.05-persistence-durability-tiers/letta.md
+studies/agent-harness-study/reports/source/02.05-persistence-durability-tiers/openhands.md
+studies/agent-harness-study/reports/source/02.05-persistence-durability-tiers/temporal.md
+studies/agent-harness-study/reports/source/02.06-schema-versioning-and-migration/agent-framework.md
+studies/agent-harness-study/reports/source/02.06-schema-versioning-and-migration/langfuse.md
+studies/agent-harness-study/reports/source/02.06-schema-versioning-and-migration/langgraph.md
+studies/agent-harness-study/reports/source/02.06-schema-versioning-and-migration/letta.md
+studies/agent-harness-study/reports/source/02.06-schema-versioning-and-migration/temporal.md
+studies/agent-harness-study/reports/source/02.07-session-thread-user-boundaries/agent-framework.md
+studies/agent-harness-study/reports/source/02.07-session-thread-user-boundaries/langfuse.md
+studies/agent-harness-study/reports/source/02.07-session-thread-user-boundaries/langgraph.md
+studies/agent-harness-study/reports/source/02.07-session-thread-user-boundaries/letta.md
+studies/agent-harness-study/reports/source/02.07-session-thread-user-boundaries/openhands.md
+studies/agent-harness-study/reports/source/02.07-session-thread-user-boundaries/temporal.md
+studies/agent-harness-study/reports/source/02.08-crash-recovery-and-reconstruction/agent-framework.md
+studies/agent-harness-study/reports/source/02.08-crash-recovery-and-reconstruction/langgraph.md
+studies/agent-harness-study/reports/source/02.08-crash-recovery-and-reconstruction/letta.md
+studies/agent-harness-study/reports/source/02.08-crash-recovery-and-reconstruction/openhands.md
+studies/agent-harness-study/reports/source/02.08-crash-recovery-and-reconstruction/temporal.md
+studies/agent-harness-study/reports/source/02.09-state-pruning-compaction-retention/agent-framework.md
+studies/agent-harness-study/reports/source/02.09-state-pruning-compaction-retention/langfuse.md
+studies/agent-harness-study/reports/source/02.09-state-pruning-compaction-retention/langgraph.md
+studies/agent-harness-study/reports/source/02.09-state-pruning-compaction-retention/letta.md
+studies/agent-harness-study/reports/source/02.09-state-pruning-compaction-retention/openhands.md
+studies/agent-harness-study/reports/source/02.09-state-pruning-compaction-retention/temporal.md
+studies/agent-harness-study/reports/source/03.01-llm-turn-loop-structure/agent-framework.md
+studies/agent-harness-study/reports/source/03.01-llm-turn-loop-structure/crewai.md
+studies/agent-harness-study/reports/source/03.01-llm-turn-loop-structure/langgraph.md
+studies/agent-harness-study/reports/source/03.01-llm-turn-loop-structure/letta.md
+studies/agent-harness-study/reports/source/03.01-llm-turn-loop-structure/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/03.01-llm-turn-loop-structure/openhands.md
+studies/agent-harness-study/reports/source/03.01-llm-turn-loop-structure/pydantic-ai.md
+studies/agent-harness-study/reports/source/03.02-reason-act-observe-cadence/agent-framework.md
+studies/agent-harness-study/reports/source/03.02-reason-act-observe-cadence/crewai.md
+studies/agent-harness-study/reports/source/03.02-reason-act-observe-cadence/langgraph.md
+studies/agent-harness-study/reports/source/03.02-reason-act-observe-cadence/letta.md
+studies/agent-harness-study/reports/source/03.02-reason-act-observe-cadence/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/03.02-reason-act-observe-cadence/openhands.md
+studies/agent-harness-study/reports/source/03.02-reason-act-observe-cadence/pydantic-ai.md
+studies/agent-harness-study/reports/source/03.03-tool-calling-roundtrip-control/agent-framework.md
+studies/agent-harness-study/reports/source/03.03-tool-calling-roundtrip-control/crewai.md
+studies/agent-harness-study/reports/source/03.03-tool-calling-roundtrip-control/langgraph.md
+studies/agent-harness-study/reports/source/03.03-tool-calling-roundtrip-control/letta.md
+studies/agent-harness-study/reports/source/03.03-tool-calling-roundtrip-control/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/03.03-tool-calling-roundtrip-control/openhands.md
+studies/agent-harness-study/reports/source/03.03-tool-calling-roundtrip-control/pydantic-ai.md
+studies/agent-harness-study/reports/source/03.04-planner-executor-separation/agent-framework.md
+studies/agent-harness-study/reports/source/03.04-planner-executor-separation/crewai.md
+studies/agent-harness-study/reports/source/03.04-planner-executor-separation/langgraph.md
+studies/agent-harness-study/reports/source/03.04-planner-executor-separation/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/03.04-planner-executor-separation/openhands.md
+studies/agent-harness-study/reports/source/03.04-planner-executor-separation/pydantic-ai.md
+studies/agent-harness-study/reports/source/03.05-reflection-reask-self-correction/agent-framework.md
+studies/agent-harness-study/reports/source/03.05-reflection-reask-self-correction/crewai.md
+studies/agent-harness-study/reports/source/03.05-reflection-reask-self-correction/langgraph.md
+studies/agent-harness-study/reports/source/03.05-reflection-reask-self-correction/letta.md
+studies/agent-harness-study/reports/source/03.05-reflection-reask-self-correction/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/03.05-reflection-reask-self-correction/openhands.md
+studies/agent-harness-study/reports/source/03.05-reflection-reask-self-correction/pydantic-ai.md
+studies/agent-harness-study/reports/source/03.06-stuck-doom-loop-detection/agent-framework.md
+studies/agent-harness-study/reports/source/03.06-stuck-doom-loop-detection/crewai.md
+studies/agent-harness-study/reports/source/03.06-stuck-doom-loop-detection/langgraph.md
+studies/agent-harness-study/reports/source/03.06-stuck-doom-loop-detection/letta.md
+studies/agent-harness-study/reports/source/03.06-stuck-doom-loop-detection/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/03.06-stuck-doom-loop-detection/openhands.md
+studies/agent-harness-study/reports/source/03.06-stuck-doom-loop-detection/pydantic-ai.md
+studies/agent-harness-study/reports/source/03.07-context-refresh-inside-loop/agent-framework.md
+studies/agent-harness-study/reports/source/03.07-context-refresh-inside-loop/crewai.md
+studies/agent-harness-study/reports/source/03.07-context-refresh-inside-loop/langgraph.md
+studies/agent-harness-study/reports/source/03.07-context-refresh-inside-loop/letta.md
+studies/agent-harness-study/reports/source/03.07-context-refresh-inside-loop/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/03.07-context-refresh-inside-loop/openhands.md
+studies/agent-harness-study/reports/source/03.07-context-refresh-inside-loop/pydantic-ai.md
+studies/agent-harness-study/reports/source/03.08-subagent-forked-loop-design/agent-framework.md
+studies/agent-harness-study/reports/source/03.08-subagent-forked-loop-design/crewai.md
+studies/agent-harness-study/reports/source/03.08-subagent-forked-loop-design/langgraph.md
+studies/agent-harness-study/reports/source/03.08-subagent-forked-loop-design/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/03.08-subagent-forked-loop-design/openhands.md
+studies/agent-harness-study/reports/source/03.08-subagent-forked-loop-design/pydantic-ai.md
+studies/agent-harness-study/reports/source/03.09-completion-and-finalization-semantics/agent-framework.md
+studies/agent-harness-study/reports/source/03.09-completion-and-finalization-semantics/crewai.md
+studies/agent-harness-study/reports/source/03.09-completion-and-finalization-semantics/langgraph.md
+studies/agent-harness-study/reports/source/03.09-completion-and-finalization-semantics/letta.md
+studies/agent-harness-study/reports/source/03.09-completion-and-finalization-semantics/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/03.09-completion-and-finalization-semantics/openhands.md
+studies/agent-harness-study/reports/source/03.09-completion-and-finalization-semantics/pydantic-ai.md
+studies/agent-harness-study/reports/source/04.01-tool-definition-and-registration/agent-framework.md
+studies/agent-harness-study/reports/source/04.01-tool-definition-and-registration/crewai.md
+studies/agent-harness-study/reports/source/04.01-tool-definition-and-registration/langgraph.md
+studies/agent-harness-study/reports/source/04.01-tool-definition-and-registration/letta.md
+studies/agent-harness-study/reports/source/04.01-tool-definition-and-registration/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/04.01-tool-definition-and-registration/openhands.md
+studies/agent-harness-study/reports/source/04.01-tool-definition-and-registration/pydantic-ai.md
+studies/agent-harness-study/reports/source/04.02-tool-schema-generation-validation/agent-framework.md
+studies/agent-harness-study/reports/source/04.02-tool-schema-generation-validation/crewai.md
+studies/agent-harness-study/reports/source/04.02-tool-schema-generation-validation/langgraph.md
+studies/agent-harness-study/reports/source/04.02-tool-schema-generation-validation/letta.md
+studies/agent-harness-study/reports/source/04.02-tool-schema-generation-validation/opa.md
+studies/agent-harness-study/reports/source/04.02-tool-schema-generation-validation/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/04.02-tool-schema-generation-validation/openhands.md
+studies/agent-harness-study/reports/source/04.02-tool-schema-generation-validation/pydantic-ai.md
+studies/agent-harness-study/reports/source/04.03-tool-catalog-discovery-routing/agent-framework.md
+studies/agent-harness-study/reports/source/04.03-tool-catalog-discovery-routing/crewai.md
+studies/agent-harness-study/reports/source/04.03-tool-catalog-discovery-routing/langgraph.md
+studies/agent-harness-study/reports/source/04.03-tool-catalog-discovery-routing/letta.md
+studies/agent-harness-study/reports/source/04.03-tool-catalog-discovery-routing/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/04.03-tool-catalog-discovery-routing/openhands.md
+studies/agent-harness-study/reports/source/04.03-tool-catalog-discovery-routing/pydantic-ai.md
+studies/agent-harness-study/reports/source/04.04-tool-context-dependency-injection/agent-framework.md
+studies/agent-harness-study/reports/source/04.04-tool-context-dependency-injection/crewai.md
+studies/agent-harness-study/reports/source/04.04-tool-context-dependency-injection/langgraph.md
+studies/agent-harness-study/reports/source/04.04-tool-context-dependency-injection/letta.md
+studies/agent-harness-study/reports/source/04.04-tool-context-dependency-injection/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/04.04-tool-context-dependency-injection/openhands.md
+studies/agent-harness-study/reports/source/04.04-tool-context-dependency-injection/pydantic-ai.md
+studies/agent-harness-study/reports/source/04.05-tool-permissions-approval-metadata/agent-framework.md
+studies/agent-harness-study/reports/source/04.05-tool-permissions-approval-metadata/crewai.md
+studies/agent-harness-study/reports/source/04.05-tool-permissions-approval-metadata/langgraph.md
+studies/agent-harness-study/reports/source/04.05-tool-permissions-approval-metadata/opa.md
+studies/agent-harness-study/reports/source/04.05-tool-permissions-approval-metadata/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/04.05-tool-permissions-approval-metadata/openhands.md
+studies/agent-harness-study/reports/source/04.05-tool-permissions-approval-metadata/pydantic-ai.md
+studies/agent-harness-study/reports/source/04.06-tool-result-contract-error-envelope/agent-framework.md
+studies/agent-harness-study/reports/source/04.06-tool-result-contract-error-envelope/crewai.md
+studies/agent-harness-study/reports/source/04.06-tool-result-contract-error-envelope/langgraph.md
+studies/agent-harness-study/reports/source/04.06-tool-result-contract-error-envelope/letta.md
+studies/agent-harness-study/reports/source/04.06-tool-result-contract-error-envelope/openai-agents-sdk.md
+studies/agent-harness-study/reports/source/04.06-tool-result-contract-error-envelope/openhands.md
+studies/agent-harness-study/reports/source/04.06-tool-result-contract-error-envelope/pydantic-ai.md
+studies/agent-harness-study/reports/source/04.07-external-tool-protocols-mcp/crewai.md
+studies/agent-harness-study/sources/agent-framework.ultraplan-source.yml
+studies/agent-harness-study/sources/crewai.ultraplan-source.yml
+studies/agent-harness-study/sources/langfuse.ultraplan-source.yml
+studies/agent-harness-study/sources/langgraph.ultraplan-source.yml
+studies/agent-harness-study/sources/letta.ultraplan-source.yml
+studies/agent-harness-study/sources/opa.ultraplan-source.yml
+studies/agent-harness-study/sources/openai-agents-sdk.ultraplan-source.yml
+studies/agent-harness-study/sources/openhands.ultraplan-source.yml
+studies/agent-harness-study/sources/pydantic-ai.ultraplan-source.yml
+studies/agent-harness-study/sources/temporal.ultraplan-source.yml
+studies/agent-harness-study/study-init.yml
+studies/agent-harness-study/study.json
+studies/agent-harness-study/summary.csv
+studies/agent-harness-study/.ultraplan/diagnostics/run-loop-memory.jsonl
+studies/agent-harness-study/.ultraplan/diagnostics/run-loop-memory.jsonl.1
+studies/agent-harness-study/.ultraplan/runs/summary.md
+studies/agent-harness-study/.ultraplan/runs/tasks.jsonl
+studies/agent-harness-study/.ultraplan/run-state.json
+studies/go-cli-study/dimensions/01-project-structure.md
+studies/go-cli-study/dimensions/02-command-architecture.md
+studies/go-cli-study/dimensions/03-dependency-injection.md
+studies/go-cli-study/dimensions/04-configuration-management.md
+studies/go-cli-study/dimensions/05-error-handling.md
+studies/go-cli-study/dimensions/06-io-abstraction.md
+studies/go-cli-study/dimensions/07-state-context.md
+studies/go-cli-study/dimensions/08-concurrency.md
+studies/go-cli-study/dimensions/09-terminal-ux.md
+studies/go-cli-study/dimensions/10-logging-observability.md
+studies/go-cli-study/dimensions/11-testing-strategy.md
+studies/go-cli-study/dimensions/12-extensibility.md
+studies/go-cli-study/README.md
+studies/go-cli-study/reports/final/01-project-structure.md
+studies/go-cli-study/reports/final/02-command-architecture.md
+studies/go-cli-study/reports/final/03-dependency-injection.md
+studies/go-cli-study/reports/final/04-configuration-management.md
+studies/go-cli-study/reports/final/05-error-handling.md
+studies/go-cli-study/reports/final/06-io-abstraction.md
+studies/go-cli-study/reports/final/07-state-context.md
+studies/go-cli-study/reports/final/08-concurrency.md
+studies/go-cli-study/reports/final/09-terminal-ux.md
+studies/go-cli-study/reports/final/10-logging-observability.md
+studies/go-cli-study/reports/final/11-testing-strategy.md
+studies/go-cli-study/reports/final/12-extensibility.md
+studies/go-cli-study/reports/final/13-security.md
+studies/go-cli-study/reports/final/14-performance.md
+studies/go-cli-study/reports/final/15-philosophy.md
+studies/go-cli-study/reports/source/01-project-structure/age.md
+studies/go-cli-study/reports/source/01-project-structure/chezmoi.md
+studies/go-cli-study/reports/source/01-project-structure/dive.md
+studies/go-cli-study/reports/source/01-project-structure/fzf.md
+studies/go-cli-study/reports/source/01-project-structure/gdu.md
+studies/go-cli-study/reports/source/01-project-structure/gh-cli.md
+studies/go-cli-study/reports/source/01-project-structure/go-task.md
+studies/go-cli-study/reports/source/01-project-structure/helm.md
+studies/go-cli-study/reports/source/01-project-structure/k9s.md
+studies/go-cli-study/reports/source/01-project-structure/lazygit.md
+studies/go-cli-study/reports/source/01-project-structure/mitchellh-cli.md
+studies/go-cli-study/reports/source/01-project-structure/opencode.md
+studies/go-cli-study/reports/source/01-project-structure/rclone.md
+studies/go-cli-study/reports/source/01-project-structure/restic.md
+studies/go-cli-study/reports/source/01-project-structure/urfave-cli.md
+studies/go-cli-study/reports/source/01-project-structure/yq.md
+studies/go-cli-study/reports/source/02-command-architecture/age.md
+studies/go-cli-study/reports/source/02-command-architecture/chezmoi.md
+studies/go-cli-study/reports/source/02-command-architecture/dive.md
+studies/go-cli-study/reports/source/02-command-architecture/fzf.md
+studies/go-cli-study/reports/source/02-command-architecture/gdu.md
+studies/go-cli-study/reports/source/02-command-architecture/gh-cli.md
+studies/go-cli-study/reports/source/02-command-architecture/go-task.md
+studies/go-cli-study/reports/source/02-command-architecture/helm.md
+studies/go-cli-study/reports/source/02-command-architecture/k9s.md
+studies/go-cli-study/reports/source/02-command-architecture/lazygit.md
+studies/go-cli-study/reports/source/02-command-architecture/mitchellh-cli.md
+studies/go-cli-study/reports/source/02-command-architecture/opencode.md
+studies/go-cli-study/reports/source/02-command-architecture/rclone.md
+studies/go-cli-study/reports/source/02-command-architecture/restic.md
+studies/go-cli-study/reports/source/02-command-architecture/urfave-cli.md
+studies/go-cli-study/reports/source/02-command-architecture/yq.md
+studies/go-cli-study/reports/source/03-dependency-injection/age.md
+studies/go-cli-study/reports/source/03-dependency-injection/chezmoi.md
+studies/go-cli-study/reports/source/03-dependency-injection/dive.md
+studies/go-cli-study/reports/source/03-dependency-injection/fzf.md
+studies/go-cli-study/reports/source/03-dependency-injection/gdu.md
+studies/go-cli-study/reports/source/03-dependency-injection/gh-cli.md
+studies/go-cli-study/reports/source/03-dependency-injection/go-task.md
+studies/go-cli-study/reports/source/03-dependency-injection/helm.md
+studies/go-cli-study/reports/source/03-dependency-injection/k9s.md
+studies/go-cli-study/reports/source/03-dependency-injection/lazygit.md
+studies/go-cli-study/reports/source/03-dependency-injection/mitchellh-cli.md
+studies/go-cli-study/reports/source/03-dependency-injection/opencode.md
+studies/go-cli-study/reports/source/03-dependency-injection/rclone.md
+studies/go-cli-study/reports/source/03-dependency-injection/restic.md
+studies/go-cli-study/reports/source/03-dependency-injection/urfave-cli.md
+studies/go-cli-study/reports/source/03-dependency-injection/yq.md
+studies/go-cli-study/reports/source/04-configuration-management/age.md
+studies/go-cli-study/reports/source/04-configuration-management/chezmoi.md
+studies/go-cli-study/reports/source/04-configuration-management/dive.md
+studies/go-cli-study/reports/source/04-configuration-management/fzf.md
+studies/go-cli-study/reports/source/04-configuration-management/gdu.md
+studies/go-cli-study/reports/source/04-configuration-management/gh-cli.md
+studies/go-cli-study/reports/source/04-configuration-management/go-task.md
+studies/go-cli-study/reports/source/04-configuration-management/helm.md
+studies/go-cli-study/reports/source/04-configuration-management/k9s.md
+studies/go-cli-study/reports/source/04-configuration-management/lazygit.md
+studies/go-cli-study/reports/source/04-configuration-management/mitchellh-cli.md
+studies/go-cli-study/reports/source/04-configuration-management/opencode.md
+studies/go-cli-study/reports/source/04-configuration-management/rclone.md
+studies/go-cli-study/reports/source/04-configuration-management/restic.md
+studies/go-cli-study/reports/source/04-configuration-management/urfave-cli.md
+studies/go-cli-study/reports/source/04-configuration-management/yq.md
+studies/go-cli-study/reports/source/05-error-handling/age.md
+studies/go-cli-study/reports/source/05-error-handling/chezmoi.md
+studies/go-cli-study/reports/source/05-error-handling/dive.md
+studies/go-cli-study/reports/source/05-error-handling/fzf.md
+studies/go-cli-study/reports/source/05-error-handling/gdu.md
+studies/go-cli-study/reports/source/05-error-handling/gh-cli.md
+studies/go-cli-study/reports/source/05-error-handling/go-task.md
+studies/go-cli-study/reports/source/05-error-handling/helm.md
+studies/go-cli-study/reports/source/05-error-handling/k9s.md
+studies/go-cli-study/reports/source/05-error-handling/lazygit.md
+studies/go-cli-study/reports/source/05-error-handling/mitchellh-cli.md
+studies/go-cli-study/reports/source/05-error-handling/opencode.md
+studies/go-cli-study/reports/source/05-error-handling/rclone.md
+studies/go-cli-study/reports/source/05-error-handling/restic.md
+studies/go-cli-study/reports/source/05-error-handling/urfave-cli.md
+studies/go-cli-study/reports/source/05-error-handling/yq.md
+studies/go-cli-study/reports/source/06-io-abstraction/age.md
+studies/go-cli-study/reports/source/06-io-abstraction/chezmoi.md
+studies/go-cli-study/reports/source/06-io-abstraction/dive.md
+studies/go-cli-study/reports/source/06-io-abstraction/fzf.md
+studies/go-cli-study/reports/source/06-io-abstraction/gdu.md
+studies/go-cli-study/reports/source/06-io-abstraction/gh-cli.md
+studies/go-cli-study/reports/source/06-io-abstraction/go-task.md
+studies/go-cli-study/reports/source/06-io-abstraction/helm.md
+studies/go-cli-study/reports/source/06-io-abstraction/k9s.md
+studies/go-cli-study/reports/source/06-io-abstraction/lazygit.md
+studies/go-cli-study/reports/source/06-io-abstraction/mitchellh-cli.md
+studies/go-cli-study/reports/source/06-io-abstraction/opencode.md
+studies/go-cli-study/reports/source/06-io-abstraction/rclone.md
+studies/go-cli-study/reports/source/06-io-abstraction/restic.md
+studies/go-cli-study/reports/source/06-io-abstraction/urfave-cli.md
+studies/go-cli-study/reports/source/06-io-abstraction/yq.md
+studies/go-cli-study/reports/source/07-state-context/age.md
+studies/go-cli-study/reports/source/07-state-context/chezmoi.md
+studies/go-cli-study/reports/source/07-state-context/dive.md
+studies/go-cli-study/reports/source/07-state-context/fzf.md
+studies/go-cli-study/reports/source/07-state-context/gdu.md
+studies/go-cli-study/reports/source/07-state-context/gh-cli.md
+studies/go-cli-study/reports/source/07-state-context/go-task.md
+studies/go-cli-study/reports/source/07-state-context/helm.md
+studies/go-cli-study/reports/source/07-state-context/k9s.md
+studies/go-cli-study/reports/source/07-state-context/lazygit.md
+studies/go-cli-study/reports/source/07-state-context/mitchellh-cli.md
+studies/go-cli-study/reports/source/07-state-context/opencode.md
+studies/go-cli-study/reports/source/07-state-context/rclone.md
+studies/go-cli-study/reports/source/07-state-context/restic.md
+studies/go-cli-study/reports/source/07-state-context/urfave-cli.md
+studies/go-cli-study/reports/source/07-state-context/yq.md
+studies/go-cli-study/reports/source/08-concurrency/age.md
+studies/go-cli-study/reports/source/08-concurrency/chezmoi.md
+studies/go-cli-study/reports/source/08-concurrency/dive.md
+studies/go-cli-study/reports/source/08-concurrency/fzf.md
+studies/go-cli-study/reports/source/08-concurrency/gdu.md
+studies/go-cli-study/reports/source/08-concurrency/gh-cli.md
+studies/go-cli-study/reports/source/08-concurrency/go-task.md
+studies/go-cli-study/reports/source/08-concurrency/helm.md
+studies/go-cli-study/reports/source/08-concurrency/k9s.md
+studies/go-cli-study/reports/source/08-concurrency/lazygit.md
+studies/go-cli-study/reports/source/08-concurrency/mitchellh-cli.md
+studies/go-cli-study/reports/source/08-concurrency/opencode.md
+studies/go-cli-study/reports/source/08-concurrency/rclone.md
+studies/go-cli-study/reports/source/08-concurrency/restic.md
+studies/go-cli-study/reports/source/08-concurrency/urfave-cli.md
+studies/go-cli-study/reports/source/08-concurrency/yq.md
+studies/go-cli-study/reports/source/09-terminal-ux/age.md
+studies/go-cli-study/reports/source/09-terminal-ux/chezmoi.md
+studies/go-cli-study/reports/source/09-terminal-ux/dive.md
+studies/go-cli-study/reports/source/09-terminal-ux/fzf.md
+studies/go-cli-study/reports/source/09-terminal-ux/gdu.md
+studies/go-cli-study/reports/source/09-terminal-ux/gh-cli.md
+studies/go-cli-study/reports/source/09-terminal-ux/go-task.md
+studies/go-cli-study/reports/source/09-terminal-ux/helm.md
+studies/go-cli-study/reports/source/09-terminal-ux/k9s.md
+studies/go-cli-study/reports/source/09-terminal-ux/lazygit.md
+studies/go-cli-study/reports/source/09-terminal-ux/mitchellh-cli.md
+studies/go-cli-study/reports/source/09-terminal-ux/opencode.md
+studies/go-cli-study/reports/source/09-terminal-ux/rclone.md
+studies/go-cli-study/reports/source/09-terminal-ux/restic.md
+studies/go-cli-study/reports/source/09-terminal-ux/urfave-cli.md
+studies/go-cli-study/reports/source/09-terminal-ux/yq.md
+studies/go-cli-study/reports/source/10-logging-observability/age.md
+studies/go-cli-study/reports/source/10-logging-observability/chezmoi.md
+studies/go-cli-study/reports/source/10-logging-observability/dive.md
+studies/go-cli-study/reports/source/10-logging-observability/fzf.md
+studies/go-cli-study/reports/source/10-logging-observability/gdu.md
+studies/go-cli-study/reports/source/10-logging-observability/gh-cli.md
+studies/go-cli-study/reports/source/10-logging-observability/go-task.md
+studies/go-cli-study/reports/source/10-logging-observability/helm.md
+studies/go-cli-study/reports/source/10-logging-observability/k9s.md
+studies/go-cli-study/reports/source/10-logging-observability/lazygit.md
+studies/go-cli-study/reports/source/10-logging-observability/mitchellh-cli.md
+studies/go-cli-study/reports/source/10-logging-observability/opencode.md
+studies/go-cli-study/reports/source/10-logging-observability/rclone.md
+studies/go-cli-study/reports/source/10-logging-observability/restic.md
+studies/go-cli-study/reports/source/10-logging-observability/urfave-cli.md
+studies/go-cli-study/reports/source/10-logging-observability/yq.md
+studies/go-cli-study/reports/source/11-testing-strategy/age.md
+studies/go-cli-study/reports/source/11-testing-strategy/chezmoi.md
+studies/go-cli-study/reports/source/11-testing-strategy/dive.md
+studies/go-cli-study/reports/source/11-testing-strategy/fzf.md
+studies/go-cli-study/reports/source/11-testing-strategy/gdu.md
+studies/go-cli-study/reports/source/11-testing-strategy/gh-cli.md
+studies/go-cli-study/reports/source/11-testing-strategy/go-task.md
+studies/go-cli-study/reports/source/11-testing-strategy/helm.md
+studies/go-cli-study/reports/source/11-testing-strategy/k9s.md
+studies/go-cli-study/reports/source/11-testing-strategy/lazygit.md
+studies/go-cli-study/reports/source/11-testing-strategy/mitchellh-cli.md
+studies/go-cli-study/reports/source/11-testing-strategy/opencode.md
+studies/go-cli-study/reports/source/11-testing-strategy/rclone.md
+studies/go-cli-study/reports/source/11-testing-strategy/restic.md
+studies/go-cli-study/reports/source/11-testing-strategy/urfave-cli.md
+studies/go-cli-study/reports/source/11-testing-strategy/yq.md
+studies/go-cli-study/reports/source/12-extensibility/age.md
+studies/go-cli-study/reports/source/12-extensibility/chezmoi.md
+studies/go-cli-study/reports/source/12-extensibility/dive.md
+studies/go-cli-study/reports/source/12-extensibility/fzf.md
+studies/go-cli-study/reports/source/12-extensibility/gdu.md
+studies/go-cli-study/reports/source/12-extensibility/gh-cli.md
+studies/go-cli-study/reports/source/12-extensibility/go-task.md
+studies/go-cli-study/reports/source/12-extensibility/helm.md
+studies/go-cli-study/reports/source/12-extensibility/k9s.md
+studies/go-cli-study/reports/source/12-extensibility/lazygit.md
+studies/go-cli-study/reports/source/12-extensibility/mitchellh-cli.md
+studies/go-cli-study/reports/source/12-extensibility/opencode.md
+studies/go-cli-study/reports/source/12-extensibility/rclone.md
+studies/go-cli-study/reports/source/12-extensibility/restic.md
+studies/go-cli-study/reports/source/12-extensibility/urfave-cli.md
+studies/go-cli-study/reports/source/12-extensibility/yq.md
+studies/go-cli-study/reports/source/13-security/age.md
+studies/go-cli-study/reports/source/13-security/chezmoi.md
+studies/go-cli-study/reports/source/13-security/dive.md
+studies/go-cli-study/reports/source/13-security/fzf.md
+studies/go-cli-study/reports/source/13-security/gdu.md
+studies/go-cli-study/reports/source/13-security/gh-cli.md
+studies/go-cli-study/reports/source/13-security/go-task.md
+studies/go-cli-study/reports/source/13-security/helm.md
+studies/go-cli-study/reports/source/13-security/k9s.md
+studies/go-cli-study/reports/source/13-security/lazygit.md
+studies/go-cli-study/reports/source/13-security/mitchellh-cli.md
+studies/go-cli-study/reports/source/13-security/opencode.md
+studies/go-cli-study/reports/source/13-security/rclone.md
+studies/go-cli-study/reports/source/13-security/restic.md
+studies/go-cli-study/reports/source/13-security/urfave-cli.md
+studies/go-cli-study/reports/source/13-security/yq.md
+studies/go-cli-study/reports/source/14-performance/age.md
+studies/go-cli-study/reports/source/14-performance/chezmoi.md
+studies/go-cli-study/reports/source/14-performance/dive.md
+studies/go-cli-study/reports/source/14-performance/fzf.md
+studies/go-cli-study/reports/source/14-performance/gdu.md
+studies/go-cli-study/reports/source/14-performance/gh-cli.md
+studies/go-cli-study/reports/source/14-performance/go-task.md
+studies/go-cli-study/reports/source/14-performance/helm.md
+studies/go-cli-study/reports/source/14-performance/k9s.md
+studies/go-cli-study/reports/source/14-performance/lazygit.md
+studies/go-cli-study/reports/source/14-performance/mitchellh-cli.md
+studies/go-cli-study/reports/source/14-performance/opencode.md
+studies/go-cli-study/reports/source/14-performance/rclone.md
+studies/go-cli-study/reports/source/14-performance/restic.md
+studies/go-cli-study/reports/source/14-performance/urfave-cli.md
+studies/go-cli-study/reports/source/14-performance/yq.md
+studies/go-cli-study/reports/source/15-philosophy/age.md
+studies/go-cli-study/reports/source/15-philosophy/chezmoi.md
+studies/go-cli-study/reports/source/15-philosophy/dive.md
+studies/go-cli-study/reports/source/15-philosophy/fzf.md
+studies/go-cli-study/reports/source/15-philosophy/gdu.md
+studies/go-cli-study/reports/source/15-philosophy/gh-cli.md
+studies/go-cli-study/reports/source/15-philosophy/go-task.md
+studies/go-cli-study/reports/source/15-philosophy/helm.md
+studies/go-cli-study/reports/source/15-philosophy/k9s.md
+studies/go-cli-study/reports/source/15-philosophy/lazygit.md
+studies/go-cli-study/reports/source/15-philosophy/mitchellh-cli.md
+studies/go-cli-study/reports/source/15-philosophy/opencode.md
+studies/go-cli-study/reports/source/15-philosophy/rclone.md
+studies/go-cli-study/reports/source/15-philosophy/restic.md
+studies/go-cli-study/reports/source/15-philosophy/urfave-cli.md
+studies/go-cli-study/reports/source/15-philosophy/yq.md
+studies/ultraplan-daemon-events-study/dimensions/01.01-daemon-rpc-and-execution-ownership.md
+studies/ultraplan-daemon-events-study/dimensions/01.02-operation-step-attempt-process-identity.md
+studies/ultraplan-daemon-events-study/dimensions/01.03-durable-submission-and-idempotent-acceptance.md
+studies/ultraplan-daemon-events-study/dimensions/01.04-leases-heartbeats-fencing-stale-worker-rejection.md
+studies/ultraplan-daemon-events-study/dimensions/01.05-atomic-state-transition-and-event-journal.md
+studies/ultraplan-daemon-events-study/dimensions/01.06-event-envelope-ordering-causation-and-replay.md
+studies/ultraplan-daemon-events-study/dimensions/01.07-event-delivery-backpressure-and-retention-tiers.md
+studies/ultraplan-daemon-events-study/dimensions/01.08-crash-recovery-reconciliation-and-checkpoints.md
+studies/ultraplan-daemon-events-study/dimensions/01.09-cancellation-shutdown-and-process-cleanup.md
+studies/ultraplan-daemon-events-study/dimensions/01.10-scheduler-controller-retries-and-at-least-once.md
+studies/ultraplan-daemon-events-study/sources/buildkit.ultraplan-source.yml
+studies/ultraplan-daemon-events-study/sources/containerd.ultraplan-source.yml
+studies/ultraplan-daemon-events-study/sources/dagster.ultraplan-source.yml
+studies/ultraplan-daemon-events-study/sources/temporal.ultraplan-source.yml
+studies/ultraplan-daemon-events-study/study-init.yml
+studies/ultraplan-daemon-events-study/study.json
+system/contracts/core/architecture.md
+system/contracts/core/configuration.md
+system/contracts/core/documentation.md
+system/contracts/core/errors.md
+system/contracts/core/observability.md
+system/contracts/core/privacy-and-data.md
+system/contracts/core/release-versioning.md
+system/contracts/core/security.md
+system/contracts/core/testing.md
+system/contracts/runtime/llm-evaluation-cost-safety.md
+system/contracts/runtime/llm.md
+system/contracts/runtime/performance.md
+system/contracts/runtime/persistence-and-migrations.md
+system/contracts/runtime/workflows.md
+system/contracts/surfaces/accessibility.md
+system/contracts/surfaces/api-contracts.md
+system/contracts/surfaces/cli.md
+system/contracts/surfaces/frontend.md
+system/contracts/surfaces/package-public-api.md
+system/protocols/architecture-review-protocol.md
+system/protocols/contract-mapping-protocol.md
+system/protocols/deep-smoke-sprint-protocol.md
+system/protocols/plan-sprint-protocol.md
+system/protocols/review-sprint-protocol.md
+system/protocols/sprint-review-protocol.md
+system/reasoning/api-design-reasoning-template.md
+system/reasoning/architecture_reasoning_template.md
+system/reasoning/cli-design-reasoning-template.md
+system/reasoning/data-privacy-reasoning-template.md
+system/reasoning/errors_reasoning_template.md
+system/reasoning/eval-design-reasoning-template.md
+system/reasoning/frontend-design-reasoning-template.md
+system/reasoning/frontend-reasoning-template.md
+system/reasoning/frontend-state-placement-template.md
+system/reasoning/llm-feature-reasoning-template.md
+system/reasoning/observability-reasoning-template.md
+system/reasoning/package-api-reasoning-template.md
+system/reasoning/performance-reasoning-template.md
+system/reasoning/persistence-reasoning-template.md
+system/reasoning/prompt-change-reasoning-template.md
+system/reasoning/release-reasoning-template.md
+system/reasoning/security-threat-reasoning-template.md
+system/reasoning/testing-strategy-reasoning-template.md
+ultraplan.yml
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go -type f -name '*.go' | sed 's|/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/||' | sort
+cmd/ultraplan/main.go
+internal/app/app.go
+internal/app/app_test.go
+internal/app/code_commands.go
+internal/app/code_commands_test.go
+internal/app/config_commands.go
+internal/app/defaults_commands.go
+internal/app/durable_operations.go
+internal/app/durable_operations_test.go
+internal/app/health_commands.go
+internal/app/health_commands_test.go
+internal/app/json_output.go
+internal/app/markdown.go
+internal/app/markdown_test.go
+internal/app/operation_runner.go
+internal/app/operations.go
+internal/app/project_commands.go
+internal/app/project_commands_test.go
+internal/app/project_usecases.go
+internal/app/run_commands.go
+internal/app/run_commands_test.go
+internal/app/run_control.go
+internal/app/run_control_inventory_test.go
+internal/app/run_control_test.go
+internal/app/run_usecases.go
+internal/app/serve_commands.go
+internal/app/serve_commands_test.go
+internal/app/skills_commands.go
+internal/app/skills_commands_test.go
+internal/app/sprint_commands.go
+internal/app/sprint_commands_test.go
+internal/app/sprint_error_test.go
+internal/app/sprint_usecases.go
+internal/app/sprint_usecases_test.go
+internal/app/sprint_verify_commands_test.go
+internal/app/status_json.go
+internal/app/storage_commands.go
+internal/app/study_commands.go
+internal/app/study_commands_test.go
+internal/app/study_init_commands_test.go
+internal/app/study_prompt_commands_test.go
+internal/app/study_run_all_commands_test.go
+internal/app/study_run_commands_test.go
+internal/app/study_run_loop_commands_test.go
+internal/app/study_runs_commands.go
+internal/app/study_runs_commands_test.go
+internal/app/study_status_commands_test.go
+internal/app/study_summary_commands_test.go
+internal/app/study_usecases.go
+internal/app/study_validate_commands_test.go
+internal/app/surfaces.go
+internal/app/tui_commands.go
+internal/app/tui_commands_test.go
+internal/app/usecases.go
+internal/app/usecases_test.go
+internal/app/version.go
+internal/app/web_operations_test.go
+internal/app/web_usecases.go
+internal/app/web_usecases_test.go
+internal/app/workspace_commands.go
+internal/codeextract/codeextract_test.go
+internal/codeextract/doc.go
+internal/codeextract/domain.go
+internal/codeextract/parser.go
+internal/codeextract/resolver.go
+internal/codeextract/service.go
+internal/platform/config/config.go
+internal/platform/config/config_test.go
+internal/platform/config/doc.go
+internal/platform/config/redaction.go
+internal/platform/filesystem/doc.go
+internal/platform/logging/doc.go
+internal/platform/logging/logging.go
+internal/platform/logging/logging_test.go
+internal/platform/process/process.go
+internal/platform/process/process_other.go
+internal/platform/process/process_test.go
+internal/platform/process/process_unix.go
+internal/platform/runtime/agentwrap.go
+internal/platform/runtime/cache_test.go
+internal/platform/runtime/events.go
+internal/platform/runtime/health.go
+internal/platform/runtime/opencode.go
+internal/platform/runtime/opencode_test.go
+internal/platform/runtime/policy.go
+internal/platform/runtime/runtime.go
+internal/platform/runtime/runtime_test.go
+internal/productstate/store.go
+internal/project/discovery.go
+internal/project/doc.go
+internal/project/domain.go
+internal/project/index.go
+internal/project/project_test.go
+internal/project/reasoning_defaults.go
+internal/project/reasoning_defaults_test.go
+internal/project/service.go
+internal/project/store_fs.go
+internal/project/validation.go
+internal/runcontrol/benchmark_test.go
+internal/runcontrol/doc.go
+internal/runcontrol/errors.go
+internal/runcontrol/fault_test.go
+internal/runcontrol/id.go
+internal/runcontrol/id_test.go
+internal/runcontrol/import_boundary_test.go
+internal/runcontrol/interfaces.go
+internal/runcontrol/lifecycle.go
+internal/runcontrol/lifecycle_test.go
+internal/runcontrol/local_log.go
+internal/runcontrol/local_log_test.go
+internal/runcontrol/metrics.go
+internal/runcontrol/migration.go
+internal/runcontrol/migration_test.go
+internal/runcontrol/model.go
+internal/runcontrol/model_test.go
+internal/runcontrol/process_darwin.go
+internal/runcontrol/process.go
+internal/runcontrol/process_integration_test.go
+internal/runcontrol/process_linux.go
+internal/runcontrol/process_other.go
+internal/runcontrol/retention.go
+internal/runcontrol/retention_test.go
+internal/runcontrol/sanitize.go
+internal/runcontrol/sanitize_test.go
+internal/runcontrol/sqlite.go
+internal/runcontrol/sqlite_test.go
+internal/sprint/artifacts.go
+internal/sprint/cleanup_uncertain.go
+internal/sprint/cleanup_uncertain_test.go
+internal/sprint/code_context.go
+internal/sprint/code_context_test.go
+internal/sprint/context_pack.go
+internal/sprint/direct_inputs.go
+internal/sprint/direct_inputs_test.go
+internal/sprint/discovery.go
+internal/sprint/doc.go
+internal/sprint/domain.go
+internal/sprint/efficiency_improvements_test.go
+internal/sprint/efficiency_metrics_test.go
+internal/sprint/execute.go
+internal/sprint/execute_model.go
+internal/sprint/execute_model_test.go
+internal/sprint/execute_plan.go
+internal/sprint/execute_plan_test.go
+internal/sprint/execute_state.go
+internal/sprint/execute_state_test.go
+internal/sprint/execute_target.go
+internal/sprint/execute_target_test.go
+internal/sprint/flow.go
+internal/sprint/freshness_policy.go
+internal/sprint/handbook.go
+internal/sprint/handbook_test.go
+internal/sprint/index.go
+internal/sprint/input_contract.go
+internal/sprint/locks.go
+internal/sprint/locks_test.go
+internal/sprint/plan.go
+internal/sprint/plan_test.go
+internal/sprint/prompt_bundle.go
+internal/sprint/prompt_context.go
+internal/sprint/prompt_context_test.go
+internal/sprint/prompts.go
+internal/sprint/reasoning.go
+internal/sprint/reasoning_test.go
+internal/sprint/review.go
+internal/sprint/review_runtime_validation.go
+internal/sprint/review_test.go
+internal/sprint/runtime_metrics.go
+internal/sprint/runtime_progress_test.go
+internal/sprint/runtime_validation.go
+internal/sprint/service.go
+internal/sprint/session_state.go
+internal/sprint/session_state_test.go
+internal/sprint/smoke_author.go
+internal/sprint/smoke.go
+internal/sprint/smoke_protocol.go
+internal/sprint/smoke_test.go
+internal/sprint/smoke_types.go
+internal/sprint/sprint_index_test.go
+internal/sprint/sprint_test.go
+internal/sprint/state_database.go
+internal/sprint/state.go
+internal/sprint/store_fs.go
+internal/sprint/validation.go
+internal/sprint/verification_lock.go
+internal/sprint/verification_lock_test.go
+internal/sprint/verify.go
+internal/sprint/verify_test.go
+internal/study/applicability.go
+internal/study/cleanup_uncertain.go
+internal/study/cleanup_uncertain_test.go
+internal/study/config.go
+internal/study/config_test.go
+internal/study/dimension_refs.go
+internal/study/discovery.go
+internal/study/doc.go
+internal/study/domain.go
+internal/study/durable_metadata.go
+internal/study/edit_warnings.go
+internal/study/execution_domain.go
+internal/study/init_clone.go
+internal/study/init.go
+internal/study/init_render.go
+internal/study/init_test.go
+internal/study/init_yaml.go
+internal/study/locks.go
+internal/study/locks_test.go
+internal/study/markdown.go
+internal/study/memory_pressure.go
+internal/study/metadata_domain.go
+internal/study/prompts.go
+internal/study/prompts_test.go
+internal/study/rating.go
+internal/study/rating_test.go
+internal/study/reports.go
+internal/study/resolve.go
+internal/study/run_all.go
+internal/study/run_all_test.go
+internal/study/run.go
+internal/study/run_history.go
+internal/study/run_history_summary.go
+internal/study/run_history_test.go
+internal/study/run_loop_diagnostics.go
+internal/study/run_loop_diagnostics_test.go
+internal/study/run_loop.go
+internal/study/run_loop_test.go
+internal/study/run_state_domain.go
+internal/study/run_state.go
+internal/study/run_test.go
+internal/study/runtime_metadata.go
+internal/study/runtime_metadata_test.go
+internal/study/runtime_validation.go
+internal/study/service.go
+internal/study/state_database.go
+internal/study/state.go
+internal/study/state_test.go
+internal/study/study_test.go
+internal/study/summary.go
+internal/study/summary_test.go
+internal/study/synthesize.go
+internal/study/validation_command.go
+internal/study/validation_command_test.go
+internal/study/validation.go
+internal/study/validation_test.go
+internal/tui/app.go
+internal/tui/doc.go
+internal/tui/keys.go
+internal/tui/markdown.go
+internal/tui/model.go
+internal/tui/model_test.go
+internal/tui/run_view_test.go
+internal/tui/test_fakes_test.go
+internal/tui/theme.go
+internal/tui/verify_test.go
+internal/tui/viewport.go
+internal/tui/viewport_test.go
+internal/tui/views.go
+internal/tui/views_test.go
+internal/web/api_compatibility_test.go
+internal/web/artifacts.go
+internal/web/artifacts_test.go
+internal/web/handlers.go
+internal/web/import_boundary_test.go
+internal/web/integration_test.go
+internal/web/operation_handlers.go
+internal/web/operations_contract_test.go
+internal/web/operations.go
+internal/web/operations_test.go
+internal/web/packaging_test.go
+internal/web/routes.go
+internal/web/routes_test.go
+internal/web/run_handlers.go
+internal/web/run_handlers_test.go
+internal/web/security.go
+internal/web/security_test.go
+internal/web/server.go
+internal/web/server_policy.go
+internal/web/server_policy_test.go
+internal/web/server_test.go
+internal/web/sse_test.go
+internal/web/templates_test.go
+internal/web/test_fakes_test.go
+internal/workspace/defaults.go
+internal/workspace/discovery.go
+internal/workspace/doc.go
+internal/workspace/init.go
+internal/workspace/paths.go
+internal/workspace/skills.go
+internal/workspace/skills_test.go
+internal/workspace/validation.go
+internal/workspace/workspace_test.go
+[0m
+[0m$ [0mls projects previews 2>/dev/null; cat ultraplan.yml
+previews:
+agent-harness-24.01-langgraph-prompt.md
+builtin-fallback-24.01-langgraph.md
+builtin-fallback-24.02-langgraph.md
+fresh-run-24.01-langgraph-prompt-after-abs-path.md
+fresh-run-24.01-langgraph-prompt-after-output-fix.md
+fresh-run-24.01-langgraph-prompt.md
+injected-analysis-check.md
+single-source-dimension-check.md
+spike-24.01-langgraph-after-path-fix.md
+spike-24.01-langgraph-full-template.md
+spike-24.01-langgraph.md
+spike-24.02-langgraph-full-template.md
+
+projects:
+aren-phase-01-execution-lifecycle
+ultraplan-go
+version: 1
+runtime:
+  default: opencode
+models:
+  default: minimax-coding-plan/MiniMax-M3
+  primary: minimax-coding-plan/MiniMax-M3
+  backup: minimax-coding-plan/MiniMax-M3
+execution:
+  default_variant: high
+  default_parallel: 5
+  default_timeout: 12m
+  default_retries: 1
+planning:
+  requirements_model: openai/gpt-5.6-sol
+  requirements_variant: high
+  code_context_model: openai/gpt-5.6-sol
+  code_context_variant: low
+  sprint_index_model: openai/gpt-5.6-sol
+  sprint_index_variant: high
+  technical_handbook_model: openai/gpt-5.6-sol
+  technical_handbook_variant: high
+  area_reasoning_model: openai/gpt-5.6-sol
+  area_reasoning_variant: high
+  reasoning_model: openai/gpt-5.6-sol
+  reasoning_variant: high
+  plan_model: openai/gpt-5.6-sol
+  plan_variant: high
+  review_model: minimax-coding-plan/MiniMax-M3
+  smoke_model: openai/gpt-5.6-sol
+  smoke_variant: low
+  execute_model: openai/gpt-5.6-sol
+  execute_variant: high
+logging:
+  format: text
+  level: debug
+agentwrap:
+  executable: opencode
+  permission_default: allow
+  required_health:
+    - runtime_available
+    - structured_output
+    - workdir
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && go list -deps ./... | grep -v '\.' | sort -u && echo '---TEST-DEPS---' && go vet ./... 2>&1 | tail -5
+bufio
+bytes
+cmp
+compress/flate
+compress/gzip
+container/list
+context
+crypto
+crypto/aes
+crypto/cipher
+crypto/des
+crypto/dsa
+crypto/ecdh
+crypto/ecdsa
+crypto/ed25519
+crypto/elliptic
+crypto/fips140
+crypto/hkdf
+crypto/hmac
+crypto/hpke
+crypto/internal/boring
+crypto/internal/boring/bbig
+crypto/internal/boring/sig
+crypto/internal/constanttime
+crypto/internal/fips140
+crypto/internal/fips140/aes
+crypto/internal/fips140/aes/gcm
+crypto/internal/fips140/alias
+crypto/internal/fips140/bigmod
+crypto/internal/fips140cache
+crypto/internal/fips140/check
+crypto/internal/fips140deps/byteorder
+crypto/internal/fips140deps/cpu
+crypto/internal/fips140deps/godebug
+crypto/internal/fips140deps/time
+crypto/internal/fips140/drbg
+crypto/internal/fips140/ecdh
+crypto/internal/fips140/ecdsa
+crypto/internal/fips140/ed25519
+crypto/internal/fips140/edwards25519
+crypto/internal/fips140/edwards25519/field
+crypto/internal/fips140hash
+crypto/internal/fips140/hkdf
+crypto/internal/fips140/hmac
+crypto/internal/fips140/mlkem
+crypto/internal/fips140/nistec
+crypto/internal/fips140/nistec/fiat
+crypto/internal/fips140only
+crypto/internal/fips140/rsa
+crypto/internal/fips140/sha256
+crypto/internal/fips140/sha3
+crypto/internal/fips140/sha512
+crypto/internal/fips140/subtle
+crypto/internal/fips140/tls12
+crypto/internal/fips140/tls13
+crypto/internal/impl
+crypto/internal/rand
+crypto/internal/randutil
+crypto/internal/sysrand
+crypto/md5
+crypto/mlkem
+crypto/rand
+crypto/rc4
+crypto/rsa
+crypto/sha1
+crypto/sha256
+crypto/sha3
+crypto/sha512
+crypto/subtle
+crypto/tls
+crypto/tls/internal/fips140tls
+crypto/x509
+crypto/x509/pkix
+database/sql
+database/sql/driver
+embed
+encoding
+encoding/asn1
+encoding/base32
+encoding/base64
+encoding/binary
+encoding/csv
+encoding/hex
+encoding/json
+encoding/pem
+encoding/xml
+errors
+flag
+fmt
+hash
+hash/crc32
+html
+html/template
+image
+image/color
+internal/abi
+internal/asan
+internal/bisect
+internal/bytealg
+internal/byteorder
+internal/chacha8rand
+internal/coverage/rtcov
+internal/cpu
+internal/filepathlite
+internal/fmtsort
+internal/goarch
+internal/godebug
+internal/godebugs
+internal/goexperiment
+internal/goos
+internal/msan
+internal/nettrace
+internal/oserror
+internal/poll
+internal/profilerecord
+internal/race
+internal/reflectlite
+internal/runtime/atomic
+internal/runtime/cgroup
+internal/runtime/exithook
+internal/runtime/gc
+internal/runtime/gc/scan
+internal/runtime/maps
+internal/runtime/math
+internal/runtime/pprof/label
+internal/runtime/sys
+internal/runtime/syscall/linux
+internal/saferio
+internal/singleflight
+internal/strconv
+internal/stringslite
+internal/sync
+internal/synctest
+internal/syscall/execenv
+internal/syscall/unix
+internal/testlog
+internal/trace/tracev2
+internal/unsafeheader
+io
+io/fs
+io/ioutil
+iter
+log
+log/internal
+maps
+math
+math/big
+math/bits
+math/rand
+math/rand/v2
+mime
+mime/multipart
+mime/quotedprintable
+net
+net/http
+net/http/httptrace
+net/http/internal
+net/http/internal/ascii
+net/http/internal/httpcommon
+net/netip
+net/textproto
+net/url
+os
+os/exec
+os/signal
+os/user
+path
+path/filepath
+reflect
+regexp
+regexp/syntax
+runtime
+runtime/cgo
+runtime/debug
+slices
+sort
+strconv
+strings
+sync
+sync/atomic
+syscall
+text/template
+text/template/parse
+time
+unicode
+unicode/utf16
+unicode/utf8
+unique
+unsafe
+weak
+---TEST-DEPS---
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && go list -f '{{.ImportPath}}{{"\n"}}{{range .Imports}}  -> {{.}}{{"\n"}}{{end}}' ./... 2>/dev/null | grep -A100 'internal' | grep -E '^(ultraplan|  -> ultraplan)' 
+(no output)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/README.md
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && head -3 go.mod && go list -f '{{.ImportPath}} | {{join .Imports " "}}{{"\n"}}' ./... 2>/dev/null | sed 's|github.com/Antonio7098/agentwrap|AGENTWRAP|g'
+module github.com/Antonio7098/ultraplan-go
+
+go 1.26
+github.com/Antonio7098/ultraplan-go/cmd/ultraplan | context fmt github.com/Antonio7098/ultraplan-go/internal/app github.com/Antonio7098/ultraplan-go/internal/tui github.com/Antonio7098/ultraplan-go/internal/web os os/exec os/signal runtime syscall time
+github.com/Antonio7098/ultraplan-go/internal/app | bufio bytes context crypto/hmac crypto/rand crypto/sha256 encoding/base64 encoding/hex encoding/json errors flag fmt github.com/Antonio7098/ultraplan-go/internal/codeextract github.com/Antonio7098/ultraplan-go/internal/platform/config github.com/Antonio7098/ultraplan-go/internal/platform/runtime github.com/Antonio7098/ultraplan-go/internal/productstate github.com/Antonio7098/ultraplan-go/internal/project github.com/Antonio7098/ultraplan-go/internal/runcontrol github.com/Antonio7098/ultraplan-go/internal/sprint github.com/Antonio7098/ultraplan-go/internal/study github.com/Antonio7098/ultraplan-go/internal/workspace github.com/yuin/goldmark github.com/yuin/goldmark/extension io io/fs net os path/filepath runtime sort strconv strings sync time
+github.com/Antonio7098/ultraplan-go/internal/codeextract | encoding/json fmt io os path/filepath regexp sort strconv strings
+github.com/Antonio7098/ultraplan-go/internal/platform/config | bufio fmt os path/filepath strconv strings time
+github.com/Antonio7098/ultraplan-go/internal/platform/filesystem | 
+github.com/Antonio7098/ultraplan-go/internal/platform/logging | encoding/json fmt github.com/Antonio7098/ultraplan-go/internal/platform/config io sort
+github.com/Antonio7098/ultraplan-go/internal/platform/process | bytes context errors fmt io os os/exec sync syscall time
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime | context crypto/sha256 encoding/hex encoding/json errors fmt AGENTWRAP AGENTWRAP/opencode github.com/Antonio7098/ultraplan-go/internal/platform/config runtime sort strings time
+github.com/Antonio7098/ultraplan-go/internal/productstate | context crypto/sha256 database/sql errors fmt modernc.org/sqlite net/url os path/filepath strconv sync time
+github.com/Antonio7098/ultraplan-go/internal/project | fmt github.com/Antonio7098/ultraplan-go/internal/workspace net/url os path/filepath regexp sort strings
+github.com/Antonio7098/ultraplan-go/internal/runcontrol | bufio context crypto/rand crypto/sha256 database/sql encoding/base32 encoding/base64 encoding/hex encoding/json errors fmt io io/fs modernc.org/sqlite net/url os path/filepath sort strconv strings sync sync/atomic time
+github.com/Antonio7098/ultraplan-go/internal/sprint | bufio bytes context crypto/sha256 encoding/hex encoding/json errors fmt AGENTWRAP github.com/Antonio7098/ultraplan-go/internal/platform/config github.com/Antonio7098/ultraplan-go/internal/platform/process github.com/Antonio7098/ultraplan-go/internal/platform/runtime github.com/Antonio7098/ultraplan-go/internal/productstate github.com/Antonio7098/ultraplan-go/internal/project github.com/Antonio7098/ultraplan-go/internal/workspace io io/fs os os/exec path/filepath regexp sort strconv strings sync sync/atomic syscall time unicode/utf8
+github.com/Antonio7098/ultraplan-go/internal/study | bufio bytes context crypto/sha256 encoding/csv encoding/hex encoding/json errors fmt AGENTWRAP github.com/Antonio7098/ultraplan-go/internal/platform/runtime github.com/Antonio7098/ultraplan-go/internal/productstate github.com/Antonio7098/ultraplan-go/internal/workspace gopkg.in/yaml.v3 io io/fs os os/exec path/filepath regexp runtime sort strconv strings sync syscall time
+github.com/Antonio7098/ultraplan-go/internal/tui | context crypto/sha256 encoding/hex errors fmt github.com/Antonio7098/ultraplan-go/internal/app github.com/charmbracelet/bubbletea github.com/charmbracelet/glamour github.com/charmbracelet/glamour/ansi github.com/charmbracelet/glamour/styles github.com/charmbracelet/lipgloss io path/filepath strconv strings time
+github.com/Antonio7098/ultraplan-go/internal/web | bytes context crypto/hmac crypto/rand crypto/sha256 crypto/subtle embed encoding/hex encoding/json errors fmt github.com/Antonio7098/ultraplan-go/internal/app html/template io io/fs net net/http net/url regexp sort strconv strings sync sync/atomic text/template/parse time
+github.com/Antonio7098/ultraplan-go/internal/workspace | embed fmt os path/filepath sort strings
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects -maxdepth 3 | sort | sed 's|.*ultraplan-workspace/||'
+projects
+projects/aren-phase-01-execution-lifecycle
+projects/aren-phase-01-execution-lifecycle/docs
+projects/aren-phase-01-execution-lifecycle/docs/PRD.md
+projects/aren-phase-01-execution-lifecycle/project-index.md
+projects/aren-phase-01-execution-lifecycle/roadmap.md
+projects/ultraplan-go
+projects/ultraplan-go/docs
+projects/ultraplan-go/docs/ARCHITECTURE.md
+projects/ultraplan-go/docs/PRD.md
+projects/ultraplan-go/docs/TRD.md
+projects/ultraplan-go/project-index.md
+projects/ultraplan-go/roadmap.md
+projects/ultraplan-go/sprints
+projects/ultraplan-go/sprints/01-cli-foundation
+projects/ultraplan-go/sprints/02-workspace-config-health
+projects/ultraplan-go/sprints/03-study-listing-resolution
+projects/ultraplan-go/sprints/04-study-init-yaml
+projects/ultraplan-go/sprints/05-study-listing-inspection
+projects/ultraplan-go/sprints/06-study-run-execution
+projects/ultraplan-go/sprints/07-prompt-composition-generation
+projects/ultraplan-go/sprints/08-run-state-persistence
+projects/ultraplan-go/sprints/09-runtime-integration
+projects/ultraplan-go/sprints/10-single-analysis-synthesis
+projects/ultraplan-go/sprints/11-run-all-batch-execution
+projects/ultraplan-go/sprints/12-durable-run-loop
+projects/ultraplan-go/sprints/13-summary-and-code-extraction
+projects/ultraplan-go/sprints/14-validation-and-diagnostics
+projects/ultraplan-go/sprints/15-documentation-and-packaging
+projects/ultraplan-go/sprints/16-project-domain-and-index
+projects/ultraplan-go/sprints/17-artifact-domain-and-flow-state
+projects/ultraplan-go/sprints/18-select-stage
+projects/ultraplan-go/sprints/19-distill-stage
+projects/ultraplan-go/sprints/20-reason-stage
+projects/ultraplan-go/sprints/21-plan-stage
+projects/ultraplan-go/sprints/22-documentaiton-and-release
+projects/ultraplan-go/sprints/23-execute-stage
+projects/ultraplan-go/sprints/24-tui-foundations
+projects/ultraplan-go/sprints/25-operational-tui-controls
+projects/ultraplan-go/sprints/26-review-stage
+projects/ultraplan-go/sprints/27-deep-smoke
+projects/ultraplan-go/sprints/28-review-to-smoke-flow
+projects/ultraplan-go/sprints/29-phase-3-documentation-hardening-release
+projects/ultraplan-go/sprints/30-web-foundations
+projects/ultraplan-go/sprints/31-web-operations
+projects/ultraplan-go/sprints/32-hardening-and-release
+projects/ultraplan-go/sprints/33-code-context-stage
+projects/ultraplan-go/sprints/34-shared-context
+projects/ultraplan-go/sprints/35-durable-run-observability
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/architecture.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/workflows.md
+[0m• [0mMap study loop + productstate[90m Arch-Worker Agent[0m
+[0m✓ [0mMap study loop + productstate[90m Arch-Worker Agent[0m
+[0m• [0mMap web ops SSE shutdown[90m Arch-Worker Agent[0m
+[0m✓ [0mMap web ops SSE shutdown[90m Arch-Worker Agent[0m
+[0m• [0mMap runcontrol durable core[90m Arch-Worker Agent[0m
+[0m✓ [0mMap runcontrol durable core[90m Arch-Worker Agent[0m
+[0m• [0mMap sprint execute durability[90m Arch-Worker Agent[0m
+[0m✓ [0mMap sprint execute durability[90m Arch-Worker Agent[0m
+[0m• [0mMap sprint locks and state[90m Explore Agent[0m
+[0m✓ [0mMap sprint locks and state[90m Explore Agent[0m
+[0m• [0mMap sprint execute review smoke[90m Explore Agent[0m
+[0m• [0mMap web ops SSE shutdown[90m Explore Agent[0m
+[0m✓ [0mMap sprint execute review smoke[90m Explore Agent[0m
+[0m✓ [0mMap web ops SSE shutdown[90m Explore Agent[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server.go[90m [offset=100, limit=70][0m
+[0m
+[0m$ [0msed -n '60,100p' internal/web/server.go
+opts.ListenFunc = net.Listen
+	}
+
+	listener, err := opts.ListenFunc("tcp", opts.Listen)
+	if err != nil {
+		return fmt.Errorf("listen on configured loopback address: %w", err)
+	}
+	defer listener.Close()
+	authority, err := canonicalAuthority(listener.Addr())
+	if err != nil {
+		return err
+	}
+	if err := app.ValidateLoopbackListen(authority); err != nil {
+		return fmt.Errorf("listener resolved outside loopback policy: %w", err)
+	}
+	origin := "http://" + authority
+	if reconciler, ok := opts.Operations.(app.OperationReconciler); ok {
+		if err := reconciler.ReconcileOperations(ctx); err != nil {
+			_ = listener.Close()
+			return fmt.Errorf("reconcile interrupted operations: %w", err)
+		}
+	}
+
+	operationRoot, cancelOperations := context.WithCancel(context.Background())
+	defer cancelOperations()
+	hub := newOperationHub(operationRoot, opts.Operations, opts.Now, opts.RequestID)
+	handler, err := NewHandler(HandlerOptions{
+		Queries:     opts.Queries,
+		Operations:  opts.Operations,
+		Runs:        opts.Runs,
+		Authority:   authority,
+		Diagnostics: diagnostics,
+		Now:         opts.Now,
+		RequestID:   opts.RequestID,
+		RootContext: operationRoot,
+		Hub:         hub,
+	})
+	if err != nil {
+		return fmt.Errorf("initialize web presentation: %w", err)
+	}
+	server := &http.Server{
+[0m
+[0m$ [0msed -n '560,580p' internal/app/run_control.go && sed -n '540,560p' internal/app/run_control.go && grep -n 'jsonMarshalTruncated' internal/app/*.go
+encoded, err := jsonMarshalTruncated(v)
+		if err != nil {
+			return fmt.Sprintf("%v", v)
+		}
+		return encoded
+	default:
+		return fmt.Sprintf("%v", v)
+	}
+}
+
+func jsonMarshalTruncated(v any) (string, error) {
+	// Lightweight JSON marshal with truncation; avoid importing encoding/json at top if already there – use fmt.
+	// We use a small helper to avoid cycle; marshal then truncate to safe limit.
+	// This is called only for map/slice payloads which are rare.
+	return fmt.Sprintf("%v", v), nil
+}
+
+func boundedPayloadValue(value string) string {
+	value = strings.Map(func(r rune) rune {
+		if r == 0 || r == '\r' || r == '\n' {
+			return -1
+		if v {
+			return "true"
+		}
+		return "false"
+	case int:
+		return fmt.Sprintf("%d", v)
+	case int8:
+		return fmt.Sprintf("%d", v)
+	case int16:
+		return fmt.Sprintf("%d", v)
+	case int32:
+		return fmt.Sprintf("%d", v)
+	case int64:
+		return fmt.Sprintf("%d", v)
+	case uint, uint8, uint16, uint32, uint64:
+		return fmt.Sprintf("%d", v)
+	case float32, float64:
+		return fmt.Sprintf("%v", v)
+	case map[string]any, map[string]string, []any, []string:
+		// Encode structured values compactly.
+		encoded, err := jsonMarshalTruncated(v)
+internal/app/run_control.go:560:		encoded, err := jsonMarshalTruncated(v)
+internal/app/run_control.go:570:func jsonMarshalTruncated(v any) (string, error) {
+[0m
+[0m$ [0msed -n '520,560p' internal/app/run_control.go && grep -n 'boundedEventPayload\|payloadValue' internal/app/run_control.go | head
+if s, ok := innerMap[want].(string); ok && strings.TrimSpace(s) != "" {
+						return s
+					}
+				}
+			}
+		}
+	}
+	return ""
+}
+
+func payloadValueString(value any) string {
+	switch v := value.(type) {
+	case string:
+		return v
+	case []byte:
+		if len(v) == 0 {
+			return ""
+		}
+		return string(v)
+	case bool:
+		if v {
+			return "true"
+		}
+		return "false"
+	case int:
+		return fmt.Sprintf("%d", v)
+	case int8:
+		return fmt.Sprintf("%d", v)
+	case int16:
+		return fmt.Sprintf("%d", v)
+	case int32:
+		return fmt.Sprintf("%d", v)
+	case int64:
+		return fmt.Sprintf("%d", v)
+	case uint, uint8, uint16, uint32, uint64:
+		return fmt.Sprintf("%d", v)
+	case float32, float64:
+		return fmt.Sprintf("%v", v)
+	case map[string]any, map[string]string, []any, []string:
+		// Encode structured values compactly.
+		encoded, err := jsonMarshalTruncated(v)
+446:				str := payloadValueString(subVal)
+458:					str := payloadValueString(value)
+466:		str := payloadValueString(value)
+530:func payloadValueString(value any) string {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state.go[90m [limit=125][0m
+[0m
+[0m$ [0msed -n '420,475p' internal/app/run_control.go
+continue
+		}
+		if nested, ok := value.(map[string]any); ok {
+			for subKey, subVal := range nested {
+				if isSensitivePayloadKey(subKey) {
+					continue
+				}
+				subNorm := strings.TrimSpace(subKey)
+				if subNorm == "" || len(subNorm) > 128 || strings.ContainsAny(subNorm, "\x00\r\n") {
+					continue
+				}
+				if _, exists := payload[subNorm]; exists {
+					continue
+				}
+				// Promote common observable sub-keys; namespace the rest to avoid collisions.
+				promote := map[string]bool{"tool": true, "title": true, "detail": true, "text": true, "delta": true, "content": true, "message": true, "action": true, "state": true, "status": true, "native_type": true, "line": true}
+				targetKey := subNorm
+				if !promote[subNorm] {
+					targetKey = normalized + "_" + subNorm
+					if len(targetKey) > 128 {
+						continue
+					}
+				}
+				if _, exists := payload[targetKey]; exists {
+					continue
+				}
+				str := payloadValueString(subVal)
+				if strings.TrimSpace(str) == "" {
+					continue
+				}
+				if len(payload) >= 30 {
+					break
+				}
+				payload[targetKey] = boundedPayloadValue(str)
+			}
+			// Also keep a compact stringified top-level for debugging if not promoted.
+			if len(payload) < 30 {
+				if _, exists := payload[normalized]; !exists {
+					str := payloadValueString(value)
+					if strings.TrimSpace(str) != "" && !strings.HasPrefix(str, "[map omitted") {
+						payload[normalized] = boundedPayloadValue(str)
+					}
+				}
+			}
+			continue
+		}
+		str := payloadValueString(value)
+		if strings.TrimSpace(str) == "" {
+			continue
+		}
+		if len(payload) >= 30 {
+			break
+		}
+		if _, exists := payload[normalized]; exists {
+			continue
+		}
+[0m
+[0m$ [0msed -n '265,290p' internal/sprint/review.go && sed -n '1365,1445p' internal/sprint/review.go
+}
+			manifest.Contents[rel] = string(data)
+			manifest.Inputs = append(manifest.Inputs, reviewInput("area-"+slugReviewID(entry.Name()), "governed", entry.Name(), rel, string(data)))
+		}
+	}
+	planManifest, planFindings := s.planManifest(sp, inputs, catalog)
+	findings = append(findings, planFindings...)
+	if len(planFindings) == 0 {
+		findings = append(findings, ValidatePlanContent(manifest.Contents[ArtifactRelPath(sp, StagePlan)], planManifest)...)
+	}
+	runPath := ExecuteRunStateRelPath(sp)
+	if data, readErr := os.ReadFile(filepath.Join(s.root, filepath.FromSlash(runPath))); readErr == nil {
+		manifest.Contents[runPath] = string(data)
+		manifest.Inputs = append(manifest.Inputs, reviewInput("run-state", "governed", "run-state", runPath, string(data)))
+		manifest.ChangedPaths = excludeGovernedReviewPaths(reviewChangedPaths(data), manifest.Inputs)
+	} else {
+		manifest.Inputs = append(manifest.Inputs, ReviewInput{ID: "run-state", Kind: "governed", Name: "run-state", Path: runPath, Hash: "missing"})
+	}
+	if target.Path != "" {
+		identity, identityErr := targetRevisionIdentity(target.Path)
+		if identityErr != nil {
+			findings = append(findings, finding("Review target", "target identity", "target/.identity", "target identity unavailable", identityErr.Error(), "Restore a contained readable target tree."))
+			manifest.Inputs = append(manifest.Inputs, ReviewInput{ID: "target-identity", Kind: "target", Name: "target identity", Path: "target/.identity", Hash: "missing"})
+		} else {
+			manifest.Inputs = append(manifest.Inputs, ReviewInput{ID: "target-identity", Kind: "target", Name: "target identity", Path: "target/.identity", Hash: identity})
+		}
+			lines[i] = ""
+		}
+	}
+	return strings.Join(lines, "\n")
+}
+
+func reviewChangedPaths(data []byte) []string {
+	var raw struct {
+		Files []string `json:"files"`
+		Tasks []struct {
+			Evidence []struct {
+				Path string `json:"path"`
+			} `json:"evidence"`
+		} `json:"tasks"`
+	}
+	_ = json.Unmarshal(data, &raw)
+	set := map[string]bool{}
+	for _, p := range raw.Files {
+		if strings.TrimSpace(p) != "" {
+			set[p] = true
+		}
+	}
+	for _, t := range raw.Tasks {
+		for _, e := range t.Evidence {
+			if strings.TrimSpace(e.Path) != "" {
+				set[e.Path] = true
+			}
+		}
+	}
+	var out []string
+	for p := range set {
+		out = append(out, p)
+	}
+	sort.Strings(out)
+	return out
+}
+
+func excludeGovernedReviewPaths(paths []string, inputs []ReviewInput) []string {
+	governed := make(map[string]bool, len(inputs))
+	for _, input := range inputs {
+		if input.Kind == "target" || strings.TrimSpace(input.Path) == "" {
+			continue
+		}
+		governed[filepath.ToSlash(filepath.Clean(input.Path))] = true
+	}
+	out := make([]string, 0, len(paths))
+	for _, path := range paths {
+		if !governed[filepath.ToSlash(filepath.Clean(path))] {
+			out = append(out, path)
+		}
+	}
+	return out
+}
+
+func reviewRunStateIncomplete(data []byte) bool {
+	var raw struct {
+		Status string `json:"status"`
+		Tasks  []struct {
+			Status string `json:"status"`
+		} `json:"tasks"`
+	}
+	if json.Unmarshal(data, &raw) != nil {
+		return true
+	}
+	if raw.Status != "" && raw.Status != "complete" && raw.Status != "completed" && raw.Status != "success" {
+		return true
+	}
+	for _, t := range raw.Tasks {
+		if t.Status != "complete" && t.Status != "deferred" {
+			return true
+		}
+	}
+	return false
+}
+
+func unresolvedExecutePlanTasks(plan, runState string, manifest PlanManifest) bool {
+	tasks, findings := extractExecutePlanTasks(plan, manifest, true)
+	if len(findings) > 0 {
+		return true
+	}
+	var raw struct {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state.go
+[0m
+[0m$ [0msed -n '95,135p' internal/sprint/verify.go
+}
+
+func (s Service) requireCompleteExecute(projectRef, sprintRef string) error {
+	sp, _, _, err := s.resolveSprintInputs(projectRef, sprintRef)
+	if err != nil {
+		return err
+	}
+	state, err := LoadExecuteRunState(s.root, sp)
+	if err != nil {
+		path, pathErr := ExecuteRunStatePath(s.root, sp)
+		if pathErr == nil {
+			var summary struct {
+				Status string   `json:"status"`
+				Files  []string `json:"files"`
+			}
+			if data, readErr := os.ReadFile(path); readErr == nil && json.Unmarshal(data, &summary) == nil && (summary.Status == "complete" || summary.Status == "completed") && len(summary.Files) > 0 {
+				content, artifactErr := s.store.ReadArtifact(sp, StageExecute)
+				if artifactErr == nil && strings.TrimSpace(content) != "" {
+					return nil
+				}
+			}
+		}
+		return fmt.Errorf("execute evidence is incomplete: %w", err)
+	}
+	if len(state.Tasks) == 0 {
+		return fmt.Errorf("execute evidence is incomplete: no planned tasks")
+	}
+	for _, task := range state.Tasks {
+		if task.Status != ExecuteTaskComplete && task.Status != ExecuteTaskDeferred {
+			return fmt.Errorf("execute evidence is incomplete: task %q is %s", task.Identity.Name, task.Status)
+		}
+	}
+	data, err := s.store.ReadArtifact(sp, StageExecute)
+	if err != nil || strings.TrimSpace(data) == "" {
+		return fmt.Errorf("execute evidence is incomplete: execute.md is missing")
+	}
+	return nil
+}
+
+func (s Service) ExecuteComplete(projectRef, sprintRef string) (bool, error) {
+	err := s.requireCompleteExecute(projectRef, sprintRef)
+[0m
+[0m$ [0mgrep -n 'migrate\|Migrate\|database' internal/app/storage_commands.go | head -30 && grep -rn 'ReconcileInterruptedMutation\|ReconcileInterruptedRun' internal/app internal/web internal/tui cmd | grep -v _test
+38:	if args[0] != "migrate" {
+39:		return classified(ExitUsage, "storage: expected 'migrate'")
+52:			return classified(ExitUsage, "storage migrate: unknown argument %q", arg)
+62:			return classifiedCause(ExitWorkspace, err, "storage.migrate: open workspace database")
+66:			return classifiedCause(ExitWorkspace, err, "storage.migrate: create product-state schema")
+83:		return classifiedCause(ExitWorkspace, err, "storage.migrate: discover studies")
+104:			err = study.MigrateRunStateToDatabase(item, state)
+110:		return classifiedCause(ExitWorkspace, err, "storage.migrate: discover projects")
+119:			migrateSprintState(root.Path, sprintItem, dryRun, appendItem)
+137:		return classified(ExitPartial, "storage.migrate: %d state artifact(s) failed validation or import", result.Failed)
+142:func migrateSprintState(root string, sp sprint.Sprint, dryRun bool, appendItem func(storageMigrationItem)) {
+155:					loadErr = sprint.MigrateFlowStateToDatabase(root, sp, state)
+178:					loadErr = sprint.MigrateExecuteStateToDatabase(root, sp, state)
+200:	return `ultraplan storage migrate
+203:  ultraplan [--workspace <path>] storage migrate [--dry-run] [--json]
+206:into the workspace SQLite database. Existing files remain as checkpoints.
+internal/app/web_usecases.go:364:		if _, err := service.ReconcileInterruptedMutation(ctx, summary.Project, summary.Slug); err != nil {
+internal/app/web_usecases.go:377:		if _, err := studyService.ReconcileInterruptedRun(ctx, item.Name); err != nil {
+[0m
+[0m$ [0mgrep -rn 'reconcile\|unlock\|recover' internal/app/*.go --include='*.go' -l | head; grep -n 'Use:\|Name:\|reconcile' internal/app/sprint_commands.go internal/app/run_commands.go internal/app/storage_commands.go 2>/dev/null | grep -i 'reconcile\|unlock' | head
+internal/app/run_control.go
+internal/app/sprint_commands.go
+internal/app/sprint_error_test.go
+internal/app/study_commands.go
+internal/app/study_run_loop_commands_test.go
+[0m
+[0m$ [0mgrep -n 'reconcile\|unlock\|Reconcile\|Unlock' internal/app/sprint_commands.go internal/app/study_commands.go internal/app/run_commands.go | head -20
+internal/app/sprint_commands.go:514:		defer mu.Unlock()
+internal/app/study_commands.go:147:  ultraplan study <study> run-loop [--dimension <ref>] [--source <ref>] [--parallel <n>] [--force-unlock]
+internal/app/study_commands.go:174:	forceUnlock bool
+internal/app/study_commands.go:217:		ForceUnlock:   flags.forceUnlock,
+internal/app/study_commands.go:232:	forceUnlock := false
+internal/app/study_commands.go:237:		if arg == "--force-unlock" {
+internal/app/study_commands.go:238:			forceUnlock = true
+internal/app/study_commands.go:259:	parsed.forceUnlock = forceUnlock
+internal/app/study_commands.go:519:		defer mu.Unlock()
+internal/app/study_commands.go:622:  ultraplan study <study> run-loop [--dimension <ref>] [--source <ref>] [--parallel <n>] [--force-unlock] [--reset] [--yes]
+internal/app/study_commands.go:628:  --force-unlock      Remove this study's existing run-loop lock before starting.
+internal/app/study_commands.go:633:By default, run-loop resumes shared study progress and filters only choose which slice is eligible to advance. The run-loop persists studies/<study>/.ultraplan/run-state.json after each meaningful task transition, appends execution history to studies/<study>/.ultraplan/runs/tasks.jsonl, refreshes studies/<study>/.ultraplan/runs/summary.md, cancels through the runtime boundary on interrupt, and refuses concurrent invocations unless --force-unlock is used.
+internal/app/study_commands.go:1062:	study.ReconcileRunState(&state, root, listing.Study, listing.Sources, listing.Dimensions, time.Now().UTC())
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/recovery.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verification_lock.go
+[0m
+[0m$ [0mgrep -n 'OnEvent\|go func\|callback\|emit' internal/platform/runtime/runtime.go | head -20 && grep -n 'func.*StartRun' internal/platform/runtime/*.go
+39:	OnEvent       func(Event)
+278:	go func() {
+284:			if req.OnEvent != nil {
+285:				req.OnEvent(mapped)
+297:	go func() {
+internal/platform/runtime/opencode.go:73:func (r requestVariantRuntime) StartRun(ctx context.Context, req agentwrap.RunRequest) (agentwrap.Run, error) {
+internal/platform/runtime/opencode_test.go:14:func (r *variantProbeRuntime) StartRun(context.Context, agentwrap.RunRequest) (agentwrap.Run, error) {
+internal/platform/runtime/runtime.go:264:func (a Adapter) StartRun(ctx context.Context, req Request) (Result, error) {
+internal/platform/runtime/runtime_test.go:13:func TestAdapterStartRunMapsEventsUsageAndError(t *testing.T) {
+internal/platform/runtime/runtime_test.go:472:func TestStartRunCancelsUnderlyingRunWhenContextCancelled(t *testing.T) {
+internal/platform/runtime/runtime_test.go:494:func (f fakeRuntime) StartRun(context.Context, agentwrap.RunRequest) (agentwrap.Run, error) {
+[0m
+[0m$ [0msed -n '260,310p' internal/platform/runtime/runtime.go
+}
+	return a
+}
+
+func (a Adapter) StartRun(ctx context.Context, req Request) (Result, error) {
+	if a.runtime == nil {
+		return Result{}, fmt.Errorf("runtime is required")
+	}
+	awReq, err := toAgentwrapRequest(req)
+	if err != nil {
+		return Result{}, err
+	}
+	run, err := a.runtime.StartRun(ctx, awReq)
+	if err != nil {
+		return Result{}, mapError(err)
+	}
+
+	eventsCh := make(chan eventCollection, 1)
+	go func() {
+		events := newEventCollection(retainedRuntimeEventLimit)
+		for event := range run.Events() {
+			events.captureTerminalOutput(event.Payload)
+			mapped := mapEvent(event)
+			events.add(mapped)
+			if req.OnEvent != nil {
+				req.OnEvent(mapped)
+			}
+		}
+		events.finish()
+		eventsCh <- events
+	}()
+
+	type waitResult struct {
+		result agentwrap.RunResult
+		err    error
+	}
+	waitCh := make(chan waitResult, 1)
+	go func() {
+		result, err := run.Wait(ctx)
+		waitCh <- waitResult{result: result, err: err}
+	}()
+
+	var result agentwrap.RunResult
+	var waitErr error
+	select {
+	case waited := <-waitCh:
+		result = waited.result
+		waitErr = waited.err
+	case <-ctx.Done():
+		_ = run.Cancel(context.Background())
+		select {
+[0m
+[0m$ [0msed -n '225,330p' internal/sprint/execute.go
+}
+		sessionMode := "initial"
+		if continueSession {
+			sessionMode = "continue"
+		} else if executionTurn > 1 {
+			sessionMode = "fresh-fallback"
+		}
+		runtimeReq := s.runtimeRequest(composedPrompt, map[string]string{
+			"project": sp.Project, "sprint": sp.Slug, "stage": string(StageExecute), "task": task.ID, "model_source": selection.Source,
+			"execution_session_mode": sessionMode, "execution_turn": fmt.Sprintf("%d", executionTurn), "execution_queue_size": fmt.Sprintf("%d", len(executionQueue)),
+		})
+		runtimeReq.WorkDir = target.Path
+		if continueSession {
+			runtimeReq.SessionID = batchSessionID
+			runtimeReq.SessionAction = "continue"
+		}
+		previousOnEvent := runtimeReq.OnEvent
+		var sessionMu sync.Mutex
+		var sessionSaveErr error
+		runtimeReq.OnEvent = func(event pruntime.Event) {
+			if previousOnEvent != nil {
+				previousOnEvent(event)
+			}
+			sessionMu.Lock()
+			defer sessionMu.Unlock()
+			if event.SessionID == "" || (task.Runtime != nil && task.Runtime.SessionID == event.SessionID) {
+				return
+			}
+			task.Runtime = &ExecuteRuntimeSummary{SessionID: event.SessionID, Model: selection.Model, ModelSource: selection.Source, OmissionReason: "raw runtime payloads omitted"}
+			task.UpdatedAt = s.now().UTC()
+			state.UpdatedAt = task.UpdatedAt
+			if err := SaveExecuteRunState(s.root, sp, state); err != nil && sessionSaveErr == nil {
+				sessionSaveErr = err
+			}
+		}
+		run, runErr := s.startSprintRuntime(ctx, sp, StageExecute, runtimeReq)
+		sessionMu.Lock()
+		checkpointErr := sessionSaveErr
+		sessionMu.Unlock()
+		result.Runtime = append(result.Runtime, run)
+		finish := s.now().UTC()
+		task.Runtime = mergeRuntimeSummary(task.Runtime, runtimeSummary(run, selection))
+		if runErr == nil {
+			batchSessionID = run.SessionID
+			if batchSessionID == "" && task.Runtime != nil {
+				batchSessionID = task.Runtime.SessionID
+			}
+		}
+		task.UpdatedAt = finish
+		task.CompletedAt = &finish
+		deferReason, deferErr := s.agentDeferredTaskReason(sp, task.ID)
+		switch {
+		case checkpointErr != nil:
+			task.Status = ExecuteTaskFailed
+			task.Diagnostics = append(task.Diagnostics, ExecuteDiagnostic{Code: "state-save-failed", Message: safeExecuteText("execute.state_save_error", checkpointErr.Error()), At: finish})
+		case deferErr != nil:
+			task.Status = ExecuteTaskFailed
+			task.Diagnostics = append(task.Diagnostics, ExecuteDiagnostic{Code: "invalid-deferral", Message: safeExecuteText("execute.defer_error", deferErr.Error()), At: finish})
+		case deferReason != "":
+			task.Status = ExecuteTaskDeferred
+			task.Diagnostics = append(task.Diagnostics, ExecuteDiagnostic{Code: "deferred", Message: safeExecuteText("execute.defer_reason", deferReason), At: finish})
+		case ctx.Err() != nil:
+			task.Status = ExecuteTaskCancelled
+			task.Diagnostics = append(task.Diagnostics, ExecuteDiagnostic{Code: "cancelled", Message: safeExecuteText("execute.cancelled", ctx.Err().Error()), At: finish})
+		case runErr != nil:
+			task.Status = ExecuteTaskFailed
+			task.Diagnostics = append(task.Diagnostics, ExecuteDiagnostic{Code: "runtime-failed", Message: safeExecuteText("execute.runtime_error", safeError(runErr)), At: finish})
+		case len(run.Artifacts) > 0:
+			task.Status = ExecuteTaskComplete
+			for _, artifact := range run.Artifacts {
+				task.Evidence = append(task.Evidence, ExecuteEvidence{Kind: artifact.Kind, Summary: safeExecuteText("execute.evidence", firstNonEmptyString(artifact.Description, artifact.ID)), Path: safeArtifactPath(artifact.URI)})
+			}
+		case hasDiagnosticOnlyCompletion(run):
+			task.Status = ExecuteTaskComplete
+			task.Diagnostics = append(task.Diagnostics, ExecuteDiagnostic{Code: "diagnostic-only-completion", Message: "runtime reported safe diagnostic-only completion", At: finish})
+		default:
+			task.Status = ExecuteTaskFailed
+			task.Diagnostics = append(task.Diagnostics, ExecuteDiagnostic{Code: "missing-evidence", Message: "runtime succeeded without expected evidence", At: finish})
+		}
+		if err := SaveExecuteRunState(s.root, sp, state); err != nil {
+			return result, fmt.Errorf("persist terminal execute task %q: %w", task.ID, err)
+		}
+		if checkpointErr != nil {
+			return result, fmt.Errorf("persist runtime session for execute task %q: %w", task.ID, checkpointErr)
+		}
+		if task.Status == ExecuteTaskFailed || task.Status == ExecuteTaskCancelled {
+			break
+		}
+		if req.TaskID != "" {
+			break
+		}
+	}
+	if err := WriteExecuteSummary(s.root, sp, state); err != nil {
+		return result, err
+	}
+	statePath, _ := ExecuteRunStatePath(s.root, sp)
+	result.RunStatePath = workspace.Rel(s.root, statePath)
+	result.SummaryPath = ArtifactRelPath(sp, StageExecute)
+	result.Tasks = state.Tasks
+	result.Message = executeResultMessage(state.Tasks)
+	if hasFailedExecuteTask(state.Tasks) {
+		return result, fmt.Errorf("execute completed with failed tasks")
+	}
+	return result, nil
+}
+[0m
+[0m$ [0msed -n '310,365p' internal/platform/runtime/runtime.go
+select {
+		case waited := <-waitCh:
+			result = waited.result
+			waitErr = waited.err
+		case <-time.After(5 * time.Second):
+			mapped := Result{
+				Status:     "cancelled",
+				FinishedAt: time.Now(),
+				Error:      &Error{Category: "cancellation", Operation: "run", UserDetail: ctx.Err().Error()},
+			}
+			return mapped, ctx.Err()
+		}
+		if waitErr == nil {
+			waitErr = ctx.Err()
+		}
+	}
+
+	mapped := mapResult(result)
+	select {
+	case events := <-eventsCh:
+		mapped.Events = events.events
+		if mapped.TerminalOutput == "" && events.terminalOutput != "" {
+			mapped.TerminalOutput = events.terminalOutput
+		}
+		mapped.EventStats = events.stats()
+		mapped.Memory = events.memory
+		if events.dropped > 0 {
+			mapped.Warnings = append(mapped.Warnings, fmt.Sprintf("runtime retained last %d events and dropped %d earlier events from in-memory result", events.limit, events.dropped))
+		}
+	case <-time.After(time.Second):
+	}
+	if waitErr != nil {
+		if errors.Is(waitErr, context.Canceled) {
+			mapped.Status = "cancelled"
+			mapped.Error = &Error{Category: "cancellation", Operation: "run", UserDetail: waitErr.Error()}
+		} else if errors.Is(waitErr, context.DeadlineExceeded) {
+			mapped.Status = "failed"
+			mapped.Error = &Error{Category: "timeout", Operation: "run", UserDetail: waitErr.Error()}
+		}
+		return mapped, mapError(waitErr)
+	}
+	if result.Err != nil {
+		return mapped, mapError(result.Err)
+	}
+	return mapped, nil
+}
+
+type eventCollection struct {
+	events         []Event
+	terminalOutput string
+	total          int64
+	dropped        int64
+	limit          int
+	memory         MemoryStats
+}
+[0m
+[0m$ [0mgrep -n 'OnEvent' internal/sprint/*.go internal/study/*.go | grep -v _test | grep -v 'runtime.go'
+internal/sprint/execute.go:241:		previousOnEvent := runtimeReq.OnEvent
+internal/sprint/execute.go:244:		runtimeReq.OnEvent = func(event pruntime.Event) {
+internal/sprint/execute.go:245:			if previousOnEvent != nil {
+internal/sprint/execute.go:246:				previousOnEvent(event)
+internal/sprint/review.go:900:	previousOnEvent := req.OnEvent
+internal/sprint/review.go:901:	req.OnEvent = func(event pruntime.Event) {
+internal/sprint/review.go:903:		if previousOnEvent != nil {
+internal/sprint/review.go:904:			previousOnEvent(event)
+internal/sprint/service.go:1046:		configured := req.OnEvent
+internal/sprint/service.go:1050:		req.OnEvent = func(event pruntime.Event) {
+internal/sprint/session_state.go:103:	previousOnEvent := req.OnEvent
+internal/sprint/session_state.go:123:	req.OnEvent = func(event pruntime.Event) {
+internal/sprint/session_state.go:124:		if previousOnEvent != nil {
+internal/sprint/session_state.go:125:			previousOnEvent(event)
+internal/sprint/smoke_author.go:65:		req.OnEvent = func(event pruntime.Event) {
+internal/study/execution_domain.go:27:	OnEvent       func(runtimepkg.Event)
+internal/study/execution_domain.go:57:	OnEvent       func(runtimepkg.Event)
+internal/study/run_all.go:74:				res, err := s.RunAnalysis(ctx, ExecutionRequest{StudyRef: study.Name, DimensionRef: task.dimension.Ref(), SourceRef: task.source.Name, OnEvent: onEvent})
+internal/study/run_all.go:109:		res, err := s.Synthesize(ctx, SynthesisRequest{StudyRef: study.Name, DimensionRef: dimension.Ref(), SourceRefs: selectedSourceNames(sources), OnEvent: onEvent})
+internal/study/run.go:51:	runtimeResult, runErr := s.startRuntime(ctx, prompt, TaskKindAnalysis, listing.Study, dimension, source, workDir, result.OutputPath, beforeFiles, snapshotErr, req.ResumeSession, req.OnSession, req.OnEvent)
+internal/study/run.go:133:	req.OnEvent = func(event runtimepkg.Event) {
+internal/study/run_loop.go:291:			res, err = s.RunAnalysis(ctx, ExecutionRequest{StudyRef: listing.Study.Name, DimensionRef: task.DimensionRef, SourceRef: task.Source, ResumeSession: task.Session, OnSession: checkpointSession, OnEvent: func(event runtimeEvent) {
+internal/study/run_loop.go:298:			res, err = s.Synthesize(ctx, SynthesisRequest{StudyRef: listing.Study.Name, DimensionRef: task.DimensionRef, SourceRefs: selectedSourceNames(listing.Sources), ResumeSession: task.Session, OnSession: checkpointSession, OnEvent: func(event runtimeEvent) {
+internal/study/synthesize.go:48:	runtimeResult, runErr := s.startRuntime(ctx, prompt, TaskKindSynthesis, listing.Study, dimension, Source{}, listing.Study.Path, result.OutputPath, beforeFiles, snapshotErr, req.ResumeSession, req.OnSession, req.OnEvent)
+[0m
+[0m$ [0mgrep -n 'Run(\|Exit\|os.Exit' cmd/ultraplan/main.go | head -20 && sed -n '1,60p' cmd/ultraplan/main.go
+21:	os.Exit(app.Run(app.Config{
+28:			return tui.Run(ctx, tui.Options{UseCases: opts.UseCases, Stdout: opts.Stdout, Width: opts.Width})
+31:			return web.Run(ctx, web.Options{
+58:	if err := exec.CommandContext(ctx, command, args...).Run(); err != nil {
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	"os/exec"
+	"os/signal"
+	"runtime"
+	"syscall"
+	"time"
+
+	"github.com/Antonio7098/ultraplan-go/internal/app"
+	"github.com/Antonio7098/ultraplan-go/internal/tui"
+	"github.com/Antonio7098/ultraplan-go/internal/web"
+)
+
+func main() {
+	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
+	defer stop()
+	os.Exit(app.Run(app.Config{
+		Args:    os.Args[1:],
+		Stdout:  os.Stdout,
+		Stderr:  os.Stderr,
+		Context: ctx,
+		Version: app.DefaultVersion(),
+		TUIRunner: func(ctx context.Context, opts app.TUIRunOptions) error {
+			return tui.Run(ctx, tui.Options{UseCases: opts.UseCases, Stdout: opts.Stdout, Width: opts.Width})
+		},
+		WebRunner: func(ctx context.Context, opts app.ServeRunOptions) error {
+			return web.Run(ctx, web.Options{
+				Listen:        opts.Listen,
+				OpenBrowser:   opts.OpenBrowser,
+				Queries:       opts.UseCases,
+				Operations:    opts.UseCases,
+				Runs:          opts.UseCases,
+				Stdout:        opts.Stdout,
+				Diagnostics:   opts.Diagnostics,
+				LaunchBrowser: openBrowser,
+			})
+		},
+	}))
+}
+
+func openBrowser(ctx context.Context, target string) error {
+	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
+	defer cancel()
+	var command string
+	var args []string
+	switch runtime.GOOS {
+	case "darwin":
+		command, args = "open", []string{target}
+	case "windows":
+		command, args = "rundll32", []string{"url.dll,FileProtocolHandler", target}
+	default:
+		command, args = "xdg-open", []string{target}
+	}
+	if err := exec.CommandContext(ctx, command, args...).Run(); err != nil {
+		return fmt.Errorf("launch browser: %w", err)
+	}
+[0m
+[0m$ [0msed -n '786,825p' internal/sprint/review.go && grep -n 'reviewMu\|sync\.' internal/sprint/review.go | head
+single := m
+	single.Coverage = []ReviewInput{{ID: result.CoverageID}}
+	_, diagnostics, _ := validateReviewCoverage(root, single, []ReviewCoverageResult{result})
+	return len(diagnostics) == 0
+}
+
+func (s Service) saveReviewResumeSession(projectRef, sprintRef, fingerprint, coverageID, sessionID string) error {
+	return s.updateReviewResume(projectRef, sprintRef, fingerprint, coverageID, func(checkpoint *ReviewCoverageCheckpoint, now time.Time) {
+		// Session events and completed results arrive on separate channels. A
+		// buffered session event may therefore be persisted after the terminal
+		// result; never let that late event restore a cleared session or regress a
+		// terminal checkpoint to running.
+		if checkpoint.Status == AttemptCompleted || checkpoint.Status == AttemptFailed {
+			return
+		}
+		checkpoint.SessionID = sessionID
+		checkpoint.Status = AttemptRunning
+		checkpoint.UpdatedAt = now
+	})
+}
+
+func (s Service) saveReviewResumeResult(projectRef, sprintRef, fingerprint string, result ReviewCoverageResult, sessionID string) error {
+	return s.updateReviewResume(projectRef, sprintRef, fingerprint, result.CoverageID, func(checkpoint *ReviewCoverageCheckpoint, now time.Time) {
+		checkpoint.UpdatedAt = now
+		if result.Error == "" {
+			checkpoint.SessionID = ""
+			checkpoint.Status = AttemptCompleted
+			copy := result
+			checkpoint.Result = &copy
+		} else {
+			checkpoint.SessionID = sessionID
+			checkpoint.Status = AttemptFailed
+			checkpoint.Result = nil
+		}
+	})
+}
+
+func (s Service) updateReviewResume(projectRef, sprintRef, fingerprint, coverageID string, update func(*ReviewCoverageCheckpoint, time.Time)) error {
+	sp, _, _, err := s.resolveSprintInputs(projectRef, sprintRef)
+	if err != nil {
+511:	var wg sync.WaitGroup
+[0m
+[0m$ [0msed -n '460,500p' internal/platform/runtime/runtime_test.go && grep -n 'checkpointSession\|func.*checkpointSession\|saveMu\|mu\.Lock' internal/study/run_loop.go | head -15
+}
+	if _, err := mapCapabilitiesIDs([]string{"structured_events", "validation_events"}); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := mapHealthIDs([]string{"unknown"}); err == nil {
+		t.Fatal("expected unknown health error")
+	}
+	if _, err := mapCapabilitiesIDs([]string{"unknown"}); err == nil {
+		t.Fatal("expected unknown capability error")
+	}
+}
+
+func TestStartRunCancelsUnderlyingRunWhenContextCancelled(t *testing.T) {
+	ctx, cancel := context.WithCancel(context.Background())
+	run := &fakeRun{id: "run-cancel", waitForCancel: true}
+	adapter := NewAdapter(fakeRuntime{run: run})
+	cancel()
+
+	result, err := adapter.StartRun(ctx, Request{Prompt: "hello"})
+	if !errors.Is(err, context.Canceled) {
+		t.Fatalf("err = %v, want context.Canceled", err)
+	}
+	if !run.cancelled {
+		t.Fatal("underlying run was not cancelled")
+	}
+	if result.Status != "cancelled" || result.Error == nil || result.Error.Category != "cancellation" {
+		t.Fatalf("result = %+v", result)
+	}
+}
+
+type fakeRuntime struct {
+	run *fakeRun
+}
+
+func (f fakeRuntime) StartRun(context.Context, agentwrap.RunRequest) (agentwrap.Run, error) {
+	return f.run, nil
+}
+
+func (f fakeRuntime) Capabilities(context.Context) (agentwrap.Capabilities, error) {
+	return agentwrap.Capabilities{RuntimeKind: "fake", Features: map[agentwrap.Capability]agentwrap.CapabilitySupport{
+		agentwrap.CapabilityStructuredEvents: {Supported: true, Detail: "fake events"},
+111:		mu.Lock()
+119:		mu.Lock()
+131:		mu.Lock()
+139:	var saveMu sync.Mutex
+144:		mu.Lock()
+147:		saveMu.Lock()
+148:		defer saveMu.Unlock()
+163:		mu.Lock()
+178:		mu.Lock()
+191:		mu.Lock()
+201:		mu.Lock()
+250:		mu.Lock()
+282:		checkpointSession := func(session TaskSession) {
+291:			res, err = s.RunAnalysis(ctx, ExecutionRequest{StudyRef: listing.Study.Name, DimensionRef: task.DimensionRef, SourceRef: task.Source, ResumeSession: task.Session, OnSession: checkpointSession, OnEvent: func(event runtimeEvent) {
+298:			res, err = s.Synthesize(ctx, SynthesisRequest{StudyRef: listing.Study.Name, DimensionRef: task.DimensionRef, SourceRefs: selectedSourceNames(listing.Sources), ResumeSession: task.Session, OnSession: checkpointSession, OnEvent: func(event runtimeEvent) {
+[0m
+[0m$ [0msed -n '136,175p' internal/study/run_loop.go && sed -n '276,310p' internal/study/run_loop.go
+}
+		req.Progress(progressFor(RunLoopProgressRuntime, state.Tasks[idx], &event))
+	}
+	var saveMu sync.Mutex
+	var stateVersion uint64
+	var persistedVersion uint64
+	var lastPersisted time.Time
+	persist := func(taskID string, force bool) error {
+		mu.Lock()
+		requestedVersion := stateVersion
+		mu.Unlock()
+		saveMu.Lock()
+		defer saveMu.Unlock()
+		if !force && persistedVersion >= requestedVersion {
+			return nil
+		}
+		if !force {
+			if wait := 250*time.Millisecond - time.Since(lastPersisted); wait > 0 {
+				timer := time.NewTimer(wait)
+				select {
+				case <-ctx.Done():
+					timer.Stop()
+					return ctx.Err()
+				case <-timer.C:
+				}
+			}
+		}
+		mu.Lock()
+		stateCopy := cloneRunState(state)
+		savedVersion := stateVersion
+		mu.Unlock()
+		started := time.Now()
+		err := SaveRunState(listing.Study, stateCopy)
+		diagnostics.sample("state.save.end", taskID, time.Since(started), err)
+		if err == nil {
+			persistedVersion = savedVersion
+			lastPersisted = time.Now()
+		}
+		return err
+	}
+			t.Agent = AgentMetadata{}
+		}))
+		emitTask(RunLoopProgressStarted, id)
+		diagnostics.sample("runtime.start", id, 0, nil)
+		runtimeStarted := time.Now()
+		var res ExecutionResult
+		checkpointSession := func(session TaskSession) {
+			recordErr(update(id, func(t *TaskState) {
+				copy := session
+				t.Session = &copy
+				t.UpdatedAt = time.Now().UTC()
+			}))
+		}
+		switch task.Kind {
+		case TaskKindAnalysis:
+			res, err = s.RunAnalysis(ctx, ExecutionRequest{StudyRef: listing.Study.Name, DimensionRef: task.DimensionRef, SourceRef: task.Source, ResumeSession: task.Session, OnSession: checkpointSession, OnEvent: func(event runtimeEvent) {
+				emitRuntime(id, event)
+			}})
+			if err != nil {
+				res = ExecutionResult{Status: ExecutionStatusRuntimeFailed, TaskKind: TaskKindAnalysis, Study: listing.Study, OutputPath: task.OutputPath, RuntimeError: safeError(err), RuntimeErr: err}
+			}
+		case TaskKindSynthesis:
+			res, err = s.Synthesize(ctx, SynthesisRequest{StudyRef: listing.Study.Name, DimensionRef: task.DimensionRef, SourceRefs: selectedSourceNames(listing.Sources), ResumeSession: task.Session, OnSession: checkpointSession, OnEvent: func(event runtimeEvent) {
+				emitRuntime(id, event)
+			}})
+			if err != nil {
+				res = ExecutionResult{Status: ExecutionStatusRuntimeFailed, TaskKind: TaskKindSynthesis, Study: listing.Study, OutputPath: task.OutputPath, RuntimeError: safeError(err), RuntimeErr: err}
+			}
+		default:
+			recordErr(fmt.Errorf("unsupported task kind %q", task.Kind))
+			return
+		}
+		diagnostics.sample("runtime.end", id, time.Since(runtimeStarted), err)
+		recordErr(applyExecutionResult(update, id, res))
+		recordErr(recordHistory(id))
+[0m
+[0m$ [0msed -n '185,200p' internal/sprint/service.go && sed -n '60,80p' internal/sprint/service.go && grep -n 'saveFlowState\|SaveFlowState' internal/sprint/service.go | head
+fingerprintMismatch := readErr == nil && refreshed.Smoke.SmokeFingerprint != "" && refreshed.Smoke.SmokeFingerprint != hashBytes(data)
+			reviewMismatch := refreshed.Review == nil || refreshed.Review.Stale || refreshed.Smoke.ReviewFingerprint != refreshed.Review.Fingerprint
+			refreshed.Smoke.Stale = invalid || fingerprintMismatch || reviewMismatch
+			refreshed.Smoke.Reconciliation = fingerprintMismatch || (readErr == nil && refreshed.Smoke.SmokeFingerprint == "")
+		}
+	}
+	if s.statusWrites && !legacyCodeContextState {
+		if err := SaveFlowState(s.root, sp, refreshed); err != nil {
+			return StatusSummary{}, err
+		}
+	}
+	flowPath, err := FlowStatePath(s.root, sp)
+	if err != nil {
+		return StatusSummary{}, err
+	}
+	var executeState *ExecuteRunState
+	Variant string
+}
+
+func NewService(root string) Service {
+	return Service{root: root, store: NewFSStore(root), now: func() time.Time { return time.Now().UTC() }, processRunner: pprocess.DirectRunner{}, smokeSettings: DefaultSmokeSettings(), mutations: &sync.Map{}, metricsMu: &sync.Mutex{}, statusWrites: true}
+}
+
+// WithoutStatusWrites derives status from current artifacts without creating a
+// missing flow-state file. It is used by strictly read-only presentation
+// surfaces; existing CLI/TUI status behavior remains unchanged.
+func (s Service) WithoutStatusWrites() Service {
+	s.statusWrites = false
+	return s
+}
+
+var ErrVerificationConflict = errors.New("verification mutation already in progress")
+
+func (s Service) acquireMutation(projectRef, sprintRef string) (func(), error) {
+	sp, err := s.resolveMutationSprint(projectRef, sprintRef)
+	if err != nil {
+		return nil, err
+192:		if err := SaveFlowState(s.root, sp, refreshed); err != nil {
+498:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+506:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+512:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+526:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+533:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+537:	if err := SaveFlowState(s.root, sp, NewFlowState(sp, stages, now)); err != nil {
+556:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+564:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+572:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+[0m
+[0m$ [0mgrep -rn 'EventAccepted\|EventClaimed' internal/runcontrol/*.go | grep -v _test
+internal/runcontrol/model.go:123:	EventAccepted     EventType = "accepted"
+internal/runcontrol/model.go:124:	EventClaimed      EventType = "claimed"
+internal/runcontrol/model.go:139:	case EventAccepted, EventClaimed, EventLifecycle, EventProgress, EventMessage,
+[0m
+[0m• [0mFalsify runtime event finding[90m Arch-Challenger Agent[0m
+[0m✓ [0mFalsify runtime event finding[90m Arch-Challenger Agent[0m
+[0m• [0mFalsify runtime event finding[90m Explore Agent[0m
+[0m✓ [0mFalsify runtime event finding[90m Explore Agent[0m
+[0m• [0mFalsify store and lock findings[90m Explore Agent[0m
+[0m✓ [0mFalsify store and lock findings[90m Explore Agent[0m

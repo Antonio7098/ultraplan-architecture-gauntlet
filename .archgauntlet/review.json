@@ -1,7 +1,7 @@
 {
   "version": 1,
   "created_at": "2026-08-22T11:46:58.055387891Z",
-  "updated_at": "2026-08-22T16:20:07.149551798Z",
+  "updated_at": "2026-08-23T19:55:55.683661515Z",
   "target_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go",
   "target_commit": "eeaa034cb1e520ea10e806870f6026cf1bb6c4f7",
   "workspace_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace",
@@ -88,8 +88,10 @@
       "role": "arch-orchestrator",
       "focus": "Blind whole-system review emphasizing concept ownership, authority, cohesion, and boundaries.",
       "broad": true,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-22T16:20:10.461398679Z",
+      "completed_at": "2026-08-22T17:20:10.238053446Z"
     },
     {
       "id": "generalist-02",
@@ -98,8 +100,10 @@
       "role": "arch-orchestrator",
       "focus": "Blind whole-system review emphasizing accidental complexity, duplicated knowledge, unearned abstraction, and change cost.",
       "broad": true,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-22T16:20:10.463307651Z",
+      "completed_at": "2026-08-22T16:50:31.071898613Z"
     },
     {
       "id": "generalist-03",
@@ -108,8 +112,10 @@
       "role": "arch-orchestrator",
       "focus": "Blind whole-system review emphasizing correctness under crash, cancellation, restart, partial progress, concurrency, and recovery.",
       "broad": true,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-23T18:29:08.64567702Z",
+      "completed_at": "2026-08-23T19:55:55.683629598Z"
     },
     {
       "id": "generalist-04",
@@ -118,8 +124,10 @@
       "role": "arch-orchestrator",
       "focus": "Blind whole-system review emphasizing evolution, change locality, architectural drift, agent legibility, and future extension paths.",
       "broad": true,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-23T18:29:08.655553325Z",
+      "completed_at": "2026-08-23T19:06:49.944102404Z"
     },
     {
       "id": "specialist-01a",

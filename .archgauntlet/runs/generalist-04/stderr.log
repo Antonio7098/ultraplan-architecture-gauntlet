@@ -1,0 +1,405 @@
+[93m[1m! [0m agent "arch-orchestrator" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/review-lenses.md
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && echo --- && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+---
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m$ [0mgit -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go log --oneline -15 && echo --- && cat /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/go.mod
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+0f99eb7 Surface fallback, staleness, and attempt history on study run cards
+9aac07e Show retry backoff, attempt counts, and provider/model/harness on run agent cards
+1d02602 Add OpenCode database reset maintenance script
+84a45c7 Surface study retries, session reuse, parallelism throttling, and failure reasons on web run pages
+e3a44a7 Prioritize active agents on run page with collapsible completed grid
+5839f9a resume interrupted study sessions
+8ee9d9c Skip legacy terminal sprint state during migration
+02e2ec4 Move mutable product state to SQLite
+f7936cf Expose study resource diagnostics in web UI
+3ef8645 Merge fix/reconcile-review-smoke-guidance
+---
+module github.com/Antonio7098/ultraplan-go
+
+go 1.26
+
+require gopkg.in/yaml.v3 v3.0.1
+
+require (
+	github.com/Antonio7098/agentwrap v0.0.0-20260821190033-e79a38a58da3
+	github.com/charmbracelet/bubbletea v1.3.10
+	github.com/charmbracelet/glamour v1.0.0
+	github.com/charmbracelet/lipgloss v1.1.1-0.20250404203927-76690c660834
+	github.com/yuin/goldmark v1.7.13
+	golang.org/x/sys v0.47.0
+	modernc.org/sqlite v1.57.0
+)
+
+require (
+	github.com/alecthomas/chroma/v2 v2.20.0 // indirect
+	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
+	github.com/aymerick/douceur v0.2.0 // indirect
+	github.com/charmbracelet/colorprofile v0.2.3-0.20250311203215-f60798e515dc // indirect
+	github.com/charmbracelet/x/ansi v0.10.2 // indirect
+	github.com/charmbracelet/x/cellbuf v0.0.13 // indirect
+	github.com/charmbracelet/x/exp/slice v0.0.0-20250327172914-2fdc97757edf // indirect
+	github.com/charmbracelet/x/term v0.2.1 // indirect
+	github.com/dlclark/regexp2 v1.11.5 // indirect
+	github.com/dustin/go-humanize v1.0.1 // indirect
+	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
+	github.com/google/uuid v1.6.0 // indirect
+	github.com/gorilla/css v1.0.1 // indirect
+	github.com/lucasb-eyer/go-colorful v1.3.0 // indirect
+	github.com/mattn/go-isatty v0.0.24 // indirect
+	github.com/mattn/go-localereader v0.0.1 // indirect
+	github.com/mattn/go-runewidth v0.0.17 // indirect
+	github.com/microcosm-cc/bluemonday v1.0.27 // indirect
+	github.com/muesli/ansi v0.0.0-20230316100256-276c6243b2f6 // indirect
+	github.com/muesli/cancelreader v0.2.2 // indirect
+	github.com/muesli/reflow v0.3.0 // indirect
+	github.com/muesli/termenv v0.16.0 // indirect
+	github.com/ncruces/go-strftime v1.0.0 // indirect
+	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
+	github.com/rivo/uniseg v0.4.7 // indirect
+	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
+	github.com/yuin/goldmark-emoji v1.0.6 // indirect
+	golang.org/x/net v0.38.0 // indirect
+	golang.org/x/term v0.36.0 // indirect
+	golang.org/x/text v0.30.0 // indirect
+	modernc.org/libc v1.74.4 // indirect
+	modernc.org/mathutil v1.7.1 // indirect
+	modernc.org/memory v1.11.0 // indirect
+)
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd -maxdepth 2 -type d | sort && echo --- && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/filesystem
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold
+---
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+[0m
+[0m$ [0mfind . -name '*.go' | wc -l && find . -name '*_test.go' | wc -l && wc -l $(find . -name '*.go') | tail -1
+291
+112
+  64635 total
+[0m
+[0m• [0mTrace study/sprint lifecycle[90m Arch-Worker Agent[0m
+[0m• [0mTrace run events pipeline[90m Arch-Worker Agent[0m
+[0m• [0mCheck docs-vs-code drift[90m Arch-Worker Agent[0m
+[0m• [0mAnalyze git churn locality[90m General Agent[0m
+[0m✓ [0mAnalyze git churn locality[90m General Agent[0m
+[0m✓ [0mTrace run events pipeline[90m Arch-Worker Agent[0m
+[0m✓ [0mTrace study/sprint lifecycle[90m Arch-Worker Agent[0m
+[0m✓ [0mCheck docs-vs-code drift[90m Arch-Worker Agent[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers.go[90m [offset=90, limit=30][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers.go[90m [limit=50, offset=265][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=160, offset=377][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/events.go[90m [limit=100, offset=1][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md[90m [limit=70, offset=1340][0m
+[0m✱ [0mGrep "sqlite|SQLite|product.?state|run-control\.db"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go · 100 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md[90m [limit=60, offset=1409][0m
+[0m✱ [0mGrep "Gate D|gate-d|persistence gate|storage migrate|migrate-product-state|product-state migration"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace · 3 matches[0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/plans/ && rg -il 'sqlite' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/plans/ 2>/dev/null; echo exit=$?; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/ | tail -8
+integrated-roadmap.md
+post-execution-qa-and-repair-loop.md
+retrieval-ready-content-knowledge-graph-addendum.md
+retrieval-ready-content-plan.md
+server-shutdown-run-cancellation-contract.md
+sprint-code-context-stage.md
+ultraplan-local-server-experiment-plan.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/plans/ultraplan-local-server-experiment-plan.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/plans/retrieval-ready-content-knowledge-graph-addendum.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/plans/integrated-roadmap.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/plans/retrieval-ready-content-plan.md
+exit=0
+28-review-to-smoke-flow
+29-phase-3-documentation-hardening-release
+30-web-foundations
+31-web-operations
+32-hardening-and-release
+33-code-context-stage
+34-shared-context
+35-durable-run-observability
+[0m
+[0m✱ [0mGrep "productstate\.(Ensure|Existing)|OpenSQLite\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 49 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=70, offset=21][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state_database.go[90m [limit=60, offset=50][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/recovery.md[90m [limit=14, offset=68][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify.go[90m [limit=50, offset=450][0m
+[0m✱ [0mGrep "jsonMarshalTruncated"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 2 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=45, offset=537][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers.go[90m [limit=18, offset=312][0m
+[0m✱ [0mGrep "cleanup-uncertain\.json|\.cleanup-uncertain\.json"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 3 matches[0m
+[0m✱ [0mGrep "productstate\.|storage migrate|runStorage"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 0 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/model.go[90m [limit=25, offset=8][0m
+[0m
+[0m$ [0mgo build ./... && go vet ./internal/app/ ./internal/runcontrol/ ./internal/productstate/ ./internal/web/ && echo VET_OK
+VET_OK
+[0m
+[0m$ [0mgo test ./internal/runcontrol/ ./internal/study/ ./internal/sprint/ -count=1 2>&1 | tail -5
+run_loop_test.go:303: first starts = []string{"analysis:01-structure", "analysis:02-runtime"}, want the priority dimension; all starts []string{"analysis:01-structure", "analysis:02-runtime", "analysis:02-runtime", "analysis:01-structure", "synthesis:02-runtime", "synthesis:01-structure"}
+FAIL
+FAIL	github.com/Antonio7098/ultraplan-go/internal/study	16.350s
+ok  	github.com/Antonio7098/ultraplan-go/internal/sprint	1.249s
+FAIL
+[0m
+[0m$ [0mgo test ./internal/study/ -count=1 2>&1 | grep -E '^(--- FAIL|FAIL|ok|=== RUN.*)' | grep -A0 FAIL | head; echo ===; go test ./internal/study/ -count=1 -run TestRunLoop 2>&1 | tail -3
+--- FAIL: TestRunLoopStartsPriorityTierBeforeLaterTiers (1.78s)
+FAIL
+FAIL	github.com/Antonio7098/ultraplan-go/internal/study	16.358s
+FAIL
+===
+FAIL
+FAIL	github.com/Antonio7098/ultraplan-go/internal/study	9.958s
+FAIL
+[0m
+[0m$ [0mgo test ./internal/study/ -count=1 -run TestRunLoopStartsPriorityTierBeforeLaterTiers 2>&1 | head -30; echo ===RETRY===; go test ./internal/study/ -count=3 -run TestRunLoopStartsPriorityTierBeforeLaterTiers 2>&1 | grep -cE '^--- FAIL'
+--- FAIL: TestRunLoopStartsPriorityTierBeforeLaterTiers (1.78s)
+    run_loop_test.go:303: first starts = []string{"analysis:01-structure", "analysis:02-runtime"}, want the priority dimension; all starts []string{"analysis:01-structure", "analysis:02-runtime", "analysis:02-runtime", "analysis:01-structure", "synthesis:02-runtime", "synthesis:01-structure"}
+FAIL
+FAIL	github.com/Antonio7098/ultraplan-go/internal/study	1.790s
+FAIL
+===RETRY===
+3
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop_test.go[90m [limit=65, offset=245][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop.go[90m [limit=55, offset=305][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop.go[90m [limit=65, offset=596][0m
+[0m
+[0m$ [0mgit log --oneline -3 -- internal/study/run_loop_test.go && echo === && git log -S 'DimensionOrder' --oneline -- internal/study/run_loop.go | head -5 && echo === && git log -S 'TestRunLoopStartsPriorityTierBeforeLaterTiers' --oneline | head -3
+5839f9a resume interrupted study sessions
+734eb5d Keep study run loop at requested parallelism
+d73e23c add study dimension execution order
+===
+d73e23c add study dimension execution order
+===
+5839f9a resume interrupted study sessions
+[0m
+[0m$ [0mgit show 5839f9a --stat | head -20 && git show 5839f9a -- internal/study/run_loop.go | grep -n 'runnableTaskIDs\|DimensionOrder\|sortTaskIDs\|order' | head -20 && echo ====TESTDIFF==== && git show 5839f9a -- internal/study/run_loop_test.go | grep -n 'PriorityTier' | head
+commit 5839f9a1df07a3081b372bc0a786030135d2d038
+Author: antonio <antoniorees74@gmail.com>
+Date:   Fri Aug 21 18:27:22 2026 +0100
+
+    resume interrupted study sessions
+
+ internal/study/execution_domain.go |  20 +++---
+ internal/study/run.go              | 142 +++++++++++++++++++++++++++++++++++--
+ internal/study/run_loop.go         |  15 +++-
+ internal/study/run_loop_test.go    | 106 ++++++++++++++++++++++++---
+ internal/study/run_state_domain.go |  13 ++++
+ internal/study/run_test.go         |  86 ++++++++++++++++++++++
+ internal/study/state.go            |   7 ++
+ internal/study/synthesize.go       |   2 +-
+ 8 files changed, 365 insertions(+), 26 deletions(-)
+====TESTDIFF====
+103:-func TestRunLoopFillsParallelSlotsFromLaterPriorityTiers(t *testing.T) {
+104:+func TestRunLoopStartsPriorityTierBeforeLaterTiers(t *testing.T) {
+[0m
+[0m$ [0mgit show 5839f9a -- internal/study/run_loop.go && echo ====OLDTEST==== && git show 5839f9a^:internal/study/run_loop_test.go | sed -n '95,140p'
+commit 5839f9a1df07a3081b372bc0a786030135d2d038
+Author: antonio <antoniorees74@gmail.com>
+Date:   Fri Aug 21 18:27:22 2026 +0100
+
+    resume interrupted study sessions
+
+diff --git a/internal/study/run_loop.go b/internal/study/run_loop.go
+index 395c799..3de2b24 100644
+--- a/internal/study/run_loop.go
++++ b/internal/study/run_loop.go
+@@ -279,16 +279,23 @@ func (s Service) RunLoop(ctx context.Context, req RunLoopRequest) (out RunLoopRe
+ 		diagnostics.sample("runtime.start", id, 0, nil)
+ 		runtimeStarted := time.Now()
+ 		var res ExecutionResult
++		checkpointSession := func(session TaskSession) {
++			recordErr(update(id, func(t *TaskState) {
++				copy := session
++				t.Session = &copy
++				t.UpdatedAt = time.Now().UTC()
++			}))
++		}
+ 		switch task.Kind {
+ 		case TaskKindAnalysis:
+-			res, err = s.RunAnalysis(ctx, ExecutionRequest{StudyRef: listing.Study.Name, DimensionRef: task.DimensionRef, SourceRef: task.Source, OnEvent: func(event runtimeEvent) {
++			res, err = s.RunAnalysis(ctx, ExecutionRequest{StudyRef: listing.Study.Name, DimensionRef: task.DimensionRef, SourceRef: task.Source, ResumeSession: task.Session, OnSession: checkpointSession, OnEvent: func(event runtimeEvent) {
+ 				emitRuntime(id, event)
+ 			}})
+ 			if err != nil {
+ 				res = ExecutionResult{Status: ExecutionStatusRuntimeFailed, TaskKind: TaskKindAnalysis, Study: listing.Study, OutputPath: task.OutputPath, RuntimeError: safeError(err), RuntimeErr: err}
+ 			}
+ 		case TaskKindSynthesis:
+-			res, err = s.Synthesize(ctx, SynthesisRequest{StudyRef: listing.Study.Name, DimensionRef: task.DimensionRef, SourceRefs: selectedSourceNames(listing.Sources), OnEvent: func(event runtimeEvent) {
++			res, err = s.Synthesize(ctx, SynthesisRequest{StudyRef: listing.Study.Name, DimensionRef: task.DimensionRef, SourceRefs: selectedSourceNames(listing.Sources), ResumeSession: task.Session, OnSession: checkpointSession, OnEvent: func(event runtimeEvent) {
+ 				emitRuntime(id, event)
+ 			}})
+ 			if err != nil {
+@@ -706,10 +713,14 @@ func applyExecutionResult(update func(string, func(*TaskState)) error, id string
+ 			summary := validationSummary(res.Validation, now)
+ 			t.Validation = &summary
+ 		}
++		if t.Agent.Cleanup.Attempted && !t.Agent.Cleanup.Completed {
++			t.Session = nil
++		}
+ 		switch res.Status {
+ 		case ExecutionStatusCompleted, ExecutionStatusSkipped:
+ 			t.Status = TaskStatusCompleted
+ 			t.RetryAfter = nil
++			t.Session = nil
+ 		case ExecutionStatusCancelled:
+ 			t.Status = TaskStatusCancelled
+ 			t.LastError = &TaskError{Code: "runtime.cancelled", Message: safeExecutionMessage(res)}
+====OLDTEST====
+	os.Remove(SourceReportPath(st, Source{Name: "repo", Kind: SourceKindDirectory}, Dimension{Number: "01", Slug: "structure"}))
+
+	rt = &runAllRuntime{write: validSourceReport}
+	service = NewService(root, WithRuntime(rt, runtimeRequest()))
+	result, err := service.RunLoop(context.Background(), RunLoopRequest{StudyRef: "demo", DimensionRefs: []string{"01"}, SourceRefs: []string{"repo"}, Parallelism: 1, Continue: true})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if result.Status != RunAllStatusCompleted {
+		t.Fatalf("Status = %q counts = %+v", result.Status, result.Counts)
+	}
+	if rt.calls == 0 {
+		t.Fatal("expected missing completed report to be rerun after resume validation")
+	}
+}
+
+func TestRunLoopDefaultResumesExistingStateAndResetStartsFresh(t *testing.T) {
+	root, st := executionFixture(t)
+	rt := &runAllRuntime{write: validSourceReport}
+	service := NewService(root, WithRuntime(rt, runtimeRequest()))
+	if _, err := service.RunLoop(context.Background(), RunLoopRequest{StudyRef: "demo", DimensionRefs: []string{"01"}, SourceRefs: []string{"repo"}, Parallelism: 1}); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := LoadRunState(st); err != nil {
+		t.Fatal(err)
+	}
+
+	rt = &runAllRuntime{write: validSourceReport}
+	service = NewService(root, WithRuntime(rt, runtimeRequest()))
+	result, err := service.RunLoop(context.Background(), RunLoopRequest{StudyRef: "demo", DimensionRefs: []string{"01"}, SourceRefs: []string{"doc.md"}, Parallelism: 1})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if result.Status != RunAllStatusCompleted {
+		t.Fatalf("Status = %q counts = %+v", result.Status, result.Counts)
+	}
+	resumed, err := LoadRunState(st)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(resumed.Tasks) != 3 || resumed.Tasks[0].Source != "doc.md" || resumed.Tasks[1].Source != "repo" {
+		t.Fatalf("tasks = %#v, want shared full-study state", resumed.Tasks)
+	}
+
+	rt = &runAllRuntime{write: validSourceReport}
+	service = NewService(root, WithRuntime(rt, runtimeRequest()))
+[0m
+[0m$ [0mgrep -n 'func runnableTaskIDs' internal/study/*.go; git show 5839f9a^:internal/study/run_loop_test.go | awk '/FillsParallelSlots/,/^}/' | head -40
+internal/study/run_loop.go:518:func runnableTaskIDs(state RunState, scope map[string]bool, attempted map[string]bool, limit int, now time.Time, dimensionOrder []Dimension) []string {
+func TestRunLoopFillsParallelSlotsFromLaterPriorityTiers(t *testing.T) {
+	root, st := executionFixture(t)
+	writeReport(t, filepath.Join(st.Path, "dimensions", "02-runtime.md"), "# Runtime\n")
+	writeReport(t, StudyConfigPath(st), `{"version":1,"dimension_order":["02"]}`)
+	rt := &orderedRuntime{}
+	service := NewService(root, WithRuntime(rt, runtimeRequest()))
+
+	result, err := service.RunLoop(context.Background(), RunLoopRequest{StudyRef: "demo", Parallelism: 3})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if result.Status != RunAllStatusCompleted {
+		t.Fatalf("Status = %q counts = %+v", result.Status, result.Counts)
+	}
+	if len(rt.order) < 3 {
+		t.Fatalf("order = %#v", rt.order)
+	}
+	started := map[string]int{}
+	for _, task := range rt.order[:3] {
+		started[task]++
+	}
+	if started["analysis:02-runtime"] != 2 || started["analysis:01-structure"] != 1 {
+		t.Fatalf("first three starts = %#v, want two priority tasks plus one backfill; full order %#v", rt.order[:3], rt.order)
+	}
+}
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop.go[90m [limit=60, offset=518][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop.go[90m [limit=50, offset=357][0m
+[0m✱ [0mGlob ".github/workflows/*"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 0 matches[0m
+[0m✱ [0mGrep "payload\.(tool|kind|action|text|delta)"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/app.js · 8 matches[0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.agents/skills/ 2>/dev/null; echo ---; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.agents 2>/dev/null || echo no-agents-dir-in-impl
+ultraplan-area-reasoning
+ultraplan-execute
+ultraplan-plan
+ultraplan-reasoning
+ultraplan-reconcile-review-smoke
+ultraplan-requirements
+ultraplan-review
+ultraplan-smoke
+ultraplan-sprint-index
+ultraplan-technical-handbook
+---
+no-agents-dir-in-impl
+[0m

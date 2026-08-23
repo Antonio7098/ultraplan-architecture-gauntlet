@@ -1,0 +1,819 @@
+[93m[1m! [0m agent "arch-orchestrator" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -3 && git status --short | head -5
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+[0m
+[0m$ [0mfind . -name '*.go' -not -path './vendor/*' | wc -l && ls
+291
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+[0m
+[0m$ [0mls internal cmd docs && wc -l internal/*/*.go 2>/dev/null | tail -5
+cmd:
+ultraplan
+
+docs:
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+
+internal:
+app
+codeextract
+platform
+productstate
+project
+runcontrol
+sprint
+study
+tui
+web
+workspace
+    438 internal/workspace/skills.go
+    248 internal/workspace/skills_test.go
+     29 internal/workspace/validation.go
+    192 internal/workspace/workspace_test.go
+  61279 total
+[0m
+[0m$ [0mfind internal -maxdepth 2 -type d | sort && echo '---' && ls docs
+internal
+internal/app
+internal/codeextract
+internal/platform
+internal/platform/config
+internal/platform/filesystem
+internal/platform/logging
+internal/platform/process
+internal/platform/runtime
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/web/static
+internal/web/templates
+internal/workspace
+internal/workspace/scaffold
+---
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+[0m
+[0m$ [0mwc -l internal/*/*.go | sort -rn | head -40
+61279 total
+   1768 internal/sprint/review.go
+   1502 internal/app/study_commands.go
+   1402 internal/sprint/service.go
+   1318 internal/app/sprint_commands.go
+   1175 internal/runcontrol/sqlite.go
+    966 internal/app/sprint_commands_test.go
+    940 internal/study/run_loop.go
+    935 internal/app/web_usecases.go
+    852 internal/web/handlers.go
+    838 internal/web/operation_handlers.go
+    790 internal/app/operations.go
+    727 internal/sprint/execute.go
+    724 internal/sprint/smoke.go
+    680 internal/sprint/review_test.go
+    667 internal/web/operations.go
+    667 internal/app/run_control.go
+    666 internal/tui/views.go
+    657 internal/sprint/smoke_protocol.go
+    614 internal/tui/model.go
+    578 internal/web/run_handlers.go
+    572 internal/runcontrol/lifecycle.go
+    566 internal/web/operations_test.go
+    533 internal/sprint/code_context.go
+    517 internal/sprint/smoke_test.go
+    517 internal/sprint/code_context_test.go
+    510 internal/app/run_commands.go
+    509 internal/sprint/prompt_context.go
+    504 internal/runcontrol/model.go
+    498 internal/sprint/verify.go
+    492 internal/tui/model_test.go
+    470 internal/runcontrol/sqlite_test.go
+    457 internal/web/security.go
+    454 internal/sprint/prompt_context_test.go
+    438 internal/workspace/skills.go
+    435 internal/web/templates_test.go
+    429 internal/web/routes.go
+    414 internal/study/run_test.go
+    411 internal/study/run_state.go
+    409 internal/sprint/efficiency_improvements_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md
+[0m
+[0m$ [0mls && ls docs 2>/dev/null | head -30
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m$ [0mgo build ./... && go vet ./... 2>&1 | head -20
+(no output)
+[0m
+[0m$ [0mls system projects studies && cat ultraplan.yml | head -40
+projects:
+aren-phase-01-execution-lifecycle
+ultraplan-go
+
+studies:
+agent-harness-study
+go-cli-study
+ultraplan-daemon-events-study
+
+system:
+contracts
+protocols
+reasoning
+version: 1
+runtime:
+  default: opencode
+models:
+  default: minimax-coding-plan/MiniMax-M3
+  primary: minimax-coding-plan/MiniMax-M3
+  backup: minimax-coding-plan/MiniMax-M3
+execution:
+  default_variant: high
+  default_parallel: 5
+  default_timeout: 12m
+  default_retries: 1
+planning:
+  requirements_model: openai/gpt-5.6-sol
+  requirements_variant: high
+  code_context_model: openai/gpt-5.6-sol
+  code_context_variant: low
+  sprint_index_model: openai/gpt-5.6-sol
+  sprint_index_variant: high
+  technical_handbook_model: openai/gpt-5.6-sol
+  technical_handbook_variant: high
+  area_reasoning_model: openai/gpt-5.6-sol
+  area_reasoning_variant: high
+  reasoning_model: openai/gpt-5.6-sol
+  reasoning_variant: high
+  plan_model: openai/gpt-5.6-sol
+  plan_variant: high
+  review_model: minimax-coding-plan/MiniMax-M3
+  smoke_model: openai/gpt-5.6-sol
+  smoke_variant: low
+  execute_model: openai/gpt-5.6-sol
+  execute_variant: high
+logging:
+  format: text
+  level: debug
+agentwrap:
+  executable: opencode
+  permission_default: allow
+  required_health:
+    - runtime_available
+[0m
+[0m$ [0mgo list -deps ./... 2>/dev/null | grep ultraplan-go | sed 's|.*/internal/|internal/|' | sort -u
+github.com/Antonio7098/ultraplan-go/cmd/ultraplan
+internal/app
+internal/codeextract
+internal/platform/config
+internal/platform/filesystem
+internal/platform/logging
+internal/platform/process
+internal/platform/runtime
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/workspace
+[0m
+[0m• [0mHunt duplicated lifecycle state[90m Explore Agent[0m
+[0m• [0mAudit command surface duplication[90m Explore Agent[0m
+[0m• [0mAssess sprint module complexity[90m Explore Agent[0m
+[0m• [0mExtract authoritative contracts[90m Explore Agent[0m
+[0m✓ [0mAudit command surface duplication[90m Explore Agent[0m
+[0m✓ [0mExtract authoritative contracts[90m Explore Agent[0m
+[0m✓ [0mAssess sprint module complexity[90m Explore Agent[0m
+[0m✓ [0mHunt duplicated lifecycle state[90m Explore Agent[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/model.go[90m [offset=440, limit=70][0m
+[0m
+[0m$ [0mrg -n "code-context|CodeContext|code_context" internal/tui/ | head; echo "---TUI imports---"; go list -deps ./internal/tui | grep ultraplan-go/internal; echo "---boundary checks---"; go list -deps ./internal/platform/runtime ./internal/platform/process ./internal/productstate ./internal/project | grep 'internal/' ; echo '---'; go list -deps ./internal/sprint | grep ultraplan-go/internal
+---TUI imports---
+github.com/Antonio7098/ultraplan-go/internal/codeextract
+github.com/Antonio7098/ultraplan-go/internal/platform/config
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime
+github.com/Antonio7098/ultraplan-go/internal/productstate
+github.com/Antonio7098/ultraplan-go/internal/workspace
+github.com/Antonio7098/ultraplan-go/internal/project
+github.com/Antonio7098/ultraplan-go/internal/runcontrol
+github.com/Antonio7098/ultraplan-go/internal/platform/process
+github.com/Antonio7098/ultraplan-go/internal/sprint
+github.com/Antonio7098/ultraplan-go/internal/study
+github.com/Antonio7098/ultraplan-go/internal/app
+github.com/Antonio7098/ultraplan-go/internal/tui
+---boundary checks---
+internal/goarch
+internal/abi
+internal/unsafeheader
+internal/cpu
+internal/bytealg
+internal/byteorder
+internal/chacha8rand
+internal/coverage/rtcov
+internal/godebugs
+internal/goexperiment
+internal/goos
+internal/profilerecord
+internal/runtime/atomic
+internal/runtime/syscall/linux
+internal/strconv
+internal/runtime/cgroup
+internal/runtime/exithook
+internal/runtime/gc
+internal/runtime/sys
+internal/runtime/gc/scan
+internal/asan
+internal/msan
+internal/race
+internal/runtime/math
+internal/runtime/maps
+internal/runtime/pprof/label
+internal/stringslite
+internal/trace/tracev2
+internal/reflectlite
+internal/sync
+internal/synctest
+internal/bisect
+internal/godebug
+internal/oserror
+crypto/internal/fips140deps/godebug
+crypto/internal/fips140
+crypto/internal/fips140/alias
+crypto/internal/fips140deps/byteorder
+crypto/internal/fips140deps/cpu
+crypto/internal/impl
+crypto/internal/fips140/sha256
+crypto/internal/constanttime
+crypto/internal/fips140/subtle
+crypto/internal/fips140/sha3
+crypto/internal/fips140/sha512
+crypto/internal/fips140/hmac
+crypto/internal/fips140/check
+crypto/internal/fips140/aes
+crypto/internal/fips140deps/time
+crypto/internal/entropy/v1.0.0
+internal/syscall/unix
+internal/filepathlite
+internal/poll
+internal/syscall/execenv
+internal/testlog
+crypto/internal/sysrand
+crypto/internal/fips140/drbg
+crypto/internal/fips140/aes/gcm
+crypto/internal/fips140only
+crypto/internal/boring/sig
+crypto/internal/boring
+internal/fmtsort
+github.com/Antonio7098/ultraplan-go/internal/platform/config
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime
+github.com/Antonio7098/ultraplan-go/internal/platform/process
+crypto/internal/randutil
+crypto/internal/rand
+internal/nettrace
+internal/singleflight
+github.com/Antonio7098/ultraplan-go/internal/productstate
+github.com/Antonio7098/ultraplan-go/internal/workspace
+github.com/Antonio7098/ultraplan-go/internal/project
+---
+github.com/Antonio7098/ultraplan-go/internal/platform/config
+github.com/Antonio7098/ultraplan-go/internal/platform/process
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime
+github.com/Antonio7098/ultraplan-go/internal/productstate
+github.com/Antonio7098/ultraplan-go/internal/workspace
+github.com/Antonio7098/ultraplan-go/internal/project
+github.com/Antonio7098/ultraplan-go/internal/sprint
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go[90m [limit=160, offset=100][0m
+[0m
+[0m$ [0mrg -n "DatabaseRelativePath|run-control.db" internal/productstate/store.go internal/runcontrol/sqlite.go | head; echo ---; sed -n '55,90p' internal/productstate/store.go; echo ---RUNCTRL---; sed -n '60,85p' internal/runcontrol/sqlite.go
+internal/runcontrol/sqlite.go:22:	DatabaseRelativePath = ".ultraplan/run-control.db"
+internal/runcontrol/sqlite.go:171:	path := filepath.Join(directory, "run-control.db")
+internal/runcontrol/sqlite.go:857:	health := Health{Status: HealthOK, DatabasePath: DatabaseRelativePath, BusyTimeout: BusyTimeout, SoftQuotaBytes: r.softQuota, HardQuotaBytes: r.retention.HardQuotaBytes, ReservedHeadroomBytes: ReservedHeadroomBytes}
+internal/productstate/store.go:19:const DatabaseRelativePath = ".ultraplan/run-control.db"
+internal/productstate/store.go:42:	path := filepath.Join(root, filepath.FromSlash(DatabaseRelativePath))
+internal/productstate/store.go:63:	path := filepath.Join(root, filepath.FromSlash(DatabaseRelativePath))
+---
+func open(root string) (*Store, error) {
+	root, err := filepath.Abs(root)
+	if err != nil {
+		return nil, err
+	}
+	if cached, ok := stores.Load(root); ok {
+		return cached.(*Store), nil
+	}
+	path := filepath.Join(root, filepath.FromSlash(DatabaseRelativePath))
+	if err := os.MkdirAll(filepath.Dir(path), 0o700); err != nil {
+		return nil, err
+	}
+	values := url.Values{}
+	values.Set("_busy_timeout", strconv.FormatInt((5*time.Second).Milliseconds(), 10))
+	values.Set("_foreign_keys", "on")
+	values.Set("_journal_mode", "WAL")
+	values.Set("_synchronous", "FULL")
+	values.Set("_txlock", "immediate")
+	dsn := (&url.URL{Scheme: "file", Path: filepath.ToSlash(path), RawQuery: values.Encode()}).String()
+	db, err := sql.Open("sqlite", dsn)
+	if err != nil {
+		return nil, err
+	}
+	db.SetMaxOpenConns(4)
+	if err := createSchema(context.Background(), db); err != nil {
+		_ = db.Close()
+		return nil, err
+	}
+	store := &Store{db: db}
+	actual, loaded := stores.LoadOrStore(root, store)
+	if loaded {
+		_ = db.Close()
+		return actual.(*Store), nil
+	}
+	return store, nil
+}
+---RUNCTRL---
+func OpenSQLite(ctx context.Context, workspaceRoot string, opts SQLiteOptions) (*SQLiteRepository, error) {
+	if ctx == nil {
+		ctx = context.Background()
+	}
+	root, err := validateWorkspaceRoot(workspaceRoot)
+	if err != nil {
+		return nil, err
+	}
+	databasePath, err := preparePrivateDatabase(root)
+	if err != nil {
+		return nil, err
+	}
+
+	values := url.Values{}
+	values.Set("_busy_timeout", strconv.FormatInt(BusyTimeout.Milliseconds(), 10))
+	values.Set("_foreign_keys", "on")
+	values.Set("_journal_mode", "WAL")
+	values.Set("_synchronous", "FULL")
+	values.Set("_txlock", "immediate")
+	values.Set("_defensive", "1")
+	dsn := (&url.URL{Scheme: "file", Path: filepath.ToSlash(databasePath), RawQuery: values.Encode()}).String()
+	db, err := sql.Open("sqlite", dsn)
+	if err != nil {
+		return nil, classifyStoreError("open", "open run-control database failed", err)
+	}
+	closeOnError := true
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=115, offset=160, command=rg -n "quota|Quota|page_count|quick_check|integrity" internal/runcontrol/sqlite.go | head -20; echo ---; sed -n '1060,1100p' internal/sprint/service.go; echo ---FLOWGO---; sed -n '300,320p' internal/sprint/flow.go, workdir=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go][0m
+[0m
+[0m$ [0msed -n '1070,1095p' internal/sprint/service.go && echo ---FLOWGO--- && sed -n '296,320p' internal/sprint/flow.go
+repairResult, err := s.startSprintRuntime(ctx, sp, PlanningStage(repairReq.Metadata["stage"]), repairReq)
+	if err != nil {
+		return repairResult, findings, err
+	}
+	return repairResult, validate(), nil
+}
+
+func (s Service) flowFailedStages(sp Sprint, target PlanningStage, err error, now time.Time) []StageState {
+	snap, snapErr := s.store.ReadArtifacts(sp)
+	if snapErr != nil {
+		return flowFailedStages(sp, target, err, now)
+	}
+	stages := DeriveStages(sp, snap, nil)
+	for i := range stages {
+		if stages[i].Stage == target {
+			stages[i].Status = StatusFailed
+			stages[i].LastRunAt = &now
+			stages[i].Error = safeError(err)
+			break
+		}
+	}
+	return stages
+}
+
+func splitProviderModel(value string) (string, string) {
+	for i, r := range value {
+---FLOWGO---
+}
+
+func flowPlanSuccessStages(sp Sprint, noTemplates bool, now time.Time) []StageState {
+	stages := flowReasoningSuccessStages(sp, noTemplates, now)
+	setFlowStage(stages, StagePlan, StatusComplete, &now, "")
+	return stages
+}
+
+func flowFailedStages(sp Sprint, target PlanningStage, err error, now time.Time) []StageState {
+	msg := safeError(err)
+	stages := emptyPlanningStageStates(sp)
+	for _, stage := range PlanningStages() {
+		if stage == target {
+			setFlowStage(stages, stage, StatusFailed, &now, msg)
+			break
+		}
+		setFlowStage(stages, stage, StatusComplete, nil, "")
+	}
+	return stages
+}
+
+func emptyPlanningStageStates(sp Sprint) []StageState {
+	stages := make([]StageState, 0, len(PlanningStages()))
+	for _, stage := range PlanningStages() {
+		stages = append(stages, StageState{Stage: stage, Status: StatusMissing, Path: ArtifactRelPath(sp, stage)})
+[0m
+[0m$ [0mrg -n "quota|Quota|page_count|quick_check|PRAGMA integrity" internal/runcontrol/sqlite.go | head -15; echo ===SUBSTR===; rg -n 'strings.Contains\(err\.Error\(\)' internal/app internal/web | head -20; echo ===INVENTORY===; sed -n '20,60p' internal/app/run_control_inventory_test.go
+53:	softQuota     int64
+130:		retention: retention, softQuota: retention.HardQuotaBytes - ReservedHeadroomBytes,
+386:	} else if usage >= r.retention.HardQuotaBytes*80/100 {
+393:	} else if usage >= r.softQuota {
+394:		return Snapshot{}, wrapError(CodeQuota, "accept_quota", "run-control soft quota prevents new acceptance", true, nil)
+620:	} else if usage >= r.retention.HardQuotaBytes && !reservedEventType(draft.Type) {
+621:		return Event{}, Snapshot{}, runError(CodeQuota, "append_quota", fence.RunID, "hard quota permits only reserved lifecycle recovery writes", true, nil)
+857:	health := Health{Status: HealthOK, DatabasePath: DatabaseRelativePath, BusyTimeout: BusyTimeout, SoftQuotaBytes: r.softQuota, HardQuotaBytes: r.retention.HardQuotaBytes, ReservedHeadroomBytes: ReservedHeadroomBytes}
+906:	if health.StorageBytes >= health.HardQuotaBytes {
+908:		health.Diagnostics = append(health.Diagnostics, "hard quota reached; active owners must stop")
+909:	} else if health.StorageBytes >= health.SoftQuotaBytes {
+911:		health.Diagnostics = append(health.Diagnostics, "soft quota reached; new run acceptance is paused")
+1097:			return wrapError(CodeQuota, operation, message, true, err)
+===SUBSTR===
+internal/web/templates_test.go:35:	if _, err := parseTemplateTree(missing); err == nil || !strings.Contains(err.Error(), "required template") {
+internal/web/templates_test.go:43:	if _, err := parseTemplateTree(upward); err == nil || !strings.Contains(err.Error(), "upward or same-layer") {
+internal/app/sprint_commands.go:259:			if strings.Contains(err.Error(), "runtime") {
+internal/app/sprint_commands.go:350:			if strings.Contains(err.Error(), "failed tasks") {
+internal/app/sprint_commands.go:353:			if strings.Contains(err.Error(), "runtime") {
+internal/web/server_test.go:91:	if err == nil || !strings.Contains(err.Error(), "validate listen address") {
+internal/web/server_test.go:98:	if err == nil || !strings.Contains(err.Error(), "listen on configured loopback") {
+===INVENTORY===
+		entries  []string
+	}{
+		{
+			file: "sprint_commands.go", wantCall: 5,
+			entries: []string{
+				"Kind: OperationFlow", "Kind: OperationVerifyStart", "Kind: OperationExecuteStart",
+				"Kind: OperationReviewStart", "Kind: OperationSmokeStart",
+			},
+		},
+		{
+			file: "study_commands.go", wantCall: 4,
+			entries: []string{
+				"Kind: OperationStudyResume", "Kind: OperationStudyStart, Study: studyRef, Parallelism:",
+				`Stage: "analysis"`, `Stage: "synthesis"`,
+			},
+		},
+	}
+	for _, test := range cases {
+		t.Run(test.file, func(t *testing.T) {
+			content, err := os.ReadFile(filepath.Join(directory, test.file))
+			if err != nil {
+				t.Fatal(err)
+			}
+			source := string(content)
+			if got := strings.Count(source, "beginDurableCLICommand("); got != test.wantCall {
+				t.Fatalf("durable entry calls=%d, want %d", got, test.wantCall)
+			}
+			for _, entry := range test.entries {
+				if !strings.Contains(source, entry) {
+					t.Fatalf("runtime-backed inventory entry %q bypasses the durable boundary", entry)
+				}
+			}
+		})
+	}
+}
+[0m
+[0m$ [0mrg -n "func.*storageUsage|storageBytes|StorageBytes|os\.Stat" internal/runcontrol/sqlite.go | head -8; echo ===; sed -n '375,400p' internal/runcontrol/sqlite.go; echo ===WEBERR===; sed -n '755,800p' internal/web/operation_handlers.go
+144:	info, err := os.Stat(root)
+197:	info, err := os.Stat(path)
+384:	if usage, err := r.storageBytes(); err != nil {
+391:	if usage, err := r.storageBytes(); err != nil {
+618:	if usage, err := r.storageBytes(); err != nil {
+901:	storageBytes, err := r.storageBytes()
+905:	health.StorageBytes = storageBytes
+906:	if health.StorageBytes >= health.HardQuotaBytes {
+===
+	return nil
+}
+
+func (r *SQLiteRepository) Accept(ctx context.Context, input Acceptance) (snapshotResult Snapshot, resultErr error) {
+	metricStarted := time.Now()
+	defer func() { r.metrics.acceptance.observe(metricStarted, resultErr) }()
+	if ctx == nil {
+		ctx = context.Background()
+	}
+	if usage, err := r.storageBytes(); err != nil {
+		return Snapshot{}, err
+	} else if usage >= r.retention.HardQuotaBytes*80/100 {
+		if _, compactErr := r.Compact(ctx, 64); compactErr != nil {
+			return Snapshot{}, compactErr
+		}
+	}
+	if usage, err := r.storageBytes(); err != nil {
+		return Snapshot{}, err
+	} else if usage >= r.softQuota {
+		return Snapshot{}, wrapError(CodeQuota, "accept_quota", "run-control soft quota prevents new acceptance", true, nil)
+	}
+	if err := input.Target.Validate(); err != nil {
+		return Snapshot{}, err
+	}
+	if err := input.Correlation.Validate(); err != nil {
+		return Snapshot{}, err
+===WEBERR===
+	case errors.Is(err, errOperationCapacity):
+		status, code, message, retryable = http.StatusTooManyRequests, "operation_capacity", "Operation capacity is currently full.", true
+		w.Header().Set("Retry-After", "2")
+	case errors.Is(err, errSubscriberCapacity):
+		status, code, message, retryable = http.StatusTooManyRequests, "subscriber_capacity", "Stream capacity is currently full.", true
+		w.Header().Set("Retry-After", "2")
+	case errors.Is(err, errServerDraining):
+		status, code, message, retryable = http.StatusServiceUnavailable, "server_draining", "The server is shutting down and is not accepting new work.", true
+		w.Header().Set("Retry-After", "2")
+	case errors.Is(err, context.Canceled), errors.Is(err, context.DeadlineExceeded):
+		status, code, message, retryable = http.StatusServiceUnavailable, "server_draining", "The server is shutting down.", true
+	case strings.Contains(strings.ToLower(err.Error()), "validation"), strings.Contains(strings.ToLower(err.Error()), "incomplete"), strings.Contains(strings.ToLower(err.Error()), "prerequisite"):
+		status, code, message = http.StatusUnprocessableEntity, "validation_failed", "The governed inputs failed validation."
+	case strings.Contains(strings.ToLower(err.Error()), "lock"), strings.Contains(strings.ToLower(err.Error()), "in progress"):
+		status, code, message, retryable = http.StatusConflict, "operation_conflict", "A conflicting operation is already running.", true
+	case strings.Contains(strings.ToLower(err.Error()), "unavailable"):
+		status, code, message, retryable = http.StatusFailedDependency, "prerequisite_unavailable", "A required operation prerequisite is unavailable.", true
+	case !isClientOperationError(err):
+		status, code, message = http.StatusInternalServerError, "internal_failure", "The operation could not be completed."
+	}
+	if cause := safeOperationCause(err); cause != "" && status < http.StatusInternalServerError {
+		details["reason"] = cause
+		details["guidance"] = operationFailureGuidance(code)
+	}
+	h.writeErrorDetails(w, r, status, errorBody{Code: code, Message: message, Retryable: retryable, Details: details})
+}
+
+func safeOperationCause(err error) string {
+	if err == nil {
+		return ""
+	}
+	text := strings.ToLower(err.Error())
+	if isClientOperationError(err) || strings.Contains(text, "validation") || strings.Contains(text, "incomplete") || strings.Contains(text, "prerequisite") || strings.Contains(text, "lock") || strings.Contains(text, "in progress") || strings.Contains(text, "unavailable") {
+		return safeWebText(err.Error())
+	}
+	return ""
+}
+
+func operationFailureGuidance(code string) string {
+	switch code {
+	case "validation_failed":
+		return "Open the sprint Plan and Delivery pages, correct the reported incomplete or invalid evidence, then retry."
+	case "operation_conflict":
+		return "Wait for the active operation to finish or inspect and cancel it before retrying."
+	case "prerequisite_unavailable":
+		return "Restore the missing prerequisite or runtime capability, then prepare the operation again."
+[0m
+[0m$ [0msed -n '70,110p' internal/runcontrol/sanitize.go; echo ===APP===; sed -n '498,512p' internal/app/run_control.go; echo ===WEB===; sed -n '630,658p' internal/web/operations.go
+draft.Omission.LastAt = last
+	}
+}
+
+func sensitiveEventField(key string) bool {
+	key = strings.ToLower(key)
+	for _, fragment := range []string{"secret", "token", "credential", "password", "prompt", "payload", "stdout", "stderr", "path", "command"} {
+		if strings.Contains(key, fragment) {
+			return true
+		}
+	}
+	return false
+}
+
+func unsafeEventValue(value string) bool {
+	lower := strings.ToLower(strings.TrimSpace(value))
+	if strings.ContainsAny(value, "\x00\r\n") || filepath.IsAbs(value) {
+		return true
+	}
+	if len(value) >= 3 && value[1] == ':' && (value[2] == '\\' || value[2] == '/') {
+		return true
+	}
+	for _, marker := range []string{"bearer ", "sk-", "ghp_", "github_pat_", "-----begin private key"} {
+		if strings.Contains(lower, marker) {
+			return true
+		}
+	}
+	return false
+}
+
+func safeEventValue(value string, limit int) string {
+	value = strings.Map(func(r rune) rune {
+		if r == 0 || r == '\r' || r == '\n' {
+			return -1
+		}
+		return r
+	}, strings.TrimSpace(value))
+	if len(value) > limit {
+		value = value[:limit]
+	}
+	return value
+===APP===
+	}
+}
+
+func isSensitivePayloadKey(key string) bool {
+	lower := strings.ToLower(key)
+	for _, marker := range []string{"secret", "token", "password", "authorization", "cookie", "api_key", "apikey", "credential", "auth"} {
+		if strings.Contains(lower, marker) {
+			return true
+		}
+	}
+	return false
+}
+
+func findNestedString(payload map[string]any, want string) string {
+	for _, v := range payload {
+===WEB===
+}
+
+func safeWebText(value string) string {
+	return safeProjectedText(value, 4096)
+}
+
+func safeProjectedText(value string, limit int) string {
+	value = strings.TrimSpace(value)
+	lower := strings.ToLower(value)
+	for _, marker := range []string{"token=", "secret=", "authorization:", "cookie:"} {
+		if index := strings.Index(lower, marker); index >= 0 {
+			value = value[:index] + "[redacted]"
+			lower = strings.ToLower(value)
+		}
+	}
+	if strings.Contains(value, "/home/") || strings.Contains(value, `C:\\Users\\`) {
+		value = "[redacted path]"
+	}
+	return safeBoundedText(value, limit)
+}
+
+func safeBoundedText(value string, limit int) string {
+	if len(value) <= limit {
+		return value
+	}
+	return value[:limit] + "…"
+}
+
+func parseEventID(value string) (uint64, error) {
+[0m
+[0m$ [0mfor p in internal/platform/runtime internal/platform/process internal/platform/config internal/platform/filesystem internal/platform/logging; do echo "== $p"; go list -f '{{join .Imports "\n"}}' ./$p | grep ultraplan-go || echo none; done; echo ===STORAGEBYTES===; sed -n '190,206p' internal/runcontrol/sqlite.go
+== internal/platform/runtime
+github.com/Antonio7098/ultraplan-go/internal/platform/config
+== internal/platform/process
+none
+== internal/platform/config
+none
+== internal/platform/filesystem
+none
+== internal/platform/logging
+github.com/Antonio7098/ultraplan-go/internal/platform/config
+===STORAGEBYTES===
+	return path, nil
+}
+
+func enforcePrivateMode(path string, want fs.FileMode) error {
+	if err := os.Chmod(path, want); err != nil {
+		return classifyStoreError("set_permissions", "set private run-control permissions failed", err)
+	}
+	info, err := os.Stat(path)
+	if err != nil {
+		return classifyStoreError("verify_permissions", "verify run-control permissions failed", err)
+	}
+	if got := info.Mode().Perm(); got != want {
+		return wrapError(CodePermission, "verify_permissions", fmt.Sprintf("private permissions are %04o; require %04o", got, want), false, nil)
+	}
+	return nil
+}
+[0m
+[0m$ [0mrg -n "storageBytes" internal/runcontrol/sqlite.go | head -3; sed -n "$(rg -n 'func \(r \*SQLiteRepository\) storageBytes' internal/runcontrol/sqlite.go | cut -d: -f1),+14p" internal/runcontrol/sqlite.go
+384:	if usage, err := r.storageBytes(); err != nil {
+391:	if usage, err := r.storageBytes(); err != nil {
+618:	if usage, err := r.storageBytes(); err != nil {
+sed: -e expression #1, char 1: unknown command: `,'
+[0m
+[0m$ [0msed -n '15,25p' internal/study/locks.go; echo ===SPRINT===; sed -n '93,103p' internal/sprint/verification_lock.go
+var ErrStudyLocked = errors.New("study run-loop locked")
+
+var processAlive = func(pid int) bool {
+	if pid <= 0 {
+		return false
+	}
+	err := syscall.Kill(pid, 0)
+	return err == nil || errors.Is(err, syscall.EPERM)
+}
+
+func RunLoopLockPath(study Study) string {
+===SPRINT===
+}
+
+func verificationProcessAlive(pid int) bool {
+	if pid <= 0 {
+		return false
+	}
+	err := syscall.Kill(pid, 0)
+	return err == nil || errors.Is(err, syscall.EPERM)
+}
+[0m
+[0m$ [0mrg -n "func.*storageBytes" internal/runcontrol/*.go; rg -n "page_count|stat.*size|Info\(\)" internal/runcontrol/sqlite.go | head -5
+internal/runcontrol/retention.go:35:func (r *SQLiteRepository) storageBytes() (int64, error) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/retention.go
+[0m
+[0m$ [0msed -n '138,162p' internal/app/sprint_commands.go; echo ===USECASES===; sed -n '254,280p' internal/app/sprint_usecases.go
+switch sprint.PlanningStage(args[3]) {
+		case sprint.StageRequirements:
+			result, err = service.ValidateRequirements(args[0], args[1])
+		case sprint.StageCodeContext:
+			result, err = service.ValidateCodeContext(args[0], args[1])
+		case sprint.StageSprintIndex:
+			result, err = service.ValidateSprintIndex(args[0], args[1])
+		case sprint.StageTechnicalHandbook:
+			result, err = service.ValidateTechnicalHandbook(args[0], args[1])
+		case sprint.StageAreaReasoning:
+			result, err = service.ValidateAreaReasoning(args[0], args[1])
+		case sprint.StageReasoning:
+			result, err = service.ValidateReasoning(args[0], args[1])
+		case sprint.StagePlan:
+			result, err = service.ValidatePlan(args[0], args[1])
+		case sprint.StageExecute:
+			result, err = service.ValidateExecute(args[0], args[1])
+		case sprint.StageReview:
+			result, err = service.ValidateReview(args[0], args[1])
+		case sprint.StageSmoke:
+			result, err = service.ValidateSmoke(args[0], args[1])
+		default:
+			return classified(ExitUsage, "sprint.validate: unsupported stage %q", args[3])
+		}
+		if err != nil {
+===USECASES===
+func validateSprintStage(service sprint.Service, projectRef, sprintRef string, stage sprint.PlanningStage) (sprint.ValidationResult, error) {
+	switch stage {
+	case sprint.StageRequirements:
+		return service.ValidateRequirements(projectRef, sprintRef)
+	case sprint.StageCodeContext:
+		return service.ValidateCodeContext(projectRef, sprintRef)
+	case sprint.StageSprintIndex:
+		return service.ValidateSprintIndex(projectRef, sprintRef)
+	case sprint.StageTechnicalHandbook:
+		return service.ValidateTechnicalHandbook(projectRef, sprintRef)
+	case sprint.StageAreaReasoning:
+		return service.ValidateAreaReasoning(projectRef, sprintRef)
+	case sprint.StageReasoning:
+		return service.ValidateReasoning(projectRef, sprintRef)
+	case sprint.StagePlan:
+		return service.ValidatePlan(projectRef, sprintRef)
+	case sprint.StageExecute:
+		return service.ValidateExecute(projectRef, sprintRef)
+	case sprint.StageReview:
+		return service.ValidateReview(projectRef, sprintRef)
+	case sprint.StageSmoke:
+		return service.ValidateSmoke(projectRef, sprintRef)
+	default:
+		return sprint.ValidationResult{}, fmt.Errorf("unsupported validation stage %q", stage)
+	}
+}
+[0m

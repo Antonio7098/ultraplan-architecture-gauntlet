@@ -13,10 +13,10 @@ Target: `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go`
 
 ## Generalist
 
-- `generalist-01` — **pending** — Whole-system ownership review — [result](runs/generalist-01/stdout.md)
-- `generalist-02` — **pending** — Whole-system simplicity review — [result](runs/generalist-02/stdout.md)
-- `generalist-03` — **pending** — Whole-system failure review — [result](runs/generalist-03/stdout.md)
-- `generalist-04` — **pending** — Whole-system evolution review — [result](runs/generalist-04/stdout.md)
+- `generalist-01` — **succeeded** — Whole-system ownership review — [result](runs/generalist-01/stdout.md)
+- `generalist-02` — **succeeded** — Whole-system simplicity review — [result](runs/generalist-02/stdout.md)
+- `generalist-03` — **succeeded** — Whole-system failure review — [result](runs/generalist-03/stdout.md)
+- `generalist-04` — **succeeded** — Whole-system evolution review — [result](runs/generalist-04/stdout.md)
 
 ## Specialist
 

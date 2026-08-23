@@ -1,0 +1,1260 @@
+[93m[1m! [0m agent "arch-orchestrator" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/review-lenses.md
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/finding-contract.md
+[0m
+[0m$ [0mgit log --oneline -5 && git status --short | head -20 && echo "---" && ls
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+---
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+[0m
+[0m$ [0mgit log --oneline -3 && git status --short | head -10 && echo "---" && ls
+368a789 Add UltraPlan daemon and event system study
+2dc3b74 Advance sprints 30-35 and harden review/smoke flow
+0e151a0 update reconciliation smoke skill
+---
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m$ [0mfind . -type f -name "*.go" | grep -v _test | head -100 && echo "=== count ===" && find . -name "*.go" | wc -l
+./cmd/ultraplan/main.go
+./internal/app/app.go
+./internal/app/code_commands.go
+./internal/app/config_commands.go
+./internal/app/defaults_commands.go
+./internal/app/health_commands.go
+./internal/app/json_output.go
+./internal/app/markdown.go
+./internal/app/project_commands.go
+./internal/app/project_usecases.go
+./internal/app/run_commands.go
+./internal/app/run_usecases.go
+./internal/app/skills_commands.go
+./internal/app/sprint_usecases.go
+./internal/app/status_json.go
+./internal/app/storage_commands.go
+./internal/app/study_runs_commands.go
+./internal/app/study_usecases.go
+./internal/app/surfaces.go
+./internal/app/tui_commands.go
+./internal/app/usecases.go
+./internal/app/version.go
+./internal/app/workspace_commands.go
+./internal/app/durable_operations.go
+./internal/app/operation_runner.go
+./internal/app/operations.go
+./internal/app/run_control.go
+./internal/app/serve_commands.go
+./internal/app/sprint_commands.go
+./internal/app/study_commands.go
+./internal/app/web_usecases.go
+./internal/codeextract/doc.go
+./internal/codeextract/domain.go
+./internal/codeextract/parser.go
+./internal/codeextract/resolver.go
+./internal/codeextract/service.go
+./internal/platform/config/config.go
+./internal/platform/config/doc.go
+./internal/platform/config/redaction.go
+./internal/platform/filesystem/doc.go
+./internal/platform/logging/doc.go
+./internal/platform/logging/logging.go
+./internal/platform/process/process.go
+./internal/platform/process/process_other.go
+./internal/platform/process/process_unix.go
+./internal/platform/runtime/agentwrap.go
+./internal/platform/runtime/events.go
+./internal/platform/runtime/health.go
+./internal/platform/runtime/policy.go
+./internal/platform/runtime/opencode.go
+./internal/platform/runtime/runtime.go
+./internal/productstate/store.go
+./internal/project/discovery.go
+./internal/project/doc.go
+./internal/project/domain.go
+./internal/project/index.go
+./internal/project/reasoning_defaults.go
+./internal/project/service.go
+./internal/project/store_fs.go
+./internal/project/validation.go
+./internal/runcontrol/doc.go
+./internal/runcontrol/errors.go
+./internal/runcontrol/id.go
+./internal/runcontrol/interfaces.go
+./internal/runcontrol/lifecycle.go
+./internal/runcontrol/local_log.go
+./internal/runcontrol/metrics.go
+./internal/runcontrol/migration.go
+./internal/runcontrol/process.go
+./internal/runcontrol/process_darwin.go
+./internal/runcontrol/process_linux.go
+./internal/runcontrol/process_other.go
+./internal/runcontrol/retention.go
+./internal/runcontrol/model.go
+./internal/runcontrol/sanitize.go
+./internal/runcontrol/sqlite.go
+./internal/sprint/artifacts.go
+./internal/sprint/cleanup_uncertain.go
+./internal/sprint/context_pack.go
+./internal/sprint/direct_inputs.go
+./internal/sprint/discovery.go
+./internal/sprint/doc.go
+./internal/sprint/domain.go
+./internal/sprint/execute_model.go
+./internal/sprint/execute_state.go
+./internal/sprint/freshness_policy.go
+./internal/sprint/handbook.go
+./internal/sprint/index.go
+./internal/sprint/input_contract.go
+./internal/sprint/locks.go
+./internal/sprint/plan.go
+./internal/sprint/prompt_bundle.go
+./internal/sprint/prompts.go
+./internal/sprint/reasoning.go
+./internal/sprint/review_runtime_validation.go
+./internal/sprint/runtime_metrics.go
+./internal/sprint/runtime_validation.go
+./internal/sprint/smoke.go
+./internal/sprint/smoke_types.go
+./internal/sprint/state.go
+=== count ===
+291
+[0m
+[0m$ [0mfind . -type d | sort && echo "=== docs ===" && ls docs/ && echo "=== workspace system ===" && find /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system -type f | head -40
+.
+./cmd
+./cmd/ultraplan
+./dist
+./docs
+./docs/plans
+./docs/reports
+./.git
+./.git/hooks
+./.github
+./.github/workflows
+./.git/info
+./.git/logs
+./.git/logs/refs
+./.git/logs/refs/heads
+./.git/logs/refs/remotes
+./.git/logs/refs/remotes/origin
+./.git/objects
+./.git/objects/info
+./.git/objects/pack
+./.git/refs
+./.git/refs/heads
+./.git/refs/remotes
+./.git/refs/remotes/origin
+./.git/refs/tags
+./internal
+./internal/app
+./internal/codeextract
+./internal/platform
+./internal/platform/config
+./internal/platform/filesystem
+./internal/platform/logging
+./internal/platform/process
+./internal/platform/runtime
+./internal/productstate
+./internal/project
+./internal/runcontrol
+./internal/sprint
+./internal/study
+./internal/tui
+./internal/web
+./internal/web/static
+./internal/web/static/css
+./internal/web/static/js
+./internal/web/templates
+./internal/web/templates/components
+./internal/web/templates/layouts
+./internal/web/templates/pages
+./internal/web/templates/primitives
+./internal/workspace
+./internal/workspace/scaffold
+./internal/workspace/scaffold/prompts
+./internal/workspace/scaffold/templates
+./scripts
+=== docs ===
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+=== workspace system ===
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/architecture.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/configuration.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/documentation.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/errors.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/observability.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/privacy-and-data.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/release-versioning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/security.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/testing.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/llm-evaluation-cost-safety.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/llm.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/performance.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/persistence-and-migrations.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/workflows.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/surfaces/accessibility.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/surfaces/api-contracts.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/surfaces/cli.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/surfaces/frontend.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/surfaces/package-public-api.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/architecture-review-protocol.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/contract-mapping-protocol.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/deep-smoke-sprint-protocol.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/plan-sprint-protocol.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/review-sprint-protocol.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/sprint-review-protocol.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning/api-design-reasoning-template.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning/architecture_reasoning_template.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning/cli-design-reasoning-template.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning/data-privacy-reasoning-template.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning/errors_reasoning_template.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning/eval-design-reasoning-template.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning/frontend-design-reasoning-template.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning/frontend-reasoning-template.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning/frontend-state-placement-template.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning/llm-feature-reasoning-template.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning/observability-reasoning-template.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning/package-api-reasoning-template.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning/performance-reasoning-template.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning/persistence-reasoning-template.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning/prompt-change-reasoning-template.md
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md[90m [command=for d in cmd/ultraplan internal/app internal/codeextract internal/platform/config internal/platform/filesystem internal/platform/logging internal/platform/process internal/platform/runtime internal/productstate internal/project internal/runcontrol internal/sprint internal/study internal/tui internal/web internal/workspace; do n=$(find $d -maxdepth 1 -name '*.go' ! -name '*_test.go' | wc -l); t=$(find $d -maxdepth 1 -name '*.go' ! -name '*_test.go' -exec cat {} + 2>/dev/null | wc -l); nt=$(find $d -maxdepth 1 -name '*_test.go' -exec cat {} + 2>/dev/null | wc -l); echo "$d: files=$n loc=$t testloc=$nt"; done, workdir=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go][0m
+[0m
+[0m$ [0mfor d in cmd/ultraplan internal/app internal/codeextract internal/platform/config internal/platform/filesystem internal/platform/logging internal/platform/process internal/platform/runtime internal/productstate internal/project internal/runcontrol internal/sprint internal/study internal/tui internal/web internal/workspace; do n=$(find $d -maxdepth 1 -name '*.go' ! -name '*_test.go' | wc -l); t=$(find $d -maxdepth 1 -name '*.go' ! -name '*_test.go' -exec cat {} + 2>/dev/null | wc -l); nt=$(find $d -maxdepth 1 -name '*_test.go' -exec cat {} + 2>/dev/null | wc -l); echo "$d: files=$n loc=$t testloc=$nt"; done
+cmd/ultraplan: files=1 loc=62 testloc=0
+internal/app: files=30 loc=9213 testloc=4506
+internal/codeextract: files=5 loc=569 testloc=100
+internal/platform/config: files=3 loc=629 testloc=213
+internal/platform/filesystem: files=1 loc=6 testloc=0
+internal/platform/logging: files=2 loc=72 testloc=30
+internal/platform/process: files=3 loc=310 testloc=98
+internal/platform/runtime: files=6 loc=1318 testloc=618
+internal/productstate: files=1 loc=206 testloc=0
+internal/project: files=8 loc=807 testloc=398
+internal/runcontrol: files=16 loc=3560 testloc=1904
+internal/sprint: files=40 loc=12984 testloc=5316
+internal/study: files=39 loc=7148 testloc=3350
+internal/tui: files=8 loc=1945 testloc=867
+internal/web: files=9 loc=4072 testloc=2891
+internal/workspace: files=7 loc=1003 testloc=440
+[0m
+[0m$ [0mgo list -deps ./... > /tmp/opencode/deps.txt 2>&1; for p in $(go list ./...); do imports=$(go list -f '{{join .Imports "\n"}}' $p 2>/dev/null | grep "ultraplan-go/internal" | sed 's|ultraplan-go/||' | sort -u | tr '\n' ' '); echo "$p => $imports"; done
+github.com/Antonio7098/ultraplan-go/cmd/ultraplan => github.com/Antonio7098/internal/app github.com/Antonio7098/internal/tui github.com/Antonio7098/internal/web 
+github.com/Antonio7098/ultraplan-go/internal/app => github.com/Antonio7098/internal/codeextract github.com/Antonio7098/internal/platform/config github.com/Antonio7098/internal/platform/runtime github.com/Antonio7098/internal/productstate github.com/Antonio7098/internal/project github.com/Antonio7098/internal/runcontrol github.com/Antonio7098/internal/sprint github.com/Antonio7098/internal/study github.com/Antonio7098/internal/workspace 
+github.com/Antonio7098/ultraplan-go/internal/codeextract => 
+github.com/Antonio7098/ultraplan-go/internal/platform/config => 
+github.com/Antonio7098/ultraplan-go/internal/platform/filesystem => 
+github.com/Antonio7098/ultraplan-go/internal/platform/logging => github.com/Antonio7098/internal/platform/config 
+github.com/Antonio7098/ultraplan-go/internal/platform/process => 
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime => github.com/Antonio7098/internal/platform/config 
+github.com/Antonio7098/ultraplan-go/internal/productstate => 
+github.com/Antonio7098/ultraplan-go/internal/project => github.com/Antonio7098/internal/workspace 
+github.com/Antonio7098/ultraplan-go/internal/runcontrol => 
+github.com/Antonio7098/ultraplan-go/internal/sprint => github.com/Antonio7098/internal/platform/config github.com/Antonio7098/internal/platform/process github.com/Antonio7098/internal/platform/runtime github.com/Antonio7098/internal/productstate github.com/Antonio7098/internal/project github.com/Antonio7098/internal/workspace 
+github.com/Antonio7098/ultraplan-go/internal/study => github.com/Antonio7098/internal/platform/runtime github.com/Antonio7098/internal/productstate github.com/Antonio7098/internal/workspace 
+github.com/Antonio7098/ultraplan-go/internal/tui => github.com/Antonio7098/internal/app 
+github.com/Antonio7098/ultraplan-go/internal/web => github.com/Antonio7098/internal/app 
+github.com/Antonio7098/ultraplan-go/internal/workspace =>
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app.go
+[0m• [0mMap durable state ownership[90m Arch-Scout Agent[0m
+[0m• [0mAudit app layer cohesion[90m Arch-Worker Agent[0m
+[0m• [0mCompare sprint/study/runtime seams[90m Arch-Worker Agent[0m
+[0m• [0mProbe web/tui boundary parity[90m Arch-Inspector Agent[0m
+[0m• [0mVerify runcontrol lifecycle claims[90m Arch-Worker Agent[0m
+[0m✓ [0mAudit app layer cohesion[90m Arch-Worker Agent[0m
+[0m✓ [0mProbe web/tui boundary parity[90m Arch-Inspector Agent[0m
+[0m✓ [0mMap durable state ownership[90m Arch-Scout Agent[0m
+[0m✓ [0mCompare sprint/study/runtime seams[90m Arch-Worker Agent[0m
+[0m✓ [0mVerify runcontrol lifecycle claims[90m Arch-Worker Agent[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+[0m
+[0m$ [0mgrep -rn "ReconcileInterruptedMutation\|ReconcileInterruptedRun" --include="*.go" | grep -v _test
+internal/app/web_usecases.go:364:		if _, err := service.ReconcileInterruptedMutation(ctx, summary.Project, summary.Slug); err != nil {
+internal/app/web_usecases.go:377:		if _, err := studyService.ReconcileInterruptedRun(ctx, item.Name); err != nil {
+internal/sprint/locks.go:22:// ReconcileInterruptedMutation converts durable running records left by a
+internal/sprint/locks.go:25:func (s Service) ReconcileInterruptedMutation(ctx context.Context, projectRef, sprintRef string) (bool, error) {
+internal/study/cleanup_uncertain.go:64:// ReconcileInterruptedRun converts active task states left without a live
+internal/study/cleanup_uncertain.go:66:func (s Service) ReconcileInterruptedRun(ctx context.Context, studyRef string) (bool, error) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks.go
+[0m
+[0m$ [0mgrep -n "runtime is required\|s.runtime\|WithRuntime\|runtime == nil" internal/sprint/smoke_author.go internal/sprint/smoke.go | head -30 && echo "=== RunSmoke entry ===" && sed -n 1,80p internal/sprint/smoke.go
+internal/sprint/smoke_author.go:21:	if s.runtime == nil {
+internal/sprint/smoke_author.go:22:		return smokeError("smoke_author_runtime", "runtime", "runtime is required to author deep-smoke coverage", "Configure the smoke model/runtime and rerun smoke.", nil)
+internal/sprint/smoke_author.go:56:	req := s.runtimeRequest(prompt, map[string]string{"project": prepared.Sprint.Project, "sprint": prepared.Sprint.Slug, "stage": string(StageSmoke), "operation": "author"})
+=== RunSmoke entry ===
+package sprint
+
+import (
+	"context"
+	"crypto/sha256"
+	"encoding/hex"
+	"encoding/json"
+	"errors"
+	"fmt"
+	"io"
+	"os"
+	"path/filepath"
+	"sort"
+	"strings"
+	"time"
+
+	pprocess "github.com/Antonio7098/ultraplan-go/internal/platform/process"
+)
+
+func (s Service) RunSmoke(ctx context.Context, projectRef, sprintRef string, req SmokeRequest) (result SmokeResult, err error) {
+	if req.DryRun {
+		return s.runSmoke(ctx, projectRef, sprintRef, req)
+	}
+	lockedCtx, release, lockErr := s.acquireMutationContext(ctx, projectRef, sprintRef)
+	if lockErr != nil {
+		return SmokeResult{Project: projectRef, Sprint: sprintRef, Status: SmokeFailed}, lockErr
+	}
+	defer release()
+	ctx = lockedCtx
+	if saveErr := s.saveSmokeAttempt(projectRef, sprintRef, SmokeResult{Project: projectRef, Sprint: sprintRef, Status: SmokeRunning}, nil, false); saveErr != nil {
+		return SmokeResult{Project: projectRef, Sprint: sprintRef, Status: SmokeFailed}, smokeError("smoke_state_write", "persistence", "smoke attempt could not be recorded", "Repair flow-state persistence before retrying; no harness work was started.", saveErr)
+	}
+	result, err = s.runSmoke(ctx, projectRef, sprintRef, req)
+	if saveErr := s.saveSmokeAttempt(projectRef, sprintRef, result, err, true); saveErr != nil {
+		stateErr := smokeError("smoke_state_write", "persistence", "terminal smoke state could not be recorded", "Inspect and repair flow-state persistence before retrying.", saveErr)
+		return result, errors.Join(err, stateErr)
+	}
+	return result, err
+}
+
+func (s Service) runSmoke(ctx context.Context, projectRef, sprintRef string, req SmokeRequest) (SmokeResult, error) {
+	result := SmokeResult{Project: projectRef, Sprint: sprintRef, Status: SmokeReady, DryRun: req.DryRun, OverrideRationale: strings.TrimSpace(req.OverrideRationale)}
+	emit := func(p SmokeProgress) {
+		if req.Progress != nil {
+			req.Progress(p)
+		}
+	}
+	emit(SmokeProgress{Phase: SmokePhasePreflight, Message: "validating review gate and harness manifest"})
+	prepared, err := s.prepareSmokeStatic(projectRef, sprintRef, req)
+	if err != nil {
+		return smokeFailedResult(result, err)
+	}
+	result.Project, result.Sprint = prepared.Sprint.Project, prepared.Sprint.Slug
+	result.Harness, result.Protocol = prepared.Manifest.Harness.ID, prepared.Manifest.ProtocolVersion
+	result.Artifact = ArtifactRelPath(prepared.Sprint, StageSmoke)
+	result.ReviewVerdict, result.ReviewFingerprint = prepared.Review.Verdict, prepared.Review.Fingerprint
+	result.ReviewOverride = req.ForceReview
+	result.Ready = true
+	result.EffectiveTimeout, result.TimeoutSource = smokeTimeout(s.smokeSettings, prepared.Manifest, req)
+	if !req.DryRun {
+		emit(SmokeProgress{Phase: SmokePhaseAuthoring, Message: "authoring sprint-specific deep-smoke coverage"})
+		if err := s.authorSmokeSuite(ctx, prepared, &result); err != nil {
+			return smokeFailedResult(result, err)
+		}
+	}
+
+	getenv := s.smokeSettings.Getenv
+	if getenv == nil {
+		getenv = os.Getenv
+	}
+	env := smokeEnvironment(s.smokeSettings, prepared.Manifest, getenv)
+	discoveryArgs := append(append([]string{}, prepared.Manifest.Args...), prepared.Manifest.Commands.Discover...)
+	discoveryArgs = append(discoveryArgs, "--target", prepared.Target)
+	emit(SmokeProgress{Phase: SmokePhaseDiscovery, Message: "discovering machine-readable smoke scopes"})
+	discoveryProcess, discoveryErr := s.processRunner.Run(ctx, pprocess.Request{Executable: prepared.Executable, Args: discoveryArgs, Dir: prepared.CWD, Env: env, Timeout: s.smokeSettings.DiscoveryTimeout, StdoutLimit: s.smokeSettings.StdoutLimit, StderrLimit: s.smokeSettings.StderrLimit, CleanupGrace: s.smokeSettings.CleanupGrace})
+	if discoveryErr != nil {
+		return smokeFailedResult(result, classifyProcessSmokeError("discovery", discoveryProcess, discoveryErr))
+	}
+	if discoveryProcess.StdoutTruncated {
+		return smokeFailedResult(result, smokeError("smoke_discovery_truncated", "protocol", "discovery output exceeded the configured bound", "Increase the bounded capture limit or reduce discovery output.", nil))
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_author.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m
+[0m$ [0msed -n 420,460p internal/app/sprint_commands.go && echo === && grep -rn "OperationSmokeStart" --include="*_test.go" internal/ | head -20 && echo "=== web smoke handlers ===" && grep -n "smoke" internal/web/operation_handlers.go | head
+}
+				if progress.Total > 0 {
+					fmt.Fprintf(deps.stderr, " %d/%d", progress.Completed, progress.Total)
+				}
+				fmt.Fprintf(deps.stderr, " | %s\n", config.RedactValue("smoke.progress", progress.Message))
+			}
+		}
+		smokeService := service
+		runCtx := deps.ctx
+		var durable *durableCLICommand
+		if !req.DryRun {
+			durable, err = beginDurableCLICommand(deps, OperationRequest{Kind: OperationSmokeStart, Project: args[0], Sprint: args[1], Stage: "smoke", Level: string(req.Level), Suite: req.Suite, Test: req.Test})
+			if err != nil {
+				return err
+			}
+			runCtx = durable.Context()
+			smokeService, err = sprintRuntimeService(deps, root)
+			if err != nil {
+				return finishDurableCLICommand(durable, err)
+			}
+		}
+		result, runErr := smokeService.RunSmoke(runCtx, args[0], args[1], req)
+		runErr = finishDurableCLICommand(durable, runErr)
+		if jsonOut {
+			_ = json.NewEncoder(deps.stdout).Encode(map[string]any{"schema_version": 1, "operation": "sprint.smoke", "status": result.Status, "result": result})
+		} else {
+			renderSprintSmoke(deps, result)
+		}
+		if runErr != nil {
+			return mapSmokeError(runErr)
+		}
+		if result.Verdict == sprint.SmokeFailVerdict || result.Verdict == sprint.SmokeBlockedVerdict {
+			return classified(ExitValidation, "sprint.smoke: verdict %s; %s", result.Verdict, result.NextAction)
+		}
+		return nil
+	default:
+		return classified(ExitUsage, "sprint: unsupported command %q", args[2])
+	}
+}
+
+func stripFlag(args []string, flag string) ([]string, bool) {
+===
+internal/app/run_control_inventory_test.go:26:				"Kind: OperationReviewStart", "Kind: OperationSmokeStart",
+internal/web/operations_contract_test.go:46:		{"smoke-start", app.OperationSmokeStart, projectScope},
+=== web smoke handlers ===
+115:		dto.Harness = map[string]any{"kind": "configured_smoke_harness"}
+654:	case "smoke", "smoke-start":
+662:	case "smoke-status":
+664:	case "smoke-dry-run":
+[0m
+[0m$ [0msed -n 280,360p internal/runcontrol/migration.go && echo "=== storageBytes ===" && sed -n 30,60p internal/runcontrol/retention.go && echo "=== quota use ===" && sed -n 380,400p internal/runcontrol/sqlite.go
+backups = append(backups, entry.Name())
+	}
+	sort.Strings(backups)
+	for len(backups) > maxMigrationBackups {
+		path := filepath.Join(directory, backups[0])
+		if err := os.Remove(path); err != nil {
+			return classifyStoreError("backup_prune", "remove expired migration backup failed", err)
+		}
+		backups = backups[1:]
+	}
+	return nil
+}
+
+// RestoreBackup replaces the stopped workspace database with one bounded,
+// private, integrity-checked backup. Callers must stop all UltraPlan processes
+// and restore the matching binary before invoking this operation.
+func RestoreBackup(ctx context.Context, workspaceRoot, backupName string) error {
+	root, err := validateWorkspaceRoot(workspaceRoot)
+	if err != nil {
+		return err
+	}
+	databasePath := filepath.Join(root, DatabaseRelativePath)
+	directory := filepath.Dir(databasePath)
+	if filepath.Base(backupName) != backupName || !strings.HasPrefix(backupName, filepath.Base(databasePath)+".bak.") {
+		return invalidField("backup_name", "must name a run-control migration backup in the workspace")
+	}
+	backupPath := filepath.Join(directory, backupName)
+	info, err := os.Lstat(backupPath)
+	if err != nil {
+		return classifyStoreError("restore_backup", "inspect restore backup failed", err)
+	}
+	if !info.Mode().IsRegular() || info.Mode()&os.ModeSymlink != 0 || info.Size() > maxBackupBytes {
+		return invalidField("backup_name", "must reference a bounded regular backup file")
+	}
+	if err := validateBackupIntegrity(ctx, backupPath); err != nil {
+		return err
+	}
+	temp, err := os.CreateTemp(directory, ".run-control.restore.*.tmp")
+	if err != nil {
+		return classifyStoreError("restore_create", "create temporary restore database failed", err)
+	}
+	tempPath := temp.Name()
+	cleanup := true
+	defer func() {
+		_ = temp.Close()
+		if cleanup {
+			_ = os.Remove(tempPath)
+		}
+	}()
+	if err := temp.Chmod(0o600); err != nil {
+		return classifyStoreError("restore_permissions", "set restore database permissions failed", err)
+	}
+	in, err := os.Open(backupPath)
+	if err != nil {
+		return classifyStoreError("restore_open", "open restore backup failed", err)
+	}
+	defer in.Close()
+	written, err := io.Copy(temp, io.LimitReader(in, maxBackupBytes+1))
+	if err != nil || written > maxBackupBytes {
+		return wrapError(CodeUnavailable, "restore_copy", "copy bounded restore database failed", false, err)
+	}
+	if err := temp.Sync(); err != nil {
+		return classifyStoreError("restore_sync", "flush restored database failed", err)
+	}
+	if err := temp.Close(); err != nil {
+		return classifyStoreError("restore_close", "close restored database failed", err)
+	}
+	if err := os.Rename(tempPath, databasePath); err != nil {
+		return classifyStoreError("restore_rename", "replace database from backup failed", err)
+	}
+	cleanup = false
+	return enforcePrivateMode(databasePath, 0o600)
+}
+
+func validateBackupIntegrity(ctx context.Context, path string) error {
+	values := url.Values{"mode": []string{"ro"}, "_query_only": []string{"1"}}
+	dsn := (&url.URL{Scheme: "file", Path: filepath.ToSlash(path), RawQuery: values.Encode()}).String()
+	db, err := sql.Open("sqlite", dsn)
+	if err != nil {
+		return classifyStoreError("restore_validate", "open backup for validation failed", err)
+	}
+=== storageBytes ===
+		return RetentionPolicy{}, invalidField("retention.hard_quota", "must be at least 64 MiB with 16 MiB reserved headroom")
+	}
+	return policy, nil
+}
+
+func (r *SQLiteRepository) storageBytes() (int64, error) {
+	directory := filepath.Dir(r.path)
+	entries, err := os.ReadDir(directory)
+	if err != nil {
+		return 0, classifyStoreError("quota_read", "inspect run-control storage usage failed", err)
+	}
+	prefix := filepath.Base(r.path)
+	var total int64
+	for _, entry := range entries {
+		if !strings.HasPrefix(entry.Name(), prefix) {
+			continue
+		}
+		info, err := entry.Info()
+		if err != nil {
+			return 0, classifyStoreError("quota_read", "inspect run-control storage file failed", err)
+		}
+		if info.Mode().IsRegular() {
+			total += info.Size()
+		}
+	}
+	return total, nil
+}
+
+func compactRunJournal(ctx context.Context, tx *sql.Tx, runID RunID, preserveSequence uint64) error {
+	for batch := 0; batch < 32; batch++ {
+		var count int64
+=== quota use ===
+	defer func() { r.metrics.acceptance.observe(metricStarted, resultErr) }()
+	if ctx == nil {
+		ctx = context.Background()
+	}
+	if usage, err := r.storageBytes(); err != nil {
+		return Snapshot{}, err
+	} else if usage >= r.retention.HardQuotaBytes*80/100 {
+		if _, compactErr := r.Compact(ctx, 64); compactErr != nil {
+			return Snapshot{}, compactErr
+		}
+	}
+	if usage, err := r.storageBytes(); err != nil {
+		return Snapshot{}, err
+	} else if usage >= r.softQuota {
+		return Snapshot{}, wrapError(CodeQuota, "accept_quota", "run-control soft quota prevents new acceptance", true, nil)
+	}
+	if err := input.Target.Validate(); err != nil {
+		return Snapshot{}, err
+	}
+	if err := input.Correlation.Validate(); err != nil {
+		return Snapshot{}, err
+[0m
+[0m$ [0msed -n 150,230p internal/web/operations.go && echo "=== validateOperationScope ===" && sed -n 420,445p internal/app/operations.go && echo "=== project.IsSafeName ===" && sed -n 70,90p internal/project/discovery.go && echo "=== web identifier ===" && sed -n 15,25p internal/web/handlers.go
+func (h *operationHub) startConfirmed(session, dedupKey string, confirm func() (app.Confirmation, error)) (operationDocument, error) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	h.reapLocked()
+	if id := h.dedup[dedupKey]; dedupKey != "" && id != "" {
+		if record := h.records[id]; record != nil && record.session == session {
+			return cloneOperationDocument(record.doc), nil
+		}
+		delete(h.dedup, dedupKey)
+	}
+	if h.draining {
+		h.counters.capacityRejections.Add(1)
+		return operationDocument{}, errServerDraining
+	}
+	if h.active >= MaxActiveOperations {
+		h.counters.capacityRejections.Add(1)
+		return operationDocument{}, errOperationCapacity
+	}
+	if h.ops == nil {
+		return operationDocument{}, errors.New("operation capability unavailable")
+	}
+	prepared, err := confirm()
+	if err != nil {
+		return operationDocument{}, err
+	}
+	id := "op_" + h.id()
+	for h.records[id] != nil {
+		id = "op_" + h.id()
+	}
+	created := h.now().UTC()
+	ctx, cancel := context.WithCancel(h.rootCtx)
+	if manager, ok := h.ops.(app.DurableOperationManager); ok {
+		accepted, acceptErr := manager.AcceptOperation(ctx, prepared, dedupKey)
+		if acceptErr != nil {
+			if !errors.Is(acceptErr, app.ErrWebUnavailable) {
+				cancel()
+				return operationDocument{}, acceptErr
+			}
+		} else {
+			id = accepted.RunID
+			if accepted.Context != nil {
+				ctx = accepted.Context
+			}
+			if accepted.Existing {
+				doc := operationDocument{ID: id, Kind: prepared.Request.Kind, State: accepted.Lifecycle, CreatedAt: created, DurableStatus: durableStatusDTO{Available: true, RefreshPath: "/runs/" + id}}
+				cancel()
+				return doc, nil
+			}
+		}
+	}
+	record := &operationRecord{
+		doc: operationDocument{
+			ID: id, Kind: prepared.Request.Kind, State: "accepted", CreatedAt: created,
+			DurableStatus: durableStatusDTO{Available: prepared.DurableRefreshPath != "", RefreshPath: prepared.DurableRefreshPath},
+		},
+		session: session, request: prepared.Request, cancel: cancel, done: make(chan struct{}),
+		subscribers: make(map[uint64]*operationSubscriber), dedupKey: dedupKey,
+	}
+	h.records[id] = record
+	if dedupKey != "" {
+		h.dedup[dedupKey] = id
+	}
+	h.active++
+	h.counters.starts.Add(1)
+	h.counters.active.Add(1)
+	h.appendEventLocked(record, "snapshot", map[string]any{"state": "accepted"})
+	doc := cloneOperationDocument(record.doc)
+	go h.run(ctx, record)
+	return doc, nil
+}
+
+func (h *operationHub) run(ctx context.Context, record *operationRecord) {
+	started := h.now().UTC()
+	h.mu.Lock()
+	if record.doc.State == "accepted" {
+		record.doc.State = "running"
+		record.doc.StartedAt = &started
+		h.appendEventLocked(record, "progress", map[string]any{"message": "operation started", "state": "running"})
+	}
+	h.mu.Unlock()
+
+=== validateOperationScope ===
+	req.ReviewFocus = normalizedStrings(req.ReviewFocus)
+	req.Sources = normalizedStrings(req.Sources)
+	req.Dimensions = normalizedStrings(req.Dimensions)
+	return req
+}
+
+func validateOperationScope(req OperationRequest) error {
+	for name, value := range map[string]string{"project": req.Project, "sprint": req.Sprint, "study": req.Study} {
+		if value == "" {
+			continue
+		}
+		if value == "." || value == ".." || len(value) > 128 || strings.ContainsAny(value, `/\\`) {
+			return fmt.Errorf("invalid operation %s reference", name)
+		}
+		for _, r := range value {
+			if (r >= 'a' && r <= 'z') || (r >= 'A' && r <= 'Z') || (r >= '0' && r <= '9') || r == '.' || r == '_' || r == '-' {
+				continue
+			}
+			return fmt.Errorf("invalid operation %s reference", name)
+		}
+	}
+	return nil
+}
+
+func normalizedStrings(values []string) []string {
+	seen := make(map[string]struct{}, len(values))
+=== project.IsSafeName ===
+	default:
+		return Project{}, RefError{Ref: ref, Candidates: projectNames(matches), Ambiguous: true}
+	}
+}
+
+func IsSafeName(name string) bool {
+	if name == "" || name == "." || name == ".." || strings.ContainsAny(name, `/\`) || strings.HasPrefix(name, ".") {
+		return false
+	}
+	for _, r := range name {
+		if !(r >= 'a' && r <= 'z' || r >= 'A' && r <= 'Z' || r >= '0' && r <= '9' || r == '-' || r == '_') {
+			return false
+		}
+	}
+	return true
+}
+
+func projectNames(projects []Project) []string {
+	names := make([]string, 0, len(projects))
+	for _, p := range projects {
+		names = append(names, p.Name)
+=== web identifier ===
+	"time"
+
+	"github.com/Antonio7098/ultraplan-go/internal/app"
+)
+
+var identifierPattern = regexp.MustCompile(`^[A-Za-z0-9][A-Za-z0-9._-]*$`)
+var opaqueRefPattern = regexp.MustCompile(`^[A-Za-z0-9_-]+$`)
+
+type responseMeta struct {
+	APIVersion    string `json:"api_version"`
+	RequestID     string `json:"request_id"`
+[0m
+[0m$ [0mgrep -n "PERSIST-SCHEMA\|owner\|single\|same database\|run-control.db" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/persistence-and-migrations.md | head -30 && echo === && sed -n 40,70p /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/persistence-and-migrations.md
+9:- durable schema and artifact ownership
+31:| PERSIST-SCHEMA-001 | Durable schema must have clear ownership and meaning | state/artifact/schema changes | High |
+52:### PERSIST-SCHEMA-001: Durable Schema Must Have Clear Ownership And Meaning
+55:Every durable file, entity, table, collection, index, queue, vector collection, or stored artifact must have an owner and clear semantic meaning.
+63:- generic dumping-ground files, tables, or collections with mixed ownership
+67:- migration/model/schema/artifact naming and docs identify ownership
+94:- define owner of transaction/session/unit-of-work or atomic file replacement
+100:- partial durable writes from a single business operation with no compensation, retry, or reconciliation plan
+200:- leaves ownership/source-of-truth unclear
+===
+## Core Principles
+
+1. Durable state is a long-term contract.
+2. Migrations must be boring, reviewable, and recoverable.
+3. Atomic write and transaction boundaries are part of business correctness.
+4. Storage layers should enforce invariants they are best placed to protect.
+5. Derived stores are not automatically authoritative.
+6. Performance-sensitive queries need bounds and evidence.
+7. Test/seed data must stay out of production unless intentionally deployed.
+
+## Requirements
+
+### PERSIST-SCHEMA-001: Durable Schema Must Have Clear Ownership And Meaning
+
+**Rule**
+Every durable file, entity, table, collection, index, queue, vector collection, or stored artifact must have an owner and clear semantic meaning.
+
+**Required**
+- define which module/capability owns each durable structure
+- document whether data is authoritative, derived, cache, audit, operational, or temporary
+- avoid cross-module writes to another module’s owned storage without explicit boundary
+
+**Forbidden**
+- generic dumping-ground files, tables, or collections with mixed ownership
+- storage structures whose lifecycle and source of truth are unclear
+
+**Evidence**
+- migration/model/schema/artifact naming and docs identify ownership
+
+### PERSIST-MIG-001: Migrations And Compatibility Changes Must Be Safe, Ordered, And Reviewable
+[0m
+[0m$ [0mgrep -n "run-control.db\|product_states\|same database\|co-locat\|single database\|one database" docs/migration-product-state.md docs/phase3-migration.md docs/recovery.md 2>/dev/null | head -20 && echo "=== ErrWebUnavailable ===" && grep -rn "ErrWebUnavailable" --include="*.go" internal/ | grep -v _test && echo "=== web_usecases accept wrapper ===" && sed -n 255,290p internal/app/web_usecases.go
+docs/migration-product-state.md:28:The normalized tables are `product_states` and `product_state_items`. Study
+docs/recovery.md:218:`.ultraplan/run-control.db` (maximum three retained backups and 512 MiB per
+=== ErrWebUnavailable ===
+internal/app/usecases.go:74:		return RunPage{}, ErrWebUnavailable
+internal/app/usecases.go:80:		return RunSnapshot{}, ErrWebUnavailable
+internal/app/usecases.go:86:		return nil, ErrWebUnavailable
+internal/app/usecases.go:92:		return RunSnapshot{}, false, ErrWebUnavailable
+internal/app/usecases.go:98:		return RunHealthResult{}, ErrWebUnavailable
+internal/app/usecases.go:104:		return AcceptedOperation{}, ErrWebUnavailable
+internal/app/usecases.go:110:		return false, ErrWebUnavailable
+internal/app/usecases.go:116:		return ErrWebUnavailable
+internal/app/web_usecases.go:32:	ErrWebUnavailable = errors.New("web query unavailable")
+internal/app/web_usecases.go:265:		return AcceptedOperation{}, ErrWebUnavailable
+internal/app/web_usecases.go:272:		return ErrWebUnavailable
+internal/app/web_usecases.go:279:		return false, ErrWebUnavailable
+internal/app/web_usecases.go:286:		return runcontrol.Page{}, ErrWebUnavailable
+internal/app/web_usecases.go:293:		return runcontrol.Snapshot{}, ErrWebUnavailable
+internal/app/web_usecases.go:300:		return nil, ErrWebUnavailable
+internal/app/web_usecases.go:307:		return runcontrol.Snapshot{}, false, ErrWebUnavailable
+internal/app/web_usecases.go:314:		return runcontrol.Health{}, ErrWebUnavailable
+internal/app/web_usecases.go:721:		return WebArtifactPreview{}, fmt.Errorf("%w: artifact read", ErrWebUnavailable)
+internal/app/web_usecases.go:730:		return WebArtifactPreview{}, fmt.Errorf("%w: artifact read", ErrWebUnavailable)
+internal/tui/app.go:289:				if err != nil && !errors.Is(err, app.ErrWebUnavailable) {
+internal/tui/app.go:367:	if err != nil && !errors.Is(err, app.ErrWebUnavailable) {
+internal/web/operations.go:184:			if !errors.Is(acceptErr, app.ErrWebUnavailable) {
+internal/web/operations.go:238:		if finishErr != nil && !errors.Is(finishErr, app.ErrWebUnavailable) {
+internal/web/operations.go:248:		if err != nil && !errors.Is(err, app.ErrWebUnavailable) {
+internal/web/handlers.go:442:			h.handleQueryError(w, r, true, app.ErrWebUnavailable)
+internal/web/handlers.go:468:			h.handleQueryError(w, r, true, app.ErrWebUnavailable)
+internal/web/handlers.go:626:	case errors.Is(err, app.ErrWebUnavailable), errors.Is(err, context.Canceled), errors.Is(err, context.DeadlineExceeded):
+=== web_usecases accept wrapper ===
+		durable: opts.DurableOperations,
+	}
+	if _, err := rand.Read(u.secret[:]); err != nil {
+		u.secret = sha256.Sum256([]byte(filepath.Clean(root)))
+	}
+	return u
+}
+
+func (u *webUseCases) AcceptOperation(ctx context.Context, confirmation Confirmation, digest string) (AcceptedOperation, error) {
+	if u.durable == nil {
+		return AcceptedOperation{}, ErrWebUnavailable
+	}
+	return u.durable.AcceptOperation(ctx, confirmation, digest)
+}
+
+func (u *webUseCases) FinishOperation(ctx context.Context, runID string, state OperationState, runErr error) error {
+	if u.durable == nil {
+		return ErrWebUnavailable
+	}
+	return u.durable.FinishOperation(ctx, runID, state, runErr)
+}
+
+func (u *webUseCases) RecordOperationEvent(ctx context.Context, runID string, event OperationEvent) (bool, error) {
+	if u.durable == nil {
+		return false, ErrWebUnavailable
+	}
+	return u.durable.RecordOperationEvent(ctx, runID, event)
+}
+
+func (u *webUseCases) Runs(ctx context.Context, query runcontrol.Query) (runcontrol.Page, error) {
+	if u.runs == nil {
+		return runcontrol.Page{}, ErrWebUnavailable
+	}
+	return u.runs.Runs(ctx, query)
+}
+[0m
+[0m$ [0msed -n 1,40p docs/migration-product-state.md && echo "=== status writes ===" && grep -n "WithoutStatusWrites\|func (s Service) Status" internal/sprint/service.go internal/sprint/*.go | head && echo "=== policy.go ===" && cat internal/platform/runtime/policy.go && echo "=== study TraceID/Cache ===" && grep -rn "TraceID\|Cache" internal/study/*.go | grep -v _test | head
+# Product-state SQLite migration
+
+UltraPlan can store mutable study and sprint execution state in the workspace
+database instead of rewriting complete JSON documents after each transition.
+
+Preview the migration:
+
+```sh
+scripts/migrate-product-state.sh /path/to/workspace --dry-run
+```
+
+Import every valid state artifact:
+
+```sh
+scripts/migrate-product-state.sh /path/to/workspace
+```
+
+The command discovers study `run-state.json`, sprint `flow-state.json`, and
+sprint `.run-state.json` files. It validates each file with the existing product
+validator before importing it. Invalid files remain unchanged and produce a
+partial-failure exit status. Re-running the command skips records already in the
+database.
+
+After import, SQLite is authoritative for that record. Existing JSON files stay
+in place as compatibility checkpoints. Unmigrated records remain file-backed,
+so migration can be performed incrementally.
+
+The normalized tables are `product_states` and `product_state_items`. Study
+tasks, sprint stages, and sprint execute tasks occupy separate ordered rows.
+Large generated reports, prompts, and diagnostics remain files.
+=== status writes ===
+internal/sprint/service.go:67:// WithoutStatusWrites derives status from current artifacts without creating a
+internal/sprint/service.go:70:func (s Service) WithoutStatusWrites() Service {
+internal/sprint/service.go:130:func (s Service) Status(projectRef, sprintRef string) (StatusSummary, error) {
+internal/sprint/code_context_test.go:172:	status, err := NewService(root).WithoutStatusWrites().Status("proj", "01")
+internal/sprint/code_context_test.go:177:	status, err = NewService(root).WithoutStatusWrites().Status("proj", "01")
+internal/sprint/code_context_test.go:187:	status, err = NewService(root).WithoutStatusWrites().Status("proj", "01")
+internal/sprint/service.go:67:// WithoutStatusWrites derives status from current artifacts without creating a
+internal/sprint/service.go:70:func (s Service) WithoutStatusWrites() Service {
+internal/sprint/service.go:130:func (s Service) Status(projectRef, sprintRef string) (StatusSummary, error) {
+=== policy.go ===
+package runtime
+
+const (
+	MetadataRunID      = "run_id"
+	MetadataTaskID     = "task_id"
+	MetadataTaskKind   = "task_kind"
+	MetadataStudy      = "study"
+	MetadataDimension  = "dimension"
+	MetadataSource     = "source"
+	MetadataSourceKind = "source_kind"
+	MetadataOutputPath = "output_path"
+	MetadataRuntime    = "runtime"
+	MetadataProvider   = "provider"
+	MetadataModel      = "model"
+)
+=== study TraceID/Cache ===
+internal/study/metadata_domain.go:109:	CacheReadTokensKnown  bool  `json:"cache_read_tokens_known"`
+internal/study/metadata_domain.go:110:	CacheReadTokens       int64 `json:"cache_read_tokens,omitempty"`
+internal/study/metadata_domain.go:111:	CacheWriteTokensKnown bool  `json:"cache_write_tokens_known"`
+internal/study/metadata_domain.go:112:	CacheWriteTokens      int64 `json:"cache_write_tokens,omitempty"`
+internal/study/runtime_metadata.go:55:			CacheReadTokensKnown: result.Usage.CacheReadTokensKnown, CacheReadTokens: result.Usage.CacheReadTokens,
+internal/study/runtime_metadata.go:56:			CacheWriteTokensKnown: result.Usage.CacheWriteTokensKnown, CacheWriteTokens: result.Usage.CacheWriteTokens,
+[0m
+[0m$ [0mgit log --oneline -3 -S "WithSmokeSettings(smokeSettings(effective, envLookup(deps.env)))" -- internal/app/operation_runner.go; echo ===; sed -n 250,265p internal/app/sprint_commands.go; echo ===; sed -n 345,358p internal/app/sprint_commands.go; echo ===; sed -n 264,272p internal/app/app.go
+a221683 feat: add guarded web operations and SSE progress
+===
+				if len(result.Findings) > 0 {
+					return classified(ExitValidation, "sprint.flow: %w", err)
+				}
+				return mapSprintError("sprint.flow", err)
+			}
+			if len(result.Findings) > 0 {
+				renderSprintFlow(deps, result)
+				return classified(ExitValidation, "sprint.flow: %w", err)
+			}
+			if strings.Contains(err.Error(), "runtime") {
+				return classified(ExitRuntime, "sprint.flow: %w", err)
+			}
+			return mapSprintError("sprint.flow", err)
+		}
+		if jsonOut {
+			verification, _ := flowService.VerificationStatus(args[0], args[1])
+===
+		renderSprintExecute(deps, result)
+		if err != nil {
+			if len(result.Findings) > 0 {
+				return classified(ExitValidation, "sprint.execute: %w", err)
+			}
+			if strings.Contains(err.Error(), "failed tasks") {
+				return classified(ExitPartial, "sprint.execute: %w", err)
+			}
+			if strings.Contains(err.Error(), "runtime") {
+				return classified(ExitRuntime, "sprint.execute: %w", err)
+			}
+			return mapSprintError("sprint.execute", err)
+		}
+		return nil
+===
+  run              Inspect, follow, cancel, and diagnose durable runs.
+  project          Inspect projects and validate project indexes.
+  sprint           Inspect planning sprint artifact flow state.
+  study            Inspect studies, sources, and dimensions.
+  tui              Open a read-only terminal dashboard.
+  serve            Start the read-only local browser dashboard.
+  version          Print build metadata.
+
+Flags:
+[0m
+[0m• [0mChallenge shared-DB finding[90m Arch-Challenger Agent[0m
+[0m• [0mChallenge smoke parity finding[90m Arch-Challenger Agent[0m
+[0m✓ [0mChallenge smoke parity finding[90m Arch-Challenger Agent[0m
+[0m✓ [0mChallenge shared-DB finding[90m Arch-Challenger Agent[0m
+[0m
+[0m$ [0mgit log --oneline --follow -- internal/app/operation_runner.go | head -8 && echo === && git log --oneline -S "WithRuntime" -- internal/app/operation_runner.go | head && echo "=== saveSmokeAttempt order ===" && grep -n "saveSmokeAttempt\|authorSmokeSuite\|DryRun" internal/sprint/smoke.go | head -20 && echo "=== tests touching web/tui smoke start ===" && grep -rln "smoke" internal/web/*_test.go internal/tui/*_test.go 2>/dev/null
+f067727 Propagate runtime failure diagnostics
+e09d394 Add durable run control and adaptive study execution
+0bf3cb9 fix: harden sprint review recovery and web operations
+a221683 feat: add guarded web operations and SSE progress
+f4d6d38 feat: add resumable review to smoke verification
+76711a7 feat: stream runtime progress across cli and tui
+f142a73 feat: add review-gated deep smoke
+d1e8b45 feat: expose all sprint operations in tui
+===
+=== saveSmokeAttempt order ===
+21:	if req.DryRun {
+30:	if saveErr := s.saveSmokeAttempt(projectRef, sprintRef, SmokeResult{Project: projectRef, Sprint: sprintRef, Status: SmokeRunning}, nil, false); saveErr != nil {
+34:	if saveErr := s.saveSmokeAttempt(projectRef, sprintRef, result, err, true); saveErr != nil {
+42:	result := SmokeResult{Project: projectRef, Sprint: sprintRef, Status: SmokeReady, DryRun: req.DryRun, OverrideRationale: strings.TrimSpace(req.OverrideRationale)}
+60:	if !req.DryRun {
+62:		if err := s.authorSmokeSuite(ctx, prepared, &result); err != nil {
+109:		if req.DryRun {
+121:	if req.DryRun {
+169:func (s Service) saveSmokeAttempt(projectRef, sprintRef string, result SmokeResult, runErr error, terminal bool) error {
+=== tests touching web/tui smoke start ===
+internal/web/api_compatibility_test.go
+internal/web/operations_contract_test.go
+internal/web/templates_test.go
+internal/web/test_fakes_test.go
+internal/tui/verify_test.go
+[0m
+[0m$ [0mgrep -n "smoke" internal/app/operations.go | head -20 && sed -n 200,262p internal/app/operations.go && echo === && sed -n 620,632p internal/web/operations.go && sed -n 390,403p internal/app/run_commands.go
+88:	OperationSmokeStatus   OperationKind = "smoke-status"
+89:	OperationSmokeDryRun   OperationKind = "smoke-dry-run"
+90:	OperationSmokeStart    OperationKind = "smoke-start"
+221:		c.Scope = []string{"complete execute evidence", "current review", "review-gated containing smoke scope"}
+499:		return "configured smoke author and harness"
+605:		parts = append(parts, "smoke=not started")
+607:		parts = append(parts, fmt.Sprintf("smoke=%s verdict=%s stale=%t", status.Smoke.Status, status.Smoke.Verdict, status.Smoke.Stale))
+627:	if smokeErr, ok := sprint.AsSmokeError(err); ok {
+628:		code, category, guidance = smokeErr.Code, smokeErr.Category, smokeErr.Guidance
+630:		r.Error = &OperationError{Code: code, Category: category, Operation: "smoke", Component: "sprint", Message: r.Message, Cause: cause, Guidance: guidance, Retryable: category == "process" || category == "timeout"}
+		c.Scope = []string{"execute tasks"}
+		c.Warning = "RUNTIME + APPROVED TARGET MUTATION"
+	case OperationReviewStart:
+		c.Runtime = true
+		c.Mutates = true
+		c.Scope = []string{"one read-only reviewer per selected contract plus handbook", fmt.Sprintf("bounded parallelism: %d", req.Parallelism)}
+		if req.RestartReview {
+			c.Scope = append(c.Scope, "discard resumable review checkpoints and start fresh sessions")
+		}
+		c.Warning = "RUNTIME + REVIEW ARTIFACT WRITE (TARGET READ-ONLY)"
+	case OperationSmokeDryRun, OperationSmokeStart:
+		preview, err := u.sprintService().RunSmoke(ctx, req.Project, req.Sprint, sprint.SmokeRequest{Level: req.Level, Suite: req.Suite, Test: req.Test, ForceReview: req.ForceReview, OverrideConfirmed: req.ForceReview, OverrideRationale: req.OverrideRationale, DryRun: true})
+		if err != nil {
+			return c, err
+		}
+		c.Runtime = true
+		c.Mutates = req.Kind == OperationSmokeStart
+		c.Scope = []string{fmt.Sprintf("%s %s", preview.ScopeKind, preview.Scope), preview.ScopeRationale, "prerequisites: " + strings.Join(preview.Prerequisites, ", "), "duration/cost: " + preview.DurationClass + "/" + preview.CostClass, fmt.Sprintf("timeout: %s (source: %s)", preview.EffectiveTimeout, preview.TimeoutSource), "safe command: " + preview.SafeArgv, "evidence roots: " + strings.Join(preview.EvidenceRoots, ", ")}
+		c.Warning = "EXTERNAL HARNESS + SMOKE ARTIFACT WRITE; RAW EVIDENCE REMAINS EXTERNAL"
+	case OperationVerifyDryRun, OperationVerifyStart:
+		c.Runtime, c.Mutates = true, req.Kind == OperationVerifyStart
+		c.Scope = []string{"complete execute evidence", "current review", "review-gated containing smoke scope"}
+		if req.ForceReview {
+			c.Scope = append(c.Scope, "DIAGNOSTIC OVERRIDE: "+req.OverrideRationale)
+		}
+		c.Warning = "ORDERED REVIEW -> SMOKE VERIFICATION; CANONICAL EVIDENCE ONLY AFTER VALIDATION"
+	case OperationStudyStart, OperationStudyResume:
+		if req.Parallelism < 1 || req.Parallelism > 64 {
+			return c, fmt.Errorf("parallelism must be between 1 and 64")
+		}
+		c.Runtime = true
+		c.Mutates = true
+		c.Scope = []string{fmt.Sprintf("study run-loop with %d parallel workers", req.Parallelism)}
+		c.Warning = "RUNTIME + STUDY STATE MUTATION"
+	case OperationStudyCancel:
+		c.Mutates = true
+		c.Scope = []string{"active study run-loop"}
+		c.Warning = "CANCEL ACTIVE RUN LOOP"
+	default:
+		return c, fmt.Errorf("unsupported operation %q", req.Kind)
+	}
+	if req.Project != "" {
+		if req.Sprint != "" {
+			c.Paths = []string{"projects/" + req.Project + "/sprints/" + req.Sprint}
+			c.DurableRefreshPath = "/api/v1/projects/" + req.Project + "/sprints/" + req.Sprint
+		} else {
+			c.Paths = []string{"projects/" + req.Project}
+			c.DurableRefreshPath = "/api/v1/projects/" + req.Project
+		}
+	} else {
+		c.Paths = []string{"studies/" + req.Study}
+		c.DurableRefreshPath = "/api/v1/studies/" + req.Study
+	}
+	if c.Mutates {
+		if req.Project != "" {
+			c.MutationClass = "sprint_mutation"
+		} else {
+			c.MutationClass = "study_mutation"
+		}
+	} else {
+		c.MutationClass = "read_only"
+	}
+	if c.Runtime {
+===
+	}
+}
+
+func canonicalCancelReason(reason string) string {
+	switch reason {
+	case "server_shutdown", "timeout", "recovery":
+		return reason
+	default:
+		return "user_request"
+	}
+}
+
+func safeWebText(value string) string {
+	}
+	return out, nil
+}
+
+func canonicalCancellationReason(value string) bool {
+	switch value {
+	case "user_requested", "operator_requested", "shutdown_requested", "quota_exceeded":
+		return true
+	default:
+		return false
+	}
+}
+
+func mapRunControlError(operation string, err error) error {
+[0m
+[0m$ [0mfor c in MetadataRunID MetadataTaskID MetadataTaskKind MetadataStudy MetadataDimension MetadataSource MetadataSourceKind MetadataOutputPath MetadataRuntime MetadataProvider MetadataModel; do echo "$c: $(grep -rn "runtimepkg.$c\|pruntime.$c\|runtime.$c\b" --include='*.go' internal/ | grep -v 'policy.go' | grep -v _test | wc -l)"; done && echo === && sed -n 30,52p internal/app/tui_commands.go && sed -n 44,56p internal/app/serve_commands.go && echo === && sed -n 10,40p internal/study/run_all.go && echo === && grep -n '"dimension.ref"\|"output.path"\|"source.ref"' internal/study/*.go | grep -v _test | head -5
+MetadataRunID: 0
+MetadataTaskID: 0
+MetadataTaskKind: 0
+MetadataStudy: 0
+MetadataDimension: 0
+MetadataSource: 0
+MetadataSourceKind: 0
+MetadataOutputPath: 0
+MetadataRuntime: 0
+MetadataProvider: 0
+MetadataModel: 0
+===
+	if err != nil {
+		return err
+	}
+	effective, err := loadEffectiveConfig(root, deps, config.CLIOverrides{})
+	if err != nil {
+		return err
+	}
+	useCases := dashboardUseCases{
+		root: root.Path, stageRuntime: planningStageRuntime(effective.Config),
+		reviewConcurrency: effective.Config.Execution.DefaultParallel,
+		smokeSettings:     smokeSettings(effective, envLookup(deps.env)),
+	}
+	repository, _, err := runRepository(deps)
+	if err != nil {
+		return err
+	}
+	useCases.runs = repositoryRunUseCases{repository: repository}
+	useCases.durable = newDurableOperationManager(repository, deps.runControl.owner)
+	useCases.runner = sharedOperationRunner(deps, root, effective, useCases)
+	if deps.tuiRunner == nil {
+		return classified(ExitError, "tui.start: tui runner is not configured")
+	}
+	if err := deps.tuiRunner(deps.ctx, TUIRunOptions{UseCases: useCases, Stdout: deps.stdout, Width: 100}); err != nil {
+	if deps.webRunner == nil {
+		return classified(ExitError, "serve.start: web runner is not configured")
+	}
+	dashboard := dashboardUseCases{
+		root: root.Path, stageRuntime: planningStageRuntime(effective.Config),
+		reviewConcurrency: effective.Config.Execution.DefaultParallel,
+		smokeSettings:     smokeSettings(effective, envLookup(deps.env)), readOnly: true,
+	}
+	if errors.Is(deps.ctx.Err(), context.Canceled) {
+		return nil
+	}
+	repository, _, err := runRepository(deps)
+	if err != nil {
+===
+
+type analysisTask struct {
+	dimension Dimension
+	source    Source
+}
+
+func (s Service) RunAll(ctx context.Context, req RunAllRequest) (RunAllResult, error) {
+	if req.Parallelism < 1 {
+		return RunAllResult{}, fmt.Errorf("parallelism must be at least 1")
+	}
+	listing, err := s.ListStudy(req.StudyRef)
+	if err != nil {
+		return RunAllResult{}, err
+	}
+	dimensions, err := resolveDimensions(listing.Dimensions, req.DimensionRefs)
+	if err != nil {
+		return RunAllResult{}, err
+	}
+	sources, err := resolveSources(listing.Sources, req.SourceRefs)
+	if err != nil {
+		return RunAllResult{}, err
+	}
+	result := RunAllResult{Study: listing.Study, Parallelism: req.Parallelism, SummaryPath: SummaryPath(listing.Study)}
+	for _, group := range dimensionExecutionGroups(dimensions, listing.DimensionOrder) {
+		groupResult := s.runAllDimensionGroup(ctx, req, listing.Study, group, sources)
+		result.Analysis = append(result.Analysis, groupResult.Analysis...)
+		result.Synthesis = append(result.Synthesis, groupResult.Synthesis...)
+	}
+
+	summary, err := WriteSummary(listing.Study, dimensions, sources)
+	if err != nil {
+===
+internal/study/run.go:247:		"dimension.ref":    dimension.Ref(),
+internal/study/run.go:248:		"output.path":      outputPath,
+internal/study/run_state_domain.go:56:	OutputPath   string                `json:"output_path"`
+[0m
+[0m$ [0msed -n 20,90p internal/sprint/locks.go && echo === && grep -n "reconcileExecuteState\|LegacyTerminalExecuteStatus\|stale" internal/sprint/execute.go | head -12
+}
+
+// ReconcileInterruptedMutation converts durable running records left by a
+// dead owner into explicit interrupted evidence. A live cross-process lease is
+// never rewritten.
+func (s Service) ReconcileInterruptedMutation(ctx context.Context, projectRef, sprintRef string) (bool, error) {
+	lockedCtx, release, err := s.acquireMutationContext(ctx, projectRef, sprintRef)
+	if err != nil {
+		if errors.Is(err, ErrVerificationConflict) {
+			return false, nil
+		}
+		return false, err
+	}
+	defer release()
+	_ = lockedCtx
+	sp, err := s.resolveMutationSprint(projectRef, sprintRef)
+	if err != nil {
+		return false, err
+	}
+	now := s.now().UTC()
+	_, uncertaintyErr := loadCleanupUncertain(sp)
+	hasUncertainty := uncertaintyErr == nil
+	if uncertaintyErr != nil && !errors.Is(uncertaintyErr, os.ErrNotExist) {
+		return false, uncertaintyErr
+	}
+	changed := false
+	state, err := LoadExecuteRunState(s.root, sp)
+	if err == nil {
+		for i := range state.Tasks {
+			if state.Tasks[i].Status != ExecuteTaskRunning {
+				continue
+			}
+			state.Tasks[i].Status = ExecuteTaskFailed
+			state.Tasks[i].UpdatedAt = now
+			state.Tasks[i].CompletedAt = &now
+			state.Tasks[i].Diagnostics = append(state.Tasks[i].Diagnostics, ExecuteDiagnostic{Code: "recovery-interrupted", Message: "running task belonged to a stopped process; inspect durable target state before resuming", At: now})
+			changed = true
+		}
+		if changed {
+			state.UpdatedAt = now
+			if err := SaveExecuteRunState(s.root, sp, state); err != nil {
+				return false, err
+			}
+		}
+	} else if !errors.Is(err, ErrExecuteRunStateMissing) && !legacyTerminalExecuteRunState(s.root, sp) {
+		return false, err
+	}
+	flow, flowErr := LoadFlowState(s.root, sp)
+	if flowErr == nil {
+		if reconcileExpiredAttempts(&flow, now) {
+			flow.UpdatedAt = now
+			if err := SaveFlowState(s.root, sp, flow); err != nil {
+				return false, err
+			}
+			changed = true
+		}
+	} else if !errors.Is(flowErr, ErrFlowStateMissing) && !legacyFlowState(s.root, sp) {
+		return false, flowErr
+	}
+	if hasUncertainty && changed {
+		if err := removeCleanupUncertain(sp); err != nil {
+			return false, err
+		}
+	}
+	if hasUncertainty && !changed {
+		return false, fmt.Errorf("%w: %s", ErrCleanupUncertain, filepath.Join(sp.Path, cleanupUncertainFileName))
+	}
+	return changed, nil
+}
+
+func (s Service) acquireMutationContext(ctx context.Context, projectRef, sprintRef string) (context.Context, func(), error) {
+===
+176:		state = reconcileExecuteState(existing, records, now)
+198:			task.Diagnostics = append(task.Diagnostics, ExecuteDiagnostic{Code: "stale-running", Message: "recovered stale running task before resume", At: now})
+600:func reconcileExecuteState(existing ExecuteRunState, planned []ExecuteTaskRecord, now time.Time) ExecuteRunState {
+606:			task.Diagnostics = append(task.Diagnostics, ExecuteDiagnostic{Code: "stale-running", Message: "recovered stale running task on resume", At: now})
+[0m
