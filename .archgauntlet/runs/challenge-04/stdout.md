@@ -1,0 +1,2 @@
+The runs directory is in the cwd repo. My assignment is challenge-04 (Interface tribunal). Let me read the most relevant prior outputs — specialists 10 (app composition), 11 (CLI/TUI/web parity), 12 (web lifecycle/SSE), plus related failure/change probes.
+Now I have the lay of the land. Key candidate threads to verify: SSE write-deadline truncation, shutdown-cancel persistence, per-surface durable-op protocol/idempotency drift, TUI flow-state writes, hub-mutex scope dispute. Let me map the repo surface first, then delegate bounded verification.

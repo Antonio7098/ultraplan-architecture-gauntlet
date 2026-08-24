@@ -1,0 +1,1272 @@
+[93m[1m! [0m agent "arch-challenger" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m# [0mTodos
+[•] Inspect gauntlet state: prior runs, finding contract, scenario catalogue
+[ ] Map target repo structure + SQLite/productstate/filesystem/migration code
+[ ] Delegate bounded discovery subagents (package map, lifecycle traces, counter-evidence)
+[ ] Re-derive conclusions from evidence; test hypotheses against tests/docs
+[ ] Write CHALLENGE-03 output (scope, assessment, findings, rejected hypotheses)
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go log --oneline -5 && git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace log --oneline -5
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+368a789 Add UltraPlan daemon and event system study
+2dc3b74 Advance sprints 30-35 and harden review/smoke flow
+0e151a0 update reconciliation smoke skill
+e7c0188 Record final sprint 32 implementation commits
+7756db0 Reconcile sprint 32 verification flow
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/.archgauntlet/runs 2>/dev/null; ls /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs 2>/dev/null
+arbiter-01
+chair-01
+chair-02
+chair-03
+chair-04
+chair-05
+chair-06
+challenge-01
+challenge-02
+challenge-03
+challenge-04
+challenge-05
+challenge-06
+change-01
+change-02
+change-03
+change-04
+change-05
+change-06
+change-07
+change-08
+failure-01
+failure-02
+failure-03
+failure-04
+failure-05
+failure-06
+failure-07
+failure-08
+failure-09
+failure-10
+failure-11
+failure-12
+generalist-01
+generalist-02
+generalist-03
+generalist-04
+scout-01
+scout-02
+scout-03
+scout-04
+scout-05
+scout-06
+specialist-01a
+specialist-01b
+specialist-02a
+specialist-02b
+specialist-03a
+specialist-03b
+specialist-04a
+specialist-04b
+specialist-05a
+specialist-05b
+specialist-06a
+specialist-06b
+specialist-07a
+specialist-07b
+specialist-08a
+specialist-08b
+specialist-09a
+specialist-09b
+specialist-10a
+specialist-10b
+specialist-11a
+specialist-11b
+specialist-12a
+specialist-12b
+specialist-13a
+specialist-13b
+specialist-14a
+specialist-14b
+specialist-15a
+specialist-15b
+specialist-16a
+specialist-16b
+specialist-17a
+specialist-17b
+specialist-18a
+specialist-18b
+specialist-19a
+specialist-19b
+specialist-20a
+specialist-20b
+specialist-21a
+specialist-21b
+specialist-22a
+specialist-22b
+specialist-23a
+specialist-23b
+specialist-24a
+specialist-24b
+synth-01
+synth-02
+synth-03
+[0m
+[0m$ [0mls -R /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal | head -80
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal:
+app
+codeextract
+platform
+productstate
+project
+runcontrol
+sprint
+study
+tui
+web
+workspace
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app:
+app.go
+app_test.go
+code_commands.go
+code_commands_test.go
+config_commands.go
+defaults_commands.go
+durable_operations.go
+durable_operations_test.go
+health_commands.go
+health_commands_test.go
+json_output.go
+markdown.go
+markdown_test.go
+operation_runner.go
+operations.go
+project_commands.go
+project_commands_test.go
+project_usecases.go
+run_commands.go
+run_commands_test.go
+run_control.go
+run_control_inventory_test.go
+run_control_test.go
+run_usecases.go
+serve_commands.go
+serve_commands_test.go
+skills_commands.go
+skills_commands_test.go
+sprint_commands.go
+sprint_commands_test.go
+sprint_error_test.go
+sprint_usecases.go
+sprint_usecases_test.go
+sprint_verify_commands_test.go
+status_json.go
+storage_commands.go
+study_commands.go
+study_commands_test.go
+study_init_commands_test.go
+study_prompt_commands_test.go
+study_run_all_commands_test.go
+study_run_commands_test.go
+study_run_loop_commands_test.go
+study_runs_commands.go
+study_runs_commands_test.go
+study_status_commands_test.go
+study_summary_commands_test.go
+study_usecases.go
+study_validate_commands_test.go
+surfaces.go
+tui_commands.go
+tui_commands_test.go
+usecases.go
+usecases_test.go
+version.go
+web_operations_test.go
+web_usecases.go
+web_usecases_test.go
+workspace_commands.go
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract:
+codeextract_test.go
+doc.go
+domain.go
+parser.go
+resolver.go
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-03/ /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-01/ 2>/dev/null
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-03/:
+prompt.md
+stderr.log
+stdout.md
+
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-01/:
+prompt.md
+stderr.log
+stdout.md
+[0m
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/finding-contract.md
+[0m
+[0m$ [0mgrep -l -i -E "productstate|sqlite|migration|filesystem|recovery" /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/*/prompt.md | sed 's|.*/runs/||; s|/prompt.md||'
+arbiter-01
+chair-01
+chair-02
+chair-03
+chair-04
+chair-05
+chair-06
+challenge-01
+challenge-02
+challenge-03
+challenge-04
+challenge-05
+challenge-06
+change-01
+change-02
+change-03
+change-04
+change-05
+change-06
+change-07
+change-08
+failure-01
+failure-02
+failure-03
+failure-04
+failure-05
+failure-06
+failure-07
+failure-08
+failure-09
+failure-10
+failure-11
+failure-12
+generalist-01
+generalist-02
+generalist-03
+generalist-04
+scout-01
+scout-02
+scout-03
+scout-04
+scout-05
+scout-06
+specialist-01a
+specialist-01b
+specialist-02a
+specialist-02b
+specialist-03a
+specialist-03b
+specialist-04a
+specialist-04b
+specialist-05a
+specialist-05b
+specialist-06a
+specialist-06b
+specialist-07a
+specialist-07b
+specialist-08a
+specialist-08b
+specialist-09a
+specialist-09b
+specialist-10a
+specialist-10b
+specialist-11a
+specialist-11b
+specialist-12a
+specialist-12b
+specialist-13a
+specialist-13b
+specialist-14a
+specialist-14b
+specialist-15a
+specialist-15b
+specialist-16a
+specialist-16b
+specialist-17a
+specialist-17b
+specialist-18a
+specialist-18b
+specialist-19a
+specialist-19b
+specialist-20a
+specialist-20b
+specialist-21a
+specialist-21b
+specialist-22a
+specialist-22b
+specialist-23a
+specialist-23b
+specialist-24a
+specialist-24b
+synth-01
+synth-02
+synth-03
+[0m
+[0m$ [0mwc -l /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/*/stdout.md | sort -n | tail -20
+117 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-10a/stdout.md
+   121 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-24b/stdout.md
+   122 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-03/stdout.md
+   125 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-08a/stdout.md
+   126 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-01b/stdout.md
+   127 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/change-02/stdout.md
+   128 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/failure-06/stdout.md
+   128 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-04/stdout.md
+   134 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-05b/stdout.md
+   136 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-05/stdout.md
+   138 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-01/stdout.md
+   150 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-02/stdout.md
+   154 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-01/stdout.md
+   155 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-23b/stdout.md
+   199 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-03/stdout.md
+   207 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-06/stdout.md
+   230 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-02/stdout.md
+   263 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-04/stdout.md
+   378 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-02/stdout.md
+  5636 total
+[0m
+[0m$ [0mfor d in scout-01 scout-02 scout-03 scout-04 scout-05 scout-06; do echo "=== $d ==="; head -12 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/$d/prompt.md | grep -E "^#|^ROLE|^STAGE|^TASK|Target|##" | head -8; done
+=== scout-01 ===
+# UltraPlan Architecture Gauntlet — Repository cartography
+ROLE: arch-scout
+STAGE: scout
+TASK ID: scout-01
+## Target
+=== scout-02 ===
+# UltraPlan Architecture Gauntlet — Dependency cartography
+ROLE: arch-scout
+STAGE: scout
+TASK ID: scout-02
+## Target
+=== scout-03 ===
+# UltraPlan Architecture Gauntlet — Product-contract cartography
+ROLE: arch-scout
+STAGE: scout
+TASK ID: scout-03
+## Target
+=== scout-04 ===
+# UltraPlan Architecture Gauntlet — Governance cartography
+ROLE: arch-scout
+STAGE: scout
+TASK ID: scout-04
+## Target
+=== scout-05 ===
+# UltraPlan Architecture Gauntlet — State/lifecycle cartography
+ROLE: arch-scout
+STAGE: scout
+TASK ID: scout-05
+## Target
+=== scout-06 ===
+# UltraPlan Architecture Gauntlet — Execution cartography
+ROLE: arch-scout
+STAGE: scout
+TASK ID: scout-06
+## Target
+[0m
+[0m→ [0mRead .archgauntlet/runs/scout-05/stdout.md
+[0m
+[0m$ [0mfor d in /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-*; do n=$(basename $d); title=$(grep -m1 "^# " $d/prompt.md); echo "$n :: $title"; done
+specialist-01a :: # UltraPlan Architecture Gauntlet — Module ownership and authority (independent a)
+specialist-01b :: # UltraPlan Architecture Gauntlet — Module ownership and authority (independent b)
+specialist-02a :: # UltraPlan Architecture Gauntlet — Go dependency graph (independent a)
+specialist-02b :: # UltraPlan Architecture Gauntlet — Go dependency graph (independent b)
+specialist-03a :: # UltraPlan Architecture Gauntlet — Study lifecycle (independent a)
+specialist-03b :: # UltraPlan Architecture Gauntlet — Study lifecycle (independent b)
+specialist-04a :: # UltraPlan Architecture Gauntlet — Project catalogue (independent a)
+specialist-04b :: # UltraPlan Architecture Gauntlet — Project catalogue (independent b)
+specialist-05a :: # UltraPlan Architecture Gauntlet — Sprint state machine (independent a)
+specialist-05b :: # UltraPlan Architecture Gauntlet — Sprint state machine (independent b)
+specialist-06a :: # UltraPlan Architecture Gauntlet — Execute-review-smoke (independent a)
+specialist-06b :: # UltraPlan Architecture Gauntlet — Execute-review-smoke (independent b)
+specialist-07a :: # UltraPlan Architecture Gauntlet — Runcontrol (independent a)
+specialist-07b :: # UltraPlan Architecture Gauntlet — Runcontrol (independent b)
+specialist-08a :: # UltraPlan Architecture Gauntlet — Productstate (independent a)
+specialist-08b :: # UltraPlan Architecture Gauntlet — Productstate (independent b)
+specialist-09a :: # UltraPlan Architecture Gauntlet — Operational vs product state (independent a)
+specialist-09b :: # UltraPlan Architecture Gauntlet — Operational vs product state (independent b)
+specialist-10a :: # UltraPlan Architecture Gauntlet — App composition/use cases (independent a)
+specialist-10b :: # UltraPlan Architecture Gauntlet — App composition/use cases (independent b)
+specialist-11a :: # UltraPlan Architecture Gauntlet — CLI/TUI/web parity (independent a)
+specialist-11b :: # UltraPlan Architecture Gauntlet — CLI/TUI/web parity (independent b)
+specialist-12a :: # UltraPlan Architecture Gauntlet — Web lifecycle and SSE (independent a)
+specialist-12b :: # UltraPlan Architecture Gauntlet — Web lifecycle and SSE (independent b)
+specialist-13a :: # UltraPlan Architecture Gauntlet — Runtime/agentwrap/OpenCode (independent a)
+specialist-13b :: # UltraPlan Architecture Gauntlet — Runtime/agentwrap/OpenCode (independent b)
+specialist-14a :: # UltraPlan Architecture Gauntlet — Process/smoke harness (independent a)
+specialist-14b :: # UltraPlan Architecture Gauntlet — Process/smoke harness (independent b)
+specialist-15a :: # UltraPlan Architecture Gauntlet — Filesystem/artifact persistence (independent a)
+specialist-15b :: # UltraPlan Architecture Gauntlet — Filesystem/artifact persistence (independent b)
+specialist-16a :: # UltraPlan Architecture Gauntlet — Configuration/model selection (independent a)
+specialist-16b :: # UltraPlan Architecture Gauntlet — Configuration/model selection (independent b)
+specialist-17a :: # UltraPlan Architecture Gauntlet — Errors/retry/idempotency/recovery (independent a)
+specialist-17b :: # UltraPlan Architecture Gauntlet — Errors/retry/idempotency/recovery (independent b)
+specialist-18a :: # UltraPlan Architecture Gauntlet — Observability (independent a)
+specialist-18b :: # UltraPlan Architecture Gauntlet — Observability (independent b)
+specialist-19a :: # UltraPlan Architecture Gauntlet — Concurrency/resources (independent a)
+specialist-19b :: # UltraPlan Architecture Gauntlet — Concurrency/resources (independent b)
+specialist-20a :: # UltraPlan Architecture Gauntlet — Test architecture (independent a)
+specialist-20b :: # UltraPlan Architecture Gauntlet — Test architecture (independent b)
+specialist-21a :: # UltraPlan Architecture Gauntlet — Security/trust boundaries (independent a)
+specialist-21b :: # UltraPlan Architecture Gauntlet — Security/trust boundaries (independent b)
+specialist-22a :: # UltraPlan Architecture Gauntlet — Agent architecture (independent a)
+specialist-22b :: # UltraPlan Architecture Gauntlet — Agent architecture (independent b)
+specialist-23a :: # UltraPlan Architecture Gauntlet — Simplicity and earned complexity (independent a)
+specialist-23b :: # UltraPlan Architecture Gauntlet — Simplicity and earned complexity (independent b)
+specialist-24a :: # UltraPlan Architecture Gauntlet — Evolution/change locality (independent a)
+specialist-24b :: # UltraPlan Architecture Gauntlet — Evolution/change locality (independent b)
+[0m
+[0m→ [0mRead .archgauntlet/runs/specialist-07a/stdout.md
+[0m→ [0mRead .archgauntlet/runs/specialist-08a/stdout.md
+[0m→ [0mRead .archgauntlet/runs/specialist-15a/stdout.md
+[0m→ [0mRead .archgauntlet/runs/specialist-09a/stdout.md
+[0m→ [0mRead .archgauntlet/runs/specialist-09b/stdout.md
+[0m
+[0m$ [0mfor d in specialist-07b specialist-08b specialist-15a specialist-15b specialist-17a specialist-17b specialist-09a specialist-09b; do f=/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/$d/stdout.md; s=/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/$d/stderr.log; echo "$d: stdout=$(wc -c < $f) bytes, stderr=$(wc -c < $s 2>/dev/null || echo missing) bytes"; done
+specialist-07b: stdout=17255 bytes, stderr=97042 bytes
+specialist-08b: stdout=14546 bytes, stderr=60741 bytes
+specialist-15a: stdout=0 bytes, stderr=53091 bytes
+specialist-15b: stdout=0 bytes, stderr=38563 bytes
+specialist-17a: stdout=0 bytes, stderr=143 bytes
+specialist-17b: stdout=13083 bytes, stderr=82286 bytes
+specialist-09a: stdout=0 bytes, stderr=17519 bytes
+specialist-09b: stdout=0 bytes, stderr=16500 bytes
+[0m
+[0m→ [0mRead .archgauntlet/runs/specialist-17b/stdout.md
+[0m
+[0m$ [0mgrep -l -i -E "productstate|run-control\.db|migrat|restorebackup|checkpoint" /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/failure-*/stdout.md
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/failure-03/stdout.md
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/failure-05/stdout.md
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/failure-07/stdout.md
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/failure-09/stdout.md
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/failure-10/stdout.md
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/failure-12/stdout.md
+[0m
+[0m→ [0mRead .archgauntlet/runs/specialist-08b/stdout.md
+[0m
+[0m$ [0mfor d in challenge-01 challenge-02 challenge-04 challenge-05 challenge-06; do echo "=== $d ==="; grep -m1 -A3 "## Assignment" /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/$d/prompt.md | tail -2; done
+=== challenge-01 ===
+Challenge candidate findings concerning study, project, sprint, artifacts, prompt/context ownership, and module boundaries. Try to make weak findings disappear.
+
+=== challenge-02 ===
+Challenge findings concerning runcontrol, runtime, process, concurrency, ownership leases, cancellation, terminal arbitration, and failure semantics.
+
+=== challenge-04 ===
+Challenge findings concerning app composition, CLI/TUI/web, HTTP/SSE, presentation state, and cross-surface parity.
+
+=== challenge-05 ===
+Challenge findings concerning security, errors, observability, testing, performance, and operational claims.
+
+=== challenge-06 ===
+Challenge findings concerning simplicity, abstraction, change locality, agent legibility, documentation drift, and roadmap fitness.
+[0m
+[0m→ [0mRead .archgauntlet/runs/failure-05/stdout.md
+[0m→ [0mRead .archgauntlet/runs/failure-07/stdout.md
+[0m→ [0mRead .archgauntlet/runs/failure-03/stdout.md
+[0m→ [0mRead .archgauntlet/runs/failure-10/stdout.md
+[0m→ [0mRead .archgauntlet/runs/failure-12/stdout.md
+[0m
+[0m$ [0mwc -l internal/runcontrol/*.go internal/productstate/*.go internal/sprint/state*.go internal/study/state*.go | tail -30 && git log --oneline -3
+67 internal/runcontrol/id_test.go
+    39 internal/runcontrol/import_boundary_test.go
+    72 internal/runcontrol/interfaces.go
+   572 internal/runcontrol/lifecycle.go
+   331 internal/runcontrol/lifecycle_test.go
+   155 internal/runcontrol/local_log.go
+    77 internal/runcontrol/local_log_test.go
+    57 internal/runcontrol/metrics.go
+   363 internal/runcontrol/migration.go
+   176 internal/runcontrol/migration_test.go
+   504 internal/runcontrol/model.go
+    67 internal/runcontrol/model_test.go
+    39 internal/runcontrol/process_darwin.go
+    58 internal/runcontrol/process.go
+   283 internal/runcontrol/process_integration_test.go
+    45 internal/runcontrol/process_linux.go
+    18 internal/runcontrol/process_other.go
+   207 internal/runcontrol/retention.go
+   129 internal/runcontrol/retention_test.go
+   111 internal/runcontrol/sanitize.go
+    73 internal/runcontrol/sanitize_test.go
+  1175 internal/runcontrol/sqlite.go
+   470 internal/runcontrol/sqlite_test.go
+   206 internal/productstate/store.go
+   148 internal/sprint/state_database.go
+   381 internal/sprint/state.go
+    80 internal/study/state_database.go
+   184 internal/study/state.go
+   341 internal/study/state_test.go
+  6804 total
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
+[0m
+[0m$ [0mgrep -n "title\|detail\|delta\|content\|text\|output\|native_type\|line\|promote" internal/app/run_control.go | head -40
+4:	"context"
+35:func (s *runControlState) repository(ctx context.Context, workspaceRoot string, policies ...runcontrol.RetentionPolicy) (*runcontrol.SQLiteRepository, error) {
+97:		StartRun(context.Context, runtimepkg.Request) (runtimepkg.Result, error)
+104:	StartRun(context.Context, runtimepkg.Request) (runtimepkg.Result, error)
+122:func (r controlledRuntime) StartRun(ctx context.Context, req runtimepkg.Request) (runtimepkg.Result, error) {
+144:	runCtx, cancel := context.WithCancel(ctx)
+176:		// Reasoning/text deltas and tool calls have distinct payload hashes and will not coalesce.
+283:		terminalCtx, terminalCancel := context.WithTimeout(context.Background(), 30*time.Second)
+295:	terminalCtx, terminalCancel := context.WithTimeout(context.Background(), 30*time.Second)
+305:func appendRunEventWithRetry(ctx context.Context, repository runcontrol.Repository, fence runcontrol.Fence, draft runcontrol.EventDraft) (runcontrol.Event, runcontrol.Snapshot, error) {
+306:	deadline := time.Now().Add(5 * time.Second)
+309:		if err == nil || !retryableRunControlError(err) || !time.Now().Before(deadline) {
+312:		if err := waitRunControlRetry(ctx, deadline); err != nil {
+318:func proposeRunTerminalWithRetry(ctx context.Context, repository runcontrol.Repository, fence runcontrol.Fence, proposal runcontrol.TerminalProposal) (runcontrol.Snapshot, bool, error) {
+334:func waitRunControlRetry(ctx context.Context, deadline time.Time) error {
+335:	wait := time.Until(deadline)
+340:		return context.DeadlineExceeded
+388:	case "message", "text", "output", "assistant_text", "reasoning_text", "reasoning", "content", "delta":
+393:		case "message", "reasoning", "assistant", "assistant_text", "reasoning_text":
+410:	// that the run timeline JS expects (payload.tool, payload.action, payload.title, etc.).
+435:				promote := map[string]bool{"tool": true, "title": true, "detail": true, "text": true, "delta": true, "content": true, "message": true, "action": true, "state": true, "status": true, "native_type": true, "line": true}
+437:				if !promote[subNorm] {
+455:			// Also keep a compact stringified top-level for debugging if not promoted.
+479:	for _, want := range []string{"tool", "action", "title", "detail", "text", "delta"} {
+594:	// Stable hash of payload content for coalescing: include type/kind and any payload_* keys.
+625:func terminalOutcome(result runtimepkg.Result, runErr error, parent context.Context) (runcontrol.TerminalOutcome, string) {
+628:	case errors.Is(runErr, context.DeadlineExceeded), errors.Is(parent.Err(), context.DeadlineExceeded), result.Error != nil && result.Error.Category == "timeout":
+629:		return runcontrol.TerminalTimedOut, "runtime deadline exceeded"
+630:	case errors.Is(runErr, context.Canceled), errors.Is(parent.Err(), context.Canceled), status == "cancelled", result.Error != nil && result.Error.Category == "cancellation":
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [offset=380, limit=120][0m
+[0m
+[0m$ [0mgrep -n "firstNonEmptyPayload\|DetailText" internal/web/run_handlers.go | head; grep -rn "isSensitivePayloadKey" internal/app/*.go | head -3; grep -n "func isSensitivePayloadKey" -A 12 internal/app/run_control.go
+107:	DetailText string
+288:	text := firstNonEmptyPayload(event.Payload, "text", "delta", "detail", "message", "content", "title", "output")
+293:		Time: committedRunEventTime(event), DetailKind: event.Payload["kind"], DetailType: event.Payload["type"], DetailTool: event.Payload["tool"], DetailText: text, Omission: omission}
+296:func firstNonEmptyPayload(payload map[string]string, keys ...string) string {
+internal/app/run_control.go:412:		if isSensitivePayloadKey(key) {
+internal/app/run_control.go:424:				if isSensitivePayloadKey(subKey) {
+internal/app/run_control.go:501:func isSensitivePayloadKey(key string) bool {
+501:func isSensitivePayloadKey(key string) bool {
+502-	lower := strings.ToLower(key)
+503-	for _, marker := range []string{"secret", "token", "password", "authorization", "cookie", "api_key", "apikey", "credential", "auth"} {
+504-		if strings.Contains(lower, marker) {
+505-			return true
+506-		}
+507-	}
+508-	return false
+509-}
+510-
+511-func findNestedString(payload map[string]any, want string) string {
+512-	for _, v := range payload {
+513-		if m, ok := v.(map[string]any); ok {
+[0m
+[0m✱ [0mGrep "title|delta|detail"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/js · 1 match[0m
+[0m
+[0m$ [0mgrep -n "payload\." internal/web/static/js/app.js | grep -oE "payload\.[a-z_]+" | sort -u; echo ---; grep -rn "\"title\"\|\"delta\"\|\"detail\"" --include="*_test.go" internal/ | head; echo ---; grep -rn "runtimeEventDraft\|eventDraft" --include="*_test.go" internal/ | head -5
+---
+internal/platform/runtime/runtime_test.go:300:				"detail": huge,
+internal/platform/runtime/runtime_test.go:322:		value, ok := payload["detail"].(string)
+internal/study/study_test.go:95:	if sources[2].Frontmatter["title"] != "Example" {
+internal/study/study_test.go:96:		t.Fatalf("frontmatter title = %#v", sources[2].Frontmatter["title"])
+---
+[0m
+[0m$ [0mgrep -oE "\.payload\.[a-z_]+|payload\[[\"'][a-z_]+" internal/web/static/js/app.js | sort | uniq -c | sort -rn; echo === TUI ===; grep -rn "Payload\[\"" internal/tui/*.go internal/app/run_commands.go 2>/dev/null | grep -v _test | head -15
+=== TUI ===
+[0m
+[0m$ [0mls internal/web/static/js/ internal/web/static/ 2>/dev/null; grep -rn "firstNonEmptyPayload\|DetailText" internal/web/*.go | grep -v _test | head
+internal/web/static/:
+app.css
+app.js
+css
+js
+resource-monitor.css
+resource-monitor.js
+
+internal/web/static/js/:
+app.js
+operations.js
+sse.js
+internal/web/run_handlers.go:107:	DetailText string
+internal/web/run_handlers.go:288:	text := firstNonEmptyPayload(event.Payload, "text", "delta", "detail", "message", "content", "title", "output")
+internal/web/run_handlers.go:293:		Time: committedRunEventTime(event), DetailKind: event.Payload["kind"], DetailType: event.Payload["type"], DetailTool: event.Payload["tool"], DetailText: text, Omission: omission}
+internal/web/run_handlers.go:296:func firstNonEmptyPayload(payload map[string]string, keys ...string) string {
+[0m
+[0m$ [0mgrep -oE "payload\.[a-z_]+" internal/web/static/app.js | sort | uniq -c; echo ===; grep -n "detailText\|detail_text\|\.text\b" internal/web/static/app.js | head -10
+8 payload.action
+      1 payload.completed
+      3 payload.data
+      7 payload.event_kind
+      3 payload.kind
+      1 payload.message
+      1 payload.reason
+      1 payload.stage
+      1 payload.state
+      3 payload.task
+      2 payload.text
+      3 payload.tool
+      2 payload.total
+===
+[0m
+[0m$ [0mgit log --oneline --follow -- internal/runcontrol/sanitize.go | head -5; echo ===; grep -n "Payload\[" internal/platform/runtime/runtime.go | head -20; ls $(go env GOMODCACHE)/agentwrap* 2>/dev/null; grep -n "agentwrap" go.mod
+e09d394 Add durable run control and adaptive study execution
+===
+8:	github.com/Antonio7098/agentwrap v0.0.0-20260821190033-e79a38a58da3
+[0m
+[0m$ [0mgrep -rn "Payload" internal/platform/runtime/runtime.go | head -25; echo === MODCACHE ===; ls /home/antonioborgerees/go/pkg/mod/github.com/\!antonio7098/ 2>/dev/null || find / -maxdepth 6 -type d -name "agentwrap*" 2>/dev/null | head -3
+108:	Payload           map[string]any
+281:			events.captureTerminalOutput(event.Payload)
+568:	payload := cloneAnyMap(event.Payload)
+569:	promoteObservablePayloadFields(payload)
+577:		Payload:           payload,
+587:// promoteObservablePayloadFields lifts nested runtime facts (tool names, titles,
+592:func promoteObservablePayloadFields(payload map[string]any) {
+600:		if found := findNestedPayloadString(payload, key, 0); found != "" {
+606:func findNestedPayloadString(value any, want string, depth int) string {
+622:			if found := findNestedPayloadString(typed[k], want, depth+1); found != "" {
+628:			if found := findNestedPayloadString(item, want, depth+1); found != "" {
+=== MODCACHE ===
+agentwrap@v0.0.0-20260613122459-bc655a256a5f
+agentwrap@v0.0.0-20260629143324-a917627c22fb
+agentwrap@v0.0.0-20260629144550-2e8fbbe2c6cd
+agentwrap@v0.0.0-20260702175305-d1c785159a8d
+agentwrap@v0.0.0-20260710081656-59c61672c875
+agentwrap@v0.0.0-20260714161112-8ddfc132f7ca
+agentwrap@v0.0.0-20260815144406-3abac668be17
+agentwrap@v0.0.0-20260815154925-6aa129f822f3
+agentwrap@v0.0.0-20260815160303-e00b8e694497
+agentwrap@v0.0.0-20260816114448-0159fa923f42
+agentwrap@v0.0.0-20260816144152-043ad0dd8dd6
+agentwrap@v0.0.0-20260821190033-e79a38a58da3
+agentwrap@v0.0.0-20260822125309-004e30d47ac0
+agentwrap@v0.0.0-20260823194117-7610226fc449
+agentwrap@v0.0.0-20260824101248-dd61bdd9e971
+agentwrap@v0.0.0-20260824130256-3d1e4cbb6e03
+ultraplan-go@v0.1.0
+ultraplan-go@v0.1.1-0.20260629184531-01894ff216f3
+ultraplan-go@v0.1.1-0.20260701184158-211333865d5b
+ultraplan-go@v0.1.1-0.20260702110315-c8fea83c8c10
+ultraplan-go@v0.1.1-0.20260702121236-ea12c676255e
+ultraplan-go@v0.1.1-0.20260702124413-633bd352c6a3
+ultraplan-go@v0.1.1-0.20260702131822-913058d2fd23
+ultraplan-go@v0.1.1-0.20260702132418-8c6e4d57eba5
+ultraplan-go@v0.1.1-0.20260702132622-666a6ce0e25f
+ultraplan-go@v0.1.1-0.20260702133818-b95a0762df10
+ultraplan-go@v0.1.1-0.20260703090528-adb6fbb6cd4e
+ultraplan-go@v0.1.1-0.20260709165039-7a94a111f4dd
+ultraplan-go@v0.1.1-0.20260710081813-b332838b6e37
+ultraplan-go@v0.1.1-0.20260714160811-922062d3f013
+ultraplan-go@v0.1.1-0.20260714161246-73f3472b6dc4
+ultraplan-go@v0.1.1-0.20260722174204-d1e8b4518320
+ultraplan-go@v0.1.1-0.20260722191151-f142a7386e2f
+ultraplan-go@v0.1.1-0.20260722195008-76711a71155e
+ultraplan-go@v0.1.1-0.20260723152402-f4d6d3848a89
+ultraplan-go@v0.1.1-0.20260728132742-f8446a658259
+ultraplan-go@v0.1.1-0.20260815144532-9200a07a4802
+ultraplan-go@v0.1.1-0.20260815145458-5f6058a5e866
+ultraplan-go@v0.1.1-0.20260815150731-4b227527877f
+ultraplan-go@v0.1.1-0.20260815160513-ce223e49acbf
+ultraplan-go@v0.1.1-0.20260816103014-9545e91fe2f1
+ultraplan-go@v0.1.1-0.20260816110227-6471dcc088e7
+ultraplan-go@v0.1.1-0.20260816110716-b1330371bab2
+ultraplan-go@v0.1.1-0.20260816111250-cdbdec214e5d
+ultraplan-go@v0.1.1-0.20260816112656-02ab48fb44d4
+ultraplan-go@v0.1.1-0.20260816114532-0ab766386f92
+ultraplan-go@v0.1.1-0.20260816120258-bc52401a0f98
+ultraplan-go@v0.1.1-0.20260816155255-a2216837ba63
+ultraplan-go@v0.1.1-0.20260817105705-f8b639e681bc
+ultraplan-go@v0.1.1-0.20260817110456-17f108e8dc98
+ultraplan-go@v0.1.1-0.20260817110841-305c03eac36c
+ultraplan-go@v0.1.1-0.20260817111604-4837d369a87b
+ultraplan-go@v0.1.1-0.20260817112004-8e2f91c27fd2
+ultraplan-go@v0.1.1-0.20260817112408-217046b81649
+ultraplan-go@v0.1.1-0.20260817181627-9b3c02bb399b
+ultraplan-go@v0.1.1-0.20260817182807-2fbce1af2e3f
+ultraplan-go@v0.1.1-0.20260817183201-291d81e2b50e
+[0m
+[0m$ [0mAW=/home/antonioborgerees/go/pkg/mod/github.com/\!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3; ls $AW; grep -rn "\"title\"\|\"text\"\|\"delta\"\|\"message\"" $AW --include="*.go" | grep -v _test | head -25
+CHANGELOG.md
+config.go
+config_test.go
+doc.go
+docs
+errors.go
+errors_test.go
+events.go
+go.mod
+health.go
+health_test.go
+ids.go
+internal
+lifecycle_events.go
+lifecycle_events_test.go
+lifecycle.go
+lifecycle_test.go
+metadata.go
+observability.go
+observability_test.go
+opencode
+permissions.go
+permissions_test.go
+policy.go
+policy_test.go
+README.md
+redact.go
+redact_test.go
+runtime.go
+validation.go
+validation_test.go
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/events.go:27:	EventMessage         EventKind = "message"
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/projector.go:178:	case "text", "reasoning":
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/projector.go:250:	for _, key := range []string{"message", "error"} {
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/projector.go:257:			return stringValue(dataObj["message"])
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/projector.go:259:		return stringValue(errObj["message"])
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/rate_limit.go:28:			message := stringValue(firstNonNil(nested["message"], data["message"]))
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/rate_limit.go:169:	message = stringValue(firstNonNil(payload["message"], payload["error"]))
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/rate_limit.go:174:			message = stringValue(firstNonNil(errObj["message"], errObj["type"], message))
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/rate_limit.go:180:			message = stringValue(firstNonNil(errObj["message"], errObj["type"], errObj["code"]))
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/rate_limit.go:267:		"message":   agentwrap.RedactString(message),
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/runtime.go:554:		for _, key := range []string{"structured_output", "output", "content", "text", "message", "part"} {
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/runtime.go:688:		if text := stringValue(fields["text"]); text != "" {
+[0m
+[0m$ [0mAW=/home/antonioborgerees/go/pkg/mod/github.com/\!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3; sed -n '540,575p;680,700p' $AW/opencode/runtime.go
+return boundTerminalOutput(next)
+	}
+	if next == current || strings.HasSuffix(current, next) {
+		return current
+	}
+	return boundTerminalOutput(current + next)
+}
+
+func terminalOutputValue(value any, depth int) string {
+	if depth > 5 {
+		return ""
+	}
+	switch typed := value.(type) {
+	case map[string]any:
+		for _, key := range []string{"structured_output", "output", "content", "text", "message", "part"} {
+			if nested, ok := typed[key]; ok {
+				if output := terminalOutputValue(nested, depth+1); output != "" {
+					return output
+				}
+			}
+		}
+	case []any:
+		for i := len(typed) - 1; i >= 0; i-- {
+			if output := terminalOutputValue(typed[i], depth+1); output != "" {
+				return output
+			}
+		}
+	case string:
+		return typed
+	}
+	return ""
+}
+
+type dbReconcileProof struct {
+	completed      bool
+	usage          agentwrap.Usage
+		return ""
+	}
+	var output string
+	for _, row := range rows {
+		fields, ok := row.(map[string]any)
+		if !ok {
+			continue
+		}
+		if text := stringValue(fields["text"]); text != "" {
+			output = appendTerminalOutput(output, text)
+		}
+	}
+	return output
+}
+
+type dbMetrics struct {
+	turns, input, output, total, reasoning, cacheRead, cacheWrite int64
+	cost                                                          float64
+	costKnown                                                     bool
+}
+[0m
+[0m$ [0mgrep -n "Payload\[" internal/platform/runtime/*.go | grep -v _test | head -30; echo ===; ls internal/platform/runtime/
+===
+agentwrap.go
+cache_test.go
+events.go
+health.go
+opencode.go
+opencode_test.go
+policy.go
+runtime.go
+runtime_test.go
+[0m
+[0m$ [0mgrep -n "Payload" internal/platform/runtime/events.go internal/platform/runtime/agentwrap.go internal/platform/runtime/opencode.go | head -30
+internal/platform/runtime/events.go:15:func rawSource(raw *agentwrap.RawPayload) string {
+internal/platform/runtime/events.go:22:func rawEncoding(raw *agentwrap.RawPayload) string {
+internal/platform/runtime/agentwrap.go:59:			out = append(out, agentwrap.CapabilityRawPayloads)
+internal/platform/runtime/agentwrap.go:122:	maxMappedPayloadFields       = 64
+internal/platform/runtime/agentwrap.go:123:	maxMappedPayloadStringBytes  = 8192
+internal/platform/runtime/agentwrap.go:125:	maxMappedPayloadSliceItems   = 16
+internal/platform/runtime/agentwrap.go:126:	maxMappedPayloadDepth        = 3
+internal/platform/runtime/agentwrap.go:134:	dst := make(map[string]any, min(len(src), maxMappedPayloadFields+1))
+internal/platform/runtime/agentwrap.go:137:		if count >= maxMappedPayloadFields {
+internal/platform/runtime/agentwrap.go:154:		return truncatePayloadString(v)
+internal/platform/runtime/agentwrap.go:161:		if depth >= maxMappedPayloadDepth {
+internal/platform/runtime/agentwrap.go:166:		if depth >= maxMappedPayloadDepth {
+internal/platform/runtime/agentwrap.go:169:		out := make(map[string]any, min(len(v), maxMappedPayloadFields+1))
+internal/platform/runtime/agentwrap.go:172:			if count >= maxMappedPayloadFields {
+internal/platform/runtime/agentwrap.go:176:			out[key] = truncatePayloadString(item)
+internal/platform/runtime/agentwrap.go:183:		out := make([]any, 0, min(len(v), maxMappedPayloadSliceItems+1))
+internal/platform/runtime/agentwrap.go:185:			if i >= maxMappedPayloadSliceItems {
+internal/platform/runtime/agentwrap.go:189:			out = append(out, truncatePayloadString(item))
+internal/platform/runtime/agentwrap.go:198:	if depth >= maxMappedPayloadDepth {
+internal/platform/runtime/agentwrap.go:201:	out := make([]any, 0, min(len(values), maxMappedPayloadSliceItems+1))
+internal/platform/runtime/agentwrap.go:203:		if i >= maxMappedPayloadSliceItems {
+internal/platform/runtime/agentwrap.go:212:func truncatePayloadString(value string) string {
+internal/platform/runtime/agentwrap.go:213:	return truncateString(value, maxMappedPayloadStringBytes)
+internal/platform/runtime/opencode.go:60:		Policy: agentwrap.PersistencePolicy{PersistUnsafeRawPayloads: false},
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/agentwrap.go[90m [limit=120][0m
+[0m
+[0m$ [0mAW="/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3"; grep -n "\"tool\"\|\"title\"\|\"action\"\|\"state\"\|\"status\"\|Payload\[" $AW/opencode/projector.go | head -30
+102:			event.Payload["rate_limit"] = classified.info
+130:	case "tool_calls", "tool-calls", "tool_call", "tool-call", "tool", "max_tokens", "max-tokens", "length", "content_filter", "content-filter":
+141:	if strings.EqualFold(stringValue(record.Data["status"]), "idle") {
+144:	if status, ok := record.Data["status"].(map[string]any); ok {
+148:		if strings.EqualFold(stringValue(properties["status"]), "idle") {
+151:		if status, ok := properties["status"].(map[string]any); ok {
+188:	if strings.Contains(nativeType, "question") || strings.Contains(nativeType, "status") && strings.Contains(nativeType, "waiting") {
+[0m
+[0m$ [0mAW="/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3"; sed -n '150,260p' $AW/opencode/projector.go
+}
+		if status, ok := properties["status"].(map[string]any); ok {
+			return strings.EqualFold(stringValue(status["type"]), "idle")
+		}
+	}
+	return false
+}
+
+func classifyFatalEventError(data map[string]any, ctx agentwrap.RuntimeContext) *agentwrap.SDKError {
+	message := messageFrom(data)
+	normalized := strings.ToLower(message)
+	switch {
+	case strings.Contains(normalized, "model not found") || strings.Contains(normalized, "unknown model"):
+		return agentwrap.NewError(agentwrap.ErrorModelUnavailable, "opencode event", "OpenCode model is unavailable", nil, agentwrap.WithDebugDetail(message), agentwrap.WithProviderModel(ctx.Provider, ctx.Model), agentwrap.WithRuntimeKind(ctx.RuntimeKind))
+	case strings.Contains(normalized, "unauthorized") || strings.Contains(normalized, "authentication") || strings.Contains(normalized, "invalid api key") || strings.Contains(normalized, "api key"):
+		return agentwrap.NewError(agentwrap.ErrorAuthentication, "opencode event", "OpenCode provider authentication failed", nil, agentwrap.WithDebugDetail(message), agentwrap.WithProviderModel(ctx.Provider, ctx.Model), agentwrap.WithRuntimeKind(ctx.RuntimeKind))
+	default:
+		return agentwrap.NewError(agentwrap.ErrorRuntimeExit, "opencode event", "OpenCode reported a fatal session error", nil, agentwrap.WithDebugDetail(message), agentwrap.WithProviderModel(ctx.Provider, ctx.Model), agentwrap.WithRuntimeKind(ctx.RuntimeKind))
+	}
+}
+
+func classify(record nativeRecord) (agentwrap.EventKind, string) {
+	nativeType := strings.TrimSpace(record.Type)
+	switch nativeType {
+	case "step_start":
+		return agentwrap.EventProgress, nativeType
+	case "step_finish":
+		return agentwrap.EventFinalResult, nativeType
+	case "text", "reasoning":
+		return agentwrap.EventMessage, nativeType
+	case "tool_use":
+		return agentwrap.EventTool, nativeType
+	case "error":
+		return agentwrap.EventFatalError, nativeType
+	}
+	if strings.Contains(nativeType, "permission") {
+		return agentwrap.EventPermission, nativeType
+	}
+	if strings.Contains(nativeType, "question") || strings.Contains(nativeType, "status") && strings.Contains(nativeType, "waiting") {
+		return agentwrap.EventBlocking, nativeType
+	}
+	if strings.Contains(nativeType, "usage") || strings.Contains(nativeType, "token") || strings.Contains(nativeType, "cost") {
+		return agentwrap.EventUsage, nativeType
+	}
+	if strings.Contains(nativeType, "artifact") || strings.Contains(nativeType, "file") {
+		return agentwrap.EventArtifact, nativeType
+	}
+	if strings.Contains(nativeType, "warn") {
+		return agentwrap.EventWarning, nativeType
+	}
+	if strings.Contains(nativeType, "session") {
+		return agentwrap.EventSession, nativeType
+	}
+	return agentwrap.EventNativeExtension, nativeType
+}
+
+func eventTime(value any, fallback time.Time) time.Time {
+	switch v := value.(type) {
+	case float64:
+		if v > 1e12 {
+			return time.UnixMilli(int64(v))
+		}
+		return time.Unix(int64(v), 0)
+	case string:
+		if parsed, err := time.Parse(time.RFC3339Nano, v); err == nil {
+			return parsed
+		}
+		if n, err := strconv.ParseInt(v, 10, 64); err == nil {
+			if n > 1e12 {
+				return time.UnixMilli(n)
+			}
+			return time.Unix(n, 0)
+		}
+	}
+	return fallback
+}
+
+func firstSessionID(values ...agentwrap.SessionID) agentwrap.SessionID {
+	for _, value := range values {
+		if value != "" {
+			return value
+		}
+	}
+	return ""
+}
+
+func stringValue(value any) string {
+	s, _ := value.(string)
+	return s
+}
+
+func propertiesStringValue(data map[string]any, key string) string {
+	properties, ok := data["properties"].(map[string]any)
+	if !ok {
+		return ""
+	}
+	return stringValue(properties[key])
+}
+
+func messageFrom(data map[string]any) string {
+	for _, key := range []string{"message", "error"} {
+		if value := stringValue(data[key]); value != "" {
+			return value
+		}
+	}
+	if errObj, ok := data["error"].(map[string]any); ok {
+		if dataObj, ok := errObj["data"].(map[string]any); ok {
+			return stringValue(dataObj["message"])
+		}
+		return stringValue(errObj["message"])
+	}
+[0m
+[0m$ [0mAW="/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3"; grep -n "Payload:" $AW/opencode/projector.go $AW/runtime.go | head; sed -n '1,100p' $AW/opencode/projector.go
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/projector.go:71:		Payload:   agentwrap.EventPayloadWithKind(category, payload),
+package opencode
+
+import (
+	"fmt"
+	"strconv"
+	"strings"
+	"time"
+
+	"github.com/Antonio7098/agentwrap"
+)
+
+type projectionInput struct {
+	runID  agentwrap.RunID
+	turnID agentwrap.TurnID
+	ctx    agentwrap.RuntimeContext
+	seq    int64
+	now    time.Time
+	record nativeRecord
+}
+
+type projectionResult struct {
+	event            agentwrap.Event
+	final            bool
+	idle             bool
+	usage            agentwrap.Usage
+	artifacts        []agentwrap.ArtifactRef
+	warnings         []string
+	fatal            *agentwrap.SDKError
+	rateLimit        *agentwrap.RateLimitInfo
+	finishReason     string
+	terminalEvidence string
+}
+
+func projectNative(in projectionInput) projectionResult {
+	record := in.record
+	category, typ := classify(record)
+	finishReason := finishReasonFrom(record.Data)
+	nativeType := strings.TrimSpace(record.Type)
+	idle := isSessionIdleStatus(record)
+	terminalEvidence := ""
+	if nativeType == "step_finish" {
+		if isTerminalFinish(finishReason) {
+			category = agentwrap.EventFinalResult
+			terminalEvidence = "step_finish"
+		} else {
+			category = agentwrap.EventProgress
+		}
+	} else if idle {
+		terminalEvidence = "session.status.idle"
+	}
+	payload := agentwrap.EventPayload{}
+	for k, v := range record.Data {
+		if k == "type" || k == "timestamp" {
+			continue
+		}
+		payload[k] = v
+	}
+	payload["native_type"] = record.Type
+	payload["line"] = record.Line
+	payload["turn_id"] = string(in.turnID)
+	payload["context"] = in.ctx
+	if finishReason != "" {
+		payload["finish_reason"] = finishReason
+	}
+	event := agentwrap.Event{
+		ID:        agentwrap.EventID(fmt.Sprintf("%s:%d", in.runID, in.seq)),
+		RunID:     in.runID,
+		SessionID: firstSessionID(agentwrap.SessionID(record.SessionID), agentwrap.SessionID(stringValue(record.Data["sessionID"])), agentwrap.SessionID(propertiesStringValue(record.Data, "sessionID"))),
+		Time:      eventTime(record.Timestamp, in.now),
+		Type:      typ,
+		Payload:   agentwrap.EventPayloadWithKind(category, payload),
+		Raw: &agentwrap.RawPayload{
+			Source:   "opencode.stdout",
+			Encoding: "json",
+			Data:     append([]byte(nil), record.Raw...),
+			Safe:     false,
+		},
+	}
+	if event.SessionID == "" {
+		event.SessionID = agentwrap.SessionID(stringValue(record.Data["session_id"]))
+	}
+	result := projectionResult{event: event, idle: idle, finishReason: finishReason, terminalEvidence: terminalEvidence}
+	if category == agentwrap.EventFinalResult {
+		result.final = true
+	}
+	if category == agentwrap.EventUsage {
+		result.usage = usageFrom(record.Data)
+	}
+	if category == agentwrap.EventArtifact {
+		result.artifacts = artifactsFrom(record.Data)
+	}
+	if category == agentwrap.EventWarning {
+		if msg := messageFrom(record.Data); msg != "" {
+			result.warnings = append(result.warnings, msg)
+		}
+	}
+	if category == agentwrap.EventFatalError {
+		result.final = true
+		if classified := classifyRateLimitData("opencode event", record.Data, in.ctx); classified != nil {
+			result.fatal = classified.err
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/storage_commands.go
+[0m
+[0m$ [0msed -n '655,670p;895,910p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/docs/plans/ultraplan-local-server-experiment-plan.md 2>/dev/null; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/docs/plans/ | head
+ls: cannot access '/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/docs/plans/': No such file or directory
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace -name "*server-experiment*" -o -name "plans" -type d 2>/dev/null | head; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m$ [0mgrep -rn "product" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/persistence-and-migrations.md | head -20; echo ===; grep -rln "Gate D\|gate-d\|product-SQLite\|product SQLite" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace --include="*.md" | head
+37:| PERSIST-FIXTURE-001 | Fixture, seed, and test data must not leak into production | fixtures/seeds/test data | High |
+48:7. Test/seed data must stay out of production unless intentionally deployed.
+83:- relying on automatic schema sync in production without review
+164:Seed, fixture, demo, generated-example, and test data must be clearly separated from production runtime data.
+168:- avoid production credentials or real PII in fixtures
+172:- running test fixtures automatically in production
+205:- runs seed/test data in production paths
+===
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md
+[0m
+[0m$ [0mgrep -n "Gate D" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md | head; grep -n -B2 -A6 "select one product-artifact authority\|one authoritative storage mode" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md | head -30
+1368:This is not the later product-persistence decision in Gate D. Sprint 35 may persist operational run records using the smallest mechanism proven by reasoning, but it must not move Markdown, flow outcomes, Git/source state, or smoke evidence into a new canonical store.
+1462:## Gate D — Persistence And SQLite
+1466-- Extract focused product-owned repository contracts one workflow at a time; do not create a universal storage or virtual-filesystem abstraction.
+1467-- Keep Git/source and agent execution workspaces filesystem-native.
+1468:- Select one authoritative storage mode at composition, use explicit migration/import/export, and prohibit silent dual writes.
+1469-- Compare filesystem and SQLite modes on real work before choosing server-canonical, dual first-class, or hybrid publication authority.
+1470-
+1471-## Gate E — Knowledge Graph, Cloud, And Aren
+1472-
+1473-- Consider a graph only after stable explicit relationships and a retrieval baseline prove multi-hop traceability value.
+1474-- Start with a deterministic in-memory read-only graph; preserve edge provenance, origin, status, revision, contradiction, and supersession.
+[0m
+[0m$ [0msed -n '1355,1375p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md
+- CLI- or TUI-started work can hold a valid workspace lock and runtime session while the browser top bar reports zero running processes.
+- a current run opened through another local server can lose its progress stream because event history and subscriptions belong to the starting server's memory.
+- a legitimate operation link can become `404 Operation not retained` after session expiry, server restart, server change, or bounded in-memory reaping even though the owning workflow remains active or recoverable.
+
+Phase 6 treats these as one control-plane problem. It separates:
+
+```text
+canonical product artifacts and outcomes  = owned by project/study/sprint modules
+durable operational run record            = workspace-visible identity, lifecycle, liveness, and safe event history
+browser/TUI/CLI presentation               = replaceable projections and controls over those records
+SSE connection                             = transient delivery, never run authority
+```
+
+This is not the later product-persistence decision in Gate D. Sprint 35 may persist operational run records using the smallest mechanism proven by reasoning, but it must not move Markdown, flow outcomes, Git/source state, or smoke evidence into a new canonical store.
+
+## Sprint 35: Durable Run Identity And Cross-Surface Observability
+
+**Goal:** Make every accepted runtime-backed execution discoverable, inspectable, replayable, cancellable when authorized, and conservatively recoverable from every supported local surface and server instance attached to the workspace.
+
+**Build:**
+[0m
+[0m$ [0msed -n '120,130p;2225,2245p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md
+- Keep the CLI as the stable automation contract even when a TUI is available.
+- Keep the filesystem and product-owned run state authoritative when the local server is running.
+- Run review before smoke by default so deterministic conformance failures block unnecessary live-runtime work.
+- Keep only `review.md` and `smoke.md` in the sprint root; link detailed smoke evidence from the external harness.
+- Compute review/smoke verdicts from validated evidence and explicit severity rules, not from runtime exit success or unstructured model prose alone.
+- Preserve exact requirements and code-context bytes in one shared prompt prefix before stage-specific instructions; downstream agents may still inspect additional live source.
+- Keep Markdown authoritative initially. Any later search record or knowledge graph is derived and rebuildable; any later SQLite authority is an explicit product-mode decision rather than a web-side shadow store.
+
+## 4.1 Application Surface Requirements
+
+The `internal/app` package is the composition boundary for local interfaces. It should provide:
+Every chosen mechanism must pass the same cross-process failure matrix: two CLI runs visible globally; a second supported server replaying and then following a current run; browser-session expiry; observer restart; abrupt owner death; stale lease and PID reuse; duplicate cancellation; completion/cancellation races; slow subscribers; cursor expiry; corrupt/torn records; disk-full or permission failure; bounded retention; and redaction. Tests must prove that operational records never override canonical product artifacts or stage verdicts.
+
+## 18D. Gated Post-Phase-6 Technical Direction
+
+The following sequence is directional and does not authorize implementation until a later sprint selects it explicitly:
+
+1. **Content identity/provenance pilot:** optional versioned YAML frontmatter with minimal `schema`, `id`, `type`, `title`, `status`, and `authority`; selective semantic block IDs; revision-aware evidence; warning-first validation; legacy files remain valid.
+2. **Read-only QA:** retain `review` compatibility while presenting it as Conformance Review; introduce a separate `VerificationPhase`; map changed behavior into deterministic bounded shards; allow read-only investigation and synthesis only.
+3. **Evidence QA and repair:** require isolated writable investigation workspaces before generated tests/probes; adjudicate evidence globally before issue promotion; permit production repair only from frozen evidence-backed issue packets; bound cycles and expose stalled/escalated outcomes.
+4. **Derived retrieval:** build deterministic semantic records and a measured lexical baseline first. Indexes are disposable, preserve exact authoritative text/provenance/status, and never override project/sprint context selection. Embeddings remain deferred until lexical evaluation proves a gap.
+5. **Product persistence/SQLite:** first classify authored artifacts, checkpoints, derived data, operational state, run evidence, and repository source. Sprint 35 operational run storage does not select a new authored-artifact authority. Extract focused package-owned repositories only for proven workflows; keep Git/source and execution workspaces filesystem-native; select one product-artifact authority at composition; prohibit generic virtual filesystems, silent dual writes, and premature sync.
+6. **Knowledge graph:** only after stable explicit relationships and retrieval baseline demonstrate multi-hop need, build a deterministic in-memory read-only projection. Keep edge provenance/origin, status, revision, contradiction, and supersession explicit. A persistent graph remains derived and rebuildable; a graph database is not assumed.
+7. **Authority/cloud/Aren:** compare filesystem, SQLite/server, and hybrid publication modes on real work before choosing. Cloud and typed Aren artifact tools reuse proven application contracts; source edits/builds/tests remain sandboxed filesystem/Git work.
+
+Every branch must stop when its evidence gate fails. In particular: no repair without adjudicated evidence and isolation; no retrieval before content dogfood; no SQLite merely for architectural cleanliness; no graph persistence before useful bounded traversal; no cloud authority before local authority and recovery semantics are proven.
+
+## 19. Logging and Diagnostics
+
+UltraPlan logging and diagnostics must consume agentwrap observability records rather than directly inspecting native runtime process streams.
+
+### 19.1 Logger Requirements
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/migration-product-state.md
+[0m
+[0m$ [0mgrep -rln "storage migrate\|product.state.*SQLite\|SQLite.*product\|run-control.db" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace --include="*.md" | head; echo ===; grep -rn "flow-state.json\|run-state.json" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md | head -8
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/32-hardening-and-release/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/32-hardening-and-release/sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/requirements.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/reports/final/01.05-pause-resume-interrupt-semantics.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/reports/final/02.05-persistence-durability-tiers.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/reports/final/02.06-schema-versioning-and-migration.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/reports/source/02.05-persistence-durability-tiers/langgraph.md
+===
+1316:studies/<study>/.ultraplan/run-state.json
+1671:- `flow-state.json`
+1798:flow-state.json
+1799:.run-state.json
+1815:`flow-state.json` must be versioned and stored in the sprint root.
+1850:`.run-state.json` must be versioned and stored in the sprint root when execute begins.
+1938:- records failed tasks with actionable diagnostics or pointers to `.run-state.json`
+1991:- `flow-state.json` is updated atomically
+[0m
+[0m$ [0mgrep -n -B3 -A10 "run-control.db\|storage migrate" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md | head -60
+(no output)
+[0m
+[0m$ [0mgrep -n "run-control.db\|storage migrate\|SQLite" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md | head -20; echo === ARCH ===; grep -n "run-control.db\|storage migrate\|productstate\|SQLite" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md | head -20
+57:- Introducing content identity, expanded QA/repair, retrieval, SQLite product persistence, knowledge-graph persistence, cloud, or Aren capabilities before their explicit roadmap evidence gates.
+126:- Keep Markdown authoritative initially. Any later search record or knowledge graph is derived and rebuildable; any later SQLite authority is an explicit product-mode decision rather than a web-side shadow store.
+2214:- filesystem snapshot/journal, SQLite, agentwrap store composition, or another smallest sufficient durable mechanism
+2235:5. **Product persistence/SQLite:** first classify authored artifacts, checkpoints, derived data, operational state, run evidence, and repository source. Sprint 35 operational run storage does not select a new authored-artifact authority. Extract focused package-owned repositories only for proven workflows; keep Git/source and execution workspaces filesystem-native; select one product-artifact authority at composition; prohibit generic virtual filesystems, silent dual writes, and premature sync.
+2237:7. **Authority/cloud/Aren:** compare filesystem, SQLite/server, and hybrid publication modes on real work before choosing. Cloud and typed Aren artifact tools reuse proven application contracts; source edits/builds/tests remain sandboxed filesystem/Git work.
+2239:Every branch must stop when its evidence gate fails. In particular: no repair without adjudicated evidence and isolation; no retrieval before content dogfood; no SQLite merely for architectural cleanliness; no graph persistence before useful bounded traversal; no cloud authority before local authority and recovery semantics are proven.
+2664:- Which durable mechanism best satisfies acceptance atomicity, ordered append, concurrent observation, recovery, and bounded retention: filesystem journal/snapshots, SQLite, agentwrap store composition, or another local design?
+=== ARCH ===
+369:The final design must reason explicitly about a dedicated product module versus package-owned repositories coordinated through `app`; filesystem journal versus SQLite or another local store; one coordinator versus fenced multi-process writers; worker cancellation versus adoption after owner loss; and same-host versus shared-filesystem multi-host guarantees. Whichever choices are selected must satisfy the same public lifecycle, replay, security, migration, and fault-injection contracts.
+670:-> proven product persistence boundary and optional SQLite
+716:Filesystem and any later SQLite adapters must pass shared contract suites. Persistence selection occurs once at composition, one authority is active at a time, and migration/import/export is explicit. Source repositories, Git operations, code search, builds/tests, and agent execution workspaces remain real filesystems. No silent dual writes or synchronization precede an explicit authority decision.
+724:Each boundary is earned by the next demonstrated use case. Stop when metadata becomes unreliable bureaucracy, QA isolation/evidence is uncertain, repair does not converge, lexical search answers the real corpus, SQLite lacks concrete product value, or graph traversal does not outperform direct evidence inspection.
+[0m
+[0m$ [0msed -n '45,62p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md; echo === S32 ===; grep -n -B3 -A8 "run-control.db\|product" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/32-hardening-and-release/reasoning.md | head -50
+- Replacing source control, issue trackers, or project management systems.
+- Owning AI provider billing.
+- Guaranteeing semantic correctness of generated prose beyond validation rules.
+- Reimplementing agentwrap SDK features that already exist as runtime-neutral primitives.
+- Providing a general-purpose issue tracker, remote issue synchronization, or project-management workflow.
+- Automatically fixing product code or tests during review or smoke.
+- Mutating Git state during planning, execute, review, or smoke.
+- Owning detailed smoke run/issue persistence that belongs to the external harness.
+- Replacing the CLI or JSON surfaces with a TUI-only workflow.
+- Replacing workspace artifacts with browser-owned or server-only durable state.
+- Treating operational run persistence as authority for governed Markdown, stage outcomes, Git/source state, or external smoke evidence.
+- Treating a code-context pack as a repository index, exclusive source boundary, cache database, or second machine-readable manifest.
+- Introducing content identity, expanded QA/repair, retrieval, SQLite product persistence, knowledge-graph persistence, cloud, or Aren capabilities before their explicit roadmap evidence gates.
+
+## 3. Architecture Overview
+
+UltraPlan Go should be module-driven, not global-layer-driven. Product behavior should live with the module that owns the relevant state and workflow. Shared platform packages should be limited to genuinely cross-cutting infrastructure such as configuration, logging, filesystem helpers, and runtime execution.
+
+=== S32 ===
+21-| --- | --- | --- |
+22-| Project Index | `projects/ultraplan-go/project-index.md` | Established the Phase 4 boundary, selected contract/evidence catalog, implementation repository, and required review protocols. |
+23-| Sprint Requirements | `projects/ultraplan-go/sprints/32-hardening-and-release/requirements.md` | Supplied the binding outputs, 24 acceptance criteria, 14 implementation constraints, non-goals, dependencies, and release checks. |
+24:| Project Architecture | `projects/ultraplan-go/docs/ARCHITECTURE.md` | Fixed module ownership, `internal/web -> internal/app`, product-owned durable truth, server-owned operation lifecycle, and presentation hierarchy. |
+25:| PRD | `projects/ultraplan-go/docs/PRD.md` | Fixed Phase 4 product behavior, one-core/multiple-surface parity, guarded browser operations, recovery truth, and release definition. |
+26-| TRD | `projects/ultraplan-go/docs/TRD.md` | Fixed HTTP/SSE routes and separation, security and shutdown requirements, embedded assets, test layers, and configuration/runtime constraints. |
+27-| Sprint Index | `projects/ultraplan-go/sprints/32-hardening-and-release/sprint-index.md` | Limited reasoning to the 13 selected contracts, 13 evidence reports, three area templates, and three review protocols; its excluded context remains excluded. |
+28-| Technical Handbook | `projects/ultraplan-go/sprints/32-hardening-and-release/technical-handbook.md` | Supplied studied patterns for thin adapters, explicit composition, typed errors, bounded concurrency, cleanup contexts, capability extensibility, security, observability, and layered tests. |
+29-| Prior Decision | None cataloged | No project-index prior decision exists. Sprint 30, Sprint 31, and Sprint 28 are dependencies through requirements, not selectable prior-decision artifacts. |
+30-
+31-## Area-Specific Reasoning Inputs
+32-
+33-| Area | Reasoning Document | Key Conclusion | Evidence Basis | Impact On Final Decision |
+34-| --- | --- | --- | --- | --- |
+35-| API Design | `reasoning/api-design.md` | Harden the documented `/api/v1` contract without redesign; use typed mappings, retry-safe confirmation consumption, idempotent cancellation, bounded replay with explicit gaps, and durable refresh. | Handbook reports on thin delegates, typed errors, context/concurrency, compatibility tests, capabilities, security, and bounded streaming. | Fixes Decision 2's wire contract and Decision 4's operation/SSE protocol. |
+36:| Architecture | `reasoning/architecture.md` | Perform a small boundary refactor first; keep web as transport/presentation, expose narrow app capabilities, retain product-owned durable state, and centralize bounded operation shutdown. | Project architecture plus all selected reports, especially Helm/Restic boundaries, gh-cli composition, Restic cleanup, and Rclone capabilities. | Fixes Decisions 1, 4, and 5; route-specific workflow logic and web-owned durability are prohibited. |
+37-| Frontend | `reasoning/frontend.md` | Refactor server-first presentation into namespaced downward layers, complete no-JavaScript pages, disposable enhancement state, and explicit accessibility/recovery behavior. | Handbook evidence on safe error projection, injected boundaries, context ownership, bounded concurrency, test layering, redaction, and streaming. | Fixes Decision 6's template, CSS, JavaScript, accessibility, cache, and packaging direction. |
+38-
+39-No area conclusion is overridden. The final decisions combine them and resolve shared concerns once.
+40-
+41-## Sprint Technical Handbook Summary
+42-
+43-- **Relevant Patterns:** Thin transport adapters over actions; explicit manual composition and narrow injectable seams; typed error classification separated from rendering; one work-cancellation lineage plus a distinct bounded cleanup context; bounded structured concurrency and exact-once teardown; bounded event retention with explicit slow-consumer behavior; merged configuration validated before serving; type-level and projection-level redaction; layered compatibility, behavior, fake, integration, and gated tests; fixed capability discovery instead of route branching.
+44-- **Important Trade-Offs:** Narrow interfaces can become fragmented or broad god objects; bounded replay creates gaps; cleanup independent of the work context needs a hard deadline; golden fixtures require semantic review; richer diagnostics increase leakage risk; server-rendered/no-JavaScript behavior accepts more full-page refreshes.
+45-- **Warnings / Anti-Patterns:** No route/template workflow ownership, service-locator contexts, package globals, detached work contexts, fire-and-forget goroutines, direct output bypasses, string-parsed errors, silent config fallback, duplicate registries, default-allow trust, unbounded waits/retention, speculative pooling, or tests tied only to implementation details.
+46:- **Evidence Confidence:** High. Every selected report is rated high-confidence by the handbook and cites concrete mature Go repositories. The evidence strongly supports structural and operational patterns, while project requirements remain authoritative for exact product semantics and limits.
+47-
+48-## Contracts Applied
+49-
+50-| Contract / Requirement ID | Constraint | Decision Impact | Expected Evidence |
+51-| --- | --- | --- | --- |
+52:| Architecture; `AC-08`-`AC-11`; `C-01` | Web depends only on app/stdlib; workflow and templates do not own product rules. | Narrow app capability vocabulary, thin handlers, typed view models, downward template composition. | Import-boundary check, fake-stage capability test, template parse/render tests, Architecture Review. |
+53-| CLI Surface; `AC-01`, `AC-02`, `AC-06`, `AC-22` | `ultraplan serve` remains stable, loopback-only, single-binary, and consistent with CLI/TUI. | Preserve command semantics and document flags/lifecycle rather than redesigning the CLI. | Build/help/config documentation checks and cross-surface fixtures. |
+54-| Configuration; `AC-02`, `AC-16`; `C-04`, `C-10` | Precedence and every security/resource bound must be explicit and coherent. | Validate immutable merged configuration before listening; invalid combinations fail closed. | Table-driven precedence, invalid-config, startup, and documented-default tests. |
+55-| Errors; `AC-03`, `AC-04`, `AC-15` | Stable machine codes and safe projections must agree across JSON, HTML, and SSE. | Typed `errors.Is`/`errors.As` mapping and frozen envelopes/statuses; no string parsing or raw causes. | Route matrix/golden fixtures, semantic status tests, hostile-error/redaction fixtures. |
+56-| Security; `AC-02`, `AC-14`, `AC-15`; `C-03`, `C-05` | Fail-closed loopback/same-origin/browser/path/redaction boundary. | Numeric loopback, Host/Origin/CSRF/session/CSP/body/path protections and layered allowlisting/redaction. | Security regression matrix, IPv4/IPv6 checks, hostile Markdown/path/secret tests, manual audit. |
+57-| Workflows; `AC-07`, `AC-08`, `AC-17`-`AC-20`; `C-06`-`C-09` | Commands, progress, cancellation, terminal arbitration, and recovery remain shared and truthful. | Product-owned mutation/recovery, server-owned operation cancellation, disconnect-is-subscription semantics. | Representative study/sprint journeys, exact-once race tests, restart reconciliation fixtures. |
+58-| Persistence And Migrations; `AC-06`, `AC-18`, `AC-19`; `C-02`, `C-08` | Durable workspace/run state is authoritative and atomic; web state is ephemeral. | No web database/queue; persist durable terminal or owner-specific uncertainty before shutdown closes. | Atomic-state and abrupt-restart tests; evidence that artifact/process presence never implies success. |
+59-| Observability; `AC-06`, `AC-15`, `AC-18`, `AC-23` | Diagnostics must explain status, gaps, cancellation, cleanup, and blocked evidence safely. | Structured allowlisted correlation/lifecycle fields; blocked is not pass. | Captured logs/events with required fields and forbidden-value scans. |
+60-| Performance; `AC-05`, `AC-16`, `AC-17`, `AC-20`; `C-04` | All request, operation, event, subscriber, stream, polling, and cleanup paths are bounded. | Fixed configurable positive limits; slow consumers are isolated; no speculative pooling. | Limit/overflow/slow-client/lifetime tests, race suite, leak checks. |
+--
+68-
+69-| Source / Repo / Report | Concrete Reference | Relevant Finding | Why It Matters For This Sprint | Used In Decision(s) |
+70-| --- | --- | --- | --- | --- |
+71:| Project structure report; Helm and Restic | `01-project-structure.md`; `helm/pkg/action/install.go:73-140`; `restic/internal/restic/repository.go:18` | Thin entrypoints and inward-defined domain boundaries maintain unidirectional dependencies. | Grounds web-to-app direction and product ownership. | 1 |
+72-| Command architecture report; Helm and gh-cli | `02-command-architecture.md`; `helm/pkg/cmd/install.go:132-145`; `gh-cli/pkg/cmdutil/factory.go:16-43` | Transport delegates to reusable actions/factories. | Supports thin handlers and one shared capability model. | 1, 2 |
+73-| Dependency injection report; gh-cli and Restic | `03-dependency-injection.md`; `gh-cli/pkg/cmd/factory/default.go:26-46`; `restic/internal/backend/backend.go:19-90` | Explicit composition and narrow seams improve testability; globals obscure ownership. | Grounds executable-edge construction and deterministic fakes. | 1, 7 |
+74-| Configuration report; Chezmoi and K9s | `04-configuration-management.md`; `chezmoi/internal/cmd/config.go:2253-2287`; `k9s/internal/config/k9s.go:423-451` | Preserve explicit precedence and validate the merged result centrally. | Makes bind and all resource/security limits startup invariants. | 3 |
+75-| Error handling report; Helm, Restic, gh-cli | `05-error-handling.md`; `helm/pkg/storage/driver/driver.go:27-48`; `restic/internal/errors/fatal.go:10-53`; `gh-cli/internal/ghcmd/cmd.go:281-301` | Machine classification and safe outer rendering are separate concerns. | Grounds stable API codes and safe HTML/JSON/SSE mapping. | 2, 6 |
+76-| I/O abstraction report; gh-cli, Restic, Chezmoi | `06-io-abstraction.md`; `gh-cli/pkg/iostreams/iostreams.go:551-568`; `restic/internal/fs/interface.go:10-31`; `chezmoi/internal/cmd/applycmd_test.go:220-241` | Injectable boundaries enable deterministic transport tests. | Grounds fakes, `httptest`, and no direct output/filesystem bypasses. | 1, 7 |
+[0m

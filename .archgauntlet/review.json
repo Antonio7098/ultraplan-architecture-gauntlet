@@ -1,7 +1,7 @@
 {
   "version": 1,
   "created_at": "2026-08-22T11:46:58.055387891Z",
-  "updated_at": "2026-08-24T18:55:49.770179216Z",
+  "updated_at": "2026-08-24T19:20:00.921781918Z",
   "target_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go",
   "target_commit": "eeaa034cb1e520ea10e806870f6026cf1bb6c4f7",
   "workspace_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace",
@@ -952,8 +952,10 @@
       "role": "arch-challenger",
       "focus": "Challenge candidate findings concerning study, project, sprint, artifacts, prompt/context ownership, and module boundaries. Try to make weak findings disappear.",
       "broad": true,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-24T18:55:54.129757603Z",
+      "completed_at": "2026-08-24T19:20:00.917540246Z"
     },
     {
       "id": "challenge-02",
@@ -962,8 +964,10 @@
       "role": "arch-challenger",
       "focus": "Challenge findings concerning runcontrol, runtime, process, concurrency, ownership leases, cancellation, terminal arbitration, and failure semantics.",
       "broad": true,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-24T18:55:54.131812893Z",
+      "completed_at": "2026-08-24T19:17:15.276712751Z"
     },
     {
       "id": "challenge-03",
@@ -972,8 +976,9 @@
       "role": "arch-challenger",
       "focus": "Challenge findings concerning filesystem, SQLite/productstate, migrations, durable/derived/ephemeral truth, consistency, and recovery.",
       "broad": true,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 1,
+      "started_at": "2026-08-24T19:17:15.281605483Z"
     },
     {
       "id": "challenge-04",
@@ -982,8 +987,9 @@
       "role": "arch-challenger",
       "focus": "Challenge findings concerning app composition, CLI/TUI/web, HTTP/SSE, presentation state, and cross-surface parity.",
       "broad": true,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 1,
+      "started_at": "2026-08-24T19:20:00.921778565Z"
     },
     {
       "id": "challenge-05",

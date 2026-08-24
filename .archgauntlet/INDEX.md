@@ -97,10 +97,10 @@ Target: `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go`
 
 ## Challenge
 
-- `challenge-01` — **pending** — Product/domain tribunal — [result](runs/challenge-01/stdout.md)
-- `challenge-02` — **pending** — Execution tribunal — [result](runs/challenge-02/stdout.md)
-- `challenge-03` — **pending** — State tribunal — [result](runs/challenge-03/stdout.md)
-- `challenge-04` — **pending** — Interface tribunal — [result](runs/challenge-04/stdout.md)
+- `challenge-01` — **succeeded** — Product/domain tribunal — [result](runs/challenge-01/stdout.md)
+- `challenge-02` — **succeeded** — Execution tribunal — [result](runs/challenge-02/stdout.md)
+- `challenge-03` — **failed** — State tribunal — [result](runs/challenge-03/stdout.md)
+- `challenge-04` — **failed** — Interface tribunal — [result](runs/challenge-04/stdout.md)
 - `challenge-05` — **pending** — Quality tribunal — [result](runs/challenge-05/stdout.md)
 - `challenge-06` — **pending** — Evolution tribunal — [result](runs/challenge-06/stdout.md)
 
