@@ -1,7 +1,7 @@
 {
   "version": 1,
   "created_at": "2026-08-22T11:46:58.055387891Z",
-  "updated_at": "2026-08-24T15:15:14.20677066Z",
+  "updated_at": "2026-08-24T17:54:15.527295804Z",
   "target_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go",
   "target_commit": "eeaa034cb1e520ea10e806870f6026cf1bb6c4f7",
   "workspace_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace",
@@ -712,8 +712,10 @@
       "role": "arch-inspector",
       "focus": "Trace a process crash between request acceptance, durable run creation, owner acquisition, and work start.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-24T15:15:17.996481746Z",
+      "completed_at": "2026-08-24T15:17:34.55452257Z"
     },
     {
       "id": "failure-02",
@@ -722,8 +724,10 @@
       "role": "arch-inspector",
       "focus": "Trace owner/process loss after external work starts but before product state reaches a terminal result.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-24T15:15:17.997874385Z",
+      "completed_at": "2026-08-24T15:31:08.181557253Z"
     },
     {
       "id": "failure-03",
@@ -732,8 +736,10 @@
       "role": "arch-inspector",
       "focus": "Trace a stale owner attempting heartbeat/event/terminal writes after a new fenced attempt owns the run.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-24T15:17:34.556277546Z",
+      "completed_at": "2026-08-24T15:29:31.934556721Z"
     },
     {
       "id": "failure-04",
@@ -742,8 +748,10 @@
       "role": "arch-inspector",
       "focus": "Trace two surfaces attempting overlapping mutation against the same project/sprint/study scope.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-24T15:29:31.936217621Z",
+      "completed_at": "2026-08-24T15:44:46.215332637Z"
     },
     {
       "id": "failure-05",
@@ -752,8 +760,10 @@
       "role": "arch-inspector",
       "focus": "Trace SSE/browser disconnect during a long operation; determine whether work continues and how observation resumes.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-24T15:31:08.182705307Z",
+      "completed_at": "2026-08-24T15:45:54.995835474Z"
     },
     {
       "id": "failure-06",
@@ -762,8 +772,10 @@
       "role": "arch-inspector",
       "focus": "Trace graceful shutdown with active workers, slow subscribers, cleanup, cancellation, persisted truth, and uncertain outcomes.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 2,
+      "started_at": "2026-08-24T16:44:38.865495595Z",
+      "completed_at": "2026-08-24T17:04:31.285119462Z"
     },
     {
       "id": "failure-07",
@@ -772,8 +784,10 @@
       "role": "arch-inspector",
       "focus": "Trace cancellation racing runtime/process completion and product-stage terminalization.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 2,
+      "started_at": "2026-08-24T16:44:38.867499692Z",
+      "completed_at": "2026-08-24T17:02:58.328335447Z"
     },
     {
       "id": "failure-08",
@@ -782,8 +796,10 @@
       "role": "arch-inspector",
       "focus": "Trace a slow or disconnected SSE client and prove whether it can block or corrupt product/runtime progress.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 2,
+      "started_at": "2026-08-24T17:02:58.333512997Z",
+      "completed_at": "2026-08-24T17:17:29.768858548Z"
     },
     {
       "id": "failure-09",
@@ -792,8 +808,10 @@
       "role": "arch-inspector",
       "focus": "Trace SQLite/filesystem failure mid-transition: partial writes, transaction rollback, artifact mismatch, and recovery.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 2,
+      "started_at": "2026-08-24T17:04:31.28715904Z",
+      "completed_at": "2026-08-24T17:19:24.393137447Z"
     },
     {
       "id": "failure-10",
@@ -802,8 +820,10 @@
       "role": "arch-inspector",
       "focus": "Trace startup with previous product/run-state formats and interrupted migration/reconciliation.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 2,
+      "started_at": "2026-08-24T17:17:29.77881833Z",
+      "completed_at": "2026-08-24T17:31:05.270037462Z"
     },
     {
       "id": "failure-11",
@@ -812,8 +832,10 @@
       "role": "arch-inspector",
       "focus": "Trace harness timeout/process-tree cleanup with partial evidence and review/smoke state updates.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-24T17:37:48.778887296Z",
+      "completed_at": "2026-08-24T17:54:15.527291543Z"
     },
     {
       "id": "failure-12",
@@ -822,8 +844,10 @@
       "role": "arch-inspector",
       "focus": "Trace malformed/stale product or run state and determine which source wins, what is quarantined, and what recovery is safe.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 2,
+      "started_at": "2026-08-24T17:21:44.599156797Z",
+      "completed_at": "2026-08-24T17:37:17.32958965Z"
     },
     {
       "id": "change-01",

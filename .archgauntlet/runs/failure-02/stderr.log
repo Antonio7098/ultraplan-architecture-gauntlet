@@ -1,0 +1,905 @@
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/fault-scenarios.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+[0m
+[0m$ [0mfind internal cmd -type f -name '*.go' | sort && echo '---' && ls docs
+cmd/ultraplan/main.go
+internal/app/app.go
+internal/app/app_test.go
+internal/app/code_commands.go
+internal/app/code_commands_test.go
+internal/app/config_commands.go
+internal/app/defaults_commands.go
+internal/app/durable_operations.go
+internal/app/durable_operations_test.go
+internal/app/health_commands.go
+internal/app/health_commands_test.go
+internal/app/json_output.go
+internal/app/markdown.go
+internal/app/markdown_test.go
+internal/app/operation_runner.go
+internal/app/operations.go
+internal/app/project_commands.go
+internal/app/project_commands_test.go
+internal/app/project_usecases.go
+internal/app/run_commands.go
+internal/app/run_commands_test.go
+internal/app/run_control.go
+internal/app/run_control_inventory_test.go
+internal/app/run_control_test.go
+internal/app/run_usecases.go
+internal/app/serve_commands.go
+internal/app/serve_commands_test.go
+internal/app/skills_commands.go
+internal/app/skills_commands_test.go
+internal/app/sprint_commands.go
+internal/app/sprint_commands_test.go
+internal/app/sprint_error_test.go
+internal/app/sprint_usecases.go
+internal/app/sprint_usecases_test.go
+internal/app/sprint_verify_commands_test.go
+internal/app/status_json.go
+internal/app/storage_commands.go
+internal/app/study_commands.go
+internal/app/study_commands_test.go
+internal/app/study_init_commands_test.go
+internal/app/study_prompt_commands_test.go
+internal/app/study_run_all_commands_test.go
+internal/app/study_run_commands_test.go
+internal/app/study_run_loop_commands_test.go
+internal/app/study_runs_commands.go
+internal/app/study_runs_commands_test.go
+internal/app/study_status_commands_test.go
+internal/app/study_summary_commands_test.go
+internal/app/study_usecases.go
+internal/app/study_validate_commands_test.go
+internal/app/surfaces.go
+internal/app/tui_commands.go
+internal/app/tui_commands_test.go
+internal/app/usecases.go
+internal/app/usecases_test.go
+internal/app/version.go
+internal/app/web_operations_test.go
+internal/app/web_usecases.go
+internal/app/web_usecases_test.go
+internal/app/workspace_commands.go
+internal/codeextract/codeextract_test.go
+internal/codeextract/doc.go
+internal/codeextract/domain.go
+internal/codeextract/parser.go
+internal/codeextract/resolver.go
+internal/codeextract/service.go
+internal/platform/config/config.go
+internal/platform/config/config_test.go
+internal/platform/config/doc.go
+internal/platform/config/redaction.go
+internal/platform/filesystem/doc.go
+internal/platform/logging/doc.go
+internal/platform/logging/logging.go
+internal/platform/logging/logging_test.go
+internal/platform/process/process.go
+internal/platform/process/process_other.go
+internal/platform/process/process_test.go
+internal/platform/process/process_unix.go
+internal/platform/runtime/agentwrap.go
+internal/platform/runtime/cache_test.go
+internal/platform/runtime/events.go
+internal/platform/runtime/health.go
+internal/platform/runtime/opencode.go
+internal/platform/runtime/opencode_test.go
+internal/platform/runtime/policy.go
+internal/platform/runtime/runtime.go
+internal/platform/runtime/runtime_test.go
+internal/productstate/store.go
+internal/project/discovery.go
+internal/project/doc.go
+internal/project/domain.go
+internal/project/index.go
+internal/project/project_test.go
+internal/project/reasoning_defaults.go
+internal/project/reasoning_defaults_test.go
+internal/project/service.go
+internal/project/store_fs.go
+internal/project/validation.go
+internal/runcontrol/benchmark_test.go
+internal/runcontrol/doc.go
+internal/runcontrol/errors.go
+internal/runcontrol/fault_test.go
+internal/runcontrol/id.go
+internal/runcontrol/id_test.go
+internal/runcontrol/import_boundary_test.go
+internal/runcontrol/interfaces.go
+internal/runcontrol/lifecycle.go
+internal/runcontrol/lifecycle_test.go
+internal/runcontrol/local_log.go
+internal/runcontrol/local_log_test.go
+internal/runcontrol/metrics.go
+internal/runcontrol/migration.go
+internal/runcontrol/migration_test.go
+internal/runcontrol/model.go
+internal/runcontrol/model_test.go
+internal/runcontrol/process_darwin.go
+internal/runcontrol/process.go
+internal/runcontrol/process_integration_test.go
+internal/runcontrol/process_linux.go
+internal/runcontrol/process_other.go
+internal/runcontrol/retention.go
+internal/runcontrol/retention_test.go
+internal/runcontrol/sanitize.go
+internal/runcontrol/sanitize_test.go
+internal/runcontrol/sqlite.go
+internal/runcontrol/sqlite_test.go
+internal/sprint/artifacts.go
+internal/sprint/cleanup_uncertain.go
+internal/sprint/cleanup_uncertain_test.go
+internal/sprint/code_context.go
+internal/sprint/code_context_test.go
+internal/sprint/context_pack.go
+internal/sprint/direct_inputs.go
+internal/sprint/direct_inputs_test.go
+internal/sprint/discovery.go
+internal/sprint/doc.go
+internal/sprint/domain.go
+internal/sprint/efficiency_improvements_test.go
+internal/sprint/efficiency_metrics_test.go
+internal/sprint/execute.go
+internal/sprint/execute_model.go
+internal/sprint/execute_model_test.go
+internal/sprint/execute_plan.go
+internal/sprint/execute_plan_test.go
+internal/sprint/execute_state.go
+internal/sprint/execute_state_test.go
+internal/sprint/execute_target.go
+internal/sprint/execute_target_test.go
+internal/sprint/flow.go
+internal/sprint/freshness_policy.go
+internal/sprint/handbook.go
+internal/sprint/handbook_test.go
+internal/sprint/index.go
+internal/sprint/input_contract.go
+internal/sprint/locks.go
+internal/sprint/locks_test.go
+internal/sprint/plan.go
+internal/sprint/plan_test.go
+internal/sprint/prompt_bundle.go
+internal/sprint/prompt_context.go
+internal/sprint/prompt_context_test.go
+internal/sprint/prompts.go
+internal/sprint/reasoning.go
+internal/sprint/reasoning_test.go
+internal/sprint/review.go
+internal/sprint/review_runtime_validation.go
+internal/sprint/review_test.go
+internal/sprint/runtime_metrics.go
+internal/sprint/runtime_progress_test.go
+internal/sprint/runtime_validation.go
+internal/sprint/service.go
+internal/sprint/session_state.go
+internal/sprint/session_state_test.go
+internal/sprint/smoke_author.go
+internal/sprint/smoke.go
+internal/sprint/smoke_protocol.go
+internal/sprint/smoke_test.go
+internal/sprint/smoke_types.go
+internal/sprint/sprint_index_test.go
+internal/sprint/sprint_test.go
+internal/sprint/state_database.go
+internal/sprint/state.go
+internal/sprint/store_fs.go
+internal/sprint/validation.go
+internal/sprint/verification_lock.go
+internal/sprint/verification_lock_test.go
+internal/sprint/verify.go
+internal/sprint/verify_test.go
+internal/study/applicability.go
+internal/study/cleanup_uncertain.go
+internal/study/cleanup_uncertain_test.go
+internal/study/config.go
+internal/study/config_test.go
+internal/study/dimension_refs.go
+internal/study/discovery.go
+internal/study/doc.go
+internal/study/domain.go
+internal/study/durable_metadata.go
+internal/study/edit_warnings.go
+internal/study/execution_domain.go
+internal/study/init_clone.go
+internal/study/init.go
+internal/study/init_render.go
+internal/study/init_test.go
+internal/study/init_yaml.go
+internal/study/locks.go
+internal/study/locks_test.go
+internal/study/markdown.go
+internal/study/memory_pressure.go
+internal/study/metadata_domain.go
+internal/study/prompts.go
+internal/study/prompts_test.go
+internal/study/rating.go
+internal/study/rating_test.go
+internal/study/reports.go
+internal/study/resolve.go
+internal/study/run_all.go
+internal/study/run_all_test.go
+internal/study/run.go
+internal/study/run_history.go
+internal/study/run_history_summary.go
+internal/study/run_history_test.go
+internal/study/run_loop_diagnostics.go
+internal/study/run_loop_diagnostics_test.go
+internal/study/run_loop.go
+internal/study/run_loop_test.go
+internal/study/run_state_domain.go
+internal/study/run_state.go
+internal/study/run_test.go
+internal/study/runtime_metadata.go
+internal/study/runtime_metadata_test.go
+internal/study/runtime_validation.go
+internal/study/service.go
+internal/study/state_database.go
+internal/study/state.go
+internal/study/state_test.go
+internal/study/study_test.go
+internal/study/summary.go
+internal/study/summary_test.go
+internal/study/synthesize.go
+internal/study/validation_command.go
+internal/study/validation_command_test.go
+internal/study/validation.go
+internal/study/validation_test.go
+internal/tui/app.go
+internal/tui/doc.go
+internal/tui/keys.go
+internal/tui/markdown.go
+internal/tui/model.go
+internal/tui/model_test.go
+internal/tui/run_view_test.go
+internal/tui/test_fakes_test.go
+internal/tui/theme.go
+internal/tui/verify_test.go
+internal/tui/viewport.go
+internal/tui/viewport_test.go
+internal/tui/views.go
+internal/tui/views_test.go
+internal/web/api_compatibility_test.go
+internal/web/artifacts.go
+internal/web/artifacts_test.go
+internal/web/handlers.go
+internal/web/import_boundary_test.go
+internal/web/integration_test.go
+internal/web/operation_handlers.go
+internal/web/operations_contract_test.go
+internal/web/operations.go
+internal/web/operations_test.go
+internal/web/packaging_test.go
+internal/web/routes.go
+internal/web/routes_test.go
+internal/web/run_handlers.go
+internal/web/run_handlers_test.go
+internal/web/security.go
+internal/web/security_test.go
+internal/web/server.go
+internal/web/server_policy.go
+internal/web/server_policy_test.go
+internal/web/server_test.go
+internal/web/sse_test.go
+internal/web/templates_test.go
+internal/web/test_fakes_test.go
+internal/workspace/defaults.go
+internal/workspace/discovery.go
+internal/workspace/doc.go
+internal/workspace/init.go
+internal/workspace/paths.go
+internal/workspace/skills.go
+internal/workspace/skills_test.go
+internal/workspace/validation.go
+internal/workspace/workspace_test.go
+---
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/recovery.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/doc.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/model.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m✱ [0mGrep "Reconcile\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 12 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode.go
+[0m
+[0m$ [0mcat go.mod && ls $(go env GOMODCACHE)/github.com/ 2>/dev/null
+module github.com/Antonio7098/ultraplan-go
+
+go 1.26
+
+require gopkg.in/yaml.v3 v3.0.1
+
+require (
+	github.com/Antonio7098/agentwrap v0.0.0-20260821190033-e79a38a58da3
+	github.com/charmbracelet/bubbletea v1.3.10
+	github.com/charmbracelet/glamour v1.0.0
+	github.com/charmbracelet/lipgloss v1.1.1-0.20250404203927-76690c660834
+	github.com/yuin/goldmark v1.7.13
+	golang.org/x/sys v0.47.0
+	modernc.org/sqlite v1.57.0
+)
+
+require (
+	github.com/alecthomas/chroma/v2 v2.20.0 // indirect
+	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
+	github.com/aymerick/douceur v0.2.0 // indirect
+	github.com/charmbracelet/colorprofile v0.2.3-0.20250311203215-f60798e515dc // indirect
+	github.com/charmbracelet/x/ansi v0.10.2 // indirect
+	github.com/charmbracelet/x/cellbuf v0.0.13 // indirect
+	github.com/charmbracelet/x/exp/slice v0.0.0-20250327172914-2fdc97757edf // indirect
+	github.com/charmbracelet/x/term v0.2.1 // indirect
+	github.com/dlclark/regexp2 v1.11.5 // indirect
+	github.com/dustin/go-humanize v1.0.1 // indirect
+	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
+	github.com/google/uuid v1.6.0 // indirect
+	github.com/gorilla/css v1.0.1 // indirect
+	github.com/lucasb-eyer/go-colorful v1.3.0 // indirect
+	github.com/mattn/go-isatty v0.0.24 // indirect
+	github.com/mattn/go-localereader v0.0.1 // indirect
+	github.com/mattn/go-runewidth v0.0.17 // indirect
+	github.com/microcosm-cc/bluemonday v1.0.27 // indirect
+	github.com/muesli/ansi v0.0.0-20230316100256-276c6243b2f6 // indirect
+	github.com/muesli/cancelreader v0.2.2 // indirect
+	github.com/muesli/reflow v0.3.0 // indirect
+	github.com/muesli/termenv v0.16.0 // indirect
+	github.com/ncruces/go-strftime v1.0.0 // indirect
+	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
+	github.com/rivo/uniseg v0.4.7 // indirect
+	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
+	github.com/yuin/goldmark-emoji v1.0.6 // indirect
+	golang.org/x/net v0.38.0 // indirect
+	golang.org/x/term v0.36.0 // indirect
+	golang.org/x/text v0.30.0 // indirect
+	modernc.org/libc v1.74.4 // indirect
+	modernc.org/mathutil v1.7.1 // indirect
+	modernc.org/memory v1.11.0 // indirect
+)
+agnivade
+alecthomas
+!antonio7098
+apache
+aws
+aymanbagabas
+aymerick
+benbjohnson
+beorn7
+blang
+bytecodealliance
+cactus
+cenkalti
+cespare
+charmbracelet
+clipperhouse
+cncf
+cpuguy83
+davecgh
+dgraph-io
+dgryski
+dlclark
+dustin
+emicklei
+emirpasic
+envoyproxy
+erikgeiser
+facebookgo
+fatih
+felixge
+fsnotify
+fxamacker
+gobwas
+gocql
+go-faker
+gogo
+go-jose
+golang
+golang-jwt
+go-logr
+google
+googleapis
+!google!cloud!platform
+go-openapi
+gorilla
+go-sql-driver
+go-viper
+grpc-ecosystem
+hailocab
+hashicorp
+hexops
+huandu
+iancoleman
+jackc
+jmoiron
+josharian
+json-iterator
+jstemmer
+!kim!machine!gun
+klauspost
+lestrrat-go
+lib
+lucasb-eyer
+mailru
+maruel
+!masterminds
+mattn
+microcosm-cc
+mitchellh
+modern-go
+muesli
+munnerz
+ncruces
+nexus-rpc
+olekukonko
+olivere
+opencontainers
+opentracing
+pbnjay
+pelletier
+peterh
+pkg
+pmezard
+prometheus
+rcrowley
+remyoudompheng
+rivo
+robfig
+russross
+sagikazarmark
+sergi
+shopspring
+sirupsen
+sony
+sourcegraph
+spf13
+spiffe
+stretchr
+subosito
+tchap
+temporalio
+tidwall
+twmb
+uber-common
+uber-go
+urfave
+valyala
+vektah
+x448
+xeipuuv
+xo
+xrash
+yashtewari
+yuin
+[0m
+[0m$ [0mls "$(go env GOMODCACHE)/github.com/!antonio7098/" && ls "$(go env GOMODCACHE)/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3"
+agentwrap@v0.0.0-20260613122459-bc655a256a5f
+agentwrap@v0.0.0-20260629143324-a917627c22fb
+agentwrap@v0.0.0-20260629144550-2e8fbbe2c6cd
+agentwrap@v0.0.0-20260702175305-d1c785159a8d
+agentwrap@v0.0.0-20260710081656-59c61672c875
+agentwrap@v0.0.0-20260714161112-8ddfc132f7ca
+agentwrap@v0.0.0-20260815144406-3abac668be17
+agentwrap@v0.0.0-20260815154925-6aa129f822f3
+agentwrap@v0.0.0-20260815160303-e00b8e694497
+agentwrap@v0.0.0-20260816114448-0159fa923f42
+agentwrap@v0.0.0-20260816144152-043ad0dd8dd6
+agentwrap@v0.0.0-20260821190033-e79a38a58da3
+agentwrap@v0.0.0-20260822125309-004e30d47ac0
+agentwrap@v0.0.0-20260823194117-7610226fc449
+agentwrap@v0.0.0-20260824101248-dd61bdd9e971
+agentwrap@v0.0.0-20260824130256-3d1e4cbb6e03
+ultraplan-go@v0.1.0
+ultraplan-go@v0.1.1-0.20260629184531-01894ff216f3
+ultraplan-go@v0.1.1-0.20260701184158-211333865d5b
+ultraplan-go@v0.1.1-0.20260702110315-c8fea83c8c10
+ultraplan-go@v0.1.1-0.20260702121236-ea12c676255e
+ultraplan-go@v0.1.1-0.20260702124413-633bd352c6a3
+ultraplan-go@v0.1.1-0.20260702131822-913058d2fd23
+ultraplan-go@v0.1.1-0.20260702132418-8c6e4d57eba5
+ultraplan-go@v0.1.1-0.20260702132622-666a6ce0e25f
+ultraplan-go@v0.1.1-0.20260702133818-b95a0762df10
+ultraplan-go@v0.1.1-0.20260703090528-adb6fbb6cd4e
+ultraplan-go@v0.1.1-0.20260709165039-7a94a111f4dd
+ultraplan-go@v0.1.1-0.20260710081813-b332838b6e37
+ultraplan-go@v0.1.1-0.20260714160811-922062d3f013
+ultraplan-go@v0.1.1-0.20260714161246-73f3472b6dc4
+ultraplan-go@v0.1.1-0.20260722174204-d1e8b4518320
+ultraplan-go@v0.1.1-0.20260722191151-f142a7386e2f
+ultraplan-go@v0.1.1-0.20260722195008-76711a71155e
+ultraplan-go@v0.1.1-0.20260723152402-f4d6d3848a89
+ultraplan-go@v0.1.1-0.20260728132742-f8446a658259
+ultraplan-go@v0.1.1-0.20260815144532-9200a07a4802
+ultraplan-go@v0.1.1-0.20260815145458-5f6058a5e866
+ultraplan-go@v0.1.1-0.20260815150731-4b227527877f
+ultraplan-go@v0.1.1-0.20260815160513-ce223e49acbf
+ultraplan-go@v0.1.1-0.20260816103014-9545e91fe2f1
+ultraplan-go@v0.1.1-0.20260816110227-6471dcc088e7
+ultraplan-go@v0.1.1-0.20260816110716-b1330371bab2
+ultraplan-go@v0.1.1-0.20260816111250-cdbdec214e5d
+ultraplan-go@v0.1.1-0.20260816112656-02ab48fb44d4
+ultraplan-go@v0.1.1-0.20260816114532-0ab766386f92
+ultraplan-go@v0.1.1-0.20260816120258-bc52401a0f98
+ultraplan-go@v0.1.1-0.20260816155255-a2216837ba63
+ultraplan-go@v0.1.1-0.20260817105705-f8b639e681bc
+ultraplan-go@v0.1.1-0.20260817110456-17f108e8dc98
+ultraplan-go@v0.1.1-0.20260817110841-305c03eac36c
+ultraplan-go@v0.1.1-0.20260817111604-4837d369a87b
+ultraplan-go@v0.1.1-0.20260817112004-8e2f91c27fd2
+ultraplan-go@v0.1.1-0.20260817112408-217046b81649
+ultraplan-go@v0.1.1-0.20260817181627-9b3c02bb399b
+ultraplan-go@v0.1.1-0.20260817182807-2fbce1af2e3f
+ultraplan-go@v0.1.1-0.20260817183201-291d81e2b50e
+CHANGELOG.md
+config.go
+config_test.go
+doc.go
+docs
+errors.go
+errors_test.go
+events.go
+go.mod
+health.go
+health_test.go
+ids.go
+internal
+lifecycle_events.go
+lifecycle_events_test.go
+lifecycle.go
+lifecycle_test.go
+metadata.go
+observability.go
+observability_test.go
+opencode
+permissions.go
+permissions_test.go
+policy.go
+policy_test.go
+README.md
+redact.go
+redact_test.go
+runtime.go
+validation.go
+validation_test.go
+[0m
+[0m$ [0mgrep -rn "Pdeathsig\|Setpgid\|process group\|kill" --include='*.go' "$(go env GOMODCACHE)/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/internal" | head -50
+(no output)
+[0m
+[0m$ [0mls -R "$(go env GOMODCACHE)/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/internal" | head -30; grep -rln "exec.Command\|os/exec" "$(go env GOMODCACHE)/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3" --include='*.go'
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/internal:
+testkit
+
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/internal/testkit:
+fake_lifecycle.go
+fake_lifecycle_test.go
+fake_runtime.go
+fake_runtime_test.go
+fixture.go
+fixture_test.go
+testdata
+
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/internal/testkit/testdata:
+events
+
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/internal/testkit/testdata/events:
+lifecycle_failure.jsonl
+malformed.jsonl
+normal.jsonl
+partial.jsonl
+unknown.jsonl
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/process.go
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/process_linux.go
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/process_other.go
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/process_unix.go
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/process_unix_test.go
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/process_windows.go
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/runtime.go
+[0m
+[0m$ [0mcat "$(go env GOMODCACHE)/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/process.go" "$(go env GOMODCACHE)/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/process_linux.go"
+package opencode
+
+import (
+	"bytes"
+	"context"
+	"errors"
+	"io"
+	"os"
+	"os/exec"
+	"sync"
+	"time"
+)
+
+type execProcessRunner struct{}
+
+func (execProcessRunner) Start(ctx context.Context, spec processSpec) (process, error) {
+	cmd := exec.CommandContext(ctx, spec.Executable, spec.Args...)
+	if spec.WorkDir != "" {
+		cmd.Dir = spec.WorkDir
+	}
+	if len(spec.Env) > 0 {
+		cmd.Env = append(os.Environ(), spec.Env...)
+	}
+	configureProcessGroup(cmd)
+	stdout, err := cmd.StdoutPipe()
+	if err != nil {
+		return nil, err
+	}
+	stderr, err := cmd.StderrPipe()
+	if err != nil {
+		return nil, err
+	}
+	if err := cmd.Start(); err != nil {
+		return nil, err
+	}
+	return &execProcess{cmd: cmd, stdout: stdout, stderr: stderr}, nil
+}
+
+type execProcess struct {
+	cmd    *exec.Cmd
+	stdout io.ReadCloser
+	stderr io.Reader
+	once   sync.Once
+	result processResult
+}
+
+func (p *execProcess) Stdout() io.ReadCloser { return p.stdout }
+func (p *execProcess) Stderr() io.Reader     { return p.stderr }
+
+func (p *execProcess) Wait() processResult {
+	p.once.Do(func() {
+		err := p.cmd.Wait()
+		p.result = processResult{Err: err}
+		if p.cmd.ProcessState != nil {
+			p.result.ExitCode = p.cmd.ProcessState.ExitCode()
+		}
+		if err == nil {
+			return
+		}
+		var exitErr *exec.ExitError
+		if errors.As(err, &exitErr) {
+			p.result.ExitCode = exitErr.ExitCode()
+		}
+	})
+	return p.result
+}
+
+func (p *execProcess) Cancel(ctx context.Context) cleanupResult {
+	if p.cmd.Process == nil {
+		return cleanupResult{}
+	}
+	result := cleanupResult{GracefulAttempted: true}
+	if p.cmd.ProcessState != nil && p.cmd.ProcessState.Exited() {
+		return result
+	}
+	if err := signalProcessGroup(p.cmd.Process, false); err != nil && !errors.Is(err, os.ErrProcessDone) {
+		result.Err = err
+	} else if errors.Is(err, os.ErrProcessDone) {
+		return result
+	}
+	timer := time.NewTimer(2 * time.Second)
+	defer timer.Stop()
+	select {
+	case <-ctx.Done():
+	case <-timer.C:
+	}
+	if p.cmd.ProcessState != nil && p.cmd.ProcessState.Exited() {
+		return result
+	}
+	result.ForceAttempted = true
+	if err := signalProcessGroup(p.cmd.Process, true); err != nil && !errors.Is(err, os.ErrProcessDone) && result.Err == nil {
+		result.Err = err
+	}
+	return result
+}
+
+type limitBuffer struct {
+	mu    sync.Mutex
+	limit int
+	buf   bytes.Buffer
+}
+
+func newLimitBuffer(limit int) *limitBuffer {
+	return &limitBuffer{limit: limit}
+}
+
+func (b *limitBuffer) Write(p []byte) (int, error) {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	written := len(p)
+	if b.limit <= 0 {
+		return written, nil
+	}
+	if b.buf.Len()+len(p) <= b.limit {
+		_, _ = b.buf.Write(p)
+		return written, nil
+	}
+	remaining := b.limit - b.buf.Len()
+	if remaining > 0 {
+		_, _ = b.buf.Write(p[:remaining])
+	}
+	return written, nil
+}
+
+func (b *limitBuffer) String() string {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	return b.buf.String()
+}
+//go:build linux
+
+package opencode
+
+import (
+	"errors"
+	"os"
+	"os/exec"
+	"syscall"
+)
+
+func configureProcessGroup(cmd *exec.Cmd) {
+	cmd.SysProcAttr = &syscall.SysProcAttr{Setpgid: true, Pdeathsig: syscall.SIGTERM}
+}
+
+func signalProcessGroup(proc *os.Process, force bool) error {
+	if proc == nil || proc.Pid <= 0 {
+		return os.ErrProcessDone
+	}
+	signal := syscall.SIGTERM
+	if force {
+		signal = syscall.SIGKILL
+	}
+	if err := syscall.Kill(-proc.Pid, signal); err != nil {
+		if errors.Is(err, syscall.ESRCH) {
+			return os.ErrProcessDone
+		}
+		return err
+	}
+	return nil
+}
+[0m
+[0m$ [0mcat "$(go env GOMODCACHE)/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/process_unix.go" "$(go env GOMODCACHE)/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/process_other.go"
+//go:build unix && !linux
+
+package opencode
+
+import (
+	"errors"
+	"os"
+	"os/exec"
+	"syscall"
+)
+
+func configureProcessGroup(cmd *exec.Cmd) {
+	cmd.SysProcAttr = &syscall.SysProcAttr{Setpgid: true}
+}
+
+func signalProcessGroup(proc *os.Process, force bool) error {
+	if proc == nil || proc.Pid <= 0 {
+		return os.ErrProcessDone
+	}
+	signal := syscall.SIGTERM
+	if force {
+		signal = syscall.SIGKILL
+	}
+	if err := syscall.Kill(-proc.Pid, signal); err != nil {
+		if errors.Is(err, syscall.ESRCH) {
+			return os.ErrProcessDone
+		}
+		return err
+	}
+	return nil
+}
+//go:build !unix && !windows
+
+package opencode
+
+import (
+	"os"
+	"os/exec"
+)
+
+func configureProcessGroup(*exec.Cmd) {}
+
+func signalProcessGroup(proc *os.Process, _ bool) error {
+	if proc == nil {
+		return os.ErrProcessDone
+	}
+	return proc.Kill()
+}
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/locks.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/cleanup_uncertain.go
+[0m✱ [0mGrep "ReconcileInterruptedMutation|reconcileExpiredAttempts|RecordCleanupUncertain"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 23 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go[90m [offset=280, limit=140][0m
+[0m✱ [0mGrep "ReconcileOperations"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 3 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify.go[90m [limit=120, offset=420][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verification_lock.go
+[0m✱ [0mGrep "func \(s Service\) acquireMutation|func .*acquireMutation\(|mutationLock|locks/sprint"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 2 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state_database.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_unix.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/fault_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_integration_test.go
+[0m✱ [0mGrep "func \(s Service\) startSprintRuntime|func \(s Service\) startPlanningStageRun|processRunner\.Run"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 4 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/runtime_metrics.go
+[0m✱ [0mGrep "controlledRuntimeFor|WithRuntime\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 9 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/cleanup_uncertain.go
+[0m✱ [0mGrep "TaskStatusRunning|stale|interrupt|previous process|dead"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study · 31 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop.go[90m [limit=120, offset=190][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server.go[90m [limit=120][0m
+[0m✱ [0mGrep "runRepository\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 9 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands.go[90m [limit=120][0m
+[0m✱ [0mGrep "beginDurableCLICommand|finishDurableCLICommand"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 30 matches[0m
+[0m✱ [0mGrep "OwnerPID|HeartbeatAt"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 17 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify.go[90m [limit=180, offset=100][0m
+[0m✱ [0mGrep "CancelRunLoop"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 3 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_darwin.go
+[0m✱ [0mGrep "func verifyFence|func \(r \*SQLiteRepository\) ProposeTerminal"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol · 2 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go[90m [limit=130, offset=722][0m
+[0m
+[0m$ [0mgit log --oneline -3 2>/dev/null | head; grep -rniE 'pdeathsig|pid reuse|pid reuse|orphan|process group' --include='*.md' . | head -30
+368a789 Add UltraPlan daemon and event system study
+2dc3b74 Advance sprints 30-35 and harden review/smoke flow
+0e151a0 update reconciliation smoke skill
+./projects/ultraplan-go/docs/PRD.md:1212:- Owner death, stale leases, PID reuse, duplicate cancellation, terminal races, persistence failure, backpressure, and retention limits have deterministic fault-injection coverage.
+./projects/ultraplan-go/docs/TRD.md:2208:Liveness is conservative. A PID alone is insufficient because of PID reuse. Lease expiry, missing process, missing owner, artifact presence, or lost server memory cannot independently prove completion. Reconciliation uses fencing or equivalent stale-writer protection, records its evidence and decisions, and exposes `stalled`, `interrupted`, or `cleanup_uncertain` where truth cannot be proven.
+./projects/ultraplan-go/docs/TRD.md:2225:Every chosen mechanism must pass the same cross-process failure matrix: two CLI runs visible globally; a second supported server replaying and then following a current run; browser-session expiry; observer restart; abrupt owner death; stale lease and PID reuse; duplicate cancellation; completion/cancellation races; slow subscribers; cursor expiry; corrupt/torn records; disk-full or permission failure; bounded retention; and redaction. Tests must prove that operational records never override canonical product artifacts or stage verdicts.
+./projects/ultraplan-go/docs/TRD.md:2498:Sprint 35 cross-process tests must cover two concurrent CLI-started runs visible from the browser top bar, a run observed through a second supported local server, session expiry, observing-server restart, retained replay followed by new live events, owner crash at every commit boundary, stale lease, PID reuse, fencing of stale writers, duplicate cancellation, cancellation/completion races, slow subscribers, cursor expiry, compaction, disk-full/permission failure, corrupted/torn records, schema migration, and a redacted support bundle. The test harness must distinguish observer restart from worker-owner restart and assert the selected topology contract explicitly.
+./projects/ultraplan-go/docs/TRD.md:2645:- Lease/fencing, owner loss, PID reuse, cancellation routing, terminal arbitration, reconciliation, retention, persistence failure, and backpressure have deterministic race and fault-injection coverage.
+./projects/ultraplan-go/docs/TRD.md:2667:- What lease, heartbeat, clock, fencing, and process-birth rules prevent stale writers and PID reuse without falsely killing slow healthy work?
+./projects/ultraplan-go/sprints/15-documentation-and-packaging/plan.md:180:| 2026-06-13 / packaging | Built Linux amd64 and Linux arm64 binaries. Darwin amd64 and Darwin arm64 builds failed in pinned `github.com/Antonio7098/agentwrap/opencode` because `syscall.SysProcAttr.Pdeathsig` is Linux-specific. | Release blocked; `dist/smoke-evidence.md` records failure. `dist/checksums.txt` intentionally not generated because exactly four binaries are required. |
+./projects/ultraplan-go/sprints/15-documentation-and-packaging/plan.md:181:| 2026-06-13 / dependency fix | Patched `/home/antonioborgerees/coding/agentwrap` to split Linux-only `Pdeathsig` process setup from Unix process-group setup, committed `bc655a2`, and pushed `origin/main`. | `agentwrap` native tests passed; Darwin opencode compile checks passed via `go test -c`. |
+./projects/ultraplan-go/sprints/27-deep-smoke/plan.md:94:  - [x] Execute directly without a shell and start one owned process group on supported Linux/macOS targets.
+./projects/ultraplan-go/sprints/27-deep-smoke/reasoning.md:102:| Unix-specific descendant cleanup | Linux/macOS process groups do not define a Windows strategy. | Scope support to current Linux/macOS targets; expose cleanup certainty and fail non-passing when uncertain. | Platform support work before claiming Windows smoke support. |
+./projects/ultraplan-go/sprints/27-deep-smoke/reasoning.md:158:- **Decision:** UltraPlan starts one harness process; harness-owned suite/test parallelism is not reimplemented. On Linux/macOS the runner starts an owned process group, propagates context cancellation/timeout, sends graceful termination, waits up to 5 seconds, escalates remaining owned descendants, and always waits/reaps. Cleanup failure or uncertainty is returned separately and cannot yield a passing verdict. Progress delivery is bounded/coalesced; optional intermediate events may be dropped with a count, but process draining, cleanup, and the terminal result cannot be blocked or dropped.
+./projects/ultraplan-go/sprints/27-deep-smoke/reasoning.md:209:| Process integration | Exact argv/env/cwd, no shell, timeout, cancellation, process group/descendant cleanup, output caps, malformed streams, slow progress, and no leaks. | Fake child harness tests under normal `go test ./...`; `go test -race ./...`. |
+./projects/ultraplan-go/sprints/27-deep-smoke/reasoning.md:224:| Cross-platform descendant cleanup differs. | Risk | Orphaned processes or false completion. | Implement/test Unix process groups for Linux/macOS, expose cleanup certainty, and prohibit pass on failed/uncertain cleanup. |
+./projects/ultraplan-go/sprints/28-review-to-smoke-flow/reasoning.md:234:| Descendant cleanup varies by operating system. | Risk | Orphaned process or uncertain mutation boundary. | Bounded generic cleanup result, truthful non-pass, Linux/macOS gated evidence. |
+./projects/ultraplan-go/sprints/28-review-to-smoke-flow/review.md:158:| ERR-RETRY-001 | high | `OperationError.Retryable` is an orphan flag without a retry policy | remove or back with bounded retry owner |
+./projects/ultraplan-go/sprints/29-phase-3-documentation-hardening-release/plan.md:31:  - Give retryability one explicit bounded owner, or remove the orphan `Retryable` signal.
+./projects/ultraplan-go/sprints/31-web-operations/plan.md:183:| Forced termination leaves live descendants or stale ownership. | `reasoning.md#assumptions-and-risks` | Existing platform runner owns and escalates process groups; server startup reconciles dead-owner execute/review/smoke attempts and preserves live leases. | `mitigated with deviation below` |
+./projects/ultraplan-go/sprints/32-hardening-and-release/plan.md:139:  - [ ] Add `internal/web/server_test.go` and supporting app/product tests for multiple active operations, draining rejection, exact-once reasoned cancellation, deadline exhaustion, terminal races, no-I/O-under-lock, process-tree cleanup metadata, atomic terminal/uncertainty writes, forced interruption, abrupt restart, stale locks, and orphan detection.
+./projects/ultraplan-go/sprints/32-hardening-and-release/plan.md:177:  - [ ] Include browser refresh, navigation, tab/SSE disconnect, slow subscriber, forced interruption, and server restart cases proving they neither determine product success nor create detached/orphaned work.
+./projects/ultraplan-go/sprints/32-hardening-and-release/plan.md:234:- [x] Race and leak evidence shows no orphaned goroutine, timer, event source, subscriber, operation, process tree, or product lock.
+./projects/ultraplan-go/sprints/32-hardening-and-release/reasoning.md:181:- **Evidence Required:** Multi-operation shutdown tests for draining/rejection, exact-once cancel, explicit reason, no I/O-under-lock behavior, bounded waits, terminal race arbitration, durable clean and uncertain outcomes, abrupt restart, stale locks, forced interruption, conservative reconciliation, process-tree cleanup metadata, and no orphaned goroutines/locks/operations.
+./projects/ultraplan-go/sprints/32-hardening-and-release/requirements.md:73:- [ ] Race, leak, cancellation, reconciliation, forced-interruption, restart, replay-gap, and slow-client tests pass without orphaned goroutines, locks, subscribers, or detached operations.
+./projects/ultraplan-go/sprints/32-hardening-and-release/smoke.md:36:Rationale: agent-authored real-boundary suite covers the hardened local web release: real namespaced downward template hierarchy with semantic landmarks, real embedded layered CSS and JS asset matrix with revalidation cache policy, real state-bearing Cache-Control: no-store, real substantial validation and sprint workflows through the hardened browser, real browser-driven prepare/start/cancel across CSRF/session/host policy, real no-JavaScript complete sprint journey, real fail-closed configuration for LAN / hostname / invalid binds, real outside-tree packaging serving every documented page/api/asset without the source checkout, real internal/web dependency closure that excludes product/runtime/process, real stable CLI surface for serve + health, real redaction across JSON/SSE/rendered HTML, real accessibility (semantic landmarks, visible focus, narrow-viewport reflow) at desktop and 375x667, real focused 'go test' / '-race' / build gates, protocol discovery self-verification that the gated real-runtime and smoke-harness evidence path returns a non-empty Sprint 32 suite, real network-layer API envelope contract (unknown /api/ paths and unsupported methods return typed JSON 404/405 with Allow and no-store), real loopback CSRF and Origin rejection enforcing typed 403 JSON for every signed / cross-origin mutation against /api/v1/operations, real SIGTERM-driven graceful shutdown with exit code 0 and a server_stopped lifecycle marker, real SSE events endpoint contract rejecting unknown-operation replays as typed JSON 404 without ever beginning the event stream, repeated real-Chromium dashboard/project/sprint/study navigation stability, real CLI health --json / /api/v1/health / rendered dashboard agreement on workspace readiness, real malicious Markdown artifact round-trip rendered without executable scripts, javascript: links, or img[onerror] elements, real numeric-loopback-only Host header rejection at the network layer with typed JSON 403 host_rejected envelopes (LAN-bind, hostname-bind, and 'Host: evil.example.test' are all refused), real Chromium refresh-and-reopen during an active operation keeping the server-owned work running (disconnect isolates the subscription, not the operation), real SIGKILL-then-restart forced-termination reconciliation that persists truthful state without inferring success from process absence or artifact presence, real shared capability vocabulary exercised across multiple operation kinds through the single '/api/v1/operations/prepare' surface (no route-specific branch), real accessibility color-independent state cues and 'aria-live' regions on operation surfaces, real request-smuggling and body-limit matrix (oversized body, malformed JSON, duplicate Content-Length, wrong-method body) rejected at the security middleware with typed JSON errors, and real Chromium EventSource reconnect with a stale Last-Event-ID receiving typed SSE events with monotonic ids and no fabricated replay events, real typed-view-model and template-discipline scan that forbids filesystem paths, internal package names, runtime stack markers, and Go map[string] type markers from leaking through any rendered HTML or JSON surface (preserves AC-32-11 typed view-model discipline across the projection boundary), real compatibility-fixture envelope matrix that walks every documented /api/v1 success endpoint and verifies the frozen {data, meta.api_version="v1"} envelope with no-store cache policy (preserves AC-32-03 compatibility-fixture coverage at the network layer), and real concurrent prepare/start burst that exercises five simultaneous operations to terminal state with unique ids and no orphan subscribers, locks, or active operations after reconciliation (preserves AC-32-20 race/no-orphan behavior under realistic browser burst load)
+./projects/ultraplan-go/sprints/32-hardening-and-release/technical-handbook.md:82:- **Fresh background contexts inside cancellable work:** Chezmoi template functions detach work with `context.Background()` (`chezmoi/internal/cmd/templatefuncs.go:215`), and go-task deferred work does likewise (`go-task/task.go:341`). Detachment without an explicit cleanup ownership contract risks orphaned product work or premature lock release.
+./projects/ultraplan-go/sprints/34-shared-context/reasoning.md:74:| Helm, go-task, and restic via `07-state-context` | `helm/pkg/cmd/install.go:333-347`; `go-task/task.go:89,321`; `restic/internal/restic/lock.go:290-305` | Root context propagation and structured cancellation prevent orphaned work; detached cleanup needs explicit bounds. | Supports one context lineage through preparation and runtime, with no detached renderer work. | 2, 3, 4 |
+./projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md:24:| Ownership, lease, and reconciliation | Active executions publish enough owner/lease/heartbeat and process/runtime identity to distinguish live, stalled, interrupted, cleanup-uncertain, and terminal work conservatively, including PID reuse and abrupt owner death. Startup and periodic reconciliation never infer success from process absence or artifact presence. |
+./projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md:28:| Verification and fault injection | Deterministic, race, integration, and browser tests prove CLI-to-web discovery, multiple local servers, refresh/reconnect replay, session expiry, server restart, abrupt owner death, stale leases, PID reuse, slow subscribers, bounded storage, duplicate cancellation, and terminal-state races. |
+./studies/agent-harness-study/dimensions/02.08-crash-recovery-and-reconstruction.md:28:2. Are orphaned runs detected?
+./studies/agent-harness-study/reports/final/01.02-control-flow-ownership.md:206:**Problem:** a model that exhausts `max_iterations` mid-batch may leave `function_call` items without matching `function_call_result` items, producing an orphan.
+./studies/agent-harness-study/reports/final/01.02-control-flow-ownership.md:360:4. **Force a final non-tool call.** agent-framework's pattern of forcing a `tool_choice="none"` call after budget exhaustion (`_tools.py:2664-2696`) prevents orphaned `function_call` items.
+[0m
+[0m✱ [0mGrep "syscall\.Kill|ForceUnlock|force-unlock|forceUnlock"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 26 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_linux.go

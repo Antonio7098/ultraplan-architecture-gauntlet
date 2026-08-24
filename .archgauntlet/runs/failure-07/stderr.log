@@ -1,0 +1,833 @@
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -3 && git status --short | head -5
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+[0m
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/fault-scenarios.md[90m [command=ls && echo --- && find . -type d -name node_modules -prune -o -type d -print | grep -v '\.git' | head -60, workdir=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go][0m
+[0m
+[0m$ [0mfind . -type d \( -name node_modules -o -name .git -o -name dist -o -name bin \) -prune -o -type d -print | head -80
+.
+./.github
+./.github/workflows
+./cmd
+./cmd/ultraplan
+./docs
+./docs/plans
+./docs/reports
+./internal
+./internal/app
+./internal/codeextract
+./internal/platform
+./internal/platform/config
+./internal/platform/filesystem
+./internal/platform/logging
+./internal/platform/process
+./internal/platform/runtime
+./internal/productstate
+./internal/project
+./internal/runcontrol
+./internal/sprint
+./internal/study
+./internal/tui
+./internal/web
+./internal/web/static
+./internal/web/static/css
+./internal/web/static/js
+./internal/web/templates
+./internal/web/templates/components
+./internal/web/templates/layouts
+./internal/web/templates/pages
+./internal/web/templates/primitives
+./internal/workspace
+./internal/workspace/scaffold
+./internal/workspace/scaffold/prompts
+./internal/workspace/scaffold/templates
+./scripts
+[0m
+[0m$ [0mls && cat go.mod | head -30
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+module github.com/Antonio7098/ultraplan-go
+
+go 1.26
+
+require gopkg.in/yaml.v3 v3.0.1
+
+require (
+	github.com/Antonio7098/agentwrap v0.0.0-20260821190033-e79a38a58da3
+	github.com/charmbracelet/bubbletea v1.3.10
+	github.com/charmbracelet/glamour v1.0.0
+	github.com/charmbracelet/lipgloss v1.1.1-0.20250404203927-76690c660834
+	github.com/yuin/goldmark v1.7.13
+	golang.org/x/sys v0.47.0
+	modernc.org/sqlite v1.57.0
+)
+
+require (
+	github.com/alecthomas/chroma/v2 v2.20.0 // indirect
+	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
+	github.com/aymerick/douceur v0.2.0 // indirect
+	github.com/charmbracelet/colorprofile v0.2.3-0.20250311203215-f60798e515dc // indirect
+	github.com/charmbracelet/x/ansi v0.10.2 // indirect
+	github.com/charmbracelet/x/cellbuf v0.0.13 // indirect
+	github.com/charmbracelet/x/exp/slice v0.0.0-20250327172914-2fdc97757edf // indirect
+	github.com/charmbracelet/x/term v0.2.1 // indirect
+	github.com/dlclark/regexp2 v1.11.5 // indirect
+	github.com/dustin/go-humanize v1.0.1 // indirect
+	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
+	github.com/google/uuid v1.6.0 // indirect
+	github.com/gorilla/css v1.0.1 // indirect
+[0m
+[0m✱ [0mGrep "cancel|Cancel"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 100 matches[0m
+[0m
+[0m$ [0mwc -l internal/*/*.go internal/*/*/*.go 2>/dev/null | sort -rn | head -40
+64573 total
+   1768 internal/sprint/review.go
+   1502 internal/app/study_commands.go
+   1402 internal/sprint/service.go
+   1318 internal/app/sprint_commands.go
+   1175 internal/runcontrol/sqlite.go
+    966 internal/app/sprint_commands_test.go
+    940 internal/study/run_loop.go
+    935 internal/app/web_usecases.go
+    852 internal/web/handlers.go
+    838 internal/web/operation_handlers.go
+    790 internal/app/operations.go
+    727 internal/sprint/execute.go
+    724 internal/sprint/smoke.go
+    724 internal/platform/runtime/runtime.go
+    680 internal/sprint/review_test.go
+    667 internal/web/operations.go
+    667 internal/app/run_control.go
+    666 internal/tui/views.go
+    657 internal/sprint/smoke_protocol.go
+    614 internal/tui/model.go
+    578 internal/web/run_handlers.go
+    572 internal/runcontrol/lifecycle.go
+    566 internal/web/operations_test.go
+    549 internal/platform/config/config.go
+    535 internal/platform/runtime/runtime_test.go
+    533 internal/sprint/code_context.go
+    517 internal/sprint/smoke_test.go
+    517 internal/sprint/code_context_test.go
+    510 internal/app/run_commands.go
+    509 internal/sprint/prompt_context.go
+    504 internal/runcontrol/model.go
+    498 internal/sprint/verify.go
+    492 internal/tui/model_test.go
+    470 internal/runcontrol/sqlite_test.go
+    457 internal/web/security.go
+    454 internal/sprint/prompt_context_test.go
+    438 internal/workspace/skills.go
+    435 internal/web/templates_test.go
+    429 internal/web/routes.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/model.go
+[0m
+[0m$ [0mls internal/platform/process internal/platform/runtime internal/productstate internal/runcontrol
+internal/platform/process:
+process.go
+process_other.go
+process_test.go
+process_unix.go
+
+internal/platform/runtime:
+agentwrap.go
+cache_test.go
+events.go
+health.go
+opencode.go
+opencode_test.go
+policy.go
+runtime.go
+runtime_test.go
+
+internal/productstate:
+store.go
+
+internal/runcontrol:
+benchmark_test.go
+doc.go
+errors.go
+fault_test.go
+id.go
+id_test.go
+import_boundary_test.go
+interfaces.go
+lifecycle.go
+lifecycle_test.go
+local_log.go
+local_log_test.go
+metrics.go
+migration.go
+migration_test.go
+model.go
+model_test.go
+process_darwin.go
+process.go
+process_integration_test.go
+process_linux.go
+process_other.go
+retention.go
+retention_test.go
+sanitize.go
+sanitize_test.go
+sqlite.go
+sqlite_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go[90m [offset=1166][0m
+[0m✱ [0mGrep "func (s Service) start|func \(s Service\) startPlanningStageRun|startSprintRuntime"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 10 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/runtime_metrics.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go
+[0m✱ [0mGrep "func .*AcceptOperation|func .*FinishOperation|func .*RecordOperationEvent"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 9 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+[0m✱ [0mGrep "StartRun|controlledRuntime|runtime\."[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study · 43 matches[0m
+[0m
+[0m$ [0mrg -n "PersistenceLost|persistence_degraded|terminalOutcome|TerminalCancelled" internal/app --type go | head -40
+internal/app/durable_operations.go:111:		_, _, _ = proposeRunTerminalWithRetry(terminalCtx, m.repository, fence, runcontrol.TerminalProposal{Outcome: runcontrol.TerminalPersistenceLost, Reason: "operation start persistence failed", ProposedBy: m.owner.ID})
+internal/app/durable_operations.go:247:		outcome, reason = runcontrol.TerminalCancelled, "operation cancelled"
+internal/app/run_control.go:285:			Outcome: runcontrol.TerminalPersistenceLost, Reason: "durable event persistence failed", ProposedBy: r.owner.ID,
+internal/app/run_control.go:294:	outcome, reason := terminalOutcome(result, runErr, ctx)
+internal/app/run_control.go:625:func terminalOutcome(result runtimepkg.Result, runErr error, parent context.Context) (runcontrol.TerminalOutcome, string) {
+internal/app/run_control.go:631:		return runcontrol.TerminalCancelled, "runtime cancelled"
+[0m
+[0m$ [0mrg -ln "Cancel" internal/app/*_test.go | head; rg -n "CancellationRequested|RequestCancellation" internal/app --type go | grep -v _test | head -20
+internal/app/web_usecases_test.go
+internal/app/durable_operations_test.go
+internal/app/sprint_error_test.go
+internal/app/study_status_commands_test.go
+internal/app/serve_commands_test.go
+internal/app/study_run_loop_commands_test.go
+internal/app/run_commands_test.go
+internal/app/durable_operations.go:195:			if snapshot.Cancellation.State == runcontrol.CancellationRequested {
+internal/app/run_usecases.go:52:	return u.repository.RequestCancellation(ctx, id, reason)
+internal/app/run_control.go:231:				if snapshot.Cancellation.State == runcontrol.CancellationRequested {
+internal/app/run_commands.go:216:	snapshot, changed, err := repository.RequestCancellation(deps.ctx, runcontrol.RunID(fs.Arg(0)), *reason)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations_test.go
+[0m
+[0m$ [0mrg -ln "controlledRuntime|StartRun" internal/app/*_test.go; echo ---; rg -n "func Test" internal/app/run_control_test.go 2>/dev/null | head -30; ls internal/app/
+internal/app/study_run_commands_test.go
+internal/app/run_control_test.go
+internal/app/sprint_commands_test.go
+---
+32:func TestControlledRuntimeAcceptsClaimsAndCommitsBeforeDelivery(t *testing.T) {
+87:func TestControlledRuntimeDoesNotStartWhenAcceptancePersistenceFails(t *testing.T) {
+107:func TestControlledRuntimePersistsFailureWithoutLeakingRuntimeError(t *testing.T) {
+app.go
+app_test.go
+code_commands.go
+code_commands_test.go
+config_commands.go
+defaults_commands.go
+durable_operations.go
+durable_operations_test.go
+health_commands.go
+health_commands_test.go
+json_output.go
+markdown.go
+markdown_test.go
+operation_runner.go
+operations.go
+project_commands.go
+project_commands_test.go
+project_usecases.go
+run_commands.go
+run_commands_test.go
+run_control.go
+run_control_inventory_test.go
+run_control_test.go
+run_usecases.go
+serve_commands.go
+serve_commands_test.go
+skills_commands.go
+skills_commands_test.go
+sprint_commands.go
+sprint_commands_test.go
+sprint_error_test.go
+sprint_usecases.go
+sprint_usecases_test.go
+sprint_verify_commands_test.go
+status_json.go
+storage_commands.go
+study_commands.go
+study_commands_test.go
+study_init_commands_test.go
+study_prompt_commands_test.go
+study_run_all_commands_test.go
+study_run_commands_test.go
+study_run_loop_commands_test.go
+study_runs_commands.go
+study_runs_commands_test.go
+study_status_commands_test.go
+study_summary_commands_test.go
+study_usecases.go
+study_validate_commands_test.go
+surfaces.go
+tui_commands.go
+tui_commands_test.go
+usecases.go
+usecases_test.go
+version.go
+web_operations_test.go
+web_usecases.go
+web_usecases_test.go
+workspace_commands.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run.go[90m [offset=100, limit=120][0m
+[0m
+[0m$ [0mrg -n "context.Canceled|Cancelled|cancelled" internal/study/run.go internal/study/execute*.go 2>/dev/null | head -20; ls internal/study/
+internal/study/run.go:263:	if result.Status == "cancelled" || (result.Error != nil && result.Error.Category == "cancellation") {
+internal/study/run.go:264:		return ExecutionStatusCancelled
+applicability.go
+cleanup_uncertain.go
+cleanup_uncertain_test.go
+config.go
+config_test.go
+dimension_refs.go
+discovery.go
+doc.go
+domain.go
+durable_metadata.go
+edit_warnings.go
+execution_domain.go
+init_clone.go
+init.go
+init_render.go
+init_test.go
+init_yaml.go
+locks.go
+locks_test.go
+markdown.go
+memory_pressure.go
+metadata_domain.go
+prompts.go
+prompts_test.go
+rating.go
+rating_test.go
+reports.go
+resolve.go
+run_all.go
+run_all_test.go
+run.go
+run_history.go
+run_history_summary.go
+run_history_test.go
+run_loop_diagnostics.go
+run_loop_diagnostics_test.go
+run_loop.go
+run_loop_test.go
+run_state_domain.go
+run_state.go
+run_test.go
+runtime_metadata.go
+runtime_metadata_test.go
+runtime_validation.go
+service.go
+state_database.go
+state.go
+state_test.go
+study_test.go
+summary.go
+summary_test.go
+synthesize.go
+validation_command.go
+validation_command_test.go
+validation.go
+validation_test.go
+[0m
+[0m$ [0mhead -80 internal/productstate/store.go; rg -n "productstate" internal --type go -l | grep -v _test | head
+package productstate
+
+import (
+	"context"
+	"crypto/sha256"
+	"database/sql"
+	"errors"
+	"fmt"
+	"net/url"
+	"os"
+	"path/filepath"
+	"strconv"
+	"sync"
+	"time"
+
+	_ "modernc.org/sqlite"
+)
+
+const DatabaseRelativePath = ".ultraplan/run-control.db"
+
+var ErrNotFound = errors.New("product state not found")
+
+type Item struct {
+	Key     string
+	Ordinal int
+	Payload []byte
+}
+
+type Record struct {
+	Kind          string
+	Scope         string
+	SchemaVersion int
+	Header        []byte
+	Items         []Item
+}
+
+type Store struct{ db *sql.DB }
+
+var stores sync.Map
+
+func Existing(root string) (*Store, bool, error) {
+	path := filepath.Join(root, filepath.FromSlash(DatabaseRelativePath))
+	if _, err := os.Stat(path); err != nil {
+		if os.IsNotExist(err) {
+			return nil, false, nil
+		}
+		return nil, false, err
+	}
+	store, err := open(root)
+	return store, err == nil, err
+}
+
+func Ensure(root string) (*Store, error) { return open(root) }
+
+func open(root string) (*Store, error) {
+	root, err := filepath.Abs(root)
+	if err != nil {
+		return nil, err
+	}
+	if cached, ok := stores.Load(root); ok {
+		return cached.(*Store), nil
+	}
+	path := filepath.Join(root, filepath.FromSlash(DatabaseRelativePath))
+	if err := os.MkdirAll(filepath.Dir(path), 0o700); err != nil {
+		return nil, err
+	}
+	values := url.Values{}
+	values.Set("_busy_timeout", strconv.FormatInt((5*time.Second).Milliseconds(), 10))
+	values.Set("_foreign_keys", "on")
+	values.Set("_journal_mode", "WAL")
+	values.Set("_synchronous", "FULL")
+	values.Set("_txlock", "immediate")
+	dsn := (&url.URL{Scheme: "file", Path: filepath.ToSlash(path), RawQuery: values.Encode()}).String()
+	db, err := sql.Open("sqlite", dsn)
+	if err != nil {
+		return nil, err
+	}
+	db.SetMaxOpenConns(4)
+	if err := createSchema(context.Background(), db); err != nil {
+		_ = db.Close()
+internal/productstate/store.go
+internal/study/state_database.go
+internal/app/storage_commands.go
+internal/sprint/state_database.go
+[0m
+[0m$ [0mrg -n "product_status|ProductStatus" internal/runcontrol internal/app internal/sprint --type go | grep -v _test | head -20; echo ===; head -60 internal/sprint/state_database.go
+internal/app/durable_operations.go:89:		Target: target, ProductStatus: "prepared", OperationAlias: digest, ConfirmationDigest: digest,
+internal/app/run_commands.go:419:		firstSafeValue(snapshot.ProductStatus, "unknown"), snapshot.Cancellation.State,
+internal/app/run_control.go:128:		ProductStatus: "accepted",
+internal/runcontrol/sqlite.go:258:    product_status TEXT NOT NULL DEFAULT '',
+internal/runcontrol/sqlite.go:402:	if len(input.ProductStatus) > MaxSafeValueBytes || len(input.ConfirmationDigest) > MaxSafeValueBytes {
+internal/runcontrol/sqlite.go:433:    product_status, confirmation_digest, cancellation_state
+internal/runcontrol/sqlite.go:437:		string(RecordFull), formatTime(now), formatTime(now), correlation, input.ProductStatus,
+internal/runcontrol/sqlite.go:934:       correlation_json, product_status, cancellation_state, cancellation_reason,
+internal/runcontrol/sqlite.go:942:		&snapshot.OmissionTotal, &correlationJSON, &snapshot.ProductStatus, &cancellationState,
+internal/runcontrol/model.go:328:	ProductStatus          string       `json:"product_status,omitempty"`
+internal/runcontrol/model.go:448:	ProductStatus      string
+===
+package sprint
+
+import (
+	"context"
+	"encoding/json"
+	"errors"
+	"time"
+
+	"github.com/Antonio7098/ultraplan-go/internal/productstate"
+)
+
+const (
+	sprintFlowStateKind    = "sprint_flow"
+	sprintExecuteStateKind = "sprint_execute"
+)
+
+func sprintStateScope(s Sprint) string { return s.Project + "/" + s.Slug }
+
+func loadFlowStateDatabase(root string, s Sprint) (FlowState, bool, error) {
+	record, found, err := loadSprintRecord(root, sprintFlowStateKind, sprintStateScope(s))
+	if err != nil || !found {
+		return FlowState{}, found, err
+	}
+	var state FlowState
+	if err := json.Unmarshal(record.Header, &state); err != nil {
+		return FlowState{}, false, err
+	}
+	for _, item := range record.Items {
+		var stage StageState
+		if err := json.Unmarshal(item.Payload, &stage); err != nil {
+			return FlowState{}, false, err
+		}
+		state.Stages = append(state.Stages, stage)
+	}
+	return state, true, nil
+}
+
+func loadExecuteStateDatabase(root string, s Sprint) (ExecuteRunState, bool, error) {
+	record, found, err := loadSprintRecord(root, sprintExecuteStateKind, sprintStateScope(s))
+	if err != nil || !found {
+		return ExecuteRunState{}, found, err
+	}
+	var state ExecuteRunState
+	if err := json.Unmarshal(record.Header, &state); err != nil {
+		return ExecuteRunState{}, false, err
+	}
+	for _, item := range record.Items {
+		var task ExecuteTaskRecord
+		if err := json.Unmarshal(item.Payload, &task); err != nil {
+			return ExecuteRunState{}, false, err
+		}
+		state.Tasks = append(state.Tasks, task)
+	}
+	return state, true, nil
+}
+
+func loadSprintRecord(root, kind, scope string) (productstate.Record, bool, error) {
+	store, enabled, err := productstate.Existing(root)
+	if err != nil || !enabled {
+		return productstate.Record{}, false, err
+[0m
+[0m$ [0mrg -n "controlledRuntimeFor|NewAdapter|WithRuntime\(" internal --type go | grep -v _test | head -15; echo ===; sed -n '180,215p' internal/web/operation_handlers.go
+internal/study/service.go:29:func WithRuntime(rt Runtime, req runtimepkg.Request) Option {
+internal/platform/runtime/runtime.go:256:func NewAdapter(aw agentwrap.Runtime) Adapter {
+internal/sprint/service.go:100:func (s Service) WithRuntime(rt Runtime, reqs ...pruntime.Request) Service {
+internal/app/study_commands.go:327:	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+internal/app/study_commands.go:340:	return study.NewService(root.Path, study.WithRuntime(controlled, req)), parallelism, summary, nil
+internal/app/study_commands.go:668:	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+internal/app/study_commands.go:672:	return study.NewService(root.Path, study.WithRuntime(controlled, req)), parallelism, nil
+internal/app/study_commands.go:837:	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+internal/app/study_commands.go:841:	return study.NewService(root.Path, study.WithRuntime(controlled, req)), nil
+internal/app/sprint_commands.go:490:	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+internal/app/sprint_commands.go:498:	return sprint.NewService(root.Path).WithRuntime(controlled, req).WithRuntimeProgress(progress).WithStageRuntime(planningStageRuntime(effective.Config)).WithReviewConcurrency(effective.Config.Execution.DefaultParallel).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env))), nil
+internal/app/run_control.go:103:func controlledRuntimeFor(deps dependencies, workspaceRoot string, effectiveConfig config.Config, base interface {
+===
+				seen[operation.ID] = true
+			}
+			for _, snapshot := range page.Runs {
+				if seen[string(snapshot.RunID)] || !snapshot.Lifecycle.IsActive() || snapshot.Target.Kind != "operation" {
+					continue
+				}
+				operations = append(operations, durableActiveOperation(snapshot))
+			}
+		}
+	}
+	count := len(operations)
+	h.writeSuccess(w, r, http.StatusOK, operations, &app.CollectionInfo{ReturnedCount: count, TotalCount: count})
+}
+
+func (h *handler) handleOperationCancel(w http.ResponseWriter, r *http.Request, id string) {
+	doc, requested, err := h.hub.cancelOperation(sessionID(r.Context()), id, "user_request")
+	if err != nil && h.runs != nil {
+		snapshot, changed, cancelErr := h.runs.CancelRun(r.Context(), app.RunID(id), "user_requested")
+		if cancelErr == nil && string(snapshot.RunID) == id {
+			doc, requested, err = durableOperationDocument(snapshot), changed, nil
+		}
+	}
+	if err != nil {
+		if legacyOperationID(id) {
+			h.writeError(w, r, http.StatusGone, "legacy_operation_not_retained", "This pre-durable operation is no longer retained. Refresh the owning product or inspect canonical workspace runs.")
+			return
+		}
+		h.writeOperationError(w, r, err)
+		return
+	}
+	status := http.StatusOK
+	if requested {
+		status = http.StatusAccepted
+	}
+	h.logOperation(r, "operation_cancel", doc.ID, string(doc.Kind), doc.State, doc.Reason)
+	h.writeSuccess(w, r, status, doc, nil)
+[0m
+[0m$ [0mrg -n "cancel|Cancel" internal/app/web_operations_test.go internal/app/serve_commands_test.go internal/runcontrol/fault_test.go | head -25
+internal/runcontrol/fault_test.go:68:		{"cancel", func() error {
+internal/runcontrol/fault_test.go:69:			_, _, err := repository.RequestCancellation(ctx, fence.RunID, "user_requested")
+internal/runcontrol/fault_test.go:72:		{"cancel-ack", func() error { _, _, err := repository.AcknowledgeCancellation(ctx, fence); return err }},
+internal/runcontrol/fault_test.go:108:		{"cancel", func() error { _, _, err := repository.RequestCancellation(ctx, runID, "user_requested"); return err }},
+internal/runcontrol/fault_test.go:109:		{"acknowledge", func() error { _, _, err := repository.AcknowledgeCancellation(ctx, fence); return err }},
+internal/runcontrol/fault_test.go:126:	if after.LastSequence != before.LastSequence || after.Lifecycle != before.Lifecycle || after.Cancellation.State != before.Cancellation.State || after.Terminal != nil {
+internal/app/serve_commands_test.go:97:func TestServeCancellationIsClean(t *testing.T) {
+internal/app/serve_commands_test.go:99:	ctx, cancel := context.WithCancel(context.Background())
+internal/app/serve_commands_test.go:100:	cancel()
+[0m
+[0m$ [0mrg -n "func Test.*[Cc]ancel" internal -g '*_test.go' | head -20
+internal/platform/runtime/runtime_test.go:191:func TestAdapterMapsCancellationAndTimeoutFailures(t *testing.T) {
+internal/platform/runtime/runtime_test.go:472:func TestStartRunCancelsUnderlyingRunWhenContextCancelled(t *testing.T) {
+internal/platform/process/process_test.go:32:func TestDirectRunnerCancellationCleansOwnedDescendant(t *testing.T) {
+internal/web/operations_test.go:124:func TestOperationHubLifecycleCancellationAndSessionOwnership(t *testing.T) {
+internal/web/operations_test.go:162:func TestOperationHubDrainCancelsOwnedWorkAndRejectsNewStarts(t *testing.T) {
+internal/web/operations_test.go:302:func TestOperationHTTPPrepareStartSSEAndCancel(t *testing.T) {
+internal/web/routes_test.go:213:func TestRouteRequestCancellationReachesAppQuery(t *testing.T) {
+internal/runcontrol/process_integration_test.go:83:func TestProcessIndependentObserverPersistsCancellation(t *testing.T) {
+internal/runcontrol/lifecycle_test.go:26:func TestHeartbeatAndDurableCancellationAreFencedAndIdempotent(t *testing.T) {
+internal/runcontrol/lifecycle_test.go:80:func TestCompletionMayWinAfterCancellationAndTerminalCancelIsIdempotent(t *testing.T) {
+internal/runcontrol/lifecycle_test.go:119:func TestCancellationAndTerminalRacePreservesOneWinnerAndIdempotentCommand(t *testing.T) {
+internal/web/run_handlers_test.go:327:func TestBrowserRunTwoServerRepositoriesShareObservationAndCancellation(t *testing.T) {
+internal/app/sprint_error_test.go:43:func TestFailedOperationUsesTypedCancellation(t *testing.T) {
+internal/app/serve_commands_test.go:97:func TestServeCancellationIsClean(t *testing.T) {
+internal/app/run_commands_test.go:15:func TestRunCommandsListShowFollowCancelDiagnosticsAndSupport(t *testing.T) {
+internal/app/run_commands_test.go:68:func TestRunFollowReplaysTerminalJournalAndStopsWithoutCancelling(t *testing.T) {
+internal/sprint/code_context_test.go:432:func TestCodeContextMissingOutputUnsupportedPermissionsAndCancellationFailClosed(t *testing.T) {
+internal/tui/model_test.go:253:func TestEscapeHidesForegroundRunWithoutCancelling(t *testing.T) {
+internal/tui/model_test.go:308:func TestCancelKeyWorksInsideRunView(t *testing.T) {
+internal/app/study_run_loop_commands_test.go:199:func TestStudyRunLoopCommandCancellationExit(t *testing.T) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle_test.go[90m [limit=100, offset=80][0m
+[0m
+[0m$ [0mrg -n "Status(Missing|Ready|Complete|Failed|Skipped|Running|Cancelled)\s*(StageStatus|=| )" internal/sprint/states.go internal/sprint/*.go 2>/dev/null | grep -v _test | head -12; rg -n "type StageStatus|Status[A-Z]\w+ (StageStatus|=)" internal/sprint --type go | grep -v _test | head
+internal/sprint/code_context.go:250:		if stage.Stage == StageCodeContext && stage.Status == StatusComplete {
+internal/sprint/domain.go:45:	StatusMissing  StageStatus = "missing"
+internal/sprint/domain.go:46:	StatusReady    StageStatus = "ready"
+internal/sprint/domain.go:47:	StatusComplete StageStatus = "complete"
+internal/sprint/domain.go:48:	StatusFailed   StageStatus = "failed"
+internal/sprint/domain.go:49:	StatusSkipped  StageStatus = "skipped"
+internal/sprint/service.go:1345:		if state.Status == StatusFailed {
+internal/sprint/service.go:1357:				if priorState, ok := previous[stage]; !ok || priorState.Status != StatusFailed {
+internal/sprint/service.go:1363:				if priorState, ok := previous[stage]; ok && priorState.Status == StatusComplete {
+internal/sprint/service.go:1366:			} else if priorState, ok := previous[stage]; ok && priorState.Status == StatusSkipped {
+internal/sprint/service.go:1380:		if status == StatusMissing {
+internal/sprint/service.go:1388:		if status == StatusMissing && !blocked && !readyAssigned {
+internal/sprint/domain.go:42:type StageStatus string
+internal/sprint/domain.go:47:	StatusComplete StageStatus = "complete"
+[0m
+[0m$ [0mgit log --oneline -2; ls; rg -ln -i "cancel" --glob '!*.git*' | head -20
+368a789 Add UltraPlan daemon and event system study
+2dc3b74 Advance sprints 30-35 and harden review/smoke flow
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+previews/spike-24.02-langgraph-full-template.md
+projects/ultraplan-go/project-index.md
+projects/aren-phase-01-execution-lifecycle/roadmap.md
+studies/ultraplan-daemon-events-study/study.json
+projects/ultraplan-go/roadmap.md
+projects/ultraplan-go/docs/TRD.md
+studies/ultraplan-daemon-events-study/study-init.yml
+system/reasoning/testing-strategy-reasoning-template.md
+studies/ultraplan-daemon-events-study/sources/buildkit.ultraplan-source.yml
+system/reasoning/llm-feature-reasoning-template.md
+studies/ultraplan-daemon-events-study/dimensions/01.09-cancellation-shutdown-and-process-cleanup.md
+previews/builtin-fallback-24.02-langgraph.md
+projects/aren-phase-01-execution-lifecycle/project-index.md
+projects/ultraplan-go/sprints/17-artifact-domain-and-flow-state/technical-handbook.md
+projects/ultraplan-go/sprints/26-review-stage/technical-handbook.md
+projects/ultraplan-go/sprints/21-plan-stage/technical-handbook.md
+projects/ultraplan-go/docs/PRD.md
+projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md
+projects/ultraplan-go/sprints/31-web-operations/technical-handbook.md
+projects/ultraplan-go/docs/ARCHITECTURE.md
+[0m
+[0m$ [0mrg -n -i "cancel" projects/ultraplan-go/docs/TRD.md | head -30; echo ===ARCH===; rg -n -i "cancell|terminal" projects/ultraplan-go/docs/ARCHITECTURE.md | head -40
+317:- `7`: Cancellation.
+352:- support cancellation through `context.Context`
+353:- leave durable state as the source of truth after cancellation or terminal resize/exit
+379:- expose versioned JSON endpoints for dashboard/detail queries, bounded artifact previews, validation, confirmation, operation start/status, and cancellation
+397:- stream bounded progress events, support cancellation, and refresh durable state after completion, failure, cancellation, or reconnect
+408:Normal tests must use `httptest`, fake app use cases, deterministic templates, fake runtimes, and fake smoke harnesses. Required coverage includes route/method errors, JSON compatibility, confirmation expiry/staleness, path escape, CSRF/origin rejection, hostile Markdown, SSE ordering/reconnect/slow subscribers, cancellation, shutdown, redaction, and CLI/TUI/web agreement.
+436:- expose readiness, progress, findings, artifact preview, rerun, cancellation, and recovery through shared CLI/TUI/web use cases
+1175:- `RequireCaps`: structured events and cancellation for normal tasks; permissions, artifacts, usage, or validation events when task policy requires them.
+1197:- Classify malformed output, runtime exit, timeout, cancellation, rate limits, permission issues, and health failures into `agentwrap.SDKError`.
+1363:- Stop scheduling new work on cancellation.
+1400:- `cancellation`
+1873:- cancelled
+2046:UltraPlan, not the model, owns reviewer fan-out. It must issue one independent structured agentwrap request per selected contract plus one handbook request, with bounded concurrency, context cancellation, read-only permissions, and validated JSON results. A reviewer must classify each requirement/guidance item as direct, partial, not triggered, or explicitly deferred before judging conformance.
+2056:Before discovery on every non-dry smoke run, UltraPlan must invoke the configured smoke author model in the external harness. The author receives the governed sprint inputs, execute/review evidence, target implementation, deterministic test inventory, existing harness, and manifest-declared writable paths. It must create or update a durable sprint-specific suite for real boundaries that deterministic unit/integration tests cannot prove. Those boundaries include real provider/model behavior where the product path uses a provider, process and signal lifecycle, real filesystem/configuration, network, credentials, browser engines, timing, cancellation, and platform behavior. It must not duplicate ordinary deterministic verification or introduce a provider call into an otherwise offline product path.
+2065:- use explicit argv, contained cwd, bounded environment forwarding, timeout, context cancellation, and descendant-process cleanup
+2077:Any governed input, selected contract/protocol, execute evidence, or implementation fingerprint change makes the prior review stale. A stale review also makes smoke stale. Status, JSON, and TUI must agree on readiness, running/completed/failed/cancelled state, verdict, staleness, artifact, evidence link, and required next action.
+2079:Every Phase 3 delivery sprint must update the TUI in the same sprint. TUI operations use the shared app use cases and expose the same review/smoke scope, dry-run, confirmation, progress, cancellation, results, focused reruns, evidence links, and recovery behavior as the CLI. TUI code must not invoke CLI handlers, parse terminal output, interpret native provider payloads, or persist an alternate verification state.
+2081:Normal tests use fake review runtimes and a fake smoke harness. Required tests cover success, findings, blocking failure, missing reviewer result, malformed structured output, stale inputs, missing harness, missing coverage, blocked environment, not-applicable scope, timeout, cancellation, malformed harness output, missing evidence, path escape, redaction, CLI/JSON/TUI agreement, and recovery.
+2121:DELETE /api/v1/operations/{id}   compatibility cancellation request
+2125:DELETE /api/v1/runs/{id}         authorized idempotent cancellation request
+2130:The server delivery hub is ephemeral and bounded. It may hold normalized requests, current connections, and delivery buffers, but not the only run IDs, cancellation routes, history, or terminal results. Server restart recovery reads the durable run projection and package-owned product state. Slow or disconnected SSE subscribers must not block product execution. Compatibility operation URLs must resolve to the durable run, a retained tombstone, or a typed recovery response; session expiry or in-memory reaping alone cannot produce an unexplained 404 for a valid run.
+2132:Graceful server shutdown owns cancellation of every worker the server owns under the selected Sprint 35 topology. Shutdown must enter draining, reject new mutations and queued starts, request canonical cancellation exactly once with reason `server_shutdown`, propagate through retries/runtime/process trees, wait for bounded cleanup, and persist one truthful terminal outcome. Valid outcomes are clean cancellation, interruption, cleanup uncertainty, or a failure/completion that was already authoritative before cancellation won. HTTP/SSE closes only after durable outcome or bounded uncertainty recording. Browser navigation, tab close, refresh, or SSE disconnect never cancels a run. Startup and periodic reconciliation must handle stale active runs and locks after forced termination without inferring success from process absence or artifact presence.
+2137:browser -> HTTP POST/DELETE -> app command/cancellation
+2180:Required tests include ordered-stage transitions, old flow-state compatibility, path/range validation, source-read/output-write isolation, fake runtime output, missing/invalid output, atomic rerun, model/variant fallback, CLI/JSON/TUI/web parity, exact prefix equality across representative downstream stages, absence of dynamic prefix data, flow execution exactly once, cancellation, and recovery.
+2182:The web extensibility gate requires the new stage to expose status, artifact preview, operation start, progress, cancellation, findings, and recovery through the existing application capability model. Adding route-specific product logic for `code-context` fails the gate.
+2197:cancellation request/acknowledgement facts
+2206:Read visibility is independent from originating-session continuity. Mutation still requires fresh authorization and a resolvable current owner. Cancellation is idempotent, durably recorded, routed through the canonical product/runtime cancellation path, and arbitrated against completion, failure, timeout, interruption, shutdown, and reconciliation so only one terminal outcome wins.
+2216:- worker cancellation versus safe adoption after owner loss
+2220:- cross-session read policy versus cancel/retry authorization
+2225:Every chosen mechanism must pass the same cross-process failure matrix: two CLI runs visible globally; a second supported server replaying and then following a current run; browser-session expiry; observer restart; abrupt owner death; stale lease and PID reuse; duplicate cancellation; completion/cancellation races; slow subscribers; cursor expiry; corrupt/torn records; disk-full or permission failure; bounded retention; and redaction. Tests must prove that operational records never override canonical product artifacts or stage verdicts.
+===ARCH===
+38:internal/tui owns terminal widgets, navigation, key handling, and rendering only
+73:    views.go                # terminal rendering
+102:      runner.go             # executable/argv/cwd/env/timeout/cancellation boundary
+295:review/smoke progress, cancellation, result, evidence-link, and recovery use cases shared by CLI, TUI, and web
+312:`tui` owns the interactive terminal experience:
+318:terminal rendering and resize behavior
+328:If a third-party terminal UI library is used, it should stay behind `internal/tui` and not leak into product modules.
+349:Until Sprint 35 reasoning changes the ownership topology, the server owns every worker it starts. Graceful shutdown enters draining, rejects new mutations, cancels all server-owned workers through their canonical cancellation functions, waits for bounded cleanup/reconciliation, persists truthful terminal or uncertain outcomes, then closes SSE/HTTP. Browser disconnect is subscription loss only and never operation cancellation. Run identity and retained observation survive the server even when the worker does not.
+361:route authorized idempotent cancellation to the current owner
+362:arbitrate exactly one terminal outcome
+369:The final design must reason explicitly about a dedicated product module versus package-owned repositories coordinated through `app`; filesystem journal versus SQLite or another local store; one coordinator versus fenced multi-process writers; worker cancellation versus adoption after owner loss; and same-host versus shared-filesystem multi-host guarantees. Whichever choices are selected must satisfy the same public lifecycle, replay, security, migration, and fault-injection contracts.
+439:Timeout and context cancellation
+619:Runtime/provider execution: context propagation, cancellation, runtime ports, correlation IDs, retry ownership, bounded provider calls, and cost metadata.
+620:Batch/run-loop execution: bounded concurrency, durable task state, diagnostics, terminal failure state, and resumability.
+682:durable operational run records     = authoritative execution identity, liveness, event order, and terminal observation for their concern
+[0m
+[0m$ [0mrg -n -i "persistence.?degrad|persistence lost|persistence_degraded|truthful" projects/ultraplan-go/docs/TRD.md | head -15; echo ===; rg -n -i "persistence" projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md | head; echo ===35===; sed -n '1,40p' projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md
+398:- remain truthful when the browser disconnects: subscriber presence is not task state and loss of an SSE connection does not mark work complete or failed
+1845:- Review and smoke stage state must distinguish execution status from verdict so a successfully completed investigation may truthfully report a failing verdict.
+2132:Graceful server shutdown owns cancellation of every worker the server owns under the selected Sprint 35 topology. Shutdown must enter draining, reject new mutations and queued starts, request canonical cancellation exactly once with reason `server_shutdown`, propagate through retries/runtime/process trees, wait for bounded cleanup, and persist one truthful terminal outcome. Valid outcomes are clean cancellation, interruption, cleanup uncertainty, or a failure/completion that was already authoritative before cancellation won. HTTP/SSE closes only after durable outcome or bounded uncertainty recording. Browser navigation, tab close, refresh, or SSE disconnect never cancels a run. Startup and periodic reconciliation must handle stale active runs and locks after forced termination without inferring success from process absence or artifact presence.
+2635:- Graceful server shutdown cancels every server-owned active operation, performs bounded cleanup, records a truthful outcome, and keeps browser disconnection independent from run cancellation.
+===
+13:This sprint does not change the authority of project, sprint, study, or Markdown artifacts. Durable operational run state is a separate product concern from the later gated decision about alternate persistence for authored product content.
+33:- A runtime-backed command receives a durable run ID before child execution begins, or fails closed without starting the child when required run persistence cannot be established.
+44:- Retention, compaction, disk limits, subscriber backpressure, and degraded-mode behavior are explicit and testable; event loss or persistence failure is never silent.
+63:13. What happens when durable record persistence fails before start, mid-run, or at terminal commit? Which degraded modes are safe, and when must execution stop?
+===35===
+# Sprint 35 Requirements: Durable Run Identity and Cross-Surface Observability
+
+> Project: `ultraplan-go`
+> Sprint: `35-durable-run-observability`
+> Purpose: the authoritative, human-readable sprint contract. Later sprint artifacts must reason through the open decisions and satisfy the fixed observable outcomes.
+
+## Sprint Goal
+
+Make every accepted runtime-backed UltraPlan execution a durable, workspace-visible run that can be discovered, inspected, followed, cancelled when authorized, and reconciled consistently from CLI, TUI, and any local web-server instance attached to the same workspace.
+
+The sprint repairs the operational control plane exposed by real use: CLI-started work must appear in the browser running-process indicator, a run opened through another server must retain useful history and continue with live events, and a browser session or server restart must not turn a legitimate run into an unexplained `404 Operation not retained` dead end.
+
+This sprint does not change the authority of project, sprint, study, or Markdown artifacts. Durable operational run state is a separate product concern from the later gated decision about alternate persistence for authored product content.
+
+## Required Outputs
+
+| Deliverable | Required Outcome |
+|---|---|
+| Run identity and lifecycle model | A stable workspace-scoped run ID, attempt identity, operation/stage identity, timestamps, ownership/liveness facts, safe correlation fields, and one arbitrated terminal outcome exist independently of a browser session, HTTP server process, or event subscriber. |
+| Durable run repository and event journal | Accepted runs and sanitized progress events are durably recorded before they are advertised as observable; events have monotonic per-run ordering and can be replayed after reconnect, session expiry, or server restart. The reasoning and plan stages select the concrete package and storage mechanism. |
+| Workspace-wide active-run projection | CLI, TUI, dashboard, project, sprint, study, and local web surfaces derive running counts and run lists from the same workspace-wide lifecycle model rather than the current web process's in-memory operation map or only the page currently being viewed. |
+| Stable run inspection | A durable run detail surface reports identity, target, lifecycle state, latest heartbeat, stage/task progress, safe diagnostics, event history, terminal result, and recovery guidance. Read visibility is not coupled to the browser session that started the work. |
+| Replayable live event delivery | The web event transport resumes from a durable sequence cursor, makes truncation or retention gaps explicit, and continues from durable state when a different local server instance serves the same workspace. SSE may remain the transport; the transport is not the source of truth. |
+| Ownership, lease, and reconciliation | Active executions publish enough owner/lease/heartbeat and process/runtime identity to distinguish live, stalled, interrupted, cleanup-uncertain, and terminal work conservatively, including PID reuse and abrupt owner death. Startup and periodic reconciliation never infer success from process absence or artifact presence. |
+| Cross-surface cancellation | Authorized cancellation resolves the durable run, reaches the current owner through a selected coordination mechanism, is idempotent, and participates in the same single-terminal-outcome arbitration as completion, failure, timeout, interruption, and server shutdown. |
+| Compatibility and migration | Current sprint/study locks, flow state, execute state, runtime checkpoints, operation URLs, and JSON clients have an explicit migration or compatibility story. Legacy or expired operation links resolve to a durable run, a retained tombstone, or precise recovery guidance rather than a generic dashboard error. |
+| Operational telemetry | Structured logs, local metrics, diagnostics, and optional traces share run/attempt/stage/task/runtime correlation. Operator-visible health distinguishes storage failure, stale ownership, reconciliation backlog, replay gap, subscriber lag/drop, and cancellation uncertainty. |
+| Verification and fault injection | Deterministic, race, integration, and browser tests prove CLI-to-web discovery, multiple local servers, refresh/reconnect replay, session expiry, server restart, abrupt owner death, stale leases, PID reuse, slow subscribers, bounded storage, duplicate cancellation, and terminal-state races. |
+| Documentation | Architecture, PRD, TRD, CLI/API, local-web, operations, and recovery documentation explain the lifecycle model, authority boundaries, visibility guarantees, retention behavior, diagnostic workflow, compatibility policy, and intentionally unresolved design choices. |
+
+## Acceptance Criteria
+
+- A runtime-backed command receives a durable run ID before child execution begins, or fails closed without starting the child when required run persistence cannot be established.
+- Two concurrent CLI-started runs in one workspace appear as two active runs in the browser top bar and workspace run list without requiring navigation to either owning sprint or study page.
+- Work started through CLI, TUI, or one local web-server instance can be inspected from another supported local surface attached to the same workspace.
+- Opening a current run through a different local server provides retained event history and subsequently committed live events, subject only to an explicit documented topology boundary selected during reasoning.
+- Refreshing a page, rotating or expiring a browser session, restarting the observing server, or losing an SSE connection does not erase the run identity or turn a valid run into an unexplained 404.
+- Every event visible to a subscriber has a stable run ID and monotonic per-run sequence. Reconnect resumes from a cursor; if the requested history is unavailable, the API emits a typed gap/retention response and a current durable snapshot.
+- Running counts use lifecycle state from the shared run projection. No UI depends on a planning-stage status value that cannot represent running execution.
+- Active-run truth includes a renewable lease or equivalent liveness contract. Reconciliation is conservative, observable, idempotent, and safe against stale PIDs and owner crashes.
+[0m
+[0m$ [0msed -n '211,238p;262,303p' internal/app/run_control.go | head -70; echo ====; sed -n '195,201p' internal/app/durable_operations.go
+controlDone := make(chan struct{})
+	go func() {
+		defer close(controlDone)
+		ticker := time.NewTicker(runcontrol.OwnerTickInterval)
+		defer ticker.Stop()
+		lastHeartbeat := time.Now()
+		lastReconcile := time.Now()
+		for {
+			select {
+			case <-runCtx.Done():
+				return
+			case now := <-ticker.C:
+				snapshot, err := r.repository.Snapshot(runCtx, fence.RunID)
+				if err != nil {
+					if runCtx.Err() != nil {
+						return
+					}
+					setPersistenceErr(fmt.Errorf("poll durable run control: %w", err))
+					return
+				}
+				if snapshot.Cancellation.State == runcontrol.CancellationRequested {
+					if _, _, err := r.repository.AcknowledgeCancellation(runCtx, fence); err != nil {
+						setPersistenceErr(fmt.Errorf("acknowledge durable cancellation: %w", err))
+						return
+					}
+					cancel()
+					return
+				}
+	result, runErr := r.base.StartRun(runCtx, req)
+	eventMu.Lock()
+	if persistenceErr == nil && progressOmitted > 0 {
+		_, _, appendErr := appendRunEventWithRetry(runCtx, r.repository, fence, runcontrol.EventDraft{
+			Type: runcontrol.EventOmission,
+			Omission: &runcontrol.Omission{
+				Reason: "equivalent progress coalesced", Count: progressOmitted,
+				FirstAt: &progressOmittedFirst, LastAt: &progressOmittedLast,
+			},
+		})
+		if appendErr != nil {
+			persistenceErr = fmt.Errorf("persist progress omission: %w", appendErr)
+		}
+	}
+	eventMu.Unlock()
+	cancel()
+	<-controlDone
+	eventMu.Lock()
+	persistErr := persistenceErr
+	eventMu.Unlock()
+	if persistErr != nil {
+		terminalCtx, terminalCancel := context.WithTimeout(context.Background(), 30*time.Second)
+		_, _, terminalErr := proposeRunTerminalWithRetry(terminalCtx, r.repository, fence, runcontrol.TerminalProposal{
+			Outcome: runcontrol.TerminalPersistenceLost, Reason: "durable event persistence failed", ProposedBy: r.owner.ID,
+		})
+		terminalCancel()
+		if terminalErr != nil {
+			return result, errors.Join(persistErr, terminalErr)
+		}
+		return result, persistErr
+	}
+
+	outcome, reason := terminalOutcome(result, runErr, ctx)
+	terminalCtx, terminalCancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer terminalCancel()
+	if _, _, err := proposeRunTerminalWithRetry(terminalCtx, r.repository, fence, runcontrol.TerminalProposal{
+		Outcome: outcome, Reason: reason, ProposedBy: r.owner.ID,
+	}); err != nil {
+		return result, errors.Join(runErr, fmt.Errorf("persist terminal run outcome: %w", err))
+	}
+	return result, runErr
+}
+====
+			if snapshot.Cancellation.State == runcontrol.CancellationRequested {
+				if _, _, err := m.repository.AcknowledgeCancellation(ctx, owned.fence); err != nil {
+					owned.cancel()
+					return
+				}
+				owned.cancel()
+				return
+[0m

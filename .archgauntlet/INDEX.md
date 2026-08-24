@@ -71,18 +71,18 @@ Target: `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go`
 
 ## Failure
 
-- `failure-01` — **pending** — Crash during durable acceptance — [result](runs/failure-01/stdout.md)
-- `failure-02` — **pending** — Owner death after work begins — [result](runs/failure-02/stdout.md)
-- `failure-03` — **pending** — Stale fenced owner — [result](runs/failure-03/stdout.md)
-- `failure-04` — **pending** — CLI/web concurrent mutation — [result](runs/failure-04/stdout.md)
-- `failure-05` — **pending** — Browser disconnect — [result](runs/failure-05/stdout.md)
-- `failure-06` — **pending** — Server shutdown — [result](runs/failure-06/stdout.md)
-- `failure-07` — **pending** — Cancellation vs completion race — [result](runs/failure-07/stdout.md)
-- `failure-08` — **pending** — Slow SSE subscriber — [result](runs/failure-08/stdout.md)
-- `failure-09` — **pending** — Persistence failure — [result](runs/failure-09/stdout.md)
-- `failure-10` — **pending** — Migration/restart — [result](runs/failure-10/stdout.md)
-- `failure-11` — **pending** — Smoke harness timeout — [result](runs/failure-11/stdout.md)
-- `failure-12` — **pending** — Corrupt or stale state — [result](runs/failure-12/stdout.md)
+- `failure-01` — **succeeded** — Crash during durable acceptance — [result](runs/failure-01/stdout.md)
+- `failure-02` — **succeeded** — Owner death after work begins — [result](runs/failure-02/stdout.md)
+- `failure-03` — **succeeded** — Stale fenced owner — [result](runs/failure-03/stdout.md)
+- `failure-04` — **succeeded** — CLI/web concurrent mutation — [result](runs/failure-04/stdout.md)
+- `failure-05` — **succeeded** — Browser disconnect — [result](runs/failure-05/stdout.md)
+- `failure-06` — **succeeded** — Server shutdown — [result](runs/failure-06/stdout.md)
+- `failure-07` — **succeeded** — Cancellation vs completion race — [result](runs/failure-07/stdout.md)
+- `failure-08` — **succeeded** — Slow SSE subscriber — [result](runs/failure-08/stdout.md)
+- `failure-09` — **succeeded** — Persistence failure — [result](runs/failure-09/stdout.md)
+- `failure-10` — **succeeded** — Migration/restart — [result](runs/failure-10/stdout.md)
+- `failure-11` — **succeeded** — Smoke harness timeout — [result](runs/failure-11/stdout.md)
+- `failure-12` — **succeeded** — Corrupt or stale state — [result](runs/failure-12/stdout.md)
 
 ## Change
 

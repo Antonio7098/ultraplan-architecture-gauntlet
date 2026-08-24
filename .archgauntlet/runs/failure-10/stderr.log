@@ -1,0 +1,365 @@
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/fault-scenarios.md
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go log --oneline -5
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal -type d | sort
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/filesystem
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/css
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/js
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/components
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/layouts
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/pages
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/primitives
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates
+[0m
+[0m✱ [0mGrep "migrat"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 100 matches[0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd:
+ultraplan
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate:
+store.go
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol:
+benchmark_test.go
+doc.go
+errors.go
+fault_test.go
+id.go
+id_test.go
+import_boundary_test.go
+interfaces.go
+lifecycle.go
+lifecycle_test.go
+local_log.go
+local_log_test.go
+metrics.go
+migration.go
+migration_test.go
+model.go
+model_test.go
+process_darwin.go
+process.go
+process_integration_test.go
+process_linux.go
+process_other.go
+retention.go
+retention_test.go
+sanitize.go
+sanitize_test.go
+sqlite.go
+sqlite_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go
+[0m✱ [0mGrep "func (loadFlowStateDatabase|saveFlowStateDatabase|FlowStateInDatabase|FlowStatePath)"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 4 matches[0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan:
+main.go
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app:
+app.go
+app_test.go
+code_commands.go
+code_commands_test.go
+config_commands.go
+defaults_commands.go
+durable_operations.go
+durable_operations_test.go
+health_commands.go
+health_commands_test.go
+json_output.go
+markdown.go
+markdown_test.go
+operation_runner.go
+operations.go
+project_commands.go
+project_commands_test.go
+project_usecases.go
+run_commands.go
+run_commands_test.go
+run_control.go
+run_control_inventory_test.go
+run_control_test.go
+run_usecases.go
+serve_commands.go
+serve_commands_test.go
+skills_commands.go
+skills_commands_test.go
+sprint_commands.go
+sprint_commands_test.go
+sprint_error_test.go
+sprint_usecases.go
+sprint_usecases_test.go
+sprint_verify_commands_test.go
+status_json.go
+storage_commands.go
+study_commands.go
+study_commands_test.go
+study_init_commands_test.go
+study_prompt_commands_test.go
+study_run_all_commands_test.go
+study_run_commands_test.go
+study_run_loop_commands_test.go
+study_runs_commands.go
+study_runs_commands_test.go
+study_status_commands_test.go
+study_summary_commands_test.go
+study_usecases.go
+study_validate_commands_test.go
+surfaces.go
+tui_commands.go
+tui_commands_test.go
+usecases.go
+usecases_test.go
+version.go
+web_operations_test.go
+web_usecases.go
+web_usecases_test.go
+workspace_commands.go
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study:
+applicability.go
+cleanup_uncertain.go
+cleanup_uncertain_test.go
+config.go
+config_test.go
+dimension_refs.go
+discovery.go
+doc.go
+domain.go
+durable_metadata.go
+edit_warnings.go
+execution_domain.go
+init_clone.go
+init.go
+init_render.go
+init_test.go
+init_yaml.go
+locks.go
+locks_test.go
+markdown.go
+memory_pressure.go
+metadata_domain.go
+prompts.go
+prompts_test.go
+rating.go
+rating_test.go
+reports.go
+resolve.go
+run_all.go
+run_all_test.go
+run.go
+run_history.go
+run_history_summary.go
+run_history_test.go
+run_loop_diagnostics.go
+run_loop_diagnostics_test.go
+run_loop.go
+run_loop_test.go
+run_state_domain.go
+run_state.go
+run_test.go
+runtime_metadata.go
+runtime_metadata_test.go
+runtime_validation.go
+service.go
+state_database.go
+state.go
+state_test.go
+study_test.go
+summary.go
+summary_test.go
+synthesize.go
+validation_command.go
+validation_command_test.go
+validation.go
+validation_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state_database.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go[90m [limit=420][0m
+[0m✱ [0mGrep "func "[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle.go · 100 matches[0m
+[0m✱ [0mGrep "^func "[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle.go · 100 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/recovery.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/storage_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/migration-product-state.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle.go[90m [offset=301, limit=240][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state.go
+[0m✱ [0mGrep "migrate\.lock|migration lock"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 12 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/fault_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/validation_command.go[90m [limit=80, offset=140][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/configuration.md[90m [limit=40, offset=175][0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects 2>/dev/null
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+aren-phase-01-execution-lifecycle
+ultraplan-go
+[0m
+[0m✱ [0mGrep "FlowStateSchemaVersion|PreviousFlowStateSchemaVersion"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 16 matches[0m
+[0m
+[0m$ [0mrg -l "migration|migrate" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go --max-count 1 2>/dev/null | head -20
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/project-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/PRD.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/22-documentaiton-and-release/plan.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/10-single-analysis-synthesis/requirements.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/08-run-state-persistence/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/06-study-run-execution/sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/05-study-listing-inspection/sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/08-run-state-persistence/sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/07-prompt-composition-generation/sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/10-single-analysis-synthesis/sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/09-runtime-integration/sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/08-run-state-persistence/review.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/10-single-analysis-synthesis/reasoning/single-analysis-synthesis.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/08-run-state-persistence/review-configuration.json
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/08-run-state-persistence/persistence-and-migrations-review.json
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/09-runtime-integration/review.md
+[0m
+[0m$ [0mrg -n "migrat|reconcil|startup|previous format|prior format" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md | head -40
+343:- preserve clear error messages and exit behavior when startup fails
+1811:Detailed smoke JSON and issue records belong to the external harness `runs/` and `issues/` directories rather than the sprint root. Historical manual `review.md` and `deep-smoke.md` files may exist until migration; Phase 3 review and smoke atomically replace the canonical root `review.md` and `smoke.md` when explicitly run.
+2132:Graceful server shutdown owns cancellation of every worker the server owns under the selected Sprint 35 topology. Shutdown must enter draining, reject new mutations and queued starts, request canonical cancellation exactly once with reason `server_shutdown`, propagate through retries/runtime/process trees, wait for bounded cleanup, and persist one truthful terminal outcome. Valid outcomes are clean cancellation, interruption, cleanup uncertainty, or a failure/completion that was already authoritative before cancellation won. HTTP/SSE closes only after durable outcome or bounded uncertainty recording. Browser navigation, tab close, refresh, or SSE disconnect never cancels a run. Startup and periodic reconciliation must handle stale active runs and locks after forced termination without inferring success from process absence or artifact presence.
+2169:File names may evolve with the actual component set, but the ownership and dependency layers are normative. Template parsing must fail at server startup on duplicate/invalid definitions. Focused tests must render representative primitives, components, layouts, and pages; validate complete no-JavaScript output; assert escaping of hostile values; and verify embedded asset paths, accessibility semantics, and absence of inline or third-party executable content.
+2199:safe diagnostics, schema version, and migration metadata
+2206:Read visibility is independent from originating-session continuity. Mutation still requires fresh authorization and a resolvable current owner. Cancellation is idempotent, durably recorded, routed through the canonical product/runtime cancellation path, and arbitrated against completion, failure, timeout, interruption, shutdown, and reconciliation so only one terminal outcome wins.
+2277:- Lifecycle transition, lease state, reconciliation decision, and terminal-outcome winner when applicable.
+2296:- Acceptance/append/terminal persistence health, reconciliation backlog, and last decision evidence.
+2331:- Bound durable journal queues, append latency, retained bytes/events, replay work, reconciliation concurrency, and support-bundle size.
+2354:- The server waits only for a configured bounded cleanup period, does not release locks before ownership is reconciled, and records `interrupted` or `cleanup_uncertain` when complete cleanup cannot be proven.
+2355:- Forced termination is reconciled at startup; stale `running` state, missing processes, or partial artifacts never imply successful completion.
+2356:- Cancellation from another supported process is first persisted against the run, then routed to the current fenced owner. Repetition is safe and an unreachable owner remains visibly pending or uncertain until reconciliation.
+2441:- Run envelope validation, lifecycle transitions, monotonic sequence allocation, lease renewal/expiry, fencing, terminal arbitration, retention/compaction, redaction-before-append, tombstones, and migration.
+2463:- Durable run records for active, stalled, interrupted, cleanup-uncertain, terminal, migrated, tombstoned, compacted, corrupt/torn, and unsupported-version cases.
+2498:Sprint 35 cross-process tests must cover two concurrent CLI-started runs visible from the browser top bar, a run observed through a second supported local server, session expiry, observing-server restart, retained replay followed by new live events, owner crash at every commit boundary, stale lease, PID reuse, fencing of stale writers, duplicate cancellation, cancellation/completion races, slow subscribers, cursor expiry, compaction, disk-full/permission failure, corrupted/torn records, schema migration, and a redacted support bundle. The test harness must distinguish observer restart from worker-owner restart and assert the selected topology contract explicitly.
+2645:- Lease/fencing, owner loss, PID reuse, cancellation routing, terminal arbitration, reconciliation, retention, persistence failure, and backpressure have deterministic race and fault-injection coverage.
+2665:- Which workers may be adopted after owner loss, if any, and which must be cancelled or reconciled as interrupted?
+2685:| 1.8.0 | 2026-08-20 | Add Phase 6 durable run control and observability | Define stable workspace run identity, durable ordered safe events, cross-surface/server projection, lease/fencing and reconciliation, compatible run inspection, cancellation routing, telemetry, and a comprehensive failure matrix while leaving storage and coordinator choices to Sprint 35 reasoning. |
+[0m
+[0m✱ [0mGrep "legacyFlowState|LegacyTerminalExecuteStatus|preCodeContextFlowState"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 12 matches[0m
+[0m✱ [0mGrep "productstate\.(Ensure|Existing)"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 8 matches[0m
+[0m✱ [0mGrep "func runRepository|func discoverWorkspace"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 2 matches[0m
+[0m
+[0m$ [0mrg -n "migrate.lock|migration lock|\.migrate\.lock" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/ ; echo "---"; rg -n "RestoreBackup|storage migrate" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/*.go | grep -v _test | head
+---
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/storage_commands.go:52:			return classified(ExitUsage, "storage migrate: unknown argument %q", arg)
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/storage_commands.go:200:	return `ultraplan storage migrate
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/storage_commands.go:203:  ultraplan [--workspace <path>] storage migrate [--dry-run] [--json]
+[0m
+[0m$ [0mrg -n "RestoreBackup" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd; echo ---; sed -n 36,60p /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go:293:// RestoreBackup replaces the stopped workspace database with one bounded,
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go:296:func RestoreBackup(ctx context.Context, workspaceRoot, backupName string) error {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration_test.go:137:	if err := RestoreBackup(context.Background(), root, filepath.Base(backup)); err != nil {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration_test.go:138:		t.Fatalf("RestoreBackup: %v", err)
+---
+		return runDiagnostics(deps, args[1:])
+	default:
+		return classified(ExitUsage, "run: unknown subcommand %q", args[0])
+	}
+}
+
+func runRepository(deps dependencies) (runcontrol.Repository, string, error) {
+	root, err := discoverWorkspace(deps)
+	if err != nil {
+		return nil, "", err
+	}
+	if deps.runControl == nil {
+		return nil, "", classified(ExitRuntime, "run-control.init: process state unavailable")
+	}
+	effective, err := loadEffectiveConfig(root, deps, config.CLIOverrides{})
+	if err != nil {
+		return nil, "", err
+	}
+	repository, err := deps.runControl.repository(deps.ctx, root.Path, runControlRetentionPolicy(effective.Config))
+	if err != nil {
+		return nil, "", classifiedCause(ExitRuntime, err, "run-control.open")
+	}
+	return repository, root.Path, nil
+}
+[0m
+[0m$ [0mrg -rn "restore" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/scripts /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web --ignore-case -l; echo ---; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/scripts
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/release-checklist.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operation_handlers.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/recovery.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/resource-monitor.js
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/plans/retrieval-ready-content-knowledge-graph-addendum.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_runs_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_loop_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_all_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/scripts/reset-opencode-db.sh
+---
+install-ultraplan.sh
+migrate-legacy-sprint-state.sh
+migrate-product-state.sh
+reset-opencode-db.sh
+[0m
+[0m$ [0mrg -n "igration|Health\(|schema" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands.go | head -20; echo ---; rg -n "igration|schema_version|user_version" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands.go | head
+21:	SchemaVersion int           `json:"schema_version"`
+30:func runHealth(deps dependencies, args []string) error {
+112:func runRuntimeHealth(ctx context.Context, workDir string, c config.Config) ([]healthCheck, error) {
+121:	report, err := adapter.Health(ctx, runtimepkg.HealthRequest{
+---
+279:	SchemaVersion  int                                 `json:"schema_version"`
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands.go[90m [limit=75][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify_test.go[90m [limit=35, offset=55][0m
