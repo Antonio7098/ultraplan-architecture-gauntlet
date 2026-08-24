@@ -1,0 +1,212 @@
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -3 && git status --short | head -5
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+[0m
+[0m$ [0mfind . -name '*.go' -not -path './vendor/*' | head -80 && echo '---TOTAL---' && find . -name '*.go' -not -path './vendor/*' | wc -l
+./cmd/ultraplan/main.go
+./internal/app/app.go
+./internal/app/app_test.go
+./internal/app/code_commands.go
+./internal/app/code_commands_test.go
+./internal/app/config_commands.go
+./internal/app/defaults_commands.go
+./internal/app/health_commands.go
+./internal/app/health_commands_test.go
+./internal/app/json_output.go
+./internal/app/markdown.go
+./internal/app/markdown_test.go
+./internal/app/project_commands.go
+./internal/app/project_usecases.go
+./internal/app/run_commands.go
+./internal/app/run_commands_test.go
+./internal/app/run_control_inventory_test.go
+./internal/app/run_usecases.go
+./internal/app/serve_commands_test.go
+./internal/app/skills_commands.go
+./internal/app/skills_commands_test.go
+./internal/app/sprint_error_test.go
+./internal/app/sprint_usecases.go
+./internal/app/sprint_usecases_test.go
+./internal/app/sprint_verify_commands_test.go
+./internal/app/status_json.go
+./internal/app/storage_commands.go
+./internal/app/study_commands_test.go
+./internal/app/study_init_commands_test.go
+./internal/app/study_prompt_commands_test.go
+./internal/app/study_run_all_commands_test.go
+./internal/app/study_run_commands_test.go
+./internal/app/study_run_loop_commands_test.go
+./internal/app/study_runs_commands.go
+./internal/app/study_runs_commands_test.go
+./internal/app/study_status_commands_test.go
+./internal/app/study_summary_commands_test.go
+./internal/app/study_usecases.go
+./internal/app/study_validate_commands_test.go
+./internal/app/surfaces.go
+./internal/app/tui_commands.go
+./internal/app/usecases.go
+./internal/app/usecases_test.go
+./internal/app/version.go
+./internal/app/web_operations_test.go
+./internal/app/web_usecases_test.go
+./internal/app/workspace_commands.go
+./internal/app/durable_operations.go
+./internal/app/durable_operations_test.go
+./internal/app/operation_runner.go
+./internal/app/operations.go
+./internal/app/project_commands_test.go
+./internal/app/run_control.go
+./internal/app/run_control_test.go
+./internal/app/serve_commands.go
+./internal/app/sprint_commands.go
+./internal/app/sprint_commands_test.go
+./internal/app/study_commands.go
+./internal/app/tui_commands_test.go
+./internal/app/web_usecases.go
+./internal/codeextract/codeextract_test.go
+./internal/codeextract/doc.go
+./internal/codeextract/domain.go
+./internal/codeextract/parser.go
+./internal/codeextract/resolver.go
+./internal/codeextract/service.go
+./internal/platform/config/config.go
+./internal/platform/config/config_test.go
+./internal/platform/config/doc.go
+./internal/platform/config/redaction.go
+./internal/platform/filesystem/doc.go
+./internal/platform/logging/doc.go
+./internal/platform/logging/logging.go
+./internal/platform/logging/logging_test.go
+./internal/platform/process/process.go
+./internal/platform/process/process_other.go
+./internal/platform/process/process_test.go
+./internal/platform/process/process_unix.go
+./internal/platform/runtime/agentwrap.go
+./internal/platform/runtime/cache_test.go
+---TOTAL---
+291
+[0m
+[0m$ [0mfind . -name '*.go' -not -path './vendor/*' | sed 's|/[^/]*$||' | sort | uniq -c | sort -rn
+62 ./internal/sprint
+     59 ./internal/app
+     56 ./internal/study
+     28 ./internal/runcontrol
+     24 ./internal/web
+     14 ./internal/tui
+     10 ./internal/project
+      9 ./internal/workspace
+      9 ./internal/platform/runtime
+      6 ./internal/codeextract
+      4 ./internal/platform/process
+      4 ./internal/platform/config
+      3 ./internal/platform/logging
+      1 ./internal/productstate
+      1 ./internal/platform/filesystem
+      1 ./cmd/ultraplan
+[0m
+[0m✱ [0mGrep "errors\.(New|Is|As|Join|Wrap)|fmt\.Errorf"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 100 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/agentwrap.go[90m [include=*.go, path=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go, pattern=idempot|Idempot|IDEMPOT][0m
+[0m✱ [0mGrep "[Rr]etry|Retryable|retryable"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 100 matches[0m
+[0m
+[0m$ [0mls internal/study/ internal/runcontrol/
+internal/runcontrol/:
+benchmark_test.go
+doc.go
+errors.go
+fault_test.go
+id.go
+id_test.go
+import_boundary_test.go
+interfaces.go
+lifecycle.go
+lifecycle_test.go
+local_log.go
+local_log_test.go
+metrics.go
+migration.go
+migration_test.go
+model.go
+model_test.go
+process_darwin.go
+process.go
+process_integration_test.go
+process_linux.go
+process_other.go
+retention.go
+retention_test.go
+sanitize.go
+sanitize_test.go
+sqlite.go
+sqlite_test.go
+
+internal/study/:
+applicability.go
+cleanup_uncertain.go
+cleanup_uncertain_test.go
+config.go
+config_test.go
+dimension_refs.go
+discovery.go
+doc.go
+domain.go
+durable_metadata.go
+edit_warnings.go
+execution_domain.go
+init_clone.go
+init.go
+init_render.go
+init_test.go
+init_yaml.go
+locks.go
+locks_test.go
+markdown.go
+memory_pressure.go
+metadata_domain.go
+prompts.go
+prompts_test.go
+rating.go
+rating_test.go
+reports.go
+resolve.go
+run_all.go
+run_all_test.go
+run.go
+run_history.go
+run_history_summary.go
+run_history_test.go
+run_loop_diagnostics.go
+run_loop_diagnostics_test.go
+run_loop.go
+run_loop_test.go
+run_state_domain.go
+run_state.go
+run_test.go
+runtime_metadata.go
+runtime_metadata_test.go
+runtime_validation.go
+service.go
+state_database.go
+state.go
+state_test.go
+study_test.go
+summary.go
+summary_test.go
+synthesize.go
+validation_command.go
+validation_command_test.go
+validation.go
+validation_test.go
+[0m
+[0m✱ [0mGrep "Err[A-Z]\w+ = |errors\.New\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study · 27 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_state.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/cleanup_uncertain.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run.go

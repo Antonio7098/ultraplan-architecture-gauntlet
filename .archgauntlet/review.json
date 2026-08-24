@@ -1,7 +1,7 @@
 {
   "version": 1,
   "created_at": "2026-08-22T11:46:58.055387891Z",
-  "updated_at": "2026-08-23T19:55:55.683661515Z",
+  "updated_at": "2026-08-24T09:43:01.294967608Z",
   "target_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go",
   "target_commit": "eeaa034cb1e520ea10e806870f6026cf1bb6c4f7",
   "workspace_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace",
@@ -136,8 +136,11 @@
       "role": "arch-inspector",
       "focus": "Who owns each important concept and rule? Find competing authorities, hidden delegation, or ambiguous sources of truth.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:01.106013237Z",
+      "completed_at": "2026-08-23T20:08:07.309802044Z"
     },
     {
       "id": "specialist-01b",
@@ -146,8 +149,11 @@
       "role": "arch-inspector",
       "focus": "Who owns each important concept and rule? Find competing authorities, hidden delegation, or ambiguous sources of truth.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:01.107185176Z",
+      "completed_at": "2026-08-23T20:08:07.293440849Z"
     },
     {
       "id": "specialist-02a",
@@ -156,8 +162,11 @@
       "role": "arch-inspector",
       "focus": "Package direction, cycles, cross-module imports, fan-in/fan-out, boundary bypass, shared helpers that became domain owners.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:07.294568858Z",
+      "completed_at": "2026-08-23T20:08:13.466103004Z"
     },
     {
       "id": "specialist-02b",
@@ -166,8 +175,11 @@
       "role": "arch-inspector",
       "focus": "Package direction, cycles, cross-module imports, fan-in/fan-out, boundary bypass, shared helpers that became domain owners.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:07.311400296Z",
+      "completed_at": "2026-08-23T20:08:13.476513638Z"
     },
     {
       "id": "specialist-03a",
@@ -176,8 +188,11 @@
       "role": "arch-inspector",
       "focus": "Study definitions, scheduling, run-loop, applicability, analysis/synthesis, state, reports, validation, and recovery ownership.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:13.467964418Z",
+      "completed_at": "2026-08-23T20:08:19.55952837Z"
     },
     {
       "id": "specialist-03b",
@@ -186,8 +201,11 @@
       "role": "arch-inspector",
       "focus": "Study definitions, scheduling, run-loop, applicability, analysis/synthesis, state, reports, validation, and recovery ownership.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:13.477964175Z",
+      "completed_at": "2026-08-23T20:08:19.655773504Z"
     },
     {
       "id": "specialist-04a",
@@ -196,8 +214,11 @@
       "role": "arch-inspector",
       "focus": "Project discovery, project-index contracts, catalogue semantics, configuration ownership, and separation from study/sprint.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:19.561172647Z",
+      "completed_at": "2026-08-23T20:08:25.737789783Z"
     },
     {
       "id": "specialist-04b",
@@ -206,8 +227,11 @@
       "role": "arch-inspector",
       "focus": "Project discovery, project-index contracts, catalogue semantics, configuration ownership, and separation from study/sprint.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:19.657492511Z",
+      "completed_at": "2026-08-23T20:08:25.773104896Z"
     },
     {
       "id": "specialist-05a",
@@ -216,8 +240,11 @@
       "role": "arch-inspector",
       "focus": "Stage ordering, validation, flow state, artifact authority, prerequisites, transitions, resume and retry semantics.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:25.739357444Z",
+      "completed_at": "2026-08-23T20:08:31.928378418Z"
     },
     {
       "id": "specialist-05b",
@@ -226,8 +253,11 @@
       "role": "arch-inspector",
       "focus": "Stage ordering, validation, flow state, artifact authority, prerequisites, transitions, resume and retry semantics.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:25.774642525Z",
+      "completed_at": "2026-08-23T20:08:31.881589614Z"
     },
     {
       "id": "specialist-06a",
@@ -236,8 +266,11 @@
       "role": "arch-inspector",
       "focus": "Ownership and separation across execute, review, smoke, external harness evidence, verdicts, and source mutation boundaries.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:31.883331459Z",
+      "completed_at": "2026-08-23T20:08:38.001063602Z"
     },
     {
       "id": "specialist-06b",
@@ -246,8 +279,11 @@
       "role": "arch-inspector",
       "focus": "Ownership and separation across execute, review, smoke, external harness evidence, verdicts, and source mutation boundaries.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:31.930176347Z",
+      "completed_at": "2026-08-23T20:08:38.120257514Z"
     },
     {
       "id": "specialist-07a",
@@ -256,8 +292,11 @@
       "role": "arch-inspector",
       "focus": "Durable run acceptance, IDs, attempts, leases, heartbeats, fencing, ordered events, cancellation, reconciliation, terminal arbitration.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:38.00273365Z",
+      "completed_at": "2026-08-23T20:08:44.17186958Z"
     },
     {
       "id": "specialist-07b",
@@ -266,8 +305,11 @@
       "role": "arch-inspector",
       "focus": "Durable run acceptance, IDs, attempts, leases, heartbeats, fencing, ordered events, cancellation, reconciliation, terminal arbitration.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:38.122070947Z",
+      "completed_at": "2026-08-23T20:08:44.297040593Z"
     },
     {
       "id": "specialist-08a",
@@ -276,8 +318,11 @@
       "role": "arch-inspector",
       "focus": "SQLite product-state store, schema ownership, physical-vs-semantic coupling, migrations, transactional semantics, and concurrency.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:44.173741959Z",
+      "completed_at": "2026-08-23T20:08:50.285907111Z"
     },
     {
       "id": "specialist-08b",
@@ -286,8 +331,11 @@
       "role": "arch-inspector",
       "focus": "SQLite product-state store, schema ownership, physical-vs-semantic coupling, migrations, transactional semantics, and concurrency.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:44.298748426Z",
+      "completed_at": "2026-08-23T20:08:50.473592915Z"
     },
     {
       "id": "specialist-09a",
@@ -296,8 +344,11 @@
       "role": "arch-inspector",
       "focus": "Test whether operational execution facts and product workflow truth remain separate and reconcilable under every path.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:50.287631775Z",
+      "completed_at": "2026-08-23T20:08:56.394714216Z"
     },
     {
       "id": "specialist-09b",
@@ -306,8 +357,11 @@
       "role": "arch-inspector",
       "focus": "Test whether operational execution facts and product workflow truth remain separate and reconcilable under every path.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:50.474505813Z",
+      "completed_at": "2026-08-23T20:08:56.646999091Z"
     },
     {
       "id": "specialist-10a",
@@ -316,8 +370,11 @@
       "role": "arch-inspector",
       "focus": "Composition root, dependency construction, shared use cases, CLI/TUI/web reuse, typed boundaries, and business logic leakage.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:56.396443141Z",
+      "completed_at": "2026-08-23T20:09:02.535441373Z"
     },
     {
       "id": "specialist-10b",
@@ -326,8 +383,11 @@
       "role": "arch-inspector",
       "focus": "Composition root, dependency construction, shared use cases, CLI/TUI/web reuse, typed boundaries, and business logic leakage.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:08:56.64866453Z",
+      "completed_at": "2026-08-23T20:09:02.862122046Z"
     },
     {
       "id": "specialist-11a",
@@ -336,8 +396,11 @@
       "role": "arch-inspector",
       "focus": "Surface isolation, duplicated workflow logic, command-as-protocol leakage, presentation state, and interface-specific authority.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:09:02.536985218Z",
+      "completed_at": "2026-08-23T20:09:08.696434909Z"
     },
     {
       "id": "specialist-11b",
@@ -346,8 +409,11 @@
       "role": "arch-inspector",
       "focus": "Surface isolation, duplicated workflow logic, command-as-protocol leakage, presentation state, and interface-specific authority.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:09:02.863957758Z",
+      "completed_at": "2026-08-23T20:09:09.066889471Z"
     },
     {
       "id": "specialist-12a",
@@ -356,8 +422,11 @@
       "role": "arch-inspector",
       "focus": "HTTP/SSE transport, subscribers, buffering/backpressure, browser disconnect, worker lifetime, draining, shutdown, restart and security boundaries.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:09:08.698051947Z",
+      "completed_at": "2026-08-23T20:09:14.798034796Z"
     },
     {
       "id": "specialist-12b",
@@ -366,8 +435,11 @@
       "role": "arch-inspector",
       "focus": "HTTP/SSE transport, subscribers, buffering/backpressure, browser disconnect, worker lifetime, draining, shutdown, restart and security boundaries.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:09:09.068944695Z",
+      "completed_at": "2026-08-23T20:09:15.248088834Z"
     },
     {
       "id": "specialist-13a",
@@ -376,8 +448,11 @@
       "role": "arch-inspector",
       "focus": "Generic runtime contract, adapter leakage, runtime supervision ownership, model/provider concepts, events, cancellation, result translation.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:09:14.799572426Z",
+      "completed_at": "2026-08-23T20:09:20.883644068Z"
     },
     {
       "id": "specialist-13b",
@@ -386,8 +461,11 @@
       "role": "arch-inspector",
       "focus": "Generic runtime contract, adapter leakage, runtime supervision ownership, model/provider concepts, events, cancellation, result translation.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:09:15.249731923Z",
+      "completed_at": "2026-08-23T20:09:21.445522629Z"
     },
     {
       "id": "specialist-14a",
@@ -396,8 +474,11 @@
       "role": "arch-inspector",
       "focus": "External process boundary, argv/env/cwd/timeouts, process groups, evidence ownership, harness selection, cancellation, and cleanup.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:09:20.885475031Z",
+      "completed_at": "2026-08-23T20:09:26.970766804Z"
     },
     {
       "id": "specialist-14b",
@@ -406,8 +487,11 @@
       "role": "arch-inspector",
       "focus": "External process boundary, argv/env/cwd/timeouts, process groups, evidence ownership, harness selection, cancellation, and cleanup.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:09:21.447401294Z",
+      "completed_at": "2026-08-23T20:09:27.646243651Z"
     },
     {
       "id": "specialist-15a",
@@ -416,8 +500,11 @@
       "role": "arch-inspector",
       "focus": "Path ownership, atomic writes, directory contracts, artifact authority, partial writes, locking, consistency, and cross-platform assumptions.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:09:26.972343823Z",
+      "completed_at": "2026-08-23T20:09:33.067914719Z"
     },
     {
       "id": "specialist-15b",
@@ -426,8 +513,11 @@
       "role": "arch-inspector",
       "focus": "Path ownership, atomic writes, directory contracts, artifact authority, partial writes, locking, consistency, and cross-platform assumptions.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:09:27.647946245Z",
+      "completed_at": "2026-08-23T20:09:33.845602416Z"
     },
     {
       "id": "specialist-16a",
@@ -436,8 +526,11 @@
       "role": "arch-inspector",
       "focus": "Config precedence, model selection, override semantics, redaction, ownership, hidden globals, and drift across surfaces.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "signal: terminated",
+      "started_at": "2026-08-23T20:09:33.069545586Z",
+      "completed_at": "2026-08-24T09:43:01.292159572Z"
     },
     {
       "id": "specialist-16b",
@@ -446,8 +539,11 @@
       "role": "arch-inspector",
       "focus": "Config precedence, model selection, override semantics, redaction, ownership, hidden globals, and drift across surfaces.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 3,
+      "last_error": "signal: terminated",
+      "started_at": "2026-08-23T20:09:33.84740202Z",
+      "completed_at": "2026-08-24T09:43:01.278943239Z"
     },
     {
       "id": "specialist-17a",
@@ -456,8 +552,10 @@
       "role": "arch-inspector",
       "focus": "Error taxonomy, wrapping, retry safety, partial progress, idempotency, cancellation races, cleanup uncertainty, and actionable recovery.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "running",
+      "attempts": 3,
+      "started_at": "2026-08-24T09:43:01.282299878Z",
+      "completed_at": "2026-08-23T20:06:47.735315094Z"
     },
     {
       "id": "specialist-17b",
@@ -466,8 +564,10 @@
       "role": "arch-inspector",
       "focus": "Error taxonomy, wrapping, retry safety, partial progress, idempotency, cancellation races, cleanup uncertainty, and actionable recovery.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "running",
+      "attempts": 3,
+      "started_at": "2026-08-24T09:43:01.294963278Z",
+      "completed_at": "2026-08-23T20:06:48.383188788Z"
     },
     {
       "id": "specialist-18a",
@@ -476,8 +576,11 @@
       "role": "arch-inspector",
       "focus": "Events, logs, metrics, correlation, truthfulness, event retention, sanitization, operational diagnosis, and duplicated projections.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 2,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:06:47.736760392Z",
+      "completed_at": "2026-08-23T20:06:53.784881364Z"
     },
     {
       "id": "specialist-18b",
@@ -486,8 +589,11 @@
       "role": "arch-inspector",
       "focus": "Events, logs, metrics, correlation, truthfulness, event retention, sanitization, operational diagnosis, and duplicated projections.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 2,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:06:48.384960875Z",
+      "completed_at": "2026-08-23T20:06:54.465079702Z"
     },
     {
       "id": "specialist-19a",
@@ -496,8 +602,11 @@
       "role": "arch-inspector",
       "focus": "Goroutine ownership, worker pools, boundedness, race surfaces, locks, channels, backpressure, cancellation propagation, and cleanup.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 2,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:06:53.786325755Z",
+      "completed_at": "2026-08-23T20:06:59.818308116Z"
     },
     {
       "id": "specialist-19b",
@@ -506,8 +615,11 @@
       "role": "arch-inspector",
       "focus": "Goroutine ownership, worker pools, boundedness, race surfaces, locks, channels, backpressure, cancellation propagation, and cleanup.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 2,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:06:54.466647712Z",
+      "completed_at": "2026-08-23T20:07:00.517621916Z"
     },
     {
       "id": "specialist-20a",
@@ -516,8 +628,11 @@
       "role": "arch-inspector",
       "focus": "Test seams, fake boundaries, fault injection, import/architecture tests, brittle tests, missing invariant tests, and testability of policy.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 2,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:06:59.820026774Z",
+      "completed_at": "2026-08-23T20:07:05.880520017Z"
     },
     {
       "id": "specialist-20b",
@@ -526,8 +641,11 @@
       "role": "arch-inspector",
       "focus": "Test seams, fake boundaries, fault injection, import/architecture tests, brittle tests, missing invariant tests, and testability of policy.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 2,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:07:00.518612826Z",
+      "completed_at": "2026-08-23T20:07:06.549514182Z"
     },
     {
       "id": "specialist-21a",
@@ -536,8 +654,11 @@
       "role": "arch-inspector",
       "focus": "Workspace paths, source repo access, external execution, env/secrets, local HTTP, CSRF/origin/host policy, log/event sanitization.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 2,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:07:05.882028103Z",
+      "completed_at": "2026-08-23T20:07:11.999981643Z"
     },
     {
       "id": "specialist-21b",
@@ -546,8 +667,11 @@
       "role": "arch-inspector",
       "focus": "Workspace paths, source repo access, external execution, env/secrets, local HTTP, CSRF/origin/host policy, log/event sanitization.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 2,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:07:06.550409689Z",
+      "completed_at": "2026-08-23T20:07:12.669590133Z"
     },
     {
       "id": "specialist-22a",
@@ -556,8 +680,11 @@
       "role": "arch-inspector",
       "focus": "Prompt ownership, context packs, code-context, skills, evidence injection, caching assumptions, prompt drift, and agent-facing authority.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 2,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:07:12.00160392Z",
+      "completed_at": "2026-08-23T20:07:18.232115039Z"
     },
     {
       "id": "specialist-22b",
@@ -566,8 +693,11 @@
       "role": "arch-inspector",
       "focus": "Prompt ownership, context packs, code-context, skills, evidence injection, caching assumptions, prompt drift, and agent-facing authority.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 2,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:07:12.670988918Z",
+      "completed_at": "2026-08-23T20:07:18.926718453Z"
     },
     {
       "id": "specialist-23a",
@@ -576,8 +706,11 @@
       "role": "arch-inspector",
       "focus": "Deep modules vs god modules, speculative interfaces, generic engines, duplicated knowledge, pass-through abstractions, and accidental ceremony.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 2,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:07:18.233111677Z",
+      "completed_at": "2026-08-23T20:07:24.326712415Z"
     },
     {
       "id": "specialist-23b",
@@ -586,8 +719,11 @@
       "role": "arch-inspector",
       "focus": "Deep modules vs god modules, speculative interfaces, generic engines, duplicated knowledge, pass-through abstractions, and accidental ceremony.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 2,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:07:18.928498502Z",
+      "completed_at": "2026-08-23T20:07:24.998177151Z"
     },
     {
       "id": "specialist-24a",
@@ -596,8 +732,11 @@
       "role": "arch-inspector",
       "focus": "How architecture absorbs new stages, surfaces, runtimes, state versions, events, policies, review strategies, and future roadmap changes.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 2,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:07:24.32871889Z",
+      "completed_at": "2026-08-23T20:07:30.36573186Z"
     },
     {
       "id": "specialist-24b",
@@ -606,8 +745,11 @@
       "role": "arch-inspector",
       "focus": "How architecture absorbs new stages, surfaces, runtimes, state versions, events, policies, review strategies, and future roadmap changes.",
       "broad": false,
-      "status": "pending",
-      "attempts": 0
+      "status": "failed",
+      "attempts": 2,
+      "last_error": "exit status 1",
+      "started_at": "2026-08-23T20:07:24.999127693Z",
+      "completed_at": "2026-08-23T20:07:31.091563267Z"
     },
     {
       "id": "failure-01",

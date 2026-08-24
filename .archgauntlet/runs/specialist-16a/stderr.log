@@ -1,0 +1,358 @@
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -3 && git status --short | head -5
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+[0m
+[0m$ [0mfind internal cmd -type d | sort
+cmd
+cmd/ultraplan
+internal
+internal/app
+internal/codeextract
+internal/platform
+internal/platform/config
+internal/platform/filesystem
+internal/platform/logging
+internal/platform/process
+internal/platform/runtime
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/web/static
+internal/web/static/css
+internal/web/static/js
+internal/web/templates
+internal/web/templates/components
+internal/web/templates/layouts
+internal/web/templates/pages
+internal/web/templates/primitives
+internal/workspace
+internal/workspace/scaffold
+internal/workspace/scaffold/prompts
+internal/workspace/scaffold/templates
+[0m
+[0m$ [0mls internal/platform/config internal/platform/runtime && wc -l internal/platform/config/*.go
+internal/platform/config:
+config.go
+config_test.go
+doc.go
+redaction.go
+
+internal/platform/runtime:
+agentwrap.go
+cache_test.go
+events.go
+health.go
+opencode.go
+opencode_test.go
+policy.go
+runtime.go
+runtime_test.go
+  549 internal/platform/config/config.go
+  213 internal/platform/config/config_test.go
+    6 internal/platform/config/doc.go
+   74 internal/platform/config/redaction.go
+  842 total
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/redaction.go
+[0m✱ [0mGrep "\.Models\.|\.Planning\.|ModelFor|ResolveModel|selectModel|PickModel"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 98 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [offset=560, limit=130][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_model.go
+[0m✱ [0mGrep "ExecuteModelSelection|ResolveExecuteModel|StageRuntime"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 78 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=40, offset=1255][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go[90m [limit=40, offset=675][0m
+[0m✱ [0mGrep "ResolveExecuteModel\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 3 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go[90m [limit=120, offset=400][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode.go[90m [limit=80][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/config_commands.go
+[0m✱ [0mGrep "smokeSettings|SmokeModel|StageSmoke\b.*Model|smokeModel"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 25 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+[0m✱ [0mGrep "AuthorModel|authorModel|reviewModelSelection|executeModelSelection|runtime == nil"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 23 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_author.go[90m [limit=120][0m
+[0m✱ [0mGrep "authorSmokeSuite|Authoring\b.*Deep|deepSmoke|Level == |authoringRequired"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 2 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke.go[90m [limit=80, offset=20][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=130, offset=30][0m
+[0m✱ [0mGrep "func sprintRuntimeService|RunSmoke|service\.Review\(|service\.Execute\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 7 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=120, offset=400][0m
+[0m✱ [0mGrep "OperationSmokeStart|sharedOperationRunner"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 17 matches[0m
+[0m
+[0m$ [0mgit log --oneline -5 -- internal/app/operation_runner.go && git log -S "OperationSmokeStart:" --oneline -- internal/app/operation_runner.go | head -5
+f067727 Propagate runtime failure diagnostics
+e09d394 Add durable run control and adaptive study execution
+0bf3cb9 fix: harden sprint review recovery and web operations
+a221683 feat: add guarded web operations and SSE progress
+a221683 feat: add guarded web operations and SSE progress
+[0m
+[0m$ [0mgit show a221683 -- internal/app/operation_runner.go | grep -A 12 "case OperationSmokeStart"
++		case OperationSmokeStart:
++			service := sprint.NewService(root.Path).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env)))
++			var timeout time.Duration
++			if req.Timeout != "" {
++				timeout, _ = time.ParseDuration(req.Timeout)
++			}
++			r, e := service.RunSmoke(ctx, req.Project, req.Sprint, sprint.SmokeRequest{Level: req.Level, Suite: req.Suite, Test: req.Test, Timeout: timeout, ForceReview: req.ForceReview, OverrideConfirmed: req.ForceReview, OverrideRationale: req.OverrideRationale, Progress: func(p sprint.SmokeProgress) {
++				emit(OperationEvent{State: OperationRunning, Stage: string(p.Phase), Task: operationFirstNonEmpty(p.Test, p.Suite), Message: p.Message, Completed: p.Completed, Total: p.Total})
++			}})
++			result.Message = fmt.Sprintf("%s verdict=%s run=%s next=%s", r.Status, r.Verdict, r.RunID, r.NextAction)
++			if r.Artifact != "" {
++				if preview, readErr := useCases.PreviewArtifact(ctx, r.Artifact); readErr == nil {
++					result.Content, result.Truncated = boundContent(preview.Content)
+[0m
+[0m$ [0mgit log -S "authorSmokeSuite" --oneline | tail -3; git log --oneline --follow -- internal/sprint/smoke_author.go | tail -3
+b9733ce Add agent-owned stage execution and smoke authoring
+2fbce1a Disable brittle verification snapshots
+9b3c02b Surface concurrent harness drift and harden smoke authoring
+b9733ce Add agent-owned stage execution and smoke authoring
+[0m
+[0m$ [0mgit log --oneline --format="%h %ad %s" --date=short a221683 b9733ce -1 2>/dev/null; git show -s --format="%h %ad %s" --date=short a221683 b9733ce
+a221683 2026-08-16 feat: add guarded web operations and SSE progress
+a221683 2026-08-16 feat: add guarded web operations and SSE progress
+b9733ce 2026-08-16 Add agent-owned stage execution and smoke authoring
+[0m
+[0m$ [0mgit log --oneline | grep -n -E "a221683|b9733ce|f067727" ; git merge-base --is-ancestor a221683 b9733ce && echo "a221683 is ancestor of b9733ce"
+5:f067727 Propagate runtime failure diagnostics
+67:a221683 feat: add guarded web operations and SSE progress
+69:b9733ce Add agent-owned stage execution and smoke authoring
+[0m
+[0m$ [0mgit show b9733ce --stat | head -20; git show b9733ce -- internal/sprint/smoke.go | grep -B3 -A6 "authorSmokeSuite" | head -40
+commit b9733ce27858c901a1730b8db4db15be0244800e
+Author: antonio <antoniorees74@gmail.com>
+Date:   Sun Aug 16 15:40:58 2026 +0100
+
+    Add agent-owned stage execution and smoke authoring
+
+ docs/cli-reference.md                          |   2 +-
+ docs/planning-smoke.md                         |  10 +-
+ docs/stage-skills.md                           |  25 ++--
+ internal/app/operations.go                     | 188 +++++++++++++++++++++++++
+ internal/app/sprint_commands.go                |  13 +-
+ internal/platform/config/config.go             |   8 +-
+ internal/platform/config/redaction.go          |   2 +
+ internal/platform/runtime/agentwrap.go         |   3 -
+ internal/platform/runtime/runtime_test.go      |  14 +-
+ internal/sprint/execute.go                     |   1 -
+ internal/sprint/smoke.go                       | 117 ++++++++++++---
+ internal/sprint/smoke_author.go                | 178 +++++++++++++++++++++++
+ internal/sprint/smoke_protocol.go              |  83 ++++++++++-
+ internal/sprint/smoke_test.go                  |  80 +++++++++--
+ 	result.EffectiveTimeout, result.TimeoutSource = smokeTimeout(s.smokeSettings, prepared.Manifest, req)
++	if !req.DryRun {
++		emit(SmokeProgress{Phase: SmokePhaseAuthoring, Message: "authoring sprint-specific deep-smoke coverage"})
++		if err := s.authorSmokeSuite(ctx, prepared, &result); err != nil {
++			return smokeFailedResult(result, err)
++		}
++	}
+ 
+ 	getenv := s.smokeSettings.Getenv
+ 	if getenv == nil {
+[0m
+[0m$ [0mgit show b9733ce -- internal/app/sprint_commands.go | head -60
+commit b9733ce27858c901a1730b8db4db15be0244800e
+Author: antonio <antoniorees74@gmail.com>
+Date:   Sun Aug 16 15:40:58 2026 +0100
+
+    Add agent-owned stage execution and smoke authoring
+
+diff --git a/internal/app/sprint_commands.go b/internal/app/sprint_commands.go
+index 1bf39d9..e789285 100644
+--- a/internal/app/sprint_commands.go
++++ b/internal/app/sprint_commands.go
+@@ -352,7 +352,14 @@ func runSprint(deps dependencies, args []string) error {
+ 				fmt.Fprintf(deps.stderr, " | %s\n", config.RedactValue("smoke.progress", progress.Message))
+ 			}
+ 		}
+-		result, runErr := service.RunSmoke(deps.ctx, args[0], args[1], req)
++		smokeService := service
++		if !req.DryRun {
++			smokeService, err = sprintRuntimeService(deps, root)
++			if err != nil {
++				return err
++			}
++		}
++		result, runErr := smokeService.RunSmoke(deps.ctx, args[0], args[1], req)
+ 		if jsonOut {
+ 			_ = json.NewEncoder(deps.stdout).Encode(map[string]any{"schema_version": 1, "operation": "sprint.smoke", "status": result.Status, "result": result})
+ 		} else {
+@@ -543,6 +550,7 @@ func planningStageRuntime(c config.Config) map[sprint.PlanningStage]sprint.Stage
+ 			Variant: c.Planning.ExecuteVariant,
+ 		},
+ 		sprint.StageReview: {Model: c.Planning.ReviewModel, Variant: c.Planning.ReviewVariant},
++		sprint.StageSmoke:  {Model: c.Planning.SmokeModel, Variant: c.Planning.SmokeVariant},
+ 	}
+ }
+ 
+@@ -941,6 +949,9 @@ func renderSprintSmoke(deps dependencies, result sprint.SmokeResult) {
+ 	fmt.Fprintf(deps.stdout, "Project: %s\nSprint: %s\nSmoke status: %s\nVerdict: %s\n", result.Project, result.Sprint, result.Status, result.Verdict)
+ 	fmt.Fprintf(deps.stdout, "Review gate: %s fingerprint=%s override=%t\n", result.ReviewVerdict, result.ReviewFingerprint, result.ReviewOverride)
+ 	fmt.Fprintf(deps.stdout, "Harness: %s protocol=%s\nScope: %s %s\nRationale: %s\n", result.Harness, result.Protocol, result.ScopeKind, result.Scope, result.ScopeRationale)
++	if result.AuthorRunID != "" {
++		fmt.Fprintf(deps.stdout, "Smoke author: %s model=%s changed=%d\n", result.AuthorRunID, result.AuthorModel, len(result.AuthorChangedPaths))
++	}
+ 	fmt.Fprintf(deps.stdout, "Duration/cost class: %s/%s\nEvidence roots: %s\n", result.DurationClass, result.CostClass, strings.Join(result.EvidenceRoots, ", "))
+ 	fmt.Fprintf(deps.stdout, "Effective timeout: %s (source=%s)\n", result.EffectiveTimeout, result.TimeoutSource)
+ 	if result.SafeArgv != "" {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operation_handlers.go[90m [limit=60, offset=620][0m
+[0m✱ [0mGrep "OperationSmokeStart|runner\(ctx|useCases.runner|Runner:"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 10 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go[90m [limit=90, offset=290][0m
+[0m✱ [0mGrep "ConfigSummary|summary\.Model|\.Model\b.*[Dd]isplay|modelLabel"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 16 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_state_domain.go[90m [limit=40, offset=20][0m
+[0m✱ [0mGrep "req\.Provider|req\.Model|RequestFromConfig|Model:"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study · 18 matches[0m
+[0m
+[0m$ [0mls docs internal/study 2>/dev/null; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+docs:
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+
+internal/study:
+applicability.go
+cleanup_uncertain.go
+cleanup_uncertain_test.go
+config.go
+config_test.go
+dimension_refs.go
+discovery.go
+doc.go
+domain.go
+durable_metadata.go
+edit_warnings.go
+execution_domain.go
+init_clone.go
+init.go
+init_render.go
+init_test.go
+init_yaml.go
+locks.go
+locks_test.go
+markdown.go
+memory_pressure.go
+metadata_domain.go
+prompts.go
+prompts_test.go
+rating.go
+rating_test.go
+reports.go
+resolve.go
+run_all.go
+run_all_test.go
+run.go
+run_history.go
+run_history_summary.go
+run_history_test.go
+run_loop_diagnostics.go
+run_loop_diagnostics_test.go
+run_loop.go
+run_loop_test.go
+run_state_domain.go
+run_state.go
+run_test.go
+runtime_metadata.go
+runtime_metadata_test.go
+runtime_validation.go
+service.go
+state_database.go
+state.go
+state_test.go
+study_test.go
+summary.go
+summary_test.go
+synthesize.go
+validation_command.go
+validation_command_test.go
+validation.go
+validation_test.go
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/configuration.md
+[0m
+[0m$ [0mgrep -rn "planning" docs/ | grep -iE "model|variant" | head -20; echo ---; cat /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/ultraplan.yml
+docs/planning-smoke.md:79:The project catalog must contain one `Smoke Harnesses` row with an absolute harness root and a manifest contained by that root. The manifest is strict protocol v1 and supplies direct executable/argv forms, discovery/run commands, bounded authoring paths, evidence roots, capabilities, and environment names. Configure `planning.smoke_model` and `planning.smoke_variant` for the authoring agent.
+docs/plans/sprint-code-context-stage.md:306:Add stage-specific model and variant configuration matching existing planning stages:
+docs/cli-reference.md:352:Gates on the current review fingerprint, then uses `planning.smoke_model` to create or update a durable sprint-specific suite in the cataloged protocol-v1 harness. Authoring is restricted to manifest-declared paths and targets non-deterministic real boundaries not already settled by normal tests. UltraPlan then discovers enumerated coverage/tests, selects sufficient scope, invokes direct bounded argv, verifies the exact executed test identities and external evidence, and atomically writes `smoke.md` before smoke flow state. `--force-review` additionally requires `--override-reason`; the resulting run is diagnostic and cannot promote the review or overall assessment. Raw streams and run/issue evidence remain external. Timeout, cancellation, missing coverage, out-of-scope author changes, malformed evidence, path escape, and uncertain cleanup never replace a valid summary.
+---
+version: 1
+runtime:
+  default: opencode
+models:
+  default: minimax-coding-plan/MiniMax-M3
+  primary: minimax-coding-plan/MiniMax-M3
+  backup: minimax-coding-plan/MiniMax-M3
+execution:
+  default_variant: high
+  default_parallel: 5
+  default_timeout: 12m
+  default_retries: 1
+planning:
+  requirements_model: openai/gpt-5.6-sol
+  requirements_variant: high
+  code_context_model: openai/gpt-5.6-sol
+  code_context_variant: low
+  sprint_index_model: openai/gpt-5.6-sol
+  sprint_index_variant: high
+  technical_handbook_model: openai/gpt-5.6-sol
+  technical_handbook_variant: high
+  area_reasoning_model: openai/gpt-5.6-sol
+  area_reasoning_variant: high
+  reasoning_model: openai/gpt-5.6-sol
+  reasoning_variant: high
+  plan_model: openai/gpt-5.6-sol
+  plan_variant: high
+  review_model: minimax-coding-plan/MiniMax-M3
+  smoke_model: openai/gpt-5.6-sol
+  smoke_variant: low
+  execute_model: openai/gpt-5.6-sol
+  execute_variant: high
+logging:
+  format: text
+  level: debug
+agentwrap:
+  executable: opencode
+  permission_default: allow
+  required_health:
+    - runtime_available
+    - structured_output
+    - workdir
+[0m
+[0m$ [0mgrep -rn "code_context_model\|planning\.\|requirements_model" docs/user-guide.md docs/architecture.md README.md 2>/dev/null | head; echo ---; grep -rn "ULTRAPLAN_CODE_CONTEXT" docs/ | head
+---
+[0m
+[0m$ [0mgrep -rln "models.primary\|model precedence\|planning\.\|ULTRAPLAN_MODEL" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/docs /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system 2>/dev/null | head -20
+(no output)
+[0m
