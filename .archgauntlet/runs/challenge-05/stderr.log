@@ -1,0 +1,813 @@
+[93m[1m! [0m agent "arch-challenger" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mls .archgauntlet/runs 2>/dev/null && ./bin/archgauntlet status 2>/dev/null || ls
+arbiter-01
+chair-01
+chair-02
+chair-03
+chair-04
+chair-05
+chair-06
+challenge-01
+challenge-02
+challenge-03
+challenge-04
+challenge-05
+challenge-06
+change-01
+change-02
+change-03
+change-04
+change-05
+change-06
+change-07
+change-08
+failure-01
+failure-02
+failure-03
+failure-04
+failure-05
+failure-06
+failure-07
+failure-08
+failure-09
+failure-10
+failure-11
+failure-12
+generalist-01
+generalist-02
+generalist-03
+generalist-04
+scout-01
+scout-02
+scout-03
+scout-04
+scout-05
+scout-06
+specialist-01a
+specialist-01b
+specialist-02a
+specialist-02b
+specialist-03a
+specialist-03b
+specialist-04a
+specialist-04b
+specialist-05a
+specialist-05b
+specialist-06a
+specialist-06b
+specialist-07a
+specialist-07b
+specialist-08a
+specialist-08b
+specialist-09a
+specialist-09b
+specialist-10a
+specialist-10b
+specialist-11a
+specialist-11b
+specialist-12a
+specialist-12b
+specialist-13a
+specialist-13b
+specialist-14a
+specialist-14b
+specialist-15a
+specialist-15b
+specialist-16a
+specialist-16b
+specialist-17a
+specialist-17b
+specialist-18a
+specialist-18b
+specialist-19a
+specialist-19b
+specialist-20a
+specialist-20b
+specialist-21a
+specialist-21b
+specialist-22a
+specialist-22b
+specialist-23a
+specialist-23b
+specialist-24a
+specialist-24b
+synth-01
+synth-02
+synth-03
+Target: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go @ eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
+Workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace @ 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
+Model: openrouter/stealth/ox-alpha
+Tasks: 94
+
+scout      total=6   pending=0   running=0   succeeded=6   failed=0  
+generalist total=4   pending=0   running=0   succeeded=4   failed=0  
+specialist total=48  pending=0   running=0   succeeded=48  failed=0  
+failure    total=12  pending=0   running=0   succeeded=12  failed=0  
+change     total=8   pending=0   running=0   succeeded=8   failed=0  
+challenge  total=6   pending=1   running=2   succeeded=3   failed=0  
+chair      total=6   pending=6   running=0   succeeded=0   failed=0  
+synth      total=3   pending=3   running=0   succeeded=0   failed=0  
+arbiter    total=1   pending=1   running=0   succeeded=0   failed=0
+[0m
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/finding-contract.md
+[0m
+[0m$ [0mls -la .archgauntlet/runs/challenge-05/ && ls .archgauntlet/runs/challenge-01/ && ls .archgauntlet/runs/failure-01/ && ls .archgauntlet/runs/scout-01/
+total 8
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 21:34 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees 2236 Aug 22 16:22 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees 3582 Aug 22 16:25 prompt.md
+-rw-r--r--. 1 antonioborgerees antonioborgerees 2550 Aug 24 21:35 stderr.log
+-rw-r--r--. 1 antonioborgerees antonioborgerees    0 Aug 24 21:34 stdout.md
+prompt.md
+stderr.log
+stdout.md
+prompt.md
+stderr.log
+stdout.md
+prompt.md
+stderr.log
+stdout.md
+[0m
+[0m→ [0mRead .archgauntlet/runs/challenge-05/prompt.md[90m [command=cat .archgauntlet/runs/challenge-05/stderr.log; echo ---; wc -l .archgauntlet/runs/*/stdout.md | sort -k2, workdir=/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet][0m
+[0m
+[0m$ [0mcat .archgauntlet/runs/challenge-05/stderr.log; echo '---SIZES---'; wc -l .archgauntlet/runs/*/stdout.md | sort -n | tail -30
+[93m[1m! [0m agent "arch-challenger" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mls .archgauntlet/runs 2>/dev/null && ./bin/archgauntlet status 2>/dev/null || ls
+arbiter-01
+chair-01
+chair-02
+chair-03
+chair-04
+chair-05
+chair-06
+challenge-01
+challenge-02
+challenge-03
+challenge-04
+challenge-05
+challenge-06
+change-01
+change-02
+change-03
+change-04
+change-05
+change-06
+change-07
+change-08
+failure-01
+failure-02
+failure-03
+failure-04
+failure-05
+failure-06
+failure-07
+failure-08
+failure-09
+failure-10
+failure-11
+failure-12
+generalist-01
+generalist-02
+generalist-03
+generalist-04
+scout-01
+scout-02
+scout-03
+scout-04
+scout-05
+scout-06
+specialist-01a
+specialist-01b
+specialist-02a
+specialist-02b
+specialist-03a
+specialist-03b
+specialist-04a
+specialist-04b
+specialist-05a
+specialist-05b
+specialist-06a
+specialist-06b
+specialist-07a
+specialist-07b
+specialist-08a
+specialist-08b
+specialist-09a
+specialist-09b
+specialist-10a
+specialist-10b
+specialist-11a
+specialist-11b
+specialist-12a
+specialist-12b
+specialist-13a
+specialist-13b
+specialist-14a
+specialist-14b
+specialist-15a
+specialist-15b
+specialist-16a
+specialist-16b
+specialist-17a
+specialist-17b
+specialist-18a
+specialist-18b
+specialist-19a
+specialist-19b
+specialist-20a
+specialist-20b
+specialist-21a
+specialist-21b
+specialist-22a
+specialist-22b
+specialist-23a
+specialist-23b
+specialist-24a
+specialist-24b
+synth-01
+synth-02
+synth-03
+Target: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go @ eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
+Workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace @ 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
+Model: openrouter/stealth/ox-alpha
+Tasks: 94
+
+scout      total=6   pending=0   running=0   succeeded=6   failed=0  
+generalist total=4   pending=0   running=0   succeeded=4   failed=0  
+specialist total=48  pending=0   running=0   succeeded=48  failed=0  
+failure    total=12  pending=0   running=0   succeeded=12  failed=0  
+change     total=8   pending=0   running=0   succeeded=8   failed=0  
+challenge  total=6   pending=1   running=2   succeeded=3   failed=0  
+chair      total=6   pending=6   running=0   succeeded=0   failed=0  
+synth      total=3   pending=3   running=0   succeeded=0   failed=0  
+arbiter    total=1   pending=1   running=0   succeeded=0   failed=0
+[0m
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/finding-contract.md
+[0m
+[0m$ [0mls -la .archgauntlet/runs/challenge-05/ && ls .archgauntlet/runs/challenge-01/ && ls .archgauntlet/runs/failure-01/ && ls .archgauntlet/runs/scout-01/
+total 8
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 21:34 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees 2236 Aug 22 16:22 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees 3582 Aug 22 16:25 prompt.md
+-rw-r--r--. 1 antonioborgerees antonioborgerees 2550 Aug 24 21:35 stderr.log
+-rw-r--r--. 1 antonioborgerees antonioborgerees    0 Aug 24 21:34 stdout.md
+prompt.md
+stderr.log
+stdout.md
+prompt.md
+stderr.log
+stdout.md
+prompt.md
+stderr.log
+stdout.md
+[0m
+[0m→ [0mRead .archgauntlet/runs/challenge-05/prompt.md[90m [command=cat .archgauntlet/runs/challenge-05/stderr.log; echo ---; wc -l .archgauntlet/runs/*/stdout.md | sort -k2, workdir=/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet][0m
+---SIZES---
+    95 .archgauntlet/runs/failure-09/stdout.md
+    99 .archgauntlet/runs/specialist-08b/stdout.md
+   103 .archgauntlet/runs/specialist-11a/stdout.md
+   103 .archgauntlet/runs/specialist-14a/stdout.md
+   103 .archgauntlet/runs/specialist-18b/stdout.md
+   104 .archgauntlet/runs/specialist-07b/stdout.md
+   108 .archgauntlet/runs/specialist-10b/stdout.md
+   114 .archgauntlet/runs/specialist-12b/stdout.md
+   117 .archgauntlet/runs/specialist-10a/stdout.md
+   121 .archgauntlet/runs/specialist-24b/stdout.md
+   122 .archgauntlet/runs/scout-03/stdout.md
+   125 .archgauntlet/runs/specialist-08a/stdout.md
+   126 .archgauntlet/runs/specialist-01b/stdout.md
+   127 .archgauntlet/runs/change-02/stdout.md
+   128 .archgauntlet/runs/failure-06/stdout.md
+   128 .archgauntlet/runs/scout-04/stdout.md
+   134 .archgauntlet/runs/specialist-05b/stdout.md
+   136 .archgauntlet/runs/scout-05/stdout.md
+   138 .archgauntlet/runs/scout-01/stdout.md
+   150 .archgauntlet/runs/scout-02/stdout.md
+   154 .archgauntlet/runs/generalist-01/stdout.md
+   155 .archgauntlet/runs/specialist-23b/stdout.md
+   199 .archgauntlet/runs/generalist-03/stdout.md
+   207 .archgauntlet/runs/scout-06/stdout.md
+   212 .archgauntlet/runs/challenge-01/stdout.md
+   230 .archgauntlet/runs/generalist-02/stdout.md
+   263 .archgauntlet/runs/generalist-04/stdout.md
+   269 .archgauntlet/runs/challenge-04/stdout.md
+   378 .archgauntlet/runs/challenge-02/stdout.md
+  6104 total
+[0m
+[0m✱ [0mGrep "^#+.*(Finding|FINDING)|ID: [A-Z]+-\d+-F\d+|^- ID:"[90m in .archgauntlet/runs · 81 matches[0m
+[0m
+[0m$ [0mfor f in .archgauntlet/runs/*/stdout.md; do t=$(awk '/^#{1,3} /{print; c++} c>=2{exit}' "$f" | tr '\n' ' | '); echo "== $f :: $t"; done
+== .archgauntlet/runs/challenge-01/stdout.md :: # CHALLENGE-01 — Product/domain tribunal ## Scope inspected 
+== .archgauntlet/runs/challenge-02/stdout.md :: # CHALLENGE-02 — Execution tribunal (runcontrol, runtime, process, concurrency, leases, cancellation, arbitration, failure semantics) ### Scope inspected 
+== .archgauntlet/runs/challenge-03/stdout.md :: 
+== .archgauntlet/runs/challenge-04/stdout.md :: # Challenge-04 — App composition, CLI/TUI/web, HTTP/SSE, presentation state, cross-surface parity ### Scope inspected 
+== .archgauntlet/runs/challenge-05/stdout.md :: 
+== .archgauntlet/runs/change-01/stdout.md :: # CHANGE-01 — Add a governed sprint stage: edit-surface trace ## Scope inspected 
+== .archgauntlet/runs/change-02/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/change-03/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/change-04/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/change-05/stdout.md :: # CHANGE-05 — Evolve a product-state schema ## Scope inspected 
+== .archgauntlet/runs/change-06/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/change-07/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/change-08/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/failure-01/stdout.md :: 
+== .archgauntlet/runs/failure-02/stdout.md :: # FAILURE-02 — Owner death after external work begins ## Scope inspected 
+== .archgauntlet/runs/failure-03/stdout.md :: # FAILURE-03 — Stale fenced owner writes after takeover ### Scope inspected 
+== .archgauntlet/runs/failure-04/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/failure-05/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/failure-06/stdout.md :: ## Failure-stage report — FAILURE-06: Graceful shutdown with active workers ### Scope inspected 
+== .archgauntlet/runs/failure-07/stdout.md :: # FAILURE-07 — Cancellation racing runtime/process completion and product-stage terminalization ## Scope inspected 
+== .archgauntlet/runs/failure-08/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/failure-09/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/failure-10/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/failure-11/stdout.md :: # Failure-11 Investigation Report — Smoke-harness timeout, process-tree cleanup, partial evidence, and review/smoke state updates ## Scope inspected 
+== .archgauntlet/runs/failure-12/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/generalist-01/stdout.md :: # UltraPlan Architecture Gauntlet — Generalist Review (generalist-01) ## Scope inspected 
+== .archgauntlet/runs/generalist-02/stdout.md :: # UltraPlan Architecture Gauntlet — GENERALIST-02 (whole-system simplicity) ### Scope inspected 
+== .archgauntlet/runs/generalist-03/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/generalist-04/stdout.md :: # UltraPlan Architecture Gauntlet — GENERALIST-04 (whole-system evolution review) ### Scope inspected 
+== .archgauntlet/runs/scout-01/stdout.md :: # SCOUT-01 — Repository Cartography: ultraplan-go ## Scope inspected 
+== .archgauntlet/runs/scout-02/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/scout-03/stdout.md :: # SCOUT-03 — Product-contract cartography ### Scope inspected 
+== .archgauntlet/runs/scout-04/stdout.md :: # SCOUT-04 — Governance cartography report ### Scope inspected 
+== .archgauntlet/runs/scout-05/stdout.md :: # SCOUT-05 — State/lifecycle cartography: UltraPlan Go ## Scope inspected 
+== .archgauntlet/runs/scout-06/stdout.md :: # SCOUT-06 — CLI/TUI/web through app/product/runtime/process/agentwrap boundaries ### Scope inspected 
+== .archgauntlet/runs/specialist-01a/stdout.md :: 
+== .archgauntlet/runs/specialist-01b/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/specialist-02a/stdout.md :: 
+== .archgauntlet/runs/specialist-02b/stdout.md :: 
+== .archgauntlet/runs/specialist-03a/stdout.md :: 
+== .archgauntlet/runs/specialist-03b/stdout.md :: # 九维复盘 v2 已交付；P0 执行完毕 
+== .archgauntlet/runs/specialist-04a/stdout.md :: 
+== .archgauntlet/runs/specialist-04b/stdout.md :: 
+== .archgauntlet/runs/specialist-05a/stdout.md :: 
+== .archgauntlet/runs/specialist-05b/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/specialist-06a/stdout.md :: 
+== .archgauntlet/runs/specialist-06b/stdout.md :: 
+== .archgauntlet/runs/specialist-07a/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/specialist-07b/stdout.md :: # SPECIALIST-07B — Durable Run Control Review ### Scope inspected 
+== .archgauntlet/runs/specialist-08a/stdout.md :: # UltraPlan Architecture Gauntlet — Specialist Report (specialist-08a) ## Scope inspected 
+== .archgauntlet/runs/specialist-08b/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/specialist-09a/stdout.md :: 
+== .archgauntlet/runs/specialist-09b/stdout.md :: 
+== .archgauntlet/runs/specialist-10a/stdout.md :: # SPECIALIST-10A — App composition / use cases (independent a) ## Scope inspected 
+== .archgauntlet/runs/specialist-10b/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/specialist-11a/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/specialist-11b/stdout.md :: 
+== .archgauntlet/runs/specialist-12a/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/specialist-12b/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/specialist-13a/stdout.md :: 
+== .archgauntlet/runs/specialist-13b/stdout.md :: 
+== .archgauntlet/runs/specialist-14a/stdout.md :: # SPECIALIST-14A — External process boundary, harness selection, cancellation & cleanup ## Scope inspected 
+== .archgauntlet/runs/specialist-14b/stdout.md :: 
+== .archgauntlet/runs/specialist-15a/stdout.md :: 
+== .archgauntlet/runs/specialist-15b/stdout.md :: 
+== .archgauntlet/runs/specialist-16a/stdout.md :: 
+== .archgauntlet/runs/specialist-16b/stdout.md :: 
+== .archgauntlet/runs/specialist-17a/stdout.md :: 
+== .archgauntlet/runs/specialist-17b/stdout.md :: # SPECIALIST-17B — Errors / retry / idempotency / recovery ## Scope inspected 
+== .archgauntlet/runs/specialist-18a/stdout.md :: 
+== .archgauntlet/runs/specialist-18b/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/specialist-19a/stdout.md :: 
+== .archgauntlet/runs/specialist-19b/stdout.md :: 
+== .archgauntlet/runs/specialist-20a/stdout.md :: 
+== .archgauntlet/runs/specialist-20b/stdout.md :: 
+== .archgauntlet/runs/specialist-21a/stdout.md :: 
+== .archgauntlet/runs/specialist-21b/stdout.md :: # SPECIALIST REPORT — Security/trust boundaries (independent b) ### Scope inspected 
+== .archgauntlet/runs/specialist-22a/stdout.md :: 
+== .archgauntlet/runs/specialist-22b/stdout.md :: 
+== .archgauntlet/runs/specialist-23a/stdout.md :: # SPECIALIST-23A — Simplicity and earned complexity (independent a) ## Scope inspected 
+== .archgauntlet/runs/specialist-23b/stdout.md :: # SPECIALIST-23B — Simplicity and earned complexity (independent b) ## Scope inspected 
+== .archgauntlet/runs/specialist-24a/stdout.md :: ### Scope inspected ### Architecture assessment 
+== .archgauntlet/runs/specialist-24b/stdout.md :: # SPECIALIST-24B — Evolution/change locality review ### Scope inspected
+[0m
+[0m✱ [0mGrep "secret|credential|API key|api key|apikey|token leak|TLS|injection|sanitize|redact"[90m in .archgauntlet/runs · 100 matches[0m
+[0m
+[0m$ [0mls internal && ls internal/runcontrol internal/app | head -60 && git log --oneline -5
+app
+codeextract
+platform
+productstate
+project
+runcontrol
+sprint
+study
+tui
+web
+workspace
+internal/app:
+app.go
+app_test.go
+code_commands.go
+code_commands_test.go
+config_commands.go
+defaults_commands.go
+durable_operations.go
+durable_operations_test.go
+health_commands.go
+health_commands_test.go
+json_output.go
+markdown.go
+markdown_test.go
+operation_runner.go
+operations.go
+project_commands.go
+project_commands_test.go
+project_usecases.go
+run_commands.go
+run_commands_test.go
+run_control.go
+run_control_inventory_test.go
+run_control_test.go
+run_usecases.go
+serve_commands.go
+serve_commands_test.go
+skills_commands.go
+skills_commands_test.go
+sprint_commands.go
+sprint_commands_test.go
+sprint_error_test.go
+sprint_usecases.go
+sprint_usecases_test.go
+sprint_verify_commands_test.go
+status_json.go
+storage_commands.go
+study_commands.go
+study_commands_test.go
+study_init_commands_test.go
+study_prompt_commands_test.go
+study_run_all_commands_test.go
+study_run_commands_test.go
+study_run_loop_commands_test.go
+study_runs_commands.go
+study_runs_commands_test.go
+study_status_commands_test.go
+study_summary_commands_test.go
+study_usecases.go
+study_validate_commands_test.go
+surfaces.go
+tui_commands.go
+tui_commands_test.go
+usecases.go
+usecases_test.go
+version.go
+web_operations_test.go
+web_usecases.go
+web_usecases_test.go
+workspace_commands.go
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/redaction.go
+[0m
+[0m$ [0mrg -n "runtimeEventDraft|promotedPayloadKeys|sensitive|redact|jsonMarshalTruncated|Notifier" internal/app/run_control.go | head -40; echo ---; wc -l internal/app/run_control.go internal/web/operations.go internal/study/locks.go
+170:		draft := runtimeEventDraft(req, event)
+377:func runtimeEventDraft(req runtimepkg.Request, event runtimepkg.Event) runcontrol.EventDraft {
+408:	// Deny sensitive keys and truncate values to runcontrol-safe limits.
+560:		encoded, err := jsonMarshalTruncated(v)
+570:func jsonMarshalTruncated(v any) (string, error) {
+---
+  667 internal/app/run_control.go
+  667 internal/web/operations.go
+  202 internal/study/locks.go
+ 1536 total
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=300, offset=370][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=369][0m
+[0m• [0mError taxonomy lifecycle trace[90m Arch-Worker Agent[0m
+[0m• [0mTesting perf ops verification[90m General Agent[0m
+[0m✗ [0mTesting perf ops verification failed[90m General Agent[0m
+[91m[1mError: [0mSubagent failed (task_id: ses_fca80129effeo72ssUeRpGyRZh): [Stealth] stealth/ox-alpha is temporarily rate-limited upstream. Please retry shortly.
+[0m✓ [0mError taxonomy lifecycle trace[90m Arch-Worker Agent[0m
+[0m• [0mTesting perf ops verification[90m General Agent[0m
+[0m✓ [0mTesting perf ops verification[90m General Agent[0m
+[0m
+[0m$ [0mgo test ./internal/study -run TestRunLoopStartsPriorityTierBeforeLaterTiers -count=1 2>&1 | tail -20
+--- FAIL: TestRunLoopStartsPriorityTierBeforeLaterTiers (1.78s)
+    run_loop_test.go:303: first starts = []string{"analysis:01-structure", "analysis:02-runtime"}, want the priority dimension; all starts []string{"analysis:01-structure", "analysis:02-runtime", "analysis:02-runtime", "analysis:01-structure", "synthesis:01-structure", "synthesis:02-runtime"}
+FAIL
+FAIL	github.com/Antonio7098/ultraplan-go/internal/study	1.791s
+FAIL
+[0m
+[0m• [0mSecurity surface evidence sweep[90m Arch-Worker Agent[0m
+[0m✓ [0mSecurity surface evidence sweep[90m Arch-Worker Agent[0m
+[0m• [0mDurable event consumer trace[90m Arch-Worker Agent[0m
+[0m✗ [0mDurable event consumer trace failed[90m Arch-Worker Agent[0m
+[91m[1mError: [0mSubagent failed (task_id: ses_fca666f1affeuLk9WymbXuMOqf): [Stealth] stealth/ox-alpha is temporarily rate-limited upstream. Please retry shortly.
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go[90m [limit=80, offset=600][0m
+[0m• [0mDurable event consumer trace[90m Arch-Worker Agent[0m
+[0m✗ [0mDurable event consumer trace failed[90m Arch-Worker Agent[0m
+[91m[1mError: [0mSubagent failed (task_id: ses_fca646d81ffeQaq7fH9UExG84c): [Stealth] stealth/ox-alpha is temporarily rate-limited upstream. Please retry shortly.
+[0m
+[0m$ [0mrg -n "payload\.[a-z_]+" internal/web/run_handlers.go internal/web/templates/run.html internal/web/static/js/app.js internal/tui/*.go | grep -oE "(run_handlers\.go|run\.html|app\.js|[a-z_]+\.go):[0-9]+:.*payload\.[a-z_]+" | grep -oE "(file|[a-z_.]+\.(go|html|js)):[0-9]+|payload\.[a-z_]+" | sort | uniq -c | sort -rn | head -50
+(no output)
+[0m
+[0m$ [0mgit log --oneline --follow -- internal/runcontrol/sanitize.go; echo ---TESTS---; rg -n "\"title\"|\"detail\"|\"text\"|\"delta\"|\"content\"|native_type" internal/runcontrol/*_test.go internal/app/run_control_test.go internal/app/durable_operations_test.go internal/web/run_handlers_test.go | head -30; echo ---NOTIFIER---; rg -n "Notifier" internal --type go | grep -v _test | head -20
+e09d394 Add durable run control and adaptive study execution
+---TESTS---
+---NOTIFIER---
+internal/runcontrol/sqlite.go:36:	Notifier     Notifier
+internal/runcontrol/sqlite.go:51:	notifier      Notifier
+internal/runcontrol/sqlite.go:129:		logger: opts.Logger, notifier: opts.Notifier,
+internal/runcontrol/interfaces.go:41:// Notifier is a best-effort latency optimization. A notification never makes
+internal/runcontrol/interfaces.go:43:type Notifier interface {
+[0m
+[0m$ [0mrg -o "payload\.[a-zA-Z_]+" internal/web/templates/run.html internal/web/static/js/app.js internal/web/run_handlers.go | sort | uniq -c | sort -rn; echo ===TUI===; rg -n "Payload\[" internal/tui/*.go | head -20
+===TUI===
+[0m
+[0m$ [0mrg -n "payload" internal/web/static/js/app.js | head -30; echo ===HTML===; rg -n "payload|Payload" internal/web/templates/run.html | head -20; echo ===HANDLERS===; rg -n "Payload" internal/web/run_handlers.go | head -30
+===HTML===
+===HANDLERS===
+288:	text := firstNonEmptyPayload(event.Payload, "text", "delta", "detail", "message", "content", "title", "output")
+293:		Time: committedRunEventTime(event), DetailKind: event.Payload["kind"], DetailType: event.Payload["type"], DetailTool: event.Payload["tool"], DetailText: text, Omission: omission}
+296:func firstNonEmptyPayload(payload map[string]string, keys ...string) string {
+[0m
+[0m$ [0mrg -n "DetailText|DetailTool|Omission|omission" internal/web/templates/*.html | head -20; echo ===TUI===; rg -n "Payload|Omission" internal/tui/views.go internal/tui/model.go internal/tui/app.go 2>/dev/null | head -25; echo ===JS===; rg -n "data-run-text|data-run-tool|dataset\." internal/web/static/js/app.js | head -15
+internal/web/templates/run.html:11:  <dl class="run-state-secondary"><div><dt>Replay boundary</dt><dd>oldest {{.OldestRetainedSequence}}, last {{.LastSequence}}, omitted {{.OmissionTotal}}</dd></div><div><dt>History</dt><dd>{{.History}}</dd></div>{{with .Terminal}}<div><dt>Terminal</dt><dd>{{.}}</dd></div>{{end}}</dl>
+internal/web/templates/run.html:18:      {{if .RunEvents}}<ol class="operation-timeline" data-run-timeline>{{range .RunEvents}}<li data-run-sequence="{{.Sequence}}" data-run-type="{{.Type}}" data-run-stage="{{.Stage}}" data-run-task="{{.Task}}"{{with .Time}} data-run-time="{{.}}"{{end}} data-run-kind="{{.DetailKind}}" data-run-type-detail="{{.DetailType}}" data-run-tool="{{.DetailTool}}"{{with .DetailText}} data-run-text="{{.}}"{{end}}><strong>{{.Sequence}} · {{.Type}}</strong>{{with .Stage}} <span>{{.}}</span>{{end}}{{with .Task}} <span>{{.}}</span>{{end}}{{with .DetailKind}} <small>kind={{.}}</small>{{end}}{{with .DetailTool}} <small>tool={{.}}</small>{{end}}{{with .DetailText}}<p class="run-event-detail">{{.}}</p>{{end}}{{with .Omission}}<p>{{.}}</p>{{end}}</li>{{end}}</ol>{{else}}<ol class="operation-timeline" data-run-timeline><li class="empty">No retained events.</li></ol>{{end}}
+===TUI===
+internal/tui/views.go:338:				if event.Omission != nil {
+internal/tui/views.go:339:					fmt.Fprintf(b, " omitted=%d reason=%s", event.Omission.Count, event.Omission.Reason)
+===JS===
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operation_handlers.go[90m [limit=120, offset=410][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands.go[90m [limit=70, offset=40][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operation_handlers.go[90m [limit=75, offset=185, command=rg -n "nextEventID|LastEventID|lastID" internal/web/operations.go | head -15; rg -n "OpenSQLite" internal --type go | grep -v _test, workdir=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go][0m
+[0m
+[0m$ [0mrg -n "nextEventID|func.*subscribe" internal/web/operations.go | head; echo ===; rg -n "OpenSQLite\(" internal --type go | grep -v _test
+97:	nextEventID uint64
+374:func (h *operationHub) subscribe(session, id string, lastID uint64) ([]operationEvent, <-chan operationEvent, func(), error) {
+390:			"newest_retained_id": strconv.FormatUint(record.nextEventID, 10),
+428:	record.nextEventID++
+432:		"sequence":     record.nextEventID,
+443:			"sequence": record.nextEventID, "payload": map[string]any{"message": "event projection exceeded the safe size limit"},
+447:	event := operationEvent{ID: record.nextEventID, Name: name, Data: data}
+===
+internal/app/storage_commands.go:60:		repository, err := runcontrol.OpenSQLite(deps.ctx, root.Path, runcontrol.SQLiteOptions{})
+internal/app/run_control.go:54:	repository, err := runcontrol.OpenSQLite(ctx, workspaceRoot, runcontrol.SQLiteOptions{Retention: retention})
+internal/runcontrol/sqlite.go:60:func OpenSQLite(ctx context.Context, workspaceRoot string, opts SQLiteOptions) (*SQLiteRepository, error) {
+[0m
+[0m$ [0mrg -n "publish|recordEvent|emit" internal/web/operations.go | head -20; echo ===WHO===; rg -n "hub\.|PublishOperationEvent|RecordOperationEvent" internal/app/web_usecases.go internal/app/durable_operations.go internal/web/server.go | head -25
+232:		h.publishAppEvent(record, event)
+245:func (h *operationHub) publishAppEvent(record *operationRecord, event app.OperationEvent) {
+===WHO===
+internal/app/web_usecases.go:19:	"github.com/Antonio7098/ultraplan-go/internal/runcontrol"
+internal/app/web_usecases.go:20:	"github.com/Antonio7098/ultraplan-go/internal/sprint"
+internal/app/web_usecases.go:21:	"github.com/Antonio7098/ultraplan-go/internal/study"
+internal/app/web_usecases.go:22:	"github.com/Antonio7098/ultraplan-go/internal/workspace"
+internal/app/web_usecases.go:277:func (u *webUseCases) RecordOperationEvent(ctx context.Context, runID string, event OperationEvent) (bool, error) {
+internal/app/web_usecases.go:281:	return u.durable.RecordOperationEvent(ctx, runID, event)
+internal/web/server.go:13:	"github.com/Antonio7098/ultraplan-go/internal/app"
+internal/web/server.go:135:		cleanupErr := hub.drainAndWait(shutdownCtx)
+internal/app/durable_operations.go:10:	"github.com/Antonio7098/ultraplan-go/internal/runcontrol"
+internal/app/durable_operations.go:124:func (m *durableOperationManager) RecordOperationEvent(ctx context.Context, runID string, event OperationEvent) (bool, error) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go[90m [limit=65, offset=210][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/init_clone.go[90m [limit=30, offset=42][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_protocol.go[90m [limit=30, offset=618][0m
+[0m
+[0m$ [0mgo test ./internal/study -run TestRunLoopStartsPriorityTierBeforeLaterTiers -count=3 2>&1 | tail -4; git log --oneline -3 -- internal/study/run_loop.go internal/study/run_loop_test.go; echo ===PERSIST-TESTS===; rg -n "PersistenceLost|persistence" internal/app/run_control_test.go internal/app/durable_operations_test.go | head; echo ===RUNTIME-PROMO===; rg -n "map\[string\]any|Payload" internal/platform/runtime/runtime.go | sed -n '1,12p'
+run_loop_test.go:303: first starts = []string{"analysis:01-structure", "analysis:02-runtime"}, want the priority dimension; all starts []string{"analysis:01-structure", "analysis:02-runtime", "analysis:02-runtime", "analysis:01-structure", "synthesis:02-runtime", "synthesis:01-structure"}
+FAIL
+FAIL	github.com/Antonio7098/ultraplan-go/internal/study	5.841s
+FAIL
+f067727 Propagate runtime failure diagnostics
+0f99eb7 Surface fallback, staleness, and attempt history on study run cards
+5839f9a resume interrupted study sessions
+===PERSIST-TESTS===
+internal/app/run_control_test.go:103:		t.Fatalf("err=%v started=%d, want persistence error and no child start", err, spy.started)
+===RUNTIME-PROMO===
+108:	Payload           map[string]any
+156:	Native                map[string]any
+281:			events.captureTerminalOutput(event.Payload)
+401:func (c *eventCollection) captureTerminalOutput(payload map[string]any) {
+412:	case map[string]any:
+568:	payload := cloneAnyMap(event.Payload)
+569:	promoteObservablePayloadFields(payload)
+577:		Payload:           payload,
+587:// promoteObservablePayloadFields lifts nested runtime facts (tool names, titles,
+592:func promoteObservablePayloadFields(payload map[string]any) {
+600:		if found := findNestedPayloadString(payload, key, 0); found != "" {
+606:func findNestedPayloadString(value any, want string, depth int) string {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop_test.go[90m [limit=75, offset=240][0m
+[0m
+[0m$ [0mrg -n "func Validate" internal/workspace/*.go && sed -n "$(rg -n 'func Validate' internal/workspace/validation.go internal/workspace/defaults.go internal/workspace/init.go 2>/dev/null | head -1 | cut -d: -f2),+22p" $(rg -ln 'func Validate\(' internal/workspace/*.go | head -1); echo ===SMOKE-TYPES===; sed -n '44,58p' internal/sprint/smoke_types.go; echo ===CLI-FOLLOW===; rg -n "Payload\[|firstNonEmpty" internal/app/run_commands.go | head -8
+internal/workspace/validation.go:14:func Validate(root string) ValidationResult {
+func Validate(root string) ValidationResult {
+	var issues []string
+	for _, rel := range RequiredFiles() {
+		info, err := os.Stat(filepath.Join(root, filepath.FromSlash(rel)))
+		if err != nil || info.IsDir() {
+			issues = append(issues, fmt.Sprintf("missing required file: %s", rel))
+		}
+	}
+	for _, rel := range RequiredDirs() {
+		info, err := os.Stat(filepath.Join(root, filepath.FromSlash(rel)))
+		if err != nil || !info.IsDir() {
+			issues = append(issues, fmt.Sprintf("missing required directory: %s", rel))
+		}
+	}
+	return ValidationResult{Valid: len(issues) == 0, Issues: issues}
+}
+===SMOKE-TYPES===
+type SmokeSettings struct {
+	DiscoveryTimeout, RunTimeout, CleanupGrace time.Duration
+	StdoutLimit, StderrLimit                   int
+	Environment                                []string
+	Sources                                    map[string]string
+	Getenv                                     func(string) string
+}
+
+func DefaultSmokeSettings() SmokeSettings {
+	return SmokeSettings{DiscoveryTimeout: 30 * time.Second, RunTimeout: 30 * time.Minute, CleanupGrace: 5 * time.Second, StdoutLimit: 4 << 20, StderrLimit: 1 << 20, Environment: []string{"PATH", "HOME", "TMPDIR", "LANG", "LC_ALL"}, Sources: map[string]string{}, Getenv: os.Getenv}
+}
+
+type SmokeRequest struct {
+	Level, Suite, Test string
+	Timeout            time.Duration
+===CLI-FOLLOW===
+[0m
+[0m$ [0mrg -n "import_boundary" internal/runcontrol/import_boundary_test.go | head -3; rg -n "platform/config|config\"" internal/runcontrol/*.go | grep -v _test | head -3
+(no output)
+[0m
+[0m$ [0mls internal/runcontrol/ | grep -i boundary; rg -ln "internal/platform" internal/runcontrol/*.go | head; echo ---; rg -n "forbidden|deny" internal/runcontrol/*_test.go | head -5
+import_boundary_test.go
+---
+internal/runcontrol/import_boundary_test.go:36:			t.Errorf("%s imports forbidden package %q", file, path)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/import_boundary_test.go
+[0m
+[0m$ [0mcat > .archgauntlet/runs/challenge-05/stdout.md << 'GAUNTLET_EOF'
+# CHALLENGE-05 — Security, errors, observability, testing, performance, operational claims
+
+### Scope inspected
+
+**Implementation repo** (`ultraplan-go` @ `eeaa034`, clean), read first-hand: `internal/runcontrol/{sanitize.go,import_boundary_test.go,interfaces.go (Notifier)}`, `internal/app/{run_control.go (full), health_commands.go, durable_operations.go, operation_runner.go}`, `internal/web/{operations.go (safeProjectedText/hub publish/finish), operation_handlers.go (SSE reconnect/durable fallback), run_handlers.go, templates/run.html}`, `internal/platform/config/redaction.go`, `internal/sprint/{smoke_protocol.go (smokeEnvironment), smoke_types.go}`, `internal/study/init_clone.go`, `internal/workspace/validation.go`, `internal/tui/views.go` (omission rendering).
+
+**Commands**: `go test ./... -count=1`; `go test ./internal/study -run TestRunLoopStartsPriorityTierBeforeLaterTiers -count=3` (fails deterministically); `git log --follow -- internal/runcontrol/sanitize.go`; targeted `rg` for payload-key consumers (`payload.`/`Payload[` in web/TUI/CLI), `Notifier`, `OpenSQLite` call sites, `Terminal*` classification sites.
+
+**Subagent evidence** (bounded, re-derived by me before use): error-taxonomy/lifecycle trace (FinishOperation, classifyStoreError escapes, retry-helper inventory, metrics/local-log exposure); testing/perf/ops verification (test inventory, quota enforcement site, hub bounds, shutdown drain, smoke timeouts); security sweep (env inheritance incl. agentwrap module cache, listen policy, CSRF/session middleware, path-serving guards).
+
+**Prior outputs consulted**: scout-01/05/06, generalist-01/02/03/04, specialist-07a/07b/10b/12a/14a/18b/21a/21b/23b/24a/24b, failure-06/11/12, change-01/02/04, challenge-01/02/04.
+
+### Architecture assessment
+
+The security and durability core is genuinely sound: loopback-only listen enforced pre- and post-bind (`serve_commands.go:92-112`, `web/server.go:72`), layered session/host/origin/CSRF checks (`security.go:134-169`), HMAC-minted artifact refs with symlink+containment defense (`web_usecases.go:870-910`), fail-closed accept-before-execute with persistence-loss terminalization (`run_control.go:125-145,282-292`), fenced CAS storage with real fault-injection tests below the repository interface, and synchronous physical-quota enforcement that degrades visibly via health. The stress concentrates in four seams: (1) the runtime-payload contract split across three layers whose producer half drifted past the storage gate; (2) outcome-classification knowledge existing as three hand-maintained copies with divergent vocabularies; (3) subprocess boundaries governed inconsistently (platform/process ctx+timeout+group-kill vs two raw `exec.Command` paths); (4) suite greenness at HEAD — one deterministic failure undermines the repo's strongest advertised property (adversarial test discipline).
+
+### Candidate findings
+
+---
+
+**ID: CHALLENGE-05-F01**
+**Priority:** P1
+**Claim:** The durable-event storage gate silently drops exactly the payload fields both observability commits promote; every durable consumer reads those dropped keys, no test pins their survival, and the commit messages claim the opposite of runtime behavior.
+**Evidence:** REALITY. Producer promotes `tool,title,detail,text,delta,content,message,action,state,status,native_type,line` plus namespaced `<field>_<sub>` keys (`internal/app/run_control.go:435,438,479-486`); allowlist permits none of `title/detail/text/delta/content/output/native_type/line` or any namespaced key (`internal/runcontrol/sanitize.go:10-17`), applied on every append (`sqlite.go:617`), incrementing `"unsafe event detail omitted"` (`sanitize.go:30-44`). Durable web timeline reads precisely the doomed keys: `firstNonEmptyPayload(event.Payload, "text","delta","detail","message","content","title","output")` (`web/run_handlers.go:288`) rendered at `templates/run.html:18` (`data-run-text`, `.run-event-detail`), omission total shown (`run.html:11`); TUI renders omission counts (`tui/views.go:338-339`). `sanitize.go` untouched since initial commit `e09d394` while `c455510` ("surface agent stream details in durable run events") and `eeaa034` ("promote nested runtime payload facts to top level") touched only producers. No test in `runcontrol/*_test.go`, `app/run_control_test.go`, `durable_operations_test.go`, or `web/run_handlers_test.go` asserts survival of any promoted key through Append→Events (grep verified empty). New nuance beyond prior outputs: eeaa034's namespaced keys are *structurally impossible* to pass the gate (not enumerable in a fixed allowlist), and the coalescing hash is computed pre-sanitization over draft payload (`run_control.go:177-178`), so events differing only in gate-doomed keys never coalesce — inflating durable rows while their content is discarded.
+**Architectural reason:** drift / change-surface — the allowlist is the documented final redaction authority but nothing connects it to producer promotion lists; adding one observable field requires synchronized edits across `platform/runtime`, `app/run_control.go`, and `runcontrol/sanitize.go` with no shared contract or integration test.
+**Concrete consequence:** `run show`, `/runs/<id>`, SSE replay, TUI run view, and support exports render message-only fallback text (or blank detail) for tool/reasoning/message events while omission counters inflate with reason "unsafe event detail omitted" — operators misread healthy runs as redacted; the next contributor will edit the producer again and be re-bitten, exactly as `c455510` was.
+**Counter-evidence searched:** alternative unsanitized read path (none — Append is sole write path); live-SSE bypass making durable loss irrelevant (production passes no Notifier — `OpenSQLite` call sites `run_control.go:54`, `storage_commands.go:60`; consumers poll repository events); tests asserting intentional drop (none); docs ratifying strictness post-c455510 (none found). Corroborates SCOUT-05-F01, SCOUT-06-F01, SPECIALIST-07A/B, GENERALIST-04-F01, CHALLENGE-02 F05 — independently re-derived here.
+**Confidence:** high
+**Smallest useful action:** Either extend `allowedEventPayloadFields` with the promoted display keys and add one end-to-end test asserting their survival through Append→Events→view, or (if strictness is policy) revert the promotion lists and fix consumer fallback expectations — but pick one owner for the decision.
+
+---
+
+**ID: CHALLENGE-05-F02**
+**Priority:** P2
+**Claim:** The reviewed commit has a deterministically failing test (`TestRunLoopStartsPriorityTierBeforeLaterTiers`), contradicting the repo's advertised test discipline; either priority-tier scheduling regressed or the guarantee's test is stale.
+**Evidence:** REALITY. `go test ./... -count=1`: all packages pass except `--- FAIL: TestRunLoopStartsPriorityTierBeforeLaterTiers (internal/study, run_loop_test.go:303)`; reproduced 4/4 runs including `-count=3`. Failure output: `first starts = [analysis:01-structure analysis:02-runtime], want the priority dimension` — with `dimension_order ["02"]` and Parallelism 3 (`run_loop_test.go:276-305`), the second started task came from a later tier. Recent commits touching these files: `f067727`, `0f99eb7`, `5839f9a`.
+**Architectural reason:** lifecycle / testing-discipline — study run-loop scheduling order is a product-visible guarantee asserted nowhere else; a red main at the reviewed commit breaks the trust basis every other "verified by tests" claim in this gauntlet rests on.
+**Concrete consequence:** CI cannot distinguish future regressions from this known-red state; if the scheduler regression is real, priority dimensions run late for users (correctness of completion unaffected — status still Completed).
+**Counter-evidence searched:** reruns with `-count=3` (deterministic, not flake-order noise); fixture/task-set misread (fixture yields ≥2 priority-tier tasks, so expectation is satisfiable); skipped-test gating (unrelated). No prior review output noticed this failure (generalist-04 and others ran targeted packages only).
+**Confidence:** high (red state); medium (which side — code or expectation — is wrong)
+**Smallest useful action:** Owner triage: bisect against `5839f9a..eeaa034` to decide regression-vs-stale-expectation and restore green before further review cycles rely on the suite.
+
+---
+
+**ID: CHALLENGE-05-F03**
+**Priority:** P2
+**Claim:** Terminal-outcome classification exists as three divergent behavioral copies; the app-operation copy cannot distinguish user cancellation from store-driven/internal cancellation (all collapse to `ctx.Err()`), and the live web projection cannot represent `timed_out` at all.
+**Evidence:** REALITY. Copy 1 (runtime): `app/run_control.go:625-637` inspects parent ctx, `result.Status=="cancelled"`, and `result.Error.Category`. Copy 2 (operations): `app/durable_operations.go:241-252` classifies only from `errors.Is(runErr, context.DeadlineExceeded/Canceled)` and wrapper-supplied `state`; wrappers derive state from bare `ctx.Err()` (`:56-62`) or `failedOperation` (`operations.go:619-624`). Four distinct cancel origins funnel identically: user button (`web/operation_handlers.go:195` → `operations.go:345-372`), Ctrl-C (`cmd/ultraplan/main.go:19` NotifyContext), internal control-loop cancel on store errors (`durable_operations.go:190-216`), store-requested cancellation (`:195-201`). Copy 3 (live web): `web/operations.go:284-292` maps only succeeded/cancelled/failed/interrupted — no `timed_out`, no `persistence_degraded` — so a deadline-exceeded operation shows live state `failed` while its durable row says `timed_out` (visible after refresh via `DurableStatus.RefreshPath`). Cancellation origin survives only in side channels (`lifecycle.go:98-108` DB event; hub doc reason `operations.go:361`), never in the `TerminalProposal`.
+**Architectural reason:** drift / failure-semantics — same concept (why did this run end) owned three times with different vocabularies and different evidentiary standards; the durable journal, which is the audit authority, records the least-differentiated version for app operations.
+**Concrete consequence:** incident forensics cannot distinguish operator-cancelled from store-interrupted operations in the durable record; support exports under-report timeout-class failures for operations; each new terminal nuance must be added in three places with nothing enforcing convergence (already diverged).
+**Counter-evidence searched:** richer inputs available to copy 2 (result.State carries only Cancelled/Failed/Partial/Succeeded — no Timeout state exists in the enum path); intentional conflation rationale in docs/comments (none found); whether reconciler disambiguates later (no — `reconcileUnclaimed`/probe decisions are independent copies #4/#5, `lifecycle.go:446-495`). Refines SPECIALIST-07B F02 with full site enumeration.
+**Confidence:** high
+**Smallest useful action:** Make FinishOperation accept an explicit cause (the call sites already know user vs internal vs store origin at cancel time) and map it once through a shared outcome-classifier used by both copies 1 and 2; let copy 3 project from the durable snapshot instead of re-deriving.
+
+---
+
+**ID: CHALLENGE-05-F04**
+**Priority:** P2
+**Claim:** `study init`'s git clone is the one external-process boundary that bypasses the platform/process contract: no context, no timeout, unbounded blocking on `CombinedOutput`, reachable from scripts/CI.
+**Evidence:** REALITY. `internal/study/init_clone.go:44-50`: `exec.Command("git", "clone", "--depth", "1", url, dest)` + `cmd.CombinedOutput()` — no `CommandContext`, vs `platform/process/process.go:60-152` where timeout/group-kill/cleanup are mandatory (used by sprint smoke, `smoke.go:75,128`). Caller chain: `study_commands.go:1390` → `study.Init` (`init.go:84`) → `runCloneActions` (`init_clone.go:72-78`). Output redaction/truncation present (`init_clone.go:52-65`).
+**Architectural reason:** boundary / failure-semantics — an inconsistent subprocess governance model; every other child process inherits bounded cleanup semantics, this one can hang forever.
+**Concrete consequence:** unreachable remote, huge repo, or credential/host-key prompt edge cases block `ultraplan study init` indefinitely in non-interactive automation (JSON-output mode implies CI usage is first-class); Ctrl-C mitigates interactive use only.
+**Counter-evidence searched:** timeout wrapper anywhere up the chain (none); docs promising a bound (none — `user-guide.md:112-119` documents `--dry-run`/`--no-clone` escape hatches instead); stdin connected enabling prompts (no — partial mitigation); tests pinning timing (fake runner, `init_test.go:70-89`). Corroborates SPECIALIST-21B; re-derived personally.
+**Confidence:** high (mechanism), medium (operational frequency)
+**Smallest useful action:** Wrap in `exec.CommandContext` with a configurable default timeout (or route through `process.Runner`), preserving existing redaction.
+
+---
+
+**ID: CHALLENGE-05-F05**
+**Priority:** P3
+**Claim:** The smoke environment builder returns nil when its allowlist yields nothing, and `process.DirectRunner` treats nil env as inherit-parent — so deny-by-default silently inverts to allow-all exactly in the hardened-environment case the allowlist exists for.
+**Evidence:** REALITY. `smoke_protocol.go:635-641`: `var env []string` appended only for non-empty getenv hits → nil when all lookups fail (e.g., cleared-env sandbox); default allowlist PATH/HOME/TMPDIR/LANG/LC_ALL (`smoke_types.go:53`) supplies names but values come from the parent environment. `process/process.go:84-86`: `cmd.Env = append([]string(nil), req.Env...)` → nil → Go exec semantics inherit `os.Environ()` wholesale.
+**Architectural reason:** failure-semantics at the trust boundary — the API cannot express "empty env" distinctly from "inherit everything", so the safe interpretation is unreachable in the degenerate case.
+**Concrete consequence:** a CI runner with a scrubbed environment intending zero env inheritance for smoke commands instead hands them the full parent env (whatever secrets exist there), with no signal; current happy-path behavior is correct, so the defect hides until someone hardens deliberately.
+**Counter-evidence searched:** callers always passing non-empty env today (true — smoke builds from settings+manifest, so no live leak now); agentwrap path needing different treatment (separate, see defended section); exec documentation confirming nil-means-inherit (Go os/exec). Narrows SPECIALIST-14A's broader claim to this precise kernel.
+**Confidence:** high (mechanism), low-medium (exposure)
+**Smallest useful action:** Initialize `env := []string{}` in `smokeEnvironment` (or make DirectRunner set `cmd.Env = req.Env` unconditionally with a documented empty-means-empty contract plus one test).
+
+---
+
+**ID: CHALLENGE-05-F06**
+**Priority:** P3
+**Claim:** `jsonMarshalTruncated` neither marshals JSON nor truncates; nested structured payload values persist as Go-syntax `%v` strings under a name and comments that promise otherwise, corrupting diagnostic fidelity for the fields that do survive the gate.
+**Evidence:** REALITY. `app/run_control.go:570-575` returns `fmt.Sprintf("%v"), nil` unconditionally; comments claim "marshal then truncate to safe limit" and cite an import-cycle concern that does not exist (`encoding/json` is stdlib, already used in `runcontrol/sanitize.go:46`). Consumed at `:560` for `map[string]any/map[string]string/[]any/[]string` payload values — exercised in practice because runtime payloads are decoded JSON objects (`platform/runtime/runtime.go:108,568-592` promotion over `map[string]any`).
+**Architectural reason:** drift — the helper's contract lies to maintainers; anyone extending payload encoding will assume JSON output.
+**Concrete consequence:** allowlisted fields carrying nested values (e.g., `message` built from a map) store `map[foo:bar]` Go syntax instead of JSON; downstream consumers parsing or diffing durable payloads get misleading artifacts; oversize nested values bypass the promised truncation inside the helper (outer bounds eventually catch them).
+**Counter-evidence searched:** consumers depending on `%v` format (none — JS/template treat as text, GENERALIST-04 concurs); whether the gate would reject such strings (it doesn't — plain text passes `unsafeEventValue`). Confirms GENERALIST-03 finding; my additional nondeterminism hypothesis was **rejected** (see below).
+**Confidence:** high
+**Smallest useful action:** Rename to `goFormatValue` and fix the comments, or implement actual `json.Marshal` + truncate (three lines) — either restores honesty; JSON is preferable since sanitize already assumes encodable shapes.
+
+---
+
+**ID: CHALLENGE-05-F07**
+**Priority:** P3
+**Claim:** Mid-run persistence-loss handling — the flagship fail-closed invariant — is untested above the repository interface: no test makes `Append` fail mid-run and asserts cancellation + `TerminalPersistenceLost` terminalization for either runtime children or app operations.
+**Evidence:** REALITY. App-level fault coverage ends at start-of-run: `run_control_test.go:103` asserts accept-time persistence error blocks child start; `durable_operations_test.go` contains only the happy path and a closed-store dedup assertion (`:11,:65`). The untested wiring: mid-run append failure → `setPersistenceErr` → cancel → `TerminalPersistenceLost` proposal (`run_control.go:197-201,282-292`; `durable_operations.go:165-171,110-113,241-253`). `runcontrol/fault_test.go` covers full/read-only/closed stores only below the Repository interface; `lifecycle_test.go:102-103` touches `TerminalPersistenceLost` only in arbitration.
+**Architectural reason:** lifecycle / testing — the composition layer where persistence failure meets run liveness is exactly the seam fault injection doesn't reach; regressions here (e.g., swallowing `setPersistenceErr`, proposing wrong outcome) would pass the whole suite.
+**Concrete consequence:** a refactor could silently convert fail-closed persistence loss into continue-on-lost-events (silent journal gaps) without any test failing — the inverse of the property docs advertise.
+**Counter-evidence searched:** integration-style tests elsewhere in app (none inject Repository failures); whether runcontrol fault tests transitively cover the wiring (they cannot — they test the repository, not callers). Narrower than initially hypothesized thanks to `run_control_test.go:103`.
+**Confidence:** high
+**Smallest useful action:** One table-driven test with a failing-after-N-appends Repository fake driving both `controlledRuntime.StartRun` and the durable-operation manager, asserting cancel propagation and proposed outcome.
+
+---
+
+**ID: CHALLENGE-05-F08**
+**Priority:** P3
+**Claim:** Browser SSE resume mixes two id namespaces on one endpoint — transient hub counters (per-record, from 1) and durable journal sequences — and the reconnect path feeds the raw header between them; consequences are bounded (duplicate delivery or explicit 409 refresh) but the behavior is untested and relies on incidental numeric near-alignment.
+**Evidence:** REALITY. Hub ids: `record.nextEventID` per-record counter (`web/operations.go:97,428,447`). Durable ids: `operationEvent{ID: event.Sequence}` (`operation_handlers.go:518`). Reconnect: `handleOperationEvents` parses `Last-Event-ID` then on subscribe failure passes it straight to `followDurableOperationEvents(after)` (`operation_handlers.go:218-235`), which replays journal rows after that number (:464-487) with `cursor_ahead`/`replay_gap` guards (:440-446). Alignment is preserved per-event by design (`publishAppEvent` appends to hub only when the durable append committed, `operations.go:246-255`), but journal-only rows (accept lifecycle, terminal, omission) and hub-only rows (snapshot/started, `operations.go:215,227`) shift the series, so resumed streams duplicate a few events or end in `cursor_ahead`. No test sends `Last-Event-ID` to this endpoint (`sse_test.go` covers frame format only; hub test uses lastID=0).
+**Architectural reason:** boundary / testing — one wire contract, two numbering authorities, reconciliation left to generic HTTP status handling.
+**Concrete consequence:** after server restart (session regenerated, hub empty) browsers re-receive a small tail of duplicates or must full-refresh via `DurableStatus.RefreshPath`; acceptable UX today, but any future change to which rows are journaled vs published silently changes what clients miss or re-read, undetected.
+**Counter-evidence searched:** silent-loss window (none found — gap guard :444-446 catches below-oldest cursors with visible 409); deliberate namespace marker in event payloads (absent). Refines SPECIALIST-12A: mechanism confirmed, severity lower than implied.
+**Confidence:** medium-high
+**Smallest useful action:** One reconnect test asserting no-loss/no-dup semantics for the restart case; optionally stamp durable-origin events with a `durable:true` field so clients can dedupe without numeric assumptions.
+
+---
+
+**ID: CHALLENGE-05-F09**
+**Priority:** P3
+**Claim:** `ultraplan health` reports a `filesystem.read` check that executes no read — it is statically hardcoded to ok, and the indirect stat-based validation it sits beside cannot detect unreadable files.
+**Evidence:** REALITY. `app/health_commands.go:65`: `checks = append(checks, healthCheck{ID: "filesystem.read", ..., Status: "ok", Message: workspace.MarkerFile})` unconditional; aggregate status ignores it (`:82-85`). `workspace.Validate` probes existence via `os.Stat` only (`workspace/validation.go:14-31`), which succeeds for mode-000 files.
+**Architectural reason:** drift / observability honesty — a diagnostics surface asserting a probe that never ran erodes trust in the other seven checks.
+**Concrete consequence:** an operator diagnosing EIO/permission incidents (NFS rot, sealed dirs) sees `filesystem.read: ok` from a tool whose whole purpose is triage.
+**Counter-evidence searched:** whether discovery/validate subsume readability (stat ≠ read-open; discovery reads some files, so gross failures surface elsewhere — but the labeled check remains fabricated); tests pinning the check (health_commands_test asserts presence, not execution).
+**Confidence:** high
+**Smallest useful action:** Actually open-and-read the marker file (few lines) and reflect failure in aggregate status.
+
+---
+
+**ID: CHALLENGE-05-F10**
+**Priority:** P3
+**Claim:** Secret VALUE markers diverge between the durable storage gate and the config-display classifier: tokens like `xoxb-…`/AWS secret keys are caught for config display but not for durable event payloads, so a secret embedded in an allowlisted field value persists everywhere.
+**Evidence:** REALITY. Storage-gate value markers: `bearer |sk-|ghp_|github_pat_|-----begin private key` (`runcontrol/sanitize.go:92`); key-fragment list lacks `authorization|cookie|auth` (`sanitize.go:76`). Config display: adds `xoxb-|aws_secret_access_key` and `apikey/api_key/--key` markers over key+value (`config/redaction.go:26-35`). Web projection value markers: inline `token=|secret=|authorization:|cookie:` only (`web/operations.go:639`). Concrete delta: a `message` field containing `xoxb-1234` passes the storage gate (no marker match), passes the web projection (no inline marker), lands in SQLite, browser, and support export.
+**Architectural reason:** drift across independently maintained deny-lists — each sink re-decides "what looks like a secret", and value-level sets have no superset owner.
+**Concrete consequence:** credential-shaped strings echoed by agents into allowed fields survive all layers; each new credential format must be added in N places with omissions undetectable locally.
+**Counter-evidence searched:** whether the field ALLOWLIST already dominates (largely yes for KEY names — only 28 fixed names pass, none credential-like, so the fragmented KEY-lists concern mostly dissolves; the residual risk is precisely VALUES of allowlisted fields, where the divergence is real); whether unify-into-one-classifier is viable (no — see rejected hypotheses). Narrows GENERALIST-02's five-engine claim to the defensible kernel.
+**Confidence:** high (divergence), medium (real-world occurrence)
+**Smallest useful action:** Extend `unsafeEventValue` value-marker list to include `xoxb-` and `aws_secret_access_key` (superset alignment, one line + test), keeping layers independent.
+
+### Defended architecture / rejected hypotheses
+
+- **"Unify the five redaction engines into one shared classifier" (GENERALIST-02 remedy). Rejected.** `runcontrol` is test-enforced to import only stdlib + sqlite + x/sys (`import_boundary_test.go:12-39`), and each layer filters a different domain (storage keys/values, producer keys, config key+value, projected display text, argv fragments). A shared classifier couples the durable leaf to `platform/config` and adds translation indirection without removing any list. Correct scope is marker-set alignment at the value level (F10) and allowlist ownership clarity (F01).
+- **"%v map formatting is nondeterministic, breaking coalescing hashes." My own hypothesis, rejected.** `fmt` prints maps in sorted key order (stable since Go 1.12), so `jsonMarshalTruncated`'s output is deterministic; the defect is fidelity/naming (F06), not stability.
+- **"agentwrap inheriting `os.Environ()` leaks secrets into an untrusted process" (SPECIALIST-14A strong form). Defended.** The opencode harness is the component that consumes provider credentials by design; docs direct secrets to the runtime-native environment (`user-guide.md:94`); `WithEnv` is intentionally additive (`opencode.go:21`), and the smoke path — the actually untrusted boundary — is deny-by-default via explicit minimal allowlist (`smoke_protocol.go:623-642`). Residual kernel captured as F05.
+- **"Metrics are write-only dead code." Rejected.** Counters surface through `api_health` JSON (`handlers.go:500-508` via `Health.Metrics`, `model.go:408`), `run diagnostics --json` (`run_commands.go:264-267`), and the support export (`run_commands.go:280,311-320`).
+- **"Unwired `Notifier` is a defect." Rejected.** Documented as optional best-effort latency optimization (`interfaces.go:41-43`); polling is the designed primary consumption path; no production caller promises push.
+- **"Shutdown-time cleanup uncertainty refuses non-product operations — repair gap" (`web_usecases.go:351`). Latent only.** Every current operation mutates a sprint/study target that startup reconciliation sweeps regardless of originating target kind (`server.go:76-81` → `ReconcileOperations`, `web_usecases.go:354-382`); the refusal path becomes a defect only when new operation kinds with non-product side effects appear (future-risk, not reported as current).
+- **"Quota measures bytes it cannot govern (WAL coupling)". Defended as conservative-by-design.** Enforcement is synchronous, physical (`retention.go:35-56`), fail-closed with reserved lifecycle writes, and health reports degraded status (`sqlite.go:901-906`); transient WAL spikes causing spurious rejects require ≥~97% occupancy of the default 512 MiB quota. Left as open question, not a finding.
+- **Web security posture concerns. Rejected.** Loopback-only enforced pre-bind and post-bind (`serve_commands.go:92-112`, `server.go:167-177`), HttpOnly+SameSite=Strict cookies, host pinning, origin proofs, CSRF header on API mutations with one-time preparation store for form mutations, 64 KiB body cap (`security.go:134-169`); static assets from embed allowlist; artifact refs are opaque HMAC-mapped with symlink+containment checks (`web_usecases.go:892-910`). CSPRNG-failure fallbacks are impractical to trigger and validity doesn't hinge on them (concur with SPECIALIST-21B).
+
+### Open questions
+
+1. **F01 remedy direction:** was the strict allowlist ratified as policy after c455510 (flips remedy from "extend list" to "retract producer/consumer expectations")? Same open question CHALLENGE-02 posed; author answer decides.
+2. **F02 root cause:** scheduler regression vs stale expectation in `TestRunLoopStartsPriorityTierBeforeLaterTiers`; bisection across `5839f9a..eeaa034` determines whether this is functional or test debt.
+3. **Near-quota WAL transience:** do real workloads observe spurious `CodeQuota` rejects from checkpoint-timing WAL growth? Only observable with production-sized journals; would justify measuring logical bytes instead of file size.
+GAUNTLET_EOF
+wc -l .archgauntlet/runs/challenge-05/stdout.md
+154 .archgauntlet/runs/challenge-05/stdout.md
+[0m

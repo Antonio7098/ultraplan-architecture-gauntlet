@@ -99,10 +99,10 @@ Target: `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go`
 
 - `challenge-01` — **succeeded** — Product/domain tribunal — [result](runs/challenge-01/stdout.md)
 - `challenge-02` — **succeeded** — Execution tribunal — [result](runs/challenge-02/stdout.md)
-- `challenge-03` — **failed** — State tribunal — [result](runs/challenge-03/stdout.md)
-- `challenge-04` — **failed** — Interface tribunal — [result](runs/challenge-04/stdout.md)
-- `challenge-05` — **pending** — Quality tribunal — [result](runs/challenge-05/stdout.md)
-- `challenge-06` — **pending** — Evolution tribunal — [result](runs/challenge-06/stdout.md)
+- `challenge-03` — **succeeded** — State tribunal — [result](runs/challenge-03/stdout.md)
+- `challenge-04` — **succeeded** — Interface tribunal — [result](runs/challenge-04/stdout.md)
+- `challenge-05` — **succeeded** — Quality tribunal — [result](runs/challenge-05/stdout.md)
+- `challenge-06` — **succeeded** — Evolution tribunal — [result](runs/challenge-06/stdout.md)
 
 ## Chair
 

@@ -1,0 +1,1800 @@
+[93m[1m! [0m agent "arch-challenger" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/review-lenses.md
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/finding-contract.md
+[0m
+[0m$ [0mls -la /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/.archgauntlet/runs/ 2>/dev/null && echo --- && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/
+(no output)
+[0m
+[0m$ [0mls -la /home/antonioborgerees/coding/ultraplan/gauntlet-run/ 2>&1; echo ---; ls -la /home/antonioborgerees/coding/ultraplan/ 2>&1; echo ---; ls -la /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/ 2>&1
+total 0
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  62 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees 490 Aug 23 19:29 ..
+drwxr-xr-x. 1 antonioborgerees antonioborgerees 136 Aug 22 16:23 ultraplan-go
+drwxr-xr-x. 1 antonioborgerees antonioborgerees 158 Aug 22 16:23 ultraplan-workspace
+---
+total 441976
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       490 Aug 23 19:29 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       524 Aug 23 14:47 ..
+drwxr-xr-x. 1 antonioborgerees antonioborgerees        72 Aug 24 17:42 Aren
+drwxr-xr-x. 1 antonioborgerees antonioborgerees        62 Aug 22 16:23 gauntlet-run
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       226 Aug 24 20:54 ultraplan-architecture-gauntlet
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       216 Aug 24 17:53 ultraplan-go
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       644 Aug 19 14:22 ultraplan-go-smoke
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       136 Aug 21 10:18 ultraplan-go-sprint-efficiency
+drwxr-xr-x. 1 antonioborgerees antonioborgerees        32 Aug 22 14:52 .ultraplan-go-ultraplan-worktrees
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       204 Aug 24 20:10 ultraplan-go-workspace
+-rw-r--r--. 1 antonioborgerees antonioborgerees 452582581 Aug 21 17:58 ultraplan-go-workspace-pre-product-state-20260821T165813Z.tar.gz
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       178 Aug 22 16:17 ultraplan-workspace
+---
+total 0
+drwxr-xr-x. 1 antonioborgerees antonioborgerees 2236 Aug 22 16:22 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   70 Aug 24 21:37 ..
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 arbiter-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 chair-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 chair-02
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 chair-03
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 chair-04
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 chair-05
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 chair-06
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 19:55 challenge-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 19:55 challenge-02
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 20:17 challenge-03
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 20:20 challenge-04
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 21:34 challenge-05
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 21:37 challenge-06
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-02
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-03
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-04
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-05
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-06
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-07
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-08
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-02
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-03
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-04
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-05
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-06
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-07
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-08
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-09
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-10
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-11
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-12
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 generalist-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 generalist-02
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 generalist-03
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 generalist-04
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 scout-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 scout-02
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 scout-03
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 scout-04
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 scout-05
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 scout-06
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-01a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-01b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-02a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-02b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-03a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-03b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-04a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-04b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-05a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-05b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-06a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-06b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-07a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-07b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-08a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-08b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-09a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-09b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-10a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-10b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-11a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-11b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-12a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-12b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-13a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-13b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-14a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-14b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-15a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-15b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-16a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-16b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-17a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-17b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-18a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-18b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-19a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-19b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-20a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-20b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-21a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-21b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-22a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-22b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-23a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-23b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-24a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-24b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 synth-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 synth-02
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 synth-03
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-06 -type f | head -50; echo ---; ls /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-01/; echo ---; find /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-01 -type f
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-06/prompt.md
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-06/stdout.md
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-06/stderr.log
+---
+prompt.md
+stderr.log
+stdout.md
+---
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-01/prompt.md
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-01/stderr.log
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-01/stdout.md
+[0m
+[0m$ [0mfor d in scout-01 scout-02 scout-03 scout-04 scout-05 scout-06 specialist-23a specialist-23b specialist-24a specialist-24b; do echo "== $d"; head -12 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/$d/prompt.md; done
+== scout-01
+# UltraPlan Architecture Gauntlet — Repository cartography
+
+ROLE: arch-scout
+STAGE: scout
+TASK ID: scout-01
+
+## Target
+
+- implementation repository: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+- implementation commit: eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
+- authoritative planning workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+- planning workspace commit: 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
+== scout-02
+# UltraPlan Architecture Gauntlet — Dependency cartography
+
+ROLE: arch-scout
+STAGE: scout
+TASK ID: scout-02
+
+## Target
+
+- implementation repository: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+- implementation commit: eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
+- authoritative planning workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+- planning workspace commit: 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
+== scout-03
+# UltraPlan Architecture Gauntlet — Product-contract cartography
+
+ROLE: arch-scout
+STAGE: scout
+TASK ID: scout-03
+
+## Target
+
+- implementation repository: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+- implementation commit: eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
+- authoritative planning workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+- planning workspace commit: 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
+== scout-04
+# UltraPlan Architecture Gauntlet — Governance cartography
+
+ROLE: arch-scout
+STAGE: scout
+TASK ID: scout-04
+
+## Target
+
+- implementation repository: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+- implementation commit: eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
+- authoritative planning workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+- planning workspace commit: 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
+== scout-05
+# UltraPlan Architecture Gauntlet — State/lifecycle cartography
+
+ROLE: arch-scout
+STAGE: scout
+TASK ID: scout-05
+
+## Target
+
+- implementation repository: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+- implementation commit: eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
+- authoritative planning workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+- planning workspace commit: 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
+== scout-06
+# UltraPlan Architecture Gauntlet — Execution cartography
+
+ROLE: arch-scout
+STAGE: scout
+TASK ID: scout-06
+
+## Target
+
+- implementation repository: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+- implementation commit: eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
+- authoritative planning workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+- planning workspace commit: 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
+== specialist-23a
+# UltraPlan Architecture Gauntlet — Simplicity and earned complexity (independent a)
+
+ROLE: arch-inspector
+STAGE: specialist
+TASK ID: specialist-23a
+
+## Target
+
+- implementation repository: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+- implementation commit: eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
+- authoritative planning workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+- planning workspace commit: 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
+== specialist-23b
+# UltraPlan Architecture Gauntlet — Simplicity and earned complexity (independent b)
+
+ROLE: arch-inspector
+STAGE: specialist
+TASK ID: specialist-23b
+
+## Target
+
+- implementation repository: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+- implementation commit: eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
+- authoritative planning workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+- planning workspace commit: 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
+== specialist-24a
+# UltraPlan Architecture Gauntlet — Evolution/change locality (independent a)
+
+ROLE: arch-inspector
+STAGE: specialist
+TASK ID: specialist-24a
+
+## Target
+
+- implementation repository: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+- implementation commit: eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
+- authoritative planning workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+- planning workspace commit: 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
+== specialist-24b
+# UltraPlan Architecture Gauntlet — Evolution/change locality (independent b)
+
+ROLE: arch-inspector
+STAGE: specialist
+TASK ID: specialist-24b
+
+## Target
+
+- implementation repository: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+- implementation commit: eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
+- authoritative planning workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+- planning workspace commit: 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
+[0m
+[0m$ [0mwc -c /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/{specialist-23a,specialist-23b,specialist-24a,specialist-24b,specialist-22a,specialist-22b,scout-01,scout-02,scout-03,scout-04,scout-05,scout-06}/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/change-0*/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-0*/stdout.md 2>/dev/null
+16920 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-23a/stdout.md
+ 15658 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-23b/stdout.md
+ 12523 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-24a/stdout.md
+ 15228 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-24b/stdout.md
+     0 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-22a/stdout.md
+     0 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-22b/stdout.md
+ 22449 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-01/stdout.md
+ 15789 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-02/stdout.md
+ 19048 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-03/stdout.md
+ 20931 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-04/stdout.md
+ 22010 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-05/stdout.md
+ 26288 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-06/stdout.md
+ 11157 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/change-01/stdout.md
+ 15610 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/change-02/stdout.md
+ 12129 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/change-03/stdout.md
+ 10803 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/change-04/stdout.md
+ 12420 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/change-05/stdout.md
+  9912 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/change-06/stdout.md
+ 10315 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/change-07/stdout.md
+ 17301 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/change-08/stdout.md
+ 28108 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-01/stdout.md
+ 24321 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-02/stdout.md
+ 23635 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-03/stdout.md
+ 31850 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-04/stdout.md
+394405 total
+[0m
+[0m→ [0mRead .archgauntlet/runs/specialist-23a/stdout.md
+[0m→ [0mRead .archgauntlet/runs/specialist-23b/stdout.md
+[0m→ [0mRead .archgauntlet/runs/specialist-24b/stdout.md
+[0m→ [0mRead .archgauntlet/runs/specialist-24a/stdout.md
+[0m
+[0m$ [0mgit -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go log --oneline -5 && git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go status --porcelain | head -5; echo ---; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+---
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+[0m
+[0m• [0mMine scout run outputs[90m Explore Agent[0m
+[0m✓ [0mMine scout run outputs[90m Explore Agent[0m
+[0m• [0mMine change/generalist outputs[90m Explore Agent[0m
+[0m
+[0m$ [0msed -n '720,850p' internal/sprint/service.go
+}
+	sp, inputs, catalog, err := s.resolveSprintInputsForFlow(projectRef, sprintRef, !req.DryRun)
+	if err != nil {
+		return FlowResult{}, err
+	}
+	now := s.now().UTC()
+	if stringsTrim(inputs.Requirements) == "" || containsPlaceholder(inputs.Requirements) {
+		err := fmt.Errorf("requirements.md is empty or contains placeholder content")
+		stages := flowFailedStages(sp, req.To, err, now)
+		if !req.DryRun {
+			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+		}
+		return FlowResult{Project: sp.Project, Sprint: sp.Slug, To: req.To, DryRun: req.DryRun, Stages: stages}, err
+	}
+	index, _ := ValidateSprintIndexContent(inputs.SprintIndex, catalog)
+	manifest, findings := BuildHandbookManifest(s.root, sp, inputs, catalog)
+	sortSprintFindings(findings)
+	if len(findings) > 0 {
+		err := fmt.Errorf("selected evidence validation failed")
+		stages := flowFailedStages(sp, req.To, err, now)
+		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+		return FlowResult{Project: sp.Project, Sprint: sp.Slug, To: req.To, DryRun: req.DryRun, Stages: stages, Findings: findings}, err
+	}
+	prompt, promptErr := s.composeSharedRuntimePrompt(ctx, sp, inputs, RenderTechnicalHandbookPrompt(s.root, manifest))
+	if promptErr != nil {
+		stages := s.flowFailedStages(sp, req.To, promptErr, now)
+		if !req.DryRun {
+			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+		}
+		return FlowResult{Project: sp.Project, Sprint: sp.Slug, To: req.To, DryRun: req.DryRun, Stages: stages}, promptErr
+	}
+	if req.DryRun {
+		return FlowResult{Project: sp.Project, Sprint: sp.Slug, To: req.To, DryRun: true, Message: prompt.Prompt}, nil
+	}
+	if s.runtime == nil {
+		err := fmt.Errorf("runtime is required for technical-handbook flow")
+		stages := flowFailedStages(sp, req.To, err, now)
+		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+		return FlowResult{Project: sp.Project, Sprint: sp.Slug, To: req.To, Stages: stages}, err
+	}
+	runtimeReq := s.runtimeRequest(prompt.Prompt, map[string]string{"project": sp.Project, "sprint": sp.Slug, "stage": string(StageTechnicalHandbook)})
+	runtimeReq.Validation = s.technicalHandbookValidationSpec(sp, manifest)
+	runtimeResult, err := s.startPlanningStageRun(ctx, sp, StageTechnicalHandbook, runtimeReq)
+	if err != nil {
+		stages := flowFailedStages(sp, req.To, err, now)
+		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+		return FlowResult{Project: sp.Project, Sprint: sp.Slug, To: req.To, Runtime: runtimeResult, Stages: stages}, err
+	}
+	data, err := s.store.ReadArtifact(sp, StageTechnicalHandbook)
+	if err != nil {
+		stages := flowFailedStages(sp, req.To, err, now)
+		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+		return FlowResult{Project: sp.Project, Sprint: sp.Slug, To: req.To, Runtime: runtimeResult, Stages: stages}, err
+	}
+	findings = ValidateTechnicalHandbookContent(data, manifest)
+	if len(findings) > 0 {
+		runtimeResult, findings, err = s.repairGeneratedArtifact(ctx, runtimeReq, runtimeResult, ArtifactRelPath(sp, StageTechnicalHandbook), findings, func() []ValidationFinding {
+			updated, readErr := s.store.ReadArtifact(sp, StageTechnicalHandbook)
+			if readErr != nil {
+				return []ValidationFinding{finding("technical-handbook.md", "", ArtifactRelPath(sp, StageTechnicalHandbook), "missing technical handbook", readErr.Error(), "Generate technical-handbook.md.")}
+			}
+			return ValidateTechnicalHandbookContent(updated, manifest)
+		})
+		if err != nil {
+			stages := flowFailedStages(sp, req.To, err, now)
+			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+			return FlowResult{Project: sp.Project, Sprint: sp.Slug, To: req.To, Runtime: runtimeResult, Stages: stages}, err
+		}
+	}
+	if len(findings) > 0 {
+		err := fmt.Errorf("generated technical-handbook.md failed validation")
+		stages := flowFailedStages(sp, req.To, err, now)
+		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+		return FlowResult{Project: sp.Project, Sprint: sp.Slug, To: req.To, Runtime: runtimeResult, Stages: stages, Findings: findings}, err
+	}
+	stages := flowTechnicalHandbookSuccessStages(sp, index.NoTemplates, now)
+	if err := SaveFlowState(s.root, sp, NewFlowState(sp, stages, now)); err != nil {
+		return FlowResult{Project: sp.Project, Sprint: sp.Slug, To: req.To, Runtime: runtimeResult, Stages: stages}, err
+	}
+	_ = clearPlanningStageSession(sp, StageTechnicalHandbook)
+	return FlowResult{Project: sp.Project, Sprint: sp.Slug, To: req.To, Runtime: runtimeResult, Stages: stages, Message: "technical-handbook complete"}, nil
+}
+
+func (s Service) FlowReasoning(ctx context.Context, projectRef, sprintRef string, req FlowRequest) (FlowResult, error) {
+	if err := validateFlowTarget(req.To); err != nil {
+		return FlowResult{}, err
+	}
+	if req.To != StageAreaReasoning && req.To != StageReasoning {
+		return FlowResult{}, fmt.Errorf("unsupported reasoning flow target %q", req.To)
+	}
+	sp, inputs, catalog, err := s.resolveSprintInputsForFlow(projectRef, sprintRef, !req.DryRun)
+	if err != nil {
+		return FlowResult{}, err
+	}
+	now := s.now().UTC()
+	if stringsTrim(inputs.Requirements) == "" || containsPlaceholder(inputs.Requirements) {
+		err := fmt.Errorf("requirements.md is empty or contains placeholder content")
+		stages := flowFailedStages(sp, req.To, err, now)
+		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+		return FlowResult{Project: sp.Project, Sprint: sp.Slug, To: req.To, DryRun: req.DryRun, Stages: stages}, err
+	}
+	handbookManifest, handbookFindings := BuildHandbookManifest(s.root, sp, inputs, catalog)
+	if len(handbookFindings) == 0 {
+		data, err := s.store.ReadArtifact(sp, StageTechnicalHandbook)
+		if err != nil {
+			handbookFindings = append(handbookFindings, finding("technical-handbook.md", "", ArtifactRelPath(sp, StageTechnicalHandbook), "missing technical handbook", err.Error(), "Generate technical-handbook.md before reasoning."))
+		} else {
+			handbookFindings = append(handbookFindings, ValidateTechnicalHandbookContent(data, handbookManifest)...)
+		}
+	}
+	manifest, findings := BuildReasoningManifest(s.root, sp, inputs, catalog)
+	findings = append(findings, handbookFindings...)
+	sortSprintFindings(findings)
+	if len(findings) > 0 {
+		err := fmt.Errorf("reasoning prerequisites failed validation")
+		stages := flowFailedStages(sp, req.To, err, now)
+		if !req.DryRun {
+			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+		}
+		return FlowResult{Project: sp.Project, Sprint: sp.Slug, To: req.To, DryRun: req.DryRun, Stages: stages, Findings: findings}, err
+	}
+	if req.To == StageAreaReasoning {
+		return s.flowAreaReasoning(ctx, sp, inputs, req, manifest, now)
+	}
+	return s.flowFinalReasoning(ctx, sp, inputs, req, manifest, now)
+}
+
+func (s Service) resolveSprintInputs(projectRef, sprintRef string) (Sprint, PlanningInputs, project.ProjectIndex, error) {
+	return s.resolveSprintInputsWithCreate(projectRef, sprintRef, false)
+}
+[0m
+[0m✓ [0mMine change/generalist outputs[90m Explore Agent[0m
+[0m
+[0m$ [0msed -n '60,100p' internal/app/operation_runner.go; echo ===TUI===; sed -n '440,470p' internal/tui/model.go; echo ===SANITIZE===; sed -n '1,50p' internal/runcontrol/sanitize.go
+service, e := sprintRuntimeService(deps, root, tuiSprintRuntimeProgress(emit))
+			if e != nil {
+				return failedOperation(result, e)
+			}
+			r, e := service.Review(ctx, req.Project, req.Sprint, sprint.ReviewRequest{Concurrency: req.Parallelism, Focus: req.ReviewFocus, Restart: req.RestartReview, Progress: func(p sprint.ReviewProgress) {
+				emit(OperationEvent{State: OperationRunning, Stage: "review", Task: p.CoverageID, Message: p.Message, Completed: p.Completed, Total: p.Total})
+			}})
+			result.Message = fmt.Sprintf("%s verdict=%s", r.Status, r.Verdict)
+			for _, f := range r.Findings {
+				result.Findings = append(result.Findings, DisplayFinding{Severity: f.Severity, Section: "review", Problem: f.Title, Cause: f.Detail, Suggestion: f.Action})
+			}
+			if e != nil {
+				return failedOperation(result, e)
+			}
+		case OperationSmokeStart:
+			service := sprint.NewService(root.Path).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env)))
+			var timeout time.Duration
+			if req.Timeout != "" {
+				timeout, _ = time.ParseDuration(req.Timeout)
+			}
+			r, e := service.RunSmoke(ctx, req.Project, req.Sprint, sprint.SmokeRequest{Level: req.Level, Suite: req.Suite, Test: req.Test, Timeout: timeout, ForceReview: req.ForceReview, OverrideConfirmed: req.ForceReview, OverrideRationale: req.OverrideRationale, Progress: func(p sprint.SmokeProgress) {
+				emit(OperationEvent{State: OperationRunning, Stage: string(p.Phase), Task: operationFirstNonEmpty(p.Test, p.Suite), Message: p.Message, Completed: p.Completed, Total: p.Total})
+			}})
+			result.Message = fmt.Sprintf("%s verdict=%s run=%s next=%s", r.Status, r.Verdict, r.RunID, r.NextAction)
+			if r.Artifact != "" {
+				if preview, readErr := useCases.PreviewArtifact(ctx, r.Artifact); readErr == nil {
+					result.Content, result.Truncated = boundContent(preview.Content)
+				}
+			}
+			if e != nil {
+				return failedOperation(result, e)
+			}
+		case OperationVerifyStart:
+			service, e := sprintRuntimeService(deps, root, tuiSprintRuntimeProgress(emit))
+			if e != nil {
+				return failedOperation(result, e)
+			}
+			var timeout time.Duration
+			if req.Timeout != "" {
+				timeout, _ = time.ParseDuration(req.Timeout)
+			}
+===TUI===
+		if s, ok := findSprint(m.Data.Sprints, route.Project, route.Sprint); ok {
+			items := []navItem{
+				{Label: "Requirements", Path: artifactByLabel(s.Artifacts, "requirements")},
+				{Label: "Sprint Index", Path: artifactByLabel(s.Artifacts, "sprint-index")},
+				{Label: "Technical Handbook", Path: artifactByLabel(s.Artifacts, "technical-handbook")},
+				{Label: "Reasoning", Path: artifactByLabel(s.Artifacts, "reasoning")},
+				{Label: "Plan", Path: artifactByLabel(s.Artifacts, "plan")},
+				{Label: "Execute", Path: artifactByLabel(s.Artifacts, "execute")},
+				{Label: "Review", Path: artifactByLabel(s.Artifacts, "review")},
+				{Label: "Smoke", Path: artifactByLabel(s.Artifacts, "smoke")},
+				{Label: "Flow State", Path: artifactByLabel(s.Artifacts, "flow-state")},
+				{Label: "Run State", Path: artifactByLabel(s.Artifacts, "run-state")},
+			}
+			stages := []string{"requirements", "sprint-index", "technical-handbook", "area-reasoning", "reasoning", "plan", "execute", "review"}
+			items = append(items, navItem{Label: "Sprint Status", Operation: &app.OperationRequest{Kind: app.OperationSprintStatus, Project: route.Project, Sprint: route.Sprint}})
+			for _, stage := range stages {
+				items = append(items, navItem{Label: "Validate " + stage, Validation: &app.ValidationRequest{Subject: app.ValidationSprint, Project: route.Project, Sprint: route.Sprint, Stage: stage}})
+				items = append(items, navItem{Label: "Preview " + stage + " Prompt", Operation: &app.OperationRequest{Kind: app.OperationPrompt, Project: route.Project, Sprint: route.Sprint, Stage: stage}})
+			}
+			items = append(items,
+				navItem{Label: "Dry Run Flow to smoke", Operation: &app.OperationRequest{Kind: app.OperationFlowDryRun, Project: route.Project, Sprint: route.Sprint, Stage: "smoke"}},
+				navItem{Label: "Run Flow to smoke [RUNTIME + EXTERNAL]", Operation: &app.OperationRequest{Kind: app.OperationFlow, Project: route.Project, Sprint: route.Sprint, Stage: "smoke"}})
+			for _, stage := range stages {
+				items = append(items,
+					navItem{Label: "Dry Run Flow to " + stage, Operation: &app.OperationRequest{Kind: app.OperationFlowDryRun, Project: route.Project, Sprint: route.Sprint, Stage: stage}},
+					navItem{Label: "Run Flow to " + stage + " [RUNTIME]", Operation: &app.OperationRequest{Kind: app.OperationFlow, Project: route.Project, Sprint: route.Sprint, Stage: stage}})
+			}
+			items = append(items,
+				navItem{Label: "Execute Status", Operation: &app.OperationRequest{Kind: app.OperationExecuteStatus, Project: route.Project, Sprint: route.Sprint, Stage: "execute"}},
+				navItem{Label: "Execute Dry Run", Operation: &app.OperationRequest{Kind: app.OperationExecuteDryRun, Project: route.Project, Sprint: route.Sprint, Stage: "execute"}},
+				navItem{Label: "Execute Start [RUNTIME]", Operation: &app.OperationRequest{Kind: app.OperationExecuteStart, Project: route.Project, Sprint: route.Sprint, Stage: "execute"}},
+===SANITIZE===
+package runcontrol
+
+import (
+	"encoding/json"
+	"path/filepath"
+	"strings"
+	"time"
+)
+
+var allowedEventPayloadFields = map[string]struct{}{
+	"runtime_event_id": {}, "runtime_run_id": {}, "agentwrap_run_id": {}, "session_id": {},
+	"external_harness_run_id": {}, "type": {}, "kind": {}, "state": {}, "status": {},
+	"outcome": {}, "reason": {}, "category": {}, "code": {}, "count": {}, "known": {},
+	"input_tokens": {}, "output_tokens": {}, "total_tokens": {}, "turns": {},
+	"artifact_kind": {}, "artifact_id": {}, "lifecycle": {}, "liveness": {},
+	"message": {}, "index": {}, "tool": {}, "action": {},
+}
+
+// sanitizeEventDraft is the final storage gate. Producers may only submit
+// bounded product-owned fields; raw payloads, prompts, arbitrary diagnostics,
+// credentials, and unrestricted paths are replaced with explicit omission.
+func sanitizeEventDraft(input EventDraft) EventDraft {
+	out := EventDraft{
+		Type: input.Type, Stage: safeEventValue(input.Stage, MaxTargetFieldBytes),
+		Task: safeEventValue(input.Task, MaxTargetFieldBytes), Lifecycle: input.Lifecycle,
+		Payload: make(map[string]string), Omission: cloneOmission(input.Omission),
+	}
+	omitted := uint64(0)
+	for key, value := range input.Payload {
+		if _, ok := allowedEventPayloadFields[key]; !ok || sensitiveEventField(key) || unsafeEventValue(value) {
+			omitted++
+			continue
+		}
+		if len(value) > MaxSafeValueBytes {
+			omitted++
+			continue
+		}
+		out.Payload[key] = safeEventValue(value, MaxSafeValueBytes)
+	}
+	if out.Stage != input.Stage || out.Task != input.Task {
+		omitted++
+	}
+	if omitted > 0 {
+		mergeOmission(&out, "unsafe event detail omitted", omitted, nil, nil)
+	}
+	encoded, err := json.Marshal(out)
+	if err != nil || len(encoded) > MaxEncodedEventBytes {
+		return EventDraft{
+			Type:     EventWarning,
+			Payload:  map[string]string{"code": "event_detail_oversize", "reason": "event detail exceeded durable limit"},
+[0m
+[0m$ [0mgrep -rn "Control\b" internal/runcontrol/interfaces.go | head; echo ===USES===; grep -rn "runcontrol.Control" internal/ cmd/ docs/ 2>/dev/null | grep -v interfaces.go; echo ===DRYRUN-DOC===; grep -n "dry-run" docs/cli-reference.md | head -10; echo ===TESTS===; grep -n "flow-state\|NoFileExists\|not.*created\|DryRun" internal/sprint/handbook_test.go | head -20
+67:// Control is the adapter-neutral service capability. Keeping this interface
+70:type Control interface {
+===USES===
+===DRYRUN-DOC===
+39:ultraplan init-workspace [--path <dir>] [--dry-run]
+42:Creates the minimal required workspace scaffold: `README.md`, `ultraplan.yml`, and `studies/`. The README includes common workspace commands. `--dry-run` prints planned operations without writing files.
+49:ultraplan skills materialise [all|stage] [--path <dir>] [--dry-run] [--force]
+67:overwrites them, and `--dry-run` makes no writes. `materialize` is accepted as
+73:ultraplan defaults install [--path <dir>] [--dry-run] [--force]
+86:- `--dry-run` prints planned operations and never writes files or asks for confirmation.
+148:ultraplan study init <study-init.yml> [--dry-run] [--force] [--no-clone] [--output <dir>]
+294:ultraplan sprint <project> <sprint> flow --to requirements [--dry-run]
+295:ultraplan sprint <project> <sprint> flow --to code-context [--dry-run]
+296:ultraplan sprint <project> <sprint> flow --to sprint-index [--dry-run]
+===TESTS===
+46:func TestTechnicalHandbookPromptDryRunAndFlow(t *testing.T) {
+64:	result, err := service.FlowTechnicalHandbook(context.Background(), "proj", "01", FlowRequest{To: StageTechnicalHandbook, DryRun: true})
+68:	if !result.DryRun || result.Message == "" {
+71:	if _, err := os.Stat(filepath.Join(sp.Path, "flow-state.json")); !os.IsNotExist(err) {
+[0m
+[0m$ [0mgrep -n "code-context\|CodeContext" internal/workspace/skills.go | head -5; echo ===WS-SKILLS===; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.agents/skills/ 2>/dev/null; echo ===DOC===; sed -n '1,20p' docs/stage-skills.md 2>/dev/null
+102:			Stage:            "code-context",
+103:			Name:             "ultraplan-code-context",
+109:Run the canonical code-context flow so UltraPlan resolves the approved implementation repository, applies the read-only runtime policy, validates the reference-only artifact, and promotes it atomically.`,
+115:    ultraplan sprint "$PROJECT" "$SPRINT" flow --to code-context
+===WS-SKILLS===
+ultraplan-area-reasoning
+ultraplan-execute
+ultraplan-plan
+ultraplan-reasoning
+ultraplan-reconcile-review-smoke
+ultraplan-requirements
+ultraplan-review
+ultraplan-smoke
+ultraplan-sprint-index
+ultraplan-technical-handbook
+===DOC===
+# Manually Invoked Stage Skills
+
+UltraPlan embeds one project skill for each governed sprint stage:
+
+| Stage | Skill |
+|---|---|
+| requirements | `$ultraplan-requirements` |
+| code-context | `$ultraplan-code-context` |
+| sprint-index | `$ultraplan-sprint-index` |
+| technical-handbook | `$ultraplan-technical-handbook` |
+| area-reasoning | `$ultraplan-area-reasoning` |
+| reasoning | `$ultraplan-reasoning` |
+| plan | `$ultraplan-plan` |
+| execute | `$ultraplan-execute` |
+| review | `$ultraplan-review` |
+| smoke | `$ultraplan-smoke` |
+| cross-stage review/smoke reconciliation | `$ultraplan-reconcile-review-smoke` |
+
+The skills are interactive forms of the built-in stage prompts. They preserve
+the prompt's inputs, outputs, rules, skip criteria, and quality bar, then add
+[0m
+[0m$ [0msed -n '1360,1372p' projects/ultraplan-go/roadmap.md; echo ===TRD57===; sed -n '50,60p' projects/ultraplan-go/docs/TRD.md; echo ===SPRINT35===; ls sprints/35-durable-run-observability/; echo ===PRODUCTSTATE-HIST===; git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go log --oneline --all -- internal/productstate/ | head -5
+```text
+canonical product artifacts and outcomes  = owned by project/study/sprint modules
+durable operational run record            = workspace-visible identity, lifecycle, liveness, and safe event history
+browser/TUI/CLI presentation               = replaceable projections and controls over those records
+SSE connection                             = transient delivery, never run authority
+```
+
+This is not the later product-persistence decision in Gate D. Sprint 35 may persist operational run records using the smallest mechanism proven by reasoning, but it must not move Markdown, flow outcomes, Git/source state, or smoke evidence into a new canonical store.
+
+## Sprint 35: Durable Run Identity And Cross-Surface Observability
+
+**Goal:** Make every accepted runtime-backed execution discoverable, inspectable, replayable, cancellable when authorized, and conservatively recoverable from every supported local surface and server instance attached to the workspace.
+===TRD57===
+- Automatically fixing product code or tests during review or smoke.
+- Mutating Git state during planning, execute, review, or smoke.
+- Owning detailed smoke run/issue persistence that belongs to the external harness.
+- Replacing the CLI or JSON surfaces with a TUI-only workflow.
+- Replacing workspace artifacts with browser-owned or server-only durable state.
+- Treating operational run persistence as authority for governed Markdown, stage outcomes, Git/source state, or external smoke evidence.
+- Treating a code-context pack as a repository index, exclusive source boundary, cache database, or second machine-readable manifest.
+- Introducing content identity, expanded QA/repair, retrieval, SQLite product persistence, knowledge-graph persistence, cloud, or Aren capabilities before their explicit roadmap evidence gates.
+
+## 3. Architecture Overview
+
+===SPRINT35===
+ls: cannot access 'sprints/35-durable-run-observability/': No such file or directory
+===PRODUCTSTATE-HIST===
+02e2ec4 Move mutable product state to SQLite
+[0m
+[0m$ [0msed -n '1,100p' internal/study/state_database.go; echo ===SPRINTDB===; sed -n '40,100p' internal/sprint/state_database.go
+package study
+
+import (
+	"context"
+	"encoding/json"
+	"errors"
+	"path/filepath"
+	"time"
+
+	"github.com/Antonio7098/ultraplan-go/internal/productstate"
+)
+
+const studyRunStateKind = "study_run"
+
+func studyWorkspaceRoot(study Study) string { return filepath.Dir(filepath.Dir(study.Path)) }
+
+func loadRunStateDatabase(study Study) (RunState, bool, error) {
+	store, enabled, err := productstate.Existing(studyWorkspaceRoot(study))
+	if err != nil || !enabled {
+		return RunState{}, false, err
+	}
+	record, err := store.Load(context.Background(), studyRunStateKind, study.Name)
+	if errors.Is(err, productstate.ErrNotFound) {
+		return RunState{}, false, nil
+	}
+	if err != nil {
+		return RunState{}, false, err
+	}
+	var state RunState
+	if err := json.Unmarshal(record.Header, &state); err != nil {
+		return RunState{}, false, err
+	}
+	for _, item := range record.Items {
+		var task TaskState
+		if err := json.Unmarshal(item.Payload, &task); err != nil {
+			return RunState{}, false, err
+		}
+		state.Tasks = append(state.Tasks, task)
+	}
+	return state, true, nil
+}
+
+func saveRunStateDatabase(study Study, state RunState) error {
+	state.UpdatedAt = time.Now().UTC()
+	compactRunStateDiagnostics(&state)
+	if err := ValidateRunState(state, RunStatePath(study)); err != nil {
+		return err
+	}
+	header := cloneRunState(state)
+	header.Tasks = nil
+	headerJSON, err := json.Marshal(header)
+	if err != nil {
+		return err
+	}
+	items := make([]productstate.Item, 0, len(state.Tasks))
+	for index, task := range state.Tasks {
+		payload, err := json.Marshal(task)
+		if err != nil {
+			return err
+		}
+		items = append(items, productstate.Item{Key: task.ID, Ordinal: index, Payload: payload})
+	}
+	store, err := productstate.Ensure(studyWorkspaceRoot(study))
+	if err != nil {
+		return err
+	}
+	return store.Save(context.Background(), productstate.Record{Kind: studyRunStateKind, Scope: study.Name, SchemaVersion: state.SchemaVersion, Header: headerJSON, Items: items})
+}
+
+func RunStateInDatabase(study Study) (bool, error) {
+	store, enabled, err := productstate.Existing(studyWorkspaceRoot(study))
+	if err != nil || !enabled {
+		return false, err
+	}
+	return store.Has(context.Background(), studyRunStateKind, study.Name)
+}
+
+func MigrateRunStateToDatabase(study Study, state RunState) error {
+	return saveRunStateDatabase(study, state)
+}
+===SPRINTDB===
+	if err != nil || !found {
+		return ExecuteRunState{}, found, err
+	}
+	var state ExecuteRunState
+	if err := json.Unmarshal(record.Header, &state); err != nil {
+		return ExecuteRunState{}, false, err
+	}
+	for _, item := range record.Items {
+		var task ExecuteTaskRecord
+		if err := json.Unmarshal(item.Payload, &task); err != nil {
+			return ExecuteRunState{}, false, err
+		}
+		state.Tasks = append(state.Tasks, task)
+	}
+	return state, true, nil
+}
+
+func loadSprintRecord(root, kind, scope string) (productstate.Record, bool, error) {
+	store, enabled, err := productstate.Existing(root)
+	if err != nil || !enabled {
+		return productstate.Record{}, false, err
+	}
+	record, err := store.Load(context.Background(), kind, scope)
+	if errors.Is(err, productstate.ErrNotFound) {
+		return productstate.Record{}, false, nil
+	}
+	return record, err == nil, err
+}
+
+func saveFlowStateDatabase(root string, s Sprint, state FlowState) error {
+	state.UpdatedAt = time.Now().UTC()
+	path, err := FlowStatePath(root, s)
+	if err != nil {
+		return err
+	}
+	if err := ValidateFlowState(root, s, state, path); err != nil {
+		return err
+	}
+	header := state
+	header.Stages = nil
+	headerJSON, err := json.Marshal(header)
+	if err != nil {
+		return err
+	}
+	items := make([]productstate.Item, 0, len(state.Stages))
+	for index, stage := range state.Stages {
+		payload, err := json.Marshal(stage)
+		if err != nil {
+			return err
+		}
+		items = append(items, productstate.Item{Key: string(stage.Stage), Ordinal: index, Payload: payload})
+	}
+	store, err := productstate.Ensure(root)
+	if err != nil {
+		return err
+	}
+	return store.Save(context.Background(), productstate.Record{Kind: sprintFlowStateKind, Scope: sprintStateScope(s), SchemaVersion: state.SchemaVersion, Header: headerJSON, Items: items})
+}
+
+func saveExecuteStateDatabase(root string, s Sprint, state ExecuteRunState) error {
+	state.UpdatedAt = time.Now().UTC()
+[0m
+[0m$ [0mcat docs/migration-product-state.md | head -80; echo ===HIST===; git log --format='%h %ad %s' --date=short -3 02e2ec4
+# Product-state SQLite migration
+
+UltraPlan can store mutable study and sprint execution state in the workspace
+database instead of rewriting complete JSON documents after each transition.
+
+Preview the migration:
+
+```sh
+scripts/migrate-product-state.sh /path/to/workspace --dry-run
+```
+
+Import every valid state artifact:
+
+```sh
+scripts/migrate-product-state.sh /path/to/workspace
+```
+
+The command discovers study `run-state.json`, sprint `flow-state.json`, and
+sprint `.run-state.json` files. It validates each file with the existing product
+validator before importing it. Invalid files remain unchanged and produce a
+partial-failure exit status. Re-running the command skips records already in the
+database.
+
+After import, SQLite is authoritative for that record. Existing JSON files stay
+in place as compatibility checkpoints. Unmigrated records remain file-backed,
+so migration can be performed incrementally.
+
+The normalized tables are `product_states` and `product_state_items`. Study
+tasks, sprint stages, and sprint execute tasks occupy separate ordered rows.
+Large generated reports, prompts, and diagnostics remain files.
+===HIST===
+02e2ec4 2026-08-21 Move mutable product state to SQLite
+f7936cf 2026-08-21 Expose study resource diagnostics in web UI
+3ef8645 2026-08-21 Merge fix/reconcile-review-smoke-guidance
+[0m
+[0m$ [0mgrep -rn "loadRunStateDatabase\|loadFlowStateDatabase\|loadExecuteStateDatabase" internal/study/state.go internal/sprint/state.go internal/sprint/execute_state.go | head -12; echo ===RECOVERY===; sed -n '70,78p' docs/recovery.md; echo ===VERIFY===; sed -n '450,470p' internal/study/verify.go; echo ===GATED===; sed -n '1430,1470p' projects/ultraplan-go/roadmap.md; echo ===SPRINTS===; ls sprints/ | tail -8
+grep: internal/study/state.go: No such file or directory
+grep: internal/sprint/state.go: No such file or directory
+grep: internal/sprint/execute_state.go: No such file or directory
+sed: can't read docs/recovery.md: No such file or directory
+===RECOVERY===
+===VERIFY===
+sed: can't read internal/study/verify.go: No such file or directory
+===GATED===
+-> read-only QA mapping, investigation, and synthesis
+-> isolated evidence-producing QA and smoke integration
+-> adjudicated manual repair, then bounded automatic repair
+-> joint browser/code-context/content/QA dogfood
+-> derived lexical retrieval
+-> proven product persistence boundary and optional SQLite
+-> optional in-memory knowledge graph
+-> explicit authority choice, cloud, and Aren integration
+```
+
+## Gate A — Content Contract
+
+- Begin with an artifact inventory and at least twenty real retrieval/traceability questions.
+- Pilot optional minimal metadata, selective semantic block IDs, and revision-aware evidence on new artifacts.
+- Preserve legacy Markdown validity and explicit project/sprint context selection.
+- Stop if metadata is inaccurate, burdensome, or does not improve real discovery and traceability.
+
+## Gate B — QA And Repair
+
+- Keep current `review` compatibility while presenting it as Conformance Review.
+- Introduce read-only deterministic QA shards and global synthesis before generated tests or production mutation.
+- Require isolated writable workspaces and evidence adjudication before issue promotion.
+- Permit repair only from frozen evidence-backed issue packets; bound cycles, reopenings, scope growth, and convergence.
+- Preserve smoke protocol guarantees while absorbing smoke only after QA parity is proven.
+
+## Gate C — Retrieval
+
+- Derive disposable semantic records from authoritative artifacts after content dogfood.
+- Establish metadata filtering and lexical search before embeddings.
+- Measure against the retrieval-question corpus; do not silently inject results into governed context.
+- Keep authority, status, provenance, exact source text, freshness, and explicit selection visible.
+
+## Gate D — Persistence And SQLite
+
+- Keep Sprint 35 operational run persistence distinct from the authority decision for authored product artifacts in this gate.
+- Dogfood the filesystem-backed browser first and identify concrete needs such as drafts, immutable revisions, approvals, cross-project queries, provenance, or measured filesystem cost.
+- Extract focused product-owned repository contracts one workflow at a time; do not create a universal storage or virtual-filesystem abstraction.
+- Keep Git/source and agent execution workspaces filesystem-native.
+- Select one authoritative storage mode at composition, use explicit migration/import/export, and prohibit silent dual writes.
+- Compare filesystem and SQLite modes on real work before choosing server-canonical, dual first-class, or hybrid publication authority.
+
+===SPRINTS===
+ls: cannot access 'sprints/': No such file or directory
+[0m
+[0m$ [0mgrep -n "24 hours\|24h\|two hours\|2h" docs/recovery.md | head -5; echo ===VERIFY-GO===; grep -n "Hour\|stale\|expired\|dead" internal/study/verify.go | head -12; echo ===OPS-WEB===; sed -n '160,200p' internal/app/operations.go
+75:- Expired running attempt: `sprint status` derives an attempt that has lacked a terminal update for more than 24 hours as timed out without mutating state; the next explicit review/smoke operation owns the durable transition.
+===VERIFY-GO===
+===OPS-WEB===
+grep: internal/study/verify.go: No such file or directory
+	Code, Category, Operation, Component, Message, Cause, Guidance string
+	Retryable                                                      bool
+}
+
+var ErrStaleOperation = errors.New("operation inputs changed after preparation")
+
+func (u dashboardUseCases) PrepareOperation(ctx context.Context, req OperationRequest) (Confirmation, error) {
+	if err := ctx.Err(); err != nil {
+		return Confirmation{}, err
+	}
+	req.ExpectedFingerprint = ""
+	req = normalizeOperationRequest(req)
+	if err := validateOperationScope(req); err != nil {
+		return Confirmation{}, err
+	}
+	if (req.Kind == OperationReviewStart || req.Kind == OperationReviewDryRun) && req.Parallelism <= 0 {
+		req.Parallelism = u.reviewConcurrency
+	}
+	c := Confirmation{Request: req, Subject: operationFirstNonEmpty(req.Project+"/"+req.Sprint, req.Study), Permission: "workspace policy enforced"}
+	switch req.Kind {
+	case OperationValidate, OperationPrompt, OperationFlowDryRun, OperationStageDryRun, OperationExecuteDryRun, OperationExecuteStatus, OperationReviewDryRun, OperationReviewStatus, OperationSmokeStatus:
+		c.Scope = []string{req.Stage}
+		c.Warning = "runtime-free; no runtime-backed writes"
+	case OperationSprintStatus:
+		c.Mutates = true
+		c.Scope = []string{"all sprint stages", "execute and review state"}
+		c.Warning = "RUNTIME-FREE; MAY REFRESH FLOW-STATE.JSON"
+	case OperationFlow:
+		c.Runtime = true
+		c.Mutates = true
+		c.Scope = []string{"planning stages through " + req.Stage}
+		c.Warning = "RUNTIME + WORKSPACE MUTATION"
+	case OperationStage:
+		c.Runtime = true
+		c.Mutates = true
+		c.Scope = []string{"selected planning stage only: " + req.Stage}
+		c.Warning = "RUNTIME + WORKSPACE MUTATION; PREREQUISITES MUST ALREADY BE VALID"
+	case OperationExecuteStart, OperationExecuteResume:
+		c.Runtime = true
+		c.Mutates = true
+		c.Scope = []string{"execute tasks"}
+[0m
+[0m$ [0mfind internal -name "*.go" | xargs grep -ln "attemptTimeout\|AttemptStale\|timed out" 2>/dev/null | head; echo ===; grep -rn "time.Hour\|24\*time" internal/study/*.go | grep -i "hour\|stale" | head -8
+internal/app/sprint_error_test.go
+internal/platform/process/process.go
+internal/platform/process/process_test.go
+internal/sprint/smoke.go
+===
+internal/study/state_test.go:182:	ReconcileRunState(&state, root, sample, []Source{repo, doc}, dimensions, now.Add(time.Hour))
+internal/study/state_test.go:238:	ResumeValidateRunState(&state, sample, []Source{source}, []Dimension{dimension}, now.Add(time.Hour))
+internal/study/state_test.go:262:	ResumeValidateRunState(&state, sample, []Source{source}, []Dimension{dimension}, now.Add(time.Hour))
+[0m
+[0m$ [0mgrep -rn "Existing\|Ensure" internal/productstate/store.go | head -10; echo ===WS-AUTH===; grep -rln "product.state\|productstate\|migrate-product-state\|SQLite" projects/ultraplan-go/sprints/*/requirements.md projects/ultraplan-go/sprints/*/reasoning.md system/reasoning/*.md 2>/dev/null | head -15; echo ===SPRINTS-LIST===; ls projects/ultraplan-go/sprints/ | tail -6
+grep: internal/productstate/store.go: No such file or directory
+===WS-AUTH===
+projects/ultraplan-go/sprints/24-tui-foundations/requirements.md
+projects/ultraplan-go/sprints/30-web-foundations/requirements.md
+projects/ultraplan-go/sprints/31-web-operations/requirements.md
+projects/ultraplan-go/sprints/32-hardening-and-release/requirements.md
+projects/ultraplan-go/sprints/33-code-context-stage/requirements.md
+projects/ultraplan-go/sprints/34-shared-context/requirements.md
+projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md
+projects/ultraplan-go/sprints/12-durable-run-loop/reasoning.md
+projects/ultraplan-go/sprints/19-distill-stage/reasoning.md
+projects/ultraplan-go/sprints/20-reason-stage/reasoning.md
+projects/ultraplan-go/sprints/24-tui-foundations/reasoning.md
+projects/ultraplan-go/sprints/30-web-foundations/reasoning.md
+projects/ultraplan-go/sprints/31-web-operations/reasoning.md
+projects/ultraplan-go/sprints/32-hardening-and-release/reasoning.md
+projects/ultraplan-go/sprints/34-shared-context/reasoning.md
+===SPRINTS-LIST===
+30-web-foundations
+31-web-operations
+32-hardening-and-release
+33-code-context-stage
+34-shared-context
+35-durable-run-observability
+[0m
+[0m$ [0mgrep -rn "product\|SQLite\|storage" projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md | head -20; echo ===35DIR===; ls projects/ultraplan-go/sprints/35-durable-run-observability/
+grep: projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md: No such file or directory
+ls: cannot access 'projects/ultraplan-go/sprints/35-durable-run-observability/': No such file or directory
+===35DIR===
+[0m
+[0m$ [0mgrep -rn "2\s*\*\s*time.Hour\|24 \* time.Hour\|attemptStale\|StaleAttempt" internal/ | head -8; echo ===EXISTING===; sed -n '1,60p' internal/productstate/store.go | grep -n "func Existing\|func Ensure\|enabled" ; grep -n "func Existing" -A 12 internal/productstate/store.go
+internal/platform/config/config.go:427:		max := 24 * time.Hour
+internal/runcontrol/lifecycle_test.go:254:	clock.at = clock.at.Add(2 * time.Hour)
+internal/runcontrol/retention_test.go:41:	repository, err := OpenSQLite(ctx, t.TempDir(), SQLiteOptions{Clock: clock, Retention: RetentionPolicy{FullHistory: time.Hour, TombstoneHistory: 24 * time.Hour, HardQuotaBytes: 64 << 20}})
+internal/runcontrol/retention_test.go:103:	repository, err := OpenSQLite(ctx, root, SQLiteOptions{Retention: RetentionPolicy{FullHistory: time.Hour, TombstoneHistory: 24 * time.Hour, HardQuotaBytes: 64 << 20}})
+internal/runcontrol/model.go:423:	DefaultFullHistory      = 7 * 24 * time.Hour
+internal/runcontrol/model.go:424:	DefaultTombstoneHistory = 30 * 24 * time.Hour
+internal/sprint/verify.go:466:	return now.Sub(lastSeen) > 2*time.Hour
+===EXISTING===
+41:func Existing(root string) (*Store, bool, error) {
+53:func Ensure(root string) (*Store, error) { return open(root) }
+41:func Existing(root string) (*Store, bool, error) {
+42-	path := filepath.Join(root, filepath.FromSlash(DatabaseRelativePath))
+43-	if _, err := os.Stat(path); err != nil {
+44-		if os.IsNotExist(err) {
+45-			return nil, false, nil
+46-		}
+47-		return nil, false, err
+48-	}
+49-	store, err := open(root)
+50-	return store, err == nil, err
+51-}
+52-
+53-func Ensure(root string) (*Store, error) { return open(root) }
+[0m
+[0m$ [0msed -n '140,150p' docs/local-web.md; echo ===CONTRACT-TEST===; sed -n '75,112p' internal/web/operations_contract_test.go; echo ===DRYTESTS===; grep -n "DryRun\|flow-state" internal/sprint/reasoning_test.go | head -12
+another session's operations or treats the collection as durable state.
+5. `GET /api/v1/operations/{id}` returns retained status and terminal result.
+6. `GET /api/v1/operations/{id}/events` observes progress through SSE.
+7. `DELETE /api/v1/operations/{id}` requests canonical cancellation and is
+   idempotent.
+
+Stable states are `accepted`, `running`, `cancelling`, `succeeded`, `failed`,
+`cancelled`, `interrupted`, and `cleanup_uncertain`. Stable SSE event names are
+`snapshot`, `progress`, `warning`, `finding`, `artifact`, `cancel_requested`,
+`recovery_required`, and `terminal`. Event IDs are decimal and monotonic within
+one operation. SSE is progress-only: disconnecting closes only that
+===CONTRACT-TEST===
+		Options: operationOptionsRequest{Stage: "code-context", DryRun: true},
+	})
+	if err != nil || dry.Kind != app.OperationStageDryRun || dry.Stage != "code-context" {
+		t.Fatalf("generic code-context dry-run mapping=%+v err=%v", dry, err)
+	}
+}
+
+func TestBrowserLifecycleDocumentContract(t *testing.T) {
+	states := []string{"accepted", "running", "cancelling", "succeeded", "failed", "cancelled", "interrupted", "cleanup_uncertain"}
+	for _, state := range states {
+		doc := operationDocument{
+			ID: "op_contract", Kind: app.OperationFlow, State: state,
+			CreatedAt: time.Date(2026, 8, 17, 12, 0, 0, 0, time.UTC), LastEventID: "7",
+			DurableStatus: durableStatusDTO{Available: true, RefreshPath: "/api/v1/projects/alpha/sprints/31-web"},
+		}
+		data, err := json.Marshal(doc)
+		if err != nil {
+			t.Fatal(err)
+		}
+		var browser struct {
+			ID            string `json:"id"`
+			Kind          string `json:"kind"`
+			State         string `json:"state"`
+			LastEventID   string `json:"last_event_id"`
+			DurableStatus struct {
+				Available   bool   `json:"available"`
+				RefreshPath string `json:"refresh_path"`
+			} `json:"durable_status"`
+		}
+		if err := json.Unmarshal(data, &browser); err != nil {
+			t.Fatal(err)
+		}
+		if browser.ID == "" || browser.Kind != string(app.OperationFlow) || browser.State != state || browser.LastEventID != "7" || !browser.DurableStatus.Available || browser.DurableStatus.RefreshPath == "" {
+			t.Fatalf("state %q projection=%+v json=%s", state, browser, data)
+		}
+		if terminalOperationState(state) != (state == "succeeded" || state == "failed" || state == "cancelled" || state == "interrupted" || state == "cleanup_uncertain") {
+			t.Fatalf("terminal classification drift for %q", state)
+		}
+===DRYTESTS===
+135:func TestFlowReasoningDryRunSuccessAndFailure(t *testing.T) {
+146:	result, err := service.FlowReasoning(context.Background(), "proj", "01", FlowRequest{To: StageReasoning, DryRun: true})
+150:	if _, err := os.Stat(filepath.Join(sp.Path, "flow-state.json")); !os.IsNotExist(err) {
+155:	result, err = service.FlowReasoning(context.Background(), "proj", "01", FlowRequest{To: StageReasoning, DryRun: true})
+159:	if !result.DryRun || !strings.Contains(result.Message, "# Create Sprint Reasoning") {
+[0m
+[0m$ [0msed -n '135,162p' internal/sprint/reasoning_test.go; echo ===HANDBOOK===; sed -n '55,95p' internal/sprint/handbook_test.go
+func TestFlowReasoningDryRunSuccessAndFailure(t *testing.T) {
+	root := workspaceFixture(t)
+	sp := sprintFixture(t, root, "proj", "01-alpha")
+	writeFixtureProjectIndex(t, root, "proj")
+	writeFileContent(t, root, "# Architecture Template\n", "system", "reasoning", "architecture_reasoning_template.md")
+	writeFileContent(t, root, "# Evidence\n", "studies", "go-cli-study", "reports", "final", "01-project-structure.md")
+	writeFileContent(t, sp.Path, "# Requirements\n\nDo reasoning stage.\n", "requirements.md")
+	writeFileContent(t, sp.Path, validSprintIndex(), "sprint-index.md")
+	writeFileContent(t, sp.Path, validReasoningTechnicalHandbook(), "technical-handbook.md")
+
+	service := NewService(root).WithRuntime(panicRuntime{})
+	result, err := service.FlowReasoning(context.Background(), "proj", "01", FlowRequest{To: StageReasoning, DryRun: true})
+	if err == nil || len(result.Findings) == 0 {
+		t.Fatalf("expected missing area prerequisite, result=%+v err=%v", result, err)
+	}
+	if _, err := os.Stat(filepath.Join(sp.Path, "flow-state.json")); !os.IsNotExist(err) {
+		t.Fatalf("dry-run prerequisite failure should not require runtime, state err=%v", err)
+	}
+
+	writeFileContent(t, sp.Path, validAreaReasoning(), "reasoning", "architecture.md")
+	result, err = service.FlowReasoning(context.Background(), "proj", "01", FlowRequest{To: StageReasoning, DryRun: true})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !result.DryRun || !strings.Contains(result.Message, "# Create Sprint Reasoning") {
+		t.Fatalf("dry-run result = %+v", result)
+	}
+
+===HANDBOOK===
+	preview, err := service.PromptTechnicalHandbook("proj", "01")
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, want := range []string{"# Create Technical Handbook", "Prompt source: `builtin:prompts/create-technical-handbook.md`", "Injected Technical Handbook Template:", "Source: builtin:templates/technical-handbook.md", "Selected evidence:", "Do not make final implementation decisions", "projects/proj/sprints/01-alpha/technical-handbook.md"} {
+		if !strings.Contains(preview.Prompt, want) {
+			t.Fatalf("prompt missing %q:\n%s", want, preview.Prompt)
+		}
+	}
+	result, err := service.FlowTechnicalHandbook(context.Background(), "proj", "01", FlowRequest{To: StageTechnicalHandbook, DryRun: true})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !result.DryRun || result.Message == "" {
+		t.Fatalf("dry run result = %+v", result)
+	}
+	if _, err := os.Stat(filepath.Join(sp.Path, "flow-state.json")); !os.IsNotExist(err) {
+		t.Fatalf("dry-run wrote flow state: %v", err)
+	}
+
+	service = NewService(root).WithRuntime(writeHandbookRuntime{root: root, sp: sp, content: validTechnicalHandbook()})
+	result, err = service.FlowTechnicalHandbook(context.Background(), "proj", "01", FlowRequest{To: StageTechnicalHandbook})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if result.Stages[3].Status != StatusComplete || result.Stages[4].Status != StatusReady {
+		t.Fatalf("stages = %+v", result.Stages)
+	}
+}
+
+func TestSelectedEvidenceRejectsUnsafeAndUnreadablePaths(t *testing.T) {
+	root := workspaceFixture(t)
+	sp := sprintFixture(t, root, "proj", "01-alpha")
+	writeFileContent(t, sp.Path, "# Requirements\n\nDistill stage.\n", "requirements.md")
+	writeFileContent(t, sp.Path, strings.Replace(validSprintIndex(), ".ultra/studies/go-cli-study/reports/final/01-project-structure.md", "../outside.md", 1), "sprint-index.md")
+	catalog, _ := project.ParseProjectIndex(strings.Replace(testProjectIndex(), ".ultra/studies/go-cli-study/reports/final/01-project-structure.md", "../outside.md", 1))
+	inputs, err := NewFSStore(root).ReadPlanningInputs(sp)
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, findings := BuildHandbookManifest(root, sp, inputs, catalog)
+[0m
+[0m$ [0mgrep -n "timed_out\|persistence_degraded\|timedOut\|persistenceDegraded" internal/app/durable_operations.go internal/app/run_control.go internal/runcontrol/model.go | head -14; echo ===ROADMAP1398===; sed -n '1394,1400p' projects/ultraplan-go/roadmap.md; echo ===S35===; ls projects/ultraplan-go/sprints/35-durable-run-observability/; sed -n '15,25p' projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md
+grep: internal/app/durable_operations.go: No such file or directory
+grep: internal/app/run_control.go: No such file or directory
+grep: internal/runcontrol/model.go: No such file or directory
+sed: can't read projects/ultraplan-go/roadmap.md: No such file or directory
+===ROADMAP1398===
+===S35===
+ls: cannot access 'projects/ultraplan-go/sprints/35-durable-run-observability/': No such file or directory
+sed: can't read projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md: No such file or directory
+[0m
+[0m$ [0mgrep -n "timed_out\|persistence_degraded\|timedOut\|PersistenceDegraded" internal/app/durable_operations.go internal/app/run_control.go internal/runcontrol/model.go | head -14
+internal/runcontrol/model.go:26:	LifecycleTimedOut         Lifecycle = "timed_out"
+internal/runcontrol/model.go:29:	LifecyclePersistenceLost  Lifecycle = "persistence_degraded"
+internal/runcontrol/model.go:100:	TerminalTimedOut         TerminalOutcome = "timed_out"
+internal/runcontrol/model.go:103:	TerminalPersistenceLost  TerminalOutcome = "persistence_degraded"
+[0m
+[0m$ [0msed -n '1394,1400p' projects/ultraplan-go/roadmap.md; echo ===S35===; ls projects/ultraplan-go/sprints/35-durable-run-observability/; echo ===REQ===; grep -n "storage\|SQLite\|product" projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md | head -12
+sed: can't read projects/ultraplan-go/roadmap.md: No such file or directory
+===S35===
+===REQ===
+ls: cannot access 'projects/ultraplan-go/sprints/35-durable-run-observability/': No such file or directory
+grep: projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md: No such file or directory
+[0m
+[0m$ [0msed -n '1394,1400p' projects/ultraplan-go/roadmap.md && echo ===S35=== && ls projects/ultraplan-go/sprints/35-durable-run-observability/ && echo ===REQ=== && grep -n "storage\|SQLite\|product" projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md | head -12
+- owner death, stale leases, duplicate cancellation, terminal races, and forced restart reconcile conservatively and idempotently
+- operational persistence remains distinct from canonical product-artifact authority
+- `go test ./...`, `go test -race ./...`, `go build ./cmd/ultraplan`, browser integration tests, and gated real-runtime dogfood pass
+
+The sprint's normative requirements and deliberately unresolved design questions are in `sprints/35-durable-run-observability/requirements.md`. Reasoning must select the supported topology, control ownership, storage representation, lease/fencing model, retention and backpressure policy, read/control authorization boundary, compatibility path, and telemetry/export depth. The roadmap commits the observable behavior and failure semantics, not SQLite, a daemon, WebSockets, Postgres, OpenTelemetry, or any other preferred implementation.
+
+## Why This Roadmap Chunk Stops After Sprint 35
+===S35===
+flow-state.json
+requirements.md
+===REQ===
+13:This sprint does not change the authority of project, sprint, study, or Markdown artifacts. Durable operational run state is a separate product concern from the later gated decision about alternate persistence for authored product content.
+20:| Durable run repository and event journal | Accepted runs and sanitized progress events are durably recorded before they are advertised as observable; events have monotonic per-run ordering and can be replayed after reconnect, session expiry, or server restart. The reasoning and plan stages select the concrete package and storage mechanism. |
+27:| Operational telemetry | Structured logs, local metrics, diagnostics, and optional traces share run/attempt/stage/task/runtime correlation. Operator-visible health distinguishes storage failure, stale ownership, reconciliation backlog, replay gap, subscriber lag/drop, and cancellation uncertainty. |
+28:| Verification and fault injection | Deterministic, race, integration, and browser tests prove CLI-to-web discovery, multiple local servers, refresh/reconnect replay, session expiry, server restart, abrupt owner death, stale leases, PID reuse, slow subscribers, bounded storage, duplicate cancellation, and terminal-state races. |
+53:3. What is the smallest durable representation that satisfies ordering, atomicity, concurrency, recovery, inspection, and bounded retention: filesystem snapshots plus append-only segments, SQLite, an agentwrap-backed store, or another local mechanism?
+56:6. What identifiers and hierarchy are needed between user operation, product run, stage execution, task attempt, agentwrap run, provider session, OS process, and external smoke-harness run?
+72:- Replacing canonical Markdown, JSON flow state, Git/source workspaces, or external smoke evidence with a general database-backed product model.
+73:- Selecting SQLite, Postgres, a daemon, WebSockets, OpenTelemetry, or any broker by architectural preference alone.
+82:- Existing product modules continue to own their workflow semantics, artifacts, locks, and terminal outcomes. The shared run capability records and projects execution; it must not decide stage-specific success.
+84:- Agentwrap remains the runtime-supervision boundary. UltraPlan correlates its product runs with agentwrap runs and consumes safe canonical events rather than duplicating provider/process supervision.
+[0m
+[0m$ [0mgrep -rn "TerminalTimedOut\|TerminalPersistenceLost\|LifecycleTimedOut\|LifecyclePersistenceLost" internal/app/*.go | head -10; echo ===TERMINALFN===; grep -n "func terminalOperationState" -A 10 internal/app/operations.go; echo ===DBPATH===; grep -rn "DatabaseRelativePath\s*=" internal/productstate/store.go internal/runcontrol/sqlite.go
+internal/app/durable_operations.go:111:		_, _, _ = proposeRunTerminalWithRetry(terminalCtx, m.repository, fence, runcontrol.TerminalProposal{Outcome: runcontrol.TerminalPersistenceLost, Reason: "operation start persistence failed", ProposedBy: m.owner.ID})
+internal/app/durable_operations.go:245:		outcome, reason = runcontrol.TerminalTimedOut, "operation deadline exceeded"
+internal/app/run_control.go:285:			Outcome: runcontrol.TerminalPersistenceLost, Reason: "durable event persistence failed", ProposedBy: r.owner.ID,
+internal/app/run_control.go:629:		return runcontrol.TerminalTimedOut, "runtime deadline exceeded"
+===TERMINALFN===
+===DBPATH===
+internal/productstate/store.go:19:const DatabaseRelativePath = ".ultraplan/run-control.db"
+internal/runcontrol/sqlite.go:22:	DatabaseRelativePath = ".ultraplan/run-control.db"
+[0m
+[0m$ [0mgrep -rn "terminalOperationState\|func terminalOperation" internal/app/*.go internal/web/*.go | head -5; echo ===PLANS===; ls docs/plans/ | head -30; echo ===PLAN-GREP===; grep -rln "productstate\|product-state\|product state" docs/plans/ docs/ README.md 2>/dev/null | head
+internal/web/integration_test.go:83:	for !terminalOperationState(operation.Data.State) && time.Now().Before(deadline) {
+internal/web/operations_contract_test.go:110:		if terminalOperationState(state) != (state == "succeeded" || state == "failed" || state == "cancelled" || state == "interrupted" || state == "cleanup_uncertain") {
+internal/web/operations.go:271:	if terminalOperationState(record.doc.State) {
+internal/web/operations.go:281:	if terminalOperationState(record.doc.State) {
+internal/web/operations.go:326:		if record.session != session || terminalOperationState(record.doc.State) {
+===PLANS===
+integrated-roadmap.md
+post-execution-qa-and-repair-loop.md
+retrieval-ready-content-knowledge-graph-addendum.md
+retrieval-ready-content-plan.md
+server-shutdown-run-cancellation-contract.md
+sprint-code-context-stage.md
+ultraplan-local-server-experiment-plan.md
+===PLAN-GREP===
+docs/local-web.md
+docs/migration-product-state.md
+docs/web-compatibility-baseline.md
+docs/architecture.md
+[0m
+[0m$ [0mgit log --format='%h %ad %s' --date=short -8 && echo ===IDX=== && grep -n "SQLite\|product.state\|Gate D\|persistence" projects/ultraplan-go/project-index.md | head -10 && echo ===YML=== && cat ultraplan.yml 2>/dev/null | head -20
+368a789 2026-08-22 Add UltraPlan daemon and event system study
+2dc3b74 2026-08-21 Advance sprints 30-35 and harden review/smoke flow
+0e151a0 2026-08-21 update reconciliation smoke skill
+e7c0188 2026-08-18 Record final sprint 32 implementation commits
+7756db0 2026-08-18 Reconcile sprint 32 verification flow
+4c8236e 2026-08-18 Record sprint 32 execution evidence
+30a0f0e 2026-08-17 Expand Sprint 31 smoke findings
+1d99665 2026-08-15 Harden manual review stage recovery guidance
+===IDX===
+45:| Persistence And Migrations | `system/contracts/runtime/persistence-and-migrations.md` | Run state/workspace artifacts | Atomic file writes, durable format versions, compatibility and migrations. |
+===YML===
+version: 1
+runtime:
+  default: opencode
+models:
+  default: minimax-coding-plan/MiniMax-M3
+  primary: minimax-coding-plan/MiniMax-M3
+  backup: minimax-coding-plan/MiniMax-M3
+execution:
+  default_variant: high
+  default_parallel: 5
+  default_timeout: 12m
+  default_retries: 1
+planning:
+  requirements_model: openai/gpt-5.6-sol
+  requirements_variant: high
+  code_context_model: openai/gpt-5.6-sol
+  code_context_variant: low
+  sprint_index_model: openai/gpt-5.6-sol
+  sprint_index_variant: high
+  technical_handbook_model: openai/gpt-5.6-sol
+[0m
+[0m$ [0mgrep -n "productstate\|product state\|run-control.db" docs/architecture.md | head -8; echo ===153-191===; sed -n '150,172p' docs/architecture.md
+52:handler packages. It cannot decide workflow semantics, persist product state,
+156:`.ultraplan/run-control.db`. `internal/runcontrol` owns operational identity,
+175:PID alone, or infers success from artifacts, locks, or product state. One
+===153-191===
+
+Execute owns one reusable runtime session for the ordered pending-task queue rather than one independent agent per task. Its initial turn carries the shared sprint prefix, queue primer, current task, safety instructions, and optional handbook examples. After each task UltraPlan persists task-specific evidence and status, then submits only the next task delta with `SessionAction=continue`. A missing runtime session ID degrades safely to another complete prompt; failure or cancellation stops queue advancement, while explicit deferral may advance to the next task. Cross-command session reuse is based on model and target compatibility, not exact artifact fingerprints.
+
+## Durable run control
+
+UltraPlan records runtime-backed and asynchronous work in the workspace-local
+`.ultraplan/run-control.db`. `internal/runcontrol` owns operational identity,
+lifecycle, owner leases, fencing, cancellation commands, sanitized event
+ordering, retention, and terminal arbitration. Sprint, study, smoke, runtime,
+lock, artifact, and Git modules remain authoritative for their own product
+state; run control only projects their safe correlations and status.
+
+Each start is accepted and claimed in SQLite before a goroutine, runtime child,
+or external harness starts. A failed required write fails closed. Direct CLI
+commands, TUI actions, web operations, and individual runtime children share
+that boundary. IDs are opaque 128-bit `run_*` and `att_*` values. Writers use
+short transactions, WAL, `synchronous=FULL`, foreign keys, a five-second busy
+timeout, and repository-allocated fencing generations.
+
+Owners tick every second, persist heartbeats every five seconds with a
+15-second lease, and reconcile every ten seconds. Reconciliation waits 45
+seconds beyond lease expiry and uses exact process-birth identity where the
+platform can provide it. An accepted run that never acquired its first claim
+[0m
+[0m$ [0mgrep -rn "PlanningStages\|code-context" internal/tui/*_test.go | head -8; echo ===INV===; sed -n '1,40p' internal/app/run_control_inventory_test.go; echo ===MAT===; grep -rn "func.*[Mm]aterialis\|skillsDir\|\.agents" internal/workspace/skills.go internal/app/study_commands.go internal/app/*.go 2>/dev/null | grep -i material | head -5
+===INV===
+package app
+
+import (
+	"os"
+	"path/filepath"
+	"runtime"
+	"strings"
+	"testing"
+)
+
+func TestEveryRuntimeBackedCLIEntryUsesDurableAcceptanceInventory(t *testing.T) {
+	_, current, _, ok := runtime.Caller(0)
+	if !ok {
+		t.Fatal("resolve test source")
+	}
+	directory := filepath.Dir(current)
+	cases := []struct {
+		file     string
+		wantCall int
+		entries  []string
+	}{
+		{
+			file: "sprint_commands.go", wantCall: 5,
+			entries: []string{
+				"Kind: OperationFlow", "Kind: OperationVerifyStart", "Kind: OperationExecuteStart",
+				"Kind: OperationReviewStart", "Kind: OperationSmokeStart",
+			},
+		},
+		{
+			file: "study_commands.go", wantCall: 4,
+			entries: []string{
+				"Kind: OperationStudyResume", "Kind: OperationStudyStart, Study: studyRef, Parallelism:",
+				`Stage: "analysis"`, `Stage: "synthesis"`,
+			},
+		},
+	}
+	for _, test := range cases {
+		t.Run(test.file, func(t *testing.T) {
+			content, err := os.ReadFile(filepath.Join(directory, test.file))
+			if err != nil {
+===MAT===
+internal/workspace/skills.go:309:func MaterialiseSkills(path, selection string, opts SkillsOptions) (SkillsPlan, error) {
+internal/app/skills_commands.go:25:func runSkillsMaterialise(deps dependencies, args []string) error {
+internal/app/skills_commands.go:107:  materialise   Write manually invoked UltraPlan stage skills into .agents/skills.
+internal/app/skills_commands.go:113:func skillsMaterialiseHelp() string {
+internal/app/skills_commands_test.go:9:func TestSkillsMaterialiseDryRunOneAndAll(t *testing.T) {
+[0m
+[0m$ [0msed -n '18,26p' internal/sprint/smoke_author.go; echo ===PROMOTE===; sed -n '430,441p' internal/app/run_control.go; sed -n '479,487p' internal/app/run_control.go; echo ===CONSUMER===; sed -n '285,296p' internal/web/run_handlers.go
+const maxSmokeAuthoringFiles = 20000
+
+func (s Service) authorSmokeSuite(ctx context.Context, prepared smokePrepared, result *SmokeResult) error {
+	if s.runtime == nil {
+		return smokeError("smoke_author_runtime", "runtime", "runtime is required to author deep-smoke coverage", "Configure the smoke model/runtime and rerun smoke.", nil)
+	}
+	inputs, err := s.store.ReadPlanningInputs(prepared.Sprint)
+	if err != nil {
+		return smokeError("smoke_author_context", "authoring", "shared sprint context could not be loaded", "Restore the governed planning inputs and rerun smoke.", err)
+===PROMOTE===
+				}
+				if _, exists := payload[subNorm]; exists {
+					continue
+				}
+				// Promote common observable sub-keys; namespace the rest to avoid collisions.
+				promote := map[string]bool{"tool": true, "title": true, "detail": true, "text": true, "delta": true, "content": true, "message": true, "action": true, "state": true, "status": true, "native_type": true, "line": true}
+				targetKey := subNorm
+				if !promote[subNorm] {
+					targetKey = normalized + "_" + subNorm
+					if len(targetKey) > 128 {
+						continue
+					}
+	for _, want := range []string{"tool", "action", "title", "detail", "text", "delta"} {
+		if _, ok := payload[want]; ok {
+			continue
+		}
+		if v := findNestedString(event.Payload, want); v != "" {
+			payload[want] = boundedPayloadValue(v)
+		}
+	}
+	omission := (*runcontrol.Omission)(nil)
+===CONSUMER===
+		omission = fmt.Sprintf("Omitted %d detail item(s): %s", event.Omission.Count, event.Omission.Reason)
+	}
+	// Prefer richest observable text: text/delta/detail/message/content
+	text := firstNonEmptyPayload(event.Payload, "text", "delta", "detail", "message", "content", "title", "output")
+	if len(text) > 160 {
+		text = text[:160] + "…"
+	}
+	return runEventView{Sequence: event.Sequence, Type: string(event.Type), Stage: event.Stage, Task: event.Task,
+		Time: committedRunEventTime(event), DetailKind: event.Payload["kind"], DetailType: event.Payload["type"], DetailTool: event.Payload["tool"], DetailText: text, Omission: omission}
+}
+
+func firstNonEmptyPayload(payload map[string]string, keys ...string) string {
+[0m
+[0m$ [0mgrep -rn "uniformly\|all three" projects/ultraplan-go/docs/ARCHITECTURE.md | head -4; sed -n '50,54p' projects/ultraplan-go/sprints/34-shared-context/requirements.md; echo ===README===; grep -n "SQLite\|product state" README.md | head -5; echo ===PS-TESTS===; ls internal/productstate/*_test.go 2>&1; echo ===STUDYVAR===; grep -n "studyRuntimeFactory" internal/app/study_commands.go | head -3
+grep: projects/ultraplan-go/docs/ARCHITECTURE.md: No such file or directory
+sed: can't read projects/ultraplan-go/sprints/34-shared-context/requirements.md: No such file or directory
+===README===
+===PS-TESTS===
+ls: cannot access 'internal/productstate/*_test.go': No such file or directory
+===STUDYVAR===
+22:var studyRuntimeFactory = func(c config.Config) (study.Runtime, error) {
+323:	rt, err := studyRuntimeFactory(effective.Config)
+664:	rt, err := studyRuntimeFactory(effective.Config)
+[0m
+[0m$ [0msed -n '455,470p' internal/sprint/verify.go; echo ===TERMDEF===; grep -rn "func terminalOperationState" -A 8 internal/web/operations.go; echo ===DURMAP===; sed -n '410,428p' internal/web/operation_handlers.go; echo ===COUNTS===; grep -c "SaveFlowState" internal/sprint/service.go; grep -c "func.*[Aa]tomicWrite\|syncDir(" internal/sprint/*.go internal/study/*.go | grep -v ":0"; echo ===TUITEST===; sed -n '78,84p' internal/tui/model_test.go
+func attemptExpired(attempt *VerificationAttempt, now time.Time) bool {
+	if attempt == nil || attempt.Status != AttemptRunning {
+		return false
+	}
+	if attempt.OwnerPID > 0 && !verificationProcessAlive(attempt.OwnerPID) {
+		return true
+	}
+	lastSeen := attempt.StartedAt
+	if attempt.HeartbeatAt.After(lastSeen) {
+		lastSeen = attempt.HeartbeatAt
+	}
+	return now.Sub(lastSeen) > 2*time.Hour
+}
+
+func reconcileExpiredAttempts(state *FlowState, now time.Time) bool {
+	changed := false
+===TERMDEF===
+614:func terminalOperationState(state string) bool {
+615-	switch state {
+616-	case "succeeded", "failed", "cancelled", "interrupted", "cleanup_uncertain":
+617-		return true
+618-	default:
+619-		return false
+620-	}
+621-}
+622-
+===DURMAP===
+	reason := snapshot.Cancellation.Reason
+	if snapshot.Terminal != nil && snapshot.Terminal.Reason != "" {
+		reason = snapshot.Terminal.Reason
+	}
+	return operationDocument{
+		ID: string(snapshot.RunID), Kind: app.OperationKind(snapshot.Target.Operation), State: string(snapshot.Lifecycle), Reason: reason,
+		CreatedAt: snapshot.AcceptedAt, StartedAt: snapshot.StartedAt, FinishedAt: snapshot.FinishedAt,
+		LastEventID:   strconv.FormatUint(snapshot.LastSequence, 10),
+		DurableStatus: durableStatusDTO{Available: true, RefreshPath: "/runs/" + string(snapshot.RunID)},
+	}
+}
+
+func durableActiveOperation(snapshot app.RunSnapshot) activeOperationDTO {
+	return activeOperationDTO{
+		ID: string(snapshot.RunID), Kind: app.OperationKind(snapshot.Target.Operation), State: string(snapshot.Lifecycle),
+		Project: snapshot.Target.Project, Sprint: snapshot.Target.Sprint, Study: snapshot.Target.Study, StartedAt: snapshot.StartedAt,
+	}
+}
+
+===COUNTS===
+56
+internal/sprint/code_context.go:2
+internal/sprint/execute_state.go:2
+internal/sprint/execute_state_test.go:1
+internal/sprint/review.go:3
+internal/sprint/smoke.go:2
+internal/sprint/sprint_test.go:1
+internal/sprint/state.go:3
+internal/study/state.go:3
+internal/study/summary.go:2
+===TUITEST===
+			t.Fatalf("missing review navigation %q", want)
+		}
+	}
+	for _, stage := range []string{"requirements", "sprint-index", "technical-handbook", "area-reasoning", "reasoning", "plan", "execute", "review"} {
+		for _, want := range []string{"Validate " + stage, "Preview " + stage + " Prompt", "Dry Run Flow to " + stage, "Run Flow to " + stage + " [RUNTIME]"} {
+			if !labels[want] {
+				t.Fatalf("missing %q", want)
+[0m
+[0m$ [0mgrep -n "uniformly\|three interfaces\|all three" projects/ultraplan-go/docs/ARCHITECTURE.md | head -4 && sed -n '50,54p' projects/ultraplan-go/sprints/34-shared-context/requirements.md && echo ===PHASE5=== && grep -n "code-context" projects/ultraplan-go/docs/ARCHITECTURE.md | head -5
+23:CLI, TUI, and the Phase 4 local browser surface are interfaces over the same product core. They should share application use cases and dependency construction instead of duplicating workflow logic or using CLI output as an integration protocol. Phase 5 proves that boundary by adding `code-context` as a new sprint stage surfaced uniformly through all three interfaces. Phase 6 strengthens it by making run identity and observation workspace-wide instead of coupling them to an interface process or browser session.
+- [ ] `flow --to plan` preserves the canonical `requirements -> code-context -> sprint-index -> technical-handbook -> area-reasoning -> reasoning -> plan` order and runs `code-context` exactly once.
+- [ ] Explicit code-context rerun, runtime failure, validation failure, and cancellation preserve Sprint 33's truthful state transitions and atomic replacement guarantee: only `code-context.md` may be replaced, and the last valid artifact survives an unsuccessful rerun.
+- [ ] CLI, TUI, and browser continue to agree on code-context readiness, progress, state, artifact preview, findings, rerun, cancellation, and recovery through shared application operations and durable sprint state.
+- [ ] `ultraplan skills materialise code-context` and selection by `ultraplan-code-context` produce a manual-only skill whose execution workflow invokes the canonical `ultraplan sprint <project> <sprint> flow --to code-context` operation rather than reimplementing source selection or artifact generation.
+- [ ] Skill dry-run is non-mutating, normal materialization preserves custom files, `--force` restores the built-in output, all-skill materialization includes code-context, and generated skill content and metadata remain synchronized with the embedded definition.
+===PHASE5===
+23:CLI, TUI, and the Phase 4 local browser surface are interfaces over the same product core. They should share application use cases and dependency construction instead of duplicating workflow logic or using CLI output as an integration protocol. Phase 5 proves that boundary by adding `code-context` as a new sprint stage surfaced uniformly through all three interfaces. Phase 6 strengthens it by making run identity and observation workspace-wide instead of coupling them to an interface process or browser session.
+32:internal/sprint owns planning artifacts including code-context, flow state, shared sprint-context prompt rendering, stage validation, controlled implementation through execute, automated review, and external-harness-backed smoke
+149:    prompt_context.go       # exact shared requirements/code-context prefix
+266:Stable shared requirements/code-context prompt-prefix rendering
+282:Phase 5 inserts `code-context` after requirements. The sprint module resolves the implementation target through project-owned configuration, invokes generic runtime execution with read access to that target, permits only `code-context.md` as stage output, validates the Markdown, and advances flow state. A shared renderer then inserts exact requirements and code-context bytes before stage-specific instructions for later agent requests. The pack is durable prepared evidence, not an index or exclusive repository view; downstream stages may inspect more live source.
+[0m
+[0m$ [0mgrep -n "OperationFlowDryRun\|OperationStageDryRun\|FlowStage\|DryRun: true" internal/app/operation_runner.go internal/app/web_usecases.go | head -12; echo ===FLOWSTAGE===; grep -n "func (s Service) FlowStage" -A 25 internal/sprint/service.go | head -32
+internal/app/operation_runner.go:27:			r, e := service.FlowStage(ctx, req.Project, req.Sprint, sprint.FlowRequest{To: sprint.PlanningStage(req.Stage), Progress: func(progress sprint.FlowProgress) {
+===FLOWSTAGE===
+[0m
+[0m$ [0mgrep -rn "OperationStageDryRun" internal/app/*.go internal/web/*.go | head -8; echo ===FLOWFN===; grep -n "func (s Service) Flow" internal/sprint/service.go; echo ===RUNNER27===; sed -n '15,45p' internal/app/operation_runner.go
+internal/app/operations.go:79:	OperationStageDryRun   OperationKind = "sprint-stage-dry-run"
+internal/app/operations.go:180:	case OperationValidate, OperationPrompt, OperationFlowDryRun, OperationStageDryRun, OperationExecuteDryRun, OperationExecuteStatus, OperationReviewDryRun, OperationReviewStatus, OperationSmokeStatus:
+internal/app/operations.go:340:	case OperationStageDryRun:
+internal/web/operation_handlers.go:619:			req.Kind = app.OperationStageDryRun
+internal/web/operation_handlers.go:624:		req.Kind = app.OperationStageDryRun
+internal/web/operations_contract_test.go:35:		{"sprint-stage-dry-run", app.OperationStageDryRun, projectScope},
+internal/web/operations_contract_test.go:77:	if err != nil || dry.Kind != app.OperationStageDryRun || dry.Stage != "code-context" {
+internal/web/operations_test.go:503:		{kind: "sprint-stage-dry-run", want: app.OperationStageDryRun},
+===FLOWFN===
+482:func (s Service) FlowRequirements(ctx context.Context, projectRef, sprintRef string, req FlowRequest) (FlowResult, error) {
+544:func (s Service) FlowSprintIndex(ctx context.Context, projectRef, sprintRef string, req FlowRequest) (FlowResult, error) {
+631:func (s Service) FlowPlan(ctx context.Context, projectRef, sprintRef string, req FlowRequest) (FlowResult, error) {
+714:func (s Service) FlowTechnicalHandbook(ctx context.Context, projectRef, sprintRef string, req FlowRequest) (FlowResult, error) {
+803:func (s Service) FlowReasoning(ctx context.Context, projectRef, sprintRef string, req FlowRequest) (FlowResult, error) {
+===RUNNER27===
+// sharedOperationRunner is the single runtime-backed implementation used by
+// terminal and browser adapters. Surface code owns presentation and
+// confirmation; workflow semantics remain here and in the product services.
+func sharedOperationRunner(deps dependencies, root workspace.Root, effective config.Effective, useCases dashboardUseCases) func(context.Context, OperationRequest, func(OperationEvent)) (OperationResult, error) {
+	return func(ctx context.Context, req OperationRequest, emit func(OperationEvent)) (OperationResult, error) {
+		result := OperationResult{State: OperationComplete, Subject: operationFirstNonEmpty(req.Project+"/"+req.Sprint, req.Study)}
+		switch req.Kind {
+		case OperationStage:
+			service, e := sprintRuntimeService(deps, root, tuiSprintRuntimeProgress(emit))
+			if e != nil {
+				return failedOperation(result, e)
+			}
+			r, e := service.FlowStage(ctx, req.Project, req.Sprint, sprint.FlowRequest{To: sprint.PlanningStage(req.Stage), Progress: func(progress sprint.FlowProgress) {
+				emit(OperationEvent{State: OperationRunning, Stage: string(progress.Stage), Message: progress.State + ": " + displaySafe(progress.Message)})
+			}})
+			result.Message = r.Message
+			result = operationWithSprintFindings(result, r.Findings)
+			if e != nil {
+				return failedOperation(result, e)
+			}
+		case OperationFlow:
+			service, e := sprintRuntimeService(deps, root, tuiSprintRuntimeProgress(emit))
+			if e != nil {
+				return failedOperation(result, e)
+			}
+			r, e := runSprintFlow(ctx, service, req.Project, req.Sprint, sprint.FlowRequest{To: sprint.PlanningStage(req.Stage), Review: sprint.ReviewRequest{Restart: req.RestartReview}, Smoke: sprint.SmokeRequest{NonInteractive: true, OverrideConfirmed: req.ForceReview, ForceReview: req.ForceReview, OverrideRationale: req.OverrideRationale}, Progress: func(progress sprint.FlowProgress) {
+				emit(OperationEvent{State: OperationRunning, Stage: string(progress.Stage), Message: progress.State + ": " + displaySafe(progress.Message)})
+			}})
+			result.Message = r.Message
+			result = operationWithSprintFindings(result, r.Findings)
+			if e != nil {
+[0m
+[0m$ [0msed -n '330,360p' internal/app/operations.go; echo ===FS===; grep -rn "func (s Service) FlowStage\|func (s Service) Flow(" internal/sprint/*.go | head -3
+}
+		result.Content, result.Truncated = boundContent(p.Prompt)
+	case OperationFlowDryRun:
+		r, err := runSprintFlow(ctx, ss, req.Project, req.Sprint, sprint.FlowRequest{To: stage, DryRun: true})
+		if err != nil {
+			result = operationWithSprintFindings(result, r.Findings)
+			return failedOperation(result, err)
+		}
+		result.Content, result.Truncated = boundContent(r.Message)
+		result.Message = fmt.Sprintf("flow to %s dry run", stage)
+	case OperationStageDryRun:
+		r, err := ss.FlowStage(ctx, req.Project, req.Sprint, sprint.FlowRequest{To: stage, DryRun: true})
+		if err != nil {
+			result = operationWithSprintFindings(result, r.Findings)
+			return failedOperation(result, err)
+		}
+		result.Content, result.Truncated = boundContent(r.Message)
+		result.Message = fmt.Sprintf("single-stage %s dry run", stage)
+	case OperationExecuteDryRun:
+		r, err := ss.Execute(ctx, req.Project, req.Sprint, sprint.ExecuteRequest{DryRun: true, TaskID: req.Task})
+		if err != nil {
+			result = operationWithSprintFindings(result, r.Findings)
+			return failedOperation(result, err)
+		}
+		result.Content, result.Truncated = boundContent(r.Prompt)
+		result.Message = r.Message
+	case OperationExecuteStatus:
+		r, err := ss.Status(req.Project, req.Sprint)
+		if err != nil {
+			return failedOperation(result, err)
+		}
+===FS===
+internal/sprint/flow.go:46:func (s Service) Flow(ctx context.Context, projectRef, sprintRef string, req FlowRequest) (FlowResult, error) {
+internal/sprint/flow.go:117:func (s Service) FlowStage(ctx context.Context, projectRef, sprintRef string, req FlowRequest) (FlowResult, error) {
+[0m
+[0m$ [0mgrep -n "package-global\|global mutable" docs/architecture.md | head -3; echo ===LEASE===; sed -n '44,56p' internal/sprint/flow.go; sed -n '117,133p' internal/sprint/flow.go; echo ===LEDGER===; grep -n "'run_control'\|\"run_control\"" internal/runcontrol/sqlite.go | head -4; echo ===SSE===; grep -n "Detail\|payload\[\"detail\"\]\|Payload" internal/web/operations.go | sed -n '1,8p'
+23:package-global mutable registry, `init` callback, service locator, or
+===LEASE===
+// Flow owns the ordered sprint state machine. Surfaces map requests and render
+// this result; they do not schedule stages or duplicate verification policy.
+func (s Service) Flow(ctx context.Context, projectRef, sprintRef string, req FlowRequest) (FlowResult, error) {
+	stages, err := flowStages(req.To)
+	if err != nil {
+		return FlowResult{}, err
+	}
+	if req.DryRun {
+		if req.To == StageReview || req.To == StageSmoke {
+			verified, verifyErr := s.Verify(ctx, projectRef, sprintRef, VerifyRequest{To: req.To, DryRun: true, Review: req.Review, Smoke: req.Smoke, Progress: req.Progress})
+			message := "verification dry run"
+			if verified.ReviewResult != nil {
+				message = firstNonEmptyString(verified.ReviewResult.Prompt, verified.ReviewResult.Message, message)
+func (s Service) FlowStage(ctx context.Context, projectRef, sprintRef string, req FlowRequest) (FlowResult, error) {
+	if err := validatePlanningStageTarget(req.To); err != nil {
+		return FlowResult{}, err
+	}
+	if !req.DryRun {
+		sp, _, _, resolveErr := s.resolveSprintForRequirements(projectRef, sprintRef, true)
+		if resolveErr != nil {
+			return FlowResult{}, resolveErr
+		}
+		sprintRef = sp.Slug
+		var release func()
+		var err error
+		ctx, release, err = s.acquireMutationContext(ctx, projectRef, sprintRef)
+		if err != nil {
+			return FlowResult{}, err
+		}
+		defer release()
+===LEDGER===
+356:	if _, err := tx.ExecContext(ctx, `INSERT OR REPLACE INTO app_schema (component, version, migrated_at) VALUES ('run_control', 1, ?)`, formatTime(migratedAt)); err != nil {
+===SSE===
+264:		"reason": safeWebText(event.Reason), "detail": safeWebText(event.Detail),
+587:		out.Error = &errorBody{Code: safeWebText(result.Error.Code), Message: safeWebText(result.Error.Message), Retryable: result.Error.Retryable, Details: map[string]any{
+[0m
+[0m$ [0mhead -30 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-05/stdout.md; echo ...; tail -5 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-05/stdout.md; echo ===PROMPTTAIL===; tail -20 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-06/prompt.md
+I'm arch-challenger for challenge-05 (security, errors, observability, testing, performance, operational claims). I've mapped the prior outputs; now let me verify the load-bearing evidence myself before dispatching bounded subagents.
+Key facts confirmed at source. Now let me read the rest of the central pipeline and dispatch bounded subagents for independent evidence.
+Central pipeline verified first-hand. Now dispatching four bounded subagents for independent discovery on consumer reliance, security surface, error taxonomy, and testing/ops claims.
+Error-taxonomy evidence returned. One subagent hit a rate limit — relaunching it along with the security-surface probe.
+Two more probes plus personal verification of the failing test and the static health probe.
+Failing test confirmed first-hand. Dispatching the two remaining probes.
+...
+Key facts confirmed at source. Now let me read the rest of the central pipeline and dispatch bounded subagents for independent evidence.
+Central pipeline verified first-hand. Now dispatching four bounded subagents for independent discovery on consumer reliance, security surface, error taxonomy, and testing/ops claims.
+Error-taxonomy evidence returned. One subagent hit a rate limit — relaunching it along with the security-surface probe.
+Two more probes plus personal verification of the failing test and the static health probe.
+Failing test confirmed first-hand. Dispatching the two remaining probes.
+===PROMPTTAIL===
+
+### Candidate findings
+For each:
+- ID: CHALLENGE-06-FNN
+- Priority: P0 | P1 | P2 | P3
+- Claim
+- Evidence (file:line/symbol)
+- Architectural reason (ownership | authority | boundary | lifecycle | drift | change-surface | failure-semantics)
+- Concrete consequence
+- Counter-evidence searched
+- Confidence: high | medium | low
+- Smallest useful action
+
+### Defended architecture / rejected hypotheses
+Important concerns you investigated but disproved, with evidence.
+
+### Open questions
+Only uncertainties that could materially change the assessment.
+
+Do not include style nits or generic praise.
+[0m
+[0m$ [0mcat > /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-06/stdout.md <<'CHALLENGE_EOF'
+# CHALLENGE-06 — Simplicity, abstraction, change locality, agent legibility, documentation drift, roadmap fitness
+
+### Scope inspected
+
+- **Implementation repo** `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go` @ `eeaa034` (clean; HEAD = "observability: promote nested runtime payload facts").
+- **Planning workspace** `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace` @ `368a789` (newest sprint dir = 35; last commit 2026-08-22).
+- **Read first-hand (verification of linchpins)**: `internal/sprint/service.go` (`FlowTechnicalHandbook`, `FlowReasoning` failure branches), `internal/sprint/flow.go:44-133` (lease guards), `internal/app/operation_runner.go` (all runner cases incl. smoke), `internal/app/operations.go:160-200,330-360` (confirmation texts, dry-run execution paths), `internal/app/run_control.go:430-487`, `internal/runcontrol/sanitize.go:1-50`, `internal/runcontrol/sqlite.go:356`, `internal/web/run_handlers.go:285-296`, `internal/web/operations.go:264,614-621`, `internal/web/operation_handlers.go:410-428`, `internal/tui/model.go:440-470`, `internal/tui/model_test.go:78-84`, `internal/sprint/smoke_author.go:18-26`, `internal/productstate/store.go:19-60`, `internal/sprint/state_database.go`, `internal/study/state_database.go`, `internal/runcontrol/interfaces.go:67-72`, `internal/study/verify.go:455-466`, `docs/architecture.md:150-172`, `docs/local-web.md:145-149`, `docs/recovery.md:75`, `docs/cli-reference.md` dry-run entries, `docs/stage-skills.md`, `docs/migration-product-state.md`, `README.md`; counts: 56 `SaveFlowState` occurrences in `service.go`, atomic-write helper families in 7 files.
+- **Workspace read first-hand**: `projects/ultraplan-go/roadmap.md:1360-1470`, `projects/ultraplan-go/docs/TRD.md:50-57`, `projects/ultraplan-go/docs/ARCHITECTURE.md:23,282`, `sprints/34-shared-context/requirements.md:50-54`, `sprints/35-durable-run-observability/{dir,requirements.md:13-84}`, `project-index.md`, `.agents/skills/` listing, workspace git log.
+- **Prior outputs consumed**: specialist-23a/23b (simplicity), specialist-24a/24b (change locality) read in full; scout-01..06, change-01..08, generalist-01..04 mined via delegated extraction, key claims re-derived at source before adoption. Specialist-22a/b (agent architecture) are empty; agent-legibility conclusions here are derived independently.
+
+### Architecture assessment
+
+The module-driven structure is sound and repeatedly proven: surfaces compose through injected runners; `web -> app` and runcontrol-leaf boundaries are machine-enforced; the change-06 probe ("add review/smoke strategy") found the edit surface matches expectations in all five scenarios; `platform/runtime` is earned boundary translation; `internal/app` performs real projection/fingerprint/classification work, not forwarding. Roadmap fences themselves are unusually precise (Sprint 35 may pick operational storage; product-artifact persistence is Gate D).
+
+The stress is concentrated where policy was copied instead of owned: (1) failure-persistence decisions live per hand-copied branch in seven flow functions and have already diverged (F01); (2) ordered stage vocabulary is re-enumerated by hand in ~12 lists outside `sprint.PlanningStages()` with no parity test, and the newest stage escaped four of them (F05, F08); (3) the observability payload vocabulary has three producer-side promotion layers but a frozen storage allowlist that deletes exactly what the newest commits promote (F02); (4) implementation moved product state into SQLite ahead of the recorded authority decision, silently co-tenanting the operational database (F03, F04); (5) doc contracts pinned by tests describe an older vocabulary than the code emits (F07).
+
+### Candidate findings
+
+#### CHALLENGE-06-F01
+- **Priority**: P1
+- **Claim**: Two branches of the planning-flow template persist `flow-state.json` during dry runs — unlike every sibling branch — so a failing preview mutates product state without holding the mutation lease, contradicting the CLI contract, the web confirmation text, and this repo's own regression tests.
+- **Evidence**: `internal/sprint/service.go` `FlowTechnicalHandbook`: the "selected evidence validation failed" branch calls `_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))` with no `if !req.DryRun` guard, while adjacent branches in the same function (requirements placeholder, prompt-compose error) guard it. Same asymmetry in `FlowReasoning`: requirements-placeholder branch unguarded, prerequisites-failed branch guarded. Dry runs skip lease acquisition: `flow.go:117-131` (`FlowStage` acquires mutation context only `if !req.DryRun`). Reachable from browser/TUI: `app/operations.go:340` `OperationStageDryRun -> ss.FlowStage(..., DryRun: true)`; confirmation says "runtime-free; no runtime-backed writes" (`app/operations.go:180`) while `OperationSprintStatus` explicitly warns "MAY REFRESH FLOW-STATE.JSON" — the contract distinguishes these and the dry-run warning omits the write. Contract: `docs/cli-reference.md` ("--dry-run ... makes no writes"). Tests pin the guarded branches only: `handbook_test.go:71` and `reasoning_test.go:150` assert no `flow-state.json` after dry runs; no test exercises the two unguarded branches under dry run.
+- **Architectural reason**: failure-semantics (+ drift): persist-on-failure policy is re-decided per copied branch instead of owned once by the Flow driver; 56 `SaveFlowState` call sites exist in `service.go` alone.
+- **Concrete consequence**: With a real run active (lease held), an operator previewing technical-handbook/reasoning triggers a whole-file replace from a stale snapshot with no lease, reverting the lease holder's recorded stage progress; on the read-only serve surface it happens while the UI promises no writes.
+- **Counter-evidence searched**: No test/doc records intent that failing dry runs record state; checked whether `WithoutStatusWrites` gates these writes (it gates `Status()` only); checked whether dry runs hold the lease (they do not); checked git history via specialist-23a (unguarded lines predate the guard convention).
+- **Confidence**: high
+- **Smallest useful action**: Add `if !req.DryRun` guards at the two unguarded branches to match siblings, plus one regression test per branch asserting no `flow-state.json` after a failing dry run. Optionally consolidate the persist-on-failure decision into one driver-level helper (see F05 remedy pattern) if touch budget allows.
+
+#### CHALLENGE-06-F02
+- **Priority**: P1
+- **Claim**: The durable event pipeline promotes observability payload keys at two producer layers, but the runcontrol storage allowlist still contains none of them — the feature shipped by commits `c455510`/`eeaa034` is deleted at the storage gate, and replayed timelines show omission noise where live SSE shows detail.
+- **Evidence**: Producer layer A: `app/run_control.go:435` promote map `{tool,title,detail,text,delta,content,message,action,state,status,native_type,line}`; force-extraction loop `run_control.go:479-486`. Producer layer B: `platform/runtime/runtime.go:592-604` (per specialist-24b; consistent with commit eeaa034 message). Storage gate: `runcontrol/sanitize.go:10-17` allowlist contains only `{runtime_event_id,runtime_run_id,agentwrap_run_id,session_id,external_harness_run_id,type,kind,state,status,outcome,reason,category,code,count,known,input_tokens,output_tokens,total_tokens,turns,artifact_kind,artifact_id,lifecycle,liveness,message,index,tool,action}` — no `title,detail,text,delta,content,output,phase,name,native_type,line`; applied on every append (`sqlite.go` sanitize call path). Consumer reads the dropped keys: `web/run_handlers.go:291` `firstNonEmptyPayload(...,"text","delta","detail","message","content","title","output")` — only `message` survives. Live path differs: `web/operations.go:264` renders `"detail"` from `OperationEvent` directly. Each dropped event accrues `Omission{Reason:"unsafe event detail omitted"}` (`sanitize.go:29-45`).
+- **Architectural reason**: boundary + change-surface: runcontrol owns the vocabulary gate but nothing ties it to producers/consumers — no shared schema artifact, no round-trip test.
+- **Concrete consequence**: Replay/history views lose exactly the fields the last two observability commits added while each event gains an "Omitted N detail item(s)" row; live and replay timelines disagree; every future observable field requires synchronized edits in >=3 packages with zero compile/test protection.
+- **Counter-evidence searched**: change-04 defends the allowlist as a deliberate single sanitization gate — valid for security scoping, but it does not explain promoting keys upstream that the gate then deletes; searched for a second unsanitized durable read path (none per scout-05/24b); searched for a test asserting end-to-end survival of promoted keys (none; `run_handlers_test.go` fixtures carry only `kind/type/tool`).
+- **Confidence**: high
+- **Smallest useful action**: Decide the owner of promotion (recommend platform/runtime; delete the duplicate map in `run_control.go`), extend `allowedEventPayloadFields` to the promoted set, add one round-trip test: promoted producer key survives Append->Events->`newRunEventView`.
+
+#### CHALLENGE-06-F03
+- **Priority**: P1
+- **Claim**: The implementation introduced SQLite-backed product state (`internal/productstate`, commit `02e2ec4` 2026-08-21) that moves sprint flow outcomes and study run state into `.ultraplan/run-control.db`, ahead of the authoritative planning workspace's explicit gates: Sprint 35's non-goals, the roadmap fence, TRD restrictions, and Gate D sequencing — and Sprint 35 itself shipped without the `reasoning.md` the roadmap requires to select storage representation.
+- **Evidence**:
+  - REALITY: `git log`: `02e2ec4 Move mutable product state to SQLite`; loads prefer DB records when present (`sprint/state_database.go`, `study/state_database.go` — DB row wins, JSON remains checkpoint); `docs/migration-product-state.md:24` "After import, SQLite is authoritative for that record."
+  - CURRENT-CONTRACT (workspace @368a789): `sprints/35-durable-run-observability/requirements.md:72` non-goal "Replacing canonical Markdown, JSON flow state, Git/source workspaces, or external smoke evidence with a general database-backed product model"; `requirements.md:13` "does not change the authority of project, sprint, study, or Markdown artifacts"; `roadmap.md` Sprint-35 fence: "must not move Markdown, **flow outcomes**, Git/source state, or smoke evidence into a new canonical store"; `TRD.md:57` forbids "Introducing ... SQLite product persistence ... before their explicit roadmap evidence gates"; Gate D ("Select one authoritative storage mode ... Compare filesystem and SQLite modes on real work") is sequenced after Gates A-C (`roadmap.md:1430-1469`); roadmap requires Sprint 35 reasoning to select "storage representation", but `sprints/35-durable-run-observability/` contains only `requirements.md` and `flow-state.json` — no `reasoning.md`.
+  - Workspace search found no authorizing record: newest sprint is 35; no sprint 36; `project-index.md` has no Gate-D pull-forward; impl `docs/plans/` has no productstate plan.
+- **Architectural reason**: authority + lifecycle (roadmap fitness): the composition-time storage-authority decision that the workspace reserves for Gate D has been pre-empted by code, and the sprint that carried it lacks its required reasoning artifact.
+- **Concrete consequence**: Gate D's comparison ("filesystem vs SQLite on real work") is pre-decided before its evidence exists; the product-state tables now evolve inside a database whose migration machinery (`PRAGMA user_version`, `app_schema` ledger) tracks only `run_control` (`sqlite.go:356` inserts solely component `'run_control'`), so the next product-schema bump has no governed path (see F04).
+- **Counter-evidence searched**: Repo-side rationale exists (`docs/migration-product-state.md` + `scripts/migrate-product-state.sh`, incremental opt-in per record, JSON checkpoints retained — this mitigates blast radius but documents mechanism, not authority); roadmap.md:1398 area explicitly permits operational-record SQLite, so the violation is scoped to product artifacts, not mechanism; searched workspace requirements/reasoning/project-index/roadmap and impl plans/README for an authorizing decision — none found.
+- **Confidence**: high (facts), medium (framing as violation vs unrecorded decision)
+- **Smallest useful action**: Backfill an explicit authority decision into the planning workspace (either a dated decision record pulling Gate D scope forward, or a sprint-36 requirement owning productstate), and write the missing Sprint 35 `reasoning.md` storage selection; until then, keep DB preference behind the explicit migration script rather than implicit loads.
+
+#### CHALLENGE-06-F04
+- **Priority**: P2
+- **Claim**: One physical SQLite file serves two schema regimes: `productstate` and `runcontrol` both hardcode `.ultraplan/run-control.db`, but only runcontrol's tables sit inside versioned, backed-up, integrity-checked migration machinery; productstate has zero tests and `docs/architecture.md` still describes the file as runcontrol-owned with modules "authoritative for their own product state" elsewhere.
+- **Evidence**: Path double-declaration: `productstate/store.go:19` ≡ `runcontrol/sqlite.go:22` (`DatabaseRelativePath = ".ultraplan/run-control.db"`). Governance asymmetry: `sqlite.go:356` `app_schema` ledger records only `'run_control'`; migration lock/backups/integrity gates in `migration.go:25-82,186-266` cover runcontrol only (corroborated by change-05 and generalist-01/02/04). Zero productstate tests: `ls internal/productstate/*_test.go` -> none. Doc: `docs/architecture.md:155-160` "`internal/runcontrol` owns operational identity ... Sprint, study ... remain authoritative for their own product state; run control only projects" — no acknowledgment that product rows now persist inside this same store.
+- **Architectural reason**: drift + boundary (undocumented co-tenancy; orphaned migration authority).
+- **Concrete consequence**: Retention quota counts bytes compaction cannot reclaim (quota sums whole file; Compact prunes runcontrol rows only — corroborated by generalist-01/02/03); a future product-state schema change cannot ride the existing migration chain and will land as ad-hoc `CREATE TABLE IF NOT EXISTS` edits on ordinary saves; restore/backup operations rename the whole file including foreign product rows with no documented caveat.
+- **Counter-evidence searched**: Corruption/deadlock hazard investigated and refuted by multiple independent runs — both pools open WAL + `_txlock=immediate` + FULL sync with matching pragmas (coordinated intent); single-user deployment documented (`recovery.md:226-228`). Remaining issue is governance/documentation, not integrity.
+- **Confidence**: high
+- **Smallest useful action**: Name the co-tenancy in one place: extend `app_schema` with a `product_state` component version, document the shared file in `docs/architecture.md`'s durable-run section, and add minimal round-trip tests for `productstate.Save/Load` including the stale-item deletion path.
+
+#### CHALLENGE-06-F05
+- **Priority**: P1
+- **Claim**: Ordered planning-stage vocabulary is re-declared by hand across surfaces and app-layer security/presentation lists with no parity mechanism tying them to `sprint.PlanningStages()`; the defect class is realized at least four times, most visibly the TUI, which never received the `code-context` stage that Sprint 33 added and Sprint 34's acceptance criteria required all three interfaces to agree on.
+- **Evidence**: Canonical list: `sprint/domain.go` `PlanningStages()`. Realized omissions (all verified first-hand unless noted):
+  - TUI: `internal/tui/model.go:453` hardcodes 8 stages without `code-context`; drives Validate/Preview/Flow nav items; `model_test.go:81` pins the stale list; zero `code-context` references under `internal/tui/`.
+  - App validation sweep: `app/sprint_usecases.go:206` iterates stages without `AreaReasoning` though `validateSprintStage` supports it (`:264-265`) (specialist-24a; spot-checked dispatcher support).
+  - Governed-input fingerprints: `app/operations.go:504-518` enumerates sprint artifacts by literal, omitting the `reasoning/` directory that reviewers actually consume (`review.go:253-274`), weakening the `ErrStaleOperation` guarantee for area-reasoning (specialist-24a/24b, change-01 concur).
+  - Prompt dispatch triplication: `operations.go` `promptSprintStage` vs `sprint_commands.go:176-197` vs `web_usecases.go:511-539` (specialist-23b-F006).
+  - CURRENT-CONTRACT: workspace `ARCHITECTURE.md:23` Phase 5 "adding `code-context` as a new sprint stage surfaced uniformly through all three interfaces"; `sprints/34-shared-context/requirements.md:52` "CLI, TUI, and browser continue to agree on code-context readiness, progress, state, artifact preview, findings, rerun, cancellation, and recovery".
+- **Architectural reason**: change-surface / drift: interface parity rests on developer memory; the historical probe (commit `2d10aba`, 46 files across five packages, zero under `internal/tui/`) shows the fan-out is real and silent when missed.
+- **Concrete consequence**: TUI operators cannot validate, preview, prompt, or flow to code-context while CLI/browser can — a capability hole invisible to every existing test because the stale list is itself pinned. Each future stage insertion repeats the multi-surface lottery; the fingerprint-list variant additionally weakens prepared-operation staleness guarantees.
+- **Counter-evidence searched**: Sprint-24 charter permits staged surface evolution (generalist-04 cited `sprints/24-tui-foundations/requirements.md:62`), but Sprint 33/34 contracts postdate and require tri-surface agreement, so the defense fails for this instance; no doc records deliberate TUI deferral; checked whether `SprintSummary.Stages` could already supply the list to surfaces (data exists server-side; only consumption missing).
+- **Confidence**: high
+- **Smallest useful action**: Export the ordered stage list through `app` (from `PlanningStages()`), derive TUI nav, web options, sweep, dispatch switches, and `governedOperationInputs` from it, and add one parity/inventory test asserting every canonical stage appears in TUI nav and web flow targets and every stage artifact appears in the fingerprint inputs. Fix `model.go:453` immediately regardless.
+
+#### CHALLENGE-06-F06
+- **Priority**: P2
+- **Claim**: `sharedOperationRunner`'s smoke-start case constructs the sprint service without a runtime, so "Run Smoke [EXTERNAL]" from TUI and web always fails at mandatory smoke authoring — after durable acceptance has already recorded a failed run.
+- **Evidence**: `internal/app/operation_runner.go:74-75`: `case OperationSmokeStart: service := sprint.NewService(root.Path).WithSmokeSettings(...)` — no `WithRuntime`, while every sibling case uses `sprintRuntimeService(deps, root, ...)` (:23, :36, :49, :60, :93). Failure is unconditional for non-dry-run smoke (`smoke.go` authoring always runs) and immediate: `smoke_author.go:21-23` returns "runtime is required to author deep-smoke coverage" when `s.runtime == nil`. Reachable from TUI (`tui/model.go` Run Smoke -> RunOperation) and web (`operation_handlers.go` -> same runner wired at `serve_commands.go:63`). History: CLI path was fixed for this exact dependency; the shared runner was missed (specialist-23b traced `f142a73` then `b9733ce` patching only CLI).
+- **Architectural reason**: drift / change-surface: the "assemble a runtime-capable sprint service" recipe lives in multiple independently edited sites inside one package; no test drives `OperationSmokeStart` through the runner (web/TUI fakes implement `RunOperation` directly).
+- **Concrete consequence**: Browser/TUI smoke attempts fail deterministically post-acceptance, leaving failed durable run records and a misleading error; the discrepancy between surfaces is invisible to the suite.
+- **Counter-evidence searched**: Default runtime in `NewService` (none); alternate injection via `SmokeSettings` (none); intentional-disablement doc or changelog (none found); skip-authoring branch when harness exists (none).
+- **Confidence**: high
+- **Smallest useful action**: Construct via `sprintRuntimeService(deps, root, ...)` + `.WithSmokeSettings(...)`, and add one test driving `OperationSmokeStart` through `sharedOperationRunner` with the fake runtime factory used in `app` tests.
+
+#### CHALLENGE-06-F07
+- **Priority**: P2
+- **Claim**: Documentation contracts pinned by tests describe an older runtime vocabulary than the code emits: the browser lifecycle contract omits two reachable terminal states (`timed_out`, `persistence_degraded`), and the recovery doc states a 24-hour attempt-expiry threshold where the code enforces 2 hours plus immediate dead-PID expiry.
+- **Evidence**: `docs/local-web.md:145-147` "Stable states are accepted, running, cancelling, succeeded, failed, cancelled, interrupted, cleanup_uncertain" — pinned verbatim by `web/operations_contract_test.go:83`. But runcontrol defines reachable terminals `timed_out`/`persistence_degraded` (`runcontrol/model.go:26,29,100,103`) produced by `app/durable_operations.go:111,245` and `app/run_control.go:285,629`; `operation_handlers.go:415` projects `string(snapshot.Lifecycle)` raw into browser operation state; `web/operations.go:614-621` `terminalOperationState` recognizes only 5 terminals, so polling/SSE termination logic misclassifies the other two. Second instance: `docs/recovery.md:75` "more than 24 hours" vs `study/verify.go`... precisely `internal/sprint/verify.go:455-466` `attemptExpired`: dead PID expires immediately, otherwise `now.Sub(lastSeen) > 2*time.Hour`.
+- **Architectural reason**: drift: contract docs are treated as pinned truth (by tests) but not derived from or reconciled with the owner vocabularies they describe.
+- **Concrete consequence**: A timed-out durable operation renders in a browser state outside the documented contract and outside `terminalOperationState`, so clients relying on the pinned list never treat it as finished; operators following `recovery.md` wait 12x longer than actual behaviour before concluding an attempt is dead.
+- **Counter-evidence searched**: Checked whether `timed_out`/`persistence_degraded` are projected under different names (they are passed through raw); checked whether the contract test intentionally covers only hub-local states — the doc claims to describe durable status generally; for verify.go, confirmed no other threshold constant supersedes 2h.
+- **Confidence**: high
+- **Smallest useful action**: Extend `local-web.md` stable-states (or normalize projections like the sibling SSE mapper does) and update the contract test to iterate the owner's terminal set; correct `recovery.md:75` to the implemented 2h/dead-PID rule.
+
+#### CHALLENGE-06-F08
+- **Priority**: P3
+- **Claim**: Agent-facing skill materialization is out of sync with the code and docs: `ultraplan-code-context` is embedded (`workspace/skills.go:102-118`), promised by `docs/stage-skills.md`, and required by Sprint 34 acceptance criteria ("all-skill materialization includes code-context"), but the authoritative planning workspace contains only 10 materialized skills — code-context is missing, so agents operating from the authoritative workspace cannot find the skill the docs tell them to invoke.
+- **Evidence**: Impl: `workspace/skills.go:102-118` definition; `docs/stage-skills.md` table includes `$ultraplan-code-context`; `MaterialiseSkills` (`skills.go:309`) exists and is wired (`app/skills_commands.go`). Workspace: `ls .agents/skills/` -> requirements, sprint-index, technical-handbook, area-reasoning, reasoning, plan, execute, review, smoke, reconcile-review-smoke (10; no code-context). CURRENT-CONTRACT: `sprints/34-shared-context/requirements.md:53-54`.
+- **Architectural reason**: drift (agent legibility): the propagation checklist for a new stage ends at materialisation, which is manual and was not re-run; nothing detects the gap.
+- **Concrete consequence**: An agent following `docs/stage-skills.md` or Sprint 34's criteria in the authoritative workspace hits a missing skill; same gap will recur for the next stage.
+- **Counter-evidence searched**: Materialisation is deliberately manual (skill files are user-overridable, `--force` restores built-ins) — so absence is not a bug in materialise itself, but nothing validates deployed workspaces against the registry; checked whether code-context skill was intentionally withheld (Sprint 33 non-goals defer only docs/skill packaging, and Sprint 34 then requires it — no deferral record).
+- **Confidence**: high (state), medium (intent)
+- **Smallest useful action**: Re-run `ultraplan skills materialise --force --all` against the authoritative workspace and consider a `skills doctor`-style check (registry vs directory diff) in the CLI.
+
+#### CHALLENGE-06-F09
+- **Priority**: P3
+- **Claim**: `runcontrol.Control` is a dead alias interface — declared, commented as a decoration seam, and referenced nowhere.
+- **Evidence**: `runcontrol/interfaces.go:67-72`; repo-wide grep for `runcontrol.Control` finds zero references outside the declaration (source, tests, docs); composition injects concrete `*SQLiteRepository` / `Repository` (`app/run_control.go`, `app/run_usecases.go`).
+- **Architectural reason**: speculative generality (authority: implies a seam that does not exist).
+- **Concrete consequence**: Readers must evaluate a decoration option that does not exist; the second name for `Repository` can silently diverge.
+- **Counter-evidence searched**: Both specialist-23a and -23b independently found zero consumers; checked codegen/docs references (none).
+- **Confidence**: high
+- **Smallest useful action**: Delete `Control` (or move its comment onto `Repository`).
+
+#### CHALLENGE-06-F10
+- **Priority**: P3
+- **Claim**: The crash-safe atomic-write protocol (temp-in-same-dir -> sync -> hook -> rename -> dir-sync) plus its `atomicWriteHooks` type and `syncDir` helper are implemented six times across `sprint` and `study`, past the contract's own extraction threshold.
+- **Evidence**: Copies: `sprint/state.go` (`saveFlowStateWithHooks` family, `atomicWriteHooks` at `state.go:16`, `syncDir` at `:374`), `sprint/execute_state.go`, `sprint/review.go:1683-1716`, `sprint/smoke.go`, `study/state.go:73` (`atomicWriteHooks` `:23`, `syncDir` `:177`), `study/summary.go:94` (counts verified by symbol grep). Contract: workspace `TRD.md` §18.2 sanctions extracting genuinely cross-module mechanical file operations once shared; `roadmap.md` reserves `internal/platform/filesystem`, whose `doc.go` documents exactly this deferred boundary; dependency direction `sprint/study -> platform/filesystem` is pre-approved in workspace ARCHITECTURE.md.
+- **Architectural reason**: change-surface on a durability-critical primitive.
+- **Concrete consequence**: Any durability fix must be replicated six times; copies already differ cosmetically (temp patterns, error text), and the next edit to one copy leaves five stale.
+- **Counter-evidence searched**: Semantic differences justifying separate implementations (none — identical step sequence); local-first tolerance expired when the second module gained persistence; marshal/validate logic stays local either way.
+- **Confidence**: high
+- **Smallest useful action**: Land one `WriteFileAtomic(path, data, hooks)` + `SyncDir` in the already-reserved `internal/platform/filesystem` and delegate the six sites.
+
+#### CHALLENGE-06-F11
+- **Priority**: P3
+- **Claim**: Runtime construction uses three divergent idioms — injectable `dependencies.SprintRuntimeFactory` (`app/app.go:38`, honored in `sprint_commands.go`), mutable package global `var studyRuntimeFactory` (`study_commands.go:22`, consumed `:323,:664`, mutated by save/restore in tests), and direct construction ignoring configuration (`health_commands.go:113`) — while `docs/architecture.md:23` declares "no package-global mutable registry".
+- **Architectural reason**: drift (two ownership stories for one seam in one package).
+- **Concrete consequence**: Tests mutating the global can collide under parallelism; a future second runtime requires discovering three sites; injected fakes silently miss study/health paths.
+- **Evidence**: as cited above; `config.Config` currently rejects non-opencode defaults (`platform/config/config.go:409-411`), so impact is latent, not live.
+- **Counter-evidence searched**: Single-runtime scope is documented CURRENT-CONTRACT (`configuration.md`), so lack of dispatch today is intentional; the interface itself is runtime-neutral, so no abstraction is being demanded — only seam consistency.
+- **Confidence**: high
+- **Smallest useful action**: Add `StudyRuntimeFactory` to `dependencies` mirroring the sprint factory; route health through the same factory; delete the package var.
+
+### Defended architecture / rejected hypotheses
+
+1. **"`internal/app` is a pass-through layer over product services"** — Rejected. Verified `PrepareOperation` builds confirmations with distinct per-kind warnings ("runtime-free; no runtime-backed writes" vs "MAY REFRESH FLOW-STATE.JSON"), issues fingerprints over governed inputs, and classifies typed operation errors (`app/operations.go:160-200`, `ErrStaleOperation` at `:166`); none exists in product packages.
+2. **"Consolidate sprint/study twins (locks, cleanup_uncertain, atomic writes today)"** — Rejected for locks/state: implementations materially differ (central two-attempt retry vs per-study force-unlock/fsync/command sanitization); consolidation would couple deliberately independent product modules against the ownership doctrine. Only the mechanical file primitive crosses the threshold (F10), which the contract itself sanctions.
+3. **"Roadmap forbids SQLite"** — Rejected as stated: the Sprint 35 fence explicitly permits operational-record persistence ("may persist operational run records using the smallest mechanism proven by reasoning"); the violation is scoped to *product* artifacts and timing (F03). Precision matters here or the arbiter will over-reach.
+4. **"Unify the two supervision engines wholesale"** — Partially rejected. They translate different event vocabularies (`runtime.Event` vs `OperationEvent`); full merge adds indirection. The genuine duplication is the coalescing/omission bookkeeping skeleton and the terminal-proposal epilogue — a narrow helper suffices (specialist-24a-F03's remedy stands).
+5. **"`flowStages` ordinal switch is a standalone defect"** — Rejected standalone: ordering is fail-fast validated (`ValidateFlowState` exact length/order checks) and positions are pinned by per-stage tests; folded into F05's shared-list remedy only where lists cross package lines.
+6. **"TUI divergence is legitimate staged evolution"** — Rejected as a defense for code-context: Sprint 24's charter predates Sprint 33/34 contracts that explicitly require tri-surface agreement; no deferral record exists.
+7. **"Shared run-control.db risks corruption/deadlock between the two pools"** — Refuted: both sides open WAL with `_txlock=immediate` and FULL sync, pragmas matching exactly (coordinated intent); single-user deployment documented. Residual risk is governance/documentation (F04), not integrity.
+
+### Open questions
+
+1. Does any artifact outside the gauntlet-designated authoritative workspace (e.g., a newer planning revision) authorize productstate before Gate D? If produced, F03 downgrades to process debt and F04 remains.
+2. Could any pre-code-context writer have persisted 6-stage flow records into the productstate DB? If yes, the DB load path's lack of legacy-shape interpretation becomes a live compatibility bug rather than latent (affects F03/F04 severity).
+3. Is the live-vs-replay event fidelity difference (SSE shows `detail`; journal replay drops it) an intended two-tier vocabulary? This decides whether F02's fix extends the allowlist or documents tiering explicitly.
+4. Generalist-04 (singleton, reproduced internally 5/5 per its report) claims `go test ./...` is red at HEAD (`TestRunLoopStartsPriorityTierBeforeLaterTiers`) with no CI configured — outside my lanes and unverified by me, but it would breach the roadmap's own "suite passes" criterion; the chair should reconcile it with the failure-stage outputs before synthesis.
+5. Was TUI code-context support consciously deferred in any plan document not exhaustively reviewed (`docs/plans/`)? A deferral record would reclassify F05's instance as accepted debt; the missing parity mechanism (and the other three realized omissions) stand either way.
+CHALLENGE_EOF
+wc -c /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-06/stdout.md
+32769 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-06/stdout.md
+[0m
+[0m$ [0msed -i 's|Second instance: `docs/recovery.md:75` "more than 24 hours" vs `study/verify.go`\.\.\. precisely `internal/sprint/verify.go:455-466` `attemptExpired`:|Second instance: `docs/recovery.md:75` says attempts expire after "more than 24 hours", but `internal/sprint/verify.go:455-466` `attemptExpired`:|' /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-06/stdout.md && grep -n "more than 24 hours" /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-06/stdout.md
+90:- **Evidence**: `docs/local-web.md:145-147` "Stable states are accepted, running, cancelling, succeeded, failed, cancelled, interrupted, cleanup_uncertain" — pinned verbatim by `web/operations_contract_test.go:83`. But runcontrol defines reachable terminals `timed_out`/`persistence_degraded` (`runcontrol/model.go:26,29,100,103`) produced by `app/durable_operations.go:111,245` and `app/run_control.go:285,629`; `operation_handlers.go:415` projects `string(snapshot.Lifecycle)` raw into browser operation state; `web/operations.go:614-621` `terminalOperationState` recognizes only 5 terminals, so polling/SSE termination logic misclassifies the other two. Second instance: `docs/recovery.md:75` says attempts expire after "more than 24 hours", but `internal/sprint/verify.go:455-466` `attemptExpired`: dead PID expires immediately, otherwise `now.Sub(lastSeen) > 2*time.Hour`.
+[0m
