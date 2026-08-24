@@ -1,0 +1,312 @@
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -5 && git status --short | wc -l
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+0
+[0m
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/change-probes.md
+[0m
+[0m$ [0mls && echo --- && ls internal 2>/dev/null || find . -maxdepth 2 -type d -not -path '*/.git*' | sort
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+---
+app
+codeextract
+platform
+productstate
+project
+runcontrol
+sprint
+study
+tui
+web
+workspace
+[0m
+[0m✱ [0mGrep "builtin|BuiltIn|Builtin"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 28 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/reasoning_defaults.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/prompts.go
+[0m✱ [0mGrep "func |embed|go:embed"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace · 75 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/init.go[90m [offset=290][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompts.go[90m [limit=120, offset=200][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/defaults.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/reasoning_defaults_test.go
+[0m✱ [0mGrep "ResolveReasoningDefault|sprintPromptTemplate|projectReasoningPromptTemplate|readWorkspaceFile|DefaultOverrideFile"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 40 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/reasoning_test.go[90m [offset=60, limit=80][0m
+[0m✗ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/service.go failed[90m [limit=60, offset=1700][0m
+[91m[1mError: [0mOffset 1700 is out of range for this file (71 lines)
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/service.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/validation.go[90m [limit=50, offset=70][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=70, offset=1710][0m
+[0m✱ [0mGrep "defaultOverrideFiles|scaffold"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/init.go · 35 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/validation.go[90m [limit=200][0m
+[0m
+[0m$ [0mls && rg -il 'override|precedence|builtin|built-in' --glob '*.md' | head -30
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+README.md
+projects/ultraplan-go/project-index.md
+previews/builtin-fallback-24.01-langgraph.md
+projects/aren-phase-01-execution-lifecycle/project-index.md
+system/reasoning/cli-design-reasoning-template.md
+projects/ultraplan-go/sprints/03-study-listing-resolution/technical-handbook.md
+projects/ultraplan-go/sprints/12-durable-run-loop/technical-handbook.md
+projects/ultraplan-go/sprints/03-study-listing-resolution/sprint-index.md
+projects/ultraplan-go/sprints/26-review-stage/technical-handbook.md
+projects/ultraplan-go/sprints/08-run-state-persistence/technical-handbook.md
+projects/ultraplan-go/docs/TRD.md
+system/protocols/review-sprint-protocol.md
+projects/ultraplan-go/sprints/12-durable-run-loop/sprint-index.md
+projects/ultraplan-go/docs/ARCHITECTURE.md
+projects/ultraplan-go/sprints/17-artifact-domain-and-flow-state/sprint-index.md
+projects/ultraplan-go/sprints/26-review-stage/sprint-index.md
+system/protocols/plan-sprint-protocol.md
+projects/ultraplan-go/docs/PRD.md
+projects/ultraplan-go/sprints/03-study-listing-resolution/reasoning/architecture.md
+projects/ultraplan-go/sprints/12-durable-run-loop/review.md
+projects/ultraplan-go/sprints/02-workspace-config-health/technical-handbook.md
+system/protocols/deep-smoke-sprint-protocol.md
+projects/ultraplan-go/sprints/08-run-state-persistence/sprint-index.md
+projects/ultraplan-go/sprints/34-shared-context/smoke.md
+projects/ultraplan-go/sprints/02-workspace-config-health/requirements.md
+projects/ultraplan-go/sprints/02-workspace-config-health/sprint-index.md
+projects/ultraplan-go/sprints/12-durable-run-loop/requirements.md
+projects/ultraplan-go/sprints/02-workspace-config-health/reasoning.md
+projects/ultraplan-go/roadmap.md
+projects/ultraplan-go/sprints/03-study-listing-resolution/reasoning.md
+[0m
+[0m$ [0mrg -in 'override' projects/ultraplan-go/docs/TRD.md projects/ultraplan-go/docs/ARCHITECTURE.md projects/ultraplan-go/docs/PRD.md | head -40
+projects/ultraplan-go/docs/TRD.md:185:  prompts/      # intentional overrides of embedded defaults only
+projects/ultraplan-go/docs/TRD.md:186:  templates/    # intentional overrides of embedded defaults only
+projects/ultraplan-go/docs/TRD.md:284:- Stage-specific model overrides map to `agentwrap.RunRequest.Provider` and `agentwrap.RunRequest.Model` for the selected sprint stage.
+projects/ultraplan-go/docs/TRD.md:1111:- Prompt/template lookup must prefer an intentional readable workspace override and otherwise use the embedded default. It must fail before runtime execution only when neither source is available or when an existing override is unreadable or invalid.
+projects/ultraplan-go/docs/TRD.md:1355:- Continue respecting filters from the original run unless user explicitly overrides them.
+projects/ultraplan-go/docs/TRD.md:1380:- Preserve original prompt, workdir, timeout, permission policy, sandbox, metadata, and validation expectations when constructing fallback requests unless a specific fallback intentionally overrides them.
+projects/ultraplan-go/docs/TRD.md:1568:- Repair must inherit original workdir, provider/model, sandbox, permission mode, and permission policy unless UltraPlan explicitly overrides them.
+projects/ultraplan-go/docs/TRD.md:1965:Sprint planning prompts and output templates are product assets shipped as embedded defaults. The sprint module owns their semantics; the workspace package owns safe default lookup and opt-in materialization through `ultraplan defaults install`. Files at matching workspace `prompts/` or `templates/` paths are optional overrides, not prerequisites. Prompt rendering must support:
+projects/ultraplan-go/docs/TRD.md:1978:1. explicit command override for the requested stage, when supported
+projects/ultraplan-go/docs/TRD.md:2026:- model, variant, and timeout overrides where runtime execution is available
+projects/ultraplan-go/docs/TRD.md:2027:- stage-specific model overrides for sprint planning, execute, and review runtime requests
+projects/ultraplan-go/docs/TRD.md:2029:- explicit smoke level/suite/test selection, smoke timeout, and review-failure diagnostic override
+projects/ultraplan-go/docs/TRD.md:2075:The default order is `execute -> review -> smoke`. Blocking/high review findings stop smoke unless an explicit diagnostic override is confirmed. Flow state records execution status, verdict, artifact path, timestamp, input fingerprint, run/evidence ID where applicable, and safe diagnostics for both stages.
+projects/ultraplan-go/docs/TRD.md:2225:Every chosen mechanism must pass the same cross-process failure matrix: two CLI runs visible globally; a second supported server replaying and then following a current run; browser-session expiry; observer restart; abrupt owner death; stale lease and PID reuse; duplicate cancellation; completion/cancellation races; slow subscribers; cursor expiry; corrupt/torn records; disk-full or permission failure; bounded retention; and redaction. Tests must prove that operational records never override canonical product artifacts or stage verdicts.
+projects/ultraplan-go/docs/TRD.md:2234:4. **Derived retrieval:** build deterministic semantic records and a measured lexical baseline first. Indexes are disposable, preserve exact authoritative text/provenance/status, and never override project/sprint context selection. Embeddings remain deferred until lexical evaluation proves a gap.
+projects/ultraplan-go/docs/PRD.md:233:UltraPlan operates inside a workspace root. The workspace contains shared configuration, studies, projects, runtime state, and generated artifacts. Stable prompt and output-template defaults are embedded in the UltraPlan binary. Workspace `prompts/` and `templates/` files are optional overrides and should exist only when a user intentionally customizes a built-in default, normally after running `ultraplan defaults install`.
+projects/ultraplan-go/docs/PRD.md:268:   - CLI supports command-line overrides for model, runtime, variant, timeout, parallelism, batch size, and output path.
+projects/ultraplan-go/docs/PRD.md:284:   - CLI supports dry run, force overwrite, no-clone, custom output directory, and field overrides.
+projects/ultraplan-go/docs/PRD.md:758:- Users can configure a default runtime model for all sprint stages and override the model for specific stages such as `sprint-index`, `technical-handbook`, `reasoning`, `plan`, and `execute`.
+projects/ultraplan-go/docs/PRD.md:984:- Stable embedded prompt and output-template defaults with explicit workspace-override precedence.
+projects/ultraplan-go/docs/ARCHITECTURE.md:467:Embedded prompt/template default registry and override resolution
+projects/ultraplan-go/docs/ARCHITECTURE.md:475:  -> intentional local override
+[0m
+[0m$ [0msed -n '455,500p' projects/ultraplan-go/docs/ARCHITECTURE.md && sed -n '1105,1120p' projects/ultraplan-go/docs/TRD.md && sed -n '1960,1990p' projects/ultraplan-go/docs/TRD.md
+### `workspace`
+
+`workspace` owns where UltraPlan is operating and how workspace paths are resolved.
+
+It owns:
+
+```text
+Root discovery
+Workspace marker/config lookup
+Canonical workspace paths
+Workspace-level validation
+Path safety rules
+Embedded prompt/template default registry and override resolution
+Opt-in default materialization
+```
+
+Product modules own the semantics of their prompts and generated artifacts. The workspace package owns the mechanical asset policy:
+
+```text
+readable workspace file at prompts/<name> or templates/<name>
+  -> intentional local override
+otherwise
+  -> embedded binary default
+```
+
+`init-workspace` must not export prompt or template files. `ultraplan defaults install` is the explicit operation for materializing editable copies. A workspace without `prompts/` or `templates/` remains complete and operational, and embedded Phase 3 defaults are updated in the sprint that implements the corresponding stage.
+
+It should not know:
+
+```text
+Which dimensions exist
+How study synthesis works
+How report summaries are generated
+How code extraction parses citations
+What review or smoke content means
+```
+
+Boundary:
+
+```text
+workspace = where am I and where are things?
+study = what study work happens here?
+```
+
+### `codeextract`
+
+### 10.2 Prompt Builder Requirements
+
+- Prompt builders must be deterministic.
+- Prompt builders must be unit-tested with golden fixtures.
+- Prompt builders must return both prompt text and input manifest.
+- Dry-run mode must expose the input manifest.
+- Prompt/template lookup must prefer an intentional readable workspace override and otherwise use the embedded default. It must fail before runtime execution only when neither source is available or when an existing override is unreadable or invalid.
+- Directory source prompts must preserve source-isolation and file-line citation rules.
+- Markdown document source prompts must embed stripped document content and use document-analysis instructions.
+- Prompt builders must not embed YAML frontmatter from Markdown document sources.
+
+## 11. Runtime Adapter Requirements
+
+### 11.1 Agentwrap Dependency
+
+UltraPlan Go must use `github.com/Antonio7098/agentwrap` as the runtime SDK and `github.com/Antonio7098/agentwrap/opencode` as the first concrete runtime adapter.
+- never treats missing prerequisites or missing required coverage as pass
+- does not copy raw event streams, secrets, or unrestricted stdout/stderr into the sprint artifact
+
+### 18.7 Prompt Rendering and Runtime Execution
+
+Sprint planning prompts and output templates are product assets shipped as embedded defaults. The sprint module owns their semantics; the workspace package owns safe default lookup and opt-in materialization through `ultraplan defaults install`. Files at matching workspace `prompts/` or `templates/` paths are optional overrides, not prerequisites. Prompt rendering must support:
+
+- project name substitution
+- sprint slug substitution
+- sprint path substitution
+- workspace-relative paths
+- dry-run preview
+- optional output file for prompt preview
+
+Runtime execution for planning stages uses the generic `platform/runtime` request model. The runtime request may include prompt, working directory, model, variant, timeout, permissions, and expected output path, but it must not include project or sprint semantics in the platform package.
+
+Sprint runtime model resolution must be product-owned and deterministic:
+
+1. explicit command override for the requested stage, when supported
+2. configured stage-specific model for the requested stage
+3. configured global sprint/planning model, when present
+4. `models.primary`
+5. `models.default`
+
+Supported stage-specific keys are `sprint-index`, `technical-handbook`, `area-reasoning`, `reasoning`, `plan`, `execute`, and `review`. Smoke model/runtime selection belongs to the external harness request and its explicit configuration rather than an agentwrap review model key. Validation must reject unknown stage keys and empty model values. Diagnostics and prompt previews must show the selected model source without leaking secrets.
+
+Runtime success is insufficient. A planning stage is complete only when:
+
+- runtime execution succeeds, when runtime is invoked
+- expected artifact exists
+- expected artifact passes its stage validator
+[0m
+[0m✱ [0mGrep "renderPromptFromDefault|appendInjectedWorkspaceFile|appendInjectedProjectReasoningFile|BuildPlanPrompt|func .*Prompt"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 88 matches[0m
+[0m✱ [0mGrep "Prompt Load Error|Missing Prompt Default"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 3 matches[0m
+[0m
+[0m$ [0mgit log --oneline --diff-filter=A -- internal/project/reasoning_defaults.go internal/sprint/prompts.go internal/study/prompts.go | head; echo ---; git log -S 'sprintPromptTemplate' --oneline | tail -3; echo ---; git log -S 'ResolveReasoningDefault' --oneline | tail -3; echo ---; git log -S 'readWorkspaceFile' --oneline | tail -3
+0e7294e add project reasoning overrides
+e16f57c Implement sprint select stage
+a5dcb78 run-state persistence sprint
+---
+b9733ce Add agent-owned stage execution and smoke authoring
+d1e4ab4 inject templates into rendered prompts
+50a065e embed default prompts and templates
+---
+0e7294e add project reasoning overrides
+---
+68e115d rewrite README, add documentation and release artifacts
+df5191d tighten run-state follow-ups
+a5dcb78 run-state persistence sprint
+[0m
+[0m✱ [0mGrep "RenderPlanPrompt\(|RenderAreaReasoningPrompt\(|RenderFinalReasoningPrompt\(|RenderSprintIndexPrompt\(|renderSmokeAuthorPrompt\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 16 matches[0m
+[0m
+[0m$ [0mrg -n 'loadReviewAsset|LoadReviewAsset' internal/sprint/*_test.go | head -5; echo ---; rg -n 'unreadable|permission|chmod' internal/sprint/*_test.go internal/study/*_test.go | head -10; echo ---; rg -n 'func Test' internal/study/prompts_test.go | head
+---
+internal/sprint/review_test.go:38:	permissions pruntime.PermissionSummary
+internal/sprint/review_test.go:85:		Permissions:    r.permissions,
+internal/sprint/review_test.go:560:	runtime := &rejectedReviewRuntime{permissions: pruntime.PermissionSummary{Mode: "restricted", UnsupportedCount: 1}}
+internal/sprint/review_test.go:564:		t.Fatalf("permission review result=%+v err=%v", result, err)
+internal/sprint/review_test.go:573:	runtime := &rejectedReviewRuntime{permissions: pruntime.PermissionSummary{Mode: "restricted"}, malformed: true}
+internal/sprint/code_context_test.go:220:	if rt.request.WorkDir != ApprovedExecuteTargetPath || rt.request.Sandbox != "read_only" || rt.request.Policy.Default != "deny" || rt.request.Policy.Tools["read"] != "allow" || !containsString(rt.request.RequireCaps, "permissions") || rt.request.Provider != "vendor" || rt.request.Model != "context" || rt.request.Metadata["variant"] != "max" || rt.request.Validation != nil {
+internal/sprint/code_context_test.go:442:		"unsupported permissions": {configure: func(rt *codeContextRuntime) context.Context {
+internal/sprint/reasoning_test.go:131:		t.Fatalf("expected unreadable template finding")
+internal/sprint/handbook_test.go:108:		t.Fatalf("expected unreadable evidence finding")
+internal/sprint/smoke_test.go:19:	permissions pruntime.PermissionSummary
+---
+12:func TestBuildDirectoryAnalysisPromptManifestRulesAndDeterminism(t *testing.T) {
+41:func TestBuildDirectoryAnalysisPromptDisabledCitationWording(t *testing.T) {
+53:func TestBuildDirectoryAnalysisPromptInapplicable(t *testing.T) {
+63:func TestBuildMarkdownAnalysisPromptStripsFrontmatterAndDocumentOnly(t *testing.T) {
+84:func TestBuildMarkdownAnalysisPromptInapplicableAndMissingDocument(t *testing.T) {
+100:func TestBuildSynthesisPromptApplicableReportsAndMissingFailures(t *testing.T) {
+134:func TestBuildPromptUsesBuiltinDefaultsWhenWorkspaceOverridesAreMissing(t *testing.T) {
+[0m
+[0m$ [0mrg -n 'ReasoningDefault|builtin:' internal/web --glob '*.go' | head -10; echo ---; rg -n 'loadReviewAsset\(' internal/sprint/*.go; echo ---; sed -n '130,170p' internal/study/prompts_test.go
+---
+internal/sprint/review.go:192:	manifest.PromptTemplate, assetErr = loadReviewAsset(s.root, "prompts/review.md", []string{"Automated Sprint Review"})
+internal/sprint/review.go:196:	manifest.OutputTemplate, assetErr = loadReviewAsset(s.root, "templates/review.md", []string{"Review Context", "Final Assessment"})
+internal/sprint/review.go:1739:func loadReviewAsset(root, rel string, required []string) (string, error) {
+---
+	assertContains(t, err.Error(), filepath.ToSlash(filepath.Join("01-structure", "repo.md")))
+	assertNotContains(t, err.Error(), "other.md")
+}
+
+func TestBuildPromptUsesBuiltinDefaultsWhenWorkspaceOverridesAreMissing(t *testing.T) {
+	for _, tc := range []struct {
+		name   string
+		remove string
+		build  func(root string, st Study, dim Dimension, source Source) error
+	}{
+		{name: "base", remove: "prompts/base.md", build: func(root string, st Study, dim Dimension, source Source) error {
+			_, err := BuildAnalysisPrompt(PromptRequest{WorkspaceRoot: root, Study: st, Dimension: dim, Source: source})
+			return err
+		}},
+		{name: "repo analysis", remove: "templates/repo-analysis.md", build: func(root string, st Study, dim Dimension, source Source) error {
+			_, err := BuildAnalysisPrompt(PromptRequest{WorkspaceRoot: root, Study: st, Dimension: dim, Source: source})
+			return err
+		}},
+		{name: "synthesize", remove: "prompts/synthesize.md", build: func(root string, st Study, dim Dimension, source Source) error {
+			_, err := BuildSynthesisPrompt(PromptRequest{WorkspaceRoot: root, Study: st, Dimension: dim})
+			return err
+		}},
+		{name: "final report template", remove: "templates/report.md", build: func(root string, st Study, dim Dimension, source Source) error {
+			_, err := BuildSynthesisPrompt(PromptRequest{WorkspaceRoot: root, Study: st, Dimension: dim})
+			return err
+		}},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			root, st, dim, source := promptFixture(t)
+			if tc.name == "synthesize" || tc.name == "final report template" {
+				writeFileContent(t, st.Path, "# Repo report\n", "reports", "source", "01-structure", "repo.md")
+				writeFileContent(t, st.Path, "# Doc report\n", "reports", "source", "01-structure", "doc.md")
+			}
+			if err := os.Remove(filepath.Join(root, filepath.FromSlash(tc.remove))); err != nil {
+				t.Fatal(err)
+			}
+			err := tc.build(root, st, dim, source)
+			if err != nil {
+				t.Fatalf("expected builtin fallback for %s, got %v", tc.remove, err)
+			}
+		})
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=30, offset=185][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompts.go[90m [limit=60, offset=120][0m
+[0m
+[0m$ [0mrg -n '"prompts/|"templates/' --glob '*.go' internal | grep -v _test | grep -iv 'embed\|scaffold' | grep 'Read\|resolve\|load' ; echo ---; rg -n 'os\.ReadFile\(.*prompts|os\.ReadFile\(.*templates' --glob '*.go' internal | grep -v _test
+internal/workspace/init.go:122:	"templates/README.md":                  defaultTemplatesReadme,
+internal/sprint/review.go:192:	manifest.PromptTemplate, assetErr = loadReviewAsset(s.root, "prompts/review.md", []string{"Automated Sprint Review"})
+internal/sprint/review.go:196:	manifest.OutputTemplate, assetErr = loadReviewAsset(s.root, "templates/review.md", []string{"Review Context", "Final Assessment"})
+---
+[0m

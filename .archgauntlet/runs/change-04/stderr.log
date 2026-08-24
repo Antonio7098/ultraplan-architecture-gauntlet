@@ -1,0 +1,910 @@
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go log --oneline -5 && git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace log --oneline -5
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+368a789 Add UltraPlan daemon and event system study
+2dc3b74 Advance sprints 30-35 and harden review/smoke flow
+0e151a0 update reconciliation smoke skill
+e7c0188 Record final sprint 32 implementation commits
+7756db0 Reconcile sprint 32 verification flow
+[0m
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/change-probes.md[90m [command=ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go[90m [command=ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go][0m
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go -type f -name '*.go' | sed 's|/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/||' | sort
+cmd/ultraplan/main.go
+internal/app/app.go
+internal/app/app_test.go
+internal/app/code_commands.go
+internal/app/code_commands_test.go
+internal/app/config_commands.go
+internal/app/defaults_commands.go
+internal/app/durable_operations.go
+internal/app/durable_operations_test.go
+internal/app/health_commands.go
+internal/app/health_commands_test.go
+internal/app/json_output.go
+internal/app/markdown.go
+internal/app/markdown_test.go
+internal/app/operation_runner.go
+internal/app/operations.go
+internal/app/project_commands.go
+internal/app/project_commands_test.go
+internal/app/project_usecases.go
+internal/app/run_commands.go
+internal/app/run_commands_test.go
+internal/app/run_control.go
+internal/app/run_control_inventory_test.go
+internal/app/run_control_test.go
+internal/app/run_usecases.go
+internal/app/serve_commands.go
+internal/app/serve_commands_test.go
+internal/app/skills_commands.go
+internal/app/skills_commands_test.go
+internal/app/sprint_commands.go
+internal/app/sprint_commands_test.go
+internal/app/sprint_error_test.go
+internal/app/sprint_usecases.go
+internal/app/sprint_usecases_test.go
+internal/app/sprint_verify_commands_test.go
+internal/app/status_json.go
+internal/app/storage_commands.go
+internal/app/study_commands.go
+internal/app/study_commands_test.go
+internal/app/study_init_commands_test.go
+internal/app/study_prompt_commands_test.go
+internal/app/study_run_all_commands_test.go
+internal/app/study_run_commands_test.go
+internal/app/study_run_loop_commands_test.go
+internal/app/study_runs_commands.go
+internal/app/study_runs_commands_test.go
+internal/app/study_status_commands_test.go
+internal/app/study_summary_commands_test.go
+internal/app/study_usecases.go
+internal/app/study_validate_commands_test.go
+internal/app/surfaces.go
+internal/app/tui_commands.go
+internal/app/tui_commands_test.go
+internal/app/usecases.go
+internal/app/usecases_test.go
+internal/app/version.go
+internal/app/web_operations_test.go
+internal/app/web_usecases.go
+internal/app/web_usecases_test.go
+internal/app/workspace_commands.go
+internal/codeextract/codeextract_test.go
+internal/codeextract/doc.go
+internal/codeextract/domain.go
+internal/codeextract/parser.go
+internal/codeextract/resolver.go
+internal/codeextract/service.go
+internal/platform/config/config.go
+internal/platform/config/config_test.go
+internal/platform/config/doc.go
+internal/platform/config/redaction.go
+internal/platform/filesystem/doc.go
+internal/platform/logging/doc.go
+internal/platform/logging/logging.go
+internal/platform/logging/logging_test.go
+internal/platform/process/process.go
+internal/platform/process/process_other.go
+internal/platform/process/process_test.go
+internal/platform/process/process_unix.go
+internal/platform/runtime/agentwrap.go
+internal/platform/runtime/cache_test.go
+internal/platform/runtime/events.go
+internal/platform/runtime/health.go
+internal/platform/runtime/opencode.go
+internal/platform/runtime/opencode_test.go
+internal/platform/runtime/policy.go
+internal/platform/runtime/runtime.go
+internal/platform/runtime/runtime_test.go
+internal/productstate/store.go
+internal/project/discovery.go
+internal/project/doc.go
+internal/project/domain.go
+internal/project/index.go
+internal/project/project_test.go
+internal/project/reasoning_defaults.go
+internal/project/reasoning_defaults_test.go
+internal/project/service.go
+internal/project/store_fs.go
+internal/project/validation.go
+internal/runcontrol/benchmark_test.go
+internal/runcontrol/doc.go
+internal/runcontrol/errors.go
+internal/runcontrol/fault_test.go
+internal/runcontrol/id.go
+internal/runcontrol/id_test.go
+internal/runcontrol/import_boundary_test.go
+internal/runcontrol/interfaces.go
+internal/runcontrol/lifecycle.go
+internal/runcontrol/lifecycle_test.go
+internal/runcontrol/local_log.go
+internal/runcontrol/local_log_test.go
+internal/runcontrol/metrics.go
+internal/runcontrol/migration.go
+internal/runcontrol/migration_test.go
+internal/runcontrol/model.go
+internal/runcontrol/model_test.go
+internal/runcontrol/process_darwin.go
+internal/runcontrol/process.go
+internal/runcontrol/process_integration_test.go
+internal/runcontrol/process_linux.go
+internal/runcontrol/process_other.go
+internal/runcontrol/retention.go
+internal/runcontrol/retention_test.go
+internal/runcontrol/sanitize.go
+internal/runcontrol/sanitize_test.go
+internal/runcontrol/sqlite.go
+internal/runcontrol/sqlite_test.go
+internal/sprint/artifacts.go
+internal/sprint/cleanup_uncertain.go
+internal/sprint/cleanup_uncertain_test.go
+internal/sprint/code_context.go
+internal/sprint/code_context_test.go
+internal/sprint/context_pack.go
+internal/sprint/direct_inputs.go
+internal/sprint/direct_inputs_test.go
+internal/sprint/discovery.go
+internal/sprint/doc.go
+internal/sprint/domain.go
+internal/sprint/efficiency_improvements_test.go
+internal/sprint/efficiency_metrics_test.go
+internal/sprint/execute.go
+internal/sprint/execute_model.go
+internal/sprint/execute_model_test.go
+internal/sprint/execute_plan.go
+internal/sprint/execute_plan_test.go
+internal/sprint/execute_state.go
+internal/sprint/execute_state_test.go
+internal/sprint/execute_target.go
+internal/sprint/execute_target_test.go
+internal/sprint/flow.go
+internal/sprint/freshness_policy.go
+internal/sprint/handbook.go
+internal/sprint/handbook_test.go
+internal/sprint/index.go
+internal/sprint/input_contract.go
+internal/sprint/locks.go
+internal/sprint/locks_test.go
+internal/sprint/plan.go
+internal/sprint/plan_test.go
+internal/sprint/prompt_bundle.go
+internal/sprint/prompt_context.go
+internal/sprint/prompt_context_test.go
+internal/sprint/prompts.go
+internal/sprint/reasoning.go
+internal/sprint/reasoning_test.go
+internal/sprint/review.go
+internal/sprint/review_runtime_validation.go
+internal/sprint/review_test.go
+internal/sprint/runtime_metrics.go
+internal/sprint/runtime_progress_test.go
+internal/sprint/runtime_validation.go
+internal/sprint/service.go
+internal/sprint/session_state.go
+internal/sprint/session_state_test.go
+internal/sprint/smoke_author.go
+internal/sprint/smoke.go
+internal/sprint/smoke_protocol.go
+internal/sprint/smoke_test.go
+internal/sprint/smoke_types.go
+internal/sprint/sprint_index_test.go
+internal/sprint/sprint_test.go
+internal/sprint/state_database.go
+internal/sprint/state.go
+internal/sprint/store_fs.go
+internal/sprint/validation.go
+internal/sprint/verification_lock.go
+internal/sprint/verification_lock_test.go
+internal/sprint/verify.go
+internal/sprint/verify_test.go
+internal/study/applicability.go
+internal/study/cleanup_uncertain.go
+internal/study/cleanup_uncertain_test.go
+internal/study/config.go
+internal/study/config_test.go
+internal/study/dimension_refs.go
+internal/study/discovery.go
+internal/study/doc.go
+internal/study/domain.go
+internal/study/durable_metadata.go
+internal/study/edit_warnings.go
+internal/study/execution_domain.go
+internal/study/init_clone.go
+internal/study/init.go
+internal/study/init_render.go
+internal/study/init_test.go
+internal/study/init_yaml.go
+internal/study/locks.go
+internal/study/locks_test.go
+internal/study/markdown.go
+internal/study/memory_pressure.go
+internal/study/metadata_domain.go
+internal/study/prompts.go
+internal/study/prompts_test.go
+internal/study/rating.go
+internal/study/rating_test.go
+internal/study/reports.go
+internal/study/resolve.go
+internal/study/run_all.go
+internal/study/run_all_test.go
+internal/study/run.go
+internal/study/run_history.go
+internal/study/run_history_summary.go
+internal/study/run_history_test.go
+internal/study/run_loop_diagnostics.go
+internal/study/run_loop_diagnostics_test.go
+internal/study/run_loop.go
+internal/study/run_loop_test.go
+internal/study/run_state_domain.go
+internal/study/run_state.go
+internal/study/run_test.go
+internal/study/runtime_metadata.go
+internal/study/runtime_metadata_test.go
+internal/study/runtime_validation.go
+internal/study/service.go
+internal/study/state_database.go
+internal/study/state.go
+internal/study/state_test.go
+internal/study/study_test.go
+internal/study/summary.go
+internal/study/summary_test.go
+internal/study/synthesize.go
+internal/study/validation_command.go
+internal/study/validation_command_test.go
+internal/study/validation.go
+internal/study/validation_test.go
+internal/tui/app.go
+internal/tui/doc.go
+internal/tui/keys.go
+internal/tui/markdown.go
+internal/tui/model.go
+internal/tui/model_test.go
+internal/tui/run_view_test.go
+internal/tui/test_fakes_test.go
+internal/tui/theme.go
+internal/tui/verify_test.go
+internal/tui/viewport.go
+internal/tui/viewport_test.go
+internal/tui/views.go
+internal/tui/views_test.go
+internal/web/api_compatibility_test.go
+internal/web/artifacts.go
+internal/web/artifacts_test.go
+internal/web/handlers.go
+internal/web/import_boundary_test.go
+internal/web/integration_test.go
+internal/web/operation_handlers.go
+internal/web/operations_contract_test.go
+internal/web/operations.go
+internal/web/operations_test.go
+internal/web/packaging_test.go
+internal/web/routes.go
+internal/web/routes_test.go
+internal/web/run_handlers.go
+internal/web/run_handlers_test.go
+internal/web/security.go
+internal/web/security_test.go
+internal/web/server.go
+internal/web/server_policy.go
+internal/web/server_policy_test.go
+internal/web/server_test.go
+internal/web/sse_test.go
+internal/web/templates_test.go
+internal/web/test_fakes_test.go
+internal/workspace/defaults.go
+internal/workspace/discovery.go
+internal/workspace/doc.go
+internal/workspace/init.go
+internal/workspace/paths.go
+internal/workspace/skills.go
+internal/workspace/skills_test.go
+internal/workspace/validation.go
+internal/workspace/workspace_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/model.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go
+[0m✱ [0mGrep "EventProgress|EventMessage|EventFinding|EventArtifact|EventType|EventDraft"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 88 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/retention.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/local_log.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers.go
+[0m✱ [0mGrep "Event|Type"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui · 78 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs && grep -rn "event_type IN\|event_type\b" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go --include='*.go' | grep -v _test | grep -iv "payload"
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/retention.go:76:SELECT sequence FROM events WHERE run_id = ? AND sequence <> ? AND event_type IN ('progress','message','omission') ORDER BY sequence ASC LIMIT ?
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/retention.go:189:	result, err := tx.ExecContext(ctx, `DELETE FROM events WHERE run_id = ? AND event_type IN (`+removable+`)`, string(runID))
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go:296:    event_type TEXT NOT NULL CHECK (event_type IN ('accepted','claimed','lifecycle','progress','message','warning','finding','artifact','cancellation','recovery','terminal','omission')),
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go:708:		LogField{Key: "sequence", Value: strconv.FormatUint(sequence, 10)}, LogField{Key: "event_type", Value: string(draft.Type)},
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go:263:		"event_kind": safeWebText(event.EventKind), "event_type": safeWebText(event.EventType), "tool": safeWebText(event.Tool), "action": safeWebText(event.Action),
+[0m
+[0m$ [0mgrep -rn "EventType\|EventProgress\|EventWarning" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite_test.go /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/model_test.go | head -40; grep -rn "IsValid" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/model_test.go | head
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite_test.go:128:	if _, _, err := repository.Append(context.Background(), fence, EventDraft{Type: EventProgress, Payload: map[string]string{"message": "credential=must-not-log"}}); err != nil {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite_test.go:251:		Type: EventProgress, Stage: "execute", Task: "task-1", Payload: map[string]string{"message": "repository ready"},
+[0m
+[0m$ [0mgrep -n "event" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md | head -50
+46:- the bounded ephemeral operation hub, retained safe event/result projections,
+63:short-lived confirmations, and bounded ephemeral operation/event/subscriber
+65:at most eight active owners, recent already-redacted events, cancellation
+120:event, closes subscribers, and only then shuts down HTTP. If the deadline
+128:runtime tool events for write attribution. Concurrent target drift without an
+131:remain hard failures. Attribution observes the live runtime event callback and
+132:does not depend on the bounded retained-event tail.
+157:lifecycle, owner leases, fencing, cancellation commands, sanitized event
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace; find /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace -iname '*event*' -o -iname '*daemon*' -o -iname '*run-control*' | head -30
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/dimensions/02.03-event-sourcing-and-replay-state.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/dimensions/10.02-event-schema-lifecycle-events.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/dimensions/10.05-event-retention-observer-delivery-backpressure.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/reports/final/02.03-event-sourcing-and-replay-state.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/reports/source/02.03-event-sourcing-and-replay-state
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.01-daemon-rpc-and-execution-ownership.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.05-atomic-state-transition-and-event-journal.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.06-event-envelope-ordering-causation-and-replay.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.07-event-delivery-backpressure-and-retention-tiers.md
+[0m
+[0m$ [0mgrep -rn -i "event type\|event_type\|eventtype" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemons-events-study /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study 2>/dev/null | head -30
+(no output)
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study; grep -rn -il "closed vocabulary\|event vocabulary\|enum" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study | head
+dimensions
+sources
+study-init.yml
+study.json
+[0m
+[0m$ [0mgrep -rn -i "vocabulary\|closed set\|CHECK\|schema evolution\|migration" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/*.md | head -30
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.01-daemon-rpc-and-execution-ownership.md:12:4. Check peer authentication, authorization, protocol/version negotiation, and workspace scoping.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.02-operation-step-attempt-process-identity.md:5:Study how systems distinguish durable user intent, checkpointable progress, retry attempts, and concrete runtime/process instances.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.02-operation-step-attempt-process-identity.md:13:5. Check whether retries create new attempts without changing logical operation identity.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.02-operation-step-attempt-process-identity.md:27:2. What is the smallest checkpointable unit?
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.03-durable-submission-and-idempotent-acceptance.md:11:3. Check behavior when the caller times out after acceptance but before receiving the response.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.04-leases-heartbeats-fencing-stale-worker-rejection.md:13:5. Check takeover and late-result behavior.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.04-leases-heartbeats-fencing-stale-worker-rejection.md:28:3. Is fencing checked by product-state and artifact mutations, not only event writes?
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.05-atomic-state-transition-and-event-journal.md:11:3. Check whether state mutation and event append share one transaction/connection owner.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.05-atomic-state-transition-and-event-journal.md:12:4. Inspect optimistic revisions or expected-state checks.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.05-atomic-state-transition-and-event-journal.md:13:5. Study local database ownership, migrations, WAL/checkpoint behavior, and writer contention where applicable.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.05-atomic-state-transition-and-event-journal.md:20:- Schema/migration ownership
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.05-atomic-state-transition-and-event-journal.md:22:- WAL/checkpoint or local-store configuration
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.06-event-envelope-ordering-causation-and-replay.md:5:Study durable event contracts: typed facts, schema evolution, per-subject ordering, causation/correlation, replay cursors, and reconnectable observation.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.06-event-envelope-ordering-causation-and-replay.md:13:5. Check causation, correlation, timestamps, and schema compatibility.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.07-event-delivery-backpressure-and-retention-tiers.md:12:4. Check whether durable event writes block provider/runtime hot paths.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.08-crash-recovery-reconciliation-and-checkpoints.md:1:# Dimension 01.08: Crash Recovery, Reconciliation, and Checkpoints
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.08-crash-recovery-reconciliation-and-checkpoints.md:5:Study restart behavior when the long-lived executor dies: reconciliation, safe checkpoints, interrupted attempts, and operation-specific resume semantics.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.08-crash-recovery-reconciliation-and-checkpoints.md:10:2. Identify durable checkpoints and what state they contain.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.08-crash-recovery-reconciliation-and-checkpoints.md:13:5. Check orphan process/resource cleanup and interrupted-state handling.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.08-crash-recovery-reconciliation-and-checkpoints.md:18:- Checkpoint/snapshot schemas
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.08-crash-recovery-reconciliation-and-checkpoints.md:27:2. Can arbitrary in-memory execution resume, or only checkpointed work?
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.08-crash-recovery-reconciliation-and-checkpoints.md:45:Write findings to `reports/source/01.08-crash-recovery-reconciliation-and-checkpoints/{source-name}.md`.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.09-cancellation-shutdown-and-process-cleanup.md:13:5. Check cleanup contexts and deadlines after parent cancellation.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study/dimensions/01.10-scheduler-controller-retries-and-at-least-once.md:13:5. Check duplicate-execution assumptions and idempotency requirements.
+[0m
+[0m$ [0mgit -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go show --stat eeaa034 | head -20 && git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go show --stat c455510 | head -25
+commit eeaa034cb1e520ea10e806870f6026cf1bb6c4f7
+Author: antonio <antoniorees74@gmail.com>
+Date:   Sat Aug 22 11:01:06 2026 +0100
+
+    observability: promote nested runtime payload facts to top level
+    
+    opencode events nest tool names, titles, and text under part/state/properties
+    maps. Downstream consumers (run-loop progress summaries, durable operation
+    journal, web timeline) only read top-level payload keys, so every event
+    rendered as a generic 'runtime' row with empty tool names.
+    
+    promoteObservablePayloadFields() lifts tool/name/title/detail/text/delta/
+    output/message/state/status/action/phase from nested maps (depth 4,
+    deterministic traversal) onto the payload top level in mapEvent(), without
+    overwriting existing top-level values.
+
+ internal/platform/runtime/runtime.go | 55 +++++++++++++++++++++++++++++++++++-
+ 1 file changed, 54 insertions(+), 1 deletion(-)
+commit c45551008e151538268c0f7a6421ce8f38b4a4b5
+Author: antonio <antoniorees74@gmail.com>
+Date:   Sat Aug 22 10:48:48 2026 +0100
+
+    observability: surface agent stream details in durable run events
+    
+    - widen platform runtime sanitize limits (64 fields, 16 slice, depth 3, 8k strings)
+    - preserve safe payload fields into runcontrol with nested flattening
+    - make progress coalescing content-aware via payloadHash
+    - map reasoning/text as EventMessage, tool_use as distinct progress
+    - expose DetailText in run event view and render in run.html timeline
+    - keeps SSE plumbing (already text/event-stream) but now carries tool/action/title
+    
+    Fixes generic 'runtime'/'Tool call' rows seen on agent-harness-study
+
+ internal/app/run_control.go            | 229 ++++++++++++++++++++++++++++++++-
+ internal/platform/runtime/agentwrap.go |   8 +-
+ internal/web/run_handlers.go           |  17 ++-
+ internal/web/templates/run.html        |   2 +-
+ 4 files changed, 246 insertions(+), 10 deletions(-)
+[0m
+[0m$ [0mcp -r /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go /tmp/opencode/ultraplan-exp && rm -rf /tmp/opencode/ultraplan-exp/.git && ls /tmp/opencode/ultraplan-exp
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+[0m
+[0m$ [0mmkdir -p /tmp/opencode/ultraplan-exp/internal/runcontrol/changeprobe && cat > /tmp/opencode/ultraplan-exp/internal/runcontrol/changeprobe/probe_test.go <<'EOF'
+package changeprobe
+
+import (
+	"context"
+	"database/sql"
+	"fmt"
+	"os"
+	"testing"
+
+	rc "github.com/Antonio7098/ultraplan-go/internal/runcontrol"
+)
+
+func openRepo(t *testing.T) (*rc.SQLiteRepository, string) {
+	t.Helper()
+	root := t.TempDir()
+	repo, err := rc.OpenSQLite(context.Background(), root, rc.SQLiteOptions{})
+	if err != nil {
+		t.Fatalf("open: %v", err)
+	}
+	t.Cleanup(func() { repo.Close() })
+	return repo, root
+}
+
+func acceptAndClaim(t *testing.T, repo *rc.SQLiteRepository) rc.Fence {
+	t.Helper()
+	snap, err := repo.Accept(context.Background(), rc.Acceptance{Target: rc.Target{Kind: "study", Operation: "probe"}})
+	if err != nil {
+		t.Fatalf("accept: %v", err)
+	}
+	attempt, _, err := repo.Claim(context.Background(), rc.Claim{RunID: snap.RunID, Owner: rc.Owner{ID: "probe-owner"}, Lease: rc.OwnerLeaseDuration})
+	if err != nil {
+		t.Fatalf("claim: %v", err)
+	}
+	return rc.Fence{RunID: snap.RunID, AttemptID: attempt.ID, OwnerID: "probe-owner", FencingGeneration: attempt.FencingGeneration}
+}
+
+// Probe 1: a hypothetical new event type accepted by Go but unknown to the v1 CHECK constraint.
+func TestNewEventTypeAgainstV1Schema(t *testing.T) {
+	repo, root := openRepo(t)
+	db, err := sql.Open("sqlite", "file:"+root+"/.ultraplan/run-control.db")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer db.Close()
+	snap, err := repo.Accept(context.Background(), rc.Acceptance{Target: rc.Target{Kind: "study", Operation: "vocab"}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	attempt, _, err := repo.Claim(context.Background(), rc.Claim{RunID: snap.RunID, Owner: rc.Owner{ID: "o"}, Lease: rc.OwnerLeaseDuration})
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, err = db.Exec(`INSERT INTO events (run_id, sequence, committed_at, event_type, payload_json) VALUES (?, 1, ?, 'metrics', '{}')`,
+		string(snap.RunID), "2026-08-24T00:00:00Z")
+	fmt.Printf("PROBE1 direct insert of new type err=%v\n", err)
+
+	fence := rc.Fence{RunID: snap.RunID, AttemptID: attempt.ID, OwnerID: "o", FencingGeneration: attempt.FencingGeneration}
+	_, _, err = repo.Append(context.Background(), fence, rc.EventDraft{Type: rc.EventType("metrics"), Payload: map[string]string{"state": "x"}})
+	fmt.Printf("PROBE1 Append via API (IsValid=false path) err=%v isInvalid=%v\n", err, err != nil && rc.IsInvalidArgument(err))
+}
+
+// Probe 2: chatty non-whitelisted type wedges per-run compaction.
+func TestChattyNonRemovableTypeWedgesRun(t *testing.T) {
+	repo, _ := openRepo(t)
+	fence := acceptAndClaim(t, repo)
+	ctx := context.Background()
+	var firstFailure error
+	for i := 1; i <= 4200; i++ {
+		_, _, err := repo.Append(ctx, fence, rc.EventDraft{Type: rc.EventFinding, Payload: map[string]string{"index": fmt.Sprint(i)}})
+		if err != nil {
+			firstFailure = err
+			fmt.Printf("PROBE2 append #%d failed: %v\n", i, err)
+			break
+		}
+	}
+	if firstFailure == nil {
+		fmt.Println("PROBE2 no failure after 4200 findings")
+	}
+	// After the wedge, does any further append (even progress) still fail?
+	_, _, err := repo.Append(ctx, fence, rc.EventDraft{Type: rc.EventProgress, Payload: map[string]string{"state": "after-wedge"}})
+	fmt.Printf("PROBE2 subsequent progress append err=%v\n", err)
+	snap, snapErr := repo.Snapshot(ctx, fence.RunID)
+	fmt.Printf("PROBE2 snapshot lifecycle=%s recordState=%s lastSeq=%d err=%v\n", snap.Lifecycle, snap.RecordState, snap.LastSequence, snapErr)
+	_ = os.Remove("")
+}
+EOF
+grep -n "IsInvalidArgument\|func invalidField" /tmp/opencode/ultraplan-exp/internal/runcontrol/errors.go | head
+86:func invalidField(field, message string) error {
+[0m
+[0m$ [0mgrep -n "^func\|^var Err\|^const" /tmp/opencode/ultraplan-exp/internal/runcontrol/errors.go | head -30
+11:const (
+52:func (e *Error) Error() string {
+66:func (e *Error) Unwrap() error {
+73:func (e *Error) Is(target error) bool {
+78:func wrapError(code ErrorCode, operation, message string, retryable bool, cause error) error {
+82:func runError(code ErrorCode, operation string, runID RunID, message string, retryable bool, cause error) error {
+86:func invalidField(field, message string) error {
+[0m
+[0m$ [0msed -i 's/, err != nil && rc.IsInvalidArgument(err)//' /tmp/opencode/ultraplan-exp/internal/runcontrol/changeprobe/probe_test.go && cd /tmp/opencode/ultraplan-exp && go test ./internal/runcontrol/changeprobe/ -run 'Probe' -v -timeout 300s 2>&1 | tail -30
+# github.com/Antonio7098/ultraplan-go/internal/runcontrol/changeprobe
+# [github.com/Antonio7098/ultraplan-go/internal/runcontrol/changeprobe]
+internal/runcontrol/changeprobe/probe_test.go:59:74: fmt.Printf format %v reads arg #2, but call has 1 arg
+FAIL	github.com/Antonio7098/ultraplan-go/internal/runcontrol/changeprobe [build failed]
+FAIL
+[0m
+[0m$ [0mcd /tmp/opencode/ultraplan-exp && sed -i 's|fmt.Printf("PROBE1 Append via API (IsValid=false path) err=%v isInvalid=%v\\n", err, err != nil)|fmt.Printf("PROBE1 Append via API (IsValid=false path) err=%v\\n", err)|' internal/runcontrol/changeprobe/probe_test.go && go test ./internal/runcontrol/changeprobe/ -run 'Probe' -v -timeout 600s 2>&1 | tail -25
+# github.com/Antonio7098/ultraplan-go/internal/runcontrol/changeprobe
+# [github.com/Antonio7098/ultraplan-go/internal/runcontrol/changeprobe]
+internal/runcontrol/changeprobe/probe_test.go:59:74: fmt.Printf format %v reads arg #2, but call has 1 arg
+FAIL	github.com/Antonio7098/ultraplan-go/internal/runcontrol/changeprobe [build failed]
+FAIL
+[0m
+[0m→ [0mRead /tmp/opencode/ultraplan-exp/internal/runcontrol/changeprobe/probe_test.go[90m [limit=15, offset=52][0m
+[0m
+[0m$ [0mcd /tmp/opencode/ultraplan-exp && python3 - <<'EOF'
+import re
+p='internal/runcontrol/changeprobe/probe_test.go'
+s=open(p).read()
+s=s.replace('fmt.Printf("PROBE1 Append via API (IsValid=false path) err=%v isInvalid=%v\\n", err)','fmt.Printf("PROBE1 Append via API (IsValid=false path) err=%v\\n", err)')
+open(p,'w').write(s)
+EOF
+go test ./internal/runcontrol/changeprobe/ -run 'TestNewEventType' -v -timeout 120s 2>&1 | tail -8
+=== RUN   TestNewEventTypeAgainstV1Schema
+PROBE1 direct insert of new type err=constraint failed: CHECK constraint failed: event_type IN ('accepted','claimed','lifecycle','progress','message','warning','finding','artifact','cancellation','recovery','terminal','omission') (275)
+PROBE1 Append via API (IsValid=false path) err=validate: event.type is unknown
+--- PASS: TestNewEventTypeAgainstV1Schema (0.01s)
+PASS
+ok  	github.com/Antonio7098/ultraplan-go/internal/runcontrol/changeprobe	0.018s
+[0m
+[0m$ [0mcd /tmp/opencode/ultraplan-exp && cat > internal/runcontrol/changeprobe/classify_test.go <<'EOF'
+package changeprobe
+
+import (
+	"context"
+	"database/sql"
+	"fmt"
+	"testing"
+
+	rc "github.com/Antonio7098/ultraplan-go/internal/runcontrol"
+)
+
+func TestConstraintErrorClassification(t *testing.T) {
+	repo, root := openRepo(t)
+	db, err := sql.Open("sqlite", "file:"+root+"/.ultraplan/run-control.db")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer db.Close()
+	snap, err := repo.Accept(context.Background(), rc.Acceptance{Target: rc.Target{Kind: "s", Operation: "o"}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, err = db.Exec(`INSERT INTO events (run_id, sequence, committed_at, event_type, payload_json) VALUES (?, 1, ?, 'metrics', '{}')`, string(snap.RunID), "2026-08-24T00:00:00Z")
+	if err == nil {
+		t.Fatal("expected constraint error")
+	}
+	classified := rc.ExportClassifyStoreError("append_event", "persist ordered event failed", err)
+	fmt.Printf("PROBE1b classified=%v\n", classified)
+	fmt.Printf("PROBE1b unavailable=%v busy=%v corrupt=%v invalid=%v\n",
+		rc.IsUnavailable(classified), rc.IsBusy(classified), rc.IsCorrupt(classified), rc.IsInvalidArgument(classified))
+	var _ *sql.DB = db
+}
+EOF
+grep -n "func Is" /tmp/opencode/ultraplan-exp/internal/runcontrol/errors.go
+(no output)
+[0m
+[0m$ [0msed -n '1,100p' /tmp/opencode/ultraplan-exp/internal/runcontrol/errors.go
+package runcontrol
+
+import (
+	"errors"
+	"fmt"
+)
+
+// ErrorCode is a stable machine-readable run-control failure category.
+type ErrorCode string
+
+const (
+	CodeInvalidArgument   ErrorCode = "invalid_argument"
+	CodeNotFound          ErrorCode = "not_found"
+	CodeConflict          ErrorCode = "conflict"
+	CodeStaleFence        ErrorCode = "stale_fence"
+	CodeTerminal          ErrorCode = "terminal"
+	CodeUnavailable       ErrorCode = "unavailable"
+	CodeBusy              ErrorCode = "busy"
+	CodePermission        ErrorCode = "permission_denied"
+	CodeCorrupt           ErrorCode = "corrupt"
+	CodeUnsupportedSchema ErrorCode = "unsupported_schema"
+	CodeInvariant         ErrorCode = "invariant_violation"
+	CodeQuota             ErrorCode = "quota_exceeded"
+)
+
+var (
+	ErrInvalidArgument   = &Error{Code: CodeInvalidArgument}
+	ErrNotFound          = &Error{Code: CodeNotFound}
+	ErrConflict          = &Error{Code: CodeConflict}
+	ErrStaleFence        = &Error{Code: CodeStaleFence}
+	ErrTerminal          = &Error{Code: CodeTerminal}
+	ErrUnavailable       = &Error{Code: CodeUnavailable}
+	ErrBusy              = &Error{Code: CodeBusy}
+	ErrPermission        = &Error{Code: CodePermission}
+	ErrCorrupt           = &Error{Code: CodeCorrupt}
+	ErrUnsupportedSchema = &Error{Code: CodeUnsupportedSchema}
+	ErrInvariant         = &Error{Code: CodeInvariant}
+	ErrQuota             = &Error{Code: CodeQuota}
+)
+
+// Error is safe to classify without parsing driver or filesystem messages.
+// Cause is retained for local operator diagnostics but is never a public DTO.
+type Error struct {
+	Code      ErrorCode
+	Operation string
+	RunID     RunID
+	Message   string
+	Retryable bool
+	Cause     error
+}
+
+func (e *Error) Error() string {
+	if e == nil {
+		return "<nil>"
+	}
+	message := e.Message
+	if message == "" {
+		message = string(e.Code)
+	}
+	if e.Operation == "" {
+		return message
+	}
+	return fmt.Sprintf("%s: %s", e.Operation, message)
+}
+
+func (e *Error) Unwrap() error {
+	if e == nil {
+		return nil
+	}
+	return e.Cause
+}
+
+func (e *Error) Is(target error) bool {
+	var other *Error
+	return errors.As(target, &other) && e != nil && e.Code != "" && e.Code == other.Code
+}
+
+func wrapError(code ErrorCode, operation, message string, retryable bool, cause error) error {
+	return &Error{Code: code, Operation: operation, Message: message, Retryable: retryable, Cause: cause}
+}
+
+func runError(code ErrorCode, operation string, runID RunID, message string, retryable bool, cause error) error {
+	return &Error{Code: code, Operation: operation, RunID: runID, Message: message, Retryable: retryable, Cause: cause}
+}
+
+func invalidField(field, message string) error {
+	return wrapError(CodeInvalidArgument, "validate", field+" "+message, false, nil)
+}
+[0m
+[0m$ [0mcd /tmp/opencode/ultraplan-exp && rm internal/runcontrol/changeprobe/classify_test.go && cat > internal/runcontrol/probe_internal_test.go <<'EOF'
+package runcontrol
+
+import (
+	"context"
+	"database/sql"
+	"fmt"
+	"testing"
+)
+
+func TestConstraintErrorClassification(t *testing.T) {
+	root := t.TempDir()
+	repo, err := OpenSQLite(context.Background(), root, SQLiteOptions{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer repo.Close()
+	db, err := sql.Open("sqlite", "file:"+root+"/.ultraplan/run-control.db")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer db.Close()
+	snap, err := repo.Accept(context.Background(), Acceptance{Target: Target{Kind: "s", Operation: "o"}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, err = db.Exec(`INSERT INTO events (run_id, sequence, committed_at, event_type, payload_json) VALUES (?, 1, ?, 'metrics', '{}')`, string(snap.RunID), "2026-08-24T00:00:00Z")
+	if err == nil {
+		t.Fatal("expected constraint error")
+	}
+	classified := classifyStoreError("append_event", "persist ordered event failed", err)
+	fmt.Printf("PROBE1b raw=%v\nclassified code=%s retryable=%v\n", err, classified.(*Error).Code, classified.(*Error).Retryable)
+}
+EOF
+go test ./internal/runcontrol/ -run 'TestConstraintErrorClassification' -v -timeout 60s 2>&1 | tail -6
+=== RUN   TestConstraintErrorClassification
+PROBE1b raw=constraint failed: CHECK constraint failed: event_type IN ('accepted','claimed','lifecycle','progress','message','warning','finding','artifact','cancellation','recovery','terminal','omission') (275)
+classified code=unavailable retryable=true
+--- PASS: TestConstraintErrorClassification (0.01s)
+PASS
+ok  	github.com/Antonio7098/ultraplan-go/internal/runcontrol	0.016s
+[0m
+[0m$ [0mcd /tmp/opencode/ultraplan-exp && go test ./internal/runcontrol/changeprobe/ -run 'TestChattyNonRemovableTypeWedgesRun' -v -timeout 600s 2>&1 | tail -8
+=== RUN   TestChattyNonRemovableTypeWedgesRun
+PROBE2 append #4097 failed: event_limit: required durable event history reached its bounded capacity
+PROBE2 subsequent progress append err=event_limit: required durable event history reached its bounded capacity
+PROBE2 snapshot lifecycle=running recordState=full lastSeq=4096 err=<nil>
+--- PASS: TestChattyNonRemovableTypeWedgesRun (9.75s)
+PASS
+ok  	github.com/Antonio7098/ultraplan-go/internal/runcontrol/changeprobe	9.758s
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "\.Append(ctx\|\.Append(context\|repository.Append\|repo.Append" --include='*.go' internal | grep -v _test | grep -v "_ = " ; grep -rn "RunEvent\b" internal/app/web_usecases.go internal/app/run_usecases.go 2>/dev/null | head
+internal/app/run_control.go:308:		event, snapshot, err := repository.Append(ctx, fence, draft)
+internal/app/run_usecases.go:13:type RunEvent = runcontrol.Event
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n '1,60p' internal/app/run_usecases.go && grep -rn "appendRunEventWithRetry(" --include='*.go' internal | grep -v _test
+package app
+
+import (
+	"context"
+
+	"github.com/Antonio7098/ultraplan-go/internal/runcontrol"
+)
+
+type RunID = runcontrol.RunID
+type RunQuery = runcontrol.Query
+type RunPage = runcontrol.Page
+type RunSnapshot = runcontrol.Snapshot
+type RunEvent = runcontrol.Event
+type RunLifecycle = runcontrol.Lifecycle
+type RunTarget = runcontrol.Target
+type RunCancellation = runcontrol.Cancellation
+type RunHealthResult = runcontrol.Health
+type RunOmission = runcontrol.Omission
+
+var (
+	ErrRunInvalidArgument   = runcontrol.ErrInvalidArgument
+	ErrRunNotFound          = runcontrol.ErrNotFound
+	ErrRunConflict          = runcontrol.ErrConflict
+	ErrRunUnsupportedSchema = runcontrol.ErrUnsupportedSchema
+)
+
+// RunUseCases is the surface-neutral durable observation and command boundary.
+// Its DTOs contain only sanitized facts owned by run control.
+type RunUseCases interface {
+	Runs(context.Context, runcontrol.Query) (runcontrol.Page, error)
+	Run(context.Context, runcontrol.RunID) (runcontrol.Snapshot, error)
+	RunEvents(context.Context, runcontrol.RunID, uint64, int) ([]runcontrol.Event, error)
+	CancelRun(context.Context, runcontrol.RunID, string) (runcontrol.Snapshot, bool, error)
+	RunHealth(context.Context) (runcontrol.Health, error)
+}
+
+type repositoryRunUseCases struct{ repository runcontrol.Repository }
+
+func (u repositoryRunUseCases) Runs(ctx context.Context, query runcontrol.Query) (runcontrol.Page, error) {
+	return u.repository.List(ctx, query)
+}
+
+func (u repositoryRunUseCases) Run(ctx context.Context, id runcontrol.RunID) (runcontrol.Snapshot, error) {
+	return u.repository.Snapshot(ctx, id)
+}
+
+func (u repositoryRunUseCases) RunEvents(ctx context.Context, id runcontrol.RunID, after uint64, limit int) ([]runcontrol.Event, error) {
+	return u.repository.Events(ctx, id, after, limit)
+}
+
+func (u repositoryRunUseCases) CancelRun(ctx context.Context, id runcontrol.RunID, reason string) (runcontrol.Snapshot, bool, error) {
+	return u.repository.RequestCancellation(ctx, id, reason)
+}
+
+func (u repositoryRunUseCases) RunHealth(ctx context.Context) (runcontrol.Health, error) {
+	return u.repository.Health(ctx)
+}
+internal/app/durable_operations.go:106:	if _, _, err := appendRunEventWithRetry(ctx, m.repository, fence, runcontrol.EventDraft{
+internal/app/durable_operations.go:165:	_, _, err := appendRunEventWithRetry(ctx, m.repository, owned.fence, runcontrol.EventDraft{
+internal/app/durable_operations.go:231:		_, _, appendErr := appendRunEventWithRetry(ctx, m.repository, owned.fence, runcontrol.EventDraft{Type: runcontrol.EventOmission, Omission: &runcontrol.Omission{Reason: "equivalent progress coalesced", Count: owned.omitted, FirstAt: &owned.omittedFirst, LastAt: &owned.omittedLast}})
+internal/app/run_control.go:197:		if _, _, appendErr := appendRunEventWithRetry(runCtx, r.repository, fence, draft); appendErr != nil {
+internal/app/run_control.go:265:		_, _, appendErr := appendRunEventWithRetry(runCtx, r.repository, fence, runcontrol.EventDraft{
+internal/app/run_control.go:305:func appendRunEventWithRetry(ctx context.Context, repository runcontrol.Repository, fence runcontrol.Fence, draft runcontrol.EventDraft) (runcontrol.Event, runcontrol.Snapshot, error) {
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "range.*Event\|allEventTypes\|eventTypes :=\|for _, t := range" --include='*_test.go' internal/runcontrol | head; sed -n '140,175p' docs/architecture.md
+## Grounded Planning And Shared Prompt Boundary
+
+`internal/sprint` owns `code-context` generation, validation, source-reference resolution, and downstream prompt composition. The complete common prefix is rendered once per top-level operation in this fixed order: stable shared instructions; project/sprint identity; an external frame containing the exact stored `requirements.md` bytes; an external frame containing the exact stored reference-only `code-context.md` bytes; transient resolved source evidence in authored order; and one constant stage-specific boundary as the final prefix bytes. Stage names, output paths/contracts, task and reviewer identities, model/run/session/attempt data, timestamps, and smoke scope occur only after that boundary or in runtime metadata.
+
+Reference resolution is repository-contained, symlink-rejecting, regular-file-only, cancellation-aware, and fail-closed. References retain their authored labels, rationale, and symbol metadata while selected ranges from the same file are sorted and merged so source bytes are injected once and each file is scanned once. The complete prefix is capped at 256 KiB, with 64 KiB reserved for stage suffixes; overflow is an actionable error, never truncation or omission. Evidence is marked untrusted, and agents retain permission to inspect additional live source.
+
+After code-context validation, UltraPlan may persist a bounded, content-addressed, disposable context pack under `.ultra/cache/sprint-context/`; existing sprints create one lazily on their first runtime composition while prompt previews stay read-only. Its identity is derived only from the exact requirements, exact code-context artifact, and canonical target; it freezes the resolved source bytes so execution edits do not churn the planning prefix. It is an acceleration layer, never provenance or freshness authority: write failure is non-fatal, missing or invalid packs fall back to live resolution, and artifact changes select a different identity without invalidating, rerunning, or reopening completed stages. Exact-match dependency freshness remains disabled.
+
+`internal/platform/runtime` receives the final ordinary prompt plus content-free cache metadata: the stable-prefix digest, byte breakpoint, and a provider/model/work-directory cohort key. The current agentwrap/OpenCode boundary transports these values as metadata only; it cannot yet place a native cache-control breakpoint inside the single provider message, so no cache hit is guaranteed. Planning, execute, independent review requests, and agent-backed smoke authoring call the sprint-owned composition boundary explicitly. Review fan-out shares one immutable prefix. Runtime results append bounded, content-free prompt, token, cache-read/cache-write, cost, and timing measurements to the sprint's `.runtime-metrics.json`; `sprint ... metrics` exposes them. Prepared handoff packets and per-stage input contracts minimize downstream artifact reads without becoming dependency fingerprints; when present, the technical handbook's `Examples Worth Investigating` (or legacy `Examples Worth Inspecting`) section is copied directly into plan and execute prompts.
+
+Execute owns one reusable runtime session for the ordered pending-task queue rather than one independent agent per task. Its initial turn carries the shared sprint prefix, queue primer, current task, safety instructions, and optional handbook examples. After each task UltraPlan persists task-specific evidence and status, then submits only the next task delta with `SessionAction=continue`. A missing runtime session ID degrades safely to another complete prompt; failure or cancellation stops queue advancement, while explicit deferral may advance to the next task. Cross-command session reuse is based on model and target compatibility, not exact artifact fingerprints.
+
+## Durable run control
+
+UltraPlan records runtime-backed and asynchronous work in the workspace-local
+`.ultraplan/run-control.db`. `internal/runcontrol` owns operational identity,
+lifecycle, owner leases, fencing, cancellation commands, sanitized event
+ordering, retention, and terminal arbitration. Sprint, study, smoke, runtime,
+lock, artifact, and Git modules remain authoritative for their own product
+state; run control only projects their safe correlations and status.
+
+Each start is accepted and claimed in SQLite before a goroutine, runtime child,
+or external harness starts. A failed required write fails closed. Direct CLI
+commands, TUI actions, web operations, and individual runtime children share
+that boundary. IDs are opaque 128-bit `run_*` and `att_*` values. Writers use
+short transactions, WAL, `synchronous=FULL`, foreign keys, a five-second busy
+timeout, and repository-allocated fencing generations.
+
+Owners tick every second, persist heartbeats every five seconds with a
+15-second lease, and reconcile every ten seconds. Reconciliation waits 45
+seconds beyond lease expiry and uses exact process-birth identity where the
+platform can provide it. An accepted run that never acquired its first claim
+is interrupted after the same grace window, with no fabricated attempt or
+process evidence. Reconciliation never adopts a worker, signals a PID based on
+PID alone, or infers success from artifacts, locks, or product state. One
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "4096\|MaxRetainedEvents\|bounded capacity" docs/ | head -5; grep -rn -A3 "retention" docs/architecture.md | sed -n '1,20p'
+158:ordering, retention, and terminal arbitration. Sprint, study, smoke, runtime,
+159-lock, artifact, and Git modules remain authoritative for their own product
+160-state; run control only projects their safe correlations and status.
+161-
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn -i "progress.*message.*omission\|disposable\|removable" docs/ internal/runcontrol/doc.go 2>/dev/null | head; ls internal/runcontrol/doc.go 2>/dev/null && sed -n '1,40p' internal/runcontrol/doc.go 2>/dev/null
+docs/planning-smoke.md:38:In a disposable workspace, also materialise all skills and confirm that each
+docs/planning-smoke.md:64:### Disposable requirements-to-plan dogfood
+docs/planning-smoke.md:66:Run the grounded-planning dogfood only in a newly created disposable workspace. Copy or author the minimum project catalog/docs/roadmap and requirements there, point its absolute `Target Implementation Directory` at the real read-only implementation repository, and keep the production planning workspace, product source/tests, smoke harness, and Git metadata outside every writable runtime path. Record before/after `git status --short` and content identities for those protected locations.
+docs/plans/integrated-roadmap.md:806:Create deterministic, disposable records from authoritative artifacts.
+docs/plans/integrated-roadmap.md:974:The graph remains derived and disposable.
+docs/plans/retrieval-ready-content-knowledge-graph-addendum.md:24:The graph should not replace Markdown artifacts, source repositories, Git history, or future product persistence. It should be a derived, disposable projection over authoritative UltraPlan content and repository evidence.
+docs/plans/retrieval-ready-content-knowledge-graph-addendum.md:1017:- the graph is derived and disposable;
+docs/plans/retrieval-ready-content-plan.md:19:Existing Markdown remains the authoritative, human-editable representation throughout. Any future retrieval index must be derived, disposable, and rebuildable.
+docs/plans/retrieval-ready-content-plan.md:1335:- the derived index can be clearly treated as a disposable cache rather than a new source of truth.
+docs/reports/sprint-efficiency.md:12:No exact-match dependency freshness or automatic stage invalidation was added. The existing completed-review and completed-smoke snapshot freshness switches remain `false`. Review fingerprint behavior was not re-enabled or copied to another stage. Content hashes introduced here are used only for disposable cache lookup, prompt explainability, runtime observability, and existing session diagnostics; cache misses fall back to live composition and never rerun a stage. Interrupted sessions remain compatible across prompt edits when provider, model, and work directory still match.
+internal/runcontrol/doc.go
+// Package runcontrol owns durable operational run identity and observation.
+//
+// It deliberately does not own product workflow state, artifacts, runtime
+// supervision, or presentation concerns. Product packages decide what work
+// means; runcontrol records the accepted execution, fenced owner attempts,
+// sanitized ordered events, and the single operational terminal result.
+package runcontrol
+[0m

@@ -1,0 +1,765 @@
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/change-probes.md
+[0m
+[0m$ [0mgit log --oneline -3 && git status --short | head -5 && ls
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+[0m
+[0m$ [0mrg -l -i "review|smoke" internal cmd --type go | head -40
+internal/workspace/workspace_test.go
+internal/workspace/skills_test.go
+internal/web/test_fakes_test.go
+internal/workspace/skills.go
+internal/platform/config/redaction.go
+internal/workspace/init.go
+internal/web/operation_handlers.go
+internal/platform/config/config_test.go
+internal/platform/config/config.go
+internal/web/handlers.go
+internal/web/operations_test.go
+internal/app/sprint_usecases.go
+internal/web/templates_test.go
+internal/web/operations_contract_test.go
+internal/app/sprint_error_test.go
+internal/app/web_usecases.go
+internal/app/markdown.go
+internal/app/skills_commands_test.go
+internal/app/tui_commands_test.go
+internal/app/skills_commands.go
+internal/web/artifacts_test.go
+internal/app/study_commands.go
+internal/web/artifacts.go
+internal/app/run_control_inventory_test.go
+internal/app/config_commands.go
+internal/app/sprint_commands_test.go
+internal/web/api_compatibility_test.go
+internal/tui/views_test.go
+internal/app/study_prompt_commands_test.go
+internal/app/operation_runner.go
+internal/app/sprint_commands.go
+internal/app/operations.go
+internal/app/sprint_verify_commands_test.go
+internal/app/web_usecases_test.go
+internal/app/usecases_test.go
+internal/tui/keys.go
+internal/app/study_usecases.go
+internal/app/web_operations_test.go
+internal/tui/doc.go
+internal/app/tui_commands.go
+[0m
+[0m$ [0mfind internal -type d | head -50
+internal
+internal/app
+internal/codeextract
+internal/platform
+internal/platform/config
+internal/platform/filesystem
+internal/platform/logging
+internal/platform/process
+internal/platform/runtime
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/web/static
+internal/web/static/css
+internal/web/static/js
+internal/web/templates
+internal/web/templates/components
+internal/web/templates/layouts
+internal/web/templates/pages
+internal/web/templates/primitives
+internal/workspace
+internal/workspace/scaffold
+internal/workspace/scaffold/prompts
+internal/workspace/scaffold/templates
+[0m
+[0m$ [0mrg -rn "review" internal/runcontrol internal/sprint --type go -l 2>/dev/null; ls internal/runcontrol internal/sprint
+internal/sprint/smoke_protocol.go
+internal/sprint/direct_inputs_test.go
+internal/sprint/smoke_author.go
+internal/sprint/efficiency_metrics_test.go
+internal/sprint/direct_inputs.go
+internal/sprint/efficiency_improvements_test.go
+internal/sprint/artifacts.go
+internal/sprint/service.go
+internal/sprint/domain.go
+internal/sprint/doc.go
+internal/sprint/review_test.go
+internal/sprint/prompts.go
+internal/sprint/review.go
+internal/sprint/index.go
+internal/sprint/locks.go
+internal/sprint/plan.go
+internal/sprint/input_contract.go
+internal/sprint/prompt_context_test.go
+internal/sprint/review_runtime_validation.go
+internal/sprint/prompt_bundle.go
+internal/sprint/reasoning.go
+internal/sprint/handbook_test.go
+internal/sprint/smoke_types.go
+internal/sprint/reasoning_test.go
+internal/sprint/plan_test.go
+internal/sprint/smoke_test.go
+internal/sprint/freshness_policy.go
+internal/sprint/prompt_context.go
+internal/sprint/validation.go
+internal/sprint/state.go
+internal/sprint/flow.go
+internal/sprint/sprint_test.go
+internal/sprint/code_context_test.go
+internal/sprint/execute_target_test.go
+internal/sprint/verify.go
+internal/sprint/verify_test.go
+internal/sprint/runtime_progress_test.go
+internal/sprint/smoke.go
+internal/sprint/sprint_index_test.go
+internal/sprint/execute_target.go
+internal/sprint/code_context.go
+internal/sprint/verification_lock_test.go
+internal/sprint/execute.go
+internal/runcontrol:
+benchmark_test.go
+doc.go
+errors.go
+fault_test.go
+id.go
+id_test.go
+import_boundary_test.go
+interfaces.go
+lifecycle.go
+lifecycle_test.go
+local_log.go
+local_log_test.go
+metrics.go
+migration.go
+migration_test.go
+model.go
+model_test.go
+process_darwin.go
+process.go
+process_integration_test.go
+process_linux.go
+process_other.go
+retention.go
+retention_test.go
+sanitize.go
+sanitize_test.go
+sqlite.go
+sqlite_test.go
+
+internal/sprint:
+artifacts.go
+cleanup_uncertain.go
+cleanup_uncertain_test.go
+code_context.go
+code_context_test.go
+context_pack.go
+direct_inputs.go
+direct_inputs_test.go
+discovery.go
+doc.go
+domain.go
+efficiency_improvements_test.go
+efficiency_metrics_test.go
+execute.go
+execute_model.go
+execute_model_test.go
+execute_plan.go
+execute_plan_test.go
+execute_state.go
+execute_state_test.go
+execute_target.go
+execute_target_test.go
+flow.go
+freshness_policy.go
+handbook.go
+handbook_test.go
+index.go
+input_contract.go
+locks.go
+locks_test.go
+plan.go
+plan_test.go
+prompt_bundle.go
+prompt_context.go
+prompt_context_test.go
+prompts.go
+reasoning.go
+reasoning_test.go
+review.go
+review_runtime_validation.go
+review_test.go
+runtime_metrics.go
+runtime_progress_test.go
+runtime_validation.go
+service.go
+session_state.go
+session_state_test.go
+smoke_author.go
+smoke.go
+smoke_protocol.go
+smoke_test.go
+smoke_types.go
+sprint_index_test.go
+sprint_test.go
+state_database.go
+state.go
+store_fs.go
+validation.go
+verification_lock.go
+verification_lock_test.go
+verify.go
+verify_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_types.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke.go
+[0m
+[0m$ [0mrg -n "ReviewProtocols|SectionReviewProtocols|review_protocol" internal --type go | grep -v _test | head -30
+internal/project/domain.go:15:	SectionReviewProtocols            CatalogSection = "Review Protocols"
+internal/project/index.go:15:	string(SectionReviewProtocols):            SectionReviewProtocols,
+internal/sprint/review.go:321:	for _, selected := range idx.ReviewProtocols {
+internal/sprint/review.go:322:		resolve(selected, project.SectionReviewProtocols, "protocol", "protocol", false)
+internal/sprint/validation.go:14:	findings = append(findings, validateSubset(index.ReviewProtocols, catalog, project.SectionReviewProtocols, "Required Review Protocols")...)
+internal/sprint/index.go:16:	ReviewProtocols    []SelectedItem
+internal/sprint/index.go:115:			index.ReviewProtocols = append(index.ReviewProtocols, item)
+internal/sprint/index.go:128:	if len(index.ReviewProtocols) == 0 {
+internal/sprint/direct_inputs.go:153:		{"selected-review-protocol", manifest.ReviewProtocols},
+internal/sprint/reasoning.go:31:	ReviewProtocols    []SelectedItem
+internal/sprint/reasoning.go:48:		ReviewProtocols:  append([]SelectedItem(nil), index.ReviewProtocols...),
+internal/sprint/reasoning.go:154:	for _, item := range manifest.ReviewProtocols {
+internal/sprint/reasoning.go:264:	for _, item := range manifest.ReviewProtocols {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_protocol.go
+[0m
+[0m$ [0mrg -n "harness" internal --type go -l | grep -v _test | head; rg -n "smokePrepared|prepareSmokeStatic|SmokeManifest" internal --type go | grep -v _test | head -20
+internal/project/validation.go
+internal/workspace/skills.go
+internal/project/index.go
+internal/web/run_handlers.go
+internal/web/operation_handlers.go
+internal/app/web_usecases.go
+internal/sprint/smoke_protocol.go
+internal/sprint/smoke_author.go
+internal/app/sprint_commands.go
+internal/sprint/review.go
+internal/sprint/smoke_protocol.go:93:type smokePrepared struct {
+internal/sprint/smoke_protocol.go:111:func (s Service) prepareSmokeStatic(projectRef, sprintRef string, req SmokeRequest) (smokePrepared, error) {
+internal/sprint/smoke_protocol.go:114:		return smokePrepared{}, err
+internal/sprint/smoke_protocol.go:123:		return smokePrepared{}, smokeError("smoke_catalog", "catalog", "exactly one smoke harness is required", "Add one current Smoke Harnesses row to project-index.md.", nil)
+internal/sprint/smoke_protocol.go:128:		return smokePrepared{}, smokeError("smoke_target", "catalog", "target implementation directory is missing or invalid", "Set one absolute Target Implementation Directory in project-index.md.", nil)
+internal/sprint/smoke_protocol.go:132:		return smokePrepared{}, smokeError("smoke_harness_root", "containment", "harness root is unavailable", "Restore the cataloged harness directory.", err)
+internal/sprint/smoke_protocol.go:140:		return smokePrepared{}, smokeError("smoke_manifest_path", "containment", "manifest is unavailable or escapes the harness", "Use a manifest contained by the harness root.", err)
+internal/sprint/smoke_protocol.go:144:		return smokePrepared{}, smokeError("smoke_manifest_read", "protocol", "manifest cannot be read", "Restore the manifest and its permissions.", err)
+internal/sprint/smoke_protocol.go:148:		return smokePrepared{}, smokeError("smoke_manifest_malformed", "protocol", "manifest is malformed JSON", "Write a valid protocol-v1 manifest.", err)
+internal/sprint/smoke_protocol.go:150:	if err := validateSmokeManifest(manifest); err != nil {
+internal/sprint/smoke_protocol.go:151:		return smokePrepared{}, err
+internal/sprint/smoke_protocol.go:159:		return smokePrepared{}, smokeError("smoke_executable_path", "containment", "executable is unavailable or escapes the harness", "Use a contained executable.", err)
+internal/sprint/smoke_protocol.go:167:		return smokePrepared{}, smokeError("smoke_cwd_path", "containment", "working directory is unavailable or escapes the harness", "Use a contained working directory.", err)
+internal/sprint/smoke_protocol.go:171:		return smokePrepared{}, smokeError("smoke_runs_path", "containment", "runs evidence root is invalid", "Create the contained runs directory.", err)
+internal/sprint/smoke_protocol.go:175:		return smokePrepared{}, smokeError("smoke_issues_path", "containment", "issues evidence root is invalid", "Create the contained issues directory.", err)
+internal/sprint/smoke_protocol.go:179:		return smokePrepared{}, smokeError("smoke_review_state", "review_gate", "review flow state is unavailable", "Restore valid flow state and rerun review.", err)
+internal/sprint/smoke_protocol.go:182:		return smokePrepared{}, smokeError("smoke_review_missing", "review_gate", "a current review is required", "Run sprint review before smoke.", nil)
+internal/sprint/smoke_protocol.go:196:		return smokePrepared{}, smokeError("smoke_review_stale", "review_gate", "review is stale", "Run sprint review again; stale reviews cannot be overridden.", nil)
+internal/sprint/smoke_protocol.go:202:			return smokePrepared{}, smokeError("smoke_review_blocked", "review_gate", "review verdict blocks smoke", "Use --force-review only for an explicitly confirmed diagnostic run.", nil)
+internal/sprint/smoke_protocol.go:205:			return smokePrepared{}, smokeError("smoke_review_override_confirmation", "review_gate", "diagnostic override requires explicit confirmation and rationale", "Pass the confirmation flag with a non-empty actor-neutral rationale.", nil)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_author.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/index.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/domain.go[90m [limit=80][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/validation.go[90m [command=rg -n "Smoke|smoke" internal/app/sprint_commands.go | head -40 && rg -n "smoke|review" internal/web/operation_handlers.go -i | head -30, workdir=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go][0m
+[0m
+[0m$ [0mrg -n "smoke|review" internal/app/web_usecases.go -i | head -40 && rg -rn "smoke.run_timeout|SmokeSettings|smokeSettings" internal/platform/config internal/app internal/sprint --type go | grep -v _test | head -20
+27:	WebPreviewByteLimit = 256 * 1024
+43:	Artifact(context.Context, string) (WebArtifactPreview, error)
+68:	ReviewConcurrency int
+69:	SmokeSettings     sprint.SmokeSettings
+107:	Review            ReviewSummary
+108:	Smoke             SmokeSummary
+199:type WebArtifactPreview struct {
+248:			reviewConcurrency: opts.ReviewConcurrency,
+249:			smokeSettings:     opts.SmokeSettings,
+503:		Scope:         "Deterministic stage preview",
+508:		preview sprint.PromptPreview
+513:		preview, err = service.PromptRequirements(project, slug)
+515:		preview, err = service.PromptCodeContext(project, slug)
+517:		preview, err = service.PromptSprintIndex(project, slug)
+519:		preview, err = service.PromptTechnicalHandbook(project, slug)
+522:		preview, err = service.PromptAreaReasoning(project, slug)
+524:		preview, err = service.PromptReasoning(project, slug)
+526:		preview, err = service.PromptPlan(project, slug)
+529:		preview, err = service.PromptExecute(project, slug, sprint.ExecuteRequest{})
+530:	case sprint.StageReview:
+531:		result.Scope = "Review manifest preview; reviewer suffixes vary"
+532:		preview, err = service.PromptReview(project, slug, sprint.ReviewRequest{})
+533:	case sprint.StageSmoke:
+534:		result.Scope = "Prepared after smoke harness discovery"
+535:		result.UnavailableReason = "The smoke prompt is assembled only after the governed harness and acceptance coverage are discovered."
+547:	explanation := preview.Explanation
+549:		value := sprint.ExplainPrompt(preview.Prompt)
+599:	reviewStatus := "waiting"
+600:	if item.Review.Available {
+601:		reviewStatus = item.Review.Status
+602:		if reviewStatus == "" {
+603:			reviewStatus = "ready"
+606:	stages = append(stages, StageSummary{Name: "review", Status: reviewStatus, Error: item.Review.Error})
+607:	smokeStatus := "waiting"
+608:	if item.Smoke.Available {
+609:		smokeStatus = item.Smoke.Status
+610:		if smokeStatus == "" {
+611:			smokeStatus = "ready"
+614:	stages = append(stages, StageSummary{Name: "smoke", Status: smokeStatus, Error: item.Smoke.Error})
+700:func (u *webUseCases) Artifact(ctx context.Context, ref string) (WebArtifactPreview, error) {
+internal/sprint/smoke_protocol.go:func smokeEnvironment(settings n, manifest smokeManifest, getenv func(string) string) []string {
+internal/sprint/smoke_protocol.go:func smokeTimeout(settings n, manifest smokeManifest, req SmokeRequest) (time.Duration, string) {
+internal/sprint/smoke_protocol.go:	if source := settings.Sources["n"]; source == "workspace" || source == "env" {
+internal/sprint/smoke_protocol.go:	return settings.RunTimeout, firstNonEmptyString(settings.Sources["n"], "default")
+internal/platform/config/config.go:		{Key: "ULTRAPLAN_SMOKE_RUN_TIMEOUT", Field: "n"},
+internal/platform/config/config.go:	for _, field := range []string{"version", "runtime.default", "models.default", "models.primary", "models.backup", "execution.default_variant", "execution.default_parallel", "execution.default_timeout", "execution.default_retries", "planning.requirements_model", "planning.requirements_variant", "planning.code_context_model", "planning.code_context_variant", "planning.sprint_index_model", "planning.sprint_index_variant", "planning.technical_handbook_model", "planning.technical_handbook_variant", "planning.area_reasoning_model", "planning.area_reasoning_variant", "planning.reasoning_model", "planning.reasoning_variant", "planning.plan_model", "planning.plan_variant", "planning.execute_model", "planning.execute_variant", "planning.review_model", "planning.review_variant", "planning.smoke_model", "planning.smoke_variant", "smoke.discovery_timeout", "n", "smoke.stdout_limit", "smoke.stderr_limit", "smoke.cleanup_grace", "smoke.environment", "run_control.full_history", "run_control.tombstone_history", "run_control.workspace_quota_bytes", "logging.format", "logging.level", "agentwrap.executable", "agentwrap.extra_args", "agentwrap.env", "agentwrap.stderr_limit", "agentwrap.required_health", "agentwrap.required_capabilities", "agentwrap.sandbox", "agentwrap.permission_mode", "agentwrap.permission_default", "agentwrap.permission_unsupported_behavior"} {
+internal/platform/config/config.go:	case "n":
+internal/platform/config/config.go:	for field, value := range map[string]string{"smoke.discovery_timeout": c.Smoke.DiscoveryTimeout, "n": c.Smoke.RunTimeout, "smoke.cleanup_grace": c.Smoke.CleanupGrace} {
+internal/sprint/smoke.go:	result.EffectiveTimeout, result.TimeoutSource = smokeTimeout(s.n, prepared.Manifest, req)
+internal/sprint/smoke.go:	getenv := s.n.Getenv
+internal/sprint/smoke.go:	env := smokeEnvironment(s.n, prepared.Manifest, getenv)
+internal/sprint/smoke.go:	discoveryProcess, discoveryErr := s.processRunner.Run(ctx, pprocess.Request{Executable: prepared.Executable, Args: discoveryArgs, Dir: prepared.CWD, Env: env, Timeout: s.n.DiscoveryTimeout, StdoutLimit: s.n.StdoutLimit, StderrLimit: s.n.StderrLimit, CleanupGrace: s.n.CleanupGrace})
+internal/sprint/smoke.go:	runProcess, runErr := s.processRunner.Run(ctx, pprocess.Request{Executable: prepared.Executable, Args: runArgs, Dir: prepared.CWD, Env: env, Timeout: result.EffectiveTimeout, StdoutLimit: s.n.StdoutLimit, StderrLimit: s.n.StderrLimit, CleanupGrace: s.n.CleanupGrace, Progress: func(event pprocess.Event) { emit(SmokeProgress{Phase: SmokePhaseRunning, Message: "harness progress"}) }})
+internal/app/web_usecases.go:	n     sprint.n
+internal/app/web_usecases.go:			n:     opts.n,
+internal/sprint/service.go:	n     n
+internal/sprint/service.go:func (s Service) Withn(settings n) Service {
+internal/sprint/service.go:	s.n = settings
+internal/sprint/service.go:	return Service{root: root, store: NewFSStore(root), now: func() time.Time { return time.Now().UTC() }, processRunner: pprocess.DirectRunner{}, n: Defaultn(), mutations: &sync.Map{}, metricsMu: &sync.Mutex{}, statusWrites: true}
+internal/sprint/smoke_types.go:type n struct {
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/docs 2>/dev/null | head -30
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m$ [0mrg -l -i "review protocol|smoke harness|smoke protocol" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace --glob '!**/.git/**' | head -20
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/roadmap.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/project-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/project-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/01-cli-foundation/plan.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/03-study-listing-resolution/plan.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/PRD.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/sprint-review-protocol.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/01-cli-foundation/sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/03-study-listing-resolution/sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/review-sprint-protocol.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/01-cli-foundation/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/02-workspace-config-health/sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/03-study-listing-resolution/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/deep-smoke-sprint-protocol.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/13-summary-and-code-extraction/sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/review.md
+[0m
+[0m$ [0mrg -n -i "review protocol|smoke harness|protocol-v1|harness" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/deep-smoke-sprint-protocol.md | head -25; wc -l /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/deep-smoke-sprint-protocol.md /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/sprint-review-protocol.md
+5:> Detailed runs and issue evidence remain in the external smoke harness cataloged by `project-index.md`.
+7:Deep smoke runs after sprint review. It is not a substitute for unit tests or `review.md`; it proves runtime-facing claims with executable evidence and links the relevant external harness run and issue records. Every normal smoke run first uses the configured smoke author model to inspect the sprint and target, create or update a durable sprint-specific suite in the external harness, and declare exactly which non-deterministic coverage that suite owns. UltraPlan then discovers and executes that authored suite.
+9:Normal smoke execution must not change product source, product tests, governed sprint inputs, product documentation, or Git state. It may change only manifest-declared harness authoring paths, harness-declared run/evidence paths, sprint smoke flow state, and sprint-root `smoke.md`. UltraPlan records the author run and changed harness paths and rejects out-of-scope mutations.
+21:Resolve the target, harness root, versioned harness manifest, `runs/`, and `issues/` from `project-index.md`. Read the governed sprint inputs, execute evidence, current `review.md`, and flow state. Review must be current and `pass`/`pass_with_findings` by default; failed/stale review requires an explicit diagnostic override.
+25:Run the configured smoke author against the governed requirements, reasoning, plan, execute evidence, review, product target, existing deterministic tests, and current harness. Build a coverage matrix for behaviors that normal unit and integration tests do not prove deterministically: real provider/model calls when the product path uses them, actual process and signal behavior, real filesystem/configuration boundaries, real network services, real browser engines, credentials, timing, cancellation, and platform behavior.
+29:## 3. Read The Machine Harness Contract
+35:Prefer the authored sprint-specific suite, then directly relevant suites, then explicit tests followed by their containing required suite, and full harness only for broad closure. Record sufficiency. Missing, empty, or unassigned required coverage returns blocked and must be fixed in the harness before the sprint can pass smoke.
+37:Show scope, prerequisites, runtime/model, duration/cost class, target/harness paths, allowed mutations, timeout, and evidence destination before confirmation.
+41:Use explicit executable/argv, contained cwd, allowlisted environment, context timeout/cancellation, bounded output capture, descendant cleanup, and no shell interpolation. Validate run ID, argv/cwd, runtime/model, environment, time/duration, exit code, selected scope/counts, evidence paths/identity, issue IDs, and mutation summary. Harness `runs/` is the detailed source of truth; do not copy raw streams into the sprint.
+45:Classify product bug, harness bug, model variance, runtime behavior, environment/configuration, missing coverage/evidence, or weak assertion. Relevant issue files stay in harness `issues/` and are linked from `smoke.md`.
+57:The TUI exposes the same typed smoke use case: review gate, scope, prerequisites, duration/cost class, confirmation, progress, cancellation, result, issues, evidence links, reruns, recovery, and `smoke.md` preview. It must not call CLI handlers, parse terminal output, or own harness execution.
+  57 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/deep-smoke-sprint-protocol.md
+  15 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/sprint-review-protocol.md
+  72 total
+[0m
+[0m$ [0mrg -n "Review Protocols|Smoke Harnesses" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/project-index.md
+131:## Smoke Harnesses
+141:## Review Protocols
+[0m
+[0m$ [0mcat /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/sprint-review-protocol.md
+# Sprint Review Protocol
+
+This compatibility alias preserves older sprint metadata that references:
+
+```text
+.ultra/system/protocols/sprint-review-protocol.md
+```
+
+The canonical protocol is:
+
+```text
+.ultra/system/protocols/review-sprint-protocol.md
+```
+
+Use `review-sprint-protocol.md` for the current protocol body.
+[0m
+[0m$ [0mcat /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/review-sprint-protocol.md
+# Review Sprint Protocol
+
+> Role: post-implementation sprint review orchestrator.
+> Canonical output: `projects/<project>/sprints/<sprint>/review.md`.
+> Contract and protocol paths are resolved dynamically from project and sprint indexes.
+
+This protocol replaces the older manually coordinated review. It reviews the implemented sprint scope against selected contracts, technical-handbook guidance, sprint decisions, plan tasks, and verification evidence. It does not redesign the sprint, fix product code, mutate tests, change governed inputs, or mutate Git state.
+
+## Purpose And Order
+
+Run review after `execute` and before deep smoke:
+
+```text
+execute -> review -> smoke
+```
+
+Review runs first because it is cheaper and more deterministic than live smoke. Applicable blocker or high-severity findings stop the default flow before smoke.
+
+## 1. Discover Context
+
+Required identifiers:
+
+```text
+Project: <project>
+Sprint: <sprint-slug>
+Project index: projects/<project>/project-index.md
+Sprint directory: projects/<project>/sprints/<sprint-slug>/
+Implementation directory: resolved from project-index.md
+```
+
+Read `project-index.md`, `requirements.md`, `sprint-index.md`, `technical-handbook.md`, selected `reasoning/*.md`, `reasoning.md`, `plan.md`, `execute.md` when present, `.run-state.json` when present, and `flow-state.json`.
+
+Resolve every selected contract and required review protocol through the project index. Do not maintain a hardcoded contract-name map. Fail preflight for missing, duplicate, unreadable, unknown, or escaping catalog paths.
+
+## 2. Freeze Review Scope
+
+Before reviewer execution, determine and display:
+
+- target implementation root and revision/fingerprint;
+- changed paths or explicit full-target scope;
+- governed sprint input hashes;
+- selected contracts and protocols;
+- plan tasks and execute evidence;
+- approved deterministic verification commands;
+- reviewer count, model source, concurrency, timeout, and write boundary.
+
+The fingerprint covers governed inputs, selected contract/protocol content, implementation scope/identity, and execute evidence. A later mismatch makes `review.md` stale. Reviewers are read-only; the only product write is the final atomic replacement of `review.md`.
+
+## 3. Run Deterministic Checks
+
+Check decision conformance, plan/execute evidence, approved verification commands, reviewer coverage, evidence containment, citation validity, deviations/deferred scope, and prohibited mutations. Never execute arbitrary shell text extracted from generated Markdown; approved commands run as explicit executable/argument arrays.
+
+## 4. Run Independent Reviewers
+
+UltraPlan owns bounded fan-out and does not assume a reviewer runtime can spawn subagents. Run one structured reviewer per selected contract and one for the technical handbook.
+
+Each reviewer classifies applicability as `direct`, `partial`, `not_triggered`, or `explicitly_deferred`; reports conformance, severity, contained evidence, issue, and recommended action; and returns schema-versioned structured data without writing files. The canonical result uses `schemaVersion: 1`, the exact assigned `coverageId`, a non-empty summary, and findings with unique stable IDs, valid severities/applicability, and contained line citations for every `direct` or `partial` finding. Confirmed conformance belongs in the summary; findings are reserved for actionable deviations. Missing, malformed, duplicate, or failed mandatory reviewer results remain failures and are never silently dropped.
+
+Structured-result repair is bounded: first repair in the retained session when possible, then make at most one fresh-session fallback. Persist only schema- and citation-valid checkpoints, resume compatible completed coverage by default, and reserve a full restart for an explicitly incompatible schema, model, or input fingerprint.
+
+## 5. Synthesize `review.md`
+
+Collect all available results even when one fails. Write sections for Review Context, Input Fingerprint And Scope, Decision Conformance, Plan Execution, Verification Evidence, Contract Conformance, Technical Handbook Conformance, Applicability And Deferred Scope, Findings, Deviations, and Final Assessment.
+
+Product code computes the verdict:
+
+- `pass`: all mandatory work completed; no applicable blocker/high finding;
+- `pass_with_findings`: all mandatory work completed; only medium/low/info findings;
+- `fail`: blocker/high finding, failed required verification, invalid evidence, or missing mandatory reviewer;
+- `blocked`: required inputs, scope, runtime/model, or verification environment unavailable.
+
+An LLM may summarize but cannot choose or override the verdict.
+
+## 6. Validate And Replace
+
+Validate required sections, selected-contract/handbook coverage, failed-reviewer disclosure, contained citations, severity/verdict consistency, fingerprint/scope, redaction, and absence of smoke claims. Write atomically. A failed/cancelled run must not corrupt the last complete artifact. A successful explicitly started review may replace an older manual or generated `review.md`.
+
+## 7. TUI Parity
+
+The TUI exposes the same typed review use case as the CLI: readiness, dry-run, prompt preview, confirmation, scope/contracts, progress, cancellation, findings, verdict, rerun, recovery, and `review.md` preview. It must not call CLI handlers or parse terminal output.
+
+## Stop Conditions
+
+Return `blocked` before execution for missing/invalid inputs, unresolved catalog entries, ambiguous implementation scope, or unavailable review runtime/model. Return `fail`, with a synthesized review where possible, for failed verification, invalid/missing mandatory reviewer evidence, or applicable blocker/high findings.
+[0m
+[0m$ [0mrg -n -i "smoke|review" internal/workspace/scaffold/templates/* internal/workspace/scaffold/prompts/* -l 2>/dev/null; ls internal/workspace/scaffold/templates internal/workspace/scaffold/prompts
+internal/workspace/scaffold/templates/project-index.md
+internal/workspace/scaffold/prompts/smoke.md
+internal/workspace/scaffold/templates/sprint-reasoning.md
+internal/workspace/scaffold/prompts/review.md
+internal/workspace/scaffold/prompts/meta-plan.md
+internal/workspace/scaffold/prompts/execute-sprint.md
+internal/workspace/scaffold/templates/sprint-index.md
+internal/workspace/scaffold/templates/review.md
+internal/workspace/scaffold/templates/smoke.md
+internal/workspace/scaffold/prompts/create-sprint-reasoning.md
+internal/workspace/scaffold/templates/requirements.md
+internal/workspace/scaffold/prompts/create-sprint-index.md
+internal/workspace/scaffold/templates/README.md
+internal/workspace/scaffold/prompts/create-requirements.md
+internal/workspace/scaffold/templates/sprint-plan.md
+internal/workspace/scaffold/prompts:
+base.md
+create-area-reasoning.md
+create-code-context.md
+create-requirements.md
+create-sprint-index.md
+create-sprint-reasoning.md
+create-technical-handbook.md
+execute-sprint.md
+meta-plan.md
+meta-synthesize.md
+plan-sprint.md
+review.md
+smoke.md
+synthesize.md
+
+internal/workspace/scaffold/templates:
+code-context.md
+meta-report.md
+project-index.md
+README.md
+repo-analysis.md
+report.md
+requirements.md
+review.md
+smoke.md
+sprint-index.md
+sprint-plan.md
+sprint-reasoning.md
+technical-handbook.md
+[0m
+[0m$ [0mrg -n -i "smoke|review" internal/web/operation_handlers.go | head -25
+34:	ForceReview       bool     `json:"force_review,omitempty"`
+35:	RestartReview     bool     `json:"restart_review,omitempty"`
+37:	ReviewFocus       []string `json:"review_focus,omitempty"`
+114:	if confirmation.Request.Kind == app.OperationSmokeStart || confirmation.Request.Kind == app.OperationSmokeDryRun {
+115:		dto.Harness = map[string]any{"kind": "configured_smoke_harness"}
+598:		ForceReview: options.ForceReview, RestartReview: options.RestartReview, OverrideRationale: options.OverrideRationale,
+599:		ReviewFocus: options.ReviewFocus, Sources: options.Sources, Dimensions: options.Dimensions, Parallelism: options.Parallelism,
+607:	case "prompt-preview", "sprint-prompt":
+642:	case "review", "review-start":
+644:			req.Kind = app.OperationReviewStatus
+646:			req.Kind = app.OperationReviewDryRun
+648:			req.Kind = app.OperationReviewStart
+650:	case "review-status":
+651:		req.Kind = app.OperationReviewStatus
+652:	case "review-dry-run":
+653:		req.Kind = app.OperationReviewDryRun
+654:	case "smoke", "smoke-start":
+656:			req.Kind = app.OperationSmokeStatus
+658:			req.Kind = app.OperationSmokeDryRun
+660:			req.Kind = app.OperationSmokeStart
+662:	case "smoke-status":
+663:		req.Kind = app.OperationSmokeStatus
+664:	case "smoke-dry-run":
+665:		req.Kind = app.OperationSmokeDryRun
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_inventory_test.go[90m [limit=80, command=rg -n -i "smoke|review" internal/tui/*.go | grep -v _test | grep -v "^.*doc.go" | head -20, workdir=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go][0m
+[0m
+[0m$ [0mrg -n "smoke|review" internal/tui/views.go internal/tui/*.go -i | grep -v _test | head -15 && rg -n "func DeriveStages|StageReview|StageSmoke" internal/sprint/flow.go | head
+internal/tui/doc.go:7:// library types, navigation, key handling, preview state, rendering, and
+internal/tui/doc.go:12:// review, and smoke operation, plus resumable study run-loop operations. Prompt previews
+internal/tui/doc.go:17:// alternate smoke/issue artifacts, or persist TUI-specific state.
+internal/tui/app.go:170:			if item, ok := m.model.selectedItem(); ok && item.Validation != nil && m.model.Focus == FocusContent && m.model.Preview == nil {
+internal/tui/app.go:185:			if item, ok := m.model.selectedItem(); ok && item.Path != "" && m.model.Focus == FocusContent && m.model.Preview == nil {
+internal/tui/app.go:186:				return m, m.previewCmd()
+internal/tui/app.go:201:		case ActionClosePreview:
+internal/tui/app.go:219:	case LoadMsg, RefreshMsg, PreviewMsg, ValidationMsg, ConfirmationMsg:
+internal/tui/app.go:391:func (m teaModel) previewCmd() tea.Cmd {
+internal/tui/app.go:395:			return PreviewMsg{Result: app.ArtifactPreviewResult{Error: "no previewable artifact selected"}, Route: m.model.currentRoute(), Title: "Preview"}
+internal/tui/app.go:397:		result, err := m.model.UseCases.PreviewArtifact(m.ctx, item.Path)
+internal/tui/app.go:398:		return PreviewMsg{Result: result, Err: err, Route: m.model.currentRoute(), Title: item.Label}
+internal/tui/views.go:45:	} else if m.Preview != nil {
+internal/tui/views.go:46:		renderPreview(&body, m, width)
+internal/tui/views.go:53:	if m.Preview != nil {
+52:		if req.To == StageReview || req.To == StageSmoke {
+106:	if req.To == StageReview || req.To == StageSmoke {
+197:	case StageExecute, StageReview, StageSmoke:
+349:	if stage != StageRequirements && stage != StageCodeContext && stage != StageSprintIndex && stage != StageTechnicalHandbook && stage != StageAreaReasoning && stage != StageReasoning && stage != StagePlan && stage != StageExecute && stage != StageReview && stage != StageSmoke {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/flow.go[90m [limit=120][0m
+[0m
+[0m$ [0mrg -n "loadReviewAsset|sprintPromptTemplate" internal/sprint/prompts.go internal/sprint/*.go | grep -v _test | head && rg -n "Automated Sprint Review|Review Context" internal/workspace/scaffold/prompts/review.md internal/workspace/scaffold/templates/review.md | head
+internal/sprint/prompts.go:241:func sprintPromptTemplate(root, rel string) (string, string) {
+internal/sprint/prompts.go:267:	return sprintPromptTemplate(root, rel)
+internal/sprint/prompts.go:271:	content, source := sprintPromptTemplate(root, rel)
+internal/sprint/prompts.go:241:func sprintPromptTemplate(root, rel string) (string, string) {
+internal/sprint/prompts.go:267:	return sprintPromptTemplate(root, rel)
+internal/sprint/prompts.go:271:	content, source := sprintPromptTemplate(root, rel)
+internal/sprint/smoke_author.go:213:	body, source := sprintPromptTemplate(s.root, "prompts/smoke.md")
+internal/sprint/review.go:192:	manifest.PromptTemplate, assetErr = loadReviewAsset(s.root, "prompts/review.md", []string{"Automated Sprint Review"})
+internal/sprint/review.go:196:	manifest.OutputTemplate, assetErr = loadReviewAsset(s.root, "templates/review.md", []string{"Review Context", "Final Assessment"})
+internal/sprint/review.go:1739:func loadReviewAsset(root, rel string, required []string) (string, error) {
+internal/workspace/scaffold/prompts/review.md:1:# Automated Sprint Review
+internal/workspace/scaffold/templates/review.md:10:## Review Context
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompts.go[90m [offset=230, limit=70][0m
+[0m
+[0m$ [0mrg -n "RenderReviewMarkdown|ValidateReviewContent|sections" internal/sprint/review_test.go | head -20 && rg -n "RenderSmoke|ValidateSmokeContent" internal/sprint/smoke_test.go | head
+360:	rendered := RenderReviewMarkdown(m, ReviewResult{Status: ReviewCompleted, Verdict: verdict, Findings: fs})
+84:func TestRenderSmokeIncludesDetailedIssueFinding(t *testing.T) {
+85:	content := RenderSmoke(SmokeResult{
+413:	if err != nil || len(ValidateSmokeContent(string(prior))) != 0 {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review_test.go[90m [limit=60, offset=340][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/validation.go[90m [limit=60][0m
+[0m
+[0m$ [0mrg -n "Level|Suite|Test|ForceReview" internal/app/sprint_commands.go | head -20; rg -n "Level|Suite\b|Test\b|ForceReview|ReviewFocus" internal/web/operation_handlers.go | head -15
+416:				if progress.Test != "" {
+417:					fmt.Fprintf(deps.stderr, " test=%s", progress.Test)
+418:				} else if progress.Suite != "" {
+419:					fmt.Fprintf(deps.stderr, " suite=%s", progress.Suite)
+431:			durable, err = beginDurableCLICommand(deps, OperationRequest{Kind: OperationSmokeStart, Project: args[0], Sprint: args[1], Stage: "smoke", Level: string(req.Level), Suite: req.Suite, Test: req.Test})
+550:				req.Level = value
+552:				req.Suite = value
+554:				req.Test = value
+565:			req.ForceReview = true
+577:	for _, value := range []string{req.Level, req.Suite, req.Test} {
+585:	if req.ForceReview && strings.TrimSpace(req.OverrideRationale) == "" {
+706:			req.Smoke.ForceReview = true
+723:	if req.Smoke.ForceReview && strings.TrimSpace(req.Smoke.OverrideRationale) == "" {
+799:				req.Smoke.Level = value
+801:				req.Smoke.Suite = value
+803:				req.Smoke.Test = value
+814:			req.Smoke.ForceReview = true
+832:	for _, value := range []string{req.Smoke.Level, req.Smoke.Suite, req.Smoke.Test} {
+840:	if req.Smoke.ForceReview && strings.TrimSpace(req.Smoke.OverrideRationale) == "" {
+1261:Requires complete execute evidence, obtains a current review, then applies the review gate before smoke. Focused review results promote only with complete same-fingerprint retained coverage. Test/level smoke is diagnostic unless the harness proves containing coverage. A review override requires --yes and a rationale, remains diagnostic, and cannot improve the overall assessment.
+30:	Level             string   `json:"level,omitempty"`
+31:	Suite             string   `json:"suite,omitempty"`
+32:	Test              string   `json:"test,omitempty"`
+34:	ForceReview       bool     `json:"force_review,omitempty"`
+37:	ReviewFocus       []string `json:"review_focus,omitempty"`
+597:		Level: options.Level, Suite: options.Suite, Test: options.Test, Timeout: options.Timeout,
+598:		ForceReview: options.ForceReview, RestartReview: options.RestartReview, OverrideRationale: options.OverrideRationale,
+599:		ReviewFocus: options.ReviewFocus, Sources: options.Sources, Dimensions: options.Dimensions, Parallelism: options.Parallelism,
+[0m
+[0m$ [0mrg -n "selected-review-protocol|ReviewProtocols" internal/sprint/direct_inputs.go internal/sprint/reasoning.go | head
+internal/sprint/reasoning.go:31:	ReviewProtocols    []SelectedItem
+internal/sprint/reasoning.go:48:		ReviewProtocols:  append([]SelectedItem(nil), index.ReviewProtocols...),
+internal/sprint/reasoning.go:154:	for _, item := range manifest.ReviewProtocols {
+internal/sprint/reasoning.go:264:	for _, item := range manifest.ReviewProtocols {
+internal/sprint/direct_inputs.go:153:		{"selected-review-protocol", manifest.ReviewProtocols},
+[0m
+[0m$ [0mrg -n "SectionSmokeHarnesses|Smoke Harnesses" internal --type go | grep -v _test && rg -n "smoke" internal/platform/config/config.go -i | head
+internal/sprint/smoke_protocol.go:118:		if entry.Section == project.SectionSmokeHarnesses {
+internal/sprint/smoke_protocol.go:123:		return smokePrepared{}, smokeError("smoke_catalog", "catalog", "exactly one smoke harness is required", "Add one current Smoke Harnesses row to project-index.md.", nil)
+internal/sprint/review.go:1350:		if strings.EqualFold(trimmed, "## Smoke Harnesses") {
+internal/project/validation.go:44:			add(projectRel(p.Name, "project-index.md"), "duplicate smoke harness source", "Project Scope declares Smoke Harness Directory even though the Smoke Harnesses catalog is authoritative", "Remove Smoke Harness Directory from Project Scope and keep the root only in the Smoke Harnesses catalog Path column.", nil)
+internal/project/validation.go:49:			if entry.Section == SectionSmokeHarnesses {
+internal/project/domain.go:16:	SectionSmokeHarnesses             CatalogSection = "Smoke Harnesses"
+internal/project/index.go:16:	string(SectionSmokeHarnesses):             SectionSmokeHarnesses,
+internal/project/index.go:91:	entry.External = isExternalPath(entry.Path) || (section == SectionSmokeHarnesses && filepath.IsAbs(entry.Path))
+internal/project/index.go:92:	if section == SectionSmokeHarnesses && entry.Manifest == "" {
+19:	Smoke      Smoke      `json:"smoke"`
+58:	SmokeModel               string `json:"smoke_model"`
+59:	SmokeVariant             string `json:"smoke_variant"`
+65:type Smoke struct {
+125:		{Key: "ULTRAPLAN_SMOKE_DISCOVERY_TIMEOUT", Field: "smoke.discovery_timeout"},
+126:		{Key: "ULTRAPLAN_SMOKE_RUN_TIMEOUT", Field: "smoke.run_timeout"},
+127:		{Key: "ULTRAPLAN_SMOKE_STDOUT_LIMIT", Field: "smoke.stdout_limit"},
+128:		{Key: "ULTRAPLAN_SMOKE_STDERR_LIMIT", Field: "smoke.stderr_limit"},
+129:		{Key: "ULTRAPLAN_SMOKE_CLEANUP_GRACE", Field: "smoke.cleanup_grace"},
+144:	for _, field := range []string{"version", "runtime.default", "models.default", "models.primary", "models.backup", "execution.default_variant", "execution.default_parallel", "execution.default_timeout", "execution.default_retries", "planning.requirements_model", "planning.requirements_variant", "planning.code_context_model", "planning.code_context_variant", "planning.sprint_index_model", "planning.sprint_index_variant", "planning.technical_handbook_model", "planning.technical_handbook_variant", "planning.area_reasoning_model", "planning.area_reasoning_variant", "planning.reasoning_model", "planning.reasoning_variant", "planning.plan_model", "planning.plan_variant", "planning.execute_model", "planning.execute_variant", "planning.review_model", "planning.review_variant", "planning.smoke_model", "planning.smoke_variant", "smoke.discovery_timeout", "smoke.run_timeout", "smoke.stdout_limit", "smoke.stderr_limit", "smoke.cleanup_grace", "smoke.environment", "run_control.full_history", "run_control.tombstone_history", "run_control.workspace_quota_bytes", "logging.format", "logging.level", "agentwrap.executable", "agentwrap.extra_args", "agentwrap.env", "agentwrap.stderr_limit", "agentwrap.required_health", "agentwrap.required_capabilities", "agentwrap.sandbox", "agentwrap.permission_mode", "agentwrap.permission_default", "agentwrap.permission_unsupported_behavior"} {
+[0m
+[0m$ [0msed -n 125,150p /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/project-index.md
+| Template | Path | Useful For | Status |
+|---|---|---|---|
+| Architecture | `system/reasoning/architecture_reasoning_template.md` | Module boundaries, dependency direction, package layout, runtime/product separation | Current |
+| API Design | `system/reasoning/api-design-reasoning-template.md` | Phase 4 HTTP resources, versioning, errors, confirmation, cancellation, and SSE semantics | Current |
+| Frontend | `system/reasoning/frontend-reasoning-template.md` | Phase 4 server-rendered browser flows, state placement, progressive enhancement, and accessibility | Current |
+
+## Smoke Harnesses
+
+| Harness | Path | Manifest | Evidence | Useful For | Status |
+|---|---|---|---|---|---|
+| `ultraplan-go-smoke` | `/home/antonioborgerees/coding/ultraplan/ultraplan-go-smoke/` | `ultraplan-smoke.json` | `runs/` and `issues/` under the harness root | Existing real-runtime evidence for `ultraplan-go`, including OpenCode execution, CLI/TUI behavior, diagnostics, persisted state, cancellation, security, redaction, and sprint-specific deep-smoke suites. `smoke.md` links the relevant run IDs and evidence paths. | Harness current; versioned Phase 3 manifest planned in Sprint 27 |
+
+## Prior Decisions
+
+None yet — this is the first project.
+
+## Review Protocols
+
+| Protocol | Path | Required When |
+|---|---|---|
+| Architecture Review | `system/protocols/architecture-review-protocol.md` | Package layout, dependency boundaries, runtime/module separation |
+| Sprint Review | `system/protocols/review-sprint-protocol.md` | Every completed implementation sprint in Phase 3; writes the current `review.md` |
+| Deep Smoke Sprint | `system/protocols/deep-smoke-sprint-protocol.md` | Completed sprints that need real-runtime smoke evidence |
+
+## Maintenance Notes
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=80, offset=1310][0m
+[0m
+[0m$ [0mgo test ./internal/sprint/ ./internal/project/ 2>&1 | tail -5
+ok  	github.com/Antonio7098/ultraplan-go/internal/sprint	(cached)
+ok  	github.com/Antonio7098/ultraplan-go/internal/project	(cached)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review_runtime_validation.go[90m [limit=90][0m
+[0m
+[0m$ [0mrg -n "ValidateReviewContent|ValidateSmokeContent" internal --type go | grep -v "_test\|func \|review.go\|smoke.go:" | head; rg -rn "scope-kind|scope_kind|diagnostic" internal/app internal/web internal/tui --type go -i | grep -v _test | head
+internal/sprint/smoke_protocol.go:193:		review.Stale = readErr != nil || len(ValidateReviewContent(content, validationManifest)) > 0 || review.ArtifactDigest == "" || hashBytes([]byte(content)) != review.ArtifactDigest
+internal/sprint/verify.go:197:			if prepareErr == nil && len(findings) == 0 && len(ValidateReviewContent(string(data), validationManifest)) > 0 {
+internal/sprint/verify.go:229:			if len(ValidateSmokeContent(string(data))) > 0 {
+internal/sprint/service.go:178:				refreshed.Review.Stale = readErr != nil || len(ValidateReviewContent(content, validationManifest)) > 0 || refreshed.Review.ArtifactDigest == "" || hashBytes([]byte(content)) != refreshed.Review.ArtifactDigest
+internal/sprint/service.go:184:			invalid := pathErr != nil || readErr != nil || len(ValidateSmokeContent(string(data))) > 0
+internal/tui/views.go:			fmt.Fprintf(b, "    n override: %s\n", sprint.Smoke.Override.Rationale)
+internal/tui/model.go:				navItem{Label: "Run Smoke n Override [EXTERNAL]", Operation: &app.OperationRequest{Kind: app.OperationSmokeStart, Project: route.Project, Sprint: route.Sprint, Stage: "smoke", ForceReview: true, OverrideRationale: "operator requested guarded TUI n evidence"}})
+internal/web/security.go:	ns io.Writer
+internal/web/security.go:func newSecurityMiddleware(authority string, ns io.Writer, now func() time.Time, requestID func() string) *securityMiddleware {
+internal/web/security.go:	if ns == nil {
+internal/web/security.go:		ns = io.Discard
+internal/web/security.go:		ns: ns,
+internal/web/security.go:		fmt.Fprintf(m.ns,
+internal/web/security.go:	fmt.Fprintf(m.ns, "event=security_rejection request_id=%s route=%s method=%s status=%d code=%s\n", requestID(r.Context()), normalizedRoute(r.URL.Path), r.Method, status, code)
+internal/web/routes.go:	ns io.Writer
+[0m
+[0m$ [0mrg -n "ValidateReviewContent|ValidateSmokeContent" internal/sprint/*_test.go | head
+internal/sprint/smoke_test.go:413:	if err != nil || len(ValidateSmokeContent(string(prior))) != 0 {
+[0m
+[0m$ [0mrg -n "ValidateReviewContent" internal/sprint/review_test.go internal/app/*_test.go internal/web/*_test.go | head; rg -n "missing required section|Final Assessment" internal/sprint/review_test.go internal/web/api_compatibility_test.go | head
+(no output)
+[0m
+[0m$ [0mrg -n "\.ValidateReview\(|Review\(ctx|service.Review\(|\.Review\(" internal/sprint/review_test.go internal/app/*_test.go | head -12; rg -c "func Test" internal/sprint/review_test.go internal/sprint/smoke_test.go
+internal/sprint/review_test.go:142:	result, err := service.Review(context.Background(), "proj", "01", ReviewRequest{Concurrency: 2})
+internal/sprint/review_test.go:154:	if validation, err := service.ValidateReview("proj", "01"); err != nil || !validation.Valid() {
+internal/sprint/review_test.go:158:	failed, err := service.Review(context.Background(), "proj", "01", ReviewRequest{Concurrency: 2})
+internal/sprint/review_test.go:238:	first, err := service.Review(ctx, "proj", "01", ReviewRequest{Concurrency: 1})
+internal/sprint/review_test.go:259:	resumed, err := service.Review(context.Background(), "proj", "01", ReviewRequest{Concurrency: 1})
+internal/sprint/review_test.go:280:	if _, err := service.Review(ctx, "proj", "01", ReviewRequest{Concurrency: 1}); err == nil {
+internal/sprint/review_test.go:286:	resumed, err := service.Review(context.Background(), "proj", "01", ReviewRequest{Concurrency: 1})
+internal/sprint/review_test.go:305:	if _, err := service.Review(ctx, "proj", "01", ReviewRequest{Concurrency: 1}); err == nil {
+internal/sprint/review_test.go:310:	restarted, err := service.Review(context.Background(), "proj", "01", ReviewRequest{Concurrency: 1, Restart: true})
+internal/sprint/review_test.go:549:	result, err := service.Review(context.Background(), "proj", "01", ReviewRequest{Concurrency: 2})
+internal/sprint/review_test.go:562:	result, err := service.Review(context.Background(), "proj", "01", ReviewRequest{Concurrency: 2})
+internal/sprint/review_test.go:575:	result, err := service.Review(context.Background(), "proj", "01", ReviewRequest{Concurrency: 2})
+internal/sprint/smoke_test.go:14
+internal/sprint/review_test.go:21
+[0m
+[0m$ [0mrg -n "Required Review Protocols|Review Protocols|Smoke Harnesses" internal/workspace/scaffold/prompts/create-sprint-index.md internal/workspace/scaffold/templates/sprint-index.md internal/workspace/scaffold/templates/project-index.md | head
+internal/workspace/scaffold/templates/sprint-index.md:53:## Required Review Protocols
+internal/workspace/scaffold/templates/sprint-index.md:55:All paths must appear in the project index's "Review Protocols" table.
+internal/workspace/scaffold/templates/project-index.md:47:## Review Protocols
+[0m

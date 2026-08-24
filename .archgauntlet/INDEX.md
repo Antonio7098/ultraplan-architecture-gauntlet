@@ -86,14 +86,14 @@ Target: `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go`
 
 ## Change
 
-- `change-01` — **pending** — Add sprint stage — [result](runs/change-01/stdout.md)
-- `change-02` — **pending** — Add local interface — [result](runs/change-02/stdout.md)
-- `change-03` — **pending** — Add runtime adapter — [result](runs/change-03/stdout.md)
-- `change-04` — **pending** — Add run event — [result](runs/change-04/stdout.md)
-- `change-05` — **pending** — Change product-state schema — [result](runs/change-05/stdout.md)
-- `change-06` — **pending** — Add review/smoke strategy — [result](runs/change-06/stdout.md)
-- `change-07` — **pending** — Change reasoning resolution — [result](runs/change-07/stdout.md)
-- `change-08` — **pending** — Add execution status — [result](runs/change-08/stdout.md)
+- `change-01` — **succeeded** — Add sprint stage — [result](runs/change-01/stdout.md)
+- `change-02` — **succeeded** — Add local interface — [result](runs/change-02/stdout.md)
+- `change-03` — **succeeded** — Add runtime adapter — [result](runs/change-03/stdout.md)
+- `change-04` — **succeeded** — Add run event — [result](runs/change-04/stdout.md)
+- `change-05` — **succeeded** — Change product-state schema — [result](runs/change-05/stdout.md)
+- `change-06` — **succeeded** — Add review/smoke strategy — [result](runs/change-06/stdout.md)
+- `change-07` — **succeeded** — Change reasoning resolution — [result](runs/change-07/stdout.md)
+- `change-08` — **succeeded** — Add execution status — [result](runs/change-08/stdout.md)
 
 ## Challenge
 
