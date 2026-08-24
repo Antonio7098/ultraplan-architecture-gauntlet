@@ -1,4 +1,1124 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m# [0mTodos
+[•] Map package structure and import graph in ultraplan-go
+[ ] Detect cycles and cross-module import direction violations
+[ ] Analyze fan-in/fan-out hotspots and boundary bypass
+[ ] Investigate shared helpers that became domain owners
+[ ] Search counter-evidence (tests, wiring, docs)
+[ ] Write findings report
+[0m
+[0m$ [0mgit log --oneline -3 && go version
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+go version go1.26.6-X:nodwarf5 linux/amd64
+[0m
+[0m$ [0mls && find . -type d -name node_modules -prune -o -type f -name "*.go" -print | wc -l
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+291
+[0m
+[0m$ [0mfind . -type d -name node_modules -prune -o -type d -name dist -prune -o -type d -print | sort
+.
+./cmd
+./cmd/ultraplan
+./docs
+./docs/plans
+./docs/reports
+./.git
+./.git/hooks
+./.github
+./.github/workflows
+./.git/info
+./.git/logs
+./.git/logs/refs
+./.git/logs/refs/heads
+./.git/logs/refs/remotes
+./.git/logs/refs/remotes/origin
+./.git/objects
+./.git/objects/info
+./.git/objects/pack
+./.git/refs
+./.git/refs/heads
+./.git/refs/remotes
+./.git/refs/remotes/origin
+./.git/refs/tags
+./internal
+./internal/app
+./internal/codeextract
+./internal/platform
+./internal/platform/config
+./internal/platform/filesystem
+./internal/platform/logging
+./internal/platform/process
+./internal/platform/runtime
+./internal/productstate
+./internal/project
+./internal/runcontrol
+./internal/sprint
+./internal/study
+./internal/tui
+./internal/web
+./internal/web/static
+./internal/web/static/css
+./internal/web/static/js
+./internal/web/templates
+./internal/web/templates/components
+./internal/web/templates/layouts
+./internal/web/templates/pages
+./internal/web/templates/primitives
+./internal/workspace
+./internal/workspace/scaffold
+./internal/workspace/scaffold/prompts
+./internal/workspace/scaffold/templates
+./scripts
+[0m
+[0m$ [0mgo list -deps ./... > /tmp/opencode/deps.txt 2>&1; go list -f '{{.ImportPath}} -> {{join .Imports "\n  "}}' ./... > /tmp/opencode/imports.txt; wc -l /tmp/opencode/imports.txt
+237 /tmp/opencode/imports.txt
+[0m
+[0m$ [0mgrep -E 'ultraplan' /tmp/opencode/imports.txt
+github.com/Antonio7098/ultraplan-go/cmd/ultraplan -> context
+  github.com/Antonio7098/ultraplan-go/internal/app
+  github.com/Antonio7098/ultraplan-go/internal/tui
+  github.com/Antonio7098/ultraplan-go/internal/web
+github.com/Antonio7098/ultraplan-go/internal/app -> bufio
+  github.com/Antonio7098/ultraplan-go/internal/codeextract
+  github.com/Antonio7098/ultraplan-go/internal/platform/config
+  github.com/Antonio7098/ultraplan-go/internal/platform/runtime
+  github.com/Antonio7098/ultraplan-go/internal/productstate
+  github.com/Antonio7098/ultraplan-go/internal/project
+  github.com/Antonio7098/ultraplan-go/internal/runcontrol
+  github.com/Antonio7098/ultraplan-go/internal/sprint
+  github.com/Antonio7098/ultraplan-go/internal/study
+  github.com/Antonio7098/ultraplan-go/internal/workspace
+github.com/Antonio7098/ultraplan-go/internal/codeextract -> encoding/json
+github.com/Antonio7098/ultraplan-go/internal/platform/config -> bufio
+github.com/Antonio7098/ultraplan-go/internal/platform/filesystem -> 
+github.com/Antonio7098/ultraplan-go/internal/platform/logging -> encoding/json
+  github.com/Antonio7098/ultraplan-go/internal/platform/config
+github.com/Antonio7098/ultraplan-go/internal/platform/process -> bytes
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime -> context
+  github.com/Antonio7098/ultraplan-go/internal/platform/config
+github.com/Antonio7098/ultraplan-go/internal/productstate -> context
+github.com/Antonio7098/ultraplan-go/internal/project -> fmt
+  github.com/Antonio7098/ultraplan-go/internal/workspace
+github.com/Antonio7098/ultraplan-go/internal/runcontrol -> bufio
+github.com/Antonio7098/ultraplan-go/internal/sprint -> bufio
+  github.com/Antonio7098/ultraplan-go/internal/platform/config
+  github.com/Antonio7098/ultraplan-go/internal/platform/process
+  github.com/Antonio7098/ultraplan-go/internal/platform/runtime
+  github.com/Antonio7098/ultraplan-go/internal/productstate
+  github.com/Antonio7098/ultraplan-go/internal/project
+  github.com/Antonio7098/ultraplan-go/internal/workspace
+github.com/Antonio7098/ultraplan-go/internal/study -> bufio
+  github.com/Antonio7098/ultraplan-go/internal/platform/runtime
+  github.com/Antonio7098/ultraplan-go/internal/productstate
+  github.com/Antonio7098/ultraplan-go/internal/workspace
+github.com/Antonio7098/ultraplan-go/internal/tui -> context
+  github.com/Antonio7098/ultraplan-go/internal/app
+github.com/Antonio7098/ultraplan-go/internal/web -> bytes
+  github.com/Antonio7098/ultraplan-go/internal/app
+github.com/Antonio7098/ultraplan-go/internal/workspace -> embed
+[0m
+[0m$ [0mgo list -f '{{.ImportPath}} | {{join .TestImports ";"}}' ./... | grep -E 'ultraplan-go' 
+github.com/Antonio7098/ultraplan-go/cmd/ultraplan | 
+github.com/Antonio7098/ultraplan-go/internal/app | bytes;context;encoding/json;errors;fmt;github.com/Antonio7098/ultraplan-go/internal/platform/config;github.com/Antonio7098/ultraplan-go/internal/platform/runtime;github.com/Antonio7098/ultraplan-go/internal/runcontrol;github.com/Antonio7098/ultraplan-go/internal/sprint;github.com/Antonio7098/ultraplan-go/internal/study;os;path/filepath;reflect;runtime;strings;testing;time
+github.com/Antonio7098/ultraplan-go/internal/codeextract | bytes;os;path/filepath;testing
+github.com/Antonio7098/ultraplan-go/internal/platform/config | os;path/filepath;testing;time
+github.com/Antonio7098/ultraplan-go/internal/platform/filesystem | 
+github.com/Antonio7098/ultraplan-go/internal/platform/logging | bytes;encoding/json;strings;testing
+github.com/Antonio7098/ultraplan-go/internal/platform/process | context;os;path/filepath;runtime;strconv;strings;syscall;testing;time
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime | context;errors;github.com/Antonio7098/agentwrap;strings;testing;time
+github.com/Antonio7098/ultraplan-go/internal/productstate | 
+github.com/Antonio7098/ultraplan-go/internal/project | os;path/filepath;strings;testing
+github.com/Antonio7098/ultraplan-go/internal/runcontrol | bytes;context;database/sql;encoding/json;errors;fmt;go/parser;go/token;os;os/exec;path/filepath;sort;strconv;strings;sync;testing;time
+github.com/Antonio7098/ultraplan-go/internal/sprint | context;encoding/json;errors;fmt;github.com/Antonio7098/agentwrap;github.com/Antonio7098/ultraplan-go/internal/platform/config;github.com/Antonio7098/ultraplan-go/internal/platform/process;github.com/Antonio7098/ultraplan-go/internal/platform/runtime;github.com/Antonio7098/ultraplan-go/internal/project;github.com/Antonio7098/ultraplan-go/internal/workspace;os;path/filepath;reflect;strings;sync;sync/atomic;testing;time;unicode/utf8
+github.com/Antonio7098/ultraplan-go/internal/study | bufio;context;encoding/json;errors;github.com/Antonio7098/ultraplan-go/internal/platform/runtime;os;path/filepath;strings;sync;testing;time
+github.com/Antonio7098/ultraplan-go/internal/tui | context;github.com/Antonio7098/ultraplan-go/internal/app;github.com/Antonio7098/ultraplan-go/internal/runcontrol;github.com/Antonio7098/ultraplan-go/internal/sprint;github.com/charmbracelet/bubbletea;strings;testing;time
+github.com/Antonio7098/ultraplan-go/internal/web | bytes;context;encoding/json;errors;fmt;github.com/Antonio7098/ultraplan-go/internal/app;github.com/Antonio7098/ultraplan-go/internal/runcontrol;github.com/Antonio7098/ultraplan-go/internal/sprint;go/parser;go/token;net;net/http;net/http/httptest;net/url;os;os/exec;path/filepath;reflect;regexp;runtime;sort;strconv;strings;sync;testing;testing/fstest;time
+github.com/Antonio7098/ultraplan-go/internal/workspace | os;path/filepath;strings;testing
+[0m
+[0m$ [0mwc -l $(find internal cmd -name '*.go' | sort) | sort -rn | head -40
+64635 total
+   1768 internal/sprint/review.go
+   1502 internal/app/study_commands.go
+   1402 internal/sprint/service.go
+   1318 internal/app/sprint_commands.go
+   1175 internal/runcontrol/sqlite.go
+    966 internal/app/sprint_commands_test.go
+    940 internal/study/run_loop.go
+    935 internal/app/web_usecases.go
+    852 internal/web/handlers.go
+    838 internal/web/operation_handlers.go
+    790 internal/app/operations.go
+    727 internal/sprint/execute.go
+    724 internal/sprint/smoke.go
+    724 internal/platform/runtime/runtime.go
+    680 internal/sprint/review_test.go
+    667 internal/web/operations.go
+    667 internal/app/run_control.go
+    666 internal/tui/views.go
+    657 internal/sprint/smoke_protocol.go
+    614 internal/tui/model.go
+    578 internal/web/run_handlers.go
+    572 internal/runcontrol/lifecycle.go
+    566 internal/web/operations_test.go
+    549 internal/platform/config/config.go
+    535 internal/platform/runtime/runtime_test.go
+    533 internal/sprint/code_context.go
+    517 internal/sprint/smoke_test.go
+    517 internal/sprint/code_context_test.go
+    510 internal/app/run_commands.go
+    509 internal/sprint/prompt_context.go
+    504 internal/runcontrol/model.go
+    498 internal/sprint/verify.go
+    492 internal/tui/model_test.go
+    470 internal/runcontrol/sqlite_test.go
+    457 internal/web/security.go
+    454 internal/sprint/prompt_context_test.go
+    438 internal/workspace/skills.go
+    435 internal/web/templates_test.go
+    429 internal/web/routes.go
+[0m
+[0m$ [0mgo list -f '{{range .Imports}}{{printf "%s|%s\n" .ImportPath .}}{{end}}' ./internal/... ./cmd/... | grep ultraplan-go/internal | sort | uniq
+template: main:1:37: executing "main" at <.ImportPath>: can't evaluate field ImportPath in type string
+[0m
+[0m$ [0mgo list -f '{{printf "%s\n" .ImportPath}}{{range .Imports}}{{printf "  %s\n" .}}{{end}}' ./internal/... ./cmd/... | grep -v '^  [a-z/]' | grep -v '^$'
+github.com/Antonio7098/ultraplan-go/internal/app
+github.com/Antonio7098/ultraplan-go/internal/codeextract
+github.com/Antonio7098/ultraplan-go/internal/platform/config
+github.com/Antonio7098/ultraplan-go/internal/platform/filesystem
+github.com/Antonio7098/ultraplan-go/internal/platform/logging
+github.com/Antonio7098/ultraplan-go/internal/platform/process
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime
+github.com/Antonio7098/ultraplan-go/internal/productstate
+github.com/Antonio7098/ultraplan-go/internal/project
+github.com/Antonio7098/ultraplan-go/internal/runcontrol
+github.com/Antonio7098/ultraplan-go/internal/sprint
+github.com/Antonio7098/ultraplan-go/internal/study
+github.com/Antonio7098/ultraplan-go/internal/tui
+github.com/Antonio7098/ultraplan-go/internal/web
+github.com/Antonio7098/ultraplan-go/internal/workspace
+github.com/Antonio7098/ultraplan-go/cmd/ultraplan
+[0m
+[0m$ [0mgo list -deps -test ./internal/... 2>/dev/null | grep 'ultraplan-go/internal' | sort | uniq -c | sort -rn
+1 github.com/Antonio7098/ultraplan-go/internal/workspace.test
+      1 github.com/Antonio7098/ultraplan-go/internal/workspace [github.com/Antonio7098/ultraplan-go/internal/workspace.test]
+      1 github.com/Antonio7098/ultraplan-go/internal/workspace
+      1 github.com/Antonio7098/ultraplan-go/internal/web.test
+      1 github.com/Antonio7098/ultraplan-go/internal/web [github.com/Antonio7098/ultraplan-go/internal/web.test]
+      1 github.com/Antonio7098/ultraplan-go/internal/web
+      1 github.com/Antonio7098/ultraplan-go/internal/tui.test
+      1 github.com/Antonio7098/ultraplan-go/internal/tui [github.com/Antonio7098/ultraplan-go/internal/tui.test]
+      1 github.com/Antonio7098/ultraplan-go/internal/tui
+      1 github.com/Antonio7098/ultraplan-go/internal/study.test
+      1 github.com/Antonio7098/ultraplan-go/internal/study [github.com/Antonio7098/ultraplan-go/internal/study.test]
+      1 github.com/Antonio7098/ultraplan-go/internal/study
+      1 github.com/Antonio7098/ultraplan-go/internal/sprint.test
+      1 github.com/Antonio7098/ultraplan-go/internal/sprint [github.com/Antonio7098/ultraplan-go/internal/sprint.test]
+      1 github.com/Antonio7098/ultraplan-go/internal/sprint
+      1 github.com/Antonio7098/ultraplan-go/internal/runcontrol.test
+      1 github.com/Antonio7098/ultraplan-go/internal/runcontrol [github.com/Antonio7098/ultraplan-go/internal/runcontrol.test]
+      1 github.com/Antonio7098/ultraplan-go/internal/runcontrol
+      1 github.com/Antonio7098/ultraplan-go/internal/project.test
+      1 github.com/Antonio7098/ultraplan-go/internal/project [github.com/Antonio7098/ultraplan-go/internal/project.test]
+      1 github.com/Antonio7098/ultraplan-go/internal/project
+      1 github.com/Antonio7098/ultraplan-go/internal/productstate
+      1 github.com/Antonio7098/ultraplan-go/internal/platform/runtime.test
+      1 github.com/Antonio7098/ultraplan-go/internal/platform/runtime [github.com/Antonio7098/ultraplan-go/internal/platform/runtime.test]
+      1 github.com/Antonio7098/ultraplan-go/internal/platform/runtime
+      1 github.com/Antonio7098/ultraplan-go/internal/platform/process.test
+      1 github.com/Antonio7098/ultraplan-go/internal/platform/process [github.com/Antonio7098/ultraplan-go/internal/platform/process.test]
+      1 github.com/Antonio7098/ultraplan-go/internal/platform/process
+      1 github.com/Antonio7098/ultraplan-go/internal/platform/logging.test
+      1 github.com/Antonio7098/ultraplan-go/internal/platform/logging [github.com/Antonio7098/ultraplan-go/internal/platform/logging.test]
+      1 github.com/Antonio7098/ultraplan-go/internal/platform/logging
+      1 github.com/Antonio7098/ultraplan-go/internal/platform/filesystem
+      1 github.com/Antonio7098/ultraplan-go/internal/platform/config.test
+      1 github.com/Antonio7098/ultraplan-go/internal/platform/config [github.com/Antonio7098/ultraplan-go/internal/platform/config.test]
+      1 github.com/Antonio7098/ultraplan-go/internal/platform/config
+      1 github.com/Antonio7098/ultraplan-go/internal/codeextract.test
+      1 github.com/Antonio7098/ultraplan-go/internal/codeextract [github.com/Antonio7098/ultraplan-go/internal/codeextract.test]
+      1 github.com/Antonio7098/ultraplan-go/internal/codeextract
+      1 github.com/Antonio7098/ultraplan-go/internal/app.test
+      1 github.com/Antonio7098/ultraplan-go/internal/app [github.com/Antonio7098/ultraplan-go/internal/app.test]
+      1 github.com/Antonio7098/ultraplan-go/internal/app
+[0m
+[0m$ [0mfor p in app tui web runcontrol sprint study project workspace productstate codeextract; do echo "== $p =="; go list -f '{{range .Imports}}{{printf "%s " .}}{{end}}' ./internal/$p; echo; done
+== app ==
+bufio bytes context crypto/hmac crypto/rand crypto/sha256 encoding/base64 encoding/hex encoding/json errors flag fmt github.com/Antonio7098/ultraplan-go/internal/codeextract github.com/Antonio7098/ultraplan-go/internal/platform/config github.com/Antonio7098/ultraplan-go/internal/platform/runtime github.com/Antonio7098/ultraplan-go/internal/productstate github.com/Antonio7098/ultraplan-go/internal/project github.com/Antonio7098/ultraplan-go/internal/runcontrol github.com/Antonio7098/ultraplan-go/internal/sprint github.com/Antonio7098/ultraplan-go/internal/study github.com/Antonio7098/ultraplan-go/internal/workspace github.com/yuin/goldmark github.com/yuin/goldmark/extension io io/fs net os path/filepath runtime sort strconv strings sync time 
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515688415,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515688415,[]
+== tui ==
+context crypto/sha256 encoding/hex errors fmt github.com/Antonio7098/ultraplan-go/internal/app github.com/charmbracelet/bubbletea github.com/charmbracelet/glamour github.com/charmbracelet/glamour/ansi github.com/charmbracelet/glamour/styles github.com/charmbracelet/lipgloss io path/filepath strconv strings time 
+
+== web ==
+bytes context crypto/hmac crypto/rand crypto/sha256 crypto/subtle embed encoding/hex encoding/json errors fmt github.com/Antonio7098/ultraplan-go/internal/app html/template io io/fs net net/http net/url regexp sort strconv strings sync sync/atomic text/template/parse time 
+
+== runcontrol ==
+bufio context crypto/rand crypto/sha256 database/sql encoding/base32 encoding/base64 encoding/hex encoding/json errors fmt io io/fs modernc.org/sqlite net/url os path/filepath sort strconv strings sync sync/atomic time 
+
+== sprint ==
+bufio bytes context crypto/sha256 encoding/hex encoding/json errors fmt github.com/Antonio7098/agentwrap github.com/Antonio7098/ultraplan-go/internal/platform/config github.com/Antonio7098/ultraplan-go/internal/platform/process github.com/Antonio7098/ultraplan-go/internal/platform/runtime github.com/Antonio7098/ultraplan-go/internal/productstate github.com/Antonio7098/ultraplan-go/internal/project github.com/Antonio7098/ultraplan-go/internal/workspace io io/fs os os/exec path/filepath regexp sort strconv strings sync sync/atomic syscall time unicode/utf8 
+
+== study ==
+bufio bytes context crypto/sha256 encoding/csv encoding/hex encoding/json errors fmt github.com/Antonio7098/agentwrap github.com/Antonio7098/ultraplan-go/internal/platform/runtime github.com/Antonio7098/ultraplan-go/internal/productstate github.com/Antonio7098/ultraplan-go/internal/workspace gopkg.in/yaml.v3 io io/fs os os/exec path/filepath regexp runtime sort strconv strings sync syscall time 
+
+== project ==
+fmt github.com/Antonio7098/ultraplan-go/internal/workspace net/url os path/filepath regexp sort strings 
+
+== workspace ==
+embed fmt os path/filepath sort strings 
+
+== productstate ==
+context crypto/sha256 database/sql errors fmt modernc.org/sqlite net/url os path/filepath strconv sync time 
+
+== codeextract ==
+encoding/json fmt io os path/filepath regexp sort strconv strings
+[0m
+[0m$ [0mls internal/project internal/workspace internal/platform/runtime internal/platform/logging internal/productstate internal/runcontrol
+internal/platform/logging:
+doc.go
+logging.go
+logging_test.go
+
+internal/platform/runtime:
+agentwrap.go
+cache_test.go
+events.go
+health.go
+opencode.go
+opencode_test.go
+policy.go
+runtime.go
+runtime_test.go
+
+internal/productstate:
+store.go
+
+internal/project:
+discovery.go
+doc.go
+domain.go
+index.go
+project_test.go
+reasoning_defaults.go
+reasoning_defaults_test.go
+service.go
+store_fs.go
+validation.go
+
+internal/runcontrol:
+benchmark_test.go
+doc.go
+errors.go
+fault_test.go
+id.go
+id_test.go
+import_boundary_test.go
+interfaces.go
+lifecycle.go
+lifecycle_test.go
+local_log.go
+local_log_test.go
+metrics.go
+migration.go
+migration_test.go
+model.go
+model_test.go
+process_darwin.go
+process.go
+process_integration_test.go
+process_linux.go
+process_other.go
+retention.go
+retention_test.go
+sanitize.go
+sanitize_test.go
+sqlite.go
+sqlite_test.go
+
+internal/workspace:
+defaults.go
+discovery.go
+doc.go
+init.go
+paths.go
+scaffold
+skills.go
+skills_test.go
+validation.go
+workspace_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/import_boundary_test.go
+[0m
+[0m$ [0mcat internal/project/doc.go internal/workspace/doc.go internal/platform/logging/doc.go internal/runcontrol/doc.go
+// Package project owns UltraPlan project planning roots.
+//
+// A project is a directory under projects/<name> containing editable planning
+// documents, a roadmap, a project-index.md catalog, and sprint directories.
+// This package discovers those roots, reads their project-owned files, parses
+// the project index as a catalog, and validates catalog references.
+//
+// Project indexes are catalogs only. They are not sprint plans, workflow state,
+// runtime prompts, or study reports, and this package intentionally does not
+// consume study services or runtime execution packages.
+package project
+// Package workspace documents the future boundary for UltraPlan workspace
+// discovery, paths, and validation.
+//
+// Workspace discovery, initialization, config lookup, and validation behavior
+// are deferred to later sprints.
+package workspace
+// Package logging documents the future boundary for process-neutral logging
+// infrastructure.
+//
+// Structured logging, diagnostic records, runtime event logging, and log
+// configuration behavior are deferred to a later sprint.
+package logging
+// Package runcontrol owns durable operational run identity and observation.
+//
+// It deliberately does not own product workflow state, artifacts, runtime
+// supervision, or presentation concerns. Product packages decide what work
+// means; runcontrol records the accepted execution, fenced owner attempts,
+// sanitized ordered events, and the single operational terminal result.
+package runcontrol
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+[0m
+[0m$ [0mls internal/sprint internal/study internal/app internal/web internal/tui
+internal/app:
+app.go
+app_test.go
+code_commands.go
+code_commands_test.go
+config_commands.go
+defaults_commands.go
+durable_operations.go
+durable_operations_test.go
+health_commands.go
+health_commands_test.go
+json_output.go
+markdown.go
+markdown_test.go
+operation_runner.go
+operations.go
+project_commands.go
+project_commands_test.go
+project_usecases.go
+run_commands.go
+run_commands_test.go
+run_control.go
+run_control_inventory_test.go
+run_control_test.go
+run_usecases.go
+serve_commands.go
+serve_commands_test.go
+skills_commands.go
+skills_commands_test.go
+sprint_commands.go
+sprint_commands_test.go
+sprint_error_test.go
+sprint_usecases.go
+sprint_usecases_test.go
+sprint_verify_commands_test.go
+status_json.go
+storage_commands.go
+study_commands.go
+study_commands_test.go
+study_init_commands_test.go
+study_prompt_commands_test.go
+study_run_all_commands_test.go
+study_run_commands_test.go
+study_run_loop_commands_test.go
+study_runs_commands.go
+study_runs_commands_test.go
+study_status_commands_test.go
+study_summary_commands_test.go
+study_usecases.go
+study_validate_commands_test.go
+surfaces.go
+tui_commands.go
+tui_commands_test.go
+usecases.go
+usecases_test.go
+version.go
+web_operations_test.go
+web_usecases.go
+web_usecases_test.go
+workspace_commands.go
+
+internal/sprint:
+artifacts.go
+cleanup_uncertain.go
+cleanup_uncertain_test.go
+code_context.go
+code_context_test.go
+context_pack.go
+direct_inputs.go
+direct_inputs_test.go
+discovery.go
+doc.go
+domain.go
+efficiency_improvements_test.go
+efficiency_metrics_test.go
+execute.go
+execute_model.go
+execute_model_test.go
+execute_plan.go
+execute_plan_test.go
+execute_state.go
+execute_state_test.go
+execute_target.go
+execute_target_test.go
+flow.go
+freshness_policy.go
+handbook.go
+handbook_test.go
+index.go
+input_contract.go
+locks.go
+locks_test.go
+plan.go
+plan_test.go
+prompt_bundle.go
+prompt_context.go
+prompt_context_test.go
+prompts.go
+reasoning.go
+reasoning_test.go
+review.go
+review_runtime_validation.go
+review_test.go
+runtime_metrics.go
+runtime_progress_test.go
+runtime_validation.go
+service.go
+session_state.go
+session_state_test.go
+smoke_author.go
+smoke.go
+smoke_protocol.go
+smoke_test.go
+smoke_types.go
+sprint_index_test.go
+sprint_test.go
+state_database.go
+state.go
+store_fs.go
+validation.go
+verification_lock.go
+verification_lock_test.go
+verify.go
+verify_test.go
+
+internal/study:
+applicability.go
+cleanup_uncertain.go
+cleanup_uncertain_test.go
+config.go
+config_test.go
+dimension_refs.go
+discovery.go
+doc.go
+domain.go
+durable_metadata.go
+edit_warnings.go
+execution_domain.go
+init_clone.go
+init.go
+init_render.go
+init_test.go
+init_yaml.go
+locks.go
+locks_test.go
+markdown.go
+memory_pressure.go
+metadata_domain.go
+prompts.go
+prompts_test.go
+rating.go
+rating_test.go
+reports.go
+resolve.go
+run_all.go
+run_all_test.go
+run.go
+run_history.go
+run_history_summary.go
+run_history_test.go
+run_loop_diagnostics.go
+run_loop_diagnostics_test.go
+run_loop.go
+run_loop_test.go
+run_state_domain.go
+run_state.go
+run_test.go
+runtime_metadata.go
+runtime_metadata_test.go
+runtime_validation.go
+service.go
+state_database.go
+state.go
+state_test.go
+study_test.go
+summary.go
+summary_test.go
+synthesize.go
+validation_command.go
+validation_command_test.go
+validation.go
+validation_test.go
+
+internal/tui:
+app.go
+doc.go
+keys.go
+markdown.go
+model.go
+model_test.go
+run_view_test.go
+test_fakes_test.go
+theme.go
+verify_test.go
+viewport.go
+viewport_test.go
+views.go
+views_test.go
+
+internal/web:
+api_compatibility_test.go
+artifacts.go
+artifacts_test.go
+handlers.go
+import_boundary_test.go
+integration_test.go
+operation_handlers.go
+operations_contract_test.go
+operations.go
+operations_test.go
+packaging_test.go
+routes.go
+routes_test.go
+run_handlers.go
+run_handlers_test.go
+security.go
+security_test.go
+server.go
+server_policy.go
+server_policy_test.go
+server_test.go
+sse_test.go
+static
+templates
+templates_test.go
+test_fakes_test.go
+[0m
+[0m$ [0mcat internal/sprint/doc.go internal/study/doc.go
+// Package sprint owns UltraPlan planning, execute, review, and smoke artifacts
+// and flow state.
+//
+// A planning sprint is a directory under projects/<project>/sprints/<slug>.
+// This package models the governed chain through smoke:
+// requirements.md, sprint-index.md, technical-handbook.md, reasoning/*.md,
+// reasoning.md, plan.md, execute.md, review.md, smoke.md, .run-state.json, and
+// flow-state.json.
+//
+// Sprint status is intentionally runtime-free. It discovers sprint roots,
+// validates safe artifact paths, strictly loads flow-state.json, derives stage
+// status from local artifact presence, and writes refreshed flow state
+// atomically. Execute/review use the generic platform runtime boundary; smoke
+// uses the generic direct-process boundary. It does not invoke a shell command
+// string, mutate Git, or manage issue trackers.
+//
+// The app package may parse CLI arguments and render summaries, but stage
+// order, artifact paths, persisted schema validation, and status derivation are
+// sprint-owned behavior.
+package sprint
+// Package study owns study-side product workflows.
+//
+// The package includes study/source/dimension discovery, study initialization,
+// prompt construction, single analysis execution, synthesis, report validation,
+// run-all batch orchestration, durable run-loop orchestration, per-study run-loop
+// locks, atomic run-state persistence, resume validation, runtime-free status
+// helpers, and summary generation. Code-reference extraction remains outside
+// this package's current implemented scope.
+package study
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/import_boundary_test.go
+[0m
+[0m$ [0mgrep -rn "ImportBoundary\|forbidden\|boundary" internal/tui/*.go internal/app/*_test.go | head -20
+internal/app/markdown_test.go:18:	for _, forbidden := range []string{"<script", "javascript:"} {
+internal/app/markdown_test.go:19:		if strings.Contains(strings.ToLower(got), forbidden) {
+internal/app/markdown_test.go:20:			t.Errorf("rendered markdown contains %q: %s", forbidden, got)
+internal/app/run_control_inventory_test.go:49:					t.Fatalf("runtime-backed inventory entry %q bypasses the durable boundary", entry)
+internal/app/sprint_commands_test.go:244:	if got := strings.Join(blockIDs, ","); got != "shared-instructions,requirements,code-context,source-evidence,stage-boundary,stage-instructions,project-index,roadmap,project-doc-docs-prd-md" {
+[0m
+[0m$ [0mgrep -rn "platform/filesystem" --include="*.go" . | grep -v "^./dist"
+(no output)
+[0m
+[0m$ [0mls internal/platform/filesystem && wc -l internal/platform/filesystem/*.go
+doc.go
+6 internal/platform/filesystem/doc.go
+[0m
+[0m$ [0mhead -60 internal/sprint/code_context.go; echo ====; head -30 internal/codeextract/*.go | head -80
+package sprint
+
+import (
+	"context"
+	"errors"
+	"fmt"
+	"os"
+	"path/filepath"
+	"regexp"
+	"strconv"
+	"strings"
+	"time"
+
+	pruntime "github.com/Antonio7098/ultraplan-go/internal/platform/runtime"
+	"github.com/Antonio7098/ultraplan-go/internal/workspace"
+)
+
+var (
+	codeContextHeadingRE = regexp.MustCompile(`(?m)^\s*##\s+(.+?)\s*$`)
+	codeContextEntryRE   = regexp.MustCompile(`(?m)^\s*###\s+(.+?)\s*$`)
+	codeContextPathRE    = regexp.MustCompile(`(?im)^\s*-?\s*\*\*Path:\*\*\s*` + "`?" + `([^` + "`" + `\r\n]+)` + "`?" + `\s*$`)
+	codeContextReasonRE  = regexp.MustCompile(`(?im)^\s*-?\s*\*\*Rationale:\*\*\s*(.+?)\s*$`)
+	codeContextLinesRE   = regexp.MustCompile(`(?im)^\s*-?\s*\*\*Lines?:\*\*\s*` + "`?" + `([^` + "`" + `\r\n]+)` + "`?" + `\s*$`)
+	codeContextFenceRE   = regexp.MustCompile("(?m)^\\s*```")
+	codeContextDriveRE   = regexp.MustCompile(`^[A-Za-z]:`)
+)
+
+// Keep the durable context pack below the runtime transport's 96 KiB bounded
+// terminal-output limit. This leaves room for provider framing and repair
+// diagnostics while allowing a substantial reference catalog without copying
+// source into the durable artifact.
+const maxCodeContextBytes = 64 << 10
+
+func ValidateCodeContextContent(content string) []ValidationFinding {
+	trimmed := strings.TrimSpace(content)
+	if trimmed == "" {
+		return []ValidationFinding{finding("code-context.md", "", "", "empty code context", "the artifact has no content", "Generate the code-context artifact from validated requirements.")}
+	}
+	var findings []ValidationFinding
+	if len(content) > maxCodeContextBytes {
+		findings = append(findings, finding(
+			"code-context.md",
+			"",
+			"",
+			"code context exceeds the output budget",
+			fmt.Sprintf("the artifact is %d bytes; the maximum is %d bytes", len(content), maxCodeContextBytes),
+			"Select fewer source references while retaining the required sections.",
+		))
+	}
+	firstLine := trimmed
+	if newline := strings.IndexByte(firstLine, '\n'); newline >= 0 {
+		firstLine = firstLine[:newline]
+	}
+	if strings.TrimSpace(firstLine) != "# Sprint Code Context" {
+		findings = append(findings, finding(
+			"code-context.md",
+			"",
+			"",
+			"invalid document start",
+			"the first non-whitespace line is not the canonical level-one title",
+====
+==> internal/codeextract/codeextract_test.go <==
+package codeextract
+
+import (
+	"bytes"
+	"os"
+	"path/filepath"
+	"testing"
+)
+
+func TestExtractResolvesRangesListsBasenamesAndIgnoredDirs(t *testing.T) {
+	root := t.TempDir()
+	sourceRoot := filepath.Join(root, "sources", "repo")
+	mustWrite(t, filepath.Join(sourceRoot, "sub", "target.go"), "a\nb\nc\nd\n")
+	mustWrite(t, filepath.Join(sourceRoot, "node_modules", "target.go"), "ignored\n")
+	report := filepath.Join(root, "reports", "report.md")
+	mustWrite(t, report, "| # | Source | Path |\n| 1 | repo | `sources/repo` |\n\nRefs: `sub/target.go:1–2` and `target.go:4`.\n")
+
+	result, err := Extract(Request{WorkspaceRoot: root, Reports: []string{report}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if result.Status != StatusOK {
+		t.Fatalf("status = %s unresolved = %+v", result.Status, result.Unresolved)
+	}
+	refs := result.Reports[0].References
+	if len(refs) != 2 {
+		t.Fatalf("refs = %+v", refs)
+	}
+	if refs[0].LineSpec != "1-2" || refs[0].Snippet[0].Number != 1 || refs[0].Snippet[1].Text != "b" {
+		t.Fatalf("range ref = %+v", refs[0])
+
+==> internal/codeextract/doc.go <==
+// Package codeextract resolves cited code references from generated reports.
+// It owns source-table parsing, citation parsing, local file resolution, snippet
+// extraction, and deterministic text/JSON extraction output.
+package codeextract
+
+==> internal/codeextract/domain.go <==
+package codeextract
+
+type Request struct {
+	WorkspaceRoot string
+	Reports       []string
+}
+
+type Result struct {
+	Reports    []ReportResult         `json:"reports"`
+	Unresolved []UnresolvedDiagnostic `json:"unresolved,omitempty"`
+	Status     Status                 `json:"status"`
+}
+
+type Status string
+
+const (
+	StatusOK         Status = "ok"
+	StatusPartial    Status = "partial"
+	StatusValidation Status = "validation"
+)
+
+type ReportResult struct {
+	Path        string       `json:"path"`
+	Sources     []Source     `json:"sources,omitempty"`
+	References  []Reference  `json:"references,omitempty"`
+	Diagnostics []Diagnostic `json:"diagnostics,omitempty"`
+}
+
+type Source struct {
+	Index int    `json:"index"`
+
+==> internal/codeextract/parser.go <==
+package codeextract
+
+import (
+	"fmt"
+	"regexp"
+	"sort"
+	"strconv"
+	"strings"
+)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go[90m [limit=120, command=grep -n "func \|type " internal/productstate/store.go | head -50; echo ===; grep -rn "productstate\." internal/sprint/*.go internal/study/*.go internal/app/*.go | grep -v _test | awk -F: '{print $1}' | sort | uniq -c, workdir=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go][0m
+[0m
+[0m$ [0mgrep -n "\.db\|DatabaseRelativePath\|databaseRelativePath\|sqlite.Open\|sql.Open\|DSN\|dsn" internal/runcontrol/sqlite.go internal/runcontrol/model.go internal/runcontrol/lifecycle.go | head -30
+internal/runcontrol/sqlite.go:22:	DatabaseRelativePath = ".ultraplan/run-control.db"
+internal/runcontrol/sqlite.go:80:	dsn := (&url.URL{Scheme: "file", Path: filepath.ToSlash(databasePath), RawQuery: values.Encode()}).String()
+internal/runcontrol/sqlite.go:81:	db, err := sql.Open("sqlite", dsn)
+internal/runcontrol/sqlite.go:171:	path := filepath.Join(directory, "run-control.db")
+internal/runcontrol/sqlite.go:369:	if r == nil || r.db == nil {
+internal/runcontrol/sqlite.go:372:	if err := r.db.Close(); err != nil {
+internal/runcontrol/sqlite.go:421:	tx, err := r.db.BeginTx(ctx, nil)
+internal/runcontrol/sqlite.go:477:	if err := r.db.QueryRowContext(ctx, `SELECT run_id FROM operation_aliases WHERE alias_id = ?`, alias).Scan(&runID); err != nil {
+internal/runcontrol/sqlite.go:519:	tx, err := r.db.BeginTx(ctx, nil)
+internal/runcontrol/sqlite.go:598:	snapshot, err := loadSnapshot(ctx, r.db, runID)
+internal/runcontrol/sqlite.go:639:	tx, err := r.db.BeginTx(ctx, nil)
+internal/runcontrol/sqlite.go:738:	tx, err := r.db.BeginTx(ctx, nil)
+internal/runcontrol/sqlite.go:819:	rows, err := r.db.QueryContext(ctx, `
+internal/runcontrol/sqlite.go:857:	health := Health{Status: HealthOK, DatabasePath: DatabaseRelativePath, BusyTimeout: BusyTimeout, SoftQuotaBytes: r.softQuota, HardQuotaBytes: r.retention.HardQuotaBytes, ReservedHeadroomBytes: ReservedHeadroomBytes}
+internal/runcontrol/sqlite.go:859:	if err := r.db.QueryRowContext(ctx, "PRAGMA journal_mode").Scan(&health.JournalMode); err != nil {
+internal/runcontrol/sqlite.go:863:	if err := r.db.QueryRowContext(ctx, "PRAGMA synchronous").Scan(&synchronous); err != nil {
+internal/runcontrol/sqlite.go:867:	if err := r.db.QueryRowContext(ctx, "PRAGMA foreign_keys").Scan(&foreignKeys); err != nil {
+internal/runcontrol/sqlite.go:871:	if err := r.db.QueryRowContext(ctx, `SELECT COUNT(*) FROM runs WHERE lifecycle IN ('accepted','queued','running','cancelling')`).Scan(&health.ActiveRuns); err != nil {
+internal/runcontrol/sqlite.go:874:	if err := r.db.QueryRowContext(ctx, `SELECT COUNT(*) FROM runs WHERE terminal_outcome IS NULL AND liveness = 'stalled'`).Scan(&health.StalledRuns); err != nil {
+internal/runcontrol/sqlite.go:877:	if err := r.db.QueryRowContext(ctx, `SELECT COUNT(*) FROM runs WHERE cancellation_state = 'uncertain'`).Scan(&health.CancellationUncertain); err != nil {
+internal/runcontrol/sqlite.go:885:	if err := r.db.QueryRowContext(ctx, `SELECT COUNT(*) FROM runs LEFT JOIN attempts ON attempts.attempt_id = runs.current_attempt_id
+internal/runcontrol/sqlite.go:890:	if err := r.db.QueryRowContext(ctx, `SELECT MIN(CASE WHEN runs.current_attempt_id IS NULL THEN runs.accepted_at ELSE attempts.lease_expires_at END)
+internal/runcontrol/lifecycle.go:30:	tx, err := r.db.BeginTx(ctx, nil)
+internal/runcontrol/lifecycle.go:82:	tx, err := r.db.BeginTx(ctx, nil)
+internal/runcontrol/lifecycle.go:144:	tx, err := r.db.BeginTx(ctx, nil)
+internal/runcontrol/lifecycle.go:233:	rows, err := r.db.QueryContext(ctx, `SELECT run_id, updated_at FROM runs WHERE `+strings.Join(clauses, " AND ")+` ORDER BY updated_at DESC, run_id DESC LIMIT ?`, append(args, limit+1)...)
+internal/runcontrol/lifecycle.go:321:	unclaimedRows, err := r.db.QueryContext(ctx, `
+internal/runcontrol/lifecycle.go:362:	rows, err := r.db.QueryContext(ctx, `
+internal/runcontrol/lifecycle.go:431:	tx, err := r.db.BeginTx(ctx, nil)
+internal/runcontrol/lifecycle.go:498:	result, err := r.db.ExecContext(ctx, `
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go[90m [limit=200][0m
+[0m
+[0m$ [0mgrep -rn "run-control.db" --include="*.go" internal | grep -v _test; echo ===; grep -rln "productstate\." internal/sprint internal/study internal/app | grep -v _test; echo ===TESTS===; grep -rn "productstate.DatabaseRelativePath\|DatabaseRelativePath" --include="*_test.go" internal | head
+internal/productstate/store.go:19:const DatabaseRelativePath = ".ultraplan/run-control.db"
+internal/runcontrol/sqlite.go:22:	DatabaseRelativePath = ".ultraplan/run-control.db"
+internal/runcontrol/sqlite.go:171:	path := filepath.Join(directory, "run-control.db")
+===
+internal/sprint/state_database.go
+internal/study/state_database.go
+internal/app/storage_commands.go
+===TESTS===
+internal/app/run_commands_test.go:89:	if _, err := os.Stat(filepath.Join(root, runcontrol.DatabaseRelativePath)); !os.IsNotExist(err) {
+internal/runcontrol/migration_test.go:22:	path := filepath.Join(root, DatabaseRelativePath)
+internal/runcontrol/migration_test.go:85:	lockPath := filepath.Join(root, DatabaseRelativePath) + ".migrate.lock"
+internal/runcontrol/migration_test.go:100:	lockPath := filepath.Join(root, DatabaseRelativePath) + ".migrate.lock"
+internal/runcontrol/migration_test.go:161:	path := filepath.Join(root, DatabaseRelativePath)
+internal/runcontrol/sqlite_test.go:30:	databaseInfo, err := os.Stat(filepath.Join(root, DatabaseRelativePath))
+internal/runcontrol/sqlite_test.go:207:	if err := os.Symlink(outside, filepath.Join(root, DatabaseRelativePath)); err != nil {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go[90m [offset=121][0m
+[0m
+[0m$ [0mgrep -n "productstate\|OpenSQLite\|Ensure\|Existing" internal/app/run_control.go internal/app/durable_operations.go internal/app/storage_commands.go | head -40
+internal/app/run_control.go:54:	repository, err := runcontrol.OpenSQLite(ctx, workspaceRoot, runcontrol.SQLiteOptions{Retention: retention})
+internal/app/run_control.go:478:	// Ensure the most useful display keys are always present even if nested.
+internal/app/durable_operations.go:96:		return AcceptedOperation{RunID: string(existing.RunID), Context: ctx, Existing: true, Lifecycle: string(existing.Lifecycle)}, nil
+internal/app/storage_commands.go:9:	"github.com/Antonio7098/ultraplan-go/internal/productstate"
+internal/app/storage_commands.go:60:		repository, err := runcontrol.OpenSQLite(deps.ctx, root.Path, runcontrol.SQLiteOptions{})
+internal/app/storage_commands.go:65:		if _, err := productstate.Ensure(root.Path); err != nil {
+internal/app/storage_commands.go:206:into the workspace SQLite database. Existing files remain as checkpoints.
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state_database.go
+[0m
+[0m$ [0mgrep -rln "run-control.db\|productstate\|product_states\|product state" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace --include="*.md" | head -20
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/PRD.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/01-cli-foundation/reasoning/architecture.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/08-run-state-persistence/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/12-durable-run-loop/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/17-artifact-domain-and-flow-state/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/19-distill-stage/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/19-distill-stage/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/20-reason-stage/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/21-plan-stage/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/23-execute-stage/reasoning/architecture.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/23-execute-stage/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/24-tui-foundations/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/24-tui-foundations/reasoning/architecture.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/24-tui-foundations/requirements.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/24-tui-foundations/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/26-review-stage/reasoning/architecture.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/27-deep-smoke/plan.md
+[0m
+[0m$ [0mgrep -n -B2 -A6 "productstate\|product_states\|product state" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md | head -80
+324-```
+325-
+326:It may depend on `app` use cases and domain result types. It must not own product state machines, validation rules, prompt construction, runtime execution, smoke-harness invocation, verdict synthesis, or artifact persistence. Durable workspace files and linked harness evidence remain the source of truth.
+327-
+328-If a third-party terminal UI library is used, it should stay behind `internal/tui` and not leak into product modules.
+329-
+330-### `web`
+331-
+332-`web` owns the Phase 4 local browser interface:
+--
+345-It may depend on `app` use-case interfaces and plain result types. It must not import `study`, `project`, `sprint`, runtime adapters, or process adapters directly. It must not own workflow state machines, validators, prompts, runtime execution, smoke invocation, verdicts, product locks, durable run identity, or durable recovery.
+346-
+347:The server operation hub is transport-lifecycle state, not product state. It may retain bounded delivery buffers and subscribers, but it cannot be the authoritative run registry or sole event history. Slow or disconnected SSE subscribers must never block an app operation. A server restart or browser-session change replaces delivery state without erasing the durable run.
+348-
+349-Until Sprint 35 reasoning changes the ownership topology, the server owns every worker it starts. Graceful shutdown enters draining, rejects new mutations, cancels all server-owned workers through their canonical cancellation functions, waits for bounded cleanup/reconciliation, persists truthful terminal or uncertain outcomes, then closes SSE/HTTP. Browser disconnect is subscription loss only and never operation cancellation. Run identity and retained observation survive the server even when the worker does not.
+350-
+351-### Durable execution control boundary
+352-
+353-Sprint 35 introduces a product-owned operational boundary shared by CLI, TUI, and web. Its semantic responsibilities are fixed even though its concrete package, coordinator topology, and store are reasoning decisions:
+--
+382-- **Pages** are route-level compositions that bind explicit typed view models to layouts and components.
+383-
+384:Dependencies flow downward only. A primitive must not render a component, and no template reads workspace files, calls an app use case, interprets product state, or performs transport validation. Handlers map typed app results into explicit page/component view models before rendering.
+385-
+386-Template definitions use stable, namespaced names such as `primitive/button`, `component/breadcrumb`, `layout/base`, and `page/sprint` so parsing the embedded tree cannot silently collide. CSS follows the same layering and design tokens remain presentation concerns. JavaScript stays dependency-free and capability-focused; it enhances server-rendered behavior but never becomes the authoritative router, store, or workflow engine.
+387-
+388-### `platform/runtime`
+389-
+390-Runtime is platform-level because it is generic execution infrastructure, not study behavior.
+[0m
+[0m$ [0mgrep -n -B4 -A20 "run-control.db\|product_states\|productstate" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md | head -100
+(no output)
+[0m
+[0m$ [0mgrep -n -i "database\|sqlite" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md | head -30
+369:The final design must reason explicitly about a dedicated product module versus package-owned repositories coordinated through `app`; filesystem journal versus SQLite or another local store; one coordinator versus fenced multi-process writers; worker cancellation versus adoption after owner loss; and same-host versus shared-filesystem multi-host guarantees. Whichever choices are selected must satisfy the same public lifecycle, replay, security, migration, and fault-injection contracts.
+670:-> proven product persistence boundary and optional SQLite
+716:Filesystem and any later SQLite adapters must pass shared contract suites. Persistence selection occurs once at composition, one authority is active at a time, and migration/import/export is explicit. Source repositories, Git operations, code search, builds/tests, and agent execution workspaces remain real filesystems. No silent dual writes or synchronization precede an explicit authority decision.
+720:A future graph starts, if justified, as a deterministic in-memory read-only projection over explicit artifact IDs and relationships. Every material edge carries provenance, origin (`explicit`, `structural`, `deterministic`, or visibly weaker `inferred`), status, and revision. Inferred edges cannot satisfy governance, completion, implementation, or verification. Persistent graph storage remains a disposable index and a dedicated graph database is not assumed.
+724:Each boundary is earned by the next demonstrated use case. Stop when metadata becomes unreliable bureaucracy, QA isolation/evidence is uncertain, repair does not converge, lexical search answers the real corpus, SQLite lacks concrete product value, or graph traversal does not outperform direct evidence inspection.
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/storage_commands.go
+[0m
+[0m$ [0mgrep -rn "saveFlowStateDatabase\|saveExecuteStateDatabase\|MigrateFlowStateToDatabase\|FlowStateInDatabase" internal/sprint/*.go | grep -v _test | grep -v state_database.go
+internal/sprint/execute_state.go:109:		if err := saveExecuteStateDatabase(root, s, state); err != nil {
+internal/sprint/state.go:216:	if authoritative, err := FlowStateInDatabase(root, s); err != nil {
+internal/sprint/state.go:219:		if err := saveFlowStateDatabase(root, s, state); err != nil {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go[90m [limit=80, offset=180][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state.go[90m [limit=60, offset=70][0m
+[0m
+[0m$ [0mgrep -n "func \|Ensure\|Existing" internal/study/state_database.go | head -30
+15:func studyWorkspaceRoot(study Study) string { return filepath.Dir(filepath.Dir(study.Path)) }
+17:func loadRunStateDatabase(study Study) (RunState, bool, error) {
+18:	store, enabled, err := productstate.Existing(studyWorkspaceRoot(study))
+43:func saveRunStateDatabase(study Study, state RunState) error {
+63:	store, err := productstate.Ensure(studyWorkspaceRoot(study))
+70:func RunStateInDatabase(study Study) (bool, error) {
+71:	store, enabled, err := productstate.Existing(studyWorkspaceRoot(study))
+78:func MigrateRunStateToDatabase(study Study, state RunState) error {
+[0m
+[0m$ [0mgrep -rn "saveRunStateDatabase" internal/study/*.go | grep -v _test | grep -v state_database.go; echo ===; sed -n '1,60p' internal/runcontrol/retention.go; echo ===RETENTION-DELETE-SCOPE===; grep -n "DELETE FROM\|VACUUM" internal/runcontrol/*.go | grep -v _test
+internal/study/state.go:63:		if err := saveRunStateDatabase(study, state); err != nil {
+===
+package runcontrol
+
+import (
+	"context"
+	"database/sql"
+	"fmt"
+	"os"
+	"path/filepath"
+	"strings"
+	"time"
+)
+
+func normalizeRetentionPolicy(policy RetentionPolicy) (RetentionPolicy, error) {
+	if policy.FullHistory == 0 {
+		policy.FullHistory = DefaultFullHistory
+	}
+	if policy.TombstoneHistory == 0 {
+		policy.TombstoneHistory = DefaultTombstoneHistory
+	}
+	if policy.HardQuotaBytes == 0 {
+		policy.HardQuotaBytes = DefaultHardQuotaBytes
+	}
+	if policy.FullHistory < time.Hour {
+		return RetentionPolicy{}, invalidField("retention.full_history", "must be at least 1 hour")
+	}
+	if policy.TombstoneHistory < 24*time.Hour || policy.TombstoneHistory < policy.FullHistory {
+		return RetentionPolicy{}, invalidField("retention.tombstone_history", "must be at least 24 hours and no shorter than full history")
+	}
+	if policy.HardQuotaBytes < 64<<20 || policy.HardQuotaBytes <= ReservedHeadroomBytes {
+		return RetentionPolicy{}, invalidField("retention.hard_quota", "must be at least 64 MiB with 16 MiB reserved headroom")
+	}
+	return policy, nil
+}
+
+func (r *SQLiteRepository) storageBytes() (int64, error) {
+	directory := filepath.Dir(r.path)
+	entries, err := os.ReadDir(directory)
+	if err != nil {
+		return 0, classifyStoreError("quota_read", "inspect run-control storage usage failed", err)
+	}
+	prefix := filepath.Base(r.path)
+	var total int64
+	for _, entry := range entries {
+		if !strings.HasPrefix(entry.Name(), prefix) {
+			continue
+		}
+		info, err := entry.Info()
+		if err != nil {
+			return 0, classifyStoreError("quota_read", "inspect run-control storage file failed", err)
+		}
+		if info.Mode().IsRegular() {
+			total += info.Size()
+		}
+	}
+	return total, nil
+}
+
+func compactRunJournal(ctx context.Context, tx *sql.Tx, runID RunID, preserveSequence uint64) error {
+	for batch := 0; batch < 32; batch++ {
+		var count int64
+===RETENTION-DELETE-SCOPE===
+internal/runcontrol/retention.go:75:		result, err := tx.ExecContext(ctx, `DELETE FROM events WHERE run_id = ? AND sequence IN (
+internal/runcontrol/retention.go:143:	result, err := r.db.ExecContext(ctx, `DELETE FROM runs WHERE run_id IN (
+internal/runcontrol/retention.go:189:	result, err := tx.ExecContext(ctx, `DELETE FROM events WHERE run_id = ? AND event_type IN (`+removable+`)`, string(runID))
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/retention.go[90m [limit=120, offset=95, command=sed -n '40,80p' internal/study/state.go, workdir=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go][0m
+[0m
+[0m$ [0mgrep -rn "DefaultHardQuotaBytes\s*=" internal/runcontrol/*.go | grep -v _test; grep -rln "run-control.db" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/*/technical-handbook.md /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/*/reasoning* 2>/dev/null
+internal/runcontrol/model.go:425:	DefaultHardQuotaBytes   = int64(512 << 20)
+[0m
+[0m$ [0mgrep -rln "run-control\.db\|run control database\|workspace database" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go --include="*.md" | head; echo ===; grep -rn -i "single.*database\|one database\|same database\|shared database\|co-ten" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md 2>/dev/null | head
+===
+[0m
+[0m$ [0mgrep -rn -i "productstate\|product.state.store\|product_states" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/*/technical-handbook.md 2>/dev/null | head -15
+(no output)
+[0m
+[0m$ [0mgrep -rln -i "product state" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go --include="*.md" | head; echo ===; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints | tail -20
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/PRD.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/01-cli-foundation/reasoning/architecture.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/08-run-state-persistence/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/12-durable-run-loop/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/17-artifact-domain-and-flow-state/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/19-distill-stage/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/19-distill-stage/technical-handbook.md
+===
+16-project-domain-and-index
+17-artifact-domain-and-flow-state
+18-select-stage
+19-distill-stage
+20-reason-stage
+21-plan-stage
+22-documentaiton-and-release
+23-execute-stage
+24-tui-foundations
+25-operational-tui-controls
+26-review-stage
+27-deep-smoke
+28-review-to-smoke-flow
+29-phase-3-documentation-hardening-release
+30-web-foundations
+31-web-operations
+32-hardening-and-release
+33-code-context-stage
+34-shared-context
+35-durable-run-observability
+[0m
+[0m$ [0mgrep -rn -i "product state\|productstate" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/*.md /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/reasoning/*.md 2>/dev/null | head -25
+(no output)
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/; grep -rln -i "storage migrate\|state database\|state_database" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints --include="*.md" | head
+flow-state.json
+requirements.md
+[0m
+[0m$ [0mgrep -rln -i "storage migrate\|sqlite" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go --include="*.md" | head; echo ===; grep -rn -i "sqlite" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md | head -10
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/PRD.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/32-hardening-and-release/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/32-hardening-and-release/requirements.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/32-hardening-and-release/sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/plan.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/requirements.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/reasoning.md
+===
+57:- Introducing content identity, expanded QA/repair, retrieval, SQLite product persistence, knowledge-graph persistence, cloud, or Aren capabilities before their explicit roadmap evidence gates.
+126:- Keep Markdown authoritative initially. Any later search record or knowledge graph is derived and rebuildable; any later SQLite authority is an explicit product-mode decision rather than a web-side shadow store.
+2214:- filesystem snapshot/journal, SQLite, agentwrap store composition, or another smallest sufficient durable mechanism
+2235:5. **Product persistence/SQLite:** first classify authored artifacts, checkpoints, derived data, operational state, run evidence, and repository source. Sprint 35 operational run storage does not select a new authored-artifact authority. Extract focused package-owned repositories only for proven workflows; keep Git/source and execution workspaces filesystem-native; select one product-artifact authority at composition; prohibit generic virtual filesystems, silent dual writes, and premature sync.
+2237:7. **Authority/cloud/Aren:** compare filesystem, SQLite/server, and hybrid publication modes on real work before choosing. Cloud and typed Aren artifact tools reuse proven application contracts; source edits/builds/tests remain sandboxed filesystem/Git work.
+2239:Every branch must stop when its evidence gate fails. In particular: no repair without adjudicated evidence and isolation; no retrieval before content dogfood; no SQLite merely for architectural cleanliness; no graph persistence before useful bounded traversal; no cloud authority before local authority and recovery semantics are proven.
+2664:- Which durable mechanism best satisfies acceptance atomicity, ordered append, concurrent observation, recovery, and bounded retention: filesystem journal/snapshots, SQLite, agentwrap store composition, or another local design?
+[0m
+[0m$ [0mgrep -rn -B3 -A10 -i "storage migrate\|product.state" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/32-hardening-and-release/reasoning.md | head -60
+91-| Small app/web boundary refactor before hardening | One testable product core and enforceable ownership. | Moves existing route logic before visible release work. | Hardening duplicated workflow logic would preserve the core defect. | Never for convenience; reopen only if a documented use case cannot fit cohesive app capabilities. |
+92-| Preserve `/api/v1` rather than redesign | Protects Sprint 30-31 consumers and makes changes reviewable. | Existing awkward route/field choices remain. | Sprint goal is release compatibility, not API redesign. | A separately governed versioned API change. |
+93-| Fixed capability vocabulary, not plugins | Future-stage proof without route branching or hidden registration. | Production assembly remains explicit and less dynamically extensible. | Only in-process known product modules are required. | Multiple independently shipped capability providers with demonstrated need. |
+94:| Bounded ephemeral operation/SSE state | Protects memory, shutdown, and product work from browsers. | Replay gaps and expired operation handles require durable refresh. | Durable product state already supplies recovery truth. | A future durable-worker/queue architecture with explicit authority. |
+95-| Separate bounded cleanup context | Allows cancellation plus truthful terminal reconciliation. | Adds cleanup deadlines and `cleanup_uncertain` states. | Uncertainty is safer than false success or detached cleanup. | A product-owned worker can durably assume cleanup ownership. |
+96-| Server-rendered no-JavaScript baseline | Accessibility, recoverability, small attack surface, single binary. | Some transitions refresh whole pages; imperative enhancement remains. | Current interaction complexity does not justify a client app. | Measured workflows cannot be implemented safely with narrow enhancement. |
+97-| Fail-closed startup | Prevents serving with unsafe limits/templates/security policy. | Invalid operator config makes the server unavailable. | Explicit failure is safer and diagnosable. | No revisit unless a specific setting can safely degrade with documented semantics. |
+98-| Exact fixtures plus semantic/manual checks | Detects compatibility and accessibility regressions precisely. | Fixture maintenance and manual review cost. | Release claims span machine shape and human interaction. | Tooling may automate more checks, but semantic review remains required. |
+99-
+100-### Potential Technical Debt
+101-
+102-| Debt / Shortcut | Why It Might Accrue | Current Mitigation | Owner / Follow-Up |
+103-| --- | --- | --- | --- |
+104-| Capability vocabulary may grow too broad | New stages may add unrelated fields to one interface. | Keep consumer-oriented cohesive interfaces and concrete result types; fake-stage contract guards route independence. | Reassess after Sprint 33 uses it; split only on demonstrated cohorts. |
+[0m
+[0m$ [0mgrep -rln "ultraplan storage\|storage migrate\|productstate" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints --include="*.md" | head
+(no output)
+[0m

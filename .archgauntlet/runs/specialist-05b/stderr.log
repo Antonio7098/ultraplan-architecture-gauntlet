@@ -1,4 +1,363 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -5 && git status --short | head -20
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+[0m✱ [0mGlob "**/*.go"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 100 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/flow.go
+[0m✱ [0mGlob "**/*"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol · 28 matches[0m
+[0m
+[0m$ [0mls internal/sprint/ && wc -l internal/sprint/*.go | tail -5
+artifacts.go
+cleanup_uncertain.go
+cleanup_uncertain_test.go
+code_context.go
+code_context_test.go
+context_pack.go
+direct_inputs.go
+direct_inputs_test.go
+discovery.go
+doc.go
+domain.go
+efficiency_improvements_test.go
+efficiency_metrics_test.go
+execute.go
+execute_model.go
+execute_model_test.go
+execute_plan.go
+execute_plan_test.go
+execute_state.go
+execute_state_test.go
+execute_target.go
+execute_target_test.go
+flow.go
+freshness_policy.go
+handbook.go
+handbook_test.go
+index.go
+input_contract.go
+locks.go
+locks_test.go
+plan.go
+plan_test.go
+prompt_bundle.go
+prompt_context.go
+prompt_context_test.go
+prompts.go
+reasoning.go
+reasoning_test.go
+review.go
+review_runtime_validation.go
+review_test.go
+runtime_metrics.go
+runtime_progress_test.go
+runtime_validation.go
+service.go
+session_state.go
+session_state_test.go
+smoke_author.go
+smoke.go
+smoke_protocol.go
+smoke_test.go
+smoke_types.go
+sprint_index_test.go
+sprint_test.go
+state_database.go
+state.go
+store_fs.go
+validation.go
+verification_lock.go
+verification_lock_test.go
+verify.go
+verify_test.go
+   101 internal/sprint/verification_lock.go
+    40 internal/sprint/verification_lock_test.go
+   498 internal/sprint/verify.go
+   241 internal/sprint/verify_test.go
+ 18300 total
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/domain.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go[90m [offset=1166][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/session_state.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/locks.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state_database.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/freshness_policy.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects 2>/dev/null
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+aren-phase-01-execution-lifecycle
+ultraplan-go
+[0m
+[0m✱ [0mGrep "func (extractExecutePlanTasks|ExecuteTasksToRecords|PlanFingerprint|unresolvedExecutePlanTasks)"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_plan.go · 4 matches[0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go | head -30
+contracts
+protocols
+reasoning
+docs
+project-index.md
+roadmap.md
+sprints
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_plan.go[90m [limit=180][0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning 2>/dev/null
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts:
+core
+runtime
+surfaces
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515706835,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515706835,[]
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols:
+architecture-review-protocol.md
+contract-mapping-protocol.md
+deep-smoke-sprint-protocol.md
+plan-sprint-protocol.md
+review-sprint-protocol.md
+sprint-review-protocol.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning:
+api-design-reasoning-template.md
+architecture_reasoning_template.md
+cli-design-reasoning-template.md
+data-privacy-reasoning-template.md
+errors_reasoning_template.md
+eval-design-reasoning-template.md
+frontend-design-reasoning-template.md
+frontend-reasoning-template.md
+frontend-state-placement-template.md
+llm-feature-reasoning-template.md
+observability-reasoning-template.md
+package-api-reasoning-template.md
+performance-reasoning-template.md
+persistence-reasoning-template.md
+prompt-change-reasoning-template.md
+release-reasoning-template.md
+security-threat-reasoning-template.md
+testing-strategy-reasoning-template.md
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/surfaces
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core:
+architecture.md
+configuration.md
+documentation.md
+errors.md
+observability.md
+privacy-and-data.md
+release-versioning.md
+security.md
+testing.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime:
+llm-evaluation-cost-safety.md
+llm.md
+performance.md
+persistence-and-migrations.md
+workflows.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/surfaces:
+accessibility.md
+api-contracts.md
+cli.md
+frontend.md
+package-public-api.md
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/workflows.md
+[0m✱ [0mGrep "Attempts|maxAttempt|attemptLimit|retry budget|MaxAttempts"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 16 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/plan-sprint-protocol.md[90m [limit=120][0m
+[0m✱ [0mGrep "code-context|requirements|sprint-index|technical-handbook|area-reasoning|reasoning|plan"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/README.md · 100 matches[0m
+[0m
+[0m$ [0mls docs/ && ls cmd/
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+ultraplan
+[0m
+[0m✱ [0mGrep "code-context"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs · 96 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/recovery.md
+[0m✱ [0mGrep "WithoutStatusWrites|\.Status\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 19 matches[0m
+[0m
+[0m$ [0mrg -n "flowFailedStages\(" internal/sprint/*.go | rg -v "_test"
+internal/sprint/flow.go:304:func flowFailedStages(sp Sprint, target PlanningStage, err error, now time.Time) []StageState {
+internal/sprint/service.go:497:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:505:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:511:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:525:			stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:532:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:554:		stages := s.flowFailedStages(sp, req.To, prerequisiteErr, now)
+internal/sprint/service.go:562:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:570:		stages := s.flowFailedStages(sp, req.To, promptErr, now)
+internal/sprint/service.go:581:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:589:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:595:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:612:			stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:619:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:647:		stages := s.flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:656:		stages := s.flowFailedStages(sp, req.To, promptErr, now)
+internal/sprint/service.go:667:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:675:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:681:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:695:			stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:702:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:728:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:739:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:745:		stages := s.flowFailedStages(sp, req.To, promptErr, now)
+internal/sprint/service.go:756:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:764:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:770:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:784:			stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:791:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:817:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:835:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:1077:func (s Service) flowFailedStages(sp Sprint, target PlanningStage, err error, now time.Time) []StageState {
+internal/sprint/service.go:1080:		return flowFailedStages(sp, target, err, now)
+internal/sprint/service.go:1128:		stages := flowFailedStages(sp, req.To, promptErr, now)
+internal/sprint/service.go:1136:		stages := s.flowFailedStages(sp, req.To, promptErr, now)
+internal/sprint/service.go:1147:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:1153:		stages := flowFailedStages(sp, req.To, promptErr, now)
+internal/sprint/service.go:1165:			stages := flowFailedStages(sp, req.To, renderErr, now)
+internal/sprint/service.go:1171:			stages := flowFailedStages(sp, req.To, composeErr, now)
+internal/sprint/service.go:1180:			stages := flowFailedStages(sp, req.To, runErr, now)
+internal/sprint/service.go:1191:				stages := flowFailedStages(sp, req.To, runErr, now)
+internal/sprint/service.go:1197:				stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:1210:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:1257:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:1265:		stages := flowFailedStages(sp, req.To, promptErr, now)
+internal/sprint/service.go:1273:		stages := s.flowFailedStages(sp, req.To, promptErr, now)
+internal/sprint/service.go:1284:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:1292:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:1298:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:1312:			stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/service.go:1319:		stages := flowFailedStages(sp, req.To, err, now)
+internal/sprint/code_context.go:435:	stages := s.flowFailedStages(sp, StageCodeContext, err, now)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases.go[90m [limit=160][0m
+[0m✱ [0mGrep "readOnly\s*:\s*|readOnly:"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 2 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go[90m [limit=120, offset=290][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verification_lock.go
+[0m
+[0m$ [0mrg -n "24 \* time.Hour|24\*time.Hour|time.Hour \* 24|2 \* time.Hour|heartbeat|Heartbeat" internal/sprint/*.go | rg -v _test | head -20
+internal/sprint/domain.go:163:	HeartbeatAt time.Time     `json:"heartbeatAt,omitzero"`
+internal/sprint/domain.go:318:	if attempt.OwnerPID < 0 || (!attempt.HeartbeatAt.IsZero() && attempt.HeartbeatAt.Before(attempt.StartedAt)) {
+internal/sprint/domain.go:319:		return fmt.Errorf("invalid attempt owner or heartbeat")
+internal/sprint/review.go:837:		state.Review.ActiveAttempt.HeartbeatAt = now
+internal/sprint/review.go:1221:	attempt := VerificationAttempt{ID: fmt.Sprintf("review-%d", now.UnixNano()), Status: AttemptRunning, StartedAt: now, HeartbeatAt: now, OwnerPID: os.Getpid()}
+internal/sprint/review.go:1226:		attempt.HeartbeatAt = now
+internal/sprint/smoke_protocol.go:222:		if err != nil || timeout <= 0 || timeout > 24*time.Hour {
+internal/sprint/smoke_protocol.go:652:		if d, err := time.ParseDuration(manifest.Defaults.Timeout); err == nil && d > 0 && d <= 24*time.Hour {
+internal/sprint/smoke.go:192:		current.ActiveAttempt = &VerificationAttempt{ID: fmt.Sprintf("smoke-%d", now.UnixNano()), Status: AttemptRunning, StartedAt: now, HeartbeatAt: now, OwnerPID: os.Getpid()}
+internal/sprint/verify.go:463:	if attempt.HeartbeatAt.After(lastSeen) {
+internal/sprint/verify.go:464:		lastSeen = attempt.HeartbeatAt
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/code_context.go[90m [limit=200, offset=280][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/code_context.go[90m [limit=120, offset=160][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go
+[0m✱ [0mGrep "NewReadOnlyUseCases|SprintSummaries"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 11 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases.go[90m [limit=140][0m
+[0m✱ [0mGrep "NewReadOnlyUseCases\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 5 matches[0m
+[0m
+[0m$ [0mrg -n "dashboardUseCases\{" internal/app/*.go | rg -v _test
+internal/app/web_usecases.go:245:		dashboard: dashboardUseCases{
+internal/app/usecases.go:133:	return dashboardUseCases{root: root}
+internal/app/tui_commands.go:37:	useCases := dashboardUseCases{
+internal/app/serve_commands.go:47:	dashboard := dashboardUseCases{
+internal/app/operations.go:724:func NewOperationalUseCases(root string) OperationalUseCases { return dashboardUseCases{root: root} }
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands.go[90m [limit=70][0m
+[0m
+[0m$ [0mrg -n "Tick|tick|Dashboard\(|SprintSummaries|Refresh" internal/tui/model.go | head -30
+90:type RefreshMsg struct {
+141:	result, err := m.UseCases.Dashboard(ctx)
+145:func (m Model) Refresh(ctx context.Context) (Model, error) {
+146:	result, err := m.UseCases.Dashboard(ctx)
+147:	return m.Update(RefreshMsg{Result: result, Err: err}), err
+172:	case RefreshMsg:
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/model.go[90m [limit=120, offset=80][0m
+[0m
+[0m$ [0mrg -n "Refresh\(|OperationEventMsg|go func|tea\.Cmd|func \(m Model\) Init|waitFor" internal/tui/model.go | head -30 && rg -n "m.Refresh|Load\(" internal/tui/app.go internal/tui/views.go 2>/dev/null | head
+119:type OperationEventMsg struct{ Event app.OperationEvent }
+145:func (m Model) Refresh(ctx context.Context) (Model, error) {
+218:	case OperationEventMsg:
+[0m
+[0m$ [0mrg -rn "Refresh|Dashboard" internal/tui/*.go | rg -v "RefreshMsg|_test" | head -20 && rg -n "OperationEventMsg" internal/tui/app.go
+internal/tui/app.go:		case Actionn:
+internal/tui/app.go:	case LoadMsg, nMsg, PreviewMsg, ValidationMsg, ConfirmationMsg:
+internal/tui/app.go:		return nMsg{Result: result, Runs: runs, Events: events, Err: err}
+internal/tui/app.go:func (m teaModel) dashboardAndRuns() (app.nResult, []app.RunSnapshot, []app.RunEvent, error) {
+internal/tui/app.go:	result, err := m.model.UseCases.n(m.ctx)
+internal/tui/model.go:	Data                  app.nResult
+internal/tui/model.go:	Result app.nResult
+internal/tui/model.go:type nMsg struct {
+internal/tui/model.go:	Result app.nResult
+internal/tui/model.go:	result, err := m.UseCases.n(ctx)
+internal/tui/model.go:func (m Model) n(ctx context.Context) (Model, error) {
+internal/tui/model.go:	result, err := m.UseCases.n(ctx)
+internal/tui/model.go:	return m.Update(nMsg{Result: result, Err: err}), err
+internal/tui/model.go:	case nMsg:
+internal/tui/keys.go:	Actionn      KeyAction = "refresh"
+internal/tui/keys.go:		return Actionn
+213:	case OperationEventMsg:
+320:		return OperationEventMsg{Event: event}
+[0m
+[0m$ [0mrg -ln "flowStages|already complete|StatusSkipped|stale-running|reconcileExpiredAttempts|attemptExpired" internal/sprint/*_test.go
+internal/sprint/sprint_test.go
+internal/sprint/verify_test.go
+internal/sprint/sprint_index_test.go
+internal/sprint/code_context_test.go
+[0m
+[0m$ [0mrg -n "24 hours|24h|two hours|2 hours" internal/sprint/*.go docs/*.md | head
+internal/sprint/smoke_protocol.go:223:			return smokeError("smoke_manifest_timeout", "configuration", "manifest default timeout is invalid", "Use a positive Go duration no greater than 24h.", err)
+docs/configuration.md:186:- smoke discovery timeouts above 5 minutes, run timeouts above 24 hours, cleanup grace above 30 seconds, stdout above 64 MiB, stderr above 16 MiB, or invalid environment names.
+docs/configuration.md:228:| `run_control.tombstone_history` | `720h` | at least `24h` |
+docs/recovery.md:75:- Expired running attempt: `sprint status` derives an attempt that has lacked a terminal update for more than 24 hours as timed out without mutating state; the next explicit review/smoke operation owns the durable transition.
+[0m
+[0m$ [0mrg -n "func Test" internal/sprint/sprint_test.go | head -40 && rg -n "flowStages\(" internal/sprint/*_test.go | head
+15:func TestDomainStagesStatusesAndArtifactPaths(t *testing.T) {
+41:func TestSafeErrorRedactsSecretsBeforePersistence(t *testing.T) {
+48:func TestDiscoveryResolutionAndDerivation(t *testing.T) {
+98:func TestFlowStateStrictLoadingAndAtomicWritePreservesPrior(t *testing.T) {
+150:func TestServiceStatusRefreshesMissingStateAndRejectsInvalidState(t *testing.T) {
+internal/sprint/sprint_index_test.go:176:	stages, err := flowStages(StagePlan)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/sprint_index_test.go[90m [limit=60, offset=160][0m
+[0m
+[0m$ [0mgo test ./internal/sprint/ 2>&1 | tail -5
+ok  	github.com/Antonio7098/ultraplan-go/internal/sprint	0.888s
+[0m

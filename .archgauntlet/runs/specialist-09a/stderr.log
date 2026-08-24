@@ -1,4 +1,360 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -5 && git status --short | head -20
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+[0m
+[0m$ [0mls -la && find . -type d -name .git -prune -o -type f -name "*.go" -print | head -60
+total 32
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   136 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    62 Aug 22 16:23 ..
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    18 Aug 22 16:23 cmd
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   232 Aug 22 16:23 dist
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   596 Aug 22 16:23 docs
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   122 Aug 24 12:13 .git
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    18 Aug 22 16:23 .github
+-rw-r--r--. 1 antonioborgerees antonioborgerees    10 Aug 22 16:23 .gitignore
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2188 Aug 22 16:23 go.mod
+-rw-r--r--. 1 antonioborgerees antonioborgerees 11725 Aug 22 16:23 go.sum
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 internal
+-rw-r--r--. 1 antonioborgerees antonioborgerees 10930 Aug 22 16:23 README.md
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   188 Aug 22 16:23 scripts
+./cmd/ultraplan/main.go
+./internal/app/app.go
+./internal/app/app_test.go
+./internal/app/code_commands.go
+./internal/app/code_commands_test.go
+./internal/app/config_commands.go
+./internal/app/defaults_commands.go
+./internal/app/health_commands.go
+./internal/app/health_commands_test.go
+./internal/app/json_output.go
+./internal/app/markdown.go
+./internal/app/markdown_test.go
+./internal/app/project_commands.go
+./internal/app/project_usecases.go
+./internal/app/run_commands.go
+./internal/app/run_commands_test.go
+./internal/app/run_control_inventory_test.go
+./internal/app/run_usecases.go
+./internal/app/serve_commands_test.go
+./internal/app/skills_commands.go
+./internal/app/skills_commands_test.go
+./internal/app/sprint_error_test.go
+./internal/app/sprint_usecases.go
+./internal/app/sprint_usecases_test.go
+./internal/app/sprint_verify_commands_test.go
+./internal/app/status_json.go
+./internal/app/storage_commands.go
+./internal/app/study_commands_test.go
+./internal/app/study_init_commands_test.go
+./internal/app/study_prompt_commands_test.go
+./internal/app/study_run_all_commands_test.go
+./internal/app/study_run_commands_test.go
+./internal/app/study_run_loop_commands_test.go
+./internal/app/study_runs_commands.go
+./internal/app/study_runs_commands_test.go
+./internal/app/study_status_commands_test.go
+./internal/app/study_summary_commands_test.go
+./internal/app/study_usecases.go
+./internal/app/study_validate_commands_test.go
+./internal/app/surfaces.go
+./internal/app/tui_commands.go
+./internal/app/usecases.go
+./internal/app/usecases_test.go
+./internal/app/version.go
+./internal/app/web_operations_test.go
+./internal/app/web_usecases_test.go
+./internal/app/workspace_commands.go
+./internal/app/durable_operations.go
+./internal/app/durable_operations_test.go
+./internal/app/operation_runner.go
+./internal/app/operations.go
+./internal/app/project_commands_test.go
+./internal/app/run_control.go
+./internal/app/run_control_test.go
+./internal/app/serve_commands.go
+./internal/app/sprint_commands.go
+./internal/app/sprint_commands_test.go
+./internal/app/study_commands.go
+./internal/app/tui_commands_test.go
+./internal/app/web_usecases.go
+[0m
+[0m$ [0mfind . -type d -name .git -prune -o -type f -name "*.go" -print | wc -l; find . -type d -name .git -prune -o -type d -print | sort
+291
+.
+./cmd
+./cmd/ultraplan
+./dist
+./docs
+./docs/plans
+./docs/reports
+./.github
+./.github/workflows
+./internal
+./internal/app
+./internal/codeextract
+./internal/platform
+./internal/platform/config
+./internal/platform/filesystem
+./internal/platform/logging
+./internal/platform/process
+./internal/platform/runtime
+./internal/productstate
+./internal/project
+./internal/runcontrol
+./internal/sprint
+./internal/study
+./internal/tui
+./internal/web
+./internal/web/static
+./internal/web/static/css
+./internal/web/static/js
+./internal/web/templates
+./internal/web/templates/components
+./internal/web/templates/layouts
+./internal/web/templates/pages
+./internal/web/templates/primitives
+./internal/workspace
+./internal/workspace/scaffold
+./internal/workspace/scaffold/prompts
+./internal/workspace/scaffold/templates
+./scripts
+[0m
+[0m$ [0mls docs/ && cat README.md | head -80
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+# UltraPlan Go
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515731348,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515731348,[]
+UltraPlan Go is a local-first CLI for durable architecture studies and governed sprint delivery. It initializes study workspaces, runs source and dimension analyses through agentwrap/OpenCode, synthesizes reports, validates artifacts, executes sprint plans, runs resumable automated reviews, drives review-gated smoke verification, and embeds manually invoked skills for every sprint stage.
+
+This release includes study workflows and the grounded governed sprint chain `requirements -> code-context -> sprint-index -> technical-handbook -> area-reasoning -> reasoning -> plan -> execute -> review -> smoke`, including integrated `sprint verify`, durable review resume, focused review reruns, and explicit diagnostic smoke overrides. `code-context.md` stores repository-relative references only; later agent-backed stages receive one byte-stable shared prefix containing the exact requirements and context-pack bytes plus bounded transient live source evidence. Agents may still inspect additional repository files. Issue management, hosted SaaS, multi-user collaboration, automatic Git mutation, retrieval/indexing, UltraPlan cache ownership, signing, notarization, tags, and artifact upload remain deferred.
+
+Phase 3 operators should start with the [CLI reference](docs/cli-reference.md), [recovery runbook](docs/recovery.md), [JSON schema contract](docs/phase3-json-schemas.md), and [legacy verification migration guide](docs/phase3-migration.md). The authoritative product requirements, technical requirements, architecture, roadmap, and sprint plans live in the adjacent `ultraplan-go-workspace/projects/ultraplan-go/` planning workspace; this repository does not duplicate them.
+
+## Install
+
+Install to your user bin directory, which keeps the `ultraplan` command in the same place for future upgrades:
+
+```bash
+./scripts/install-ultraplan.sh
+```
+
+That script installs `ultraplan` from the current checkout to `~/.local/bin` by default. It can be run from any directory. If you prefer a different bin directory, set `GOBIN` first:
+
+```bash
+GOBIN="$HOME/bin" ./scripts/install-ultraplan.sh
+```
+
+Build from source:
+
+```bash
+go build -o bin/ultraplan ./cmd/ultraplan
+```
+
+Run the built binary:
+
+```bash
+./bin/ultraplan --help
+```
+
+For local release artifacts, see [docs/release-checklist.md](docs/release-checklist.md). This repository packages Linux and macOS binaries under `dist/` when the release checklist is run.
+
+## Quick Start
+
+Initialize a workspace:
+
+```bash
+ultraplan init-workspace --path .
+```
+
+Check workspace, config, and runtime health:
+
+```bash
+ultraplan health
+```
+
+Inspect effective configuration:
+
+```bash
+ultraplan config show
+ultraplan config show --json
+```
+
+Initialize a study from YAML:
+
+```bash
+ultraplan study init study-init.yml --no-clone
+```
+
+List studies, sources, and dimensions:
+
+```bash
+ultraplan study list
+ultraplan study <study> list
+```
+
+Preview prompts without runtime execution:
+
+```bash
+ultraplan study <study> prompt analysis 01 <source>
+ultraplan study <study> prompt synthesis 01 --output previews/synthesis-01.txt
+```
+
+Install editable copies of the built-in prompts and templates only when you want to customize them:
+
+```bash
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md
+[0m
+[0m$ [0mls -la internal/runcontrol internal/productstate internal/sprint | head -80
+internal/productstate:
+total 8
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   16 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  154 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees 6281 Aug 22 16:23 store.go
+
+internal/runcontrol:
+total 260
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   758 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2033 Aug 22 16:23 benchmark_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   399 Aug 22 16:23 doc.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2712 Aug 22 16:23 errors.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4531 Aug 22 16:23 fault_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2451 Aug 22 16:23 id.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1830 Aug 22 16:23 id_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   854 Aug 22 16:23 import_boundary_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2305 Aug 22 16:23 interfaces.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 24533 Aug 22 16:23 lifecycle.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 14743 Aug 22 16:23 lifecycle_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4768 Aug 22 16:23 local_log.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2383 Aug 22 16:23 local_log_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2099 Aug 22 16:23 metrics.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 12583 Aug 22 16:23 migration.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5349 Aug 22 16:23 migration_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 16313 Aug 22 16:23 model.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2297 Aug 22 16:23 model_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1396 Aug 22 16:23 process_darwin.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1713 Aug 22 16:23 process.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  9719 Aug 22 16:23 process_integration_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1404 Aug 22 16:23 process_linux.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   471 Aug 22 16:23 process_other.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8315 Aug 22 16:23 retention.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5301 Aug 22 16:23 retention_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3472 Aug 22 16:23 sanitize.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2642 Aug 22 16:23 sanitize_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 48412 Aug 22 16:23 sqlite.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 16628 Aug 22 16:23 sqlite_test.go
+
+internal/sprint:
+total 848
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  1954 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2460 Aug 22 16:23 artifacts.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2698 Aug 22 16:23 cleanup_uncertain.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1683 Aug 22 16:23 cleanup_uncertain_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 23290 Aug 22 16:23 code_context.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 23057 Aug 22 16:23 code_context_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4439 Aug 22 16:23 context_pack.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 12491 Aug 22 16:23 direct_inputs.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  6206 Aug 22 16:23 direct_inputs_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2022 Aug 22 16:23 discovery.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1050 Aug 22 16:23 doc.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 12508 Aug 22 16:23 domain.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 19854 Aug 22 16:23 efficiency_improvements_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4998 Aug 22 16:23 efficiency_metrics_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 27521 Aug 22 16:23 execute.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   839 Aug 22 16:23 execute_model.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1847 Aug 22 16:23 execute_model_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8753 Aug 22 16:23 execute_plan.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  7006 Aug 22 16:23 execute_plan_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 10153 Aug 22 16:23 execute_state.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 11436 Aug 22 16:23 execute_state_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3485 Aug 22 16:23 execute_target.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1882 Aug 22 16:23 execute_target_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 12940 Aug 22 16:23 flow.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   715 Aug 22 16:23 freshness_policy.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  7883 Aug 22 16:23 handbook.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  6122 Aug 22 16:23 handbook_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8707 Aug 22 16:23 index.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2706 Aug 22 16:23 input_contract.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3760 Aug 22 16:23 locks.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4857 Aug 22 16:23 locks_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  7214 Aug 22 16:23 plan.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  7142 Aug 22 16:23 plan_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  6510 Aug 22 16:23 prompt_bundle.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 19106 Aug 22 16:23 prompt_context.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 18601 Aug 22 16:23 prompt_context_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 18193 Aug 22 16:23 prompts.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 11967 Aug 22 16:23 reasoning.go
+[0m
+[0m$ [0mwc -l internal/runcontrol/*.go internal/productstate/*.go 2>/dev/null | tail -40
+63 internal/runcontrol/benchmark_test.go
+     7 internal/runcontrol/doc.go
+    88 internal/runcontrol/errors.go
+   129 internal/runcontrol/fault_test.go
+    89 internal/runcontrol/id.go
+    67 internal/runcontrol/id_test.go
+    39 internal/runcontrol/import_boundary_test.go
+    72 internal/runcontrol/interfaces.go
+   572 internal/runcontrol/lifecycle.go
+   331 internal/runcontrol/lifecycle_test.go
+   155 internal/runcontrol/local_log.go
+    77 internal/runcontrol/local_log_test.go
+    57 internal/runcontrol/metrics.go
+   363 internal/runcontrol/migration.go
+   176 internal/runcontrol/migration_test.go
+   504 internal/runcontrol/model.go
+    67 internal/runcontrol/model_test.go
+    39 internal/runcontrol/process_darwin.go
+    58 internal/runcontrol/process.go
+   283 internal/runcontrol/process_integration_test.go
+    45 internal/runcontrol/process_linux.go
+    18 internal/runcontrol/process_other.go
+   207 internal/runcontrol/retention.go
+   129 internal/runcontrol/retention_test.go
+   111 internal/runcontrol/sanitize.go
+    73 internal/runcontrol/sanitize_test.go
+  1175 internal/runcontrol/sqlite.go
+   470 internal/runcontrol/sqlite_test.go
+   206 internal/productstate/store.go
+  5670 total
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/doc.go
+[0m✱ [0mGrep "run-control\.db|DatabaseRelativePath|ultraplan\.db"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 20 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/model.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle.go
+[0m✱ [0mGrep "productstate\."[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 22 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/flow.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state_database.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/cleanup_uncertain.go
+[0m✱ [0mGrep "ProductStatus"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 16 matches[0m
+[0m✱ [0mGrep "CleanupUncertain|cleanup-uncertain"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 72 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state.go

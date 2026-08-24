@@ -1,4 +1,622 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m$ [0mgit log --oneline -5 && git status --short | head -20
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+[0m
+[0m$ [0mfind . -type f -name "*.go" | grep -v _test | head -80 && echo "---TESTS---" && find . -type f -name "*_test.go" | head -40
+./cmd/ultraplan/main.go
+./internal/app/app.go
+./internal/app/code_commands.go
+./internal/app/config_commands.go
+./internal/app/defaults_commands.go
+./internal/app/health_commands.go
+./internal/app/json_output.go
+./internal/app/markdown.go
+./internal/app/project_commands.go
+./internal/app/project_usecases.go
+./internal/app/run_commands.go
+./internal/app/run_usecases.go
+./internal/app/skills_commands.go
+./internal/app/sprint_usecases.go
+./internal/app/status_json.go
+./internal/app/storage_commands.go
+./internal/app/study_runs_commands.go
+./internal/app/study_usecases.go
+./internal/app/surfaces.go
+./internal/app/tui_commands.go
+./internal/app/usecases.go
+./internal/app/version.go
+./internal/app/workspace_commands.go
+./internal/app/durable_operations.go
+./internal/app/operation_runner.go
+./internal/app/operations.go
+./internal/app/run_control.go
+./internal/app/serve_commands.go
+./internal/app/sprint_commands.go
+./internal/app/study_commands.go
+./internal/app/web_usecases.go
+./internal/codeextract/doc.go
+./internal/codeextract/domain.go
+./internal/codeextract/parser.go
+./internal/codeextract/resolver.go
+./internal/codeextract/service.go
+./internal/platform/config/config.go
+./internal/platform/config/doc.go
+./internal/platform/config/redaction.go
+./internal/platform/filesystem/doc.go
+./internal/platform/logging/doc.go
+./internal/platform/logging/logging.go
+./internal/platform/process/process.go
+./internal/platform/process/process_other.go
+./internal/platform/process/process_unix.go
+./internal/platform/runtime/agentwrap.go
+./internal/platform/runtime/events.go
+./internal/platform/runtime/health.go
+./internal/platform/runtime/policy.go
+./internal/platform/runtime/opencode.go
+./internal/platform/runtime/runtime.go
+./internal/productstate/store.go
+./internal/project/discovery.go
+./internal/project/doc.go
+./internal/project/domain.go
+./internal/project/index.go
+./internal/project/reasoning_defaults.go
+./internal/project/service.go
+./internal/project/store_fs.go
+./internal/project/validation.go
+./internal/runcontrol/doc.go
+./internal/runcontrol/errors.go
+./internal/runcontrol/id.go
+./internal/runcontrol/interfaces.go
+./internal/runcontrol/lifecycle.go
+./internal/runcontrol/local_log.go
+./internal/runcontrol/metrics.go
+./internal/runcontrol/migration.go
+./internal/runcontrol/process.go
+./internal/runcontrol/process_darwin.go
+./internal/runcontrol/process_linux.go
+./internal/runcontrol/process_other.go
+./internal/runcontrol/retention.go
+./internal/runcontrol/model.go
+./internal/runcontrol/sanitize.go
+./internal/runcontrol/sqlite.go
+./internal/sprint/artifacts.go
+./internal/sprint/cleanup_uncertain.go
+./internal/sprint/context_pack.go
+./internal/sprint/direct_inputs.go
+---TESTS---
+./internal/app/app_test.go
+./internal/app/code_commands_test.go
+./internal/app/health_commands_test.go
+./internal/app/markdown_test.go
+./internal/app/run_commands_test.go
+./internal/app/run_control_inventory_test.go
+./internal/app/serve_commands_test.go
+./internal/app/skills_commands_test.go
+./internal/app/sprint_error_test.go
+./internal/app/sprint_usecases_test.go
+./internal/app/sprint_verify_commands_test.go
+./internal/app/study_commands_test.go
+./internal/app/study_init_commands_test.go
+./internal/app/study_prompt_commands_test.go
+./internal/app/study_run_all_commands_test.go
+./internal/app/study_run_commands_test.go
+./internal/app/study_run_loop_commands_test.go
+./internal/app/study_runs_commands_test.go
+./internal/app/study_status_commands_test.go
+./internal/app/study_summary_commands_test.go
+./internal/app/study_validate_commands_test.go
+./internal/app/usecases_test.go
+./internal/app/web_operations_test.go
+./internal/app/web_usecases_test.go
+./internal/app/durable_operations_test.go
+./internal/app/project_commands_test.go
+./internal/app/run_control_test.go
+./internal/app/sprint_commands_test.go
+./internal/app/tui_commands_test.go
+./internal/codeextract/codeextract_test.go
+./internal/platform/config/config_test.go
+./internal/platform/logging/logging_test.go
+./internal/platform/process/process_test.go
+./internal/platform/runtime/cache_test.go
+./internal/platform/runtime/opencode_test.go
+./internal/platform/runtime/runtime_test.go
+./internal/project/reasoning_defaults_test.go
+./internal/project/project_test.go
+./internal/runcontrol/benchmark_test.go
+./internal/runcontrol/fault_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal
+[0m
+[0m$ [0mls -la internal/runcontrol/ && wc -l internal/runcontrol/*.go | sort -n
+total 260
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   758 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2033 Aug 22 16:23 benchmark_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   399 Aug 22 16:23 doc.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2712 Aug 22 16:23 errors.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4531 Aug 22 16:23 fault_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2451 Aug 22 16:23 id.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1830 Aug 22 16:23 id_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   854 Aug 22 16:23 import_boundary_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2305 Aug 22 16:23 interfaces.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 24533 Aug 22 16:23 lifecycle.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 14743 Aug 22 16:23 lifecycle_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4768 Aug 22 16:23 local_log.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2383 Aug 22 16:23 local_log_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2099 Aug 22 16:23 metrics.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 12583 Aug 22 16:23 migration.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5349 Aug 22 16:23 migration_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 16313 Aug 22 16:23 model.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2297 Aug 22 16:23 model_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1396 Aug 22 16:23 process_darwin.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1713 Aug 22 16:23 process.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  9719 Aug 22 16:23 process_integration_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1404 Aug 22 16:23 process_linux.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   471 Aug 22 16:23 process_other.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8315 Aug 22 16:23 retention.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5301 Aug 22 16:23 retention_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3472 Aug 22 16:23 sanitize.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2642 Aug 22 16:23 sanitize_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 48412 Aug 22 16:23 sqlite.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 16628 Aug 22 16:23 sqlite_test.go
+     7 internal/runcontrol/doc.go
+    18 internal/runcontrol/process_other.go
+    39 internal/runcontrol/import_boundary_test.go
+    39 internal/runcontrol/process_darwin.go
+    45 internal/runcontrol/process_linux.go
+    57 internal/runcontrol/metrics.go
+    58 internal/runcontrol/process.go
+    63 internal/runcontrol/benchmark_test.go
+    67 internal/runcontrol/id_test.go
+    67 internal/runcontrol/model_test.go
+    72 internal/runcontrol/interfaces.go
+    73 internal/runcontrol/sanitize_test.go
+    77 internal/runcontrol/local_log_test.go
+    88 internal/runcontrol/errors.go
+    89 internal/runcontrol/id.go
+   111 internal/runcontrol/sanitize.go
+   129 internal/runcontrol/fault_test.go
+   129 internal/runcontrol/retention_test.go
+   155 internal/runcontrol/local_log.go
+   176 internal/runcontrol/migration_test.go
+   207 internal/runcontrol/retention.go
+   283 internal/runcontrol/process_integration_test.go
+   331 internal/runcontrol/lifecycle_test.go
+   363 internal/runcontrol/migration.go
+   470 internal/runcontrol/sqlite_test.go
+   504 internal/runcontrol/model.go
+   572 internal/runcontrol/lifecycle.go
+  1175 internal/runcontrol/sqlite.go
+  5464 total
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/doc.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/model.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/id.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/interfaces.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/retention.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/errors.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_linux.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+[0m✱ [0mGrep "RequestCancellation|AcknowledgeCancellation|Reconcile\(|LifecycleQueued|ResolveOperationAlias"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 44 matches[0m
+[0m✱ [0mGrep "runcontrol\.|Repository|Control\b"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web · 19 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_usecases.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands.go
+[0m✱ [0mGrep "beginDurableCLICommand|controlledRuntimeFor|sharedOperationRunner|\.Compact\(|Notifier|SetLogger|newDurableOperationManager"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 29 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle_test.go
+[0m
+[0m$ [0mls docs/ && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/* 2>/dev/null | head -60
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system:
+contracts
+protocols
+reasoning
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515719126,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515719126,[]
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts:
+core
+runtime
+surfaces
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols:
+architecture-review-protocol.md
+contract-mapping-protocol.md
+deep-smoke-sprint-protocol.md
+plan-sprint-protocol.md
+review-sprint-protocol.md
+sprint-review-protocol.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning:
+api-design-reasoning-template.md
+architecture_reasoning_template.md
+cli-design-reasoning-template.md
+data-privacy-reasoning-template.md
+errors_reasoning_template.md
+eval-design-reasoning-template.md
+frontend-design-reasoning-template.md
+frontend-reasoning-template.md
+frontend-state-placement-template.md
+llm-feature-reasoning-template.md
+observability-reasoning-template.md
+package-api-reasoning-template.md
+performance-reasoning-template.md
+persistence-reasoning-template.md
+prompt-change-reasoning-template.md
+release-reasoning-template.md
+security-threat-reasoning-template.md
+testing-strategy-reasoning-template.md
+[0m
+[0m$ [0mgrep -n "run.control\|run-control\|runcontrol" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md | head -40
+153:## Durable run control
+156:`.ultraplan/run-control.db`. `internal/runcontrol` owns operational identity,
+160:state; run control only projects their safe correlations and status.
+184:`.ultraplan/run-control.log` JSONL file. The log is capped at 1 MiB and uses the
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/surfaces
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core:
+architecture.md
+configuration.md
+documentation.md
+errors.md
+observability.md
+privacy-and-data.md
+release-versioning.md
+security.md
+testing.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime:
+llm-evaluation-cost-safety.md
+llm.md
+performance.md
+persistence-and-migrations.md
+workflows.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/surfaces:
+accessibility.md
+api-contracts.md
+cli.md
+frontend.md
+package-public-api.md
+[0m
+[0m$ [0msed -n '140,200p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md
+## Grounded Planning And Shared Prompt Boundary
+
+`internal/sprint` owns `code-context` generation, validation, source-reference resolution, and downstream prompt composition. The complete common prefix is rendered once per top-level operation in this fixed order: stable shared instructions; project/sprint identity; an external frame containing the exact stored `requirements.md` bytes; an external frame containing the exact stored reference-only `code-context.md` bytes; transient resolved source evidence in authored order; and one constant stage-specific boundary as the final prefix bytes. Stage names, output paths/contracts, task and reviewer identities, model/run/session/attempt data, timestamps, and smoke scope occur only after that boundary or in runtime metadata.
+
+Reference resolution is repository-contained, symlink-rejecting, regular-file-only, cancellation-aware, and fail-closed. References retain their authored labels, rationale, and symbol metadata while selected ranges from the same file are sorted and merged so source bytes are injected once and each file is scanned once. The complete prefix is capped at 256 KiB, with 64 KiB reserved for stage suffixes; overflow is an actionable error, never truncation or omission. Evidence is marked untrusted, and agents retain permission to inspect additional live source.
+
+After code-context validation, UltraPlan may persist a bounded, content-addressed, disposable context pack under `.ultra/cache/sprint-context/`; existing sprints create one lazily on their first runtime composition while prompt previews stay read-only. Its identity is derived only from the exact requirements, exact code-context artifact, and canonical target; it freezes the resolved source bytes so execution edits do not churn the planning prefix. It is an acceleration layer, never provenance or freshness authority: write failure is non-fatal, missing or invalid packs fall back to live resolution, and artifact changes select a different identity without invalidating, rerunning, or reopening completed stages. Exact-match dependency freshness remains disabled.
+
+`internal/platform/runtime` receives the final ordinary prompt plus content-free cache metadata: the stable-prefix digest, byte breakpoint, and a provider/model/work-directory cohort key. The current agentwrap/OpenCode boundary transports these values as metadata only; it cannot yet place a native cache-control breakpoint inside the single provider message, so no cache hit is guaranteed. Planning, execute, independent review requests, and agent-backed smoke authoring call the sprint-owned composition boundary explicitly. Review fan-out shares one immutable prefix. Runtime results append bounded, content-free prompt, token, cache-read/cache-write, cost, and timing measurements to the sprint's `.runtime-metrics.json`; `sprint ... metrics` exposes them. Prepared handoff packets and per-stage input contracts minimize downstream artifact reads without becoming dependency fingerprints; when present, the technical handbook's `Examples Worth Investigating` (or legacy `Examples Worth Inspecting`) section is copied directly into plan and execute prompts.
+
+Execute owns one reusable runtime session for the ordered pending-task queue rather than one independent agent per task. Its initial turn carries the shared sprint prefix, queue primer, current task, safety instructions, and optional handbook examples. After each task UltraPlan persists task-specific evidence and status, then submits only the next task delta with `SessionAction=continue`. A missing runtime session ID degrades safely to another complete prompt; failure or cancellation stops queue advancement, while explicit deferral may advance to the next task. Cross-command session reuse is based on model and target compatibility, not exact artifact fingerprints.
+
+## Durable run control
+
+UltraPlan records runtime-backed and asynchronous work in the workspace-local
+`.ultraplan/run-control.db`. `internal/runcontrol` owns operational identity,
+lifecycle, owner leases, fencing, cancellation commands, sanitized event
+ordering, retention, and terminal arbitration. Sprint, study, smoke, runtime,
+lock, artifact, and Git modules remain authoritative for their own product
+state; run control only projects their safe correlations and status.
+
+Each start is accepted and claimed in SQLite before a goroutine, runtime child,
+or external harness starts. A failed required write fails closed. Direct CLI
+commands, TUI actions, web operations, and individual runtime children share
+that boundary. IDs are opaque 128-bit `run_*` and `att_*` values. Writers use
+short transactions, WAL, `synchronous=FULL`, foreign keys, a five-second busy
+timeout, and repository-allocated fencing generations.
+
+Owners tick every second, persist heartbeats every five seconds with a
+15-second lease, and reconcile every ten seconds. Reconciliation waits 45
+seconds beyond lease expiry and uses exact process-birth identity where the
+platform can provide it. An accepted run that never acquired its first claim
+is interrupted after the same grace window, with no fabricated attempt or
+process evidence. Reconciliation never adopts a worker, signals a PID based on
+PID alone, or infers success from artifacts, locks, or product state. One
+immutable terminal proposal wins; a cancellation request may therefore coexist
+with a later successful completion.
+
+Events are sanitized and committed before delivery. Payloads are allowlisted,
+bounded to 16 KiB, and omit prompts, provider-native payloads, credentials,
+absolute paths, and unrestricted output. Consumers resume by `(run_id,
+sequence)` from SQLite; in-process notifications are only an optimization.
+Safe structured repository diagnostics are also written to the private bounded
+`.ultraplan/run-control.log` JSONL file. The log is capped at 1 MiB and uses the
+same run, attempt, owner/fence, sequence, cancellation, reconciliation, and
+terminal correlation vocabulary exposed by diagnostics and support export.
+
+This design supports direct writers and observers on one host and a trustworthy
+local filesystem. Multi-host access, network filesystems without reliable
+SQLite WAL/locking semantics, worker adoption, brokers, and remote signalling
+are outside the supported topology.
+[0m
+[0m$ [0mgrep -n -i "run.control\|heartbeat\|lease\|fenc\|reconcil\|terminal\|cancellation" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/persistence-and-migrations.md | head -50
+91:Writes that must succeed or fail together must share a clear transaction, atomic-write, or reconciliation boundary.
+100:- partial durable writes from a single business operation with no compensation, retry, or reconciliation plan
+102:- mixing durable state changes and external dependency side effects without idempotency/reconciliation thinking
+201:- risks partial writes with no atomic-write, transaction, or reconciliation plan
+[0m
+[0m$ [0mwc -l /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/persistence-and-migrations.md && sed -n '1,80p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/persistence-and-migrations.md
+208 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/persistence-and-migrations.md
+# Persistence And Migrations Contract
+
+## Purpose
+
+This contract defines how durable storage, schema changes, atomic writes, migrations, and data integrity must be handled.
+
+It governs:
+
+- durable schema and artifact ownership
+- migrations and format compatibility
+- atomic write or transaction boundaries
+- data integrity
+- read/query/scan boundaries
+- seed/test data
+- backup/rollback posture
+
+## Scope
+
+This contract applies when a change:
+
+- adds or changes durable files, state formats, database tables, collections, indexes, constraints, or schemas
+- changes persistence models, stores, repositories, or artifact writers
+- changes migrations, compatibility behavior, seed data, or fixtures
+- changes atomic write, transaction, or consistency guarantees
+- adds caches, search indexes, vector stores, queues, or derived read models/artifacts
+
+## Requirement Index
+
+| ID | Title | Applies To | Severity If Violated |
+| --- | --- | --- | --- |
+| PERSIST-SCHEMA-001 | Durable schema must have clear ownership and meaning | state/artifact/schema changes | High |
+| PERSIST-MIG-001 | Migrations and compatibility changes must be safe, ordered, and reviewable | migrations, format changes | Blocker |
+| PERSIST-ATOMIC-001 | Atomic write or transaction boundaries must be explicit | writes/multi-step updates | High |
+| PERSIST-INTEGRITY-001 | Integrity rules must be enforced at the right layer | constraints/rules | High |
+| PERSIST-READ-001 | Read and query behaviour must be bounded and observable | reads/search/scans | Medium |
+| PERSIST-DERIVED-001 | Derived stores must declare source of truth and staleness | caches/search/vector/read models/artifacts | High |
+| PERSIST-FIXTURE-001 | Fixture, seed, and test data must not leak into production | fixtures/seeds/test data | High |
+| PERSIST-RECOVERY-001 | Risky data changes need rollback or recovery strategy | destructive migrations/state changes | High |
+
+## Core Principles
+
+1. Durable state is a long-term contract.
+2. Migrations must be boring, reviewable, and recoverable.
+3. Atomic write and transaction boundaries are part of business correctness.
+4. Storage layers should enforce invariants they are best placed to protect.
+5. Derived stores are not automatically authoritative.
+6. Performance-sensitive queries need bounds and evidence.
+7. Test/seed data must stay out of production unless intentionally deployed.
+
+## Requirements
+
+### PERSIST-SCHEMA-001: Durable Schema Must Have Clear Ownership And Meaning
+
+**Rule**
+Every durable file, entity, table, collection, index, queue, vector collection, or stored artifact must have an owner and clear semantic meaning.
+
+**Required**
+- define which module/capability owns each durable structure
+- document whether data is authoritative, derived, cache, audit, operational, or temporary
+- avoid cross-module writes to another module’s owned storage without explicit boundary
+
+**Forbidden**
+- generic dumping-ground files, tables, or collections with mixed ownership
+- storage structures whose lifecycle and source of truth are unclear
+
+**Evidence**
+- migration/model/schema/artifact naming and docs identify ownership
+
+### PERSIST-MIG-001: Migrations And Compatibility Changes Must Be Safe, Ordered, And Reviewable
+
+**Rule**
+Schema, durable file, and data migrations must be deterministic, ordered, and safe for the target deployment model.
+
+**Required**
+- include migration files or explicit compatibility/rejection behavior for schema and durable format changes
+- keep migrations idempotent where ecosystem supports it or clearly ordered where not
+- separate schema changes from expensive data backfills when risk warrants
+- consider zero-downtime compatibility when multiple app versions may run
+
+**Forbidden**
+[0m
+[0m✱ [0mGrep "func .*Notify\(|Notifier\b|CancellationUncertain|cancellation_state = 'uncertain'|CancellationUncertain\b|runcontrol\.Control\b|\bControl\b ="[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 10 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite_test.go
+[0m
+[0m$ [0mls internal/web/ && grep -n "RecordOperationEvent\|FinishOperation\|AcceptOperation\|CancelRun\|RunEvents" internal/web/*.go | grep -v _test | head -30
+api_compatibility_test.go
+artifacts.go
+artifacts_test.go
+handlers.go
+import_boundary_test.go
+integration_test.go
+operation_handlers.go
+operations_contract_test.go
+operations.go
+operations_test.go
+packaging_test.go
+routes.go
+routes_test.go
+run_handlers.go
+run_handlers_test.go
+security.go
+security_test.go
+server.go
+server_policy.go
+server_policy_test.go
+server_test.go
+sse_test.go
+static
+templates
+templates_test.go
+test_fakes_test.go
+internal/web/handlers.go:259:	RunEvents     []runEventView
+internal/web/handlers.go:519:		h.handleRunEvents(w, r, match.params[0])
+internal/web/operation_handlers.go:197:		snapshot, changed, cancelErr := h.runs.CancelRun(r.Context(), app.RunID(id), "user_requested")
+internal/web/operation_handlers.go:377:		snapshot, changed, cancelErr := h.runs.CancelRun(r.Context(), app.RunID(id), "user_requested")
+internal/web/operation_handlers.go:467:			events, eventErr := h.runs.RunEvents(r.Context(), snapshot.RunID, after, 512)
+internal/web/operations.go:182:		accepted, acceptErr := manager.AcceptOperation(ctx, prepared, dedupKey)
+internal/web/operations.go:236:		finishErr := manager.FinishOperation(finishCtx, record.doc.ID, result.State, runErr)
+internal/web/operations.go:247:		committed, err := manager.RecordOperationEvent(context.Background(), record.doc.ID, event)
+internal/web/run_handlers.go:202:	events, err := h.runs.RunEvents(r.Context(), snapshot.RunID, after, 200)
+internal/web/run_handlers.go:225:	h.render(w, r, http.StatusOK, "run", pageModel{Title: "Run " + value, Heading: "Run detail", Run: &detail, StudyInsights: insights, RunEvents: eventViews, NextEventsURL: nextEventsURL})
+internal/web/run_handlers.go:378:	if _, _, err := h.runs.CancelRun(r.Context(), app.RunID(value), "user_requested"); err != nil {
+internal/web/run_handlers.go:403:	snapshot, changed, err := h.runs.CancelRun(r.Context(), app.RunID(value), "user_requested")
+internal/web/run_handlers.go:411:func (h *handler) handleRunEvents(w http.ResponseWriter, r *http.Request, value string) {
+internal/web/run_handlers.go:462:		events, err := h.runs.RunEvents(r.Context(), runID, after, 512)
+internal/web/run_handlers.go:490:		events, err := h.runs.RunEvents(r.Context(), snapshot.RunID, after, 512)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go[90m [offset=120, limit=180][0m
+[0m
+[0m$ [0mgrep -rn -i "cancellation_uncertain\|cancellation uncertain\|CancellationUncertain" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace --include="*.md" | head; echo ---; grep -rln -i "\"queued\"\|'queued'\|lifecycle.*queued" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system 2>/dev/null | head
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md:27:| Operational telemetry | Structured logs, local metrics, diagnostics, and optional traces share run/attempt/stage/task/runtime correlation. Operator-visible health distinguishes storage failure, stale ownership, reconciliation backlog, replay gap, subscriber lag/drop, and cancellation uncertainty. |
+---
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/fault_test.go
+[0m
+[0m$ [0msed -n '1,80p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md
+# Sprint 35 Requirements: Durable Run Identity and Cross-Surface Observability
+
+> Project: `ultraplan-go`
+> Sprint: `35-durable-run-observability`
+> Purpose: the authoritative, human-readable sprint contract. Later sprint artifacts must reason through the open decisions and satisfy the fixed observable outcomes.
+
+## Sprint Goal
+
+Make every accepted runtime-backed UltraPlan execution a durable, workspace-visible run that can be discovered, inspected, followed, cancelled when authorized, and reconciled consistently from CLI, TUI, and any local web-server instance attached to the same workspace.
+
+The sprint repairs the operational control plane exposed by real use: CLI-started work must appear in the browser running-process indicator, a run opened through another server must retain useful history and continue with live events, and a browser session or server restart must not turn a legitimate run into an unexplained `404 Operation not retained` dead end.
+
+This sprint does not change the authority of project, sprint, study, or Markdown artifacts. Durable operational run state is a separate product concern from the later gated decision about alternate persistence for authored product content.
+
+## Required Outputs
+
+| Deliverable | Required Outcome |
+|---|---|
+| Run identity and lifecycle model | A stable workspace-scoped run ID, attempt identity, operation/stage identity, timestamps, ownership/liveness facts, safe correlation fields, and one arbitrated terminal outcome exist independently of a browser session, HTTP server process, or event subscriber. |
+| Durable run repository and event journal | Accepted runs and sanitized progress events are durably recorded before they are advertised as observable; events have monotonic per-run ordering and can be replayed after reconnect, session expiry, or server restart. The reasoning and plan stages select the concrete package and storage mechanism. |
+| Workspace-wide active-run projection | CLI, TUI, dashboard, project, sprint, study, and local web surfaces derive running counts and run lists from the same workspace-wide lifecycle model rather than the current web process's in-memory operation map or only the page currently being viewed. |
+| Stable run inspection | A durable run detail surface reports identity, target, lifecycle state, latest heartbeat, stage/task progress, safe diagnostics, event history, terminal result, and recovery guidance. Read visibility is not coupled to the browser session that started the work. |
+| Replayable live event delivery | The web event transport resumes from a durable sequence cursor, makes truncation or retention gaps explicit, and continues from durable state when a different local server instance serves the same workspace. SSE may remain the transport; the transport is not the source of truth. |
+| Ownership, lease, and reconciliation | Active executions publish enough owner/lease/heartbeat and process/runtime identity to distinguish live, stalled, interrupted, cleanup-uncertain, and terminal work conservatively, including PID reuse and abrupt owner death. Startup and periodic reconciliation never infer success from process absence or artifact presence. |
+| Cross-surface cancellation | Authorized cancellation resolves the durable run, reaches the current owner through a selected coordination mechanism, is idempotent, and participates in the same single-terminal-outcome arbitration as completion, failure, timeout, interruption, and server shutdown. |
+| Compatibility and migration | Current sprint/study locks, flow state, execute state, runtime checkpoints, operation URLs, and JSON clients have an explicit migration or compatibility story. Legacy or expired operation links resolve to a durable run, a retained tombstone, or precise recovery guidance rather than a generic dashboard error. |
+| Operational telemetry | Structured logs, local metrics, diagnostics, and optional traces share run/attempt/stage/task/runtime correlation. Operator-visible health distinguishes storage failure, stale ownership, reconciliation backlog, replay gap, subscriber lag/drop, and cancellation uncertainty. |
+| Verification and fault injection | Deterministic, race, integration, and browser tests prove CLI-to-web discovery, multiple local servers, refresh/reconnect replay, session expiry, server restart, abrupt owner death, stale leases, PID reuse, slow subscribers, bounded storage, duplicate cancellation, and terminal-state races. |
+| Documentation | Architecture, PRD, TRD, CLI/API, local-web, operations, and recovery documentation explain the lifecycle model, authority boundaries, visibility guarantees, retention behavior, diagnostic workflow, compatibility policy, and intentionally unresolved design choices. |
+
+## Acceptance Criteria
+
+- A runtime-backed command receives a durable run ID before child execution begins, or fails closed without starting the child when required run persistence cannot be established.
+- Two concurrent CLI-started runs in one workspace appear as two active runs in the browser top bar and workspace run list without requiring navigation to either owning sprint or study page.
+- Work started through CLI, TUI, or one local web-server instance can be inspected from another supported local surface attached to the same workspace.
+- Opening a current run through a different local server provides retained event history and subsequently committed live events, subject only to an explicit documented topology boundary selected during reasoning.
+- Refreshing a page, rotating or expiring a browser session, restarting the observing server, or losing an SSE connection does not erase the run identity or turn a valid run into an unexplained 404.
+- Every event visible to a subscriber has a stable run ID and monotonic per-run sequence. Reconnect resumes from a cursor; if the requested history is unavailable, the API emits a typed gap/retention response and a current durable snapshot.
+- Running counts use lifecycle state from the shared run projection. No UI depends on a planning-stage status value that cannot represent running execution.
+- Active-run truth includes a renewable lease or equivalent liveness contract. Reconciliation is conservative, observable, idempotent, and safe against stale PIDs and owner crashes.
+- Exactly one terminal outcome wins for completion, failure, cancellation, timeout, interruption, cleanup uncertainty, and reconciliation races. Repeated observers and cancellation requests cannot rewrite that outcome inconsistently.
+- Durable operational records do not become a shadow authority for `requirements.md`, `code-context.md`, flow-state outcomes, generated artifacts, Git/source state, or external smoke evidence.
+- Raw provider payloads, secrets, full prompts, unsafe paths, and unbounded output are not persisted or streamed by default. Redaction occurs before durable recording and fan-out.
+- Retention, compaction, disk limits, subscriber backpressure, and degraded-mode behavior are explicit and testable; event loss or persistence failure is never silent.
+- Normal test suites pass under `go test ./...` and `go test -race ./...`; the CLI builds; a gated real-runtime dogfood demonstrates cross-surface observation and recovery.
+
+## Open Questions For Reasoning
+
+The sprint must answer these questions from repository evidence, failure-mode analysis, and focused experiments. The requirements intentionally do not preselect the answers.
+
+1. What is the supported topology for this sprint: multiple processes on one host, multiple hosts sharing a workspace, or both? Which guarantees become conditional at the boundary?
+2. Where should the execution-control responsibility live so it is not owned by `internal/web`, yet does not become a generic workflow engine or duplicate agentwrap?
+3. What is the smallest durable representation that satisfies ordering, atomicity, concurrency, recovery, inspection, and bounded retention: filesystem snapshots plus append-only segments, SQLite, an agentwrap-backed store, or another local mechanism?
+4. Is there a single coordinator/daemon, direct multi-process repository access with leases, or a hybrid? How is leader/owner identity established and recovered without a single hidden in-memory authority?
+5. Does the process that accepts a run always own the worker? If an owner exits, should work be cancelled, adopted, or merely reconciled as interrupted, and which stages are safe to adopt?
+6. What identifiers and hierarchy are needed between user operation, product run, stage execution, task attempt, agentwrap run, provider session, OS process, and external smoke-harness run?
+7. What lease duration, heartbeat cadence, clock assumptions, fencing token, and PID/process-birth checks make liveness truthful without declaring slow healthy work dead?
+8. What delivery guarantee is required for progress events, how are duplicate events handled, and what are the retention, compaction, snapshot, cursor-expiry, and replay-gap semantics?
+9. What backpressure policy protects execution and disk while telling operators exactly which detail was sampled, compacted, or dropped?
+10. Which run fields and historical events are readable across browser sessions, and what fresh authorization is required for cancel, retry, or other mutations?
+11. How should legacy `/operations/{id}` URLs, API clients, current lock files, `.flow-state.json`, `.run-state.json`, and runtime session checkpoints map into the new model without fabricating history?
+12. Which diagnostics are always local, which metrics endpoint or command is appropriate, and whether OpenTelemetry export should be built now, provided as an optional adapter, or deferred?
+13. What happens when durable record persistence fails before start, mid-run, or at terminal commit? Which degraded modes are safe, and when must execution stop?
+14. What data can be retained by default without exposing prompts, provider payloads, repository content, credentials, or sensitive paths, and how can users inspect redaction decisions?
+
+Decisions that materially affect public API compatibility, authority, topology, security, or recoverability must be recorded in reasoning before implementation planning. The plan must include migration, rollback, and fault-injection work rather than treating them as follow-up polish.
+
+## Non-Goals
+
+- Hosted SaaS, public network exposure, team accounts, or multi-user authorization.
+- A remote-worker protocol unless the supported-topology reasoning proves it is necessary for the stated acceptance criteria.
+- Replacing canonical Markdown, JSON flow state, Git/source workspaces, or external smoke evidence with a general database-backed product model.
+- Selecting SQLite, Postgres, a daemon, WebSockets, OpenTelemetry, or any broker by architectural preference alone.
+- Persisting unredacted provider-native streams, full prompts, arbitrary stdout/stderr, or unlimited event history.
+- Building a general-purpose scheduler, workflow engine, issue tracker, or distributed queue.
+- Automatic Git mutation, automatic repair, content identity, retrieval, or knowledge-graph expansion.
+- Making browser disconnect synonymous with cancellation.
+
+## Constraints
+[0m
+[0m✱ [0mGrep ""uncertain"|CancellationUncertain|LifecyclePersistenceLost"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 11 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers.go[90m [limit=120, offset=400][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/metrics.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/local_log.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/import_boundary_test.go
+[0m
+[0m$ [0mgo test ./internal/runcontrol/ 2>&1 | tail -5
+ok  	github.com/Antonio7098/ultraplan-go/internal/runcontrol	5.647s
+[0m
+[0m$ [0mgrep -rn "runcontrol.Control\b\|Control =" --include="*.go" . | grep -v interfaces.go; echo "---control-done"; grep -rn "\.Notify(" --include="*.go" . | grep -v "_test\|notify(runID" ; echo "---notify-done"; grep -rn "LifecycleQueued" --include="*.go" ./internal/app ./internal/web ./internal/tui; echo "---queued-done"; git log --oneline -8 -- internal/runcontrol/lifecycle.go internal/app/run_control.go internal/app/durable_operations.go
+./internal/app/run_commands.go:47:	if deps.runControl == nil {
+./internal/app/run_control.go:106:	if deps.runControl == nil {
+---control-done
+./internal/runcontrol/sqlite.go:1145:		r.notifier.Notify(runID, sequence)
+---notify-done
+---queued-done
+c455510 observability: surface agent stream details in durable run events
+f067727 Propagate runtime failure diagnostics
+e09d394 Add durable run control and adaptive study execution
+[0m

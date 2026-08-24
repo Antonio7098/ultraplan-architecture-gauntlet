@@ -1,4 +1,661 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -5 && git status --short | head -20
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+[0m
+[0m✱ [0mGlob "**/*.go"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 100 matches[0m
+[0m
+[0m$ [0mls -la internal/productstate/ && wc -l internal/productstate/*.go
+total 8
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   16 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  154 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees 6281 Aug 22 16:23 store.go
+206 internal/productstate/store.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go
+[0m
+[0m$ [0mgrep -rn "productstate" --include="*.go" | grep -v "_test.go" ; echo "---TESTS---"; grep -rln "productstate" --include="*_test.go" .
+internal/app/storage_commands.go:9:	"github.com/Antonio7098/ultraplan-go/internal/productstate"
+internal/app/storage_commands.go:65:		if _, err := productstate.Ensure(root.Path); err != nil {
+internal/productstate/store.go:1:package productstate
+internal/sprint/state_database.go:9:	"github.com/Antonio7098/ultraplan-go/internal/productstate"
+internal/sprint/state_database.go:57:func loadSprintRecord(root, kind, scope string) (productstate.Record, bool, error) {
+internal/sprint/state_database.go:58:	store, enabled, err := productstate.Existing(root)
+internal/sprint/state_database.go:60:		return productstate.Record{}, false, err
+internal/sprint/state_database.go:63:	if errors.Is(err, productstate.ErrNotFound) {
+internal/sprint/state_database.go:64:		return productstate.Record{}, false, nil
+internal/sprint/state_database.go:84:	items := make([]productstate.Item, 0, len(state.Stages))
+internal/sprint/state_database.go:90:		items = append(items, productstate.Item{Key: string(stage.Stage), Ordinal: index, Payload: payload})
+internal/sprint/state_database.go:92:	store, err := productstate.Ensure(root)
+internal/sprint/state_database.go:96:	return store.Save(context.Background(), productstate.Record{Kind: sprintFlowStateKind, Scope: sprintStateScope(s), SchemaVersion: state.SchemaVersion, Header: headerJSON, Items: items})
+internal/sprint/state_database.go:114:	items := make([]productstate.Item, 0, len(state.Tasks))
+internal/sprint/state_database.go:120:		items = append(items, productstate.Item{Key: task.ID, Ordinal: index, Payload: payload})
+internal/sprint/state_database.go:122:	store, err := productstate.Ensure(root)
+internal/sprint/state_database.go:126:	return store.Save(context.Background(), productstate.Record{Kind: sprintExecuteStateKind, Scope: sprintStateScope(s), SchemaVersion: state.SchemaVersion, Header: headerJSON, Items: items})
+internal/sprint/state_database.go:130:	store, enabled, err := productstate.Existing(root)
+internal/study/state_database.go:10:	"github.com/Antonio7098/ultraplan-go/internal/productstate"
+internal/study/state_database.go:18:	store, enabled, err := productstate.Existing(studyWorkspaceRoot(study))
+internal/study/state_database.go:23:	if errors.Is(err, productstate.ErrNotFound) {
+internal/study/state_database.go:55:	items := make([]productstate.Item, 0, len(state.Tasks))
+internal/study/state_database.go:61:		items = append(items, productstate.Item{Key: task.ID, Ordinal: index, Payload: payload})
+internal/study/state_database.go:63:	store, err := productstate.Ensure(studyWorkspaceRoot(study))
+internal/study/state_database.go:67:	return store.Save(context.Background(), productstate.Record{Kind: studyRunStateKind, Scope: study.Name, SchemaVersion: state.SchemaVersion, Header: headerJSON, Items: items})
+internal/study/state_database.go:71:	store, enabled, err := productstate.Existing(studyWorkspaceRoot(study))
+---TESTS---
+[0m
+[0m$ [0mcat go.mod && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+module github.com/Antonio7098/ultraplan-go
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515725241,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515725241,[]
+go 1.26
+
+require gopkg.in/yaml.v3 v3.0.1
+
+require (
+	github.com/Antonio7098/agentwrap v0.0.0-20260821190033-e79a38a58da3
+	github.com/charmbracelet/bubbletea v1.3.10
+	github.com/charmbracelet/glamour v1.0.0
+	github.com/charmbracelet/lipgloss v1.1.1-0.20250404203927-76690c660834
+	github.com/yuin/goldmark v1.7.13
+	golang.org/x/sys v0.47.0
+	modernc.org/sqlite v1.57.0
+)
+
+require (
+	github.com/alecthomas/chroma/v2 v2.20.0 // indirect
+	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
+	github.com/aymerick/douceur v0.2.0 // indirect
+	github.com/charmbracelet/colorprofile v0.2.3-0.20250311203215-f60798e515dc // indirect
+	github.com/charmbracelet/x/ansi v0.10.2 // indirect
+	github.com/charmbracelet/x/cellbuf v0.0.13 // indirect
+	github.com/charmbracelet/x/exp/slice v0.0.0-20250327172914-2fdc97757edf // indirect
+	github.com/charmbracelet/x/term v0.2.1 // indirect
+	github.com/dlclark/regexp2 v1.11.5 // indirect
+	github.com/dustin/go-humanize v1.0.1 // indirect
+	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
+	github.com/google/uuid v1.6.0 // indirect
+	github.com/gorilla/css v1.0.1 // indirect
+	github.com/lucasb-eyer/go-colorful v1.3.0 // indirect
+	github.com/mattn/go-isatty v0.0.24 // indirect
+	github.com/mattn/go-localereader v0.0.1 // indirect
+	github.com/mattn/go-runewidth v0.0.17 // indirect
+	github.com/microcosm-cc/bluemonday v1.0.27 // indirect
+	github.com/muesli/ansi v0.0.0-20230316100256-276c6243b2f6 // indirect
+	github.com/muesli/cancelreader v0.2.2 // indirect
+	github.com/muesli/reflow v0.3.0 // indirect
+	github.com/muesli/termenv v0.16.0 // indirect
+	github.com/ncruces/go-strftime v1.0.0 // indirect
+	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
+	github.com/rivo/uniseg v0.4.7 // indirect
+	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
+	github.com/yuin/goldmark-emoji v1.0.6 // indirect
+	golang.org/x/net v0.38.0 // indirect
+	golang.org/x/term v0.36.0 // indirect
+	golang.org/x/text v0.30.0 // indirect
+	modernc.org/libc v1.74.4 // indirect
+	modernc.org/mathutil v1.7.1 // indirect
+	modernc.org/memory v1.11.0 // indirect
+)
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state_database.go
+[0m
+[0m$ [0mls $(go env GOMODCACHE)/modernc.org/sqlite@v1.57.0/*.go 2>/dev/null | head; grep -n "case \"" $(go env GOMODCACHE)/modernc.org/sqlite@v1.57.0/sqlite.go 2>/dev/null | head -30
+/home/antonioborgerees/go/pkg/mod/modernc.org/sqlite@v1.57.0/addport.go
+/home/antonioborgerees/go/pkg/mod/modernc.org/sqlite@v1.57.0/all_test.go
+/home/antonioborgerees/go/pkg/mod/modernc.org/sqlite@v1.57.0/backup.go
+/home/antonioborgerees/go/pkg/mod/modernc.org/sqlite@v1.57.0/backup_test.go
+/home/antonioborgerees/go/pkg/mod/modernc.org/sqlite@v1.57.0/connector.go
+/home/antonioborgerees/go/pkg/mod/modernc.org/sqlite@v1.57.0/connector_test.go
+/home/antonioborgerees/go/pkg/mod/modernc.org/sqlite@v1.57.0/conn.go
+/home/antonioborgerees/go/pkg/mod/modernc.org/sqlite@v1.57.0/conn_test.go
+/home/antonioborgerees/go/pkg/mod/modernc.org/sqlite@v1.57.0/convert.go
+/home/antonioborgerees/go/pkg/mod/modernc.org/sqlite@v1.57.0/dbstatus.go
+265:	case "0", "no", "false", "off", "1", "yes", "true", "on":
+367:		case "unix":
+368:		case "unix_milli":
+369:		case "unix_micro":
+370:		case "unix_nano":
+[0m
+[0m$ [0mgrep -n "_pragma\|_txlock\|_time_format\|_busy_timeout\|_foreign_keys\|_journal_mode\|_synchronous\|query.Get\|query\[" /home/antonioborgerees/go/pkg/mod/modernc.org/sqlite@v1.57.0/sqlite.go | head -40
+249:// alias supplied with an empty value ("_foreign_keys=on&_fk=") selects the
+305:	// _pragma values are the one exception: they are executed verbatim and
+306:	// cannot be checked here, so a malformed _pragma can still fail partway.
+307:	busyKey, busyTimeout := dsnPick(q, "_busy_timeout", "_timeout")
+321:	foreignKeysKey, foreignKeys := dsnPick(q, "_foreign_keys", "_fk")
+328:	journalModeKey, journalMode := dsnPick(q, "_journal_mode", "_journal")
+344:	synchronousKey, synchronous := dsnPick(q, "_synchronous", "_sync")
+358:	if v := q.Get("_time_format"); v != "" {
+361:			return fmt.Errorf("unknown _time_format %q", v)
+385:	if v := q.Get("_txlock"); v != "" {
+388:			return fmt.Errorf("unknown _txlock %q", v)
+425:	// it runs before the _pragma list and the other shorthand keys.
+433:	for _, v := range q["_pragma"] {
+[0m
+[0m✗ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state_database.go failed[90m [offset=240, limit=210][0m
+[91m[1mError: [0mOffset 240 is out of range for this file (80 lines)
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/storage_commands.go
+[0m
+[0m$ [0mls internal/runcontrol/ && wc -l internal/runcontrol/*.go | tail -5
+benchmark_test.go
+doc.go
+errors.go
+fault_test.go
+id.go
+id_test.go
+import_boundary_test.go
+interfaces.go
+lifecycle.go
+lifecycle_test.go
+local_log.go
+local_log_test.go
+metrics.go
+migration.go
+migration_test.go
+model.go
+model_test.go
+process_darwin.go
+process.go
+process_integration_test.go
+process_linux.go
+process_other.go
+retention.go
+retention_test.go
+sanitize.go
+sanitize_test.go
+sqlite.go
+sqlite_test.go
+   111 internal/runcontrol/sanitize.go
+    73 internal/runcontrol/sanitize_test.go
+  1175 internal/runcontrol/sqlite.go
+   470 internal/runcontrol/sqlite_test.go
+  5464 total
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go
+[0m
+[0m$ [0mgrep -n "PRAGMA\|_pragma\|journal\|busy\|synchronous\|MaxOpenConns\|BEGIN\|txlock" internal/runcontrol/sqlite.go | head -30
+24:	defaultMaxOpenConns  = 4
+37:	MaxOpenConns int
+74:	values.Set("_busy_timeout", strconv.FormatInt(BusyTimeout.Milliseconds(), 10))
+76:	values.Set("_journal_mode", "WAL")
+77:	values.Set("_synchronous", "FULL")
+78:	values.Set("_txlock", "immediate")
+92:	connections := opts.MaxOpenConns
+94:		connections = defaultMaxOpenConns
+99:	db.SetMaxOpenConns(connections)
+212:		{name: "journal_mode", want: "wal"},
+213:		{name: "synchronous", want: "2"},
+215:		{name: "busy_timeout", want: "5000"},
+219:		if err := db.QueryRowContext(ctx, "PRAGMA "+check.name).Scan(&got); err != nil {
+220:			return classifyStoreError("verify_pragma", "verify required SQLite durability policy failed", err)
+223:			return wrapError(CodeInvariant, "verify_pragma", fmt.Sprintf("SQLite %s=%s; require %s", check.name, got, check.want), false, nil)
+329:BEGIN
+359:	if _, err := tx.ExecContext(ctx, `PRAGMA user_version = 1`); err != nil {
+657:		return Event{}, Snapshot{}, runError(CodeTerminal, "append", fence.RunID, "terminal run journal is immutable", false, nil)
+859:	if err := r.db.QueryRowContext(ctx, "PRAGMA journal_mode").Scan(&health.JournalMode); err != nil {
+860:		return Health{}, classifyStoreError("health", "read journal mode failed", err)
+862:	var synchronous, foreignKeys int
+863:	if err := r.db.QueryRowContext(ctx, "PRAGMA synchronous").Scan(&synchronous); err != nil {
+864:		return Health{}, classifyStoreError("health", "read synchronous mode failed", err)
+866:	health.Synchronous = strconv.Itoa(synchronous)
+867:	if err := r.db.QueryRowContext(ctx, "PRAGMA foreign_keys").Scan(&foreignKeys); err != nil {
+[0m
+[0m$ [0mgrep -rn "DatabaseRelativePath\|run-control.db\|run_control.db" --include="*.go" internal/ | grep -v "_test.go"; echo ---; grep -n "OpenSQLite\|func Open\|DatabaseRelativePath" internal/runcontrol/sqlite.go | head
+internal/productstate/store.go:19:const DatabaseRelativePath = ".ultraplan/run-control.db"
+internal/productstate/store.go:42:	path := filepath.Join(root, filepath.FromSlash(DatabaseRelativePath))
+internal/productstate/store.go:63:	path := filepath.Join(root, filepath.FromSlash(DatabaseRelativePath))
+internal/runcontrol/migration.go:301:	databasePath := filepath.Join(root, DatabaseRelativePath)
+internal/runcontrol/sqlite.go:22:	DatabaseRelativePath = ".ultraplan/run-control.db"
+internal/runcontrol/sqlite.go:171:	path := filepath.Join(directory, "run-control.db")
+internal/runcontrol/sqlite.go:857:	health := Health{Status: HealthOK, DatabasePath: DatabaseRelativePath, BusyTimeout: BusyTimeout, SoftQuotaBytes: r.softQuota, HardQuotaBytes: r.retention.HardQuotaBytes, ReservedHeadroomBytes: ReservedHeadroomBytes}
+---
+22:	DatabaseRelativePath = ".ultraplan/run-control.db"
+59:// OpenSQLite opens or creates the private workspace run-control database.
+60:func OpenSQLite(ctx context.Context, workspaceRoot string, opts SQLiteOptions) (*SQLiteRepository, error) {
+857:	health := Health{Status: HealthOK, DatabasePath: DatabaseRelativePath, BusyTimeout: BusyTimeout, SoftQuotaBytes: r.softQuota, HardQuotaBytes: r.retention.HardQuotaBytes, ReservedHeadroomBytes: ReservedHeadroomBytes}
+[0m
+[0m$ [0mgrep -n "Remove\|Truncate\|quota\|Quota\|prune\|Prune\|vacuum\|Vacuum" internal/runcontrol/retention.go | head -20; echo ===; grep -rn "loadFlowStateDatabase\|loadExecuteStateDatabase\|LoadFlowState\b" --include="*.go" internal/sprint/*.go | grep -v _test | head
+20:	if policy.HardQuotaBytes == 0 {
+21:		policy.HardQuotaBytes = DefaultHardQuotaBytes
+29:	if policy.HardQuotaBytes < 64<<20 || policy.HardQuotaBytes <= ReservedHeadroomBytes {
+30:		return RetentionPolicy{}, invalidField("retention.hard_quota", "must be at least 64 MiB with 16 MiB reserved headroom")
+39:		return 0, classifyStoreError("quota_read", "inspect run-control storage usage failed", err)
+49:			return 0, classifyStoreError("quota_read", "inspect run-control storage file failed", err)
+86:			return runError(CodeQuota, "event_limit", runID, "required durable event history reached its bounded capacity", false, nil)
+94:	return runError(CodeQuota, "event_limit", runID, "bounded event compaction could not restore capacity", false, nil)
+109:	pressure := usage >= r.retention.HardQuotaBytes*80/100
+152:	_, _ = r.db.ExecContext(ctx, `PRAGMA incremental_vacuum(64)`)
+===
+internal/sprint/code_context.go:245:	state, err := LoadFlowState(s.root, sp)
+internal/sprint/execute_state.go:36:	if state, found, err := loadExecuteStateDatabase(root, s); err != nil {
+internal/sprint/locks.go:67:	flow, flowErr := LoadFlowState(s.root, sp)
+internal/sprint/review.go:654:	state, err := LoadFlowState(s.root, Sprint{Project: m.Project, Slug: m.Sprint, Path: filepath.Join(s.root, filepath.FromSlash(m.SprintRoot))})
+internal/sprint/review.go:693:	state, err := LoadFlowState(s.root, sp)
+internal/sprint/review.go:828:	state, err := LoadFlowState(s.root, sp)
+internal/sprint/review.go:1195:	state, err := LoadFlowState(s.root, sp)
+internal/sprint/service.go:151:	state, err := LoadFlowState(s.root, sp)
+internal/sprint/smoke.go:174:	state, err := LoadFlowState(s.root, sp)
+internal/sprint/smoke.go:240:	state, err := LoadFlowState(s.root, prepared.Sprint)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state_database.go
+[0m
+[0m$ [0mgrep -rn "loadRunStateDatabase\|saveRunStateDatabase\|saveFlowStateDatabase\|saveExecuteStateDatabase" --include="*.go" internal/ | grep -v _test | grep -v "state_database.go"
+internal/sprint/execute_state.go:109:		if err := saveExecuteStateDatabase(root, s, state); err != nil {
+internal/sprint/state.go:219:		if err := saveFlowStateDatabase(root, s, state); err != nil {
+internal/study/state.go:28:	if state, found, err := loadRunStateDatabase(study); err != nil {
+internal/study/state.go:63:		if err := saveRunStateDatabase(study, state); err != nil {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state.go[90m [limit=80, offset=180][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go[90m [limit=80, offset=180][0m
+[0m
+[0m$ [0mgrep -n "func LoadFlowState\|func LoadExecuteRunState" internal/sprint/*.go
+internal/sprint/execute_state.go:35:func LoadExecuteRunState(root string, s Sprint) (ExecuteRunState, error) {
+internal/sprint/state.go:20:func LoadFlowState(root string, s Sprint) (FlowState, error) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state.go[90m [limit=95, offset=30][0m
+[0m
+[0m$ [0mgrep -rln "product.state\|product_state\|run-control.db\|productstate" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace --include="*.md" | head -20
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/PRD.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/01-cli-foundation/reasoning/architecture.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/08-run-state-persistence/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/12-durable-run-loop/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/17-artifact-domain-and-flow-state/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/19-distill-stage/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/19-distill-stage/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/20-reason-stage/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/21-plan-stage/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/23-execute-stage/reasoning/architecture.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/23-execute-stage/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/24-tui-foundations/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/24-tui-foundations/reasoning/architecture.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/24-tui-foundations/requirements.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/24-tui-foundations/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/25-operational-tui-controls/plan.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/26-review-stage/reasoning/architecture.md
+[0m
+[0m$ [0mgrep -rn "product.state\|product_state\|productstate" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md | head -20; echo ===PRD===; grep -rn "product.state\|productstate" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/PRD.md | head
+100:Runtime supervision is delegated to `agentwrap`. The platform runtime package must stay generic: it may know about prompts, working directories, models, timeouts, permissions, events, and execution results, but it must not know about studies, dimensions, sources, synthesis gating, report semantics, project catalogs, sprint stages, or product state machines.
+109:- Treat filesystem artifacts as durable product state.
+392:- keep filesystem reads, application calls, HTTP validation, product-state interpretation, and durable state mutation out of templates
+2130:The server delivery hub is ephemeral and bounded. It may hold normalized requests, current connections, and delivery buffers, but not the only run IDs, cancellation routes, history, or terminal results. Server restart recovery reads the durable run projection and package-owned product state. Slow or disconnected SSE subscribers must not block product execution. Compatibility operation URLs must resolve to the durable run, a retained tombstone, or a typed recovery response; session expiry or in-memory reaping alone cannot produce an unexplained 404 for a valid run.
+===PRD===
+181:- Do not let the browser UI call CLI subprocesses, own workflow state machines, or persist an alternate product state.
+962:  -> durable run plus product-state refresh on completion, cancellation, or reconnect
+1189:- Browser refresh, SSE reconnect, and server shutdown preserve truthful recovery through durable product state.
+[0m
+[0m$ [0mgrep -n "run-control.db\|storage migrate\|SQLite\|sqlite" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md | head -30
+57:- Introducing content identity, expanded QA/repair, retrieval, SQLite product persistence, knowledge-graph persistence, cloud, or Aren capabilities before their explicit roadmap evidence gates.
+126:- Keep Markdown authoritative initially. Any later search record or knowledge graph is derived and rebuildable; any later SQLite authority is an explicit product-mode decision rather than a web-side shadow store.
+2214:- filesystem snapshot/journal, SQLite, agentwrap store composition, or another smallest sufficient durable mechanism
+2235:5. **Product persistence/SQLite:** first classify authored artifacts, checkpoints, derived data, operational state, run evidence, and repository source. Sprint 35 operational run storage does not select a new authored-artifact authority. Extract focused package-owned repositories only for proven workflows; keep Git/source and execution workspaces filesystem-native; select one product-artifact authority at composition; prohibit generic virtual filesystems, silent dual writes, and premature sync.
+2237:7. **Authority/cloud/Aren:** compare filesystem, SQLite/server, and hybrid publication modes on real work before choosing. Cloud and typed Aren artifact tools reuse proven application contracts; source edits/builds/tests remain sandboxed filesystem/Git work.
+2239:Every branch must stop when its evidence gate fails. In particular: no repair without adjudicated evidence and isolation; no retrieval before content dogfood; no SQLite merely for architectural cleanliness; no graph persistence before useful bounded traversal; no cloud authority before local authority and recovery semantics are proven.
+2664:- Which durable mechanism best satisfies acceptance atomicity, ordered append, concurrent observation, recovery, and bounded retention: filesystem journal/snapshots, SQLite, agentwrap store composition, or another local design?
+[0m
+[0m$ [0mgrep -rn "product-state\|product state\|storage migrate\|run-control.db" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md | head -20; echo ===; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/ | tail -20
+1092:- a database-backed alternate product state
+1116:- The web package does not call CLI handlers, parse stdout, import product modules directly, or persist web-specific product state.
+1206:- page templates compose layouts, components, and primitives through explicit typed view models; templates contain no workspace reads, app calls, transport validation, or product-state logic
+===
+16-project-domain-and-index
+17-artifact-domain-and-flow-state
+18-select-stage
+19-distill-stage
+20-reason-stage
+21-plan-stage
+22-documentaiton-and-release
+23-execute-stage
+24-tui-foundations
+25-operational-tui-controls
+26-review-stage
+27-deep-smoke
+28-review-to-smoke-flow
+29-phase-3-documentation-hardening-release
+30-web-foundations
+31-web-operations
+32-hardening-and-release
+33-code-context-stage
+34-shared-context
+35-durable-run-observability
+[0m
+[0m$ [0mgrep -rln "storage migrate\|product-state store\|productstate" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/*/requirements.md 2>/dev/null; echo ===; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/32-hardening-and-release/
+===
+execute.md
+flow-state.json
+plan.md
+reasoning
+reasoning.md
+requirements.md
+review.md
+smoke.md
+sprint-index.md
+technical-handbook.md
+[0m
+[0m$ [0mgrep -rln "storage\b\|SQLite" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/*/requirements.md | head; echo ===; grep -rn "storage migrate\|product-state" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/32-hardening-and-release/*.md | head -20
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/32-hardening-and-release/requirements.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/requirements.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/requirements.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md
+===
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/32-hardening-and-release/plan.md:159:  - [ ] Implement `tokens.css`, `base.css`, `primitives.css`, `components.css`, `layouts.css`, and narrowly scoped `utilities.css`; keep product-state meaning in semantic component styles rather than utilities.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/32-hardening-and-release/requirements.md:64:- [ ] Handlers construct explicit typed view models; templates perform no filesystem reads, app calls, HTTP validation, durable mutation, or product-state interpretation.
+[0m
+[0m$ [0mgrep -rn "SQLite\|storage" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md | head -25
+20:| Durable run repository and event journal | Accepted runs and sanitized progress events are durably recorded before they are advertised as observable; events have monotonic per-run ordering and can be replayed after reconnect, session expiry, or server restart. The reasoning and plan stages select the concrete package and storage mechanism. |
+27:| Operational telemetry | Structured logs, local metrics, diagnostics, and optional traces share run/attempt/stage/task/runtime correlation. Operator-visible health distinguishes storage failure, stale ownership, reconciliation backlog, replay gap, subscriber lag/drop, and cancellation uncertainty. |
+28:| Verification and fault injection | Deterministic, race, integration, and browser tests prove CLI-to-web discovery, multiple local servers, refresh/reconnect replay, session expiry, server restart, abrupt owner death, stale leases, PID reuse, slow subscribers, bounded storage, duplicate cancellation, and terminal-state races. |
+53:3. What is the smallest durable representation that satisfies ordering, atomicity, concurrency, recovery, inspection, and bounded retention: filesystem snapshots plus append-only segments, SQLite, an agentwrap-backed store, or another local mechanism?
+73:- Selecting SQLite, Postgres, a daemon, WebSockets, OpenTelemetry, or any broker by architectural preference alone.
+[0m
+[0m$ [0mgrep -rln "storage migrate" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/ 2>/dev/null | head; echo ===; cd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && git log --oneline --diff-filter=A -- internal/productstate/store.go | tail -3
+===
+02e2ec4 Move mutable product state to SQLite
+[0m
+[0m$ [0mgit show 02e2ec4 --stat | head -40; git log -1 --format="%ci %s" 02e2ec4
+commit 02e2ec4e93bdfae480b5e5cdaf2ca9116c5d4eb5
+Author: antonio <antoniorees74@gmail.com>
+Date:   Fri Aug 21 17:57:45 2026 +0100
+
+    Move mutable product state to SQLite
+
+ docs/migration-product-state.md   |  30 ++++++
+ internal/app/app.go               |   3 +
+ internal/app/storage_commands.go  | 204 +++++++++++++++++++++++++++++++++++++
+ internal/productstate/store.go    | 206 ++++++++++++++++++++++++++++++++++++++
+ internal/sprint/execute_state.go  |  35 +++++++
+ internal/sprint/state.go          |  32 ++++++
+ internal/sprint/state_database.go | 148 +++++++++++++++++++++++++++
+ internal/study/state.go           |  18 ++++
+ internal/study/state_database.go  |  80 +++++++++++++++
+ scripts/migrate-product-state.sh  |  10 ++
+ 10 files changed, 766 insertions(+)
+2026-08-21 17:57:45 +0100 Move mutable product state to SQLite
+[0m
+[0m$ [0mcat docs/migration-product-state.md 2>/dev/null; echo ===; git log --oneline eeaa034 --not 02e2ec4~1 -- internal/productstate/ | head
+# Product-state SQLite migration
+
+UltraPlan can store mutable study and sprint execution state in the workspace
+database instead of rewriting complete JSON documents after each transition.
+
+Preview the migration:
+
+```sh
+scripts/migrate-product-state.sh /path/to/workspace --dry-run
+```
+
+Import every valid state artifact:
+
+```sh
+scripts/migrate-product-state.sh /path/to/workspace
+```
+
+The command discovers study `run-state.json`, sprint `flow-state.json`, and
+sprint `.run-state.json` files. It validates each file with the existing product
+validator before importing it. Invalid files remain unchanged and produce a
+partial-failure exit status. Re-running the command skips records already in the
+database.
+
+After import, SQLite is authoritative for that record. Existing JSON files stay
+in place as compatibility checkpoints. Unmigrated records remain file-backed,
+so migration can be performed incrementally.
+
+The normalized tables are `product_states` and `product_state_items`. Study
+tasks, sprint stages, and sprint execute tasks occupy separate ordered rows.
+Large generated reports, prompts, and diagnostics remain files.
+===
+02e2ec4 Move mutable product state to SQLite
+[0m
+[0m$ [0mgit log --oneline --diff-filter=A -- internal/runcontrol/sqlite.go | tail -2; git log -1 --format="%ci" $(git log --format="%H" --diff-filter=A -- internal/runcontrol/sqlite.go | tail -1)
+e09d394 Add durable run control and adaptive study execution
+2026-08-21 17:26:41 +0100
+[0m
+[0m$ [0mgrep -rn "\.SchemaVersion" --include="*.go" internal/sprint/state_database.go internal/study/state_database.go internal/productstate/ ; echo ===READERS===; grep -rn "record.SchemaVersion\|SchemaVersion" --include="*.go" internal/sprint/*.go internal/study/*.go | grep -v _test | grep -v state_database | head
+internal/sprint/state_database.go:96:	return store.Save(context.Background(), productstate.Record{Kind: sprintFlowStateKind, Scope: sprintStateScope(s), SchemaVersion: state.SchemaVersion, Header: headerJSON, Items: items})
+internal/sprint/state_database.go:126:	return store.Save(context.Background(), productstate.Record{Kind: sprintExecuteStateKind, Scope: sprintStateScope(s), SchemaVersion: state.SchemaVersion, Header: headerJSON, Items: items})
+internal/study/state_database.go:67:	return store.Save(context.Background(), productstate.Record{Kind: studyRunStateKind, Scope: study.Name, SchemaVersion: state.SchemaVersion, Header: headerJSON, Items: items})
+internal/productstate/store.go:129:	if err := s.db.QueryRowContext(ctx, `SELECT schema_version, header_json FROM product_states WHERE kind = ? AND scope = ?`, kind, scope).Scan(&record.SchemaVersion, &record.Header); err != nil {
+internal/productstate/store.go:151:	if record.Kind == "" || record.Scope == "" || record.SchemaVersion < 1 || len(record.Header) == 0 {
+internal/productstate/store.go:164:		record.Kind, record.Scope, record.SchemaVersion, record.Header, headerHash[:], time.Now().UTC().Format(time.RFC3339Nano)); err != nil {
+===READERS===
+internal/sprint/cleanup_uncertain.go:20:	SchemaVersion int       `json:"schemaVersion"`
+internal/sprint/cleanup_uncertain.go:39:	record.SchemaVersion = 1
+internal/sprint/cleanup_uncertain.go:70:	if record.SchemaVersion != 1 || record.OperationID == "" || record.Kind == "" || record.Reason != "server_shutdown" || record.OwnerPID < 1 || record.RecordedAt.IsZero() {
+internal/sprint/context_pack.go:16:const contextPackSchemaVersion = 1
+internal/sprint/context_pack.go:22:	SchemaVersion      int       `json:"schema_version"`
+internal/sprint/context_pack.go:61:	if pack.SchemaVersion != contextPackSchemaVersion || pack.Project != sp.Project || pack.Sprint != sp.Slug || pack.Key != key || pack.RequirementsDigest != requirementsDigest || pack.CodeContextDigest != codeContextDigest || pack.TargetDigest != targetDigest {
+internal/sprint/context_pack.go:76:		SchemaVersion: contextPackSchemaVersion, Project: sp.Project, Sprint: sp.Slug, Key: key,
+internal/sprint/domain.go:10:const FlowStateSchemaVersion = 2
+internal/sprint/domain.go:11:const PreviousFlowStateSchemaVersion = 1
+internal/sprint/domain.go:12:const ExecuteRunStateSchemaVersion = 1
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/locks.go[90m [limit=80][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go[90m [limit=60, offset=14][0m
+[0m
+[0m$ [0mgrep -n "func.*SaveRunState\|loadRunStateDatabase\|lease\|Lock\|lock" internal/study/state.go internal/study/*.go 2>/dev/null | grep -v _test | grep -iv "block\|clock" | head -15
+internal/study/state.go:28:	if state, found, err := loadRunStateDatabase(study); err != nil {
+internal/study/state.go:59:func SaveRunState(study Study, state RunState) error {
+internal/study/cleanup_uncertain.go:29:// does not acquire the run-loop lock because the original owner may still
+internal/study/cleanup_uncertain.go:30:// hold that lock when the server's shutdown deadline expires.
+internal/study/cleanup_uncertain.go:74:	lock, err := AcquireRunLoopLock(st, []string{"ultraplan", "serve", "reconcile"}, false, time.Now().UTC())
+internal/study/cleanup_uncertain.go:76:		if errors.Is(err, ErrStudyLocked) {
+internal/study/cleanup_uncertain.go:81:	changed, reconcileErr := reconcileInterruptedRunLocked(st, time.Now().UTC())
+internal/study/cleanup_uncertain.go:82:	releaseErr := lock.Release()
+internal/study/cleanup_uncertain.go:86:	if releaseErr != nil {
+internal/study/cleanup_uncertain.go:87:		return false, releaseErr
+internal/study/cleanup_uncertain.go:100:func reconcileInterruptedRunLocked(st Study, now time.Time) (bool, error) {
+internal/study/doc.go:6:// locks, atomic run-state persistence, resume validation, runtime-free status
+internal/study/execution_domain.go:118:	ForceUnlock   bool
+internal/study/execution_domain.go:130:	LockPath    string
+internal/study/locks.go:15:var ErrStudyLocked = errors.New("study run-loop locked")
+[0m
+[0m$ [0mgrep -n "func ValidateFlowState\|func ValidateExecuteRunState\|func ValidateRunState" internal/sprint/*.go internal/study/*.go | grep -v _test
+internal/sprint/execute_state.go:184:func ValidateExecuteRunState(root string, s Sprint, state ExecuteRunState, path string) error {
+internal/sprint/state.go:291:func ValidateFlowState(root string, s Sprint, state FlowState, path string) error {
+internal/study/state.go:121:func ValidateRunState(state RunState, path string) error {
+[0m
+[0m$ [0msed -n 291,320p internal/sprint/state.go; sed -n 121,135p internal/study/state.go
+func ValidateFlowState(root string, s Sprint, state FlowState, path string) error {
+	if state.SchemaVersion == 0 {
+		return fmt.Errorf("%w: %s: missing schemaVersion", ErrFlowStateMalformed, path)
+	}
+	if state.SchemaVersion != FlowStateSchemaVersion {
+		return fmt.Errorf("%w: %s: schemaVersion %d", ErrFlowStateUnsupported, path, state.SchemaVersion)
+	}
+	if state.Project == "" || state.Sprint == "" || state.UpdatedAt.IsZero() {
+		return fmt.Errorf("%w: %s: missing required top-level fields", ErrFlowStateMalformed, path)
+	}
+	if state.Project != s.Project {
+		return fmt.Errorf("%w: %s: project mismatch %q", ErrFlowStateMalformed, path, state.Project)
+	}
+	if state.Sprint != s.Slug {
+		return fmt.Errorf("%w: %s: sprint mismatch %q", ErrFlowStateMalformed, path, state.Sprint)
+	}
+	if len(state.Stages) != len(PlanningStages()) {
+		return fmt.Errorf("%w: %s: expected %d stages", ErrFlowStateMalformed, path, len(PlanningStages()))
+	}
+	seen := map[PlanningStage]bool{}
+	for i, stage := range state.Stages {
+		if stage.Stage != PlanningStages()[i] {
+			return fmt.Errorf("%w: %s: stage %d is %q; expected %q", ErrFlowStateMalformed, path, i, stage.Stage, PlanningStages()[i])
+		}
+		if !ValidStage(stage.Stage) {
+			return fmt.Errorf("%w: %s: unsupported stage %q", ErrFlowStateMalformed, path, stage.Stage)
+		}
+		if seen[stage.Stage] {
+			return fmt.Errorf("%w: %s: duplicate stage %q", ErrFlowStateMalformed, path, stage.Stage)
+		}
+func ValidateRunState(state RunState, path string) error {
+	if state.SchemaVersion == 0 {
+		return fmt.Errorf("%w: %s: missing schema_version", ErrRunStateMalformed, path)
+	}
+	if state.SchemaVersion != RunStateSchemaVersion {
+		return fmt.Errorf("%w: %s: schema_version %d", ErrRunStateUnsupported, path, state.SchemaVersion)
+	}
+	if state.RunID == "" {
+		return fmt.Errorf("%w: %s: missing run_id", ErrRunStateMalformed, path)
+	}
+	if state.Study == "" {
+		return fmt.Errorf("%w: %s: missing study", ErrRunStateMalformed, path)
+	}
+	if state.CreatedAt.IsZero() || state.UpdatedAt.IsZero() {
+		return fmt.Errorf("%w: %s: missing timestamps", ErrRunStateMalformed, path)
+[0m
+[0m$ [0msed -n 184,215p internal/sprint/execute_state.go
+func ValidateExecuteRunState(root string, s Sprint, state ExecuteRunState, path string) error {
+	if state.SchemaVersion == 0 {
+		return fmt.Errorf("%w: %s: missing schemaVersion", ErrExecuteRunStateMalformed, path)
+	}
+	if state.SchemaVersion != ExecuteRunStateSchemaVersion {
+		return fmt.Errorf("%w: %s: schemaVersion %d", ErrExecuteRunStateUnsupported, path, state.SchemaVersion)
+	}
+	if state.Project == "" || state.Sprint == "" || state.Target.Path == "" || state.Target.Source == "" || state.PlanPath == "" || state.PlanFingerprint == "" || state.CreatedAt.IsZero() || state.UpdatedAt.IsZero() {
+		return fmt.Errorf("%w: %s: missing required top-level fields", ErrExecuteRunStateMalformed, path)
+	}
+	if state.Project != s.Project {
+		return fmt.Errorf("%w: %s: project mismatch %q", ErrExecuteRunStateMalformed, path, state.Project)
+	}
+	if state.Sprint != s.Slug {
+		return fmt.Errorf("%w: %s: sprint mismatch %q", ErrExecuteRunStateMalformed, path, state.Sprint)
+	}
+	if !safeRelPath(state.PlanPath) {
+		return fmt.Errorf("%w: %s: unsafe planPath", ErrExecuteRunStateMalformed, path)
+	}
+	if _, err := resolveSprintContained(root, s, state.PlanPath); err != nil {
+		return fmt.Errorf("%w: %s: unsafe planPath: %w", ErrExecuteRunStateMalformed, path, err)
+	}
+	if strings.ContainsAny(state.PlanFingerprint, "\x00\r\n") {
+		return fmt.Errorf("%w: %s: unsafe planFingerprint", ErrExecuteRunStateMalformed, path)
+	}
+	if len(state.Tasks) == 0 {
+		return fmt.Errorf("%w: %s: missing tasks", ErrExecuteRunStateMalformed, path)
+	}
+	seen := map[string]bool{}
+	for i, task := range state.Tasks {
+		if task.ID == "" || task.Identity.Name == "" || task.CreatedAt.IsZero() || task.UpdatedAt.IsZero() {
+			return fmt.Errorf("%w: %s: task %d missing required fields", ErrExecuteRunStateMalformed, path, i)
+[0m
+[0m$ [0mgrep -rn "SaveRunState(" --include="*.go" internal/ | grep -v _test | grep -v "func SaveRunState"; echo ===; sed -n 200,232p internal/runcontrol/sqlite.go
+internal/study/cleanup_uncertain.go:134:		if err := SaveRunState(st, state); err != nil {
+internal/study/run_loop.go:65:	err = SaveRunState(listing.Study, state)
+internal/study/run_loop.go:168:		err := SaveRunState(listing.Study, stateCopy)
+===
+	}
+	if got := info.Mode().Perm(); got != want {
+		return wrapError(CodePermission, "verify_permissions", fmt.Sprintf("private permissions are %04o; require %04o", got, want), false, nil)
+	}
+	return nil
+}
+
+func verifyPragmas(ctx context.Context, db *sql.DB) error {
+	checks := []struct {
+		name string
+		want string
+	}{
+		{name: "journal_mode", want: "wal"},
+		{name: "synchronous", want: "2"},
+		{name: "foreign_keys", want: "1"},
+		{name: "busy_timeout", want: "5000"},
+	}
+	for _, check := range checks {
+		var got string
+		if err := db.QueryRowContext(ctx, "PRAGMA "+check.name).Scan(&got); err != nil {
+			return classifyStoreError("verify_pragma", "verify required SQLite durability policy failed", err)
+		}
+		if !strings.EqualFold(got, check.want) {
+			return wrapError(CodeInvariant, "verify_pragma", fmt.Sprintf("SQLite %s=%s; require %s", check.name, got, check.want), false, nil)
+		}
+	}
+	return nil
+}
+
+const initialSchema = `
+CREATE TABLE IF NOT EXISTS app_schema (
+    component TEXT PRIMARY KEY,
+    version INTEGER NOT NULL CHECK (version > 0),
+[0m
+[0m$ [0mgrep -rn "InDatabase\|MigrateFlowStateToDatabase\|MigrateRunStateToDatabase" --include="*_test.go" internal/ | head; echo ===WEB===; grep -rn "SaveFlowState\|SaveExecuteRunState\|SaveRunState\|ReconcileInterruptedMutation" --include="*.go" internal/web/ internal/app/run_usecases.go 2>/dev/null | grep -v _test | head
+===WEB===
+[0m
+[0m$ [0mgrep -rn "SaveFlowState(\|SaveExecuteRunState(" --include="*.go" internal/ cmd/ 2>/dev/null | grep -v _test | grep -v "func Save" | awk -F: '{print $1}' | sort | uniq -c; echo ===; grep -rn "productstate\|runcontrol.OpenSQLite" --include="*.go" internal/web/ | grep -v _test
+2 internal/sprint/code_context.go
+      5 internal/sprint/execute.go
+      2 internal/sprint/locks.go
+      3 internal/sprint/review.go
+     56 internal/sprint/service.go
+      2 internal/sprint/smoke.go
+===
+[0m
+[0m$ [0msed -n 120,150p internal/sprint/execute_state.go; echo ===FLOW===; sed -n 230,240p internal/sprint/state.go
+func executeStateCheckpoint(state ExecuteRunState) bool {
+	if len(state.Tasks) == 0 {
+		return false
+	}
+	for _, task := range state.Tasks {
+		if !isTerminalExecuteStatus(task.Status) {
+			return false
+		}
+	}
+	return true
+}
+
+func saveExecuteRunStateWithHooks(root string, s Sprint, state ExecuteRunState, hooks atomicWriteHooks) error {
+	path, err := ExecuteRunStatePath(root, s)
+	if err != nil {
+		return err
+	}
+	state.UpdatedAt = time.Now().UTC()
+	if err := ValidateExecuteRunState(root, s, state, path); err != nil {
+		return err
+	}
+	content, err := json.MarshalIndent(state, "", "  ")
+	if err != nil {
+		return fmt.Errorf("marshal execute run state %s: %w", path, err)
+	}
+	content = append(content, '\n')
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return fmt.Errorf("create execute run state directory %s: %w", filepath.Dir(path), err)
+	}
+	temp, err := os.CreateTemp(filepath.Dir(path), ".run-state.*.tmp")
+	if err != nil {
+===FLOW===
+func flowStateCheckpoint(state FlowState) bool {
+	for _, stage := range state.Stages {
+		if stage.Status != StatusComplete && stage.Status != StatusFailed && stage.Status != StatusSkipped {
+			return false
+		}
+	}
+	return len(state.Stages) > 0
+}
+
+func saveFlowStateWithHooks(root string, s Sprint, state FlowState, hooks atomicWriteHooks) error {
+	path, err := FlowStatePath(root, s)
+[0m
+[0m$ [0mgrep -n "func (s \*Store)\|\.Close()" internal/productstate/store.go; echo ===; grep -rn "acquireMutationContext\|AcquireRunLoopLock" internal/app/storage_commands.go internal/web/operations.go | head -3; echo ===; git log -1 --format="%H %ci" e09d394 02e2ec4 2>/dev/null
+80:		_ = db.Close()
+86:		_ = db.Close()
+118:func (s *Store) Has(ctx context.Context, kind, scope string) (bool, error) {
+127:func (s *Store) Load(ctx context.Context, kind, scope string) (Record, error) {
+139:	defer rows.Close()
+150:func (s *Store) Save(ctx context.Context, record Record) error {
+190:			_ = rows.Close()
+197:	if err := rows.Close(); err != nil {
+===
+===
+02e2ec4e93bdfae480b5e5cdaf2ca9116c5d4eb5 2026-08-21 17:57:45 +0100
+[0m

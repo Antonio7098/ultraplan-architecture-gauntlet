@@ -1,4 +1,607 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -3 && git status --short | head -5
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+[0m
+[0m$ [0mfind internal cmd -type d | sort && echo '---' && find internal -name '*.go' | wc -l
+cmd
+cmd/ultraplan
+internal
+internal/app
+internal/codeextract
+internal/platform
+internal/platform/config
+internal/platform/filesystem
+internal/platform/logging
+internal/platform/process
+internal/platform/runtime
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/web/static
+internal/web/static/css
+internal/web/static/js
+internal/web/templates
+internal/web/templates/components
+internal/web/templates/layouts
+internal/web/templates/pages
+internal/web/templates/primitives
+internal/workspace
+internal/workspace/scaffold
+internal/workspace/scaffold/prompts
+internal/workspace/scaffold/templates
+---
+290
+[0m
+[0m$ [0mfind . -name '*.md' -not -path './.git/*' -not -path './node_modules/*' | head -50 && echo '---' && ls docs/
+./.agents/skills/ultraplan-area-reasoning/SKILL.md
+./.agents/skills/ultraplan-execute/SKILL.md
+./.agents/skills/ultraplan-plan/SKILL.md
+./.agents/skills/ultraplan-reasoning/SKILL.md
+./.agents/skills/ultraplan-reconcile-review-smoke/SKILL.md
+./.agents/skills/ultraplan-requirements/SKILL.md
+./.agents/skills/ultraplan-review/SKILL.md
+./.agents/skills/ultraplan-smoke/SKILL.md
+./.agents/skills/ultraplan-sprint-index/SKILL.md
+./.agents/skills/ultraplan-technical-handbook/SKILL.md
+./README.md
+./previews/agent-harness-24.01-langgraph-prompt.md
+./previews/builtin-fallback-24.01-langgraph.md
+./previews/builtin-fallback-24.02-langgraph.md
+./previews/fresh-run-24.01-langgraph-prompt-after-abs-path.md
+./previews/fresh-run-24.01-langgraph-prompt-after-output-fix.md
+./previews/fresh-run-24.01-langgraph-prompt.md
+./previews/injected-analysis-check.md
+./previews/single-source-dimension-check.md
+./previews/spike-24.01-langgraph-after-path-fix.md
+./previews/spike-24.01-langgraph-full-template.md
+./previews/spike-24.01-langgraph.md
+./previews/spike-24.02-langgraph-full-template.md
+./projects/aren-phase-01-execution-lifecycle/docs/PRD.md
+./projects/aren-phase-01-execution-lifecycle/project-index.md
+./projects/aren-phase-01-execution-lifecycle/roadmap.md
+./projects/ultraplan-go/docs/ARCHITECTURE.md
+./projects/ultraplan-go/docs/PRD.md
+./projects/ultraplan-go/docs/TRD.md
+./projects/ultraplan-go/project-index.md
+./projects/ultraplan-go/roadmap.md
+./projects/ultraplan-go/sprints/01-cli-foundation/plan.md
+./projects/ultraplan-go/sprints/01-cli-foundation/reasoning.md
+./projects/ultraplan-go/sprints/01-cli-foundation/reasoning/architecture.md
+./projects/ultraplan-go/sprints/01-cli-foundation/requirements.md
+./projects/ultraplan-go/sprints/01-cli-foundation/sprint-index.md
+./projects/ultraplan-go/sprints/01-cli-foundation/technical-handbook.md
+./projects/ultraplan-go/sprints/02-workspace-config-health/plan.md
+./projects/ultraplan-go/sprints/02-workspace-config-health/reasoning.md
+./projects/ultraplan-go/sprints/02-workspace-config-health/requirements.md
+./projects/ultraplan-go/sprints/02-workspace-config-health/sprint-index.md
+./projects/ultraplan-go/sprints/02-workspace-config-health/technical-handbook.md
+./projects/ultraplan-go/sprints/03-study-listing-resolution/plan.md
+./projects/ultraplan-go/sprints/03-study-listing-resolution/reasoning.md
+./projects/ultraplan-go/sprints/03-study-listing-resolution/reasoning/architecture.md
+./projects/ultraplan-go/sprints/03-study-listing-resolution/requirements.md
+./projects/ultraplan-go/sprints/03-study-listing-resolution/sprint-index.md
+./projects/ultraplan-go/sprints/03-study-listing-resolution/technical-handbook.md
+./projects/ultraplan-go/sprints/04-study-init-yaml/plan.md
+./projects/ultraplan-go/sprints/04-study-init-yaml/reasoning.md
+---
+ls: cannot access 'docs/': No such file or directory
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md
+[0m
+[0m$ [0mfind internal -name '*.go' ! -name '*_test.go' | xargs wc -l | sort -rn | head -40
+43842 total
+   1768 internal/sprint/review.go
+   1502 internal/app/study_commands.go
+   1402 internal/sprint/service.go
+   1318 internal/app/sprint_commands.go
+   1175 internal/runcontrol/sqlite.go
+    940 internal/study/run_loop.go
+    935 internal/app/web_usecases.go
+    852 internal/web/handlers.go
+    838 internal/web/operation_handlers.go
+    790 internal/app/operations.go
+    727 internal/sprint/execute.go
+    724 internal/sprint/smoke.go
+    724 internal/platform/runtime/runtime.go
+    667 internal/web/operations.go
+    667 internal/app/run_control.go
+    666 internal/tui/views.go
+    657 internal/sprint/smoke_protocol.go
+    614 internal/tui/model.go
+    578 internal/web/run_handlers.go
+    572 internal/runcontrol/lifecycle.go
+    549 internal/platform/config/config.go
+    533 internal/sprint/code_context.go
+    510 internal/app/run_commands.go
+    509 internal/sprint/prompt_context.go
+    504 internal/runcontrol/model.go
+    498 internal/sprint/verify.go
+    457 internal/web/security.go
+    438 internal/workspace/skills.go
+    429 internal/web/routes.go
+    411 internal/study/run_state.go
+    405 internal/app/sprint_usecases.go
+    403 internal/sprint/smoke_author.go
+    401 internal/study/run_loop_diagnostics.go
+    400 internal/tui/app.go
+    381 internal/sprint/state.go
+    378 internal/study/run_history_summary.go
+    363 internal/runcontrol/migration.go
+    357 internal/sprint/direct_inputs.go
+    354 internal/sprint/domain.go
+[0m
+[0m$ [0mfor d in internal/*/ internal/platform/*/ ; do echo "== $d"; grep -rh 'ultraplan/internal' "$d" --include='*.go' | grep -v _test | grep -o 'internal/[a-z/]*' | sort | uniq -c | sort -rn; done 2>/dev/null
+== internal/app/
+== internal/codeextract/
+== internal/platform/
+== internal/productstate/
+== internal/project/
+== internal/runcontrol/
+== internal/sprint/
+== internal/study/
+== internal/tui/
+== internal/web/
+== internal/workspace/
+== internal/platform/config/
+== internal/platform/filesystem/
+== internal/platform/logging/
+== internal/platform/process/
+== internal/platform/runtime/
+[0m
+[0m$ [0mgo list -deps ./... > /dev/null 2>&1; go list -f '{{.ImportPath}}: {{join .Imports " "}}' ./internal/... ./cmd/... 2>/dev/null | tr ' ' '\n' | grep -B1 'ultraplan/internal' | grep '^internal\|ultraplan-go/internal' | sed 's|github.com/[^ ]*/||g' > /tmp/imports_raw.txt; python3 - <<'EOF'
+import subprocess, json, collections
+out = subprocess.run(['go','list','-json','./...'],capture_output=True,text=True,cwd='/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go').stdout
+dec = json.JSONDecoder()
+idx=0; graph=collections.defaultdict(set)
+while idx < len(out):
+    obj, end = dec.raw_decode(out, idx)
+    idx = end
+    while idx < len(out) and out[idx] in '\n \t': idx+=1
+    pkg = obj['ImportPath'].split('/ultraplan-go/')[-1]
+    for imp in obj.get('Imports',[]):
+        if '/ultraplan-go/' in imp and '/internal/' in imp:
+            tgt = imp.split('/ultraplan-go/')[-1]
+            graph[pkg].add(tgt)
+for k in sorted(graph):
+    print(k, '->', sorted(graph[k]))
+EOF
+cmd/ultraplan -> ['internal/app', 'internal/tui', 'internal/web']
+internal/app -> ['internal/codeextract', 'internal/platform/config', 'internal/platform/runtime', 'internal/productstate', 'internal/project', 'internal/runcontrol', 'internal/sprint', 'internal/study', 'internal/workspace']
+internal/platform/logging -> ['internal/platform/config']
+internal/platform/runtime -> ['internal/platform/config']
+internal/project -> ['internal/workspace']
+internal/sprint -> ['internal/platform/config', 'internal/platform/process', 'internal/platform/runtime', 'internal/productstate', 'internal/project', 'internal/workspace']
+internal/study -> ['internal/platform/runtime', 'internal/productstate', 'internal/workspace']
+internal/tui -> ['internal/app']
+internal/web -> ['internal/app']
+[0m
+[0m$ [0mls internal/productstate/ internal/runcontrol/ && wc -l internal/productstate/*.go
+internal/productstate/:
+store.go
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515682260,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515682260,[]
+internal/runcontrol/:
+benchmark_test.go
+doc.go
+errors.go
+fault_test.go
+id.go
+id_test.go
+import_boundary_test.go
+interfaces.go
+lifecycle.go
+lifecycle_test.go
+local_log.go
+local_log_test.go
+metrics.go
+migration.go
+migration_test.go
+model.go
+model_test.go
+process_darwin.go
+process.go
+process_integration_test.go
+process_linux.go
+process_other.go
+retention.go
+retention_test.go
+sanitize.go
+sanitize_test.go
+sqlite.go
+sqlite_test.go
+206 internal/productstate/store.go
+[0m
+[0m✱ [0mGrep "productstate"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go · 0 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go
+[0m
+[0m$ [0mgrep -rl 'runcontrol\|run-control\|RunControl' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go --include='*.md' | head; echo ---; grep -rn 'productstate\|product state' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go --include='*.md' | head
+---
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md:326:It may depend on `app` use cases and domain result types. It must not own product state machines, validation rules, prompt construction, runtime execution, smoke-harness invocation, verdict synthesis, or artifact persistence. Durable workspace files and linked harness evidence remain the source of truth.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md:347:The server operation hub is transport-lifecycle state, not product state. It may retain bounded delivery buffers and subscribers, but it cannot be the authoritative run registry or sole event history. Slow or disconnected SSE subscribers must never block an app operation. A server restart or browser-session change replaces delivery state without erasing the durable run.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md:384:Dependencies flow downward only. A primitive must not render a component, and no template reads workspace files, calls an app use case, interprets product state, or performs transport validation. Handlers map typed app results into explicit page/component view models before rendering.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/PRD.md:181:- Do not let the browser UI call CLI subprocesses, own workflow state machines, or persist an alternate product state.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/PRD.md:1189:- Browser refresh, SSE reconnect, and server shutdown preserve truthful recovery through durable product state.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md:100:Runtime supervision is delegated to `agentwrap`. The platform runtime package must stay generic: it may know about prompts, working directories, models, timeouts, permissions, events, and execution results, but it must not know about studies, dimensions, sources, synthesis gating, report semantics, project catalogs, sprint stages, or product state machines.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md:109:- Treat filesystem artifacts as durable product state.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md:2130:The server delivery hub is ephemeral and bounded. It may hold normalized requests, current connections, and delivery buffers, but not the only run IDs, cancellation routes, history, or terminal results. Server restart recovery reads the durable run projection and package-owned product state. Slow or disconnected SSE subscribers must not block product execution. Compatibility operation URLs must resolve to the durable run, a retained tombstone, or a typed recovery response; session expiry or in-memory reaping alone cannot produce an unexplained 404 for a valid run.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md:1092:- a database-backed alternate product state
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md:1116:- The web package does not call CLI handlers, parse stdout, import product modules directly, or persist web-specific product state.
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/ && grep -rn 'productstate' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go -l | head
+01-cli-foundation
+02-workspace-config-health
+03-study-listing-resolution
+04-study-init-yaml
+05-study-listing-inspection
+06-study-run-execution
+07-prompt-composition-generation
+08-run-state-persistence
+09-runtime-integration
+10-single-analysis-synthesis
+11-run-all-batch-execution
+12-durable-run-loop
+13-summary-and-code-extraction
+14-validation-and-diagnostics
+15-documentation-and-packaging
+16-project-domain-and-index
+17-artifact-domain-and-flow-state
+18-select-stage
+19-distill-stage
+20-reason-stage
+21-plan-stage
+22-documentaiton-and-release
+23-execute-stage
+24-tui-foundations
+25-operational-tui-controls
+26-review-stage
+27-deep-smoke
+28-review-to-smoke-flow
+29-phase-3-documentation-hardening-release
+30-web-foundations
+31-web-operations
+32-hardening-and-release
+33-code-context-stage
+34-shared-context
+35-durable-run-observability
+[0m
+[0m$ [0mgrep -rn 'productstate\|product_states\|run-control.db' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/ | head -30
+(no output)
+[0m
+[0m$ [0mgrep -rln 'productstate' internal/ | sort
+internal/app/storage_commands.go
+internal/productstate/store.go
+internal/sprint/state_database.go
+internal/study/state_database.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state_database.go
+[0m
+[0m$ [0mgrep -rn 'runcontrol\|run-control\|productstate\|SQLite\|sqlite' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/plan.md | head -30; echo ===; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/
+grep: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/plan.md: No such file or directory
+===
+flow-state.json
+requirements.md
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_state.go
+[0m✱ [0mGrep "loadRunStateDatabase|saveRunStateDatabase|RunStateInDatabase|LoadRunState|SaveRunState|readRunStateFile|writeRunState"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study · 38 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state.go
+[0m
+[0m$ [0mcat /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/flow-state.json; echo ===; sed -n '1,80p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md
+{
+  "schemaVersion": 2,
+  "project": "ultraplan-go",
+  "sprint": "35-durable-run-observability",
+  "updatedAt": "2026-08-20T12:55:35.778631854Z",
+  "stages": [
+    {
+      "stage": "requirements",
+      "status": "complete",
+      "path": "projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md"
+    },
+    {
+      "stage": "code-context",
+      "status": "ready",
+      "path": "projects/ultraplan-go/sprints/35-durable-run-observability/code-context.md"
+    },
+    {
+      "stage": "sprint-index",
+      "status": "missing",
+      "path": "projects/ultraplan-go/sprints/35-durable-run-observability/sprint-index.md"
+    },
+    {
+      "stage": "technical-handbook",
+      "status": "missing",
+      "path": "projects/ultraplan-go/sprints/35-durable-run-observability/technical-handbook.md"
+    },
+    {
+      "stage": "area-reasoning",
+      "status": "missing",
+      "path": "projects/ultraplan-go/sprints/35-durable-run-observability/reasoning"
+    },
+    {
+      "stage": "reasoning",
+      "status": "missing",
+      "path": "projects/ultraplan-go/sprints/35-durable-run-observability/reasoning.md"
+    },
+    {
+      "stage": "plan",
+      "status": "missing",
+      "path": "projects/ultraplan-go/sprints/35-durable-run-observability/plan.md"
+    }
+  ]
+}
+===
+# Sprint 35 Requirements: Durable Run Identity and Cross-Surface Observability
+
+> Project: `ultraplan-go`
+> Sprint: `35-durable-run-observability`
+> Purpose: the authoritative, human-readable sprint contract. Later sprint artifacts must reason through the open decisions and satisfy the fixed observable outcomes.
+
+## Sprint Goal
+
+Make every accepted runtime-backed UltraPlan execution a durable, workspace-visible run that can be discovered, inspected, followed, cancelled when authorized, and reconciled consistently from CLI, TUI, and any local web-server instance attached to the same workspace.
+
+The sprint repairs the operational control plane exposed by real use: CLI-started work must appear in the browser running-process indicator, a run opened through another server must retain useful history and continue with live events, and a browser session or server restart must not turn a legitimate run into an unexplained `404 Operation not retained` dead end.
+
+This sprint does not change the authority of project, sprint, study, or Markdown artifacts. Durable operational run state is a separate product concern from the later gated decision about alternate persistence for authored product content.
+
+## Required Outputs
+
+| Deliverable | Required Outcome |
+|---|---|
+| Run identity and lifecycle model | A stable workspace-scoped run ID, attempt identity, operation/stage identity, timestamps, ownership/liveness facts, safe correlation fields, and one arbitrated terminal outcome exist independently of a browser session, HTTP server process, or event subscriber. |
+| Durable run repository and event journal | Accepted runs and sanitized progress events are durably recorded before they are advertised as observable; events have monotonic per-run ordering and can be replayed after reconnect, session expiry, or server restart. The reasoning and plan stages select the concrete package and storage mechanism. |
+| Workspace-wide active-run projection | CLI, TUI, dashboard, project, sprint, study, and local web surfaces derive running counts and run lists from the same workspace-wide lifecycle model rather than the current web process's in-memory operation map or only the page currently being viewed. |
+| Stable run inspection | A durable run detail surface reports identity, target, lifecycle state, latest heartbeat, stage/task progress, safe diagnostics, event history, terminal result, and recovery guidance. Read visibility is not coupled to the browser session that started the work. |
+| Replayable live event delivery | The web event transport resumes from a durable sequence cursor, makes truncation or retention gaps explicit, and continues from durable state when a different local server instance serves the same workspace. SSE may remain the transport; the transport is not the source of truth. |
+| Ownership, lease, and reconciliation | Active executions publish enough owner/lease/heartbeat and process/runtime identity to distinguish live, stalled, interrupted, cleanup-uncertain, and terminal work conservatively, including PID reuse and abrupt owner death. Startup and periodic reconciliation never infer success from process absence or artifact presence. |
+| Cross-surface cancellation | Authorized cancellation resolves the durable run, reaches the current owner through a selected coordination mechanism, is idempotent, and participates in the same single-terminal-outcome arbitration as completion, failure, timeout, interruption, and server shutdown. |
+| Compatibility and migration | Current sprint/study locks, flow state, execute state, runtime checkpoints, operation URLs, and JSON clients have an explicit migration or compatibility story. Legacy or expired operation links resolve to a durable run, a retained tombstone, or precise recovery guidance rather than a generic dashboard error. |
+| Operational telemetry | Structured logs, local metrics, diagnostics, and optional traces share run/attempt/stage/task/runtime correlation. Operator-visible health distinguishes storage failure, stale ownership, reconciliation backlog, replay gap, subscriber lag/drop, and cancellation uncertainty. |
+| Verification and fault injection | Deterministic, race, integration, and browser tests prove CLI-to-web discovery, multiple local servers, refresh/reconnect replay, session expiry, server restart, abrupt owner death, stale leases, PID reuse, slow subscribers, bounded storage, duplicate cancellation, and terminal-state races. |
+| Documentation | Architecture, PRD, TRD, CLI/API, local-web, operations, and recovery documentation explain the lifecycle model, authority boundaries, visibility guarantees, retention behavior, diagnostic workflow, compatibility policy, and intentionally unresolved design choices. |
+
+## Acceptance Criteria
+
+- A runtime-backed command receives a durable run ID before child execution begins, or fails closed without starting the child when required run persistence cannot be established.
+- Two concurrent CLI-started runs in one workspace appear as two active runs in the browser top bar and workspace run list without requiring navigation to either owning sprint or study page.
+- Work started through CLI, TUI, or one local web-server instance can be inspected from another supported local surface attached to the same workspace.
+- Opening a current run through a different local server provides retained event history and subsequently committed live events, subject only to an explicit documented topology boundary selected during reasoning.
+- Refreshing a page, rotating or expiring a browser session, restarting the observing server, or losing an SSE connection does not erase the run identity or turn a valid run into an unexplained 404.
+- Every event visible to a subscriber has a stable run ID and monotonic per-run sequence. Reconnect resumes from a cursor; if the requested history is unavailable, the API emits a typed gap/retention response and a current durable snapshot.
+- Running counts use lifecycle state from the shared run projection. No UI depends on a planning-stage status value that cannot represent running execution.
+- Active-run truth includes a renewable lease or equivalent liveness contract. Reconciliation is conservative, observable, idempotent, and safe against stale PIDs and owner crashes.
+- Exactly one terminal outcome wins for completion, failure, cancellation, timeout, interruption, cleanup uncertainty, and reconciliation races. Repeated observers and cancellation requests cannot rewrite that outcome inconsistently.
+- Durable operational records do not become a shadow authority for `requirements.md`, `code-context.md`, flow-state outcomes, generated artifacts, Git/source state, or external smoke evidence.
+- Raw provider payloads, secrets, full prompts, unsafe paths, and unbounded output are not persisted or streamed by default. Redaction occurs before durable recording and fan-out.
+- Retention, compaction, disk limits, subscriber backpressure, and degraded-mode behavior are explicit and testable; event loss or persistence failure is never silent.
+- Normal test suites pass under `go test ./...` and `go test -race ./...`; the CLI builds; a gated real-runtime dogfood demonstrates cross-surface observation and recovery.
+
+## Open Questions For Reasoning
+
+The sprint must answer these questions from repository evidence, failure-mode analysis, and focused experiments. The requirements intentionally do not preselect the answers.
+
+1. What is the supported topology for this sprint: multiple processes on one host, multiple hosts sharing a workspace, or both? Which guarantees become conditional at the boundary?
+2. Where should the execution-control responsibility live so it is not owned by `internal/web`, yet does not become a generic workflow engine or duplicate agentwrap?
+3. What is the smallest durable representation that satisfies ordering, atomicity, concurrency, recovery, inspection, and bounded retention: filesystem snapshots plus append-only segments, SQLite, an agentwrap-backed store, or another local mechanism?
+4. Is there a single coordinator/daemon, direct multi-process repository access with leases, or a hybrid? How is leader/owner identity established and recovered without a single hidden in-memory authority?
+5. Does the process that accepts a run always own the worker? If an owner exits, should work be cancelled, adopted, or merely reconciled as interrupted, and which stages are safe to adopt?
+6. What identifiers and hierarchy are needed between user operation, product run, stage execution, task attempt, agentwrap run, provider session, OS process, and external smoke-harness run?
+7. What lease duration, heartbeat cadence, clock assumptions, fencing token, and PID/process-birth checks make liveness truthful without declaring slow healthy work dead?
+8. What delivery guarantee is required for progress events, how are duplicate events handled, and what are the retention, compaction, snapshot, cursor-expiry, and replay-gap semantics?
+9. What backpressure policy protects execution and disk while telling operators exactly which detail was sampled, compacted, or dropped?
+10. Which run fields and historical events are readable across browser sessions, and what fresh authorization is required for cancel, retry, or other mutations?
+11. How should legacy `/operations/{id}` URLs, API clients, current lock files, `.flow-state.json`, `.run-state.json`, and runtime session checkpoints map into the new model without fabricating history?
+12. Which diagnostics are always local, which metrics endpoint or command is appropriate, and whether OpenTelemetry export should be built now, provided as an optional adapter, or deferred?
+13. What happens when durable record persistence fails before start, mid-run, or at terminal commit? Which degraded modes are safe, and when must execution stop?
+14. What data can be retained by default without exposing prompts, provider payloads, repository content, credentials, or sensitive paths, and how can users inspect redaction decisions?
+
+Decisions that materially affect public API compatibility, authority, topology, security, or recoverability must be recorded in reasoning before implementation planning. The plan must include migration, rollback, and fault-injection work rather than treating them as follow-up polish.
+
+## Non-Goals
+
+- Hosted SaaS, public network exposure, team accounts, or multi-user authorization.
+- A remote-worker protocol unless the supported-topology reasoning proves it is necessary for the stated acceptance criteria.
+- Replacing canonical Markdown, JSON flow state, Git/source workspaces, or external smoke evidence with a general database-backed product model.
+- Selecting SQLite, Postgres, a daemon, WebSockets, OpenTelemetry, or any broker by architectural preference alone.
+- Persisting unredacted provider-native streams, full prompts, arbitrary stdout/stderr, or unlimited event history.
+- Building a general-purpose scheduler, workflow engine, issue tracker, or distributed queue.
+- Automatic Git mutation, automatic repair, content identity, retrieval, or knowledge-graph expansion.
+- Making browser disconnect synonymous with cancellation.
+
+## Constraints
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state_database.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go[90m [limit=120][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go[90m [offset=121][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/storage_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/interfaces.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go[90m [limit=200][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/doc.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go
+[0m
+[0m$ [0mls docs/ && grep -rn 'storage migrate\|productstate\|product state\|checkpoint' README.md | head -20
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/import_boundary_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/migration-product-state.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
+[0m
+[0m$ [0mgrep -n 'sanitizeEventDraft\|func (r \*SQLiteRepository) Append' internal/runcontrol/*.go | head
+internal/runcontrol/sanitize.go:19:// sanitizeEventDraft is the final storage gate. Producers may only submit
+internal/runcontrol/sanitize.go:22:func sanitizeEventDraft(input EventDraft) EventDraft {
+internal/runcontrol/sqlite.go:608:func (r *SQLiteRepository) Append(ctx context.Context, fence Fence, draft EventDraft) (eventResult Event, snapshotResult Snapshot, resultErr error) {
+internal/runcontrol/sqlite.go:617:	draft = sanitizeEventDraft(draft)
+[0m
+[0m✱ [0mGrep "DurableOperationManager|AcceptOperation|RecordOperationEvent|FinishOperation|RecordOperationCleanupUncertain|ReconcileOperations"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 45 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m
+[0m$ [0mgrep -n 'Terminal\|Lifecycle' internal/runcontrol/model.go | head -40
+16:type Lifecycle string
+19:	LifecycleAccepted         Lifecycle = "accepted"
+20:	LifecycleQueued           Lifecycle = "queued"
+21:	LifecycleRunning          Lifecycle = "running"
+22:	LifecycleCancelling       Lifecycle = "cancelling"
+23:	LifecycleSucceeded        Lifecycle = "succeeded"
+24:	LifecycleFailed           Lifecycle = "failed"
+25:	LifecycleCancelled        Lifecycle = "cancelled"
+26:	LifecycleTimedOut         Lifecycle = "timed_out"
+27:	LifecycleInterrupted      Lifecycle = "interrupted"
+28:	LifecycleCleanupUncertain Lifecycle = "cleanup_uncertain"
+29:	LifecyclePersistenceLost  Lifecycle = "persistence_degraded"
+32:func (s Lifecycle) IsValid() bool {
+34:	case LifecycleAccepted, LifecycleQueued, LifecycleRunning, LifecycleCancelling,
+35:		LifecycleSucceeded, LifecycleFailed, LifecycleCancelled, LifecycleTimedOut,
+36:		LifecycleInterrupted, LifecycleCleanupUncertain, LifecyclePersistenceLost:
+43:func (s Lifecycle) IsActive() bool {
+45:	case LifecycleAccepted, LifecycleQueued, LifecycleRunning, LifecycleCancelling:
+52:func (s Lifecycle) IsTerminal() bool { return s.IsValid() && !s.IsActive() }
+63:	LivenessTerminal         Liveness = "terminal"
+69:		LivenessInterrupted, LivenessCleanupUncertain, LivenessTerminal:
+94:type TerminalOutcome string
+97:	TerminalSucceeded        TerminalOutcome = "succeeded"
+98:	TerminalFailed           TerminalOutcome = "failed"
+99:	TerminalCancelled        TerminalOutcome = "cancelled"
+100:	TerminalTimedOut         TerminalOutcome = "timed_out"
+101:	TerminalInterrupted      TerminalOutcome = "interrupted"
+102:	TerminalCleanupUncertain TerminalOutcome = "cleanup_uncertain"
+103:	TerminalPersistenceLost  TerminalOutcome = "persistence_degraded"
+106:func (o TerminalOutcome) IsValid() bool {
+108:	case TerminalSucceeded, TerminalFailed, TerminalCancelled, TerminalTimedOut,
+109:		TerminalInterrupted, TerminalCleanupUncertain, TerminalPersistenceLost:
+116:func (o TerminalOutcome) Lifecycle() Lifecycle {
+117:	return Lifecycle(o)
+125:	EventLifecycle    EventType = "lifecycle"
+133:	EventTerminal     EventType = "terminal"
+139:	case EventAccepted, EventClaimed, EventLifecycle, EventProgress, EventMessage,
+141:		EventTerminal, EventOmission:
+253:type Terminal struct {
+254:	Outcome    TerminalOutcome `json:"outcome"`
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers.go
+[0m
+[0m$ [0mgit show eeaa034 --stat && git show eeaa034 -- internal/app/run_control.go | head -80
+commit eeaa034cb1e520ea10e806870f6026cf1bb6c4f7
+Author: antonio <antoniorees74@gmail.com>
+Date:   Sat Aug 22 11:01:06 2026 +0100
+
+    observability: promote nested runtime payload facts to top level
+    
+    opencode events nest tool names, titles, and text under part/state/properties
+    maps. Downstream consumers (run-loop progress summaries, durable operation
+    journal, web timeline) only read top-level payload keys, so every event
+    rendered as a generic 'runtime' row with empty tool names.
+    
+    promoteObservablePayloadFields() lifts tool/name/title/detail/text/delta/
+    output/message/state/status/action/phase from nested maps (depth 4,
+    deterministic traversal) onto the payload top level in mapEvent(), without
+    overwriting existing top-level values.
+
+ internal/platform/runtime/runtime.go | 55 +++++++++++++++++++++++++++++++++++-
+ 1 file changed, 54 insertions(+), 1 deletion(-)
+commit eeaa034cb1e520ea10e806870f6026cf1bb6c4f7
+Author: antonio <antoniorees74@gmail.com>
+Date:   Sat Aug 22 11:01:06 2026 +0100
+
+    observability: promote nested runtime payload facts to top level
+    
+    opencode events nest tool names, titles, and text under part/state/properties
+    maps. Downstream consumers (run-loop progress summaries, durable operation
+    journal, web timeline) only read top-level payload keys, so every event
+    rendered as a generic 'runtime' row with empty tool names.
+    
+    promoteObservablePayloadFields() lifts tool/name/title/detail/text/delta/
+    output/message/state/status/action/phase from nested maps (depth 4,
+    deterministic traversal) onto the payload top level in mapEvent(), without
+    overwriting existing top-level values.
+[0m
+[0m$ [0mgrep -rn 'text\|delta\|detail' internal/runcontrol/sanitize_test.go | head -20
+4:	"context"
+12:	_, _, err := repository.Append(context.Background(), fence, EventDraft{
+25:	events, err := repository.Events(context.Background(), fence.RunID, 0, 10)
+34:		t.Fatalf("unsafe detail persisted: %+v", events[0])
+46:	event, _, err := repository.Append(context.Background(), fence, EventDraft{Type: EventProgress, Payload: payload})
+50:	if event.Type != EventWarning || event.Payload["code"] != "event_detail_oversize" || event.Omission == nil {
+57:	ctx := context.Background()
+[0m
+[0m$ [0mgrep -rn 'Payload\["' internal/runcontrol/*_test.go internal/app/*_test.go | head -30
+internal/runcontrol/retention_test.go:33:	if err != nil || len(retained) != 1 || retained[0].Payload["status"] != "newest" {
+internal/runcontrol/sanitize_test.go:29:	if len(events) != 1 || events[0].Payload["message"] != "safe summary" || events[0].Omission == nil || events[0].Omission.Count != 4 {
+internal/runcontrol/sanitize_test.go:32:	encoded := events[0].Payload["prompt"] + events[0].Payload["access_token"] + events[0].Payload["path"] + events[0].Payload["kind"]
+internal/runcontrol/sanitize_test.go:50:	if event.Type != EventWarning || event.Payload["code"] != "event_detail_oversize" || event.Omission == nil {
+internal/runcontrol/sqlite_test.go:192:	if len(events) != 1 || events[0].Payload["message"] != "committed" {
+internal/app/durable_operations_test.go:57:	if len(events) != 3 || events[1].Payload["message"] != "" || events[1].Omission == nil {
+internal/app/durable_operations_test.go:60:	if events[1].Payload["kind"] != "tool" || events[1].Payload["tool"] != "bash" {
+internal/app/run_control_test.go:82:	if len(events) != 2 || events[0].Payload["secret"] != "" || events[0].Omission == nil || events[1].Type != runcontrol.EventTerminal {
+[0m
+[0m$ [0mgrep -n 'promoteObservablePayloadFields\|func mapEvent\|OnEvent' internal/platform/runtime/runtime.go | head
+39:	OnEvent       func(Event)
+284:			if req.OnEvent != nil {
+285:				req.OnEvent(mapped)
+565:func mapEvent(event agentwrap.Event) Event {
+569:	promoteObservablePayloadFields(payload)
+587:// promoteObservablePayloadFields lifts nested runtime facts (tool names, titles,
+592:func promoteObservablePayloadFields(payload map[string]any) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go[90m [offset=555, limit=120][0m
+[0m
+[0m$ [0mgrep -rn '"text"\|"delta"\|"title"\|"output"\|"phase"\|native_type' internal/runcontrol/*.go internal/app/run_control_test.go internal/app/durable_operations_test.go | grep -v '_ = ' | head -20
+(no output)
+[0m
+[0m$ [0mgrep -rn 'payload.tool\|payload\.text\|data-payload\|dataset\.' internal/web/static/js/*.js | head -15
+(no output)
+[0m
+[0m$ [0mls internal/web/static/js/ && grep -rn 'tool\|text' internal/web/static/js/*.js | grep -i 'payload\|event' | head -20
+app.js
+operations.js
+sse.js
+[0m
+[0m$ [0mgrep -rn 'tool\|detail\|payload' internal/web/static/js/app.js | head -20; echo ===; grep -rn 'run-timeline\|timeline' internal/web/templates -r | head
+===
+internal/web/templates/operation.html:18:  <div id="operation-live" role="status" aria-live="polite">Connecting to the run…</div><ol id="operation-timeline" class="operation-timeline" aria-label="Run progress"></ol><button id="operation-cancel" type="button">Cancel run</button>
+internal/web/templates/project.html:42:  <ol class="sprint-timeline">
+internal/web/templates/run.html:18:      {{if .RunEvents}}<ol class="operation-timeline" data-run-timeline>{{range .RunEvents}}<li data-run-sequence="{{.Sequence}}" data-run-type="{{.Type}}" data-run-stage="{{.Stage}}" data-run-task="{{.Task}}"{{with .Time}} data-run-time="{{.}}"{{end}} data-run-kind="{{.DetailKind}}" data-run-type-detail="{{.DetailType}}" data-run-tool="{{.DetailTool}}"{{with .DetailText}} data-run-text="{{.}}"{{end}}><strong>{{.Sequence}} · {{.Type}}</strong>{{with .Stage}} <span>{{.}}</span>{{end}}{{with .Task}} <span>{{.}}</span>{{end}}{{with .DetailKind}} <small>kind={{.}}</small>{{end}}{{with .DetailTool}} <small>tool={{.}}</small>{{end}}{{with .DetailText}}<p class="run-event-detail">{{.}}</p>{{end}}{{with .Omission}}<p>{{.}}</p>{{end}}</li>{{end}}</ol>{{else}}<ol class="operation-timeline" data-run-timeline><li class="empty">No retained events.</li></ol>{{end}}
+internal/web/templates/run.html:68:  <ol class="operation-timeline run-agent-dialog-timeline" id="run-agent-dialog-timeline" aria-label="Agent event stream"></ol>
+internal/web/templates/shell.html:103:  <ol id="operation-timeline" class="operation-timeline" aria-label="Recent operation progress"></ol>
+internal/web/templates/sprint.html:65:<ol class="stage-timeline" aria-label="Sprint stages">{{range .Sprint.RunStages}}<li class="stage-{{.Status}}"><a href="#stage-{{.Name}}" data-stage-select="stage-{{.Name}}" data-stage-has-artifact="{{if or (eq .Status "complete") (eq .Status "completed") .ArtifactAvailable}}true{{else}}false{{end}}" aria-controls="stage-{{.Name}}"><span class="stage-marker" aria-hidden="true"></span><strong>{{.Name}}</strong><span class="status status-{{if or (eq .Status "complete") (eq .Status "completed") (eq .Status "skipped")}}ok{{else if eq .Status "running"}}info{{else if or (eq .Status "failed") (eq .Status "blocked")}}error{{else}}warn{{end}}">{{.Status}}</span></a></li>{{end}}</ol>
+internal/web/templates/sprint.html:89:<details class="event-log"><summary>Show event log <span id="event-log-count">0</span></summary><ol id="operation-timeline" class="operation-timeline" aria-label="Live stage events"></ol></details></div>
+[0m
+[0m$ [0mgrep -n 'payload' internal/web/static/js/*.js | head -25
+internal/web/static/js/operations.js:6:    async command(path, payload, method = "POST") {
+internal/web/static/js/operations.js:12:        body: payload === null ? undefined : JSON.stringify(payload),
+[0m
+[0m$ [0mgrep -rn 'run-agent-dialog\|agentTimeline\|run_event\|RunEvent' internal/web/static/js/app.js | head; grep -c '' internal/web/static/js/app.js
+6
+[0m

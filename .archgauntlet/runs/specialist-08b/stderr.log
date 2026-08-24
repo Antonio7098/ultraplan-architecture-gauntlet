@@ -1,4 +1,794 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -3 && git status --short | head -5 && find . -name "*.go" | xargs grep -l -i "sqlite\|database/sql" 2>/dev/null | head -30
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+./internal/app/app.go
+./internal/app/run_commands_test.go
+./internal/app/storage_commands.go
+./internal/app/durable_operations_test.go
+./internal/app/run_control.go
+./internal/app/run_control_test.go
+./internal/productstate/store.go
+./internal/runcontrol/benchmark_test.go
+./internal/runcontrol/fault_test.go
+./internal/runcontrol/import_boundary_test.go
+./internal/runcontrol/lifecycle.go
+./internal/runcontrol/lifecycle_test.go
+./internal/runcontrol/local_log_test.go
+./internal/runcontrol/migration.go
+./internal/runcontrol/migration_test.go
+./internal/runcontrol/process_integration_test.go
+./internal/runcontrol/retention.go
+./internal/runcontrol/retention_test.go
+./internal/runcontrol/sanitize_test.go
+./internal/runcontrol/sqlite_test.go
+./internal/runcontrol/sqlite.go
+./internal/web/run_handlers_test.go
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go
+[0m
+[0m$ [0mls -la /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/ /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/:
+total 8
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   16 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  154 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees 6281 Aug 22 16:23 store.go
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515725426,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515725426,[]
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/:
+total 260
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   758 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2033 Aug 22 16:23 benchmark_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   399 Aug 22 16:23 doc.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2712 Aug 22 16:23 errors.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4531 Aug 22 16:23 fault_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2451 Aug 22 16:23 id.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1830 Aug 22 16:23 id_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   854 Aug 22 16:23 import_boundary_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2305 Aug 22 16:23 interfaces.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 24533 Aug 22 16:23 lifecycle.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 14743 Aug 22 16:23 lifecycle_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4768 Aug 22 16:23 local_log.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2383 Aug 22 16:23 local_log_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2099 Aug 22 16:23 metrics.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 12583 Aug 22 16:23 migration.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5349 Aug 22 16:23 migration_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 16313 Aug 22 16:23 model.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2297 Aug 22 16:23 model_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1396 Aug 22 16:23 process_darwin.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1713 Aug 22 16:23 process.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  9719 Aug 22 16:23 process_integration_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1404 Aug 22 16:23 process_linux.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   471 Aug 22 16:23 process_other.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8315 Aug 22 16:23 retention.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5301 Aug 22 16:23 retention_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3472 Aug 22 16:23 sanitize.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2642 Aug 22 16:23 sanitize_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 48412 Aug 22 16:23 sqlite.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 16628 Aug 22 16:23 sqlite_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/doc.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/interfaces.go
+[0m✱ [0mGrep "productstate"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 26 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state_database.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/storage_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state_database.go
+[0m✱ [0mGrep "loadFlowStateDatabase|loadExecuteStateDatabase|saveFlowStateDatabase|saveExecuteStateDatabase|LoadFlowState|SaveFlowState"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 100 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state.go
+[0m
+[0m$ [0mls system studies 2>/dev/null | head -40 && grep -ril "productstate\|product state\|run-control" --include="*.md" . | head -30
+studies:
+agent-harness-study
+go-cli-study
+ultraplan-daemon-events-study
+
+system:
+contracts
+protocols
+reasoning
+./projects/aren-phase-01-execution-lifecycle/docs/PRD.md
+./projects/aren-phase-01-execution-lifecycle/roadmap.md
+./projects/ultraplan-go/docs/ARCHITECTURE.md
+./projects/ultraplan-go/docs/PRD.md
+./projects/ultraplan-go/docs/TRD.md
+./projects/ultraplan-go/roadmap.md
+./projects/ultraplan-go/sprints/01-cli-foundation/reasoning/architecture.md
+./projects/ultraplan-go/sprints/08-run-state-persistence/technical-handbook.md
+./projects/ultraplan-go/sprints/12-durable-run-loop/reasoning.md
+./projects/ultraplan-go/sprints/17-artifact-domain-and-flow-state/technical-handbook.md
+./projects/ultraplan-go/sprints/19-distill-stage/reasoning.md
+./projects/ultraplan-go/sprints/19-distill-stage/technical-handbook.md
+./projects/ultraplan-go/sprints/20-reason-stage/reasoning.md
+./projects/ultraplan-go/sprints/21-plan-stage/technical-handbook.md
+./projects/ultraplan-go/sprints/23-execute-stage/reasoning/architecture.md
+./projects/ultraplan-go/sprints/23-execute-stage/technical-handbook.md
+./projects/ultraplan-go/sprints/24-tui-foundations/reasoning.md
+./projects/ultraplan-go/sprints/24-tui-foundations/reasoning/architecture.md
+./projects/ultraplan-go/sprints/24-tui-foundations/requirements.md
+./projects/ultraplan-go/sprints/24-tui-foundations/technical-handbook.md
+./projects/ultraplan-go/sprints/26-review-stage/reasoning/architecture.md
+./projects/ultraplan-go/sprints/27-deep-smoke/plan.md
+./projects/ultraplan-go/sprints/27-deep-smoke/reasoning/architecture.md
+./projects/ultraplan-go/sprints/30-web-foundations/plan.md
+./projects/ultraplan-go/sprints/30-web-foundations/reasoning.md
+./projects/ultraplan-go/sprints/30-web-foundations/reasoning/architecture.md
+./projects/ultraplan-go/sprints/30-web-foundations/reasoning/frontend.md
+./projects/ultraplan-go/sprints/30-web-foundations/requirements.md
+./projects/ultraplan-go/sprints/30-web-foundations/sprint-index.md
+./projects/ultraplan-go/sprints/31-web-operations/plan.md
+[0m
+[0m$ [0mls projects/ultraplan-go/sprints/ | tail -20 && grep -ril "run-control\|run control" projects/ultraplan-go/sprints --include="*.md" | tail -15
+16-project-domain-and-index
+17-artifact-domain-and-flow-state
+18-select-stage
+19-distill-stage
+20-reason-stage
+21-plan-stage
+22-documentaiton-and-release
+23-execute-stage
+24-tui-foundations
+25-operational-tui-controls
+26-review-stage
+27-deep-smoke
+28-review-to-smoke-flow
+29-phase-3-documentation-hardening-release
+30-web-foundations
+31-web-operations
+32-hardening-and-release
+33-code-context-stage
+34-shared-context
+35-durable-run-observability
+projects/ultraplan-go/sprints/24-tui-foundations/technical-handbook.md
+projects/ultraplan-go/sprints/28-review-to-smoke-flow/requirements.md
+projects/ultraplan-go/sprints/28-review-to-smoke-flow/sprint-index.md
+projects/ultraplan-go/sprints/33-code-context-stage/reasoning/frontend.md
+projects/ultraplan-go/sprints/33-code-context-stage/requirements.md
+[0m
+[0m$ [0mls projects/ultraplan-go/sprints/35-durable-run-observability/ && grep -rl "productstate\|product state" projects/ultraplan-go --include="*.md" | head
+flow-state.json
+requirements.md
+projects/ultraplan-go/docs/ARCHITECTURE.md
+projects/ultraplan-go/docs/PRD.md
+projects/ultraplan-go/docs/TRD.md
+projects/ultraplan-go/roadmap.md
+projects/ultraplan-go/sprints/01-cli-foundation/reasoning/architecture.md
+projects/ultraplan-go/sprints/08-run-state-persistence/technical-handbook.md
+projects/ultraplan-go/sprints/12-durable-run-loop/reasoning.md
+projects/ultraplan-go/sprints/17-artifact-domain-and-flow-state/technical-handbook.md
+projects/ultraplan-go/sprints/19-distill-stage/reasoning.md
+projects/ultraplan-go/sprints/19-distill-stage/technical-handbook.md
+[0m
+[0m$ [0mgrep -n -A 20 -i "product.state\|productstate" projects/ultraplan-go/docs/TRD.md | head -80
+100:Runtime supervision is delegated to `agentwrap`. The platform runtime package must stay generic: it may know about prompts, working directories, models, timeouts, permissions, events, and execution results, but it must not know about studies, dimensions, sources, synthesis gating, report semantics, project catalogs, sprint stages, or product state machines.
+101-
+102-The CLI must not become the only place where use cases are assembled. Shared application operations should be extracted from command-specific glue into testable structs/functions that CLI commands, TUI actions, and local HTTP handlers can call. Neither TUI nor web code should invoke `ultraplan` subprocesses for normal product behavior.
+103-
+104-## 4. Design Principles
+105-
+106-- Keep the domain model independent of CLI parsing.
+107-- Keep product use cases independent of CLI parsing, TUI widget state, HTTP transport DTOs, and HTML rendering.
+108-- Keep runtime adapters independent of study semantics.
+109:- Treat filesystem artifacts as durable product state.
+110-- Validate outputs before marking tasks successful.
+111-- Make state transitions explicit and testable.
+112-- Prefer deterministic fixtures for tests.
+113-- Do not require real OpenCode for normal unit tests.
+114-- Use agentwrap for runtime execution, retries, validation wrapping, permission policy translation, health/preflight checks, observability, metadata, and OpenCode structured-output adaptation.
+115-- Keep UltraPlan-specific study, source, report, project, and sprint behavior outside agentwrap adapters and wrappers.
+116-- Avoid global mutable state.
+117-- Avoid package cycles.
+118-- Make dry-run behavior available before expensive operations.
+119-- Keep generated Markdown and YAML readable by humans.
+120-- Keep the CLI as the stable automation contract even when a TUI is available.
+121-- Keep the filesystem and product-owned run state authoritative when the local server is running.
+122-- Run review before smoke by default so deterministic conformance failures block unnecessary live-runtime work.
+123-- Keep only `review.md` and `smoke.md` in the sprint root; link detailed smoke evidence from the external harness.
+124-- Compute review/smoke verdicts from validated evidence and explicit severity rules, not from runtime exit success or unstructured model prose alone.
+125-- Preserve exact requirements and code-context bytes in one shared prompt prefix before stage-specific instructions; downstream agents may still inspect additional live source.
+126-- Keep Markdown authoritative initially. Any later search record or knowledge graph is derived and rebuildable; any later SQLite authority is an explicit product-mode decision rather than a web-side shadow store.
+127-
+128-## 4.1 Application Surface Requirements
+129-
+--
+392:- keep filesystem reads, application calls, HTTP validation, product-state interpretation, and durable state mutation out of templates
+393-- layer CSS as tokens, base, primitives, components, layouts, and utilities; split JavaScript only by narrow progressive-enhancement capability
+394-- render untrusted Markdown without executing embedded HTML or scripts
+395-- show operation scope, affected paths, runtime/model information, and mutation class before starting guarded work
+396-- use a server-issued, short-lived confirmation bound to the normalized request and current governed-input fingerprint for mutating or runtime-backed work
+397-- stream bounded progress events, support cancellation, and refresh durable state after completion, failure, cancellation, or reconnect
+398-- remain truthful when the browser disconnects: subscriber presence is not task state and loss of an SSE connection does not mark work complete or failed
+399-
+400-Local server security requirements:
+401-
+402-- same-origin pages and API, no permissive CORS
+403-- strict Host and Origin checks, CSRF protection for mutations, request-body limits, security response headers, and bounded concurrent streams
+404-- safe cookies or an equivalent per-process session mechanism where browser state is required
+405-- path containment, artifact allowlisting, secret redaction, and safe error projection identical in strength to CLI/TUI behavior
+406-- no hosted authentication, team permissions, tenant isolation, or remote-worker protocol in Phase 4
+407-
+408-Normal tests must use `httptest`, fake app use cases, deterministic templates, fake runtimes, and fake smoke harnesses. Required coverage includes route/method errors, JSON compatibility, confirmation expiry/staleness, path escape, CSRF/origin rejection, hostile Markdown, SSE ordering/reconnect/slow subscribers, cancellation, shutdown, redaction, and CLI/TUI/web agreement.
+409-
+410-## 7.6 Sprint Code-Context Requirements
+411-
+412-Product Phase 5 adds `code-context` immediately after `requirements`:
+--
+2130:The server delivery hub is ephemeral and bounded. It may hold normalized requests, current connections, and delivery buffers, but not the only run IDs, cancellation routes, history, or terminal results. Server restart recovery reads the durable run projection and package-owned product state. Slow or disconnected SSE subscribers must not block product execution. Compatibility operation URLs must resolve to the durable run, a retained tombstone, or a typed recovery response; session expiry or in-memory reaping alone cannot produce an unexplained 404 for a valid run.
+2131-
+2132-Graceful server shutdown owns cancellation of every worker the server owns under the selected Sprint 35 topology. Shutdown must enter draining, reject new mutations and queued starts, request canonical cancellation exactly once with reason `server_shutdown`, propagate through retries/runtime/process trees, wait for bounded cleanup, and persist one truthful terminal outcome. Valid outcomes are clean cancellation, interruption, cleanup uncertainty, or a failure/completion that was already authoritative before cancellation won. HTTP/SSE closes only after durable outcome or bounded uncertainty recording. Browser navigation, tab close, refresh, or SSE disconnect never cancels a run. Startup and periodic reconciliation must handle stale active runs and locks after forced termination without inferring success from process absence or artifact presence.
+2133-
+2134-Commands and streams remain separate:
+2135-
+2136-```text
+2137-browser -> HTTP POST/DELETE -> app command/cancellation
+2138-browser <- SSE GET          <- safe bounded progress events
+2139-browser -> HTTP GET         -> refreshed durable state
+2140-```
+2141-
+2142-Product-owned mutation locks remain mandatory. Existing study locks stay in `internal/study`; sprint mutation exclusion belongs in `internal/sprint`, not in HTTP middleware. Conflicting work must return an actionable conflict rather than execute concurrently by accident.
+2143-
+2144-The first Phase 4 UI uses embedded `html/template` files, CSS, and minimal JavaScript. No frontend framework or JavaScript build system is required. A later client-side framework is allowed only after demonstrated interaction complexity and must still consume the same versioned HTTP/app boundary.
+2145-
+2146-Sprint 32 must converge on this presentation structure:
+2147-
+2148-```text
+2149-internal/web/
+2150-  templates/
+[0m
+[0m$ [0mgrep -n -B2 -A 25 -i "run-control\|run control" projects/ultraplan-go/docs/TRD.md | head -120
+2182-The web extensibility gate requires the new stage to expose status, artifact preview, operation start, progress, cancellation, findings, and recovery through the existing application capability model. Adding route-specific product logic for `code-context` fails the gate.
+2183-
+2184:## 18C. Phase 6 Durable Run Control And Observation
+2185-
+2186-The current in-memory operation hub is a compatibility/delivery mechanism, not an adequate execution control plane. Sprint 35 must provide one workspace-wide model shared by CLI, TUI, browser pages, and every local server instance within the explicitly supported topology.
+2187-
+2188-The durable run envelope must include, directly or through stable references:
+2189-
+2190-```text
+2191-workspace-scoped run ID
+2192-operation kind and project/study/sprint/stage target
+2193-accepted / queued / running / terminal lifecycle timestamps
+2194-attempt, stage, task, agentwrap run/session, process, and external-harness correlations
+2195-owner identity, renewable lease, heartbeat, fencing value, and safe process-birth identity
+2196-latest durable event sequence and retention boundary
+2197-cancellation request/acknowledgement facts
+2198-one immutable arbitrated terminal result or explicit cleanup uncertainty
+2199-safe diagnostics, schema version, and migration metadata
+2200-```
+2201-
+2202-Acceptance of a runtime-backed execution is atomic with durable run creation and happens before child execution. If required acceptance persistence fails, the child does not start. Event records are redacted before persistence, assigned monotonically increasing per-run sequences, and committed before live fan-out. The store may compact detail, but it must retain an explicit snapshot and lower replay boundary so clients can distinguish complete replay from a gap.
+2203-
+2204-Active-run queries are workspace-wide. Product-page status may filter the common projection, but the global running count cannot be derived from the current page, browser session, or one server's memory. Planning stage readiness and operational execution lifecycle are separate types; UI code must not infer `running` from a stage-status enum that cannot represent it.
+2205-
+2206-Read visibility is independent from originating-session continuity. Mutation still requires fresh authorization and a resolvable current owner. Cancellation is idempotent, durably recorded, routed through the canonical product/runtime cancellation path, and arbitrated against completion, failure, timeout, interruption, shutdown, and reconciliation so only one terminal outcome wins.
+2207-
+2208-Liveness is conservative. A PID alone is insufficient because of PID reuse. Lease expiry, missing process, missing owner, artifact presence, or lost server memory cannot independently prove completion. Reconciliation uses fencing or equivalent stale-writer protection, records its evidence and decisions, and exposes `stalled`, `interrupted`, or `cleanup_uncertain` where truth cannot be proven.
+2209-
+--
+2683-| 1.6.0 | 2026-07-22 | Add Phase 4 local web surface | Define the Sprint 30+ loopback Go HTTP server, embedded Go-rendered browser UI, guarded commands, SSE progress, and local-only security boundary. |
+2684-| 1.7.0 | 2026-08-15 | Add Phase 5 grounded planning and gated future architecture | Define the `code-context` stage and stable downstream prompt prefix, strengthen server shutdown ownership, formalize the embedded primitives/components/layouts/pages hierarchy, and record evidence gates for content, QA/repair, retrieval, persistence, optional graph, and cloud/Aren. |
+2685:| 1.8.0 | 2026-08-20 | Add Phase 6 durable run control and observability | Define stable workspace run identity, durable ordered safe events, cross-surface/server projection, lease/fencing and reconciliation, compatible run inspection, cancellation routing, telemetry, and a comprehensive failure matrix while leaving storage and coordinator choices to Sprint 35 reasoning. |
+2686-
+2687-
+2688-## Current Scope Clarification
+2689-
+2690-UltraPlan has two connected product sides: (1) studying source repositories/documents and producing validated research artifacts, and (2) applying selected study findings to governed project/sprint planning, controlled implementation, automated conformance review, and deep smoke. Phase 4 adds a third local interface over those capabilities. Phase 5 adds the first new planning stage through the same interface and application boundaries. Phase 6 adds durable operational run identity and observation without selecting an alternate authority for product artifacts. Content identity, expanded QA/repair, retrieval, alternate product-artifact persistence, knowledge graphs, cloud, and Aren remain gated future directions rather than current implementation scope. General-purpose issue tracking, hosted/multi-user service, remote workers, automatic Git mutation, and unbounded autonomous repair remain non-goals.
+[0m
+[0m$ [0mgrep -n -B3 -A30 "SQLite" projects/ultraplan-go/docs/TRD.md | sed -n '1,120p'
+54-- Replacing workspace artifacts with browser-owned or server-only durable state.
+55-- Treating operational run persistence as authority for governed Markdown, stage outcomes, Git/source state, or external smoke evidence.
+56-- Treating a code-context pack as a repository index, exclusive source boundary, cache database, or second machine-readable manifest.
+57:- Introducing content identity, expanded QA/repair, retrieval, SQLite product persistence, knowledge-graph persistence, cloud, or Aren capabilities before their explicit roadmap evidence gates.
+58-
+59-## 3. Architecture Overview
+60-
+61-UltraPlan Go should be module-driven, not global-layer-driven. Product behavior should live with the module that owns the relevant state and workflow. Shared platform packages should be limited to genuinely cross-cutting infrastructure such as configuration, logging, filesystem helpers, and runtime execution.
+62-
+63-The detailed architecture is defined in [ARCHITECTURE.md](ARCHITECTURE.md). The initial implementation should follow this high-level shape:
+64-
+65-```text
+66-cmd/
+67-  ultraplan/
+68-    main.go
+69-
+70-internal/
+71-  app/                  # composition root, shared use cases, and interface wiring
+72-  tui/                  # local terminal UI over app use cases, added after execute
+73-  web/                  # loopback HTTP, Go templates/static assets, JSON, and SSE over app use cases
+74-  platform/             # generic infrastructure only
+75-    config/
+76-    logging/
+77-    filesystem/
+78-    runtime/
+79-    process/            # safe external executable/argv execution for the smoke harness
+80-  workspace/            # workspace discovery, paths, and validation
+81-  study/                # study lifecycle, prompts, scheduling, validation, reports, state
+82-  project/              # project docs, project-index cataloging and validation
+83-  sprint/               # planning, execute, review, smoke, prompts, validators, state, and flow through smoke
+84-  codeextract/          # citation parsing, file resolution, snippet extraction
+85-```
+86-
+87-Sprint 35 may add a focused execution-control package or package-owned repositories exposed through `internal/app`. The reasoning stage must select that shape from concrete lifecycle and concurrency requirements; this TRD intentionally does not reserve a package name before ownership is proven. In every valid shape, `internal/web` remains a transport adapter and no interface process owns the only authoritative run registry.
+--
+123-- Keep only `review.md` and `smoke.md` in the sprint root; link detailed smoke evidence from the external harness.
+124-- Compute review/smoke verdicts from validated evidence and explicit severity rules, not from runtime exit success or unstructured model prose alone.
+125-- Preserve exact requirements and code-context bytes in one shared prompt prefix before stage-specific instructions; downstream agents may still inspect additional live source.
+126:- Keep Markdown authoritative initially. Any later search record or knowledge graph is derived and rebuildable; any later SQLite authority is an explicit product-mode decision rather than a web-side shadow store.
+127-
+128-## 4.1 Application Surface Requirements
+129-
+130-The `internal/app` package is the composition boundary for local interfaces. It should provide:
+131-
+132-- shared dependency construction for workspace discovery, config loading, runtime setup, and service creation
+133-- typed use-case functions for project, sprint, study, code extraction, validation, status, flow, execute, review, smoke, and verify operations
+134-- CLI adapters that parse arguments, call use cases, and render text/JSON
+135-- TUI adapters that translate key actions into the same use cases and render terminal models
+136-- Web adapters that map HTTP requests to the same use cases and render HTML, JSON, or SSE without owning product behavior
+137-
+138-The intended direction is:
+139-
+140-```text
+141-cmd/ultraplan -> internal/app -> product modules/platform
+142-internal/tui  -> internal/app -> product modules/platform
+143-internal/web  -> internal/app -> product modules/platform
+144-```
+145-
+146-Avoid this direction:
+147-
+148-```text
+149-internal/tui -> CLI command handlers -> stdout parsing
+150-internal/tui -> os/exec("ultraplan", ...)
+151-internal/web -> CLI command handlers or os/exec("ultraplan", ...)
+152-```
+153-
+154-Subprocess execution is acceptable only for explicit external runtime behavior already owned by `platform/runtime` and `agentwrap`, not for UltraPlan calling itself.
+155-
+156-## 5. Workspace Requirements
+--
+2211-
+2212-- same-host multi-process versus shared-filesystem multi-host support and the guarantees at that boundary
+2213-- dedicated coordinator/daemon, fenced direct repository writers, or a hybrid
+2214:- filesystem snapshot/journal, SQLite, agentwrap store composition, or another smallest sufficient durable mechanism
+2215-- interface/package ownership without moving workflow semantics out of study/sprint modules or duplicating agentwrap
+2216-- worker cancellation versus safe adoption after owner loss
+2217-- run/attempt/stage/task identity hierarchy and correlation format
+2218-- lease duration, heartbeat cadence, clock assumptions, fencing, and process-birth verification
+2219-- replay guarantee, deduplication, cursor expiry, retention, compaction, snapshot, backpressure, and disk-limit policy
+2220-- cross-session read policy versus cancel/retry authorization
+2221-- compatibility and tombstone behavior for legacy operation URLs, locks, state files, and checkpoints
+2222-- local metrics/health interfaces, optional trace export, and support-bundle scope
+2223-- safe behavior when acceptance, mid-run append, heartbeat, or terminal persistence fails
+2224-
+2225-Every chosen mechanism must pass the same cross-process failure matrix: two CLI runs visible globally; a second supported server replaying and then following a current run; browser-session expiry; observer restart; abrupt owner death; stale lease and PID reuse; duplicate cancellation; completion/cancellation races; slow subscribers; cursor expiry; corrupt/torn records; disk-full or permission failure; bounded retention; and redaction. Tests must prove that operational records never override canonical product artifacts or stage verdicts.
+2226-
+2227-## 18D. Gated Post-Phase-6 Technical Direction
+2228-
+2229-The following sequence is directional and does not authorize implementation until a later sprint selects it explicitly:
+2230-
+2231-1. **Content identity/provenance pilot:** optional versioned YAML frontmatter with minimal `schema`, `id`, `type`, `title`, `status`, and `authority`; selective semantic block IDs; revision-aware evidence; warning-first validation; legacy files remain valid.
+2232-2. **Read-only QA:** retain `review` compatibility while presenting it as Conformance Review; introduce a separate `VerificationPhase`; map changed behavior into deterministic bounded shards; allow read-only investigation and synthesis only.
+2233-3. **Evidence QA and repair:** require isolated writable investigation workspaces before generated tests/probes; adjudicate evidence globally before issue promotion; permit production repair only from frozen evidence-backed issue packets; bound cycles and expose stalled/escalated outcomes.
+2234-4. **Derived retrieval:** build deterministic semantic records and a measured lexical baseline first. Indexes are disposable, preserve exact authoritative text/provenance/status, and never override project/sprint context selection. Embeddings remain deferred until lexical evaluation proves a gap.
+2235:5. **Product persistence/SQLite:** first classify authored artifacts, checkpoints, derived data, operational state, run evidence, and repository source. Sprint 35 operational run storage does not select a new authored-artifact authority. Extract focused package-owned repositories only for proven workflows; keep Git/source and execution workspaces filesystem-native; select one product-artifact authority at composition; prohibit generic virtual filesystems, silent dual writes, and premature sync.
+2236-6. **Knowledge graph:** only after stable explicit relationships and retrieval baseline demonstrate multi-hop need, build a deterministic in-memory read-only projection. Keep edge provenance/origin, status, revision, contradiction, and supersession explicit. A persistent graph remains derived and rebuildable; a graph database is not assumed.
+2237:7. **Authority/cloud/Aren:** compare filesystem, SQLite/server, and hybrid publication modes on real work before choosing. Cloud and typed Aren artifact tools reuse proven application contracts; source edits/builds/tests remain sandboxed filesystem/Git work.
+2238-
+2239:Every branch must stop when its evidence gate fails. In particular: no repair without adjudicated evidence and isolation; no retrieval before content dogfood; no SQLite merely for architectural cleanliness; no graph persistence before useful bounded traversal; no cloud authority before local authority and recovery semantics are proven.
+2240-
+2241-## 19. Logging and Diagnostics
+2242-
+2243-UltraPlan logging and diagnostics must consume agentwrap observability records rather than directly inspecting native runtime process streams.
+2244-
+2245-### 19.1 Logger Requirements
+2246-
+2247-- Context-aware logging.
+2248-- Text and JSON output.
+2249-- Log levels: debug, info, warn, error.
+2250-- Redaction support.
+2251-- Stable fields for structured logs.
+2252-
+2253-Structured log fields:
+2254-
+2255-- Timestamp.
+2256-- Level.
+2257-- Command.
+2258-- Workspace.
+2259-- Study.
+2260-- Project.
+[0m
+[0m$ [0mgrep -n "func LoadFlowState\|func SaveFlowState\|loadFlowStateDatabase\|saveFlowStateDatabase\|FlowStateInDatabase" internal/sprint/*.go | grep -v _test
+internal/sprint/state_database.go:19:func loadFlowStateDatabase(root string, s Sprint) (FlowState, bool, error) {
+internal/sprint/state_database.go:69:func saveFlowStateDatabase(root string, s Sprint, state FlowState) error {
+internal/sprint/state_database.go:137:func FlowStateInDatabase(root string, s Sprint) (bool, error) {
+internal/sprint/state_database.go:144:	return saveFlowStateDatabase(root, s, state)
+internal/sprint/state.go:20:func LoadFlowState(root string, s Sprint) (FlowState, error) {
+internal/sprint/state.go:21:	if state, found, err := loadFlowStateDatabase(root, s); err != nil {
+internal/sprint/state.go:201:func SaveFlowState(root string, s Sprint, state FlowState) error {
+internal/sprint/state.go:216:	if authoritative, err := FlowStateInDatabase(root, s); err != nil {
+internal/sprint/state.go:219:		if err := saveFlowStateDatabase(root, s, state); err != nil {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/locks.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go[90m [limit=240][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/retention.go
+[0m
+[0m$ [0mgrep -n "func \|BeginTx\|Commit()\|tx.Rollback\|immediate" internal/runcontrol/lifecycle.go | head -50
+14:func (r *SQLiteRepository) Heartbeat(ctx context.Context, fence Fence, lease time.Duration) (Snapshot, error) {
+30:	tx, err := r.db.BeginTx(ctx, nil)
+34:	defer tx.Rollback()
+60:	if err := tx.Commit(); err != nil {
+70:func (r *SQLiteRepository) RequestCancellation(ctx context.Context, runID RunID, reason string) (Snapshot, bool, error) {
+82:	tx, err := r.db.BeginTx(ctx, nil)
+86:	defer tx.Rollback()
+92:		if err := tx.Commit(); err != nil {
+125:	if err := tx.Commit(); err != nil {
+136:func (r *SQLiteRepository) AcknowledgeCancellation(ctx context.Context, fence Fence) (Snapshot, bool, error) {
+144:	tx, err := r.db.BeginTx(ctx, nil)
+148:	defer tx.Rollback()
+157:		if err := tx.Commit(); err != nil {
+186:	if err := tx.Commit(); err != nil {
+196:func (r *SQLiteRepository) List(ctx context.Context, query Query) (Page, error) {
+273:func encodeRunCursor(cursor runCursor) string {
+278:func decodeRunCursor(value string) (runCursor, error) {
+301:func (r *SQLiteRepository) Reconcile(ctx context.Context, probe ProcessProbe, opts ReconcileOptions) (ReconcileReport, error) {
+418:func (r *SQLiteRepository) finishReconciliationLog(ctx context.Context, report *ReconcileReport) {
+427:func (r *SQLiteRepository) reconcileUnclaimed(ctx context.Context, runID RunID) (wonResult bool, resultErr error) {
+431:	tx, err := r.db.BeginTx(ctx, nil)
+435:	defer tx.Rollback()
+471:	if err := tx.Commit(); err != nil {
+481:func reconcileProcessDecision(expected, observed ProcessIdentity, probeErr error) (string, TerminalOutcome) {
+497:func (r *SQLiteRepository) markStalled(ctx context.Context, candidate reconciliationCandidate) error {
+511:func (r *SQLiteRepository) recordReconciliation(ctx context.Context, candidate reconciliationCandidate, action, decision string) error {
+532:func (r *SQLiteRepository) ReconciliationEvidence(ctx context.Context, limit int) ([]ReconciliationEvidence, error) {
+[0m
+[0m$ [0mgrep -n "func Test" internal/runcontrol/sqlite_test.go internal/runcontrol/migration_test.go internal/runcontrol/fault_test.go internal/runcontrol/benchmark_test.go internal/productstate/*_test.go 2>/dev/null; ls internal/productstate/
+internal/runcontrol/sqlite_test.go:17:func TestSQLiteRepositoryCreatesPrivateDurableSchema(t *testing.T) {
+internal/runcontrol/sqlite_test.go:111:func TestStructuredRunLogsUseSafeBoundedCorrelationFields(t *testing.T) {
+internal/runcontrol/sqlite_test.go:157:func TestSQLiteRepositoryPersistsCommittedStateAcrossReopen(t *testing.T) {
+internal/runcontrol/sqlite_test.go:197:func TestSQLiteRepositoryRejectsSymlinkDatabaseBoundary(t *testing.T) {
+internal/runcontrol/sqlite_test.go:215:func TestSQLiteRepositoryLifecycleEventAndTerminalContract(t *testing.T) {
+internal/runcontrol/sqlite_test.go:287:func TestSQLiteRepositoryConcurrentWritersAllocateMonotonicSequence(t *testing.T) {
+internal/runcontrol/sqlite_test.go:344:func TestSQLiteRepositoryTerminalCompareAndSetHasOneWinner(t *testing.T) {
+internal/runcontrol/sqlite_test.go:398:func TestSQLiteRepositoryImmediateTransactionsRespectContextAndLocking(t *testing.T) {
+internal/runcontrol/migration_test.go:15:func TestMigrationCreatesVersionRecordsBackupAndIntegrity(t *testing.T) {
+internal/runcontrol/migration_test.go:67:func TestMigrationRejectsNewerSchemaAndConcurrentLock(t *testing.T) {
+internal/runcontrol/migration_test.go:94:func TestMigrationReclaimsExactlyProvenStaleLock(t *testing.T) {
+internal/runcontrol/migration_test.go:119:func TestBackupRestoreFixture(t *testing.T) {
+internal/runcontrol/migration_test.go:154:func TestMigrationRejectsCorruptDatabaseWithoutReplacingEvidence(t *testing.T) {
+internal/runcontrol/fault_test.go:12:func TestSQLiteFullIsTypedAndNeverReturnsUncommittedAppendSuccess(t *testing.T) {
+internal/runcontrol/fault_test.go:52:func TestClosedRepositoryFailsEveryMutationWithoutStaleSuccess(t *testing.T) {
+internal/runcontrol/fault_test.go:87:func TestSQLiteReadOnlyPermissionLossRejectsEveryActiveMutation(t *testing.T) {
+store.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite_test.go[90m [offset=287, limit=120, command=grep -rn "run-control\|productstate\|product state\|SQLite\|storage migrate" projects/ultraplan-go/docs/ARCHITECTURE.md | head -30, workdir=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace][0m
+[0m
+[0m$ [0mgrep -rn "run-control\|productstate\|product state\|storage migrate\|run_control" projects/ultraplan-go/docs/ARCHITECTURE.md | head -40
+326:It may depend on `app` use cases and domain result types. It must not own product state machines, validation rules, prompt construction, runtime execution, smoke-harness invocation, verdict synthesis, or artifact persistence. Durable workspace files and linked harness evidence remain the source of truth.
+347:The server operation hub is transport-lifecycle state, not product state. It may retain bounded delivery buffers and subscribers, but it cannot be the authoritative run registry or sole event history. Slow or disconnected SSE subscribers must never block an app operation. A server restart or browser-session change replaces delivery state without erasing the durable run.
+384:Dependencies flow downward only. A primitive must not render a component, and no template reads workspace files, calls an app use case, interprets product state, or performs transport validation. Handlers map typed app results into explicit page/component view models before rendering.
+[0m
+[0m$ [0mgrep -rn "productstate\|product state\|run-control.db\|storage migrate" projects/ultraplan-go/sprints/35-durable-run-observability -r | head; ls projects/ultraplan-go/sprints/35-durable-run-observability/
+flow-state.json
+requirements.md
+[0m
+[0m$ [0mgrep -rln "storage migrate" projects/ultraplan-go/sprints/ | head; grep -rn "run-control.db" projects/ultraplan-go --include="*.md" | head -20
+(no output)
+[0m
+[0m$ [0mgrep -rn "SQLite\|sqlite" projects/ultraplan-go/sprints/32-hardening-and-release/ projects/ultraplan-go/sprints/31-web-operations/ 2>/dev/null | head -20; grep -rln "product_states" . | head
+projects/ultraplan-go/sprints/32-hardening-and-release/reasoning.md:119:| Alternate persistence/SQLite | Measured workflows demonstrate value and authority is decided | A web-side store would become shadow truth. | Focused product-owned persistence seams and atomic filesystem authority. |
+projects/ultraplan-go/sprints/32-hardening-and-release/requirements.md:88:- Product Phase 5 content identity, provenance, retrieval, SQLite, knowledge graph, cloud, or Aren capabilities.
+projects/ultraplan-go/sprints/32-hardening-and-release/sprint-index.md:15:- **Non-Goals:** New planning, execution, review, smoke, QA, repair, retrieval, or `code-context` stages; hosted, LAN/public, remote, multi-user, account, authorization, tenancy, collaboration, or remote-worker behavior; a client router, frontend framework/build pipeline, authoritative browser store, service worker, WebSockets, or agent chat; a database, web-owned durable state, detached worker, operation queue, or second scheduler; arbitrary browser file editing or automatic repair; issue tracking; Git mutation; and Product Phase 5 content identity, provenance, retrieval, SQLite, knowledge graph, cloud, or Aren capabilities.
+projects/ultraplan-go/sprints/32-hardening-and-release/sprint-index.md:98:| Product Phase 5 and later architecture | Content identity, provenance, retrieval, SQLite, knowledge graphs, cloud, Aren, empirical QA, and automatic repair are beyond Sprint 32 and its observable-product release gate. | A later roadmap sprint explicitly selects one of these evidence-gated capabilities. |
+[0m
+[0m$ [0mgrep -n -i "sqlite\|product.state\|storage\|database" projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md | head -30; grep -n -i "sprint 3[5-9]\|phase\|persistence" projects/ultraplan-go/roadmap.md | tail -40
+20:| Durable run repository and event journal | Accepted runs and sanitized progress events are durably recorded before they are advertised as observable; events have monotonic per-run ordering and can be replayed after reconnect, session expiry, or server restart. The reasoning and plan stages select the concrete package and storage mechanism. |
+27:| Operational telemetry | Structured logs, local metrics, diagnostics, and optional traces share run/attempt/stage/task/runtime correlation. Operator-visible health distinguishes storage failure, stale ownership, reconciliation backlog, replay gap, subscriber lag/drop, and cancellation uncertainty. |
+28:| Verification and fault injection | Deterministic, race, integration, and browser tests prove CLI-to-web discovery, multiple local servers, refresh/reconnect replay, session expiry, server restart, abrupt owner death, stale leases, PID reuse, slow subscribers, bounded storage, duplicate cancellation, and terminal-state races. |
+53:3. What is the smallest durable representation that satisfies ordering, atomicity, concurrency, recovery, inspection, and bounded retention: filesystem snapshots plus append-only segments, SQLite, an agentwrap-backed store, or another local mechanism?
+72:- Replacing canonical Markdown, JSON flow state, Git/source workspaces, or external smoke evidence with a general database-backed product model.
+73:- Selecting SQLite, Postgres, a daemon, WebSockets, OpenTelemetry, or any broker by architectural preference alone.
+1032:- final TUI Phase 3 polish: review/smoke dashboard summaries, evidence links, responsive progress, error and recovery panes, narrow-terminal behavior, keyboard help, and documentation
+1056:# Product Phase 4 — Local Go Server and Browser UI
+1058:Product Phase 4 begins with Sprint 30. It adds a simple local browser surface without changing the governed workflow, workspace layout, or source of truth.
+1070:## Phase 4 Contract Gate
+1072:Required for Phase 4:
+1076:- `cmd/ultraplan` explicitly constructs CLI/TUI/web interface dependencies; Phase 4 does not add another package-global mutable runner registration.
+1159:The integrated product roadmap and this workspace roadmap use different phase numbering. Their mapping for this chunk is:
+1163:| Phases 1–3: web foundation, operations, and hardening | Product Phase 4, Sprints 30–32 |
+1164:| Phase 4: code-context | Product Phase 5, Sprints 33–34 |
+1165:| Phase 5 onward: content identity, provenance, and QA | Later roadmap chunks |
+1212:# Product Phase 5 — Grounded Planning Foundation
+1214:Product Phase 5 gathers implementation evidence once per sprint, preserves it as a durable artifact, and reuses the exact same foundation across planning, execution, and verification.
+1235:## Phase 5 Contract Gate
+1252:Required for Phase 5:
+1262:- No repository index, RAG system, cache subsystem, cache key, provider-specific cache dependency, automatic staleness system, or amendment workflow enters this phase.
+1349:# Product Phase 6 — Durable Run Control And Observable Execution
+1359:Phase 6 treats these as one control-plane problem. It separates:
+1368:This is not the later product-persistence decision in Gate D. Sprint 35 may persist operational run records using the smallest mechanism proven by reasoning, but it must not move Markdown, flow outcomes, Git/source state, or smoke evidence into a new canonical store.
+1370:## Sprint 35: Durable Run Identity And Cross-Surface Observability
+1393:- event ordering, replay cursor, gap, retention, redaction, backpressure, and persistence-failure behavior are explicit and tested
+1395:- operational persistence remains distinct from canonical product-artifact authority
+1400:## Why This Roadmap Chunk Stops After Sprint 35
+1402:Sprint 35 repairs the execution-observation foundation needed to trust later browser-driven QA, repair, retrieval, and persistence experiments. The next sprint number remains gated until durable-run dogfood demonstrates that multiple surfaces and supported server topologies agree under restart, expiry, cancellation, and failure.
+1406:# Gated Direction After Sprint 35
+1408:The detailed implementation plans establish the following dependency order, but this roadmap does not assign sprint numbers beyond Sprint 35 until the preceding evidence gate passes:
+1435:-> proven product persistence boundary and optional SQLite
+1462:## Gate D — Persistence And SQLite
+1464:- Keep Sprint 35 operational run persistence distinct from the authority decision for authored product artifacts in this gate.
+1476:- Move toward Postgres, durable workers, remote identity, and typed Aren artifact tools only after local persistence, authority, execution projection, cancellation, and recovery semantics are proven.
+1478:The normative local-server shutdown rule applies throughout server-backed phases: graceful server stop cancels every worker it owns through the canonical cancellation path, waits for bounded cleanup, records a truthful outcome, and never equates browser disconnection with cancellation. Durable run identity and retained observation survive the presenting server according to the selected Sprint 35 topology.
+1487:- [ ] Phase 1 study-side scope confirmed.
+1488:- [ ] TRD target/sprint contradictions resolved or replaced by Planning Phase 2 scope.
+1519:- [x] Phase 3 PRD, TRD, architecture, roadmap, project-index, and protocol updates are accepted; embedded review defaults are updated in Sprint 26.
+1529:Before Phase 3 release:
+1532:- [ ] CLI/TUI parity tests cover every Phase 3 operation.
+1535:- [ ] Phase 3 dogfood evidence exists for review, smoke, cancellation, failure, and recovery paths.
+1539:- [ ] Phase 3 release gate is complete or any remaining exceptions are explicitly recorded.
+1540:- [ ] Phase 4 PRD, TRD, architecture, roadmap, project-index, and reasoning selections are accepted.
+1545:Before Phase 4 release:
+1558:Before Product Phase 5 release:
+[0m
+[0m$ [0mgit log --oneline --all -- internal/productstate | head; git log --oneline | wc -l; ls docs 2>/dev/null; grep -rn "storage migrate\|productstate" README.md docs 2>/dev/null | head
+02e2ec4 Move mutable product state to SQLite
+195
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+docs/plans/ultraplan-local-server-experiment-plan.md:740:ultraplan storage migrate \
+docs/plans/ultraplan-local-server-experiment-plan.md:746:ultraplan storage migrate \
+[0m
+[0m$ [0mgrep -rln "product.state\|product_state\|run-control.db" system studies scripts 2>/dev/null | head; cat ultraplan.yml 2>/dev/null | head -30
+studies/ultraplan-daemon-events-study/dimensions/01.04-leases-heartbeats-fencing-stale-worker-rejection.md
+studies/ultraplan-daemon-events-study/dimensions/01.05-atomic-state-transition-and-event-journal.md
+version: 1
+runtime:
+  default: opencode
+models:
+  default: minimax-coding-plan/MiniMax-M3
+  primary: minimax-coding-plan/MiniMax-M3
+  backup: minimax-coding-plan/MiniMax-M3
+execution:
+  default_variant: high
+  default_parallel: 5
+  default_timeout: 12m
+  default_retries: 1
+planning:
+  requirements_model: openai/gpt-5.6-sol
+  requirements_variant: high
+  code_context_model: openai/gpt-5.6-sol
+  code_context_variant: low
+  sprint_index_model: openai/gpt-5.6-sol
+  sprint_index_variant: high
+  technical_handbook_model: openai/gpt-5.6-sol
+  technical_handbook_variant: high
+  area_reasoning_model: openai/gpt-5.6-sol
+  area_reasoning_variant: high
+  reasoning_model: openai/gpt-5.6-sol
+  reasoning_variant: high
+  plan_model: openai/gpt-5.6-sol
+  plan_variant: high
+  review_model: minimax-coding-plan/MiniMax-M3
+  smoke_model: openai/gpt-5.6-sol
+  smoke_variant: low
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/migration-product-state.md
+[0m
+[0m$ [0mgit show --stat 02e2ec4 | head -40
+commit 02e2ec4e93bdfae480b5e5cdaf2ca9116c5d4eb5
+Author: antonio <antoniorees74@gmail.com>
+Date:   Fri Aug 21 17:57:45 2026 +0100
+
+    Move mutable product state to SQLite
+
+ docs/migration-product-state.md   |  30 ++++++
+ internal/app/app.go               |   3 +
+ internal/app/storage_commands.go  | 204 +++++++++++++++++++++++++++++++++++++
+ internal/productstate/store.go    | 206 ++++++++++++++++++++++++++++++++++++++
+ internal/sprint/execute_state.go  |  35 +++++++
+ internal/sprint/state.go          |  32 ++++++
+ internal/sprint/state_database.go | 148 +++++++++++++++++++++++++++
+ internal/study/state.go           |  18 ++++
+ internal/study/state_database.go  |  80 +++++++++++++++
+ scripts/migrate-product-state.sh  |  10 ++
+ 10 files changed, 766 insertions(+)
+[0m
+[0m$ [0mgrep -rn "product.state\|run-control.db\|SQLite\|sqlite" docs/architecture.md docs/recovery.md | head -30
+docs/architecture.md:52:handler packages. It cannot decide workflow semantics, persist product state,
+docs/architecture.md:156:`.ultraplan/run-control.db`. `internal/runcontrol` owns operational identity,
+docs/architecture.md:162:Each start is accepted and claimed in SQLite before a goroutine, runtime child,
+docs/architecture.md:175:PID alone, or infers success from artifacts, locks, or product state. One
+docs/architecture.md:182:sequence)` from SQLite; in-process notifications are only an optimization.
+docs/architecture.md:190:SQLite WAL/locking semantics, worker adoption, brokers, and remote signalling
+docs/recovery.md:204:reconciliation evidence. Do not substitute the log for the SQLite journal.
+docs/recovery.md:218:`.ultraplan/run-control.db` (maximum three retained backups and 512 MiB per
+docs/recovery.md:227:with reliable SQLite locking/WAL semantics. Move the workspace to such a
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md[90m [limit=80, offset=130][0m
+[0m
+[0m$ [0msed -n '195,240p' docs/recovery.md
+`persistence_degraded` intentionally preserve uncertainty. Re-run diagnostics,
+confirm the exact process identity, and let reconciliation record a conservative
+terminal outcome. Do not kill a PID based only on the number shown in support
+evidence.
+
+The private `.ultraplan/run-control.log` is bounded to 1 MiB and contains only
+allowlisted structured correlation and decision fields. Prefer
+`ultraplan run diagnostics --support-export <file>` to collect its newest safe
+records with health, snapshots, omission facts, config source classes, and
+reconciliation evidence. Do not substitute the log for the SQLite journal.
+
+If a process exits after acceptance but before its first owner claim, the run
+has no process identity to probe. After 45 seconds, reconciliation records an
+`interrupted` terminal with `owner_never_claimed_after_grace`; it does not
+invent an attempt or adopt any work that might remain outside run control.
+
+For quota pressure, stop starting new work, free space outside the active
+database, and rerun diagnostics. UltraPlan begins compaction at 80 percent,
+rejects starts at the soft threshold, and reserves 16 MiB for heartbeat,
+cancellation, recovery, and terminal writes. It never deletes an active
+snapshot to regain space.
+
+Schema migrations create private timestamped backups next to
+`.ultraplan/run-control.db` (maximum three retained backups and 512 MiB per
+backup). Restoration is an offline procedure: stop every UltraPlan process for
+the workspace, keep the backup unchanged, restore the matching UltraPlan
+binary, and use the tested restore path before reopening the workspace. Never
+copy only the database while a WAL writer is active. An unsupported newer
+schema or failed integrity check is a stop condition, not a fallback to an
+empty history.
+
+Run control is supported only for same-host processes on a local filesystem
+with reliable SQLite locking/WAL semantics. Move the workspace to such a
+filesystem before recovery if those guarantees are unavailable.
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/import_boundary_test.go
+[0m
+[0m$ [0mgrep -rn "LoadFlowState\|LoadExecuteRunState\|loadRunStateDatabase\|RunStateInDatabase" internal/web/*.go internal/app/*.go 2>/dev/null | grep -v _test | head -15
+internal/app/storage_commands.go:93:		stored, err := study.RunStateInDatabase(item)
+internal/app/storage_commands.go:153:				state, loadErr := sprint.LoadFlowState(root, sp)
+internal/app/storage_commands.go:176:				state, loadErr := sprint.LoadExecuteRunState(root, sp)
+[0m
+[0m$ [0mgrep -rn "saveRunStateDatabase\|SaveRunState\|acquire\|lock" internal/study/*.go | grep -v _test | head -20
+internal/study/cleanup_uncertain.go:29:// does not acquire the run-loop lock because the original owner may still
+internal/study/cleanup_uncertain.go:30:// hold that lock when the server's shutdown deadline expires.
+internal/study/cleanup_uncertain.go:74:	lock, err := AcquireRunLoopLock(st, []string{"ultraplan", "serve", "reconcile"}, false, time.Now().UTC())
+internal/study/cleanup_uncertain.go:82:	releaseErr := lock.Release()
+internal/study/cleanup_uncertain.go:134:		if err := SaveRunState(st, state); err != nil {
+internal/study/doc.go:6:// locks, atomic run-state persistence, resume validation, runtime-free status
+internal/study/execution_domain.go:19:	ExecutionStatusPreflightBlocked ExecutionStatus = "preflight_blocked"
+internal/study/execution_domain.go:50:	Blockers         []string
+internal/study/execution_domain.go:118:	ForceUnlock   bool
+internal/study/locks.go:15:var ErrStudyLocked = errors.New("study run-loop locked")
+internal/study/locks.go:26:	return filepath.Join(study.Path, RunStateDirName, "run-loop.lock")
+internal/study/locks.go:40:		if err := ForceUnlockRunLoop(study); err != nil {
+internal/study/locks.go:45:		return nil, fmt.Errorf("create lock directory %s: %w", filepath.Dir(path), err)
+internal/study/locks.go:56:		return nil, fmt.Errorf("marshal lock %s: %w", path, err)
+internal/study/locks.go:68:					return nil, fmt.Errorf("%w: stale lock %s held by dead pid %d could not be removed: %v", ErrStudyLocked, path, existing.PID, err)
+internal/study/locks.go:81:				return nil, fmt.Errorf("create lock %s after stale cleanup: %w", path, err)
+internal/study/locks.go:85:		return nil, fmt.Errorf("create lock %s: %w", path, err)
+internal/study/locks.go:91:		return nil, fmt.Errorf("write lock %s: %w", path, err)
+internal/study/locks.go:96:		return nil, fmt.Errorf("flush lock %s: %w", path, err)
+internal/study/locks.go:100:		return nil, fmt.Errorf("close lock %s: %w", path, err)
+[0m
+[0m$ [0mgrep -rn "LoadFlowState\|LoadExecuteRunState" internal/app/*.go internal/web/*.go 2>/dev/null | grep -v _test | head
+internal/app/storage_commands.go:153:				state, loadErr := sprint.LoadFlowState(root, sp)
+internal/app/storage_commands.go:176:				state, loadErr := sprint.LoadExecuteRunState(root, sp)
+[0m
+[0m$ [0mgrep -rn "func SaveRunState\|func LoadRunState" internal/study/state.go && sed -n "$(grep -n 'func LoadRunState' internal/study/state.go | cut -d: -f1),+40p" internal/study/state.go
+27:func LoadRunState(study Study) (RunState, error) {
+59:func SaveRunState(study Study, state RunState) error {
+func LoadRunState(study Study) (RunState, error) {
+	if state, found, err := loadRunStateDatabase(study); err != nil {
+		return RunState{}, err
+	} else if found {
+		if err := ValidateRunState(state, RunStatePath(study)); err != nil {
+			return RunState{}, err
+		}
+		return state, nil
+	}
+	path := RunStatePath(study)
+	content, err := os.ReadFile(path)
+	if err != nil {
+		if errors.Is(err, fs.ErrNotExist) {
+			return RunState{}, fmt.Errorf("%w: %s", ErrRunStateMissing, path)
+		}
+		return RunState{}, fmt.Errorf("read run state %s: %w", path, err)
+	}
+	var state RunState
+	if err := json.Unmarshal(content, &state); err != nil {
+		return RunState{}, fmt.Errorf("%w: %s: %w", ErrRunStateMalformed, path, err)
+	}
+	if err := ValidateRunState(state, path); err != nil {
+		return RunState{}, err
+	}
+	compactRunStateDiagnostics(&state)
+	if len(content) >= legacyRunStateGCThreshold {
+		content = nil
+		runtime.GC()
+	}
+	return state, nil
+}
+
+func SaveRunState(study Study, state RunState) error {
+	if authoritative, err := RunStateInDatabase(study); err != nil {
+		return err
+	} else if authoritative {
+		if err := saveRunStateDatabase(study, state); err != nil {
+			return err
+		}
+		if !state.Complete {
+			return nil
+[0m
+[0m$ [0mgrep -rln "sprint.LoadFlowState\|LoadFlowState(" internal/app | head; grep -rn "serve\|Server" internal/app/app.go | head -10
+internal/app/storage_commands.go
+internal/app/web_usecases_test.go
+171:	case "serve":
+269:  serve            Start the read-only local browser dashboard.
+[0m
+[0m$ [0mgrep -n "DisallowUnknownFields\|json.Unmarshal" internal/study/state.go internal/sprint/state.go internal/sprint/execute_state.go internal/sprint/state_database.go internal/study/state_database.go
+internal/study/state.go:45:	if err := json.Unmarshal(content, &state); err != nil {
+internal/sprint/state.go:47:	if err := json.Unmarshal(content, &header); err != nil {
+internal/sprint/state.go:58:	dec.DisallowUnknownFields()
+internal/sprint/state.go:125:	return json.Unmarshal(data, &state) == nil && state.SchemaVersion == FlowStateSchemaVersion && isPreCodeContextStages(state.Stages)
+internal/sprint/state.go:144:	if err := json.Unmarshal(content, &header); err != nil {
+internal/sprint/execute_state.go:60:	if err := json.Unmarshal(content, &state); err != nil {
+internal/sprint/execute_state.go:94:	if err := json.Unmarshal(content, &header); err != nil || header.SchemaVersion != 0 {
+internal/sprint/state_database.go:25:	if err := json.Unmarshal(record.Header, &state); err != nil {
+internal/sprint/state_database.go:30:		if err := json.Unmarshal(item.Payload, &stage); err != nil {
+internal/sprint/state_database.go:44:	if err := json.Unmarshal(record.Header, &state); err != nil {
+internal/sprint/state_database.go:49:		if err := json.Unmarshal(item.Payload, &task); err != nil {
+internal/study/state_database.go:30:	if err := json.Unmarshal(record.Header, &state); err != nil {
+internal/study/state_database.go:35:		if err := json.Unmarshal(item.Payload, &task); err != nil {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite_test.go[90m [limit=110, offset=17][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle.go[90m [limit=240, offset=296][0m
+[0m
+[0m$ [0mgrep -rln "storage migrate\|MigrateFlowStateToDatabase\|InDatabase\|state_database\|productstate" --include="*_test.go" . | head
+(no output)
+[0m
+[0m$ [0mgo test ./internal/productstate/... ./internal/runcontrol/... 2>&1 | tail -5
+?   	github.com/Antonio7098/ultraplan-go/internal/productstate	[no test files]
+ok  	github.com/Antonio7098/ultraplan-go/internal/runcontrol	(cached)
+[0m
+[0m$ [0mcat scripts/migrate-product-state.sh
+#!/usr/bin/env bash
+set -euo pipefail
+
+workspace_path=${1:-.}
+if [[ $# -gt 0 ]]; then
+  shift
+fi
+
+ultraplan_binary=${ULTRAPLAN_BIN:-ultraplan}
+exec "$ultraplan_binary" --workspace "$workspace_path" storage migrate "$@"
+[0m
