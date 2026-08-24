@@ -1,4 +1,1019 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -3 && git status --short | head -5
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+[0m
+[0m$ [0mfind internal cmd -type d | sort
+cmd
+cmd/ultraplan
+internal
+internal/app
+internal/codeextract
+internal/platform
+internal/platform/config
+internal/platform/filesystem
+internal/platform/logging
+internal/platform/process
+internal/platform/runtime
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/web/static
+internal/web/static/css
+internal/web/static/js
+internal/web/templates
+internal/web/templates/components
+internal/web/templates/layouts
+internal/web/templates/pages
+internal/web/templates/primitives
+internal/workspace
+internal/workspace/scaffold
+internal/workspace/scaffold/prompts
+internal/workspace/scaffold/templates
+[0m
+[0m$ [0mls -la internal/platform/runtime internal/platform/process internal/runcontrol internal/app
+internal/app:
+total 616
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  2342 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8323 Aug 22 16:23 app.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 10356 Aug 22 16:23 app_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3268 Aug 22 16:23 code_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5746 Aug 22 16:23 code_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5917 Aug 22 16:23 config_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3855 Aug 22 16:23 defaults_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  9570 Aug 22 16:23 durable_operations.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3618 Aug 22 16:23 durable_operations_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  7184 Aug 22 16:23 health_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4393 Aug 22 16:23 health_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   775 Aug 22 16:23 json_output.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   687 Aug 22 16:23 markdown.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   666 Aug 22 16:23 markdown_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8427 Aug 22 16:23 operation_runner.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 31413 Aug 22 16:23 operations.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5459 Aug 22 16:23 project_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4782 Aug 22 16:23 project_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2575 Aug 22 16:23 project_usecases.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 16972 Aug 22 16:23 run_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5269 Aug 22 16:23 run_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 22115 Aug 22 16:23 run_control.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1377 Aug 22 16:23 run_control_inventory_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4641 Aug 22 16:23 run_control_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2116 Aug 22 16:23 run_usecases.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4291 Aug 22 16:23 serve_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3576 Aug 22 16:23 serve_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4441 Aug 22 16:23 skills_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2494 Aug 22 16:23 skills_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 53045 Aug 22 16:23 sprint_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 37130 Aug 22 16:23 sprint_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1663 Aug 22 16:23 sprint_error_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 16185 Aug 22 16:23 sprint_usecases.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   950 Aug 22 16:23 sprint_usecases_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2269 Aug 22 16:23 sprint_verify_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5198 Aug 22 16:23 status_json.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  7445 Aug 22 16:23 storage_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 55440 Aug 22 16:23 study_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5764 Aug 22 16:23 study_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  6023 Aug 22 16:23 study_init_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  6186 Aug 22 16:23 study_prompt_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3740 Aug 22 16:23 study_run_all_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8065 Aug 22 16:23 study_run_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  9358 Aug 22 16:23 study_run_loop_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1437 Aug 22 16:23 study_runs_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1433 Aug 22 16:23 study_runs_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8905 Aug 22 16:23 study_status_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1801 Aug 22 16:23 study_summary_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  9687 Aug 22 16:23 study_usecases.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4298 Aug 22 16:23 study_validate_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   539 Aug 22 16:23 surfaces.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2927 Aug 22 16:23 tui_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3237 Aug 22 16:23 tui_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8635 Aug 22 16:23 usecases.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3924 Aug 22 16:23 usecases_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   523 Aug 22 16:23 version.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  6029 Aug 22 16:23 web_operations_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 27545 Aug 22 16:23 web_usecases.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 10003 Aug 22 16:23 web_usecases_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1566 Aug 22 16:23 workspace_commands.go
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515756380,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515756380,[]
+internal/platform/process:
+total 20
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  112 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   74 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees 5620 Aug 22 16:23 process.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  450 Aug 22 16:23 process_other.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 3386 Aug 22 16:23 process_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 1042 Aug 22 16:23 process_unix.go
+
+internal/platform/runtime:
+total 76
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   208 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    74 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees  6418 Aug 22 16:23 agentwrap.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1141 Aug 22 16:23 cache_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4315 Aug 22 16:23 events.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3360 Aug 22 16:23 health.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2660 Aug 22 16:23 opencode.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1542 Aug 22 16:23 opencode_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   386 Aug 22 16:23 policy.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 18967 Aug 22 16:23 runtime.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 19687 Aug 22 16:23 runtime_test.go
+
+internal/runcontrol:
+total 260
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   758 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2033 Aug 22 16:23 benchmark_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   399 Aug 22 16:23 doc.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2712 Aug 22 16:23 errors.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4531 Aug 22 16:23 fault_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2451 Aug 22 16:23 id.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1830 Aug 22 16:23 id_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   854 Aug 22 16:23 import_boundary_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2305 Aug 22 16:23 interfaces.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 24533 Aug 22 16:23 lifecycle.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 14743 Aug 22 16:23 lifecycle_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4768 Aug 22 16:23 local_log.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2383 Aug 22 16:23 local_log_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2099 Aug 22 16:23 metrics.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 12583 Aug 22 16:23 migration.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5349 Aug 22 16:23 migration_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 16313 Aug 22 16:23 model.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2297 Aug 22 16:23 model_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1396 Aug 22 16:23 process_darwin.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1713 Aug 22 16:23 process.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  9719 Aug 22 16:23 process_integration_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1404 Aug 22 16:23 process_linux.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   471 Aug 22 16:23 process_other.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8315 Aug 22 16:23 retention.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5301 Aug 22 16:23 retention_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3472 Aug 22 16:23 sanitize.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2642 Aug 22 16:23 sanitize_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 48412 Aug 22 16:23 sqlite.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 16628 Aug 22 16:23 sqlite_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/agentwrap.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/events.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/policy.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/health.go
+[0m✱ [0mGrep "agentwrap"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 100 matches[0m
+[0m✱ [0mGrep "internal/platform/runtime""[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 42 matches[0m
+[0m
+[0m$ [0mgrep -rln '"github.com/Antonio7098/agentwrap' --include='*.go' internal cmd | grep -v 'internal/platform/runtime/'
+internal/sprint/review_runtime_validation.go
+internal/sprint/review_test.go
+internal/sprint/runtime_validation.go
+internal/study/runtime_validation.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/runtime_validation.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/runtime_validation.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process.go
+[0m
+[0m$ [0mgrep -rln 'internal/platform/process' --include='*.go' internal cmd
+internal/sprint/smoke.go
+internal/sprint/smoke_test.go
+internal/sprint/service.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+[0m
+[0m$ [0mcat go.mod && ls $(go env GOMODCACHE)/github.com/!\antonio7098/ 2>/dev/null
+module github.com/Antonio7098/ultraplan-go
+
+go 1.26
+
+require gopkg.in/yaml.v3 v3.0.1
+
+require (
+	github.com/Antonio7098/agentwrap v0.0.0-20260821190033-e79a38a58da3
+	github.com/charmbracelet/bubbletea v1.3.10
+	github.com/charmbracelet/glamour v1.0.0
+	github.com/charmbracelet/lipgloss v1.1.1-0.20250404203927-76690c660834
+	github.com/yuin/goldmark v1.7.13
+	golang.org/x/sys v0.47.0
+	modernc.org/sqlite v1.57.0
+)
+
+require (
+	github.com/alecthomas/chroma/v2 v2.20.0 // indirect
+	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
+	github.com/aymerick/douceur v0.2.0 // indirect
+	github.com/charmbracelet/colorprofile v0.2.3-0.20250311203215-f60798e515dc // indirect
+	github.com/charmbracelet/x/ansi v0.10.2 // indirect
+	github.com/charmbracelet/x/cellbuf v0.0.13 // indirect
+	github.com/charmbracelet/x/exp/slice v0.0.0-20250327172914-2fdc97757edf // indirect
+	github.com/charmbracelet/x/term v0.2.1 // indirect
+	github.com/dlclark/regexp2 v1.11.5 // indirect
+	github.com/dustin/go-humanize v1.0.1 // indirect
+	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
+	github.com/google/uuid v1.6.0 // indirect
+	github.com/gorilla/css v1.0.1 // indirect
+	github.com/lucasb-eyer/go-colorful v1.3.0 // indirect
+	github.com/mattn/go-isatty v0.0.24 // indirect
+	github.com/mattn/go-localereader v0.0.1 // indirect
+	github.com/mattn/go-runewidth v0.0.17 // indirect
+	github.com/microcosm-cc/bluemonday v1.0.27 // indirect
+	github.com/muesli/ansi v0.0.0-20230316100256-276c6243b2f6 // indirect
+	github.com/muesli/cancelreader v0.2.2 // indirect
+	github.com/muesli/reflow v0.3.0 // indirect
+	github.com/muesli/termenv v0.16.0 // indirect
+	github.com/ncruces/go-strftime v1.0.0 // indirect
+	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
+	github.com/rivo/uniseg v0.4.7 // indirect
+	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
+	github.com/yuin/goldmark-emoji v1.0.6 // indirect
+	golang.org/x/net v0.38.0 // indirect
+	golang.org/x/term v0.36.0 // indirect
+	golang.org/x/text v0.30.0 // indirect
+	modernc.org/libc v1.74.4 // indirect
+	modernc.org/mathutil v1.7.1 // indirect
+	modernc.org/memory v1.11.0 // indirect
+)
+agentwrap@v0.0.0-20260613122459-bc655a256a5f
+agentwrap@v0.0.0-20260629143324-a917627c22fb
+agentwrap@v0.0.0-20260629144550-2e8fbbe2c6cd
+agentwrap@v0.0.0-20260702175305-d1c785159a8d
+agentwrap@v0.0.0-20260710081656-59c61672c875
+agentwrap@v0.0.0-20260714161112-8ddfc132f7ca
+agentwrap@v0.0.0-20260815144406-3abac668be17
+agentwrap@v0.0.0-20260815154925-6aa129f822f3
+agentwrap@v0.0.0-20260815160303-e00b8e694497
+agentwrap@v0.0.0-20260816114448-0159fa923f42
+agentwrap@v0.0.0-20260816144152-043ad0dd8dd6
+agentwrap@v0.0.0-20260821190033-e79a38a58da3
+agentwrap@v0.0.0-20260822125309-004e30d47ac0
+agentwrap@v0.0.0-20260823194117-7610226fc449
+agentwrap@v0.0.0-20260824101248-dd61bdd9e971
+ultraplan-go@v0.1.0
+ultraplan-go@v0.1.1-0.20260629184531-01894ff216f3
+ultraplan-go@v0.1.1-0.20260701184158-211333865d5b
+ultraplan-go@v0.1.1-0.20260702110315-c8fea83c8c10
+ultraplan-go@v0.1.1-0.20260702121236-ea12c676255e
+ultraplan-go@v0.1.1-0.20260702124413-633bd352c6a3
+ultraplan-go@v0.1.1-0.20260702131822-913058d2fd23
+ultraplan-go@v0.1.1-0.20260702132418-8c6e4d57eba5
+ultraplan-go@v0.1.1-0.20260702132622-666a6ce0e25f
+ultraplan-go@v0.1.1-0.20260702133818-b95a0762df10
+ultraplan-go@v0.1.1-0.20260703090528-adb6fbb6cd4e
+ultraplan-go@v0.1.1-0.20260709165039-7a94a111f4dd
+ultraplan-go@v0.1.1-0.20260710081813-b332838b6e37
+ultraplan-go@v0.1.1-0.20260714160811-922062d3f013
+ultraplan-go@v0.1.1-0.20260714161246-73f3472b6dc4
+ultraplan-go@v0.1.1-0.20260722174204-d1e8b4518320
+ultraplan-go@v0.1.1-0.20260722191151-f142a7386e2f
+ultraplan-go@v0.1.1-0.20260722195008-76711a71155e
+ultraplan-go@v0.1.1-0.20260723152402-f4d6d3848a89
+ultraplan-go@v0.1.1-0.20260728132742-f8446a658259
+ultraplan-go@v0.1.1-0.20260815144532-9200a07a4802
+ultraplan-go@v0.1.1-0.20260815145458-5f6058a5e866
+ultraplan-go@v0.1.1-0.20260815150731-4b227527877f
+ultraplan-go@v0.1.1-0.20260815160513-ce223e49acbf
+ultraplan-go@v0.1.1-0.20260816103014-9545e91fe2f1
+ultraplan-go@v0.1.1-0.20260816110227-6471dcc088e7
+ultraplan-go@v0.1.1-0.20260816110716-b1330371bab2
+ultraplan-go@v0.1.1-0.20260816111250-cdbdec214e5d
+ultraplan-go@v0.1.1-0.20260816112656-02ab48fb44d4
+ultraplan-go@v0.1.1-0.20260816114532-0ab766386f92
+ultraplan-go@v0.1.1-0.20260816120258-bc52401a0f98
+ultraplan-go@v0.1.1-0.20260816155255-a2216837ba63
+ultraplan-go@v0.1.1-0.20260817105705-f8b639e681bc
+ultraplan-go@v0.1.1-0.20260817110456-17f108e8dc98
+ultraplan-go@v0.1.1-0.20260817110841-305c03eac36c
+ultraplan-go@v0.1.1-0.20260817111604-4837d369a87b
+ultraplan-go@v0.1.1-0.20260817112004-8e2f91c27fd2
+ultraplan-go@v0.1.1-0.20260817112408-217046b81649
+ultraplan-go@v0.1.1-0.20260817181627-9b3c02bb399b
+ultraplan-go@v0.1.1-0.20260817182807-2fbce1af2e3f
+ultraplan-go@v0.1.1-0.20260817183201-291d81e2b50e
+[0m
+[0m$ [0mls $(go env GOMODCACHE)/github.com/!\antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/
+CHANGELOG.md
+config.go
+config_test.go
+doc.go
+docs
+errors.go
+errors_test.go
+events.go
+go.mod
+health.go
+health_test.go
+ids.go
+internal
+lifecycle_events.go
+lifecycle_events_test.go
+lifecycle.go
+lifecycle_test.go
+metadata.go
+observability.go
+observability_test.go
+opencode
+permissions.go
+permissions_test.go
+policy.go
+policy_test.go
+README.md
+redact.go
+redact_test.go
+runtime.go
+validation.go
+validation_test.go
+[0m
+[0m$ [0mgrep -n 'func (r \*runtime)\|func (r \*run)\|Events()\|func.*Wait(\|func.*Cancel(' $(go env GOMODCACHE)/github.com/!\antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/runtime.go | head -40
+17:	Events() <-chan Event
+[0m
+[0m$ [0mgrep -rn 'func.*Wait(\|func.*Cancel(\|func.*Events(' $(go env GOMODCACHE)/github.com/!\antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/*.go | grep -v _test | head -20
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/observability.go:204:func (r ObservingRuntime) ListRunEvents(ctx context.Context, id RunID) ([]RunEventRecord, error) {
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/observability.go:232:func (r *observedRun) Events() <-chan Event { return r.events }
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/observability.go:234:func (r *observedRun) Wait(ctx context.Context) (RunResult, error) {
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/observability.go:246:func (r *observedRun) Cancel(ctx context.Context) error {
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/observability.go:585:func (s *MemoryRunStore) ListRunEvents(_ context.Context, id RunID) ([]RunEventRecord, error) {
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/policy.go:363:func (r *policyRun) Events() <-chan Event { return r.events }
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/policy.go:365:func (r *policyRun) Wait(ctx context.Context) (RunResult, error) {
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/policy.go:376:func (r *policyRun) Cancel(ctx context.Context) error {
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/policy.go:533:func (r *policyRun) forwardEvents(events <-chan Event, attempt, targetIndex int) {
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/policy.go:728:func (r *policyRun) snapshotDroppedEvents() []PolicyDroppedEvent {
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/validation.go:216:func (r *validationRun) Events() <-chan Event { return r.events }
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/validation.go:218:func (r *validationRun) Wait(ctx context.Context) (RunResult, error) {
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/validation.go:232:func (r *validationRun) Cancel(ctx context.Context) error {
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/validation.go:305:func (r *validationRun) startAndWait(req RunRequest) (RunResult, error) {
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/validation.go:466:func (r *validationRun) forwardEvents(events <-chan Event) {
+[0m
+[0m$ [0msed -n 220,270p $(go env GOMODCACHE)/github.com/!\antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/observability.go && sed -n 355,400p $(go env GOMODCACHE)/github.com/!\antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/policy.go
+done       chan struct{}
+	seq        atomic.Int64
+	lastUpsert time.Time
+
+	mu      sync.Mutex
+	record  RunRecord
+	result  RunResult
+	waitErr error
+}
+
+func (r *observedRun) ID() RunID { return r.inner.ID() }
+
+func (r *observedRun) Events() <-chan Event { return r.events }
+
+func (r *observedRun) Wait(ctx context.Context) (RunResult, error) {
+	result, err := r.inner.Wait(ctx)
+	<-r.done
+	r.mu.Lock()
+	r.result = result
+	r.waitErr = mergeRequiredObserverError(err, r.record)
+	r.mergeResultLocked(result)
+	r.mu.Unlock()
+	r.upsert(ctx)
+	return result, r.waitErr
+}
+
+func (r *observedRun) Cancel(ctx context.Context) error {
+	r.cancel()
+	return r.inner.Cancel(ctx)
+}
+
+func (r *observedRun) forward() {
+	defer close(r.done)
+	defer close(r.events)
+	for event := range r.inner.Events() {
+		record := r.eventRecord(event)
+		r.appendRecord(record)
+		select {
+		case <-r.ctx.Done():
+			return
+		case r.events <- event:
+		default:
+			if event.Kind() != EventMessage && event.Kind() != EventProgress {
+				select {
+				case <-r.ctx.Done():
+					return
+				case r.events <- event:
+				}
+			} else {
+				r.recordDroppedEvent()
+			}
+	decisions     []PolicyDecisionRecord
+	eventMu       sync.Mutex
+	droppedEvents []PolicyDroppedEvent
+	targetCounts  map[int]int
+}
+
+func (r *policyRun) ID() RunID { return r.id }
+
+func (r *policyRun) Events() <-chan Event { return r.events }
+
+func (r *policyRun) Wait(ctx context.Context) (RunResult, error) {
+	select {
+	case <-ctx.Done():
+		return RunResult{}, contextPolicyError(ctx.Err())
+	case <-r.done:
+	}
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	return r.result, r.waitErr
+}
+
+func (r *policyRun) Cancel(ctx context.Context) error {
+	r.cancel()
+	r.mu.Lock()
+	current := r.current
+	r.mu.Unlock()
+	if current != nil {
+		return current.Cancel(ctx)
+	}
+	return nil
+}
+
+func (r *policyRun) execute() {
+	defer close(r.done)
+	defer close(r.events)
+	defer r.cancel()
+
+	targetIndex := 0
+	req := r.original
+	var last RunResult
+	var lastErr *SDKError
+	for {
+		select {
+		case <-r.ctx.Done():
+			r.finishCancelled(last)
+			return
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/interfaces.go
+[0m
+[0m$ [0mgrep -n 'func (r \*SQLiteRepository) Append\|func (r \*SQLiteRepository) ProposeTerminal\|func verifyFence' internal/runcontrol/sqlite.go
+608:func (r *SQLiteRepository) Append(ctx context.Context, fence Fence, draft EventDraft) (eventResult Event, snapshotResult Snapshot, resultErr error) {
+722:func (r *SQLiteRepository) ProposeTerminal(ctx context.Context, fence Fence, proposal TerminalProposal) (snapshotResult Snapshot, wonResult bool, resultErr error) {
+985:func verifyFence(ctx context.Context, q queryRower, fence Fence) error {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime_test.go[90m [limit=120][0m
+[0m
+[0m$ [0mgrep -n 'fakeRun\b' -A 40 internal/platform/runtime/runtime_test.go | sed -n '/type fakeRun struct/,/^[0-9]*-}/p'
+504:type fakeRun struct {
+505-	id            agentwrap.RunID
+506-	events        []agentwrap.Event
+507-	result        agentwrap.RunResult
+508-	err           error
+509-	waitForCancel bool
+510-	cancelled     bool
+511-}
+[0m
+[0m$ [0msed -n 440,535p internal/platform/runtime/runtime_test.go
+t.Fatalf("validation metadata not mapped: %+v", result.Validation)
+	}
+}
+
+func TestPermissionPathRulesMapToAdapterPolicy(t *testing.T) {
+	policy, err := mapPermissionPolicy(PermissionPolicy{
+		Default:   "ask",
+		PathRules: []PermissionPathRule{{Path: "secret", Action: "deny"}},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(policy.PathRules) != 1 || policy.PathRules[0].Path != "secret" || policy.PathRules[0].Action != agentwrap.PermissionActionDeny {
+		t.Fatalf("unexpected policy: %+v", policy)
+	}
+}
+
+func TestHealthAndCapabilityNameValidation(t *testing.T) {
+	if _, err := mapHealthIDs([]string{"runtime_available", "authentication"}); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := mapCapabilitiesIDs([]string{"structured_events", "validation_events"}); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := mapHealthIDs([]string{"unknown"}); err == nil {
+		t.Fatal("expected unknown health error")
+	}
+	if _, err := mapCapabilitiesIDs([]string{"unknown"}); err == nil {
+		t.Fatal("expected unknown capability error")
+	}
+}
+
+func TestStartRunCancelsUnderlyingRunWhenContextCancelled(t *testing.T) {
+	ctx, cancel := context.WithCancel(context.Background())
+	run := &fakeRun{id: "run-cancel", waitForCancel: true}
+	adapter := NewAdapter(fakeRuntime{run: run})
+	cancel()
+
+	result, err := adapter.StartRun(ctx, Request{Prompt: "hello"})
+	if !errors.Is(err, context.Canceled) {
+		t.Fatalf("err = %v, want context.Canceled", err)
+	}
+	if !run.cancelled {
+		t.Fatal("underlying run was not cancelled")
+	}
+	if result.Status != "cancelled" || result.Error == nil || result.Error.Category != "cancellation" {
+		t.Fatalf("result = %+v", result)
+	}
+}
+
+type fakeRuntime struct {
+	run *fakeRun
+}
+
+func (f fakeRuntime) StartRun(context.Context, agentwrap.RunRequest) (agentwrap.Run, error) {
+	return f.run, nil
+}
+
+func (f fakeRuntime) Capabilities(context.Context) (agentwrap.Capabilities, error) {
+	return agentwrap.Capabilities{RuntimeKind: "fake", Features: map[agentwrap.Capability]agentwrap.CapabilitySupport{
+		agentwrap.CapabilityStructuredEvents: {Supported: true, Detail: "fake events"},
+	}}, nil
+}
+
+type fakeRun struct {
+	id            agentwrap.RunID
+	events        []agentwrap.Event
+	result        agentwrap.RunResult
+	err           error
+	waitForCancel bool
+	cancelled     bool
+}
+
+func (f *fakeRun) ID() agentwrap.RunID { return f.id }
+
+func (f *fakeRun) Events() <-chan agentwrap.Event {
+	ch := make(chan agentwrap.Event, len(f.events))
+	for _, event := range f.events {
+		ch <- event
+	}
+	close(ch)
+	return ch
+}
+
+func (f *fakeRun) Wait(ctx context.Context) (agentwrap.RunResult, error) {
+	if f.waitForCancel {
+		<-ctx.Done()
+		return agentwrap.RunResult{Status: agentwrap.StatusCancelled}, ctx.Err()
+	}
+	return f.result, f.err
+}
+
+func (f *fakeRun) Cancel(context.Context) error {
+	f.cancelled = true
+	return nil
+}
+[0m
+[0m$ [0mgrep -rn '\.Events\b\|EventStats\|result\.Status\|Result.Status' --include='*.go' internal/sprint internal/study internal/app internal/web | grep -v _test | head -40
+internal/sprint/runtime_metrics.go:137:		RunID: result.RunID, SessionID: result.SessionID, Status: result.Status, Provider: req.Provider, Model: req.Model,
+internal/sprint/smoke.go:108:		result.Status, result.Verdict, result.NextAction = SmokeCompleted, selection.Verdict, selection.NextAction
+internal/sprint/smoke.go:122:		result.Status = SmokeReady
+internal/sprint/smoke.go:126:	result.Status = SmokeRunning
+internal/sprint/smoke.go:156:	result.Status = SmokeCompleted
+internal/sprint/smoke.go:199:		attempt.Status = smokeAttemptStatus(result.Status, runErr)
+internal/sprint/smoke.go:203:		current.ActiveAttempt, current.LastAttempt, current.Status = nil, &attempt, result.Status
+internal/sprint/smoke.go:204:		if current.LastComplete != nil && result.Status != SmokeCompleted {
+internal/sprint/smoke.go:242:		result.Status, result.Verdict, result.RunID, result.Stale, result.Reconciliation = state.Smoke.Status, state.Smoke.Verdict, state.Smoke.RunID, state.Smoke.Stale, state.Smoke.Reconciliation
+internal/sprint/smoke.go:245:	if result.Status == "" {
+internal/sprint/smoke.go:246:		result.Status = SmokeReady
+internal/sprint/smoke.go:454:	state.Smoke = &SmokeStageState{Status: result.Status, Verdict: result.Verdict, Path: ArtifactRelPath(p.Sprint, StageSmoke), LastRunAt: &now, ReviewFingerprint: result.ReviewFingerprint, SmokeFingerprint: artifactDigest, ArtifactDigest: artifactDigest, InputFingerprint: inputFingerprint, RunID: result.RunID, AuthorRunID: result.AuthorRunID, AuthorModel: result.AuthorModel, AuthorChangedPaths: append([]string(nil), result.AuthorChangedPaths...), CoverageMapping: result.CoverageMapping, EvidenceID: evidenceID, ReviewOverride: result.ReviewOverride, Diagnostics: result.Diagnostics, Issues: append([]SmokeIssue(nil), result.Issues...), Evidence: refs, Override: override, ActiveAttempt: active, LastComplete: &SmokeCompletion{Verdict: result.Verdict, Artifact: ArtifactRelPath(p.Sprint, StageSmoke), ArtifactDigest: artifactDigest, InputFingerprint: inputFingerprint, CompletedAt: now, RunID: result.RunID, AuthorRunID: result.AuthorRunID, AuthorModel: result.AuthorModel, AuthorChangedPaths: append([]string(nil), result.AuthorChangedPaths...), CoverageMapping: result.CoverageMapping, EvidenceID: evidenceID, Evidence: identityRefs, Issues: append([]SmokeIssue(nil), result.Issues...), Override: override}}
+internal/sprint/smoke.go:594:	result.Status = SmokeFailed
+internal/sprint/smoke.go:596:		result.Status = SmokeCancelled
+internal/sprint/code_context.go:321:	if status := strings.ToLower(strings.TrimSpace(result.Status)); status != "" && status != "success" && status != "complete" && status != "completed" {
+internal/sprint/code_context.go:322:		return s.failCodeContext(sp, req, now, result, nil, fmt.Errorf("code-context runtime ended with status %q", result.Status))
+internal/sprint/code_context.go:404:		content = strings.TrimSpace(runtimeEventContent(result.Events))
+internal/sprint/code_context.go:421:	if status := strings.ToLower(strings.TrimSpace(result.Status)); status != "" && status != "success" && status != "complete" && status != "completed" {
+internal/sprint/code_context.go:422:		return fmt.Errorf("code-context runtime ended with status %q", result.Status)
+internal/sprint/code_context.go:454:	status := strings.ToLower(strings.TrimSpace(result.Status))
+internal/sprint/review.go:415:		result.Status, result.Verdict = ReviewBlocked, ReviewVerdictBlocked
+internal/sprint/review.go:433:			result.Status = ReviewCancelled
+internal/sprint/review.go:455:	result.Status = ReviewRunning
+internal/sprint/review.go:462:		result.Status, result.Verdict = ReviewBlocked, ReviewVerdictBlocked
+internal/sprint/review.go:471:			result.Status, result.Verdict = ReviewFailed, ReviewVerdictBlocked
+internal/sprint/review.go:484:		result.Status, result.Verdict = ReviewFailed, ReviewVerdictBlocked
+internal/sprint/review.go:587:		result.Status, result.Verdict = ReviewFailed, ReviewVerdictBlocked
+internal/sprint/review.go:592:		result.Status = ReviewCancelled
+internal/sprint/review.go:597:		result.Status = ReviewFailed
+internal/sprint/review.go:606:	result.Status = ReviewCompleted
+internal/sprint/review.go:609:		result.Status = ReviewFailed
+internal/sprint/review.go:615:		result.Status = ReviewFailed
+internal/sprint/review.go:1617:	for i := len(r.Events) - 1; i >= 0; i-- {
+internal/sprint/review.go:1618:		if extractReviewValue(r.Events[i].Payload, out) {
+internal/sprint/smoke_author.go:93:			if targetWrite.Load() || smokeAuthorAttributedProtectedWrite(run.Events, prepared.Target) {
+internal/sprint/smoke_author.go:101:			if projectWrite.Load() || smokeAuthorAttributedProtectedWrite(run.Events, projectRoot) {
+internal/study/durable_metadata.go:61:	if meta.Events != nil {
+internal/study/durable_metadata.go:62:		events := *meta.Events
+internal/study/durable_metadata.go:63:		out.Events = &events
+internal/study/run_loop_diagnostics.go:352:			summary.Events++
+[0m
+[0m$ [0mgrep -n 'Status.*=\|Status(' $(go env GOMODCACHE)/github.com/!\antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/runtime.go | head; grep -rn 'StatusCompleted\|StatusFailed\|StatusCancelled\|StatusTimeout' $(go env GOMODCACHE)/github.com/!\antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/*.go | grep '=' | grep -v _test | head
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/lifecycle.go:12:	StatusCompleted  RunStatus = "completed"
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/lifecycle.go:13:	StatusFailed     RunStatus = "failed"
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/lifecycle.go:14:	StatusCancelled  RunStatus = "cancelled"
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/observability.go:360:		r.record.Status = StatusFailed
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/observability.go:382:		r.record.Status = StatusCompleted
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/policy.go:410:			last = RunResult{RunID: "", Status: StatusFailed, StartedAt: started, FinishedAt: r.now(), Err: ensureSDKError(startErr, "policy attempt start")}
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/policy.go:593:			status = StatusFailed
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/policy.go:595:			status = StatusCompleted
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/policy.go:689:			result.Status = StatusFailed
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/policy.go:691:			result.Status = StatusCompleted
+[0m
+[0m$ [0mgrep -rn 'StartRun\|controlledRuntime\|NewOpenCode\|NewAdapter' --include='*.go' internal/app internal/sprint internal/study internal/web | grep -v _test | head -30
+internal/app/health_commands.go:113:	adapter, err := runtimepkg.NewOpenCode(c)
+internal/app/run_control.go:95:type controlledRuntime struct {
+internal/app/run_control.go:97:		StartRun(context.Context, runtimepkg.Request) (runtimepkg.Result, error)
+internal/app/run_control.go:103:func controlledRuntimeFor(deps dependencies, workspaceRoot string, effectiveConfig config.Config, base interface {
+internal/app/run_control.go:104:	StartRun(context.Context, runtimepkg.Request) (runtimepkg.Result, error)
+internal/app/run_control.go:105:}) (controlledRuntime, error) {
+internal/app/run_control.go:107:		return controlledRuntime{}, errors.New("run-control process state is unavailable")
+internal/app/run_control.go:111:		return controlledRuntime{}, fmt.Errorf("open durable run control: %w", err)
+internal/app/run_control.go:113:	return controlledRuntime{base: base, repository: repository, owner: deps.runControl.owner}, nil
+internal/app/run_control.go:122:func (r controlledRuntime) StartRun(ctx context.Context, req runtimepkg.Request) (runtimepkg.Result, error) {
+internal/app/run_control.go:262:	result, runErr := r.base.StartRun(runCtx, req)
+internal/app/sprint_commands.go:24:	return runtimepkg.NewOpenCode(c)
+internal/app/sprint_commands.go:490:	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+internal/app/study_commands.go:23:	return runtimepkg.NewOpenCode(c)
+internal/app/study_commands.go:327:	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+internal/app/study_commands.go:668:	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+internal/app/study_commands.go:837:	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+internal/sprint/runtime_metrics.go:116:	result, runErr := s.runtime.StartRun(ctx, req)
+internal/sprint/flow.go:14:	StartRun(context.Context, runtime.Request) (runtime.Result, error)
+internal/study/run.go:139:	result, err := s.runtime.StartRun(ctx, req)
+internal/study/run.go:151:		result, err = s.runtime.StartRun(ctx, req)
+internal/study/service.go:26:	StartRun(ctx context.Context, req runtimepkg.Request) (runtimepkg.Result, error)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/runtime_metrics.go
+[0m
+[0m$ [0mgrep -rn 'CacheDirective\|Cache:\s*pruntime\|Cache{\|"variant"\|Metadata\["variant"\]' --include='*.go' internal | grep -v _test | head -20
+internal/platform/runtime/opencode.go:74:	variant := strings.TrimSpace(req.Metadata["variant"])
+internal/platform/runtime/runtime.go:40:	Cache         CacheDirective
+internal/platform/runtime/runtime.go:43:// CacheDirective carries product-owned prompt boundary semantics to runtime
+internal/platform/runtime/runtime.go:46:type CacheDirective struct {
+internal/sprint/code_context.go:300:		runtimeReq.Metadata["variant"] = strings.TrimSpace(req.VariantOverride)
+internal/sprint/service.go:1023:		req.Cache = pruntime.CacheDirective{Key: explanation.CacheKey, BreakpointBytes: explanation.CacheBreakpoint, PrefixDigest: explanation.SharedPrefixDigest, Mode: "stable-prefix"}
+internal/sprint/service.go:1040:				req.Metadata["variant"] = override.Variant
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go[90m [offset=960, limit=120][0m
+[0m
+[0m$ [0mgrep -rn 'func splitProviderModel\|func splitModel' --include='*.go' internal | grep -v _test
+internal/platform/runtime/runtime.go:717:func splitModel(value string) (string, string) {
+internal/sprint/service.go:1094:func splitProviderModel(value string) (string, string) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go[90m [limit=30, offset=1090][0m
+[0m
+[0m$ [0mgrep -rn 'split\|Provider:\|Model:' --include='*.go' internal/study/*.go | grep -v _test | grep -iv 'model.go\|ModelID\|dataModel' | head -20 && grep -n 'Models' internal/platform/config/*.go | grep -v _test | head
+internal/study/run.go:131:		onSession(TaskSession{SessionID: sessionID, Provider: req.Provider, Model: req.Model, WorkDir: req.WorkDir, InputFingerprint: fingerprint, UpdatedAt: time.Now().UTC()})
+internal/study/run_history.go:143:		Provider:      task.Agent.Provider,
+internal/study/run_history.go:144:		Model:         task.Agent.Model,
+internal/study/runtime_metadata.go:15:		Provider: req.Provider,
+internal/study/runtime_metadata.go:16:		Model:    req.Model,
+internal/study/runtime_metadata.go:104:			Provider:        attempt.Provider,
+internal/study/runtime_metadata.go:105:			Model:           attempt.Model,
+internal/platform/config/config.go:16:	Models     Models     `json:"models"`
+internal/platform/config/config.go:28:type Models struct {
+internal/platform/config/config.go:171:		Models:     Models{Default: "provider/model", Primary: "provider/model", Backup: "provider/model"},
+internal/platform/config/config.go:282:		c.Models.Default = value
+internal/platform/config/config.go:284:		c.Models.Primary = value
+internal/platform/config/config.go:286:		c.Models.Backup = value
+internal/platform/config/config.go:399:		{"runtime.default", c.Runtime.Default}, {"models.default", c.Models.Default}, {"models.primary", c.Models.Primary}, {"models.backup", c.Models.Backup}, {"execution.default_variant", c.Execution.DefaultVariant}, {"agentwrap.executable", c.Agentwrap.Executable},
+internal/platform/config/redaction.go:10:	Models     Models            `json:"models"`
+internal/platform/config/redaction.go:21:	return Redacted{Version: e.Config.Version, Runtime: e.Config.Runtime, Models: redactModels(e.Config.Models), Execution: e.Config.Execution, Planning: redactPlanning(e.Config.Planning), Smoke: e.Config.Smoke, RunControl: e.Config.RunControl, Logging: e.Config.Logging, Agentwrap: redactAgentwrap(e.Config.Agentwrap), Sources: e.Sources}
+internal/platform/config/redaction.go:46:func redactModels(m Models) Models {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run.go[90m [limit=130, offset=60][0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace && find /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace -maxdepth 2 -type d | head -30
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/hooks
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/info
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/objects
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/refs
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/logs
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.agents
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.agents/skills
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/previews
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/scripts
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/go-cli-study
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning 2>/dev/null | head -40; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go | head
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts:
+core
+runtime
+surfaces
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning:
+api-design-reasoning-template.md
+architecture_reasoning_template.md
+cli-design-reasoning-template.md
+data-privacy-reasoning-template.md
+errors_reasoning_template.md
+eval-design-reasoning-template.md
+frontend-design-reasoning-template.md
+frontend-reasoning-template.md
+frontend-state-placement-template.md
+llm-feature-reasoning-template.md
+observability-reasoning-template.md
+package-api-reasoning-template.md
+performance-reasoning-template.md
+persistence-reasoning-template.md
+prompt-change-reasoning-template.md
+release-reasoning-template.md
+security-threat-reasoning-template.md
+testing-strategy-reasoning-template.md
+docs
+project-index.md
+roadmap.md
+sprints
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core:
+architecture.md
+configuration.md
+documentation.md
+errors.md
+observability.md
+privacy-and-data.md
+release-versioning.md
+security.md
+testing.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime:
+llm-evaluation-cost-safety.md
+llm.md
+performance.md
+persistence-and-migrations.md
+workflows.md
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/llm.md
+[0m
+[0m$ [0mgrep -n 'runtime\|adapter\|agentwrap' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/architecture.md | head -40
+11:- adapter boundaries
+20:- introduces new use cases, services, or adapters
+39:| ARCH-ENTRY-001 | Entrypoint adapters must stay thin | CLI, routes, webhooks, sockets | High |
+47:2. Dependency direction should keep product behavior independent from process entrypoints, transports, vendors, and generic platform runtime details.
+49:4. Transport entrypoints and CLI command handlers are adapters, not business layers.
+91:- introducing adapters or orchestration
+96:- command, route, or transport adapters call module services, facades, or public package functions rather than owning product behavior
+99:- vendor/provider/process adapters must remain outside domain code and behind a narrow boundary when used by use cases
+103:- product use cases calling provider SDKs, subprocess runners, databases, or long-running runtimes directly when those dependencies are volatile or need substitution
+104:- entrypoints reaching directly into runtime/provider adapters, database/session internals, or container internals
+137:Use cases and workflows must depend on narrow ports rather than concrete infrastructure when the collaborator crosses a meaningful side-effect, volatility, runtime, persistence, or test seam.
+147:- implement those ports in platform, adapter, store, or runtime packages
+166:CLI handlers, HTTP routes, webhooks, and websocket handlers must remain entrypoint adapters.
+174:- validate input at the adapter boundary
+182:- calling runtime/provider adapters directly from entrypoints
+210:- exporting provider adapters
+228:- adding runtime/provider adapters, persistence stores, workers, diagnostics, or multiple implementations of a collaborator
+233:- let modules expose constructors, bundles, or registrars when they have multiple collaborators or adapters
+234:- centralize provider/runtime/store/logger/config wiring once those collaborators enter scope
+238:- routes or external adapters reaching through the container into private service internals
+239:- command handlers repeatedly constructing provider clients, stores, runtimes, worker pools, or diagnostics pipelines
+253:- adding runtime infrastructure to `platform/`
+257:- use `platform/` for generic runtime infrastructure such as config loading, telemetry wiring, task execution, process execution, filesystem adapters, and orchestration wrappers
+266:- platform packages expose runtime services, not product policy
+268:- product-specific defaults and artifacts are owned by product/workspace modules, not generic platform runtime
+273:- adds direct route access to sessions, provider adapters, or container internals
+278:- puts substantial product behavior, scheduling, runtime execution, or persistence logic directly in CLI command handlers
+[0m
+[0m$ [0msed -n 240,270p /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/architecture.md
+**Evidence**
+- modules expose typed bundles or public collaborators
+- composition code depends on module bootstrap outputs, not module internals
+- small CLI skeletons may use simple app-level dependency structs when they do not hide volatile collaborators or block later composition
+
+### ARCH-SHARED-001: Shared And Platform Code Must Stay Domain-Neutral
+
+**Rule**
+`shared/` and `platform/` must remain free of bounded-context business behavior.
+
+**Applies when**
+- adding utilities to `shared/`
+- adding runtime infrastructure to `platform/`
+
+**Required**
+- use `shared/` or equivalent only for generic cross-cutting code such as base errors, IDs, typed primitives, and protocol helpers
+- use `platform/` for generic runtime infrastructure such as config loading, telemetry wiring, task execution, process execution, filesystem adapters, and orchestration wrappers
+- keep product defaults, scaffolds, templates, prompts, validation rules, and workflow semantics in the owning product module unless they are genuinely generic
+
+**Forbidden**
+- embedding bounded-context logic in `shared/`
+- embedding product-specific business behavior in `platform/`
+- moving product behavior to shared/platform packages solely to avoid an import relationship
+
+**Evidence**
+- platform packages expose runtime services, not product policy
+- shared packages remain reusable and domain-neutral
+- product-specific defaults and artifacts are owned by product/workspace modules, not generic platform runtime
+
+## Review Rejection Criteria
+[0m
+[0m$ [0mgrep -rn 'MetadataRunID\|MetadataTaskID\|MetadataTaskKind\|MetadataStudy\|MetadataDimension\|MetadataSource\|MetadataOutputPath\|MetadataRuntime\b\|MetadataProvider\|MetadataModel' --include='*.go' internal | grep -v 'policy.go' | head -20
+(no output)
+[0m
+[0m$ [0mgrep -rn 'executionMetadata' --include='*.go' internal/study | grep -v _test | head -3 && sed -n '/func executionMetadata/,/^}/p' internal/study/durable_metadata.go internal/study/*.go 2>/dev/null | head -30
+internal/study/run.go:101:	req.Metadata = executionMetadata(req, kind, study, dimension, source, outputPath)
+internal/study/run.go:241:func executionMetadata(req runtimepkg.Request, kind TaskKind, study Study, dimension Dimension, source Source, outputPath string) map[string]string {
+func executionMetadata(req runtimepkg.Request, kind TaskKind, study Study, dimension Dimension, source Source, outputPath string) map[string]string {
+	meta := map[string]string{
+		"task.kind":        string(kind),
+		"study":            study.Name,
+		"dimension.number": dimension.Number,
+		"dimension.slug":   dimension.Slug,
+		"dimension.ref":    dimension.Ref(),
+		"output.path":      outputPath,
+		"runtime.provider": req.Provider,
+		"runtime.model":    req.Model,
+	}
+	if source.Name != "" {
+		meta["source.name"] = source.Name
+		meta["source.kind"] = string(source.Kind)
+	}
+	if req.Permissions != "" {
+		meta["runtime.permissions"] = req.Permissions
+	}
+	return meta
+}
+[0m
+[0m$ [0msed -n '/func classifyStoreError/,/^}/p' internal/runcontrol/sqlite.go && sed -n '/func wrapError/,/^}/p' internal/runcontrol/errors.go | head -30
+func classifyStoreError(operation, message string, err error) error {
+	type sqliteCoder interface{ Code() int }
+	var coded sqliteCoder
+	if errors.As(err, &coded) {
+		switch coded.Code() & 0xff {
+		case 5, 6: // SQLITE_BUSY, SQLITE_LOCKED
+			return wrapError(CodeBusy, operation, message, true, err)
+		case 3, 8: // SQLITE_PERM, SQLITE_READONLY
+			return wrapError(CodePermission, operation, message, false, err)
+		case 11, 26: // SQLITE_CORRUPT, SQLITE_NOTADB
+			return wrapError(CodeCorrupt, operation, message, false, err)
+		case 13: // SQLITE_FULL
+			return wrapError(CodeQuota, operation, message, true, err)
+		}
+	}
+	switch {
+	case errors.Is(err, context.Canceled), errors.Is(err, context.DeadlineExceeded):
+		return err
+	case errors.Is(err, fs.ErrPermission):
+		return wrapError(CodePermission, operation, message, false, err)
+	default:
+		return wrapError(CodeUnavailable, operation, message, true, err)
+	}
+}
+func wrapError(code ErrorCode, operation, message string, retryable bool, cause error) error {
+	return &Error{Code: code, Operation: operation, Message: message, Retryable: retryable, Cause: cause}
+}
+[0m
+[0m$ [0mgrep -n 'events:\s*make\|make(chan Event' $(go env GOMODCACHE)/github.com/!\antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/*.go | grep -v _test
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/observability.go:160:		events: make(chan Event, 64),
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/policy.go:315:		events:       make(chan Event, 64),
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/validation.go:166:		events:   make(chan Event, 64),
+[0m
+[0m$ [0mgrep -rn 'func statusForRuntimeFailure\|func recoverableRuntimeOutputFailure' --include='*.go' internal/study && sed -n '/func statusForRuntimeFailure/,/^}/p' internal/study/*.go | head -40
+internal/study/run.go:262:func statusForRuntimeFailure(result runtimepkg.Result) ExecutionStatus {
+internal/study/run.go:269:func recoverableRuntimeOutputFailure(result runtimepkg.Result) bool {
+func statusForRuntimeFailure(result runtimepkg.Result) ExecutionStatus {
+	if result.Status == "cancelled" || (result.Error != nil && result.Error.Category == "cancellation") {
+		return ExecutionStatusCancelled
+	}
+	return ExecutionStatusRuntimeFailed
+}
+[0m
+[0m$ [0mgrep -n 'OwnerTickInterval\|HeartbeatInterval\|ReconciliationInterval\|ProgressCoalesceWindow\|ReconciliationGrace\|OwnerLeaseDuration' internal/runcontrol/*.go | grep -v _test | head && grep -rn 'RequestCancellation' --include='*.go' internal/app | grep -v _test | head
+internal/runcontrol/lifecycle.go:307:		grace = ReconciliationGrace
+internal/runcontrol/model.go:13:	ProgressCoalesceWindow = 250 * time.Millisecond
+internal/runcontrol/model.go:477:	OwnerTickInterval      = time.Second
+internal/runcontrol/model.go:478:	HeartbeatInterval      = 5 * time.Second
+internal/runcontrol/model.go:479:	OwnerLeaseDuration     = 15 * time.Second
+internal/runcontrol/model.go:480:	ReconciliationInterval = 10 * time.Second
+internal/runcontrol/model.go:481:	ReconciliationGrace    = 45 * time.Second
+internal/runcontrol/sqlite.go:880:	acceptedPredicate, acceptedArgs := r.expiredTimestampPredicate("runs.accepted_at", ReconciliationGrace)
+internal/runcontrol/sqlite.go:881:	leasePredicate, leaseArgs := r.expiredLeasePredicate(ReconciliationGrace)
+internal/app/run_commands.go:216:	snapshot, changed, err := repository.RequestCancellation(deps.ctx, runcontrol.RunID(fs.Arg(0)), *reason)
+internal/app/run_usecases.go:52:	return u.repository.RequestCancellation(ctx, id, reason)
+[0m
+[0m$ [0mgrep -rn 'DefaultVariant\|default_variant' --include='*.go' internal | grep -v _test | head && grep -rn 'Models.Default' --include='*.go' internal | grep -v _test | head
+internal/app/config_commands.go:51:	fmt.Fprintf(deps.stdout, "execution.default_variant: %s\n", redacted.Execution.DefaultVariant)
+internal/app/sprint_commands.go:616:		codeContextVariant = c.Execution.DefaultVariant
+internal/app/study_commands.go:334:		Variant:          effective.Config.Execution.DefaultVariant,
+internal/platform/config/config.go:34:	DefaultVariant  string `json:"default_variant"`
+internal/platform/config/config.go:119:		{Key: "ULTRAPLAN_DEFAULT_VARIANT", Field: "execution.default_variant"},
+internal/platform/config/config.go:144:	for _, field := range []string{"version", "runtime.default", "models.default", "models.primary", "models.backup", "execution.default_variant", "execution.default_parallel", "execution.default_timeout", "execution.default_retries", "planning.requirements_model", "planning.requirements_variant", "planning.code_context_model", "planning.code_context_variant", "planning.sprint_index_model", "planning.sprint_index_variant", "planning.technical_handbook_model", "planning.technical_handbook_variant", "planning.area_reasoning_model", "planning.area_reasoning_variant", "planning.reasoning_model", "planning.reasoning_variant", "planning.plan_model", "planning.plan_variant", "planning.execute_model", "planning.execute_variant", "planning.review_model", "planning.review_variant", "planning.smoke_model", "planning.smoke_variant", "smoke.discovery_timeout", "smoke.run_timeout", "smoke.stdout_limit", "smoke.stderr_limit", "smoke.cleanup_grace", "smoke.environment", "run_control.full_history", "run_control.tombstone_history", "run_control.workspace_quota_bytes", "logging.format", "logging.level", "agentwrap.executable", "agentwrap.extra_args", "agentwrap.env", "agentwrap.stderr_limit", "agentwrap.required_health", "agentwrap.required_capabilities", "agentwrap.sandbox", "agentwrap.permission_mode", "agentwrap.permission_default", "agentwrap.permission_unsupported_behavior"} {
+internal/platform/config/config.go:172:		Execution:  Execution{DefaultVariant: "high", DefaultParallel: 3, DefaultTimeout: "30m", DefaultRetries: 3},
+internal/platform/config/config.go:287:	case "execution.default_variant":
+internal/platform/config/config.go:288:		c.Execution.DefaultVariant = value
+internal/platform/config/config.go:399:		{"runtime.default", c.Runtime.Default}, {"models.default", c.Models.Default}, {"models.primary", c.Models.Primary}, {"models.backup", c.Models.Backup}, {"execution.default_variant", c.Execution.DefaultVariant}, {"agentwrap.executable", c.Agentwrap.Executable},
+internal/app/config_commands.go:48:	fmt.Fprintf(deps.stdout, "models.default: %s\n", redacted.Models.Default)
+internal/app/sprint_commands.go:611:			codeContextModel = c.Models.Default
+internal/app/study_commands.go:333:		Model:            effective.Config.Models.Default,
+internal/platform/config/config.go:171:		Models:     Models{Default: "provider/model", Primary: "provider/model", Backup: "provider/model"},
+internal/platform/config/config.go:282:		c.Models.Default = value
+internal/platform/config/config.go:399:		{"runtime.default", c.Runtime.Default}, {"models.default", c.Models.Default}, {"models.primary", c.Models.Primary}, {"models.backup", c.Models.Backup}, {"execution.default_variant", c.Execution.DefaultVariant}, {"agentwrap.executable", c.Agentwrap.Executable},
+internal/platform/config/redaction.go:47:	return Models{Default: RedactValue("models.default", m.Default), Primary: RedactValue("models.primary", m.Primary), Backup: RedactValue("models.backup", m.Backup)}
+internal/platform/runtime/runtime.go:473:		provider, model = splitModel(c.Models.Default)
+internal/sprint/execute_model.go:21:		{Model: c.Models.Default, Source: "models.default"},
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go[90m [limit=115, offset=608][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/import_boundary_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/cache_test.go
+[0m
+[0m$ [0mgo build ./... && go test ./internal/platform/runtime/ ./internal/runcontrol/ ./internal/app/ -count=1 2>&1 | tail -5
+ok  	github.com/Antonio7098/ultraplan-go/internal/platform/runtime	0.010s
+ok  	github.com/Antonio7098/ultraplan-go/internal/runcontrol	5.088s
+ok  	github.com/Antonio7098/ultraplan-go/internal/app	4.432s
+[0m
+[0m$ [0mgrep -rn 'payload\.\(tool\|action\|title\|delta\|text\)' internal/web/static/js/*.js | head -8
+(no output)
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints 2>/dev/null | tail -5; grep -rln 'runtime payload\|promote' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints 2>/dev/null | tail -3
+31-web-operations
+32-hardening-and-release
+33-code-context-stage
+34-shared-context
+35-durable-run-observability
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/flow-state.json
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/review.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/sprint-index.md
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/ && grep -rn 'payload\|timeline' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md 2>/dev/null | head -12
+flow-state.json
+requirements.md
+43:- Raw provider payloads, secrets, full prompts, unsafe paths, and unbounded output are not persisted or streamed by default. Redaction occurs before durable recording and fan-out.
+64:14. What data can be retained by default without exposing prompts, provider payloads, repository content, credentials, or sensitive paths, and how can users inspect redaction decisions?
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md
+[0m
+[0m$ [0mls docs/plans/ 2>/dev/null && ls docs/ 2>/dev/null
+integrated-roadmap.md
+post-execution-qa-and-repair-loop.md
+retrieval-ready-content-knowledge-graph-addendum.md
+retrieval-ready-content-plan.md
+server-shutdown-run-cancellation-contract.md
+sprint-code-context-stage.md
+ultraplan-local-server-experiment-plan.md
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+[0m
+[0m$ [0mgrep -n 'cancel\|Cancel\|shutdown' docs/plans/server-shutdown-run-cancellation-contract.md | head -20 && wc -l docs/plans/server-shutdown-run-cancellation-contract.md
+1:# Server Shutdown and Active Run Cancellation Contract
+9:> Gracefully stopping the UltraPlan server cancels every active run owned by that server.
+11:The initial local server must not leave agent processes, study run loops, sprint flows, verification attempts, repairs, shell commands, or other server-started operations running after the server that owns their lifecycle, locks, progress streams, and cancellation controls has stopped.
+13:This rule applies whether shutdown begins through:
+18:- normal process shutdown initiated by the application.
+20:A browser tab closing, navigating away, losing its SSE connection, or temporarily disconnecting does **not** cancel a run. Runs are owned by the server operation lifecycle, not by an individual HTTP request or browser connection.
+28:- its root `context.Context` and cancellation function;
+42:## 3. Graceful shutdown sequence
+44:When graceful shutdown begins, the server must perform this sequence:
+49:  -> cancellation requested for all active server-owned operations
+52:  -> HTTP/SSE shutdown
+64:- allow only the bounded reads needed to display shutdown progress where practical.
+66:### 3.2 Request cancellation
+70:- persist or publish `cancellation_requested` where durable operation state exists;
+71:- record `reason: server_shutdown`;
+73:- invoke the operation's canonical cancellation function exactly once;
+74:- propagate cancellation to nested tasks, runtime adapters, waits, and subprocess execution.
+76:Server shutdown must use the same cancellation and cleanup path as an explicit user cancellation. It must not invent a weaker process-only termination path.
+80:Cancellation must reach the runtime boundary and terminate the complete owned process tree according to the existing AgentWrap and runtime cleanup guarantees.
+93:The server must wait for a configured, bounded shutdown grace period.
+323 docs/plans/server-shutdown-run-cancellation-contract.md
+[0m

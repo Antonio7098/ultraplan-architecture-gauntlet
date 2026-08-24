@@ -1,4 +1,1087 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/change-probes.md
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/finding-contract.md
+[0m
+[0m$ [0mgit log --oneline -5 && git status --short | head -20 && find . -type f -name "*.go" | grep -v _test | head -80
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+./cmd/ultraplan/main.go
+./internal/app/app.go
+./internal/app/code_commands.go
+./internal/app/config_commands.go
+./internal/app/defaults_commands.go
+./internal/app/health_commands.go
+./internal/app/json_output.go
+./internal/app/markdown.go
+./internal/app/project_commands.go
+./internal/app/project_usecases.go
+./internal/app/run_commands.go
+./internal/app/run_usecases.go
+./internal/app/skills_commands.go
+./internal/app/sprint_usecases.go
+./internal/app/status_json.go
+./internal/app/storage_commands.go
+./internal/app/study_runs_commands.go
+./internal/app/study_usecases.go
+./internal/app/surfaces.go
+./internal/app/tui_commands.go
+./internal/app/usecases.go
+./internal/app/version.go
+./internal/app/workspace_commands.go
+./internal/app/durable_operations.go
+./internal/app/operation_runner.go
+./internal/app/operations.go
+./internal/app/run_control.go
+./internal/app/serve_commands.go
+./internal/app/sprint_commands.go
+./internal/app/study_commands.go
+./internal/app/web_usecases.go
+./internal/codeextract/doc.go
+./internal/codeextract/domain.go
+./internal/codeextract/parser.go
+./internal/codeextract/resolver.go
+./internal/codeextract/service.go
+./internal/platform/config/config.go
+./internal/platform/config/doc.go
+./internal/platform/config/redaction.go
+./internal/platform/filesystem/doc.go
+./internal/platform/logging/doc.go
+./internal/platform/logging/logging.go
+./internal/platform/process/process.go
+./internal/platform/process/process_other.go
+./internal/platform/process/process_unix.go
+./internal/platform/runtime/agentwrap.go
+./internal/platform/runtime/events.go
+./internal/platform/runtime/health.go
+./internal/platform/runtime/policy.go
+./internal/platform/runtime/opencode.go
+./internal/platform/runtime/runtime.go
+./internal/productstate/store.go
+./internal/project/discovery.go
+./internal/project/doc.go
+./internal/project/domain.go
+./internal/project/index.go
+./internal/project/reasoning_defaults.go
+./internal/project/service.go
+./internal/project/store_fs.go
+./internal/project/validation.go
+./internal/runcontrol/doc.go
+./internal/runcontrol/errors.go
+./internal/runcontrol/id.go
+./internal/runcontrol/interfaces.go
+./internal/runcontrol/lifecycle.go
+./internal/runcontrol/local_log.go
+./internal/runcontrol/metrics.go
+./internal/runcontrol/migration.go
+./internal/runcontrol/process.go
+./internal/runcontrol/process_darwin.go
+./internal/runcontrol/process_linux.go
+./internal/runcontrol/process_other.go
+./internal/runcontrol/retention.go
+./internal/runcontrol/model.go
+./internal/runcontrol/sanitize.go
+./internal/runcontrol/sqlite.go
+./internal/sprint/artifacts.go
+./internal/sprint/cleanup_uncertain.go
+./internal/sprint/context_pack.go
+./internal/sprint/direct_inputs.go
+[0m
+[0m$ [0mls -la && git log --oneline -5
+total 12
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  158 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   62 Aug 22 16:23 ..
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   12 Aug 22 16:23 .agents
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  122 Aug 22 17:21 .git
+-rw-r--r--. 1 antonioborgerees antonioborgerees   62 Aug 22 16:23 .gitignore
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  886 Aug 22 16:23 previews
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   90 Aug 22 16:23 projects
+-rw-r--r--. 1 antonioborgerees antonioborgerees 1330 Aug 22 16:23 README.md
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  110 Aug 22 16:23 scripts
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  120 Aug 22 16:23 studies
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   54 Aug 22 16:23 system
+-rw-r--r--. 1 antonioborgerees antonioborgerees 1111 Aug 22 16:23 ultraplan.yml
+368a789 Add UltraPlan daemon and event system study
+2dc3b74 Advance sprints 30-35 and harden review/smoke flow
+0e151a0 update reconciliation smoke skill
+e7c0188 Record final sprint 32 implementation commits
+7756db0 Reconcile sprint 32 verification flow
+[0m
+[0m$ [0mfind . -type f -name "*.go" | grep -v _test | wc -l && find . -type f -name "*.go" | grep -v _test | tail -60
+179
+./internal/study/discovery.go
+./internal/study/doc.go
+./internal/study/domain.go
+./internal/study/durable_metadata.go
+./internal/study/edit_warnings.go
+./internal/study/init.go
+./internal/study/init_clone.go
+./internal/study/init_render.go
+./internal/study/init_yaml.go
+./internal/study/locks.go
+./internal/study/markdown.go
+./internal/study/memory_pressure.go
+./internal/study/metadata_domain.go
+./internal/study/prompts.go
+./internal/study/rating.go
+./internal/study/reports.go
+./internal/study/resolve.go
+./internal/study/run_history.go
+./internal/study/run_history_summary.go
+./internal/study/run_loop_diagnostics.go
+./internal/study/run_state.go
+./internal/study/run_state_domain.go
+./internal/study/runtime_metadata.go
+./internal/study/runtime_validation.go
+./internal/study/state.go
+./internal/study/state_database.go
+./internal/study/summary.go
+./internal/study/validation.go
+./internal/study/validation_command.go
+./internal/study/config.go
+./internal/study/execution_domain.go
+./internal/study/run.go
+./internal/study/run_all.go
+./internal/study/run_loop.go
+./internal/study/service.go
+./internal/study/synthesize.go
+./internal/tui/app.go
+./internal/tui/doc.go
+./internal/tui/keys.go
+./internal/tui/markdown.go
+./internal/tui/model.go
+./internal/tui/theme.go
+./internal/tui/viewport.go
+./internal/tui/views.go
+./internal/web/artifacts.go
+./internal/web/operations.go
+./internal/web/run_handlers.go
+./internal/web/security.go
+./internal/web/server.go
+./internal/web/server_policy.go
+./internal/web/handlers.go
+./internal/web/operation_handlers.go
+./internal/web/routes.go
+./internal/workspace/defaults.go
+./internal/workspace/discovery.go
+./internal/workspace/doc.go
+./internal/workspace/init.go
+./internal/workspace/paths.go
+./internal/workspace/skills.go
+./internal/workspace/validation.go
+[0m
+[0m$ [0mfind . -path ./.git -prune -o -type f -print | sort | head -100 && echo ---- && cat README.md ultraplan.yml
+./.agents/skills/ultraplan-area-reasoning/agents/openai.yaml
+./.agents/skills/ultraplan-area-reasoning/SKILL.md
+./.agents/skills/ultraplan-execute/agents/openai.yaml
+./.agents/skills/ultraplan-execute/SKILL.md
+./.agents/skills/ultraplan-plan/agents/openai.yaml
+./.agents/skills/ultraplan-plan/SKILL.md
+./.agents/skills/ultraplan-reasoning/agents/openai.yaml
+./.agents/skills/ultraplan-reasoning/SKILL.md
+./.agents/skills/ultraplan-reconcile-review-smoke/agents/openai.yaml
+./.agents/skills/ultraplan-reconcile-review-smoke/SKILL.md
+./.agents/skills/ultraplan-requirements/agents/openai.yaml
+./.agents/skills/ultraplan-requirements/SKILL.md
+./.agents/skills/ultraplan-review/agents/openai.yaml
+./.agents/skills/ultraplan-review/SKILL.md
+./.agents/skills/ultraplan-smoke/agents/openai.yaml
+./.agents/skills/ultraplan-smoke/SKILL.md
+./.agents/skills/ultraplan-sprint-index/agents/openai.yaml
+./.agents/skills/ultraplan-sprint-index/SKILL.md
+./.agents/skills/ultraplan-technical-handbook/agents/openai.yaml
+./.agents/skills/ultraplan-technical-handbook/SKILL.md
+./.gitignore
+./previews/agent-harness-24.01-langgraph-prompt.md
+./previews/builtin-fallback-24.01-langgraph.md
+./previews/builtin-fallback-24.02-langgraph.md
+./previews/fresh-run-24.01-langgraph-prompt-after-abs-path.md
+./previews/fresh-run-24.01-langgraph-prompt-after-output-fix.md
+./previews/fresh-run-24.01-langgraph-prompt.md
+./previews/injected-analysis-check.md
+./previews/single-source-dimension-check.md
+./previews/spike-24.01-langgraph-after-path-fix.md
+./previews/spike-24.01-langgraph-full-template.md
+./previews/spike-24.01-langgraph.md
+./previews/spike-24.02-langgraph-full-template.md
+./projects/aren-phase-01-execution-lifecycle/docs/PRD.md
+./projects/aren-phase-01-execution-lifecycle/project-index.md
+./projects/aren-phase-01-execution-lifecycle/roadmap.md
+./projects/ultraplan-go/docs/ARCHITECTURE.md
+./projects/ultraplan-go/docs/PRD.md
+./projects/ultraplan-go/docs/TRD.md
+./projects/ultraplan-go/project-index.md
+./projects/ultraplan-go/roadmap.md
+./projects/ultraplan-go/sprints/01-cli-foundation/flow-state.json
+./projects/ultraplan-go/sprints/01-cli-foundation/flow-state.legacy-v1.json
+./projects/ultraplan-go/sprints/01-cli-foundation/plan.md
+./projects/ultraplan-go/sprints/01-cli-foundation/reasoning/architecture.md
+./projects/ultraplan-go/sprints/01-cli-foundation/reasoning.md
+./projects/ultraplan-go/sprints/01-cli-foundation/requirements.md
+./projects/ultraplan-go/sprints/01-cli-foundation/.run-state.json
+./projects/ultraplan-go/sprints/01-cli-foundation/sprint-index.md
+./projects/ultraplan-go/sprints/01-cli-foundation/technical-handbook.md
+./projects/ultraplan-go/sprints/02-workspace-config-health/flow-state.json
+./projects/ultraplan-go/sprints/02-workspace-config-health/flow-state.legacy-v1.json
+./projects/ultraplan-go/sprints/02-workspace-config-health/plan.md
+./projects/ultraplan-go/sprints/02-workspace-config-health/reasoning.md
+./projects/ultraplan-go/sprints/02-workspace-config-health/requirements.md
+./projects/ultraplan-go/sprints/02-workspace-config-health/.run-state.json
+./projects/ultraplan-go/sprints/02-workspace-config-health/sprint-index.md
+./projects/ultraplan-go/sprints/02-workspace-config-health/technical-handbook.md
+./projects/ultraplan-go/sprints/03-study-listing-resolution/flow-state.json
+./projects/ultraplan-go/sprints/03-study-listing-resolution/flow-state.legacy-v1.json
+./projects/ultraplan-go/sprints/03-study-listing-resolution/plan.md
+./projects/ultraplan-go/sprints/03-study-listing-resolution/reasoning/architecture.md
+./projects/ultraplan-go/sprints/03-study-listing-resolution/reasoning.md
+./projects/ultraplan-go/sprints/03-study-listing-resolution/requirements.md
+./projects/ultraplan-go/sprints/03-study-listing-resolution/.run-state.json
+./projects/ultraplan-go/sprints/03-study-listing-resolution/sprint-index.md
+./projects/ultraplan-go/sprints/03-study-listing-resolution/technical-handbook.md
+./projects/ultraplan-go/sprints/04-study-init-yaml/flow-state.json
+./projects/ultraplan-go/sprints/04-study-init-yaml/flow-state.legacy-v1.json
+./projects/ultraplan-go/sprints/04-study-init-yaml/plan.md
+./projects/ultraplan-go/sprints/04-study-init-yaml/reasoning/architecture.md
+./projects/ultraplan-go/sprints/04-study-init-yaml/reasoning.md
+./projects/ultraplan-go/sprints/04-study-init-yaml/requirements.md
+./projects/ultraplan-go/sprints/04-study-init-yaml/.run-state.json
+./projects/ultraplan-go/sprints/04-study-init-yaml/sprint-index.md
+./projects/ultraplan-go/sprints/04-study-init-yaml/technical-handbook.md
+./projects/ultraplan-go/sprints/05-study-listing-inspection/flow-state.json
+./projects/ultraplan-go/sprints/05-study-listing-inspection/flow-state.legacy-v1.json
+./projects/ultraplan-go/sprints/05-study-listing-inspection/plan.md
+./projects/ultraplan-go/sprints/05-study-listing-inspection/reasoning.md
+./projects/ultraplan-go/sprints/05-study-listing-inspection/requirements.md
+./projects/ultraplan-go/sprints/05-study-listing-inspection/review.md
+./projects/ultraplan-go/sprints/05-study-listing-inspection/.run-state.json
+./projects/ultraplan-go/sprints/05-study-listing-inspection/sprint-index.md
+./projects/ultraplan-go/sprints/05-study-listing-inspection/technical-handbook.md
+./projects/ultraplan-go/sprints/06-study-run-execution/flow-state.json
+./projects/ultraplan-go/sprints/06-study-run-execution/flow-state.legacy-v1.json
+./projects/ultraplan-go/sprints/06-study-run-execution/plan.md
+./projects/ultraplan-go/sprints/06-study-run-execution/reasoning.md
+./projects/ultraplan-go/sprints/06-study-run-execution/requirements.md
+./projects/ultraplan-go/sprints/06-study-run-execution/review.md
+./projects/ultraplan-go/sprints/06-study-run-execution/.run-state.json
+./projects/ultraplan-go/sprints/06-study-run-execution/sprint-index.md
+./projects/ultraplan-go/sprints/06-study-run-execution/technical-handbook.md
+./projects/ultraplan-go/sprints/07-prompt-composition-generation/flow-state.json
+./projects/ultraplan-go/sprints/07-prompt-composition-generation/flow-state.legacy-v1.json
+./projects/ultraplan-go/sprints/07-prompt-composition-generation/plan.md
+./projects/ultraplan-go/sprints/07-prompt-composition-generation/reasoning.md
+./projects/ultraplan-go/sprints/07-prompt-composition-generation/requirements.md
+./projects/ultraplan-go/sprints/07-prompt-composition-generation/review.md
+----
+# UltraPlan Workspace
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515645319,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515645319,[]
+This workspace stores local UltraPlan studies, planning projects, runtime state, and generated artifacts.
+
+## Health And Config
+
+```sh
+ultraplan health
+ultraplan config show
+ultraplan config show --json
+```
+
+## Studies
+
+```sh
+ultraplan study list
+ultraplan study <study> list
+ultraplan study <study> prompt analysis <dimension> <source>
+ultraplan study <study> run <dimension> <source>
+ultraplan study <study> synthesize <dimension>
+ultraplan study <study> run-loop --parallel 1
+ultraplan study <study> validate
+ultraplan study <study> status
+ultraplan study <study> summary
+```
+
+## Planning Projects
+
+```sh
+ultraplan project list
+ultraplan project <project> status
+ultraplan project <project> validate
+ultraplan sprint <project> <sprint> status
+ultraplan sprint <project> <sprint> validate requirements
+ultraplan sprint <project> <sprint> validate sprint-index
+ultraplan sprint <project> <sprint> prompt requirements
+ultraplan sprint <project> <sprint> prompt sprint-index
+ultraplan sprint <project> <sprint> flow --to requirements --dry-run
+ultraplan sprint <project> <sprint> flow --to plan --dry-run
+```
+
+## Defaults
+
+Prompts and templates are built into the CLI. Materialize editable copies only when you need local overrides.
+
+```sh
+ultraplan defaults install --dry-run
+ultraplan defaults install
+```
+version: 1
+runtime:
+  default: opencode
+models:
+  default: minimax-coding-plan/MiniMax-M3
+  primary: minimax-coding-plan/MiniMax-M3
+  backup: minimax-coding-plan/MiniMax-M3
+execution:
+  default_variant: high
+  default_parallel: 5
+  default_timeout: 12m
+  default_retries: 1
+planning:
+  requirements_model: openai/gpt-5.6-sol
+  requirements_variant: high
+  code_context_model: openai/gpt-5.6-sol
+  code_context_variant: low
+  sprint_index_model: openai/gpt-5.6-sol
+  sprint_index_variant: high
+  technical_handbook_model: openai/gpt-5.6-sol
+  technical_handbook_variant: high
+  area_reasoning_model: openai/gpt-5.6-sol
+  area_reasoning_variant: high
+  reasoning_model: openai/gpt-5.6-sol
+  reasoning_variant: high
+  plan_model: openai/gpt-5.6-sol
+  plan_variant: high
+  review_model: minimax-coding-plan/MiniMax-M3
+  smoke_model: openai/gpt-5.6-sol
+  smoke_variant: low
+  execute_model: openai/gpt-5.6-sol
+  execute_variant: high
+logging:
+  format: text
+  level: debug
+agentwrap:
+  executable: opencode
+  permission_default: allow
+  required_health:
+    - runtime_available
+    - structured_output
+    - workdir
+[0m
+[0m$ [0mls internal && echo ---- && ls internal/sprint internal/runcontrol internal/platform/runtime
+app
+codeextract
+platform
+productstate
+project
+runcontrol
+sprint
+study
+tui
+web
+workspace
+----
+internal/platform/runtime:
+agentwrap.go
+cache_test.go
+events.go
+health.go
+opencode.go
+opencode_test.go
+policy.go
+runtime.go
+runtime_test.go
+
+internal/runcontrol:
+benchmark_test.go
+doc.go
+errors.go
+fault_test.go
+id.go
+id_test.go
+import_boundary_test.go
+interfaces.go
+lifecycle.go
+lifecycle_test.go
+local_log.go
+local_log_test.go
+metrics.go
+migration.go
+migration_test.go
+model.go
+model_test.go
+process_darwin.go
+process.go
+process_integration_test.go
+process_linux.go
+process_other.go
+retention.go
+retention_test.go
+sanitize.go
+sanitize_test.go
+sqlite.go
+sqlite_test.go
+
+internal/sprint:
+artifacts.go
+cleanup_uncertain.go
+cleanup_uncertain_test.go
+code_context.go
+code_context_test.go
+context_pack.go
+direct_inputs.go
+direct_inputs_test.go
+discovery.go
+doc.go
+domain.go
+efficiency_improvements_test.go
+efficiency_metrics_test.go
+execute.go
+execute_model.go
+execute_model_test.go
+execute_plan.go
+execute_plan_test.go
+execute_state.go
+execute_state_test.go
+execute_target.go
+execute_target_test.go
+flow.go
+freshness_policy.go
+handbook.go
+handbook_test.go
+index.go
+input_contract.go
+locks.go
+locks_test.go
+plan.go
+plan_test.go
+prompt_bundle.go
+prompt_context.go
+prompt_context_test.go
+prompts.go
+reasoning.go
+reasoning_test.go
+review.go
+review_runtime_validation.go
+review_test.go
+runtime_metrics.go
+runtime_progress_test.go
+runtime_validation.go
+service.go
+session_state.go
+session_state_test.go
+smoke_author.go
+smoke.go
+smoke_protocol.go
+smoke_test.go
+smoke_types.go
+sprint_index_test.go
+sprint_test.go
+state_database.go
+state.go
+store_fs.go
+validation.go
+verification_lock.go
+verification_lock_test.go
+verify.go
+verify_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/flow.go
+[0m
+[0m$ [0mgrep -rn "StageCodeContext" --include="*.go" | grep -v _test | awk -F: '{print $1}' | sort | uniq -c | sort -rn
+14 internal/sprint/code_context.go
+      7 internal/sprint/flow.go
+      6 internal/app/sprint_usecases.go
+      4 internal/app/sprint_commands.go
+      3 internal/sprint/store_fs.go
+      2 internal/sprint/domain.go
+      1 internal/sprint/state.go
+      1 internal/sprint/service.go
+      1 internal/sprint/review.go
+      1 internal/sprint/prompts.go
+      1 internal/sprint/input_contract.go
+      1 internal/sprint/artifacts.go
+      1 internal/app/web_usecases.go
+      1 internal/app/operations.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/domain.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/model.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode.go[90m [limit=120][0m
+[0m✱ [0mGrep "NewOpenCode|runtime\.default|RuntimeDefault|DefaultRuntime"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 10 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config.go[90m [limit=60, offset=380][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=60][0m
+[0m
+[0m$ [0mgrep -n "RuntimeFactory\|NewOpenCode" internal/app/*.go internal/web/*.go cmd/ultraplan/main.go | grep -v _test
+internal/app/app.go:38:	SprintRuntimeFactory SprintRuntimeFactory
+internal/app/app.go:119:		sprintRuntimeFactory: cfg.SprintRuntimeFactory,
+internal/app/app.go:122:	if deps.sprintRuntimeFactory == nil {
+internal/app/app.go:123:		deps.sprintRuntimeFactory = defaultSprintRuntimeFactory
+internal/app/app.go:190:	sprintRuntimeFactory SprintRuntimeFactory
+internal/app/health_commands.go:113:	adapter, err := runtimepkg.NewOpenCode(c)
+internal/app/sprint_commands.go:21:type SprintRuntimeFactory func(config.Config) (sprint.Runtime, error)
+internal/app/sprint_commands.go:23:func defaultSprintRuntimeFactory(c config.Config) (sprint.Runtime, error) {
+internal/app/sprint_commands.go:24:	return runtimepkg.NewOpenCode(c)
+internal/app/sprint_commands.go:486:	rt, err := deps.sprintRuntimeFactory(effective.Config)
+internal/app/study_commands.go:22:var studyRuntimeFactory = func(c config.Config) (study.Runtime, error) {
+internal/app/study_commands.go:23:	return runtimepkg.NewOpenCode(c)
+internal/app/study_commands.go:323:	rt, err := studyRuntimeFactory(effective.Config)
+internal/app/study_commands.go:664:	rt, err := studyRuntimeFactory(effective.Config)
+internal/app/study_commands.go:833:	rt, err := studyRuntimeFactory(effective.Config)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/surfaces.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/interfaces.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/artifacts.go
+[0m
+[0m$ [0mgrep -rln "code-context\|CodeContext" --include="*.go" | grep -v _test | sort && echo ==== && grep -rn "code-context" internal/web internal/tui 2>/dev/null | head -20
+internal/app/config_commands.go
+internal/app/operations.go
+internal/app/sprint_commands.go
+internal/app/sprint_usecases.go
+internal/app/usecases.go
+internal/app/web_usecases.go
+internal/platform/config/config.go
+internal/platform/config/redaction.go
+internal/sprint/artifacts.go
+internal/sprint/code_context.go
+internal/sprint/context_pack.go
+internal/sprint/domain.go
+internal/sprint/flow.go
+internal/sprint/input_contract.go
+internal/sprint/prompt_bundle.go
+internal/sprint/prompt_context.go
+internal/sprint/prompts.go
+internal/sprint/review.go
+internal/sprint/runtime_validation.go
+internal/sprint/service.go
+internal/sprint/state.go
+internal/sprint/store_fs.go
+internal/workspace/init.go
+internal/workspace/skills.go
+====
+internal/web/operations_contract_test.go:67:		Options: operationOptionsRequest{Stage: "code-context"},
+internal/web/operations_contract_test.go:69:	if err != nil || req.Kind != app.OperationStage || req.Stage != "code-context" {
+internal/web/operations_contract_test.go:70:		t.Fatalf("generic code-context stage mapping=%+v err=%v", req, err)
+internal/web/operations_contract_test.go:75:		Options: operationOptionsRequest{Stage: "code-context", DryRun: true},
+internal/web/operations_contract_test.go:77:	if err != nil || dry.Kind != app.OperationStageDryRun || dry.Stage != "code-context" {
+internal/web/operations_contract_test.go:78:		t.Fatalf("generic code-context dry-run mapping=%+v err=%v", dry, err)
+internal/web/templates/sprint.html:16:<li><details open><summary>Definition</summary><ul>{{range .Sprint.Artifacts}}{{if or (eq .Label "requirements") (eq .Label "code-context") (eq .Label "sprint-index")}}<li><a href="/projects/{{$.Sprint.Project}}/sprints/{{$.Sprint.Slug}}/artifacts/{{.Ref}}"{{if and $.Artifact (eq $.Artifact.Ref .Ref)}} aria-current="page"{{end}}>{{.Label}}</a></li>{{end}}{{end}}</ul></details></li>
+internal/web/templates/sprint.html:40:<label for="overview-flow-target">Run flow to</label><select id="overview-flow-target" name="stage"><option value="requirements">Requirements</option><option value="code-context">Code context</option><option value="sprint-index">Sprint index</option><option value="technical-handbook">Technical handbook</option><option value="area-reasoning">Area reasoning</option><option value="reasoning">Final reasoning</option><option value="plan" selected>Plan</option><option value="execute">Execute</option><option value="review">Review</option><option value="smoke">Smoke</option></select>
+internal/web/templates/sprint.html:55:<section><h2>Definition</h2><p class="group-description">What the sprint must achieve and the project material selected for it.</p>{{range .Sprint.Artifacts}}{{if or (eq .Label "requirements") (eq .Label "code-context") (eq .Label "sprint-index")}}<a class="artifact-card" href="/artifacts/{{.Ref}}"><strong>{{.Label}}</strong><span>{{.DisplayPath}}</span></a>{{end}}{{end}}</section>
+internal/web/templates/sprint.html:82:{{if and (eq .Name "code-context") .LatestOutcome}}<p><strong>Latest attempt:</strong> {{.LatestOutcome}}.</p>{{end}}
+internal/web/templates/sprint.html:98:{{if eq .Name "code-context"}}{{if .ArtifactAvailable}}<p><strong>Authoritative artifact:</strong> available{{if .ArtifactValid}} and structurally valid{{else}}, but currently invalid{{end}}.</p>{{end}}{{if .NextAction}}<p>{{.NextAction}}</p>{{end}}{{end}}
+internal/web/templates_test.go:197:	for _, want := range []string{`class="stage-timeline"`, `data-stage-workspace`, `class="run-workspace-columns"`, `data-previous-artifacts aria-labelledby="previous-artifacts-heading"`, `data-artifact-stage="requirements"`, `data-artifact-stage="code-context"`, `data-artifact-preview aria-live="polite"`, `data-artifact-source`, `href="#stage-requirements" data-stage-select="stage-requirements" data-stage-has-artifact="true"`, `id="stage-requirements"`, `data-operation-kind="sprint-flow"`, `data-stage-operation-status role="status" aria-live="polite"`, "Start run to smoke", "Open result summary", `id="operation-timeline"`, "Stage links and run forms work without JavaScript", `class="prompt-observability" data-prompt-observability`, `Stage input contract`, `Injected in this order`, `input contract + bundle summary`, `/api/v1/projects/alpha/sprints/30-web/prompts/requirements`, `<code>project-index</code>`, `<code>project-docs</code>`, `Open JSON summary`} {
+internal/web/templates_test.go:250:	codeContext := strings.Index(body, `href="#stage-code-context"`)
+internal/web/templates_test.go:253:		t.Fatalf("stage order is not requirements, code-context, sprint-index: %d %d %d", requirements, codeContext, sprintIndex)
+internal/web/templates_test.go:255:	for _, want := range []string{"Latest attempt:</strong> failed", "Why it failed", "provider failed", "Authoritative artifact:</strong> available and structurally valid", "A prior valid artifact is preserved", "Start run to code-context"} {
+internal/web/templates_test.go:257:			t.Errorf("code-context presentation missing %q", want)
+internal/web/test_fakes_test.go:30:	contextArtifact := app.WebArtifactLink{Ref: "context_ref", Label: "code-context", DisplayPath: "projects/alpha/sprints/30-web/code-context.md", MediaType: "text/markdown"}
+internal/web/test_fakes_test.go:37:		RunStages:       []app.StageSummary{{Name: "requirements", Status: "complete", Path: "projects/alpha/sprints/30-web/requirements.md"}, {Name: "code-context", Status: "failed", Error: "provider failed", Path: "projects/alpha/sprints/30-web/code-context.md", ArtifactAvailable: true, ArtifactValid: true, LatestOutcome: "failed", NextAction: "A prior valid artifact is preserved; inspect the failure and explicitly rerun code-context."}, {Name: "sprint-index", Status: "waiting"}, {Name: "plan", Status: "complete"}, {Name: "execute", Status: "complete"}, {Name: "review", Status: "running"}, {Name: "smoke", Status: "waiting"}},
+[0m
+[0m$ [0mgrep -rn "PlanningStages()" --include="*.go" internal | grep -v _test | awk -F: '{print $1}' | sort | uniq -c
+2 internal/sprint/domain.go
+      4 internal/sprint/flow.go
+      1 internal/sprint/service.go
+      6 internal/sprint/state.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases.go[90m [limit=100][0m
+[0m
+[0m$ [0mgrep -n "stageSummaries\|StageSummary{\|for _, stage := range\|PlanningStages\|stageContract" internal/app/sprint_usecases.go internal/app/web_usecases.go | head -30
+internal/app/sprint_usecases.go:180:			for _, stage := range status.Stages {
+internal/app/sprint_usecases.go:185:				stageSummary := StageSummary{Name: string(stage.Stage), Status: string(stage.Status), Path: stage.Path, Error: displaySafe(stage.Error), LatestOutcome: latestOutcome}
+internal/app/sprint_usecases.go:206:			for _, stage := range []sprint.PlanningStage{sprint.StageRequirements, sprint.StageCodeContext, sprint.StageSprintIndex, sprint.StageTechnicalHandbook, sprint.StageReasoning, sprint.StagePlan, sprint.StageExecute, sprint.StageReview, sprint.StageSmoke} {
+internal/app/web_usecases.go:481:			for _, stage := range result.RunStages {
+internal/app/web_usecases.go:598:	stages = append(stages, StageSummary{Name: "execute", Status: executeStatus, Error: item.Execute.Message})
+internal/app/web_usecases.go:606:	stages = append(stages, StageSummary{Name: "review", Status: reviewStatus, Error: item.Review.Error})
+internal/app/web_usecases.go:614:	stages = append(stages, StageSummary{Name: "smoke", Status: smokeStatus, Error: item.Smoke.Error})
+internal/app/web_usecases.go:784:		stages = []StageSummary{}
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases.go[90m [limit=80, offset=160][0m
+[0m
+[0m$ [0mgrep -n "func validateSprintStage" -A 40 internal/app/*.go | head -60
+internal/app/sprint_usecases.go:254:func validateSprintStage(service sprint.Service, projectRef, sprintRef string, stage sprint.PlanningStage) (sprint.ValidationResult, error) {
+internal/app/sprint_usecases.go-255-	switch stage {
+internal/app/sprint_usecases.go-256-	case sprint.StageRequirements:
+internal/app/sprint_usecases.go-257-		return service.ValidateRequirements(projectRef, sprintRef)
+internal/app/sprint_usecases.go-258-	case sprint.StageCodeContext:
+internal/app/sprint_usecases.go-259-		return service.ValidateCodeContext(projectRef, sprintRef)
+internal/app/sprint_usecases.go-260-	case sprint.StageSprintIndex:
+internal/app/sprint_usecases.go-261-		return service.ValidateSprintIndex(projectRef, sprintRef)
+internal/app/sprint_usecases.go-262-	case sprint.StageTechnicalHandbook:
+internal/app/sprint_usecases.go-263-		return service.ValidateTechnicalHandbook(projectRef, sprintRef)
+internal/app/sprint_usecases.go-264-	case sprint.StageAreaReasoning:
+internal/app/sprint_usecases.go-265-		return service.ValidateAreaReasoning(projectRef, sprintRef)
+internal/app/sprint_usecases.go-266-	case sprint.StageReasoning:
+internal/app/sprint_usecases.go-267-		return service.ValidateReasoning(projectRef, sprintRef)
+internal/app/sprint_usecases.go-268-	case sprint.StagePlan:
+internal/app/sprint_usecases.go-269-		return service.ValidatePlan(projectRef, sprintRef)
+internal/app/sprint_usecases.go-270-	case sprint.StageExecute:
+internal/app/sprint_usecases.go-271-		return service.ValidateExecute(projectRef, sprintRef)
+internal/app/sprint_usecases.go-272-	case sprint.StageReview:
+internal/app/sprint_usecases.go-273-		return service.ValidateReview(projectRef, sprintRef)
+internal/app/sprint_usecases.go-274-	case sprint.StageSmoke:
+internal/app/sprint_usecases.go-275-		return service.ValidateSmoke(projectRef, sprintRef)
+internal/app/sprint_usecases.go-276-	default:
+internal/app/sprint_usecases.go-277-		return sprint.ValidationResult{}, fmt.Errorf("unsupported validation stage %q", stage)
+internal/app/sprint_usecases.go-278-	}
+internal/app/sprint_usecases.go-279-}
+internal/app/sprint_usecases.go-280-
+internal/app/sprint_usecases.go-281-func summarizeSmoke(state *sprint.SmokeStageState) SmokeSummary {
+internal/app/sprint_usecases.go-282-	if state == nil {
+internal/app/sprint_usecases.go-283-		return SmokeSummary{}
+internal/app/sprint_usecases.go-284-	}
+internal/app/sprint_usecases.go-285-	state.CoverageMapping.EnsureMatrix()
+internal/app/sprint_usecases.go-286-	return SmokeSummary{Available: true, Status: string(state.Status), Verdict: string(state.Verdict), RunID: state.RunID, Error: displayReasons(state.Diagnostics), Stale: state.Stale, Reconciliation: state.Reconciliation, CoverageMapping: state.CoverageMapping}
+internal/app/sprint_usecases.go-287-}
+internal/app/sprint_usecases.go-288-
+internal/app/sprint_usecases.go-289-func summarizeReview(state *sprint.ReviewStageState) ReviewSummary {
+internal/app/sprint_usecases.go-290-	if state == nil {
+internal/app/sprint_usecases.go-291-		return ReviewSummary{}
+internal/app/sprint_usecases.go-292-	}
+internal/app/sprint_usecases.go-293-	reasons := make([]string, 0, len(state.Diagnostics))
+internal/app/sprint_usecases.go-294-	for _, diagnostic := range state.Diagnostics {
+[0m
+[0m$ [0mgit log --oneline -3 -- internal/app/sprint_usecases.go && git log -S "sprint.StageTechnicalHandbook, sprint.StageReasoning" --oneline -- internal/app/sprint_usecases.go | tail -5
+2308b88 feat(web): expose sprint prompt observability
+7da6ee2 Render smoke coverage as an interactive matrix
+a07a39f Show smoke coverage mappings in sprint results
+7a94a11 add interactive read-only tui
+[0m
+[0m$ [0mgrep -rn "AreaReasoning\|area-reasoning" internal/web/templates/*.html internal/tui/*.go | head -20
+internal/web/templates/project.html:10:<li><details open><summary>Reasoning</summary><ul>{{range .Project.Artifacts}}{{if eq .Label "area-reasoning"}}<li><a href="/projects/{{$.Project.Name}}/documentation/{{.Ref}}" title="{{.DisplayPath}}"{{if and $.Artifact (eq $.Artifact.Ref .Ref)}} aria-current="page"{{end}}>{{.DisplayPath}}</a></li>{{end}}{{end}}</ul></details></li>
+internal/web/templates/project.html:61:<div class="artifact-groups"><section><h2>Project</h2><p class="group-description">The roadmap and authoritative project index.</p>{{range .Project.Artifacts}}{{if or (eq .Label "project-index") (eq .Label "roadmap")}}<a class="artifact-card" href="/projects/{{$.Project.Name}}/documentation/{{.Ref}}"><strong>{{.Label}}</strong><span>{{.DisplayPath}}</span></a>{{end}}{{end}}</section><section><h2>Documentation</h2><p class="group-description">Product and technical documents used by sprint planning.</p>{{range .Project.Artifacts}}{{if eq .Label "doc"}}<a class="artifact-card" href="/projects/{{$.Project.Name}}/documentation/{{.Ref}}"><strong>{{.DisplayPath}}</strong></a>{{end}}{{end}}</section><section><h2>Reasoning</h2><p class="group-description">Reusable area-specific reasoning and evidence.</p>{{range .Project.Artifacts}}{{if eq .Label "area-reasoning"}}<a class="artifact-card" href="/projects/{{$.Project.Name}}/documentation/{{.Ref}}"><strong>{{.DisplayPath}}</strong></a>{{end}}{{end}}</section></div>
+internal/web/templates/sprint.html:40:<label for="overview-flow-target">Run flow to</label><select id="overview-flow-target" name="stage"><option value="requirements">Requirements</option><option value="code-context">Code context</option><option value="sprint-index">Sprint index</option><option value="technical-handbook">Technical handbook</option><option value="area-reasoning">Area reasoning</option><option value="reasoning">Final reasoning</option><option value="plan" selected>Plan</option><option value="execute">Execute</option><option value="review">Review</option><option value="smoke">Smoke</option></select>
+internal/tui/model.go:453:			stages := []string{"requirements", "sprint-index", "technical-handbook", "area-reasoning", "reasoning", "plan", "execute", "review"}
+internal/tui/model_test.go:81:	for _, stage := range []string{"requirements", "sprint-index", "technical-handbook", "area-reasoning", "reasoning", "plan", "execute", "review"} {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/model.go[90m [limit=80, offset=410][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go[90m [limit=120, offset=440][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go[90m [limit=70, offset=560][0m
+[0m
+[0m$ [0mgrep -n "stageRuntime\|StageRuntime\|planning\." internal/sprint/service.go internal/sprint/prompts.go | head -30
+internal/sprint/service.go:28:	stageRuntime      map[PlanningStage]StageRuntime
+internal/sprint/service.go:58:type StageRuntime struct {
+internal/sprint/service.go:122:func (s Service) WithStageRuntime(overrides map[PlanningStage]StageRuntime) Service {
+internal/sprint/service.go:123:	s.stageRuntime = map[PlanningStage]StageRuntime{}
+internal/sprint/service.go:125:		s.stageRuntime[stage] = override
+internal/sprint/service.go:1035:		if override, ok := s.stageRuntime[stage]; ok {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go[90m [limit=120, offset=990][0m
+[0m
+[0m$ [0mgrep -rn "CodeContextModel\|code_context_model" --include="*.go" internal | grep -v _test
+internal/app/config_commands.go:57:	fmt.Fprintf(deps.stdout, "planning.code_context_model: %s (source: %s)\n", redacted.Planning.CodeContextModel, redacted.Sources["planning.code_context_model"])
+internal/app/sprint_commands.go:607:	codeContextModel := c.Planning.CodeContextModel
+internal/platform/config/config.go:42:	CodeContextModel         string `json:"code_context_model"`
+internal/platform/config/config.go:123:		{Key: "ULTRAPLAN_CODE_CONTEXT_MODEL", Field: "planning.code_context_model"},
+internal/platform/config/config.go:144:	for _, field := range []string{"version", "runtime.default", "models.default", "models.primary", "models.backup", "execution.default_variant", "execution.default_parallel", "execution.default_timeout", "execution.default_retries", "planning.requirements_model", "planning.requirements_variant", "planning.code_context_model", "planning.code_context_variant", "planning.sprint_index_model", "planning.sprint_index_variant", "planning.technical_handbook_model", "planning.technical_handbook_variant", "planning.area_reasoning_model", "planning.area_reasoning_variant", "planning.reasoning_model", "planning.reasoning_variant", "planning.plan_model", "planning.plan_variant", "planning.execute_model", "planning.execute_variant", "planning.review_model", "planning.review_variant", "planning.smoke_model", "planning.smoke_variant", "smoke.discovery_timeout", "smoke.run_timeout", "smoke.stdout_limit", "smoke.stderr_limit", "smoke.cleanup_grace", "smoke.environment", "run_control.full_history", "run_control.tombstone_history", "run_control.workspace_quota_bytes", "logging.format", "logging.level", "agentwrap.executable", "agentwrap.extra_args", "agentwrap.env", "agentwrap.stderr_limit", "agentwrap.required_health", "agentwrap.required_capabilities", "agentwrap.sandbox", "agentwrap.permission_mode", "agentwrap.permission_default", "agentwrap.permission_unsupported_behavior"} {
+internal/platform/config/config.go:307:	case "planning.code_context_model":
+internal/platform/config/config.go:308:		c.Planning.CodeContextModel = value
+internal/platform/config/redaction.go:52:	p.CodeContextModel = RedactValue("planning.code_context_model", p.CodeContextModel)
+internal/workspace/init.go:150:  code_context_model: provider/model
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=90, offset=560][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/defaults.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/skills.go
+[0m
+[0m$ [0mgrep -n "Override\|workspace\." internal/sprint/prompts.go | head -30 && echo ==== && grep -rn "func.*PromptRequirements\|resolvePrompt\|effectivePrompt" internal/sprint/*.go | grep -v _test | head -20
+236:	b.WriteString(strings.ReplaceAll(strings.TrimRight(manifest, "\n"), root, workspace.Rel(root, root)))
+243:	full, err := workspace.ResolveInside(root, rel)
+253:	if content, ok := workspace.DefaultOverrideFile(rel); ok {
+286:	full, err := workspace.ResolveInside(root, rel)
+====
+internal/sprint/service.go:474:func (s Service) PromptRequirements(projectRef, sprintRef string) (PromptPreview, error) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompts.go[90m [limit=130, offset=180][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state_database.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/import_boundary_test.go
+[0m
+[0m$ [0mgrep -rn "SchemaVersion\|schemaVersion" internal/study/*.go | grep -v _test | head -20
+internal/study/cleanup_uncertain.go:20:	SchemaVersion int       `json:"schemaVersion"`
+internal/study/cleanup_uncertain.go:39:	record.SchemaVersion = 1
+internal/study/cleanup_uncertain.go:166:	if record.SchemaVersion != 1 || record.OperationID == "" || record.Kind == "" || record.Reason != "server_shutdown" || record.OwnerPID < 1 || record.RecordedAt.IsZero() {
+internal/study/domain.go:4:	RunStateSchemaVersion = 1
+internal/study/domain.go:117:	SchemaVersion int               `json:"schema_version,omitempty"`
+internal/study/domain.go:126:	SchemaVersion int                `json:"schema_version"`
+internal/study/run_history.go:15:	RunHistorySchemaVersion = 1
+internal/study/run_history.go:22:	SchemaVersion int        `json:"schema_version"`
+internal/study/run_history.go:128:		SchemaVersion: RunHistorySchemaVersion,
+internal/study/run_state_domain.go:20:	SchemaVersion            int           `json:"schema_version"`
+internal/study/run_state.go:54:		SchemaVersion:            RunStateSchemaVersion,
+internal/study/state_database.go:67:	return store.Save(context.Background(), productstate.Record{Kind: studyRunStateKind, Scope: study.Name, SchemaVersion: state.SchemaVersion, Header: headerJSON, Items: items})
+internal/study/state.go:122:	if state.SchemaVersion == 0 {
+internal/study/state.go:125:	if state.SchemaVersion != RunStateSchemaVersion {
+internal/study/state.go:126:		return fmt.Errorf("%w: %s: schema_version %d", ErrRunStateUnsupported, path, state.SchemaVersion)
+internal/study/validation_command.go:10:const StudyValidationSchemaVersion = 1
+internal/study/validation_command.go:22:		SchemaVersion: StudyValidationSchemaVersion,
+internal/study/validation_command.go:34:		report.SchemaVersion = StudyValidationSchemaVersion
+internal/study/validation_command.go:193:		Expected: fmt.Sprintf("schema_version %d run state or no run state", RunStateSchemaVersion),
+[0m
+[0m$ [0mgrep -rln "ImportBoundary\|forbidden package\|must not import" --include="*_test.go" internal | head && echo ==== && grep -rn "web must not\|tui must not\|app must not" --include="*.go" internal | head -5
+internal/runcontrol/import_boundary_test.go
+internal/web/import_boundary_test.go
+====
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go[90m [limit=120][0m
+[0m
+[0m$ [0mgrep -n "eventName\|sseName\|\"progress\"\|\"warning\"\|EventKind\|EventType" internal/web/operations.go | head -20 && echo ==== && grep -rn "RecordOperationEvent" internal/app/*.go internal/web/*.go | grep -v _test | head
+227:		h.appendEventLocked(record, "progress", map[string]any{"message": "operation started", "state": "running"})
+256:	name := "progress"
+258:		name = "warning"
+263:		"event_kind": safeWebText(event.EventKind), "event_type": safeWebText(event.EventType), "tool": safeWebText(event.Tool), "action": safeWebText(event.Action),
+445:		name = "warning"
+470:	case "snapshot", "progress", "warning", "finding", "artifact", "cancel_requested", "recovery_required", "terminal":
+473:		return "progress"
+====
+internal/app/durable_operations.go:124:func (m *durableOperationManager) RecordOperationEvent(ctx context.Context, runID string, event OperationEvent) (bool, error) {
+internal/app/operations.go:42:	RecordOperationEvent(context.Context, string, OperationEvent) (bool, error)
+internal/app/usecases.go:108:func (u dashboardUseCases) RecordOperationEvent(ctx context.Context, id string, event OperationEvent) (bool, error) {
+internal/app/usecases.go:112:	return u.durable.RecordOperationEvent(ctx, id, event)
+internal/app/web_usecases.go:277:func (u *webUseCases) RecordOperationEvent(ctx context.Context, runID string, event OperationEvent) (bool, error) {
+internal/app/web_usecases.go:281:	return u.durable.RecordOperationEvent(ctx, runID, event)
+internal/web/operations.go:247:		committed, err := manager.RecordOperationEvent(context.Background(), record.doc.ID, event)
+[0m
+[0m$ [0mgrep -rn "runcontrol\." internal/web/*.go internal/tui/*.go | grep -v _test | awk -F: '{print $1}' | sort | uniq -c && echo ==== && grep -rn "\.Type ==\|Type !=\|case runcontrol.Event" internal/web/*.go internal/app/*.go | grep -v _test | head
+====
+internal/web/artifacts.go:10:	if result.MediaType != "text/markdown" && result.MediaType != "application/json" {
+internal/web/handlers.go:559:	if artifact.MediaType != "text/markdown" {
+internal/app/defaults_commands.go:118:		if op.Type == "file" && op.Action == "skip" {
+internal/app/run_control.go:180:		if draft.Type == runcontrol.EventProgress && key == progressKey && elapsed >= 0 && elapsed < runcontrol.ProgressCoalesceWindow {
+internal/app/run_control.go:202:		if draft.Type == runcontrol.EventProgress {
+internal/app/skills_commands.go:141:		if op.Type == "file" && op.Action == "skip" {
+internal/app/study_commands.go:420:	if event.Type != "" {
+internal/app/study_commands.go:495:		return event.Kind != "" || event.Type != ""
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+[0m
+[0m$ [0mgrep -n "Stages\b\|stageTimeline\|StageSummary\|RunStages" internal/tui/model.go internal/tui/views.go | head -20
+(no output)
+[0m
+[0m$ [0mgrep -rn "Stages\|stage" internal/tui/model.go | head -30
+453:			stages := []string{"requirements", "sprint-index", "technical-handbook", "area-reasoning", "reasoning", "plan", "execute", "review"}
+455:			for _, stage := range stages {
+456:				items = append(items, navItem{Label: "Validate " + stage, Validation: &app.ValidationRequest{Subject: app.ValidationSprint, Project: route.Project, Sprint: route.Sprint, Stage: stage}})
+457:				items = append(items, navItem{Label: "Preview " + stage + " Prompt", Operation: &app.OperationRequest{Kind: app.OperationPrompt, Project: route.Project, Sprint: route.Sprint, Stage: stage}})
+462:			for _, stage := range stages {
+464:					navItem{Label: "Dry Run Flow to " + stage, Operation: &app.OperationRequest{Kind: app.OperationFlowDryRun, Project: route.Project, Sprint: route.Sprint, Stage: stage}},
+465:					navItem{Label: "Run Flow to " + stage + " [RUNTIME]", Operation: &app.OperationRequest{Kind: app.OperationFlow, Project: route.Project, Sprint: route.Sprint, Stage: stage}})
+[0m
+[0m$ [0mgit log --oneline --reverse -- internal/tui | head -3; echo ====; git log --oneline --reverse -S "StageCodeContext" -- internal/sprint/domain.go | head -3; echo ====; git log --oneline --reverse -S "code-context" -- internal/tui | head -3
+7a94a11 add interactive read-only tui
+0dbf51e add operational TUI controls
+922062d Improve TUI and study run controls
+====
+2d10aba Add code context planning stage
+====
+[0m
+[0m$ [0mgit log --oneline --format="%h %s" 7a94a11 2d10aba | head -2; git merge-base --is-ancestor 2d10aba 7a94a11 && echo "code-context BEFORE tui" || echo "tui BEFORE code-context"; git log -1 --format="%h %ad %s" --date=short 7a94a11; git log -1 --format="%h %ad %s" --date=short 2d10aba
+2d10aba Add code context planning stage
+f369034 Materialize missing sprint before flow lock
+tui BEFORE code-context
+7a94a11 2026-07-09 add interactive read-only tui
+2d10aba 2026-08-20 Add code context planning stage
+[0m
+[0m$ [0mgit log --oneline -S "StageTechnicalHandbook, sprint.StageReasoning" -- internal/app/sprint_usecases.go | head; echo ====; git show 2308b88 --stat | head -10
+7a94a11 add interactive read-only tui
+====
+commit 2308b88b581f322deac09cac763e4a57e791a291
+Author: antonio <antoniorees74@gmail.com>
+Date:   Fri Aug 21 12:04:51 2026 +0100
+
+    feat(web): expose sprint prompt observability
+
+ docs/web-compatibility-baseline.md     |  7 +++
+ internal/app/sprint_usecases.go        |  1 +
+ internal/app/web_usecases.go           | 92 +++++++++++++++++++++++++++++++++-
+ internal/app/web_usecases_test.go      | 28 +++++++++++
+[0m
+[0m$ [0mgit log --reverse --oneline -S "sprint.StageAreaReasoning" -- internal/app/sprint_usecases.go | head -3; echo ====; git show 7a94a11:internal/app/sprint_usecases.go | grep -n "PlanningStage{" | head -5
+0dbf51e add operational TUI controls
+====
+110:			for _, stage := range []sprint.PlanningStage{sprint.StageRequirements, sprint.StageSprintIndex, sprint.StageTechnicalHandbook, sprint.StageReasoning, sprint.StagePlan, sprint.StageExecute} {
+[0m
+[0m$ [0mgrep -n "func (s Service) ValidateAreaReasoning" internal/sprint/*.go; echo ====; grep -rn "ValidateAreaReasoning" internal/app internal/web --include="*.go" | grep -v _test
+internal/sprint/service.go:323:func (s Service) ValidateAreaReasoning(projectRef, sprintRef string) (ValidationResult, error) {
+====
+internal/app/sprint_usecases.go:265:		return service.ValidateAreaReasoning(projectRef, sprintRef)
+internal/app/sprint_commands.go:148:			result, err = service.ValidateAreaReasoning(args[0], args[1])
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go[90m [limit=40, offset=315][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands.go[90m [limit=50, offset=90][0m
+[0m
+[0m$ [0mgrep -rn "runcontrol" internal/sprint internal/study --include="*.go" | grep -v _test | head -5; echo ====; grep -rn "import" internal/sprint/service.go -A 20 | head -25
+====
+3:import (
+4-	"context"
+5-	"crypto/sha256"
+6-	"encoding/hex"
+7-	"errors"
+8-	"fmt"
+9-	"os"
+10-	"path/filepath"
+11-	"strings"
+12-	"sync"
+13-	"time"
+14-
+15-	pprocess "github.com/Antonio7098/ultraplan-go/internal/platform/process"
+16-	pruntime "github.com/Antonio7098/ultraplan-go/internal/platform/runtime"
+17-	"github.com/Antonio7098/ultraplan-go/internal/project"
+18-	"github.com/Antonio7098/ultraplan-go/internal/workspace"
+19-)
+20-
+21-type Service struct {
+22-	root              string
+23-	store             FSStore
+[0m
+[0m$ [0mgrep -rn "\.Events(\|RunEvents\|EventPage\|eventsFor" internal/app/*.go internal/web/*.go | grep -v _test | head -12
+internal/app/run_commands.go:162:		events, err := repository.Events(deps.ctx, runID, after, 512)
+internal/app/run_commands.go:334:		events, err := repository.Events(ctx, snapshot.RunID, 0, 50)
+internal/app/run_usecases.go:32:	RunEvents(context.Context, runcontrol.RunID, uint64, int) ([]runcontrol.Event, error)
+internal/app/run_usecases.go:47:func (u repositoryRunUseCases) RunEvents(ctx context.Context, id runcontrol.RunID, after uint64, limit int) ([]runcontrol.Event, error) {
+internal/app/run_usecases.go:48:	return u.repository.Events(ctx, id, after, limit)
+internal/app/usecases.go:84:func (u dashboardUseCases) RunEvents(ctx context.Context, id RunID, after uint64, limit int) ([]RunEvent, error) {
+internal/app/usecases.go:88:	return u.runs.RunEvents(ctx, id, after, limit)
+internal/app/web_usecases.go:298:func (u *webUseCases) RunEvents(ctx context.Context, id runcontrol.RunID, after uint64, limit int) ([]runcontrol.Event, error) {
+internal/app/web_usecases.go:302:	return u.runs.RunEvents(ctx, id, after, limit)
+internal/web/handlers.go:259:	RunEvents     []runEventView
+internal/web/handlers.go:519:		h.handleRunEvents(w, r, match.params[0])
+internal/web/operation_handlers.go:467:			events, eventErr := h.runs.RunEvents(r.Context(), snapshot.RunID, after, 512)
+[0m
+[0m$ [0mgrep -n "runEventView\|payload\[" internal/web/handlers.go | head; grep -n "func.*runEventView" -A 40 internal/web/handlers.go | sed -n '1,60p'
+259:	RunEvents     []runEventView
+[0m
+[0m$ [0mgrep -rn "runEventView" internal/web/*.go | grep -v _test | head; echo ====; grep -rn "Type\b" internal/web/run_handlers.go | head -20
+internal/web/handlers.go:259:	RunEvents     []runEventView
+internal/web/run_handlers.go:98:type runEventView struct {
+internal/web/run_handlers.go:221:	eventViews := make([]runEventView, 0, len(events))
+internal/web/run_handlers.go:282:func newRunEventView(event app.RunEvent) runEventView {
+internal/web/run_handlers.go:292:	return runEventView{Sequence: event.Sequence, Type: string(event.Type), Stage: event.Stage, Task: event.Task,
+====
+100:	Type       string
+105:	DetailType string
+292:	return runEventView{Sequence: event.Sequence, Type: string(event.Type), Stage: event.Stage, Task: event.Task,
+293:		Time: committedRunEventTime(event), DetailKind: event.Payload["kind"], DetailType: event.Payload["type"], DetailTool: event.Payload["tool"], DetailText: text, Omission: omission}
+479:	w.Header().Set("Content-Type", "text/event-stream")
+[0m
+[0m$ [0mgrep -n "func DeriveStages" -A 30 internal/sprint/store_fs.go | head -45
+(no output)
+[0m
+[0m$ [0mgrep -rn "func DeriveStages" internal/sprint/*.go && grep -rn "func DeriveStages" -A 25 internal/sprint/discovery.go 2>/dev/null | head -35
+internal/sprint/service.go:1340:func DeriveStages(sp Sprint, snap ArtifactSnapshot, prior []StageState) []StageState {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go[90m [limit=65, offset=1340][0m
+[0m
+[0m$ [0mgit show 2d10aba --stat | tail -40
+internal/app/tui_commands.go                       |   2 +-
+ internal/app/usecases.go                           |   2 +-
+ internal/app/web_operations_test.go                |  36 ++
+ internal/app/web_usecases.go                       |   6 +-
+ internal/app/web_usecases_test.go                  |  57 +++
+ internal/platform/config/config.go                 |  10 +-
+ internal/platform/config/config_test.go            |  12 +
+ internal/platform/config/redaction.go              |   2 +
+ internal/sprint/artifacts.go                       |   2 +
+ internal/sprint/code_context.go                    | 415 ++++++++++++++++++
+ internal/sprint/code_context_test.go               | 472 +++++++++++++++++++++
+ internal/sprint/domain.go                          |  13 +-
+ internal/sprint/flow.go                            | 163 ++++---
+ internal/sprint/handbook_test.go                   |   2 +-
+ internal/sprint/prompts.go                         |  19 +
+ internal/sprint/reasoning_test.go                  |   4 +-
+ internal/sprint/review.go                          |   4 -
+ internal/sprint/review_test.go                     |  12 +-
+ internal/sprint/service.go                         |  27 +-
+ internal/sprint/sprint_index_test.go               |  14 +-
+ internal/sprint/sprint_test.go                     |  26 +-
+ internal/sprint/state.go                           |  59 +++
+ internal/sprint/store_fs.go                        |  26 +-
+ internal/sprint/verify_test.go                     |  28 ++
+ internal/web/api_compatibility_test.go             |   2 +-
+ internal/web/handlers.go                           |  14 +-
+ internal/web/operations.go                         |   4 +
+ internal/web/operations_contract_test.go           |  19 +
+ internal/web/security.go                           |  10 +-
+ internal/web/security_test.go                      |  30 ++
+ internal/web/static/app.css                        |  35 +-
+ internal/web/static/app.js                         | 144 ++++++-
+ internal/web/templates/sprint.html                 |  21 +-
+ internal/web/templates_test.go                     |  25 +-
+ internal/web/test_fakes_test.go                    |   7 +-
+ internal/workspace/init.go                         |  10 +
+ .../scaffold/prompts/create-code-context.md        |   7 +
+ .../workspace/scaffold/templates/code-context.md   |  34 ++
+ internal/workspace/workspace_test.go               |  28 ++
+ 46 files changed, 2001 insertions(+), 186 deletions(-)
+[0m
+[0m$ [0mgit show 2d10aba --stat | head -12
+commit 2d10abad7b2aba0e8b555c142a3e62d7f012b9a7
+Author: antonio <antoniorees74@gmail.com>
+Date:   Thu Aug 20 10:09:34 2026 +0100
+
+    Add code context planning stage
+
+ internal/app/app_test.go                           |  12 +-
+ internal/app/config_commands.go                    |   2 +
+ internal/app/operations.go                         |   5 +-
+ internal/app/sprint_commands.go                    |  52 ++-
+ internal/app/sprint_commands_test.go               | 162 ++++++-
+ internal/app/sprint_usecases.go                    | 103 ++++-
+[0m
+[0m$ [0mgit show 2d10aba --name-only --format="" | sort | sed -n '1,60p'
+internal/app/app_test.go
+internal/app/config_commands.go
+internal/app/operations.go
+internal/app/sprint_commands.go
+internal/app/sprint_commands_test.go
+internal/app/sprint_usecases.go
+internal/app/study_commands.go
+internal/app/tui_commands.go
+internal/app/usecases.go
+internal/app/web_operations_test.go
+internal/app/web_usecases.go
+internal/app/web_usecases_test.go
+internal/platform/config/config.go
+internal/platform/config/config_test.go
+internal/platform/config/redaction.go
+internal/sprint/artifacts.go
+internal/sprint/code_context.go
+internal/sprint/code_context_test.go
+internal/sprint/domain.go
+internal/sprint/flow.go
+internal/sprint/handbook_test.go
+internal/sprint/prompts.go
+internal/sprint/reasoning_test.go
+internal/sprint/review.go
+internal/sprint/review_test.go
+internal/sprint/service.go
+internal/sprint/sprint_index_test.go
+internal/sprint/sprint_test.go
+internal/sprint/state.go
+internal/sprint/store_fs.go
+internal/sprint/verify_test.go
+internal/web/api_compatibility_test.go
+internal/web/handlers.go
+internal/web/operations_contract_test.go
+internal/web/operations.go
+internal/web/security.go
+internal/web/security_test.go
+internal/web/static/app.css
+internal/web/static/app.js
+internal/web/templates/sprint.html
+internal/web/templates_test.go
+internal/web/test_fakes_test.go
+internal/workspace/init.go
+internal/workspace/scaffold/prompts/create-code-context.md
+internal/workspace/scaffold/templates/code-context.md
+internal/workspace/workspace_test.go
+[0m
+[0m$ [0mgrep -n "TUI\|tui" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/PRD.md | head -15
+12:UltraPlan Go is a production-grade local planning, implementation, review, and research system. Phase 1 implements the study side: architecture studies across source repositories/documents, structured report synthesis, summary generation, validation, and cited code-reference extraction. Phase 2 adds governed project and sprint planning through `plan`, then controlled implementation execution through `execute`. Sprints 24 and 25 add the local TUI foundation and guarded operational controls. Phase 3 completes the sprint workflow with automated conformance review followed by sprint-targeted deep smoke. Phase 4, beginning with Sprint 30, adds a loopback-only Go HTTP server and a simple Go-rendered browser UI over the same typed application use cases. Phase 5, beginning with Sprint 33, adds a durable `code-context` stage immediately after requirements and reuses its exact source pack across downstream planning, execution, and verification prompts. Phase 6, beginning with Sprint 35, gives every runtime-backed execution a durable workspace-visible identity, replayable safe history, truthful liveness, and consistent observation across CLI, TUI, browser sessions, and supported local server processes.
+20:  Every supported workflow remains available through stable CLI/JSON surfaces. The TUI and browser reuse the same typed use cases, canonical workspace artifacts, and durable workspace-wide run projection. A run remains discoverable and explainable when the observing page, browser session, or local server process changes.
+36:For UltraPlan Go, Phase 2 ports the planning artifact chain from the prototype through `plan.md` and adds controlled implementation execution from validated plans. The delivered TUI enabling track exposes those services locally. Phase 3 replaces manual sprint review and smoke coordination with product-owned `review.md` and `smoke.md` stages. Detailed smoke runs and issue evidence remain in the external harness referenced by the project index. Phase 4 adds a local browser surface without introducing hosted SaaS, multi-user collaboration, remote execution, a database-backed alternate product-artifact model, or project-management behavior. Phase 6 makes operational run identity and observation durable without changing those product-artifact authority boundaries.
+57:- **One product core, multiple local surfaces:** CLI, TUI, and local browser surfaces must share product services and use-case wiring instead of duplicating workflow logic or shelling out to each other for normal operation.
+83:- Key Behaviors: Opens a TUI dashboard, moves between projects/studies/sprints, runs safe validation/status actions, inspects failures, and launches controlled workflows only after reviewing impact.
+90:- Key Behaviors: Runs review before smoke, inspects `review.md` and `smoke.md`, follows linked harness evidence, resolves or explicitly accepts findings, and uses the TUI for progress, cancellation, reruns, and recovery.
+125:9. **Inspect work through a TUI**
+128:10. **Operate workflows through a TUI**
+129:   - As an operator, I want the TUI to run guarded validation, dry-run, flow, and run-loop actions so that I can monitor long-running work and react to failures from one local terminal interface.
+137:13. **Operate review and smoke through the TUI**
+138:   - As a local workflow navigator, I want review and smoke readiness, scope, confirmation, progress, cancellation, findings, evidence links, reruns, and recovery in the TUI so that the full post-execute workflow is available without losing CLI parity.
+147:   - As an operator, I want every current run in my workspace to appear with the same identity, liveness, progress, history, and recovery action in CLI, TUI, and any supported local browser server, regardless of where it started.
+157:- Provide a local TUI that improves discovery, monitoring, and guarded operation while preserving the CLI as the stable automation surface.
+160:- Provide the complete `execute -> review -> smoke` workflow through both CLI and TUI over shared app use cases.
+179:- Do not make the TUI the only supported interface; scripts and documentation must continue to use stable CLI and JSON surfaces.
+[0m
+[0m$ [0mgrep -n "uniformly\|all three\|three interfaces\|every interface" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/*.md /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/*/requirements.md 2>/dev/null | head -10
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md:23:CLI, TUI, and the Phase 4 local browser surface are interfaces over the same product core. They should share application use cases and dependency construction instead of duplicating workflow logic or using CLI output as an integration protocol. Phase 5 proves that boundary by adding `code-context` as a new sprint stage surfaced uniformly through all three interfaces. Phase 6 strengthens it by making run identity and observation workspace-wide instead of coupling them to an interface process or browser session.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md:40:the Phase 6 execution-control boundary owns durable run identity, lifecycle projection, liveness, event history, and reconciliation outside every interface adapter; its final package placement is selected during sprint reasoning
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints | tail -12
+24-tui-foundations
+25-operational-tui-controls
+26-review-stage
+27-deep-smoke
+28-review-to-smoke-flow
+29-phase-3-documentation-hardening-release
+30-web-foundations
+31-web-operations
+32-hardening-and-release
+33-code-context-stage
+34-shared-context
+35-durable-run-observability
+[0m
+[0m$ [0mgrep -n "TUI\|tui" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/requirements.md | head -10; echo ====; grep -n "uniform\|all three\|three surfaces\|every surface" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/requirements.md | head
+====
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/requirements.md
+[0m
+[0m$ [0mgrep -n -i "tui" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/requirements.md /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md | head -20; echo ====; grep -n -i "phase 5\|code-context\|parity" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md | head -20
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/requirements.md:52:- [ ] CLI, TUI, and browser continue to agree on code-context readiness, progress, state, artifact preview, findings, rerun, cancellation, and recovery through shared application operations and durable sprint state.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/requirements.md:77:- CLI, TUI, and HTTP adapters must continue to use typed shared application use cases. `internal/web` must not compose prompts, inspect repositories, duplicate stage validation, invoke the CLI binary, or persist alternate workflow truth.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/requirements.md:107:| Interface agreement | Shared app, CLI/JSON, TUI, and browser contract tests compare readiness, progress, findings, artifact, rerun, cancellation, terminal result, and recovered state. |
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md:9:Make every accepted runtime-backed UltraPlan execution a durable, workspace-visible run that can be discovered, inspected, followed, cancelled when authorized, and reconciled consistently from CLI, TUI, and any local web-server instance attached to the same workspace.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md:21:| Workspace-wide active-run projection | CLI, TUI, dashboard, project, sprint, study, and local web surfaces derive running counts and run lists from the same workspace-wide lifecycle model rather than the current web process's in-memory operation map or only the page currently being viewed. |
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md:35:- Work started through CLI, TUI, or one local web-server instance can be inspected from another supported local surface attached to the same workspace.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md:110:- prove identical active counts and lifecycle state across CLI, JSON, TUI, dashboard, and detail pages
+====
+5:> Product Phase 1 completed the study-side release scope. Product Phase 2 added governed project and sprint planning through `plan`, then controlled sprint implementation execution through `execute`. Sprints 24 and 25 delivered the TUI foundation and guarded operational controls as an enabling track. Product Phase 3 adds automated sprint review followed by deep smoke, with the full Phase 3 workflow exposed through both CLI and TUI. Product Phase 4 begins at Sprint 30 and adds a local Go HTTP server, Go-rendered browser UI, guarded HTTP operations, and SSE progress. Product Phase 5 begins at Sprint 33 and adds a durable `code-context` stage whose exact output is reused across downstream planning, execution, and verification prompts. Product Phase 6 begins at Sprint 35 and makes execution identity, liveness, event history, and observation durable across CLI, TUI, browser sessions, and local server processes. Hosted SaaS, remote exposure, multi-user collaboration, general-purpose issue tracking, automatic Git mutation, content identity, provenance, QA expansion, retrieval, and automatic repair remain deferred beyond this roadmap chunk.
+58:Product Phase 5 adds the first new workflow through those shared interface boundaries:
+62:  -> code-context
+73:The new stage gathers implementation evidence once into `code-context.md` and reuses that exact foundation downstream. It does not introduce repository indexing, retrieval, cache ownership, automatic staleness, or a second machine-readable context format.
+1149:This chunk finishes the browser as a supported product surface, then proves its extensibility by adding `code-context` as the first new workflow operated through that surface.
+1155:Sprint 33: Code-context vertical slice
+1164:| Phase 4: code-context | Product Phase 5, Sprints 33–34 |
+1165:| Phase 5 onward: content identity, provenance, and QA | Later roadmap chunks |
+1212:# Product Phase 5 — Grounded Planning Foundation
+1214:Product Phase 5 gathers implementation evidence once per sprint, preserves it as a durable artifact, and reuses the exact same foundation across planning, execution, and verification.
+1218:  -> code-context
+1232:projects/<project>/sprints/<sprint>/code-context.md
+1235:## Phase 5 Contract Gate
+1243:`docs/plans/sprint-code-context-stage.md`; the agent must also inspect the
+1252:Required for Phase 5:
+1254:- `internal/sprint` owns `code-context` stage order, prerequisites, status, validation, artifact paths, flow transitions, and downstream prompt integration.
+1255:- The stage reuses the existing project implementation-repository/worktree resolution and may read the source repository while writing only the sprint's `code-context.md`.
+1256:- `code-context.md` remains the single authoritative context-pack format; no parallel JSON manifest is added.
+1257:- Existing workspaces and persisted sprint state that predate `code-context` remain usable through explicit compatibility handling.
+1258:- Downstream prompts use one shared sprint-context renderer. Exact `requirements.md` and `code-context.md` content appear before stage-specific instructions without rewriting or dynamic run data.
+[0m
+[0m$ [0mgit log --oneline -- internal/tui | head -8; echo ====; grep -n -i "tui" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/review.md | head -10
+0f99eb7 Surface fallback, staleness, and attempt history on study run cards
+e09d394 Add durable run control and adaptive study execution
+f4d6d38 feat: add resumable review to smoke verification
+f142a73 feat: add review-gated deep smoke
+d1e8b45 feat: expose all sprint operations in tui
+f1de940 feat: add automated sprint review stage
+922062d Improve TUI and study run controls
+0dbf51e add operational TUI controls
+====
+121:- `contract-performance` — direct: Sprint 34 declares performance expectations, bounds expensive work, and avoids speculative concurrency. The shared-prompt renderer declares a 256 KiB prefix budget and 64 KiB suffix reserve (`internal/sprint/prompt_context.go:18-21`); tests prove exact boundary behavior at 256 KiB fit, one-byte overflow, and 64 KiB suffix reserve (`internal/sprint/prompt_context_test.go:186-262`). Source resolution is sequential, symlink-rejecting, regular-file-only, bounded by per-reference and aggregate byte budgets, and cancellation-aware via `ctx.Err()` checks before each reference, inside `readSharedLineRange`, and before return (`internal/sprint/prompt_context.go:127-196, 312-392`); no recursive scan, no goroutines, no unbounded `os.ReadFile`. Review fan-out uses `workers = min(Concurrency, len(runCoverage))` with a 1-16 cap (default 3), bounded channels, `sync.WaitGroup`, and `TestReviewFanOutUsesConfiguredBound` (`internal/sprint/review.go:174-187, 487-533, 589-603`). Execute reuses one `sharedPrefix` across tasks with `sync.Mutex` for `task.Runtime` (`internal/sprint/execute.go:217-231`). Smoke authoring caps snapshots at `maxSmokeAuthoringFiles = 20000` files and 64 MiB per file via `filepath.WalkDir` (`internal/sprint/smoke_author.go:18, 197-203, 302-343`). No caching, retrieval, index, or persistence is introduced; the architecture explicitly documents that no provider cache hit is guaranteed or measured (`docs/architecture.md:147`). Cost drivers (model, model_source, project, sprint, stage, task, coverage, run, session) are attached to every runtime request (`internal/sprint/service.go:983-1033`). `PERF-UI-001` is not triggered: this sprint does not change UI/TUI rendering; the web facade bounds are documented elsewhere and unchanged. All performance-sensitive constraints are declared, bounded, tested, and aligned with the Performance Contract; no actionable deviation found.
+124:- `contract-testing` — direct: The Sprint 34 implementation conforms to the testing contract. The new shared-prefix renderer (`target/internal/sprint/prompt_context.go:126-197`) has dedicated unit tests in `target/internal/sprint/prompt_context_test.go` covering exact-byte preservation, LF/CRLF/no-final-newline artifacts, deterministic authored-order with duplicates and overlaps (`prompt_context_test.go:55-76`), fail-closed source resolution across escape/absolute/missing/symlink/directory/out-of-range classes (`prompt_context_test.go:78-112`), cancellation, encoding, and budget errors (`prompt_context_test.go:129-151`), mid-read replacement detection (`prompt_context_test.go:153-184`), exact 256 KiB fit and one-byte overflow (`prompt_context_test.go:186-210`), recursion and mutation absence (`prompt_context_test.go:212-243`), and legacy suffix compatibility plus budget enforcement (`prompt_context_test.go:245-262`). Cross-stage integration is proved by `prompt_context_test.go:264-308` and `prompt_context_test.go:310-372`, which capture previews and runtime requests for sprint-index, technical-handbook, area-reasoning, final reasoning, plan, and execute and assert byte-for-byte identical prefixes with one stage boundary and no dynamic values. Cumulative flow coverage at `target/internal/sprint/sprint_index_test.go:175-196` locks in the canonical ordering with code-context scheduled exactly once. Review fan-out, citation, validation, repair, permission, restart, resume, fingerprint, atomic write, cancellation, blocked preflight, and drift diagnostics are covered by `target/internal/sprint/review_test.go:127-649`. Smoke authoring shared-prefix placement and stage-specific manifest exclusion are covered by `target/internal/sprint/smoke_test.go:282-414`. Skill materialization, customization preservation, force restoration, single-stage isolation, manual-only metadata, and canonical CLI delegation are covered by `target/internal/workspace/skills_test.go:10-230`. TEST-SEAM-001 holds: every collaborator is replaced through public `WithRuntime`, `WithStageRuntime`, `WithReviewConcurrency`, `WithProcessRunner`, `WithSmokeSettings`, and `WithRuntimeProgress` seams; no test mutates private service fields. TEST-FAIL-001 holds: every failure path introduced by the renderer (invalid path, containment, file kind, missing source, invalid range, changed read, encoding, budget, cancellation) is mapped to an explicit test. TEST-DET-001 holds: tests use `t.TempDir()`, deterministic fake runtimes, byte-equality assertions on stable slices, and lifecycle/state assertions. TEST-INT-001 holds: composition changes are exercised through integration tests that build full runtime requests via fake runtimes. TEST-CONTRACT-001 holds: `review_test.go:326-342` keeps a subprocess prompt-budget compatibility check, `review_test.go:344-381` validates verdict and citation gates, and `review_test.go:383-408` covers legacy deferred normalization plus duplicate-id rejection. TEST-E2E-001 holds for sprint flow ordering and shared-prefix reuse, and the gated real-repository requirements-to-plan dogfood required by `plan.md:159` is recorded as a truthful blocker in `execute.md:89-95` because the active manual execute skill permits only project status, sprint status, and execute-prompt CLI use; the blocked status names the exact missing prerequisite and is not represented as a pass. The release verification transcript in `execute.md:71-79` records `go test ./internal/sprint`, `go test ./internal/workspace ./internal/app ./internal/tui ./internal/web`, `go test ./...`, `go test -race ./...`, `go vet ./...`, `go build ./cmd/ultraplan`, and `git diff --check` as passing, satisfying the race and static-analysis expectations in `plan.md:152-158`. No actionable deviations from the testing contract were identified.
+137:- `contract-performance` — direct: Sprint 34 declares performance expectations, bounds expensive work, and avoids speculative concurrency. The shared-prompt renderer declares a 256 KiB prefix budget and 64 KiB suffix reserve (`internal/sprint/prompt_context.go:18-21`); tests prove exact boundary behavior at 256 KiB fit, one-byte overflow, and 64 KiB suffix reserve (`internal/sprint/prompt_context_test.go:186-262`). Source resolution is sequential, symlink-rejecting, regular-file-only, bounded by per-reference and aggregate byte budgets, and cancellation-aware via `ctx.Err()` checks before each reference, inside `readSharedLineRange`, and before return (`internal/sprint/prompt_context.go:127-196, 312-392`); no recursive scan, no goroutines, no unbounded `os.ReadFile`. Review fan-out uses `workers = min(Concurrency, len(runCoverage))` with a 1-16 cap (default 3), bounded channels, `sync.WaitGroup`, and `TestReviewFanOutUsesConfiguredBound` (`internal/sprint/review.go:174-187, 487-533, 589-603`). Execute reuses one `sharedPrefix` across tasks with `sync.Mutex` for `task.Runtime` (`internal/sprint/execute.go:217-231`). Smoke authoring caps snapshots at `maxSmokeAuthoringFiles = 20000` files and 64 MiB per file via `filepath.WalkDir` (`internal/sprint/smoke_author.go:18, 197-203, 302-343`). No caching, retrieval, index, or persistence is introduced; the architecture explicitly documents that no provider cache hit is guaranteed or measured (`docs/architecture.md:147`). Cost drivers (model, model_source, project, sprint, stage, task, coverage, run, session) are attached to every runtime request (`internal/sprint/service.go:983-1033`). `PERF-UI-001` is not triggered: this sprint does not change UI/TUI rendering; the web facade bounds are documented elsewhere and unchanged. All performance-sensitive constraints are declared, bounded, tested, and aligned with the Performance Contract; no actionable deviation found.
+140:- `contract-testing` — direct: The Sprint 34 implementation conforms to the testing contract. The new shared-prefix renderer (`target/internal/sprint/prompt_context.go:126-197`) has dedicated unit tests in `target/internal/sprint/prompt_context_test.go` covering exact-byte preservation, LF/CRLF/no-final-newline artifacts, deterministic authored-order with duplicates and overlaps (`prompt_context_test.go:55-76`), fail-closed source resolution across escape/absolute/missing/symlink/directory/out-of-range classes (`prompt_context_test.go:78-112`), cancellation, encoding, and budget errors (`prompt_context_test.go:129-151`), mid-read replacement detection (`prompt_context_test.go:153-184`), exact 256 KiB fit and one-byte overflow (`prompt_context_test.go:186-210`), recursion and mutation absence (`prompt_context_test.go:212-243`), and legacy suffix compatibility plus budget enforcement (`prompt_context_test.go:245-262`). Cross-stage integration is proved by `prompt_context_test.go:264-308` and `prompt_context_test.go:310-372`, which capture previews and runtime requests for sprint-index, technical-handbook, area-reasoning, final reasoning, plan, and execute and assert byte-for-byte identical prefixes with one stage boundary and no dynamic values. Cumulative flow coverage at `target/internal/sprint/sprint_index_test.go:175-196` locks in the canonical ordering with code-context scheduled exactly once. Review fan-out, citation, validation, repair, permission, restart, resume, fingerprint, atomic write, cancellation, blocked preflight, and drift diagnostics are covered by `target/internal/sprint/review_test.go:127-649`. Smoke authoring shared-prefix placement and stage-specific manifest exclusion are covered by `target/internal/sprint/smoke_test.go:282-414`. Skill materialization, customization preservation, force restoration, single-stage isolation, manual-only metadata, and canonical CLI delegation are covered by `target/internal/workspace/skills_test.go:10-230`. TEST-SEAM-001 holds: every collaborator is replaced through public `WithRuntime`, `WithStageRuntime`, `WithReviewConcurrency`, `WithProcessRunner`, `WithSmokeSettings`, and `WithRuntimeProgress` seams; no test mutates private service fields. TEST-FAIL-001 holds: every failure path introduced by the renderer (invalid path, containment, file kind, missing source, invalid range, changed read, encoding, budget, cancellation) is mapped to an explicit test. TEST-DET-001 holds: tests use `t.TempDir()`, deterministic fake runtimes, byte-equality assertions on stable slices, and lifecycle/state assertions. TEST-INT-001 holds: composition changes are exercised through integration tests that build full runtime requests via fake runtimes. TEST-CONTRACT-001 holds: `review_test.go:326-342` keeps a subprocess prompt-budget compatibility check, `review_test.go:344-381` validates verdict and citation gates, and `review_test.go:383-408` covers legacy deferred normalization plus duplicate-id rejection. TEST-E2E-001 holds for sprint flow ordering and shared-prefix reuse, and the gated real-repository requirements-to-plan dogfood required by `plan.md:159` is recorded as a truthful blocker in `execute.md:89-95` because the active manual execute skill permits only project status, sprint status, and execute-prompt CLI use; the blocked status names the exact missing prerequisite and is not represented as a pass. The release verification transcript in `execute.md:71-79` records `go test ./internal/sprint`, `go test ./internal/workspace ./internal/app ./internal/tui ./internal/web`, `go test ./...`, `go test -race ./...`, `go vet ./...`, `go build ./cmd/ultraplan`, and `git diff --check` as passing, satisfying the race and static-analysis expectations in `plan.md:152-158`. No actionable deviations from the testing contract were identified.
+153:- `contract-performance` — direct: Sprint 34 declares performance expectations, bounds expensive work, and avoids speculative concurrency. The shared-prompt renderer declares a 256 KiB prefix budget and 64 KiB suffix reserve (`internal/sprint/prompt_context.go:18-21`); tests prove exact boundary behavior at 256 KiB fit, one-byte overflow, and 64 KiB suffix reserve (`internal/sprint/prompt_context_test.go:186-262`). Source resolution is sequential, symlink-rejecting, regular-file-only, bounded by per-reference and aggregate byte budgets, and cancellation-aware via `ctx.Err()` checks before each reference, inside `readSharedLineRange`, and before return (`internal/sprint/prompt_context.go:127-196, 312-392`); no recursive scan, no goroutines, no unbounded `os.ReadFile`. Review fan-out uses `workers = min(Concurrency, len(runCoverage))` with a 1-16 cap (default 3), bounded channels, `sync.WaitGroup`, and `TestReviewFanOutUsesConfiguredBound` (`internal/sprint/review.go:174-187, 487-533, 589-603`). Execute reuses one `sharedPrefix` across tasks with `sync.Mutex` for `task.Runtime` (`internal/sprint/execute.go:217-231`). Smoke authoring caps snapshots at `maxSmokeAuthoringFiles = 20000` files and 64 MiB per file via `filepath.WalkDir` (`internal/sprint/smoke_author.go:18, 197-203, 302-343`). No caching, retrieval, index, or persistence is introduced; the architecture explicitly documents that no provider cache hit is guaranteed or measured (`docs/architecture.md:147`). Cost drivers (model, model_source, project, sprint, stage, task, coverage, run, session) are attached to every runtime request (`internal/sprint/service.go:983-1033`). `PERF-UI-001` is not triggered: this sprint does not change UI/TUI rendering; the web facade bounds are documented elsewhere and unchanged. All performance-sensitive constraints are declared, bounded, tested, and aligned with the Performance Contract; no actionable deviation found.
+156:- `contract-testing` — direct: The Sprint 34 implementation conforms to the testing contract. The new shared-prefix renderer (`target/internal/sprint/prompt_context.go:126-197`) has dedicated unit tests in `target/internal/sprint/prompt_context_test.go` covering exact-byte preservation, LF/CRLF/no-final-newline artifacts, deterministic authored-order with duplicates and overlaps (`prompt_context_test.go:55-76`), fail-closed source resolution across escape/absolute/missing/symlink/directory/out-of-range classes (`prompt_context_test.go:78-112`), cancellation, encoding, and budget errors (`prompt_context_test.go:129-151`), mid-read replacement detection (`prompt_context_test.go:153-184`), exact 256 KiB fit and one-byte overflow (`prompt_context_test.go:186-210`), recursion and mutation absence (`prompt_context_test.go:212-243`), and legacy suffix compatibility plus budget enforcement (`prompt_context_test.go:245-262`). Cross-stage integration is proved by `prompt_context_test.go:264-308` and `prompt_context_test.go:310-372`, which capture previews and runtime requests for sprint-index, technical-handbook, area-reasoning, final reasoning, plan, and execute and assert byte-for-byte identical prefixes with one stage boundary and no dynamic values. Cumulative flow coverage at `target/internal/sprint/sprint_index_test.go:175-196` locks in the canonical ordering with code-context scheduled exactly once. Review fan-out, citation, validation, repair, permission, restart, resume, fingerprint, atomic write, cancellation, blocked preflight, and drift diagnostics are covered by `target/internal/sprint/review_test.go:127-649`. Smoke authoring shared-prefix placement and stage-specific manifest exclusion are covered by `target/internal/sprint/smoke_test.go:282-414`. Skill materialization, customization preservation, force restoration, single-stage isolation, manual-only metadata, and canonical CLI delegation are covered by `target/internal/workspace/skills_test.go:10-230`. TEST-SEAM-001 holds: every collaborator is replaced through public `WithRuntime`, `WithStageRuntime`, `WithReviewConcurrency`, `WithProcessRunner`, `WithSmokeSettings`, and `WithRuntimeProgress` seams; no test mutates private service fields. TEST-FAIL-001 holds: every failure path introduced by the renderer (invalid path, containment, file kind, missing source, invalid range, changed read, encoding, budget, cancellation) is mapped to an explicit test. TEST-DET-001 holds: tests use `t.TempDir()`, deterministic fake runtimes, byte-equality assertions on stable slices, and lifecycle/state assertions. TEST-INT-001 holds: composition changes are exercised through integration tests that build full runtime requests via fake runtimes. TEST-CONTRACT-001 holds: `review_test.go:326-342` keeps a subprocess prompt-budget compatibility check, `review_test.go:344-381` validates verdict and citation gates, and `review_test.go:383-408` covers legacy deferred normalization plus duplicate-id rejection. TEST-E2E-001 holds for sprint flow ordering and shared-prefix reuse, and the gated real-repository requirements-to-plan dogfood required by `plan.md:159` is recorded as a truthful blocker in `execute.md:89-95` because the active manual execute skill permits only project status, sprint status, and execute-prompt CLI use; the blocked status names the exact missing prerequisite and is not represented as a pass. The release verification transcript in `execute.md:71-79` records `go test ./internal/sprint`, `go test ./internal/workspace ./internal/app ./internal/tui ./internal/web`, `go test ./...`, `go test -race ./...`, `go vet ./...`, `go build ./cmd/ultraplan`, and `git diff --check` as passing, satisfying the race and static-analysis expectations in `plan.md:152-158`. No actionable deviations from the testing contract were identified.
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/import_boundary_test.go
+[0m
+[0m$ [0mgo build ./... && go vet ./... 2>&1 | tail -3
+(no output)
+[0m
+[0m$ [0mgo test ./internal/sprint ./internal/app ./internal/tui ./internal/web 2>&1 | tail -6
+ok  	github.com/Antonio7098/ultraplan-go/internal/sprint	(cached)
+ok  	github.com/Antonio7098/ultraplan-go/internal/app	(cached)
+ok  	github.com/Antonio7098/ultraplan-go/internal/tui	(cached)
+ok  	github.com/Antonio7098/ultraplan-go/internal/web	(cached)
+[0m
+[0m$ [0mgrep -rn "flow-target\|FlowTargets\|stageOptions" internal/web/*.go internal/app/*.go | grep -v _test | head -5; echo ====; grep -c "case sprint.Stage" internal/app/operations.go internal/app/web_usecases.go internal/app/sprint_usecases.go
+====
+internal/app/operations.go:9
+internal/app/web_usecases.go:10
+internal/app/sprint_usecases.go:10
+[0m

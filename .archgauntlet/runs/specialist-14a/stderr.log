@@ -1,4 +1,509 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -5 && git status --short | head -20
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+[0m
+[0m$ [0mfind . -type d -not -path './.git*' -not -path './dist*' | sort
+.
+./cmd
+./cmd/ultraplan
+./docs
+./docs/plans
+./docs/reports
+./internal
+./internal/app
+./internal/codeextract
+./internal/platform
+./internal/platform/config
+./internal/platform/filesystem
+./internal/platform/logging
+./internal/platform/process
+./internal/platform/runtime
+./internal/productstate
+./internal/project
+./internal/runcontrol
+./internal/sprint
+./internal/study
+./internal/tui
+./internal/web
+./internal/web/static
+./internal/web/static/css
+./internal/web/static/js
+./internal/web/templates
+./internal/web/templates/components
+./internal/web/templates/layouts
+./internal/web/templates/pages
+./internal/web/templates/primitives
+./internal/workspace
+./internal/workspace/scaffold
+./internal/workspace/scaffold/prompts
+./internal/workspace/scaffold/templates
+./scripts
+[0m
+[0m✱ [0mGrep "exec\.Command|os/exec"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 24 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_unix.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_other.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process.go
+[0m✱ [0mGrep "platform/process|DirectRunner|process\.Request|process\.Runner"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 19 matches[0m
+[0m
+[0m$ [0mls internal/sprint internal/runcontrol internal/study
+internal/runcontrol:
+benchmark_test.go
+doc.go
+errors.go
+fault_test.go
+id.go
+id_test.go
+import_boundary_test.go
+interfaces.go
+lifecycle.go
+lifecycle_test.go
+local_log.go
+local_log_test.go
+metrics.go
+migration.go
+migration_test.go
+model.go
+model_test.go
+process_darwin.go
+process.go
+process_integration_test.go
+process_linux.go
+process_other.go
+retention.go
+retention_test.go
+sanitize.go
+sanitize_test.go
+sqlite.go
+sqlite_test.go
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515761921,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515761921,[]
+internal/sprint:
+artifacts.go
+cleanup_uncertain.go
+cleanup_uncertain_test.go
+code_context.go
+code_context_test.go
+context_pack.go
+direct_inputs.go
+direct_inputs_test.go
+discovery.go
+doc.go
+domain.go
+efficiency_improvements_test.go
+efficiency_metrics_test.go
+execute.go
+execute_model.go
+execute_model_test.go
+execute_plan.go
+execute_plan_test.go
+execute_state.go
+execute_state_test.go
+execute_target.go
+execute_target_test.go
+flow.go
+freshness_policy.go
+handbook.go
+handbook_test.go
+index.go
+input_contract.go
+locks.go
+locks_test.go
+plan.go
+plan_test.go
+prompt_bundle.go
+prompt_context.go
+prompt_context_test.go
+prompts.go
+reasoning.go
+reasoning_test.go
+review.go
+review_runtime_validation.go
+review_test.go
+runtime_metrics.go
+runtime_progress_test.go
+runtime_validation.go
+service.go
+session_state.go
+session_state_test.go
+smoke_author.go
+smoke.go
+smoke_protocol.go
+smoke_test.go
+smoke_types.go
+sprint_index_test.go
+sprint_test.go
+state_database.go
+state.go
+store_fs.go
+validation.go
+verification_lock.go
+verification_lock_test.go
+verify.go
+verify_test.go
+
+internal/study:
+applicability.go
+cleanup_uncertain.go
+cleanup_uncertain_test.go
+config.go
+config_test.go
+dimension_refs.go
+discovery.go
+doc.go
+domain.go
+durable_metadata.go
+edit_warnings.go
+execution_domain.go
+init_clone.go
+init.go
+init_render.go
+init_test.go
+init_yaml.go
+locks.go
+locks_test.go
+markdown.go
+memory_pressure.go
+metadata_domain.go
+prompts.go
+prompts_test.go
+rating.go
+rating_test.go
+reports.go
+resolve.go
+run_all.go
+run_all_test.go
+run.go
+run_history.go
+run_history_summary.go
+run_history_test.go
+run_loop_diagnostics.go
+run_loop_diagnostics_test.go
+run_loop.go
+run_loop_test.go
+run_state_domain.go
+run_state.go
+run_test.go
+runtime_metadata.go
+runtime_metadata_test.go
+runtime_validation.go
+service.go
+state_database.go
+state.go
+state_test.go
+study_test.go
+summary.go
+summary_test.go
+synthesize.go
+validation_command.go
+validation_command_test.go
+validation.go
+validation_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_linux.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_protocol.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_author.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_types.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/validation_command.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/cleanup_uncertain.go
+[0m✱ [0mGrep "smoke\.run_timeout|smoke\.discovery_timeout|SmokeSettings\{|WithSmokeSettings|smoke\.environment|smoke\.stdout_limit"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 29 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/init_clone.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify.go
+[0m✱ [0mGrep "verificationProcessAlive|func.*ProcessAlive|syscall\.Kill|Signal\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 16 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verification_lock.go
+[0m
+[0m$ [0mls internal/platform/runtime internal/platform/config internal/platform/filesystem
+internal/platform/config:
+config.go
+config_test.go
+doc.go
+redaction.go
+
+internal/platform/filesystem:
+doc.go
+
+internal/platform/runtime:
+agentwrap.go
+cache_test.go
+events.go
+health.go
+opencode.go
+opencode_test.go
+policy.go
+runtime.go
+runtime_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/agentwrap.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+[0m✱ [0mGrep "RecordCleanupUncertain|server_shutdown"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 23 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go[90m [offset=420, limit=230][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go[90m [limit=420][0m
+[0m✗ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go failed[90m [limit=120, offset=470][0m
+[91m[1mError: [0mOffset 470 is out of range for this file (150 lines)
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks.go
+[0m✱ [0mGrep "NewProcessOwner|NativeProcessProbe|ProcessIdentity|Owner\{|BirthToken"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 86 matches[0m
+[0m✱ [0mGrep "OperationSmokeStart|sprintRuntimeService|func.*RunOperation|sharedOperationRunner\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 33 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=130, offset=420][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go[90m [limit=120, offset=180][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operation_handlers.go[90m [limit=80, offset=80][0m
+[0m✱ [0mGrep "OperationSmokeStart|sharedOperationRunner|WithRuntime"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 1 match[0m
+[0m
+[0m$ [0mgit log --oneline -8 -- internal/app/operation_runner.go && git log -1 --format='%H %s' && git show eeaa034 --stat | head -30
+f067727 Propagate runtime failure diagnostics
+e09d394 Add durable run control and adaptive study execution
+0bf3cb9 fix: harden sprint review recovery and web operations
+a221683 feat: add guarded web operations and SSE progress
+eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 observability: promote nested runtime payload facts to top level
+commit eeaa034cb1e520ea10e806870f6026cf1bb6c4f7
+Author: antonio <antoniorees74@gmail.com>
+Date:   Sat Aug 22 11:01:06 2026 +0100
+
+    observability: promote nested runtime payload facts to top level
+    
+    opencode events nest tool names, titles, and text under part/state/properties
+    maps. Downstream consumers (run-loop progress summaries, durable operation
+    journal, web timeline) only read top-level payload keys, so every event
+    rendered as a generic 'runtime' row with empty tool names.
+    
+    promoteObservablePayloadFields() lifts tool/name/title/detail/text/delta/
+    output/message/state/status/action/phase from nested maps (depth 4,
+    deterministic traversal) onto the payload top level in mapEvent(), without
+    overwriting existing top-level values.
+
+ internal/platform/runtime/runtime.go | 55 +++++++++++++++++++++++++++++++++++-
+ 1 file changed, 54 insertions(+), 1 deletion(-)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go[90m [limit=80, offset=296][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go[90m [limit=70, offset=440][0m
+[0m✱ [0mGrep "runner\(ctx|u\.runner|runtimeBacked|func.*sprintService\(\)"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 3 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go[90m [limit=45, offset=396][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases.go[90m [limit=40, offset=100][0m
+[0m
+[0m$ [0mgit log --all --oneline -- internal/app/operation_runner.go | tail -5 && git show eeaa034~10 -- internal/app/operation_runner.go 2>/dev/null | head -5; git log -S 'WithSmokeSettings' --oneline -- internal/app/operation_runner.go
+bd2178e Add per-stage, per-task, and study-run model overrides with model selector
+f067727 Propagate runtime failure diagnostics
+e09d394 Add durable run control and adaptive study execution
+0bf3cb9 fix: harden sprint review recovery and web operations
+a221683 feat: add guarded web operations and SSE progress
+commit 5839f9a1df07a3081b372bc0a786030135d2d038
+Author: antonio <antoniorees74@gmail.com>
+Date:   Fri Aug 21 18:27:22 2026 +0100
+
+    resume interrupted study sessions
+a221683 feat: add guarded web operations and SSE progress
+[0m
+[0m✱ [0mGrep "smoke_author_runtime|runtime is required to author"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 0 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config.go[90m [limit=120, offset=415, command=ls docs/plans docs 2>/dev/null | head -30, workdir=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config.go[90m [limit=120, offset=1][0m
+[0m✱ [0mGrep ""PATH"|DefaultConfig|func Load|environment"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config · 10 matches[0m
+[0m✱ [0mGrep "clearListField|func runConfigClear|"clear""[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 3 matches[0m
+[0m
+[0m$ [0mls docs/plans docs/reports 2>/dev/null | head -40 && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace 2>/dev/null
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config.go[90m [limit=70, offset=185][0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects 2>/dev/null
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects:
+aren-phase-01-execution-lifecycle
+ultraplan-go
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system:
+contracts
+protocols
+reasoning
+[0m
+[0m$ [0mls -R /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system 2>/dev/null | head -50; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go 2>/dev/null
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system:
+contracts
+protocols
+reasoning
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts:
+core
+runtime
+surfaces
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core:
+architecture.md
+configuration.md
+documentation.md
+errors.md
+observability.md
+privacy-and-data.md
+release-versioning.md
+security.md
+testing.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime:
+llm-evaluation-cost-safety.md
+llm.md
+performance.md
+persistence-and-migrations.md
+workflows.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/surfaces:
+accessibility.md
+api-contracts.md
+cli.md
+frontend.md
+package-public-api.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols:
+architecture-review-protocol.md
+contract-mapping-protocol.md
+deep-smoke-sprint-protocol.md
+plan-sprint-protocol.md
+review-sprint-protocol.md
+sprint-review-protocol.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning:
+api-design-reasoning-template.md
+architecture_reasoning_template.md
+cli-design-reasoning-template.md
+data-privacy-reasoning-template.md
+errors_reasoning_template.md
+eval-design-reasoning-template.md
+docs
+project-index.md
+roadmap.md
+sprints
+[0m
+[0m$ [0mgrep -n -i "environment\|allowlist\|process group\|setpgid\|timeout" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols/deep-smoke-sprint-protocol.md | head -40
+17:Use smoke for real runtime/process behavior, CLI/TUI output, JSON, persistence, artifacts, locks, cancellation, timeout, auth/model/environment, security, redaction, containment, and mutation claims. Runtime fixes require passing smoke evidence.
+31:The manifest declares schema/protocol version, executable/argument prefix, machine discovery/run commands, authoring paths, capabilities, evidence directories, and environment policy. Discovery supplies levels, suites, enumerated tests and coverage IDs, sprint mappings, prerequisites, evidence schema, and duration/cost class. README prose is documentation, never an executable command. Do not hardcode developer paths, models, or commands.
+37:Show scope, prerequisites, runtime/model, duration/cost class, target/harness paths, allowed mutations, timeout, and evidence destination before confirmation.
+41:Use explicit executable/argv, contained cwd, allowlisted environment, context timeout/cancellation, bounded output capture, descendant cleanup, and no shell interpolation. Validate run ID, argv/cwd, runtime/model, environment, time/duration, exit code, selected scope/counts, evidence paths/identity, issue IDs, and mutation summary. Harness `runs/` is the detailed source of truth; do not copy raw streams into the sprint.
+45:Classify product bug, harness bug, model variance, runtime behavior, environment/configuration, missing coverage/evidence, or weak assertion. Relevant issue files stay in harness `issues/` and are linked from `smoke.md`.
+51:Atomically write sections for Smoke Context, Review Gate, Selected Scope And Rationale, Preconditions And Environment, Run Evidence, Findings, Open Issues, Resolved Issues, Mutation And Safety Check, and Verdict And Next Action.
+[0m
+[0m$ [0mgrep -n -i "process\|exec\|argv\|environment\|group" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/security.md | head -30; echo ---; grep -rn -i "smoke.environment\|environment allowlist" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/configuration.md | head
+14:- injection and unsafe execution prevention
+15:- file, path, subprocess, network, and dependency access safety
+22:- processes untrusted input
+26:- adds dependencies, build steps, plugins, or code execution paths
+36:| SEC-INJECT-001 | Injection-prone operations must use safe APIs | DB, shell/subprocess, templates, queries | Blocker |
+41:| SEC-DESER-001 | Deserialization and dynamic execution must be restricted | parsers, plugins, scripts | Blocker |
+110:- accepting arbitrary extra fields that can influence persistence, runtime, subprocess, or provider calls
+120:Code must use structured APIs for commands, queries, templates, and paths rather than building executable strings from untrusted data.
+124:- avoid shell execution where library APIs are available
+125:- pass command arguments as arrays/lists when subprocesses are necessary
+132:- unsafe eval-like execution of user content
+144:- load secrets from environment, secret manager, vault, or approved local dev mechanism
+173:- executing install-time scripts or generated code without review
+220:### SEC-DESER-001: Deserialization And Dynamic Execution Must Be Restricted
+233:- eval/exec of untrusted content
+238:- dynamic execution paths are explicitly justified and constrained
+252:- enabling auth bypass by environment omission
+265:- builds executable queries, commands, or templates from untrusted strings
+269:- permits unsafe deserialization or dynamic execution
+---
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/import_boundary_test.go
+[0m✱ [0mGrep "runCloneActions|GitCloneRunner|func.*Init\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study · 7 matches[0m
+[0m
+[0m$ [0mgrep -n -i "process\|subprocess\|timeout\|cancellation" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/architecture.md | head -30
+47:2. Dependency direction should keep product behavior independent from process entrypoints, transports, vendors, and generic platform runtime details.
+99:- vendor/provider/process adapters must remain outside domain code and behind a narrow boundary when used by use cases
+102:- domain code importing command, transport, provider, persistence, or process-execution packages
+103:- product use cases calling provider SDKs, subprocess runners, databases, or long-running runtimes directly when those dependencies are volatile or need substitution
+143:- introducing external process execution, network/provider calls, durable state, clocks/timers, concurrency, or filesystem behavior that is expensive or difficult to fixture
+153:- importing concrete provider clients, process runners, database/session handles, or vendor SDKs into use cases
+154:- leaking platform DB models, transport schemas, provider payloads, or subprocess details into use cases
+156:- creating interfaces only to satisfy ceremony when there is one stable in-process implementation and no substitution need
+231:- keep process entrypoints thin, typically `cmd/<binary>/main.go -> internal/app`
+257:- use `platform/` for generic runtime infrastructure such as config loading, telemetry wiring, task execution, process execution, filesystem adapters, and orchestration wrappers
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_test.go[90m [limit=120][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_test.go[90m [limit=120, offset=120][0m
+[0m✱ [0mGrep "RunOperation"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui · 2 matches[0m
+[0m
+[0m$ [0mgrep -rn "runner " internal/app/usecases.go | head; grep -n "type dashboardUseCases" -A 12 internal/app/usecases.go
+63:	runner            func(context.Context, OperationRequest, func(OperationEvent)) (OperationResult, error)
+61:type dashboardUseCases struct {
+62-	root              string
+63-	runner            func(context.Context, OperationRequest, func(OperationEvent)) (OperationResult, error)
+64-	stageRuntime      map[sprint.PlanningStage]sprint.StageRuntime
+65-	reviewConcurrency int
+66-	smokeSettings     sprint.SmokeSettings
+67-	readOnly          bool
+68-	runs              RunUseCases
+69-	durable           DurableOperationManager
+70-}
+71-
+72-func (u dashboardUseCases) Runs(ctx context.Context, query RunQuery) (RunPage, error) {
+73-	if u.runs == nil {
+[0m
+[0m$ [0mmkdir -p /tmp/opencode/piperace && cd /tmp/opencode/piperace && cat > main.go <<'EOF'
+package main
+
+import (
+	"fmt"
+	"os/exec"
+	"sync"
+)
+
+// Mirrors internal/platform/process DirectRunner: StdoutPipe + concurrent Wait.
+func main() {
+	lost := 0
+	for i := 0; i < 4000; i++ {
+		cmd := exec.Command("/bin/sh", "-c", "printf 'HELLO-TAIL'")
+		stdout, _ := cmd.StdoutPipe()
+		_ = cmd.Start()
+		var mu sync.Mutex
+		data := ""
+		done := make(chan struct{})
+		go func() {
+			buf := make([]byte, 4096)
+			for {
+				n, err := stdout.Read(buf)
+				if n > 0 {
+					mu.Lock()
+					data += string(buf[:n])
+					mu.Unlock()
+				}
+				if err != nil {
+					close(done)
+					return
+				}
+			}
+		}()
+		waited := make(chan error, 1)
+		go func() { waited <- cmd.Wait() }()
+		<-waited // Wait returns as soon as the child exits; may close the pipe first
+		<-done
+		mu.Lock()
+		if data != "HELLO-TAIL" {
+			lost++
+		}
+		mu.Unlock()
+	}
+	fmt.Printf("lost tail %d/4000\n", lost)
+}
+EOF
+go mod init piperace >/dev/null 2>&1; go run main.go
+lost tail 3/4000
+[0m
+[0m✱ [0mGrep "func planningStageRuntime"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 1 match[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=40, offset=606][0m

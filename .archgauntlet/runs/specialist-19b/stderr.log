@@ -1,4 +1,446 @@
-[91m[1mError: [0mUnexpected error
-
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515615464,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515615464,[]
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mfind . -type f -not -path './.git/*' | sort
+./cmd/ultraplan/main.go
+./dist/checksums.txt
+./dist/smoke-evidence.md
+./dist/ultraplan-darwin-amd64
+./dist/ultraplan-darwin-arm64
+./dist/ultraplan-linux-amd64
+./dist/ultraplan-linux-arm64
+./docs/architecture.md
+./docs/cli-reference.md
+./docs/configuration.md
+./docs/local-web.md
+./docs/migration-from-ultra-cli.md
+./docs/migration-product-state.md
+./docs/opencode-smoke.md
+./docs/phase3-json-schemas.md
+./docs/phase3-migration.md
+./docs/planning-smoke.md
+./docs/plans/integrated-roadmap.md
+./docs/plans/post-execution-qa-and-repair-loop.md
+./docs/plans/retrieval-ready-content-knowledge-graph-addendum.md
+./docs/plans/retrieval-ready-content-plan.md
+./docs/plans/server-shutdown-run-cancellation-contract.md
+./docs/plans/sprint-code-context-stage.md
+./docs/plans/ultraplan-local-server-experiment-plan.md
+./docs/recovery.md
+./docs/release-checklist.md
+./docs/reports/sprint-efficiency.md
+./docs/stage-skills.md
+./docs/ui-audit.md
+./docs/user-guide.md
+./docs/web-compatibility-baseline.md
+./.github/workflows/ci.yml
+./.gitignore
+./go.mod
+./go.sum
+./internal/app/app.go
+./internal/app/app_test.go
+./internal/app/code_commands.go
+./internal/app/code_commands_test.go
+./internal/app/config_commands.go
+./internal/app/defaults_commands.go
+./internal/app/durable_operations.go
+./internal/app/durable_operations_test.go
+./internal/app/health_commands.go
+./internal/app/health_commands_test.go
+./internal/app/json_output.go
+./internal/app/markdown.go
+./internal/app/markdown_test.go
+./internal/app/operation_runner.go
+./internal/app/operations.go
+./internal/app/project_commands.go
+./internal/app/project_commands_test.go
+./internal/app/project_usecases.go
+./internal/app/run_commands.go
+./internal/app/run_commands_test.go
+./internal/app/run_control.go
+./internal/app/run_control_inventory_test.go
+./internal/app/run_control_test.go
+./internal/app/run_usecases.go
+./internal/app/serve_commands.go
+./internal/app/serve_commands_test.go
+./internal/app/skills_commands.go
+./internal/app/skills_commands_test.go
+./internal/app/sprint_commands.go
+./internal/app/sprint_commands_test.go
+./internal/app/sprint_error_test.go
+./internal/app/sprint_usecases.go
+./internal/app/sprint_usecases_test.go
+./internal/app/sprint_verify_commands_test.go
+./internal/app/status_json.go
+./internal/app/storage_commands.go
+./internal/app/study_commands.go
+./internal/app/study_commands_test.go
+./internal/app/study_init_commands_test.go
+./internal/app/study_prompt_commands_test.go
+./internal/app/study_run_all_commands_test.go
+./internal/app/study_run_commands_test.go
+./internal/app/study_run_loop_commands_test.go
+./internal/app/study_runs_commands.go
+./internal/app/study_runs_commands_test.go
+./internal/app/study_status_commands_test.go
+./internal/app/study_summary_commands_test.go
+./internal/app/study_usecases.go
+./internal/app/study_validate_commands_test.go
+./internal/app/surfaces.go
+./internal/app/tui_commands.go
+./internal/app/tui_commands_test.go
+./internal/app/usecases.go
+./internal/app/usecases_test.go
+./internal/app/version.go
+./internal/app/web_operations_test.go
+./internal/app/web_usecases.go
+./internal/app/web_usecases_test.go
+./internal/app/workspace_commands.go
+./internal/codeextract/codeextract_test.go
+./internal/codeextract/doc.go
+./internal/codeextract/domain.go
+./internal/codeextract/parser.go
+./internal/codeextract/resolver.go
+./internal/codeextract/service.go
+./internal/platform/config/config.go
+./internal/platform/config/config_test.go
+./internal/platform/config/doc.go
+./internal/platform/config/redaction.go
+./internal/platform/filesystem/doc.go
+./internal/platform/logging/doc.go
+./internal/platform/logging/logging.go
+./internal/platform/logging/logging_test.go
+./internal/platform/process/process.go
+./internal/platform/process/process_other.go
+./internal/platform/process/process_test.go
+./internal/platform/process/process_unix.go
+./internal/platform/runtime/agentwrap.go
+./internal/platform/runtime/cache_test.go
+./internal/platform/runtime/events.go
+./internal/platform/runtime/health.go
+./internal/platform/runtime/opencode.go
+./internal/platform/runtime/opencode_test.go
+./internal/platform/runtime/policy.go
+./internal/platform/runtime/runtime.go
+./internal/platform/runtime/runtime_test.go
+./internal/productstate/store.go
+./internal/project/discovery.go
+./internal/project/doc.go
+./internal/project/domain.go
+./internal/project/index.go
+./internal/project/project_test.go
+./internal/project/reasoning_defaults.go
+./internal/project/reasoning_defaults_test.go
+./internal/project/service.go
+./internal/project/store_fs.go
+./internal/project/validation.go
+./internal/runcontrol/benchmark_test.go
+./internal/runcontrol/doc.go
+./internal/runcontrol/errors.go
+./internal/runcontrol/fault_test.go
+./internal/runcontrol/id.go
+./internal/runcontrol/id_test.go
+./internal/runcontrol/import_boundary_test.go
+./internal/runcontrol/interfaces.go
+./internal/runcontrol/lifecycle.go
+./internal/runcontrol/lifecycle_test.go
+./internal/runcontrol/local_log.go
+./internal/runcontrol/local_log_test.go
+./internal/runcontrol/metrics.go
+./internal/runcontrol/migration.go
+./internal/runcontrol/migration_test.go
+./internal/runcontrol/model.go
+./internal/runcontrol/model_test.go
+./internal/runcontrol/process_darwin.go
+./internal/runcontrol/process.go
+./internal/runcontrol/process_integration_test.go
+./internal/runcontrol/process_linux.go
+./internal/runcontrol/process_other.go
+./internal/runcontrol/retention.go
+./internal/runcontrol/retention_test.go
+./internal/runcontrol/sanitize.go
+./internal/runcontrol/sanitize_test.go
+./internal/runcontrol/sqlite.go
+./internal/runcontrol/sqlite_test.go
+./internal/sprint/artifacts.go
+./internal/sprint/cleanup_uncertain.go
+./internal/sprint/cleanup_uncertain_test.go
+./internal/sprint/code_context.go
+./internal/sprint/code_context_test.go
+./internal/sprint/context_pack.go
+./internal/sprint/direct_inputs.go
+./internal/sprint/direct_inputs_test.go
+./internal/sprint/discovery.go
+./internal/sprint/doc.go
+./internal/sprint/domain.go
+./internal/sprint/efficiency_improvements_test.go
+./internal/sprint/efficiency_metrics_test.go
+./internal/sprint/execute.go
+./internal/sprint/execute_model.go
+./internal/sprint/execute_model_test.go
+./internal/sprint/execute_plan.go
+./internal/sprint/execute_plan_test.go
+./internal/sprint/execute_state.go
+./internal/sprint/execute_state_test.go
+./internal/sprint/execute_target.go
+./internal/sprint/execute_target_test.go
+./internal/sprint/flow.go
+./internal/sprint/freshness_policy.go
+./internal/sprint/handbook.go
+./internal/sprint/handbook_test.go
+./internal/sprint/index.go
+./internal/sprint/input_contract.go
+./internal/sprint/locks.go
+./internal/sprint/locks_test.go
+./internal/sprint/plan.go
+./internal/sprint/plan_test.go
+./internal/sprint/prompt_bundle.go
+./internal/sprint/prompt_context.go
+./internal/sprint/prompt_context_test.go
+./internal/sprint/prompts.go
+./internal/sprint/reasoning.go
+./internal/sprint/reasoning_test.go
+./internal/sprint/review.go
+./internal/sprint/review_runtime_validation.go
+./internal/sprint/review_test.go
+./internal/sprint/runtime_metrics.go
+./internal/sprint/runtime_progress_test.go
+./internal/sprint/runtime_validation.go
+./internal/sprint/service.go
+./internal/sprint/session_state.go
+./internal/sprint/session_state_test.go
+./internal/sprint/smoke_author.go
+./internal/sprint/smoke.go
+./internal/sprint/smoke_protocol.go
+./internal/sprint/smoke_test.go
+./internal/sprint/smoke_types.go
+./internal/sprint/sprint_index_test.go
+./internal/sprint/sprint_test.go
+./internal/sprint/state_database.go
+./internal/sprint/state.go
+./internal/sprint/store_fs.go
+./internal/sprint/validation.go
+./internal/sprint/verification_lock.go
+./internal/sprint/verification_lock_test.go
+./internal/sprint/verify.go
+./internal/sprint/verify_test.go
+./internal/study/applicability.go
+./internal/study/cleanup_uncertain.go
+./internal/study/cleanup_uncertain_test.go
+./internal/study/config.go
+./internal/study/config_test.go
+./internal/study/dimension_refs.go
+./internal/study/discovery.go
+./internal/study/doc.go
+./internal/study/domain.go
+./internal/study/durable_metadata.go
+./internal/study/edit_warnings.go
+./internal/study/execution_domain.go
+./internal/study/init_clone.go
+./internal/study/init.go
+./internal/study/init_render.go
+./internal/study/init_test.go
+./internal/study/init_yaml.go
+./internal/study/locks.go
+./internal/study/locks_test.go
+./internal/study/markdown.go
+./internal/study/memory_pressure.go
+./internal/study/metadata_domain.go
+./internal/study/prompts.go
+./internal/study/prompts_test.go
+./internal/study/rating.go
+./internal/study/rating_test.go
+./internal/study/reports.go
+./internal/study/resolve.go
+./internal/study/run_all.go
+./internal/study/run_all_test.go
+./internal/study/run.go
+./internal/study/run_history.go
+./internal/study/run_history_summary.go
+./internal/study/run_history_test.go
+./internal/study/run_loop_diagnostics.go
+./internal/study/run_loop_diagnostics_test.go
+./internal/study/run_loop.go
+./internal/study/run_loop_test.go
+./internal/study/run_state_domain.go
+./internal/study/run_state.go
+./internal/study/run_test.go
+./internal/study/runtime_metadata.go
+./internal/study/runtime_metadata_test.go
+./internal/study/runtime_validation.go
+./internal/study/service.go
+./internal/study/state_database.go
+./internal/study/state.go
+./internal/study/state_test.go
+./internal/study/study_test.go
+./internal/study/summary.go
+./internal/study/summary_test.go
+./internal/study/synthesize.go
+./internal/study/validation_command.go
+./internal/study/validation_command_test.go
+./internal/study/validation.go
+./internal/study/validation_test.go
+./internal/tui/app.go
+./internal/tui/doc.go
+./internal/tui/keys.go
+./internal/tui/markdown.go
+./internal/tui/model.go
+./internal/tui/model_test.go
+./internal/tui/run_view_test.go
+./internal/tui/test_fakes_test.go
+./internal/tui/theme.go
+./internal/tui/verify_test.go
+./internal/tui/viewport.go
+./internal/tui/viewport_test.go
+./internal/tui/views.go
+./internal/tui/views_test.go
+./internal/web/api_compatibility_test.go
+./internal/web/artifacts.go
+./internal/web/artifacts_test.go
+./internal/web/handlers.go
+./internal/web/import_boundary_test.go
+./internal/web/integration_test.go
+./internal/web/operation_handlers.go
+./internal/web/operations_contract_test.go
+./internal/web/operations.go
+./internal/web/operations_test.go
+./internal/web/packaging_test.go
+./internal/web/routes.go
+./internal/web/routes_test.go
+./internal/web/run_handlers.go
+./internal/web/run_handlers_test.go
+./internal/web/security.go
+./internal/web/security_test.go
+./internal/web/server.go
+./internal/web/server_policy.go
+./internal/web/server_policy_test.go
+./internal/web/server_test.go
+./internal/web/sse_test.go
+./internal/web/static/app.css
+./internal/web/static/app.js
+./internal/web/static/css/base.css
+./internal/web/static/css/components.css
+./internal/web/static/css/layouts.css
+./internal/web/static/css/primitives.css
+./internal/web/static/css/tokens.css
+./internal/web/static/css/utilities.css
+./internal/web/static/js/app.js
+./internal/web/static/js/operations.js
+./internal/web/static/js/sse.js
+./internal/web/static/resource-monitor.css
+./internal/web/static/resource-monitor.js
+./internal/web/templates/artifact.html
+./internal/web/templates/components/components.html
+./internal/web/templates/dashboard.html
+./internal/web/templates/error.html
+./internal/web/templates/layouts/layouts.html
+./internal/web/templates/operation-confirm.html
+./internal/web/templates/operation.html
+./internal/web/templates/pages/pages.html
+./internal/web/templates/primitives/primitives.html
+./internal/web/templates/project.html
+./internal/web/templates/projects.html
+./internal/web/templates/run.html
+./internal/web/templates/runs.html
+./internal/web/templates/shell.html
+./internal/web/templates/sprint.html
+./internal/web/templates/studies.html
+./internal/web/templates/study.html
+./internal/web/templates_test.go
+./internal/web/test_fakes_test.go
+./internal/workspace/defaults.go
+./internal/workspace/discovery.go
+./internal/workspace/doc.go
+./internal/workspace/init.go
+./internal/workspace/paths.go
+./internal/workspace/scaffold/prompts/base.md
+./internal/workspace/scaffold/prompts/create-area-reasoning.md
+./internal/workspace/scaffold/prompts/create-code-context.md
+./internal/workspace/scaffold/prompts/create-requirements.md
+./internal/workspace/scaffold/prompts/create-sprint-index.md
+./internal/workspace/scaffold/prompts/create-sprint-reasoning.md
+./internal/workspace/scaffold/prompts/create-technical-handbook.md
+./internal/workspace/scaffold/prompts/execute-sprint.md
+./internal/workspace/scaffold/prompts/meta-plan.md
+./internal/workspace/scaffold/prompts/meta-synthesize.md
+./internal/workspace/scaffold/prompts/plan-sprint.md
+./internal/workspace/scaffold/prompts/review.md
+./internal/workspace/scaffold/prompts/smoke.md
+./internal/workspace/scaffold/prompts/synthesize.md
+./internal/workspace/scaffold/templates/code-context.md
+./internal/workspace/scaffold/templates/meta-report.md
+./internal/workspace/scaffold/templates/project-index.md
+./internal/workspace/scaffold/templates/README.md
+./internal/workspace/scaffold/templates/repo-analysis.md
+./internal/workspace/scaffold/templates/report.md
+./internal/workspace/scaffold/templates/requirements.md
+./internal/workspace/scaffold/templates/review.md
+./internal/workspace/scaffold/templates/smoke.md
+./internal/workspace/scaffold/templates/sprint-index.md
+./internal/workspace/scaffold/templates/sprint-plan.md
+./internal/workspace/scaffold/templates/sprint-reasoning.md
+./internal/workspace/scaffold/templates/technical-handbook.md
+./internal/workspace/skills.go
+./internal/workspace/skills_test.go
+./internal/workspace/validation.go
+./internal/workspace/workspace_test.go
+./README.md
+./scripts/install-ultraplan.sh
+./scripts/migrate-legacy-sprint-state.sh
+./scripts/migrate-product-state.sh
+./scripts/reset-opencode-db.sh
+[0m
+[0m✱ [0mGrep "go func|go [a-zA-Z_]+\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 26 matches[0m
+[0m✱ [0mGrep "sync\.(Mutex|RWMutex|WaitGroup|Once|Map|Cond)|atomic\."[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 65 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_unix.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m✱ [0mGrep "record\.cancel|\.cancel\(\)|cancelOnce"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web · 4 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_all.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop_diagnostics.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [offset=440, limit=140][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=120, offset=579][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/locks.go
+[0m✱ [0mGrep "func acquireMutation|func.*acquireMutation\(|flock|FlockLock|syscall\.Flock|O_EXCL"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 2 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verification_lock.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers.go
+[0m✱ [0mGrep "ResponseController|SetWriteDeadline|SetReadDeadline|MaxStreamLifetime|SSEHeartbeat"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web · 12 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operation_handlers.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/security.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/js/sse.js
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/app.js
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/local_log.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go[90m [limit=160, offset=180][0m
+[0m
+[0m$ [0mgrep agentwrap go.mod && find / -type d -name "agentwrap*" -path "*antonio*" 2>/dev/null | head -5
+github.com/Antonio7098/agentwrap v0.0.0-20260821190033-e79a38a58da3
+/home/antonioborgerees/coding/agentwrap
+/home/antonioborgerees/coding/agentwrap/cmd/agentwrap
+/home/antonioborgerees/coding/agentwrap-smoke
+/home/antonioborgerees/coding/agentwrap-smoke/cmd/agentwrap_demo
+/home/antonioborgerees/coding/agentwrap-smoke/cmd/agentwrap-run
+[0m
+[0m✱ [0mGrep "func \(.*\) Events\(\)|func \(.*\) Wait\(|close\(.*[eE]vents|func \(r \*Run\)"[90m in /home/antonioborgerees/coding/agentwrap · 29 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/agentwrap/opencode/runtime.go[90m [limit=130, offset=275][0m
+[0m✱ [0mGrep "make\(chan agentwrap\.Event|func \(r \*run\) sendEvent"[90m in /home/antonioborgerees/coding/agentwrap/opencode/runtime.go · 2 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/agentwrap/opencode/runtime.go[90m [limit=30, offset=1222][0m
+[0m✱ [0mGrep "func .*startSprintRuntime|func defaultSprintRuntimeFactory|controlledRuntimeFor\(|func sprintRuntimeService"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 7 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=80, offset=470][0m
+[0m✱ [0mGrep "func SaveExecuteRunState|func atomicWrite|os\.Rename"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 12 matches[0m

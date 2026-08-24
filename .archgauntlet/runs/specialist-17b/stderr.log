@@ -4,119 +4,240 @@
 [0m
 [0m→ [0mSkill "ultraplan-architecture-gauntlet"
 [0m
-[0m$ [0mgit log --oneline -3 && git status --short | head -5
-eeaa034 observability: promote nested runtime payload facts to top level
-c455510 observability: surface agent stream details in durable run events
-4f440ca Show session continuation and harness session ID in run agent modal
-[0m
-[0m$ [0mfind . -name '*.go' -not -path './vendor/*' | head -80 && echo '---TOTAL---' && find . -name '*.go' -not -path './vendor/*' | wc -l
-./cmd/ultraplan/main.go
-./internal/app/app.go
-./internal/app/app_test.go
-./internal/app/code_commands.go
-./internal/app/code_commands_test.go
-./internal/app/config_commands.go
-./internal/app/defaults_commands.go
-./internal/app/health_commands.go
-./internal/app/health_commands_test.go
-./internal/app/json_output.go
-./internal/app/markdown.go
-./internal/app/markdown_test.go
-./internal/app/project_commands.go
-./internal/app/project_usecases.go
-./internal/app/run_commands.go
-./internal/app/run_commands_test.go
-./internal/app/run_control_inventory_test.go
-./internal/app/run_usecases.go
-./internal/app/serve_commands_test.go
-./internal/app/skills_commands.go
-./internal/app/skills_commands_test.go
-./internal/app/sprint_error_test.go
-./internal/app/sprint_usecases.go
-./internal/app/sprint_usecases_test.go
-./internal/app/sprint_verify_commands_test.go
-./internal/app/status_json.go
-./internal/app/storage_commands.go
-./internal/app/study_commands_test.go
-./internal/app/study_init_commands_test.go
-./internal/app/study_prompt_commands_test.go
-./internal/app/study_run_all_commands_test.go
-./internal/app/study_run_commands_test.go
-./internal/app/study_run_loop_commands_test.go
-./internal/app/study_runs_commands.go
-./internal/app/study_runs_commands_test.go
-./internal/app/study_status_commands_test.go
-./internal/app/study_summary_commands_test.go
-./internal/app/study_usecases.go
-./internal/app/study_validate_commands_test.go
-./internal/app/surfaces.go
-./internal/app/tui_commands.go
-./internal/app/usecases.go
-./internal/app/usecases_test.go
-./internal/app/version.go
-./internal/app/web_operations_test.go
-./internal/app/web_usecases_test.go
-./internal/app/workspace_commands.go
-./internal/app/durable_operations.go
-./internal/app/durable_operations_test.go
-./internal/app/operation_runner.go
-./internal/app/operations.go
-./internal/app/project_commands_test.go
-./internal/app/run_control.go
-./internal/app/run_control_test.go
-./internal/app/serve_commands.go
-./internal/app/sprint_commands.go
-./internal/app/sprint_commands_test.go
-./internal/app/study_commands.go
-./internal/app/tui_commands_test.go
-./internal/app/web_usecases.go
-./internal/codeextract/codeextract_test.go
-./internal/codeextract/doc.go
-./internal/codeextract/domain.go
-./internal/codeextract/parser.go
-./internal/codeextract/resolver.go
-./internal/codeextract/service.go
-./internal/platform/config/config.go
-./internal/platform/config/config_test.go
-./internal/platform/config/doc.go
-./internal/platform/config/redaction.go
-./internal/platform/filesystem/doc.go
-./internal/platform/logging/doc.go
-./internal/platform/logging/logging.go
-./internal/platform/logging/logging_test.go
-./internal/platform/process/process.go
-./internal/platform/process/process_other.go
-./internal/platform/process/process_test.go
-./internal/platform/process/process_unix.go
-./internal/platform/runtime/agentwrap.go
-./internal/platform/runtime/cache_test.go
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go -type f -name "*.go" | head -60 && echo "---TOTAL---" && find /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go -type f -name "*.go" | wc -l
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/code_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/code_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/config_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/defaults_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/json_output.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/markdown.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/markdown_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_inventory_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/skills_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/skills_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_error_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_verify_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/status_json.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/storage_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_init_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_prompt_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_all_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_loop_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_runs_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_runs_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_status_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_summary_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_validate_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/surfaces.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/version.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_operations_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/workspace_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go
 ---TOTAL---
 291
 [0m
-[0m$ [0mfind . -name '*.go' -not -path './vendor/*' | sed 's|/[^/]*$||' | sort | uniq -c | sort -rn
-62 ./internal/sprint
-     59 ./internal/app
-     56 ./internal/study
-     28 ./internal/runcontrol
-     24 ./internal/web
-     14 ./internal/tui
-     10 ./internal/project
-      9 ./internal/workspace
-      9 ./internal/platform/runtime
-      6 ./internal/codeextract
-      4 ./internal/platform/process
-      4 ./internal/platform/config
-      3 ./internal/platform/logging
-      1 ./internal/productstate
-      1 ./internal/platform/filesystem
-      1 ./cmd/ultraplan
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && cat /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/go.mod
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+module github.com/Antonio7098/ultraplan-go
+
+go 1.26
+
+require gopkg.in/yaml.v3 v3.0.1
+
+require (
+	github.com/Antonio7098/agentwrap v0.0.0-20260821190033-e79a38a58da3
+	github.com/charmbracelet/bubbletea v1.3.10
+	github.com/charmbracelet/glamour v1.0.0
+	github.com/charmbracelet/lipgloss v1.1.1-0.20250404203927-76690c660834
+	github.com/yuin/goldmark v1.7.13
+	golang.org/x/sys v0.47.0
+	modernc.org/sqlite v1.57.0
+)
+
+require (
+	github.com/alecthomas/chroma/v2 v2.20.0 // indirect
+	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
+	github.com/aymerick/douceur v0.2.0 // indirect
+	github.com/charmbracelet/colorprofile v0.2.3-0.20250311203215-f60798e515dc // indirect
+	github.com/charmbracelet/x/ansi v0.10.2 // indirect
+	github.com/charmbracelet/x/cellbuf v0.0.13 // indirect
+	github.com/charmbracelet/x/exp/slice v0.0.0-20250327172914-2fdc97757edf // indirect
+	github.com/charmbracelet/x/term v0.2.1 // indirect
+	github.com/dlclark/regexp2 v1.11.5 // indirect
+	github.com/dustin/go-humanize v1.0.1 // indirect
+	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
+	github.com/google/uuid v1.6.0 // indirect
+	github.com/gorilla/css v1.0.1 // indirect
+	github.com/lucasb-eyer/go-colorful v1.3.0 // indirect
+	github.com/mattn/go-isatty v0.0.24 // indirect
+	github.com/mattn/go-localereader v0.0.1 // indirect
+	github.com/mattn/go-runewidth v0.0.17 // indirect
+	github.com/microcosm-cc/bluemonday v1.0.27 // indirect
+	github.com/muesli/ansi v0.0.0-20230316100256-276c6243b2f6 // indirect
+	github.com/muesli/cancelreader v0.2.2 // indirect
+	github.com/muesli/reflow v0.3.0 // indirect
+	github.com/muesli/termenv v0.16.0 // indirect
+	github.com/ncruces/go-strftime v1.0.0 // indirect
+	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
+	github.com/rivo/uniseg v0.4.7 // indirect
+	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
+	github.com/yuin/goldmark-emoji v1.0.6 // indirect
+	golang.org/x/net v0.38.0 // indirect
+	golang.org/x/term v0.36.0 // indirect
+	golang.org/x/text v0.30.0 // indirect
+	modernc.org/libc v1.74.4 // indirect
+	modernc.org/mathutil v1.7.1 // indirect
+	modernc.org/memory v1.11.0 // indirect
+)
 [0m
-[0m✱ [0mGrep "errors\.(New|Is|As|Join|Wrap)|fmt\.Errorf"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 100 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/agentwrap.go[90m [include=*.go, path=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go, pattern=idempot|Idempot|IDEMPOT][0m
-[0m✱ [0mGrep "[Rr]etry|Retryable|retryable"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 100 matches[0m
+[0m$ [0mls -R /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal | head -100
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal:
+app
+codeextract
+platform
+productstate
+project
+runcontrol
+sprint
+study
+tui
+web
+workspace
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app:
+app.go
+app_test.go
+code_commands.go
+code_commands_test.go
+config_commands.go
+defaults_commands.go
+durable_operations.go
+durable_operations_test.go
+health_commands.go
+health_commands_test.go
+json_output.go
+markdown.go
+markdown_test.go
+operation_runner.go
+operations.go
+project_commands.go
+project_commands_test.go
+project_usecases.go
+run_commands.go
+run_commands_test.go
+run_control.go
+run_control_inventory_test.go
+run_control_test.go
+run_usecases.go
+serve_commands.go
+serve_commands_test.go
+skills_commands.go
+skills_commands_test.go
+sprint_commands.go
+sprint_commands_test.go
+sprint_error_test.go
+sprint_usecases.go
+sprint_usecases_test.go
+sprint_verify_commands_test.go
+status_json.go
+storage_commands.go
+study_commands.go
+study_commands_test.go
+study_init_commands_test.go
+study_prompt_commands_test.go
+study_run_all_commands_test.go
+study_run_commands_test.go
+study_run_loop_commands_test.go
+study_runs_commands.go
+study_runs_commands_test.go
+study_status_commands_test.go
+study_summary_commands_test.go
+study_usecases.go
+study_validate_commands_test.go
+surfaces.go
+tui_commands.go
+tui_commands_test.go
+usecases.go
+usecases_test.go
+version.go
+web_operations_test.go
+web_usecases.go
+web_usecases_test.go
+workspace_commands.go
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract:
+codeextract_test.go
+doc.go
+domain.go
+parser.go
+resolver.go
+service.go
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform:
+config
+filesystem
+logging
+process
+runtime
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config:
+config.go
+config_test.go
+doc.go
+redaction.go
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/filesystem:
+doc.go
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging:
+doc.go
 [0m
-[0m$ [0mls internal/study/ internal/runcontrol/
-internal/runcontrol/:
+[0m✱ [0mGrep "retry|Retry|idempot|Idempot"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 100 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/cleanup_uncertain.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop.go
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol:
 benchmark_test.go
 doc.go
 errors.go
@@ -146,7 +267,7 @@ sanitize_test.go
 sqlite.go
 sqlite_test.go
 
-internal/study/:
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study:
 applicability.go
 cleanup_uncertain.go
 cleanup_uncertain_test.go
@@ -204,9 +325,1264 @@ validation_command_test.go
 validation.go
 validation_test.go
 [0m
-[0m✱ [0mGrep "Err[A-Z]\w+ = |errors\.New\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study · 27 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_state.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/cleanup_uncertain.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/execution_domain.go
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/errors.go
+[0m✱ [0mGrep "appendRunEventWithRetry|proposeRunTerminalWithRetry|func classifiedCause|retryBackoff|maxAttempts|backoff"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 12 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+[0m
+[0m$ [0mls ~/go/pkg/mod/github.com/\!antonio7098/ 2>/dev/null; find ~/go/pkg/mod -maxdepth 3 -iname "*agentwrap*" -type d 2>/dev/null | head
+agentwrap@v0.0.0-20260613122459-bc655a256a5f
+agentwrap@v0.0.0-20260629143324-a917627c22fb
+agentwrap@v0.0.0-20260629144550-2e8fbbe2c6cd
+agentwrap@v0.0.0-20260702175305-d1c785159a8d
+agentwrap@v0.0.0-20260710081656-59c61672c875
+agentwrap@v0.0.0-20260714161112-8ddfc132f7ca
+agentwrap@v0.0.0-20260815144406-3abac668be17
+agentwrap@v0.0.0-20260815154925-6aa129f822f3
+agentwrap@v0.0.0-20260815160303-e00b8e694497
+agentwrap@v0.0.0-20260816114448-0159fa923f42
+agentwrap@v0.0.0-20260816144152-043ad0dd8dd6
+agentwrap@v0.0.0-20260821190033-e79a38a58da3
+agentwrap@v0.0.0-20260822125309-004e30d47ac0
+agentwrap@v0.0.0-20260823194117-7610226fc449
+agentwrap@v0.0.0-20260824101248-dd61bdd9e971
+agentwrap@v0.0.0-20260824130256-3d1e4cbb6e03
+ultraplan-go@v0.1.0
+ultraplan-go@v0.1.1-0.20260629184531-01894ff216f3
+ultraplan-go@v0.1.1-0.20260701184158-211333865d5b
+ultraplan-go@v0.1.1-0.20260702110315-c8fea83c8c10
+ultraplan-go@v0.1.1-0.20260702121236-ea12c676255e
+ultraplan-go@v0.1.1-0.20260702124413-633bd352c6a3
+ultraplan-go@v0.1.1-0.20260702131822-913058d2fd23
+ultraplan-go@v0.1.1-0.20260702132418-8c6e4d57eba5
+ultraplan-go@v0.1.1-0.20260702132622-666a6ce0e25f
+ultraplan-go@v0.1.1-0.20260702133818-b95a0762df10
+ultraplan-go@v0.1.1-0.20260703090528-adb6fbb6cd4e
+ultraplan-go@v0.1.1-0.20260709165039-7a94a111f4dd
+ultraplan-go@v0.1.1-0.20260710081813-b332838b6e37
+ultraplan-go@v0.1.1-0.20260714160811-922062d3f013
+ultraplan-go@v0.1.1-0.20260714161246-73f3472b6dc4
+ultraplan-go@v0.1.1-0.20260722174204-d1e8b4518320
+ultraplan-go@v0.1.1-0.20260722191151-f142a7386e2f
+ultraplan-go@v0.1.1-0.20260722195008-76711a71155e
+ultraplan-go@v0.1.1-0.20260723152402-f4d6d3848a89
+ultraplan-go@v0.1.1-0.20260728132742-f8446a658259
+ultraplan-go@v0.1.1-0.20260815144532-9200a07a4802
+ultraplan-go@v0.1.1-0.20260815145458-5f6058a5e866
+ultraplan-go@v0.1.1-0.20260815150731-4b227527877f
+ultraplan-go@v0.1.1-0.20260815160513-ce223e49acbf
+ultraplan-go@v0.1.1-0.20260816103014-9545e91fe2f1
+ultraplan-go@v0.1.1-0.20260816110227-6471dcc088e7
+ultraplan-go@v0.1.1-0.20260816110716-b1330371bab2
+ultraplan-go@v0.1.1-0.20260816111250-cdbdec214e5d
+ultraplan-go@v0.1.1-0.20260816112656-02ab48fb44d4
+ultraplan-go@v0.1.1-0.20260816114532-0ab766386f92
+ultraplan-go@v0.1.1-0.20260816120258-bc52401a0f98
+ultraplan-go@v0.1.1-0.20260816155255-a2216837ba63
+ultraplan-go@v0.1.1-0.20260817105705-f8b639e681bc
+ultraplan-go@v0.1.1-0.20260817110456-17f108e8dc98
+ultraplan-go@v0.1.1-0.20260817110841-305c03eac36c
+ultraplan-go@v0.1.1-0.20260817111604-4837d369a87b
+ultraplan-go@v0.1.1-0.20260817112004-8e2f91c27fd2
+ultraplan-go@v0.1.1-0.20260817112408-217046b81649
+ultraplan-go@v0.1.1-0.20260817181627-9b3c02bb399b
+ultraplan-go@v0.1.1-0.20260817182807-2fbce1af2e3f
+ultraplan-go@v0.1.1-0.20260817183201-291d81e2b50e
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260613122459-bc655a256a5f
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260629143324-a917627c22fb
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260629144550-2e8fbbe2c6cd
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260702175305-d1c785159a8d
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260710081656-59c61672c875
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260714161112-8ddfc132f7ca
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260815144406-3abac668be17
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260815154925-6aa129f822f3
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260815160303-e00b8e694497
+/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260816114448-0159fa923f42
+[0m
+[0m✱ [0mGrep ""rate_limit"|"provider_unavailable"|"runtime_unavailable"|"model_unavailable"|ErrorRateLimit|ErrorTimeout|ErrorProviderUnavailable"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 16 matches[0m
+[0m
+[0m$ [0mgrep -n "Error" "/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/error.go" 2>/dev/null | head -40; ls "/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/"
+CHANGELOG.md
+config.go
+config_test.go
+doc.go
+docs
+errors.go
+errors_test.go
+events.go
+go.mod
+health.go
+health_test.go
+ids.go
+internal
+lifecycle_events.go
+lifecycle_events_test.go
+lifecycle.go
+lifecycle_test.go
+metadata.go
+observability.go
+observability_test.go
+opencode
+permissions.go
+permissions_test.go
+policy.go
+policy_test.go
+README.md
+redact.go
+redact_test.go
+runtime.go
+validation.go
+validation_test.go
+[0m
+[0m$ [0mgrep -n "Error" "/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/errors.go" | head -50
+9:// ErrorCategory classifies public SDK failures without string matching.
+10:type ErrorCategory string
+13:	ErrorConfiguration       ErrorCategory = "configuration"
+14:	ErrorHealth              ErrorCategory = "health"
+15:	ErrorRuntimeUnavailable  ErrorCategory = "runtime_unavailable"
+16:	ErrorProviderUnavailable ErrorCategory = "provider_unavailable"
+17:	ErrorModelUnavailable    ErrorCategory = "model_unavailable"
+18:	ErrorAuthentication      ErrorCategory = "authentication"
+19:	ErrorPermission          ErrorCategory = "permission"
+20:	ErrorRateLimit           ErrorCategory = "rate_limit"
+21:	ErrorTimeout             ErrorCategory = "timeout"
+22:	ErrorCancellation        ErrorCategory = "cancellation"
+23:	ErrorMalformedEvent      ErrorCategory = "malformed_event"
+24:	ErrorRuntimeExit         ErrorCategory = "runtime_exit"
+25:	ErrorValidation          ErrorCategory = "validation"
+26:	ErrorRepairExhausted     ErrorCategory = "repair_exhausted"
+27:	ErrorCleanup             ErrorCategory = "cleanup"
+28:	ErrorUnknown             ErrorCategory = "unknown"
+31:// SDKError is the public classified error type.
+32:type SDKError struct {
+33:	Category        ErrorCategory
+51:func (e *SDKError) Error() string {
+65:func (e *SDKError) Unwrap() error {
+72:// ErrorOption customizes a classified SDK error at construction time.
+73:type ErrorOption func(*SDKError)
+75:// NewError constructs a classified SDK error with category defaults.
+76:func NewError(category ErrorCategory, operation, userDetail string, cause error, opts ...ErrorOption) *SDKError {
+77:	err := &SDKError{
+89:// ErrorAs reports whether err contains an SDKError and copies it into target.
+90:func ErrorAs(err error, target **SDKError) bool {
+95:func WithDebugDetail(detail string) ErrorOption {
+96:	return func(err *SDKError) {
+102:func WithStatusCode(status int) ErrorOption {
+103:	return func(err *SDKError) {
+108:func WithResponse(headers map[string]string, body string) ErrorOption {
+109:	return func(err *SDKError) {
+115:func WithProviderModel(provider ProviderID, model ModelID) ErrorOption {
+116:	return func(err *SDKError) {
+122:func WithRuntimeKind(kind RuntimeKind) ErrorOption {
+123:	return func(err *SDKError) {
+128:func WithExitCode(exitCode int) ErrorOption {
+129:	return func(err *SDKError) {
+134:func WithSignal(signal string) ErrorOption {
+135:	return func(err *SDKError) {
+140:func WithNativeType(nativeType string) ErrorOption {
+141:	return func(err *SDKError) {
+146:func WithRetryAfter(delay time.Duration) ErrorOption {
+147:	return func(err *SDKError) {
+152:func WithMetadata(metadata map[string]string) ErrorOption {
+153:	return func(err *SDKError) {
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/docs 2>/dev/null | head -40
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m✱ [0mGrep "retry|Retry|rate_limit|idempoten|Idempoten|cleanup_uncertain|uncertain"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace · 100 matches[0m
+[0m
+[0m$ [0msed -n '1360,1460p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md
+- Never spawn more runtime processes than configured.
+- Build the task matrix from applicable source/dimension pairs only.
+- Prefer synthesis tasks when they become unblocked, but do not starve analysis tasks.
+- Stop scheduling new work on cancellation.
+- Save state after each meaningful transition.
+- Drain `agentwrap.Run.Events()` while waiting so runtime event channels cannot block.
+- Always call `Run.Wait` to obtain final `agentwrap.RunResult` and classified terminal errors.
+
+## 14. Retry, Fallback, and Backoff
+
+### 14.1 Agentwrap Policy Requirements
+
+UltraPlan must use `agentwrap.PolicyRunner` and `agentwrap.BasicPolicy` for default retry, wait, rate-limit, and fallback behavior.
+
+Requirements:
+
+- Configure `MaxAttemptsPerTarget` from UltraPlan execution config.
+- Configure `RetryRateLimits` according to workspace policy.
+- Use agentwrap backoff implementations such as `agentwrap.ExponentialBackoff` or a compatible configured policy.
+- Configure fallback alternatives as `agentwrap.FallbackAlternative` values.
+- Preserve original prompt, workdir, timeout, permission policy, sandbox, metadata, and validation expectations when constructing fallback requests unless a specific fallback intentionally overrides them.
+- Record policy decisions from `RunMetadata.Policy.Decisions` in UltraPlan task state.
+- Surface agentwrap `rate_limit`, `retry`, and `fallback` events in status/log output.
+- Do not implement retry/fallback logic inside the OpenCode adapter.
+
+### 14.2 Error Classifications
+
+UltraPlan product errors may include workspace, filesystem, source, dimension, and ambiguity categories. Runtime-facing errors must use or wrap `agentwrap.SDKError` categories.
+
+Agentwrap categories that UltraPlan must handle:
+
+- `configuration`
+- `health`
+- `runtime_unavailable`
+- `provider_unavailable`
+- `model_unavailable`
+- `authentication`
+- `permission`
+- `rate_limit`
+- `timeout`
+- `cancellation`
+- `malformed_event`
+- `runtime_exit`
+- `validation`
+- `repair_exhausted`
+- `cleanup`
+- `unknown`
+
+UltraPlan-specific categories:
+
+- Usage.
+- Workspace.
+- Filesystem.
+- SourceNotFound.
+- DimensionNotFound.
+- AmbiguousReference.
+- MissingOutput.
+
+### 14.3 Error Attributes
+
+UltraPlan must inspect runtime errors with `errors.As` or `agentwrap.ErrorAs`, not by parsing error strings.
+
+For runtime errors, persist or display safe `agentwrap.SDKError` fields:
+
+- Category.
+- Operation.
+- UserDetail.
+- DebugDetail when debug output is enabled.
+- Provider.
+- Model.
+- RuntimeKind.
+- ExitCode.
+- Signal.
+- NativeType.
+- RetryAfter.
+- Redacted metadata.
+
+### 14.4 Backoff State
+
+Backoff state must be derived from agentwrap policy attempts and persisted in UltraPlan task state:
+
+- Attempt count.
+- Target index.
+- Attempt number on current task.
+- Last classified error.
+- Next retry time when known.
+- Fallback model/runtime when selected.
+
+### 14.5 Fallback Policy
+
+Fallback may support:
+
+- Backup model through an agentwrap fallback request.
+- Backup provider through an agentwrap fallback request.
+- Backup runtime in future versions through a different `agentwrap.Runtime`.
+
+Fallback decisions must be visible in task state, agentwrap metadata, and events.
+## 15. Validation Requirements
+
+### 15.1 Agentwrap Validation
+[0m
+[0m$ [0msed -n '1850,1900p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md
+`.run-state.json` must be versioned and stored in the sprint root when execute begins.
+
+Required fields:
+
+- schema version
+- project name
+- sprint slug
+- target repository path or workspace-relative target reference
+- source `plan.md` path and content fingerprint where practical
+- updated timestamp
+- deterministic task records
+- per-task status
+- per-task attempts
+- per-task timestamps
+- per-task safe diagnostics
+- per-task runtime metadata summaries where available
+
+Allowed task statuses:
+
+- pending
+- running
+- complete
+- failed
+- cancelled
+
+Requirements:
+
+- Writes must be atomic.
+- Loading must reject malformed JSON and unsupported schema versions with clear diagnostics.
+- Interrupted runs must be resumable without redoing complete tasks unless explicitly forced.
+- Stale running tasks must be recovered to a retryable or failed state with a diagnostic.
+- Task IDs must be stable for the same validated `plan.md`.
+- Execute must not mutate Git state automatically.
+- Execute must not run smoke, review, or issue workflows.
+- Target repository writes must be constrained to the configured target implementation directory unless explicitly configured otherwise.
+
+### 18.6 Stage Validators
+
+Planning validators are product behavior owned by `internal/sprint`.
+
+`requirements.md` validator checks:
+
+- file exists
+- no placeholders
+- required sections exist: sprint goal, required outputs, acceptance criteria, non-goals
+
+`sprint-index.md` validator checks:
+
+- file exists
+- required sections exist: sprint scope, selected contracts, selected evidence reports, selected reasoning templates, required review protocols
+- all selected catalog paths are present in `project-index.md`
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint
+artifacts.go
+cleanup_uncertain.go
+cleanup_uncertain_test.go
+code_context.go
+code_context_test.go
+context_pack.go
+direct_inputs.go
+direct_inputs_test.go
+discovery.go
+doc.go
+domain.go
+efficiency_improvements_test.go
+efficiency_metrics_test.go
+execute.go
+execute_model.go
+execute_model_test.go
+execute_plan.go
+execute_plan_test.go
+execute_state.go
+execute_state_test.go
+execute_target.go
+execute_target_test.go
+flow.go
+freshness_policy.go
+handbook.go
+handbook_test.go
+index.go
+input_contract.go
+locks.go
+locks_test.go
+plan.go
+plan_test.go
+prompt_bundle.go
+prompt_context.go
+prompt_context_test.go
+prompts.go
+reasoning.go
+reasoning_test.go
+review.go
+review_runtime_validation.go
+review_test.go
+runtime_metrics.go
+runtime_progress_test.go
+runtime_validation.go
+service.go
+session_state.go
+session_state_test.go
+smoke_author.go
+smoke.go
+smoke_protocol.go
+smoke_test.go
+smoke_types.go
+sprint_index_test.go
+sprint_test.go
+state_database.go
+state.go
+store_fs.go
+validation.go
+verification_lock.go
+verification_lock_test.go
+verify.go
+verify_test.go
+[0m
+[0m✱ [0mGrep "TaskStatus|status.*running|SaveRunState|atomicWrite|resume|Resume|interrupted|Interrupted"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 100 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go[90m [offset=140, limit=260][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go[90m [limit=140][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks.go
+[0m
+[0m$ [0mgrep -n "PID\|pid\|reuse" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md | head -30
+10:This TRD defines the technical requirements for UltraPlan Go, a production-grade local CLI, TUI, and browser surface that implement the proven UltraPlan workflow. Phase 1 covers study initialization, source analysis, report synthesis, code-reference extraction, resumable orchestration, validation, and operational diagnostics. Phase 2 adds governed project and sprint planning through `plan.md`, then controlled implementation execution through `execute`. Sprints 24 and 25 deliver the local TUI foundation and guarded controls. Phase 3 adds automated conformance review through `review.md`, then sprint-targeted deep smoke through `smoke.md` backed by the external harness cataloged in `project-index.md`. Phase 4 begins with Sprint 30 and adds a loopback-only Go HTTP server plus a simple Go-rendered browser UI with SSE progress. Phase 5 begins with Sprint 33 and inserts a validated `code-context` stage after requirements, then reuses its exact Markdown source pack through downstream agent-backed stages. Phase 6 begins with Sprint 35 and establishes durable workspace-wide run identity, lifecycle/liveness projection, replayable sanitized events, cross-surface control, and correlated operational telemetry.
+1699:Phase 2 may reuse generic infrastructure from Phase 1:
+2173:`internal/sprint` owns the `code-context` stage, including ordered-stage membership, artifact paths, prerequisites, validation, runtime execution, flow transitions, state compatibility, and downstream prompt integration. It reuses project-owned target implementation resolution and the generic runtime boundary; neither `internal/web` nor a new repository-index package owns source selection.
+2208:Liveness is conservative. A PID alone is insufficient because of PID reuse. Lease expiry, missing process, missing owner, artifact presence, or lost server memory cannot independently prove completion. Reconciliation uses fencing or equivalent stale-writer protection, records its evidence and decisions, and exposes `stalled`, `interrupted`, or `cleanup_uncertain` where truth cannot be proven.
+2225:Every chosen mechanism must pass the same cross-process failure matrix: two CLI runs visible globally; a second supported server replaying and then following a current run; browser-session expiry; observer restart; abrupt owner death; stale lease and PID reuse; duplicate cancellation; completion/cancellation races; slow subscribers; cursor expiry; corrupt/torn records; disk-full or permission failure; bounded retention; and redaction. Tests must prove that operational records never override canonical product artifacts or stage verdicts.
+2237:7. **Authority/cloud/Aren:** compare filesystem, SQLite/server, and hybrid publication modes on real work before choosing. Cloud and typed Aren artifact tools reuse proven application contracts; source edits/builds/tests remain sandboxed filesystem/Git work.
+2377:- Lock file includes PID, command, and timestamp.
+2380:- Sprint 35 run ownership uses leases plus fencing or an equivalently safe mechanism; a lock file containing only PID and timestamp is not sufficient authority.
+2498:Sprint 35 cross-process tests must cover two concurrent CLI-started runs visible from the browser top bar, a run observed through a second supported local server, session expiry, observing-server restart, retained replay followed by new live events, owner crash at every commit boundary, stale lease, PID reuse, fencing of stale writers, duplicate cancellation, cancellation/completion races, slow subscribers, cursor expiry, compaction, disk-full/permission failure, corrupted/torn records, schema migration, and a redacted support bundle. The test harness must distinguish observer restart from worker-owner restart and assert the selected topology contract explicitly.
+2645:- Lease/fencing, owner loss, PID reuse, cancellation routing, terminal arbitration, reconciliation, retention, persistence failure, and backpressure have deterministic race and fault-injection coverage.
+2667:- What lease, heartbeat, clock, fencing, and process-birth rules prevent stale writers and PID reuse without falsely killing slow healthy work?
+[0m
+[0m✱ [0mGrep "CancelRunLoop|RunLoopActive|ReconcileInterruptedRun|RecordCleanupUncertain"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 22 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+[0m
+[0m$ [0msed -n '2190,2240p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md; echo ====; sed -n '2360,2400p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md
+```text
+workspace-scoped run ID
+operation kind and project/study/sprint/stage target
+accepted / queued / running / terminal lifecycle timestamps
+attempt, stage, task, agentwrap run/session, process, and external-harness correlations
+owner identity, renewable lease, heartbeat, fencing value, and safe process-birth identity
+latest durable event sequence and retention boundary
+cancellation request/acknowledgement facts
+one immutable arbitrated terminal result or explicit cleanup uncertainty
+safe diagnostics, schema version, and migration metadata
+```
+
+Acceptance of a runtime-backed execution is atomic with durable run creation and happens before child execution. If required acceptance persistence fails, the child does not start. Event records are redacted before persistence, assigned monotonically increasing per-run sequences, and committed before live fan-out. The store may compact detail, but it must retain an explicit snapshot and lower replay boundary so clients can distinguish complete replay from a gap.
+
+Active-run queries are workspace-wide. Product-page status may filter the common projection, but the global running count cannot be derived from the current page, browser session, or one server's memory. Planning stage readiness and operational execution lifecycle are separate types; UI code must not infer `running` from a stage-status enum that cannot represent it.
+
+Read visibility is independent from originating-session continuity. Mutation still requires fresh authorization and a resolvable current owner. Cancellation is idempotent, durably recorded, routed through the canonical product/runtime cancellation path, and arbitrated against completion, failure, timeout, interruption, shutdown, and reconciliation so only one terminal outcome wins.
+
+Liveness is conservative. A PID alone is insufficient because of PID reuse. Lease expiry, missing process, missing owner, artifact presence, or lost server memory cannot independently prove completion. Reconciliation uses fencing or equivalent stale-writer protection, records its evidence and decisions, and exposes `stalled`, `interrupted`, or `cleanup_uncertain` where truth cannot be proven.
+
+The following are required reasoning decisions, not preselected implementation requirements:
+
+- same-host multi-process versus shared-filesystem multi-host support and the guarantees at that boundary
+- dedicated coordinator/daemon, fenced direct repository writers, or a hybrid
+- filesystem snapshot/journal, SQLite, agentwrap store composition, or another smallest sufficient durable mechanism
+- interface/package ownership without moving workflow semantics out of study/sprint modules or duplicating agentwrap
+- worker cancellation versus safe adoption after owner loss
+- run/attempt/stage/task identity hierarchy and correlation format
+- lease duration, heartbeat cadence, clock assumptions, fencing, and process-birth verification
+- replay guarantee, deduplication, cursor expiry, retention, compaction, snapshot, backpressure, and disk-limit policy
+- cross-session read policy versus cancel/retry authorization
+- compatibility and tombstone behavior for legacy operation URLs, locks, state files, and checkpoints
+- local metrics/health interfaces, optional trace export, and support-bundle scope
+- safe behavior when acceptance, mid-run append, heartbeat, or terminal persistence fails
+
+Every chosen mechanism must pass the same cross-process failure matrix: two CLI runs visible globally; a second supported server replaying and then following a current run; browser-session expiry; observer restart; abrupt owner death; stale lease and PID reuse; duplicate cancellation; completion/cancellation races; slow subscribers; cursor expiry; corrupt/torn records; disk-full or permission failure; bounded retention; and redaction. Tests must prove that operational records never override canonical product artifacts or stage verdicts.
+
+## 18D. Gated Post-Phase-6 Technical Direction
+
+The following sequence is directional and does not authorize implementation until a later sprint selects it explicitly:
+
+1. **Content identity/provenance pilot:** optional versioned YAML frontmatter with minimal `schema`, `id`, `type`, `title`, `status`, and `authority`; selective semantic block IDs; revision-aware evidence; warning-first validation; legacy files remain valid.
+2. **Read-only QA:** retain `review` compatibility while presenting it as Conformance Review; introduce a separate `VerificationPhase`; map changed behavior into deterministic bounded shards; allow read-only investigation and synthesis only.
+3. **Evidence QA and repair:** require isolated writable investigation workspaces before generated tests/probes; adjudicate evidence globally before issue promotion; permit production repair only from frozen evidence-backed issue packets; bound cycles and expose stalled/escalated outcomes.
+4. **Derived retrieval:** build deterministic semantic records and a measured lexical baseline first. Indexes are disposable, preserve exact authoritative text/provenance/status, and never override project/sprint context selection. Embeddings remain deferred until lexical evaluation proves a gap.
+5. **Product persistence/SQLite:** first classify authored artifacts, checkpoints, derived data, operational state, run evidence, and repository source. Sprint 35 operational run storage does not select a new authored-artifact authority. Extract focused package-owned repositories only for proven workflows; keep Git/source and execution workspaces filesystem-native; select one product-artifact authority at composition; prohibit generic virtual filesystems, silent dual writes, and premature sync.
+6. **Knowledge graph:** only after stable explicit relationships and retrieval baseline demonstrate multi-hop need, build a deterministic in-memory read-only projection. Keep edge provenance/origin, status, revision, contradiction, and supersession explicit. A persistent graph remains derived and rebuildable; a graph database is not assumed.
+7. **Authority/cloud/Aren:** compare filesystem, SQLite/server, and hybrid publication modes on real work before choosing. Cloud and typed Aren artifact tools reuse proven application contracts; source edits/builds/tests remain sandboxed filesystem/Git work.
+
+Every branch must stop when its evidence gate fails. In particular: no repair without adjudicated evidence and isolation; no retrieval before content dogfood; no SQLite merely for architectural cleanliness; no graph persistence before useful bounded traversal; no cloud authority before local authority and recovery semantics are proven.
+
+====
+### 21.1 File Write Policy
+
+- Generated files must be written with explicit paths.
+- State files must be atomic.
+- Report files written by runtimes are validated after runtime exit.
+- UltraPlan-created helper files should use `0644` permissions by default.
+- Directories should use `0755` by default.
+- Durable operational acceptance, event append, lease, cancellation, and terminal writes use the atomicity and durability contract selected for Sprint 35; partial success must be detectable and recoverable.
+- Operational retention/compaction never deletes the only current lifecycle snapshot or hides the lower replay boundary.
+
+### 21.2 Locks
+
+UltraPlan must prevent accidental concurrent mutation of package-owned workflow state and stale concurrent mutation of shared operational run state.
+
+Lock requirements:
+
+- Per-study run lock for `run-loop`.
+- Lock file includes PID, command, and timestamp.
+- Stale lock detection should be conservative.
+- Users can force unlock with explicit command or flag.
+- Sprint 35 run ownership uses leases plus fencing or an equivalently safe mechanism; a lock file containing only PID and timestamp is not sufficient authority.
+
+## 22. Security Requirements
+
+- Redact secrets from logs and config output.
+- Use agentwrap redaction helpers and `SDKError` safe fields for runtime diagnostics where practical.
+- Validate workspace paths.
+- Avoid shell interpolation for runtime commands where possible.
+- UltraPlan product code must not invoke OpenCode directly; `agentwrap/opencode` owns `exec.CommandContext` process execution.
+- Treat source repository content as untrusted input.
+- Do not execute commands from source repositories unless explicitly configured.
+- Disable post-run hooks by default.
+- Require explicit opt-in for commands that mutate Git state.
+- Runtime permission posture must be expressed through `agentwrap.PermissionPolicy` where possible.
+- Unsupported required permission policy features must fail before runtime launch unless explicitly configured as best-effort.
+- The Phase 4 server must remain loopback-only, same-origin, CSRF-protected, body-limited, timeout-bounded, and strict about Host/Origin validation.
+- Browser routes must not expose arbitrary workspace paths, raw provider payloads, unrestricted stderr, secrets, or executable HTML from workspace Markdown.
+
+### 22.1 Permission Policy Requirements
+
+UltraPlan must support task-level permission policies using agentwrap:
+[0m
+[0m✱ [0mGrep "shutdown|Shutdown|drain|Draining"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 3 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands.go
+[0m✱ [0mGrep "signal.Notify|SIGINT|SIGTERM|ShutdownTimeout|gracePeriod|GracePeriod|drain"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 0 matches[0m
+[0m
+[0m$ [0mrg -n "signal\.|SIGINT|SIGTERM|Shutdown" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal --type go -l | head; echo ----; rg -n "signal\." /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/*.go /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd -n 2>/dev/null | head -20
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_unix.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server_policy.go
+----
+[0m
+[0m✱ [0mGrep "Shutdown|shutdown|uncertain|Uncertain|drain|Drain"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web · 63 matches[0m
+[0m✱ [0mGrep "func ReconcileRunState|func ResumeValidateRunState|func LoadRunState|func SaveRunState|func SyncRunHistory"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study · 5 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_state.go
+[0m✱ [0mGrep "signal|Signal|NotifyContext|os.Interrupt"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server.go · 1 match[0m
+[0m
+[0m$ [0mrg -n "NotifyContext|signal.Notify" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd --type go
+(no output)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server.go[90m [limit=120, offset=80][0m
+[0m
+[0m$ [0mrg -n "Serve|serve" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go | head; rg -n "deps.ctx" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go | head
+30:		WebRunner: func(ctx context.Context, opts app.ServeRunOptions) error {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode.go
+[0m
+[0m$ [0mrg -n "cancel|Cancel|firstErr|ctx.Done|Ctrl|interrupt" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop_test.go | head -40
+26:			req.OnEvent(runtimepkg.Event{SessionID: "interrupted-study-session", Kind: "session"})
+28:		return runtimepkg.Result{SessionID: "interrupted-study-session", Status: "cancelled", Error: &runtimepkg.Error{Category: "cancellation"}, Cleanup: runtimepkg.CleanupSummary{Attempted: true, Completed: true}}, errors.New("cancelled")
+44:func TestRunLoopPersistsAndContinuesCancelledStudySession(t *testing.T) {
+53:	if first.Status != RunAllStatusCancelled {
+67:	if resumedTask == nil || resumedTask.Session == nil || resumedTask.Session.SessionID != "interrupted-study-session" {
+68:		t.Fatalf("cancelled session was not retained: %+v", resumedTask)
+81:	if len(runtime.requests) < 2 || runtime.requests[1].SessionID != "interrupted-study-session" || runtime.requests[1].SessionAction != "continue" {
+307:func TestRunLoopCancellationDoesNotCancelUnscheduledTasks(t *testing.T) {
+311:	ctx, cancel := context.WithCancel(context.Background())
+312:	cancel()
+318:	if result.Status != RunAllStatusCancelled {
+[0m
+[0m$ [0mrg -n "func Test" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop_test.go
+44:func TestRunLoopPersistsAndContinuesCancelledStudySession(t *testing.T) {
+95:func TestRunLoopCreatesDurableStateRunsTasksAndReleasesLock(t *testing.T) {
+137:func TestRunLoopProgressUsesCountOnlySummaries(t *testing.T) {
+169:func TestRunLoopContinueResumesAndRevalidatesCompletedStateBeforeScheduling(t *testing.T) {
+192:func TestRunLoopDefaultResumesExistingStateAndResetStartsFresh(t *testing.T) {
+245:func TestRunLoopSynthesizesDimensionAsSoonAsItsAnalysisCompletes(t *testing.T) {
+276:func TestRunLoopStartsPriorityTierBeforeLaterTiers(t *testing.T) {
+307:func TestRunLoopCancellationDoesNotCancelUnscheduledTasks(t *testing.T) {
+339:func TestRunLoopMarksSynthesisFailedWhenDependenciesTerminal(t *testing.T) {
+[0m
+[0m$ [0msed -n '300,400p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop_test.go
+t.Fatalf("started tasks = %#v", startedTasks)
+	}
+	if startedTasks[0] != "analysis:02-runtime" || startedTasks[1] != "analysis:02-runtime" {
+		t.Fatalf("first starts = %#v, want the priority dimension; all starts %#v", startedTasks[:2], startedTasks)
+	}
+}
+
+func TestRunLoopCancellationDoesNotCancelUnscheduledTasks(t *testing.T) {
+	root, st := executionFixture(t)
+	rt := &runAllRuntime{write: validSourceReport}
+	service := NewService(root, WithRuntime(rt, runtimeRequest()))
+	ctx, cancel := context.WithCancel(context.Background())
+	cancel()
+
+	result, err := service.RunLoop(ctx, RunLoopRequest{StudyRef: "demo", DimensionRefs: []string{"01"}, SourceRefs: []string{"repo", "doc.md"}, Parallelism: 1})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if result.Status != RunAllStatusCancelled {
+		t.Fatalf("Status = %q", result.Status)
+	}
+	loaded, err := LoadRunState(st)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, task := range loaded.Tasks {
+		if task.Status != TaskStatusPending {
+			t.Fatalf("task %s status = %s, want pending", task.ID, task.Status)
+		}
+	}
+	records, err := LoadRunHistory(st)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(records) != 0 {
+		t.Fatalf("history records = %d, want 0", len(records))
+	}
+}
+
+func TestRunLoopMarksSynthesisFailedWhenDependenciesTerminal(t *testing.T) {
+	root, st := executionFixture(t)
+	service := NewService(root, WithRuntime(failingRuntime{}, runtimeRequest()))
+
+	result, err := service.RunLoop(context.Background(), RunLoopRequest{StudyRef: "demo", DimensionRefs: []string{"01"}, Parallelism: 1})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if result.Status != RunAllStatusValidationFailed {
+		t.Fatalf("Status = %q counts = %+v", result.Status, result.Counts)
+	}
+
+	loaded, err := LoadRunState(st)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var synthesis *TaskState
+	for i := range loaded.Tasks {
+		if loaded.Tasks[i].Kind == TaskKindSynthesis {
+			synthesis = &loaded.Tasks[i]
+			break
+		}
+	}
+	if synthesis == nil {
+		t.Fatal("synthesis task missing")
+	}
+	if synthesis.Status != TaskStatusFailed {
+		t.Fatalf("synthesis status = %q, want failed", synthesis.Status)
+	}
+	if synthesis.LastError == nil || synthesis.LastError.Code != "synthesis.dependencies_failed" {
+		t.Fatalf("synthesis last error = %#v", synthesis.LastError)
+	}
+}
+
+type orderedRuntime struct {
+	mu    sync.Mutex
+	order []string
+}
+
+type failingRuntime struct{}
+
+func (failingRuntime) StartRun(context.Context, runtimepkg.Request) (runtimepkg.Result, error) {
+	return runtimepkg.Result{RunID: "failed-run", Status: "failed"}, errors.New("runtime unavailable")
+}
+
+func (r *orderedRuntime) StartRun(ctx context.Context, req runtimepkg.Request) (runtimepkg.Result, error) {
+	if ctx == nil {
+		panic("nil context")
+	}
+	kind := req.Metadata["task.kind"]
+	dimension := req.Metadata["dimension.ref"]
+	r.mu.Lock()
+	r.order = append(r.order, kind+":"+dimension)
+	r.mu.Unlock()
+	content := validSourceReport
+	if kind == string(TaskKindSynthesis) {
+		content = validFinalReport
+	}
+	if req.Validation != nil && len(req.Validation.Expectations) > 0 {
+		path := req.Validation.Expectations[0].Path
+		if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+			panic(err)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go
+[0m✱ [0mGrep "ErrWebUnavailable"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 28 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operation_handlers.go[90m [limit=300, offset=60][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_unix.go
+[0m
+[0m$ [0msed -n '1,95p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop_test.go
+package study
+
+import (
+	"context"
+	"errors"
+	"os"
+	"path/filepath"
+	"sync"
+	"testing"
+
+	runtimepkg "github.com/Antonio7098/ultraplan-go/internal/platform/runtime"
+)
+
+type resumableStudyRuntime struct {
+	mu       sync.Mutex
+	requests []runtimepkg.Request
+}
+
+func (r *resumableStudyRuntime) StartRun(_ context.Context, req runtimepkg.Request) (runtimepkg.Result, error) {
+	r.mu.Lock()
+	r.requests = append(r.requests, req)
+	call := len(r.requests)
+	r.mu.Unlock()
+	if call == 1 {
+		if req.OnEvent != nil {
+			req.OnEvent(runtimepkg.Event{SessionID: "interrupted-study-session", Kind: "session"})
+		}
+		return runtimepkg.Result{SessionID: "interrupted-study-session", Status: "cancelled", Error: &runtimepkg.Error{Category: "cancellation"}, Cleanup: runtimepkg.CleanupSummary{Attempted: true, Completed: true}}, errors.New("cancelled")
+	}
+	path := req.Validation.Expectations[0].Path
+	content := validSourceReport
+	if req.Metadata["task.kind"] == string(TaskKindSynthesis) {
+		content = validFinalReport
+	}
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return runtimepkg.Result{}, err
+	}
+	if err := os.WriteFile(path, []byte(content), 0o644); err != nil {
+		return runtimepkg.Result{}, err
+	}
+	return runtimepkg.Result{SessionID: req.SessionID, Status: "completed"}, nil
+}
+
+func TestRunLoopPersistsAndContinuesCancelledStudySession(t *testing.T) {
+	root, st := executionFixture(t)
+	runtime := &resumableStudyRuntime{}
+	service := NewService(root, WithRuntime(runtime, runtimeRequest()))
+	request := RunLoopRequest{StudyRef: "demo", DimensionRefs: []string{"01"}, SourceRefs: []string{"repo"}, Parallelism: 1, Command: []string{"ultraplan", "study", "demo", "run-loop"}}
+	first, err := service.RunLoop(context.Background(), request)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if first.Status != RunAllStatusCancelled {
+		t.Fatalf("first status = %q", first.Status)
+	}
+	state, err := LoadRunState(st)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var resumedTask *TaskState
+	for i := range state.Tasks {
+		if state.Tasks[i].Source == "repo" {
+			resumedTask = &state.Tasks[i]
+			break
+		}
+	}
+	if resumedTask == nil || resumedTask.Session == nil || resumedTask.Session.SessionID != "interrupted-study-session" {
+		t.Fatalf("cancelled session was not retained: %+v", resumedTask)
+	}
+
+	request.Continue = true
+	second, err := service.RunLoop(context.Background(), request)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if second.Status != RunAllStatusCompleted {
+		t.Fatalf("second status = %q counts=%+v", second.Status, second.Counts)
+	}
+	runtime.mu.Lock()
+	defer runtime.mu.Unlock()
+	if len(runtime.requests) < 2 || runtime.requests[1].SessionID != "interrupted-study-session" || runtime.requests[1].SessionAction != "continue" {
+		t.Fatalf("resume requests = %+v", runtime.requests)
+	}
+	state, err = LoadRunState(st)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for i := range state.Tasks {
+		if state.Tasks[i].Source == "repo" && state.Tasks[i].Session != nil {
+			t.Fatalf("completed task retained session: %+v", state.Tasks[i].Session)
+		}
+	}
+}
+
+func TestRunLoopCreatesDurableStateRunsTasksAndReleasesLock(t *testing.T) {
+[0m
+[0m$ [0mrg -n "Malformed|Unsupported|corrupt|unsupported" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_plan_test.go /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state_test.go /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_target_test.go 2>/dev/null | head -20
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_plan_test.go:55:func TestExtractExecutePlanTasksRejectsUnsupportedAmbiguousAndDuplicateTasks(t *testing.T) {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_plan_test.go:59:		"unsupported syntax":  strings.ReplaceAll(validPlan(), "- [ ] Task 1:", "- [ ] Work 1:"),
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state_test.go:71:	if _, err := LoadExecuteRunState(root, sp); !errors.Is(err, ErrExecuteRunStateMalformed) {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state_test.go:72:		t.Fatalf("unsupported status err = %v", err)
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state_test.go:105:		"unsupported schema": func(s ExecuteRunState) ExecuteRunState {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state_test.go:162:func TestExecuteRunStateLoadMissingAndMalformed(t *testing.T) {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state_test.go:169:	if _, err := LoadExecuteRunState(root, sp); !errors.Is(err, ErrExecuteRunStateMalformed) {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state_test.go:182:	if _, err := LoadExecuteRunState(root, sp); !errors.Is(err, ErrExecuteRunStateMalformed) {
+[0m
+[0m✱ [0mGrep "reconcileExecuteState|ErrExecuteRunStateMissing|ErrExecuteRunStateMalformed|ErrExecuteRunStateUnsupported"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 37 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go[90m [limit=120, offset=140][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/locks.go
+[0m
+[0m$ [0mrg -n "ReconcileInterruptedMutation|ReconcileInterruptedRun" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal --type go | grep -v _test | head
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go:364:		if _, err := service.ReconcileInterruptedMutation(ctx, summary.Project, summary.Slug); err != nil {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go:377:		if _, err := studyService.ReconcileInterruptedRun(ctx, item.Name); err != nil {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/cleanup_uncertain.go:64:// ReconcileInterruptedRun converts active task states left without a live
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/cleanup_uncertain.go:66:func (s Service) ReconcileInterruptedRun(ctx context.Context, studyRef string) (bool, error) {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/locks.go:22:// ReconcileInterruptedMutation converts durable running records left by a
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/locks.go:25:func (s Service) ReconcileInterruptedMutation(ctx context.Context, projectRef, sprintRef string) (bool, error) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go[90m [limit=80, offset=320][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app.go[90m [limit=110][0m
+[0m
+[0m$ [0msed -n '1,80p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_all.go
+package study
+
+import (
+	"context"
+	"fmt"
+	"sync"
+
+	runtimepkg "github.com/Antonio7098/ultraplan-go/internal/platform/runtime"
+)
+
+type analysisTask struct {
+	dimension Dimension
+	source    Source
+}
+
+func (s Service) RunAll(ctx context.Context, req RunAllRequest) (RunAllResult, error) {
+	if req.Parallelism < 1 {
+		return RunAllResult{}, fmt.Errorf("parallelism must be at least 1")
+	}
+	listing, err := s.ListStudy(req.StudyRef)
+	if err != nil {
+		return RunAllResult{}, err
+	}
+	dimensions, err := resolveDimensions(listing.Dimensions, req.DimensionRefs)
+	if err != nil {
+		return RunAllResult{}, err
+	}
+	sources, err := resolveSources(listing.Sources, req.SourceRefs)
+	if err != nil {
+		return RunAllResult{}, err
+	}
+	result := RunAllResult{Study: listing.Study, Parallelism: req.Parallelism, SummaryPath: SummaryPath(listing.Study)}
+	for _, group := range dimensionExecutionGroups(dimensions, listing.DimensionOrder) {
+		groupResult := s.runAllDimensionGroup(ctx, req, listing.Study, group, sources)
+		result.Analysis = append(result.Analysis, groupResult.Analysis...)
+		result.Synthesis = append(result.Synthesis, groupResult.Synthesis...)
+	}
+
+	summary, err := WriteSummary(listing.Study, dimensions, sources)
+	if err != nil {
+		result.Warnings = append(result.Warnings, RunAllWarning{Path: result.SummaryPath, Message: safeError(err)})
+	} else {
+		result.SummaryResult = summary
+		for _, warning := range summary.Warnings {
+			result.Warnings = append(result.Warnings, RunAllWarning{Path: warning.Path, Message: warning.Message})
+		}
+	}
+	result.Counts = countRunAll(result)
+	result.Status = statusRunAll(result, ctx.Err() != nil)
+	return result, nil
+}
+
+func (s Service) runAllDimensionGroup(ctx context.Context, req RunAllRequest, study Study, dimensions []Dimension, sources []Source) RunAllResult {
+	var result RunAllResult
+	tasks := buildAnalysisTasks(dimensions, sources)
+	result.Analysis = make([]ExecutionResult, len(tasks))
+	taskCh := make(chan int)
+	var wg sync.WaitGroup
+	for i := 0; i < req.Parallelism; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			for idx := range taskCh {
+				task := tasks[idx]
+				if ctx.Err() != nil {
+					result.Analysis[idx] = pendingAnalysisResult(study, task)
+					continue
+				}
+				onEvent := func(event runtimepkg.Event) {
+					if req.Progress != nil {
+						req.Progress(RunAllProgress{TaskKind: TaskKindAnalysis, DimensionRef: task.dimension.Ref(), SourceRef: task.source.Name, Event: event})
+					}
+				}
+				res, err := s.RunAnalysis(ctx, ExecutionRequest{StudyRef: study.Name, DimensionRef: task.dimension.Ref(), SourceRef: task.source.Name, OnEvent: onEvent})
+				if err != nil {
+					res = failedAnalysisResult(study, task, err)
+				}
+				result.Analysis[idx] = res
+			}
+		}()
+[0m
+[0m$ [0mrg -n "RunAll\(|RunLoop\(" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app --type go | grep -v _test | head
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go:49:		return runStudyRunLoop(deps, root, args[0], args[2:])
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go:51:		return runStudyRunAll(deps, root, args[0], args[2:])
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go:187:func runStudyRunLoop(deps dependencies, root workspace.Root, studyRef string, args []string) error {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go:210:	result, err := service.RunLoop(durable.Context(), study.RunLoopRequest{
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go:535:func runStudyRunAll(deps dependencies, root workspace.Root, studyRef string, args []string) error {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go:552:	result, err := service.RunAll(durable.Context(), study.RunAllRequest{
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go:115:			r, e := service.RunLoop(ctx, study.RunLoopRequest{StudyRef: req.Study, DimensionRefs: req.Dimensions, SourceRefs: req.Sources, Parallelism: parallel, Config: summary, Continue: req.Kind == OperationStudyResume, Command: []string{"ultraplan", "operation"}, Progress: func(p study.RunLoopProgress) {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go:139:			info, e := study.CancelRunLoop(listing.Study)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go[90m [limit=130, offset=180][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go[90m [limit=110, offset=530][0m
+[0m
+[0m$ [0mrg -n "AcquireRunLoopLock|lock" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_all.go; echo ---; rg -n "run-all|run_all" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md | head -15
+100:		if blockers := synthesisBlockers(result.Analysis, dimension); len(blockers) > 0 {
+101:			result.Synthesis = append(result.Synthesis, ExecutionResult{Status: ExecutionStatusPreflightBlocked, TaskKind: TaskKindSynthesis, Study: study, Dimension: dimension, OutputPath: FinalReportPath(study, dimension), Blockers: blockers})
+213:func synthesisBlockers(results []ExecutionResult, dimension Dimension) []string {
+214:	var blockers []string
+220:			blockers = append(blockers, result.OutputPath)
+223:	return blockers
+232:		case ExecutionStatusSkipped, ExecutionStatusPreflightBlocked:
+---
+[0m
+[0m$ [0mrg -n "run-all|RunAll" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md 2>/dev/null | head -20
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md:159:Starts when `run-all`, `run-loop`, cancellation, resumability, status, or durable state enters scope.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md:421:### Sprint 11: `run-all` Batch Execution
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md:428:ultraplan study <study> run-all
+[0m
+[0m$ [0msed -n '415,470p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md
+- Inapplicable Markdown pairs skip cleanly.
+
+---
+
+## Study Implementation Wave 5 — Batch Execution and Resumability
+
+### Sprint 11: `run-all` Batch Execution
+
+**Goal:** run all applicable analysis tasks with bounded parallelism.
+
+**Build:**
+
+```bash
+ultraplan study <study> run-all
+```
+
+**Features:**
+
+- filter by source and dimension
+- bounded worker pool
+- synthesis after applicable reports pass
+- summary generation after completion
+
+### Sprint 12: Durable `run-loop`, Retry, and Cancellation
+
+**Goal:** production-grade resumable orchestration.
+
+**Build:**
+
+```bash
+ultraplan study <study> run-loop
+ultraplan study <study> status
+```
+
+**Features:**
+
+- atomic `run-state.json`
+- task state machine
+- stale running task recovery
+- retry/fallback metadata from `agentwrap`
+- cancellation handling
+- per-study lock file
+
+### Sprint 13: Summary Generation and Code Reference Extraction
+
+**Goal:** make completed study outputs easy to review, compare, and audit.
+
+**Build:**
+
+- deterministic `summary.csv`
+- source/dimension score matrix
+- missing vs inapplicable distinction
+- total score sorting
+- missing/ambiguous rating warnings
+- source table parser
+- citation parser
+[0m
+[0m$ [0mrg -n "Resume.*corrupt|corrupt|Malformed|malformed" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/*_test.go | head -10; echo ---; rg -n "func TestExecuteResumes|resume" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_target_test.go | head
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review_test.go:21:	malformed bool
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review_test.go:39:	malformed   bool
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review_test.go:79:	if r.malformed {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review_test.go:120:	if !r.malformed {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review_test.go:157:	rt.malformed = true
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review_test.go:160:		t.Fatalf("malformed review result=%+v err=%v", failed, err)
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review_test.go:573:	runtime := &rejectedReviewRuntime{permissions: pruntime.PermissionSummary{Mode: "restricted"}, malformed: true}
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify_test.go:36:		malformed     bool
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify_test.go:39:		{"malformed", currentReview, currentSmoke, true, AssessmentBlocked},
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify_test.go:54:			got, next := deriveAssessment(test.review, test.smoke, test.malformed)
+---
+[0m
+[0m$ [0mrg -n "run-all" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go | head; sed -n '640,700p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go
+50:	case len(args) >= 2 && args[1] == "run-all":
+118:		return classified(ExitUsage, "study: expected 'init', 'list', '<study> list', '<study> summary', '<study> validate', '<study> status', '<study> runs', '<study> run-loop', '<study> run-all', '<study> run', '<study> synthesize', or '<study> prompt'")
+148:  ultraplan study <study> run-all [--dimension <ref>] [--source <ref>] [--parallel <n>]
+163:  <study> run-all   Execute selected applicable study analysis tasks, synthesize, and write summary.csv.
+542:		return classified(ExitUsage, "study run-all: %w", err)
+561:		return mapStudyExecutionError("study.run-all", err)
+658:		return study.Service{}, 0, classified(ExitConfig, "study run-all: parallelism must be at least 1")
+710:		return classedError{class: ExitCancel, code: errorCode(ExitCancel), err: fmt.Errorf("study.run-all: cancelled")}
+712:		return classedError{class: ExitPartial, code: errorCode(ExitPartial), err: fmt.Errorf("study.run-all: partial completion")}
+714:		return classedError{class: ExitRuntime, code: errorCode(ExitRuntime), err: fmt.Errorf("study.run-all: runtime failed")}
+		return 0, fmt.Errorf("%s must be an integer", name)
+	}
+	if n < 1 {
+		return 0, fmt.Errorf("%s must be at least 1", name)
+	}
+	return n, nil
+}
+
+func runAllService(deps dependencies, root workspace.Root, flags runAllFlags) (study.Service, int, error) {
+	effective, err := loadEffectiveConfig(root, deps, config.CLIOverrides{})
+	if err != nil {
+		return study.Service{}, 0, err
+	}
+	parallelism := effective.Config.Execution.DefaultParallel
+	if flags.parallelism != nil {
+		parallelism = *flags.parallelism
+	}
+	if parallelism < 1 {
+		return study.Service{}, 0, classified(ExitConfig, "study run-all: parallelism must be at least 1")
+	}
+	req, err := runtimepkg.RequestFromConfig(effective.Config, root.Path)
+	if err != nil {
+		return study.Service{}, 0, classified(ExitConfig, "runtime.config: %w", err)
+	}
+	rt, err := studyRuntimeFactory(effective.Config)
+	if err != nil {
+		return study.Service{}, 0, classified(ExitRuntime, "runtime.init: %w", err)
+	}
+	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+	if err != nil {
+		return study.Service{}, 0, classified(ExitRuntime, "run-control.init: %w", err)
+	}
+	return study.NewService(root.Path, study.WithRuntime(controlled, req)), parallelism, nil
+}
+
+func renderRunAllResult(deps dependencies, result study.RunAllResult) {
+	fmt.Fprintf(deps.stdout, "Run-all: %s\n", result.Status)
+	fmt.Fprintf(deps.stdout, "Study: %s\n", result.Study.Name)
+	fmt.Fprintf(deps.stdout, "Parallelism: %d\n", result.Parallelism)
+	fmt.Fprintf(deps.stdout, "Completed: %d\n", result.Counts.Completed)
+	fmt.Fprintf(deps.stdout, "Failed: %d\n", result.Counts.Failed)
+	fmt.Fprintf(deps.stdout, "Skipped: %d\n", result.Counts.Skipped)
+	fmt.Fprintf(deps.stdout, "Pending: %d\n", result.Counts.Pending)
+	fmt.Fprintf(deps.stdout, "Summary: %s\n", workspace.Rel(result.Study.Path, result.SummaryPath))
+	for _, item := range append(append([]study.ExecutionResult{}, result.Analysis...), result.Synthesis...) {
+		if item.Status == study.ExecutionStatusCompleted {
+			continue
+		}
+		fmt.Fprintf(deps.stderr, "%s %s", item.TaskKind, item.Status)
+		if item.Dimension.Ref() != "" {
+			fmt.Fprintf(deps.stderr, " %s", item.Dimension.Ref())
+		}
+		if item.Source.Name != "" {
+			fmt.Fprintf(deps.stderr, " %s", item.Source.Name)
+		}
+		if item.RuntimeCategory != "" {
+			fmt.Fprintf(deps.stderr, ": %s", item.RuntimeCategory)
+		}
+		fmt.Fprintln(deps.stderr)
+	}
+	for _, warning := range result.Warnings {
+[0m
+[0m$ [0msed -n '560,660p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go
+}
+	var b strings.Builder
+	fmt.Fprintf(&b, "# Execute Summary\n\nPlan: `%s`\nRun state: `%s`\n\n", state.PlanPath, ExecuteRunStateRelPath(sp))
+	counts := map[ExecuteTaskStatus]int{}
+	for _, task := range state.Tasks {
+		counts[task.Status]++
+	}
+	fmt.Fprintln(&b, "## Task Counts")
+	fmt.Fprintln(&b)
+	for _, status := range ExecuteTaskStatuses() {
+		fmt.Fprintf(&b, "- %s: %d\n", status, counts[status])
+	}
+	fmt.Fprintln(&b, "\n## Tasks")
+	fmt.Fprintln(&b)
+	for _, task := range state.Tasks {
+		fmt.Fprintf(&b, "- `%s` %s: %s (attempts: %d)\n", task.ID, task.Status, task.Identity.Name, task.Attempts)
+		for _, evidence := range task.Evidence {
+			fmt.Fprintf(&b, "  - evidence: %s %s\n", evidence.Kind, evidence.Summary)
+		}
+		for _, diagnostic := range task.Diagnostics {
+			fmt.Fprintf(&b, "  - diagnostic: %s %s\n", diagnostic.Code, diagnostic.Message)
+		}
+	}
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return err
+	}
+	return os.WriteFile(path, []byte(b.String()), 0o644)
+}
+
+func ArtifactExecuteRelPath(s Sprint) string { return ArtifactRelPath(s, StageExecute) }
+
+func taskByID(tasks []ExecutePlanTask, id string) ExecutePlanTask {
+	for _, task := range tasks {
+		if task.ID == id {
+			return task
+		}
+	}
+	return ExecutePlanTask{}
+}
+
+func reconcileExecuteState(existing ExecuteRunState, planned []ExecuteTaskRecord, now time.Time) ExecuteRunState {
+	byID := map[string]ExecuteTaskRecord{}
+	for _, task := range existing.Tasks {
+		if task.Status == ExecuteTaskRunning {
+			task.Status = ExecuteTaskFailed
+			task.CompletedAt = &now
+			task.Diagnostics = append(task.Diagnostics, ExecuteDiagnostic{Code: "stale-running", Message: "recovered stale running task on resume", At: now})
+		}
+		byID[task.ID] = task
+	}
+	for i, task := range planned {
+		if old, ok := byID[task.ID]; ok {
+			planned[i] = old
+		}
+	}
+	existing.Tasks = planned
+	existing.UpdatedAt = now
+	return existing
+}
+
+func runtimeSummary(run pruntime.Result, selection ExecuteModelSelection) *ExecuteRuntimeSummary {
+	return &ExecuteRuntimeSummary{RunID: run.RunID, SessionID: run.SessionID, Model: selection.Model, ModelSource: selection.Source, PermissionSummary: run.Permissions.Mode, ValidationSummary: fmt.Sprintf("configured=%t passed=%t failures=%d", run.Validation.Configured, run.Validation.Passed, run.Validation.Failures), UsageSummary: formatRuntimeUsage(run.Usage), OmissionReason: "raw runtime payloads omitted"}
+}
+
+func formatRuntimeUsage(usage pruntime.Usage) string {
+	var parts []string
+	appendKnown := func(name string, known bool, value int64) {
+		if known {
+			parts = append(parts, fmt.Sprintf("%s=%d", name, value))
+		}
+	}
+	appendKnown("input", usage.InputTokensKnown, usage.InputTokens)
+	appendKnown("output", usage.OutputTokensKnown, usage.OutputTokens)
+	appendKnown("reasoning", usage.ReasoningTokensKnown, usage.ReasoningTokens)
+	appendKnown("cache_read", usage.CacheReadTokensKnown, usage.CacheReadTokens)
+	appendKnown("cache_write", usage.CacheWriteTokensKnown, usage.CacheWriteTokens)
+	appendKnown("total", usage.TotalTokensKnown, usage.TotalTokens)
+	appendKnown("turns", usage.TurnsKnown, usage.Turns)
+	return strings.Join(parts, " ")
+}
+
+func mergeRuntimeSummary(previous, current *ExecuteRuntimeSummary) *ExecuteRuntimeSummary {
+	if current == nil {
+		return previous
+	}
+	if current.SessionID == "" && previous != nil {
+		current.SessionID = previous.SessionID
+	}
+	return current
+}
+
+func hasDiagnosticOnlyCompletion(run pruntime.Result) bool {
+	for _, warning := range run.Warnings {
+		if strings.Contains(strings.ToLower(warning), "diagnostic-only") {
+			return true
+		}
+	}
+	return false
+}
+
+func safeArtifactPath(uri string) string {
+[0m
+[0m$ [0mrg -n "RunAnalysis|Synthesize\(|AcquireRunLoopLock|RunLoopActive" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_all.go /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/service.go | head -20
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go:55:		return runStudySynthesize(deps, root, args[0], args[2:])
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go:790:	result, err := service.RunAnalysis(durable.Context(), study.ExecutionRequest{StudyRef: studyRef, DimensionRef: args[0], SourceRef: args[1], OnEvent: renderStudyRuntimeProgress(deps, "analysis", args[0], args[1])})
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go:799:func runStudySynthesize(deps dependencies, root workspace.Root, studyRef string, args []string) error {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go:815:	result, err := service.Synthesize(durable.Context(), study.SynthesisRequest{StudyRef: studyRef, DimensionRef: args[0], OnEvent: renderStudyRuntimeProgress(deps, "synthesis", args[0], "")})
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_all.go:74:				res, err := s.RunAnalysis(ctx, ExecutionRequest{StudyRef: study.Name, DimensionRef: task.dimension.Ref(), SourceRef: task.source.Name, OnEvent: onEvent})
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_all.go:109:		res, err := s.Synthesize(ctx, SynthesisRequest{StudyRef: study.Name, DimensionRef: dimension.Ref(), SourceRefs: selectedSourceNames(sources), OnEvent: onEvent})
+[0m
+[0m$ [0mrg -n "RetryRateLimits|MaxAttemptsPerTarget" "/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/policy.go" | head -20
+133:	MaxAttemptsPerTarget int
+136:	RetryRateLimits      bool
+153:	if policyCtx.Err.Category == ErrorRateLimit && !p.RetryRateLimits {
+179:	max := p.MaxAttemptsPerTarget
+[0m
+[0m$ [0msed -n 125,215p "/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/policy.go"
+return b.Max
+	}
+	return result
+}
+
+// BasicPolicy is a conservative bounded policy helper. It classifies failure
+// facts at decision time and falls back only to configured alternatives.
+type BasicPolicy struct {
+	MaxAttemptsPerTarget int
+	MaxElapsed           time.Duration
+	Backoff              BackoffPolicy
+	RetryRateLimits      bool
+	Fallbacks            []FallbackAlternative
+	ShouldRetry          func(PolicyContext) bool
+	ShouldFallback       func(PolicyContext) bool
+}
+
+// Decide implements ResiliencePolicy.
+func (p BasicPolicy) Decide(ctx context.Context, policyCtx PolicyContext) (PolicyDecision, error) {
+	if err := ctx.Err(); err != nil {
+		return PolicyDecision{Kind: PolicyDecisionStop, Err: contextPolicyError(err)}, nil
+	}
+	if policyCtx.Err == nil {
+		return PolicyDecision{Kind: PolicyDecisionStop, Reason: "attempt completed"}, nil
+	}
+	if p.MaxElapsed > 0 && policyCtx.Elapsed >= p.MaxElapsed {
+		return PolicyDecision{Kind: PolicyDecisionStop, Reason: "max elapsed time exhausted", Err: policyCtx.Err}, nil
+	}
+	if policyCtx.Err.Category == ErrorRateLimit && !p.RetryRateLimits {
+		return p.fallbackOrStop(policyCtx, "rate limit retry disabled")
+	}
+	if policyCtx.Err.Category == ErrorRuntimeExit && p.hasFallback(policyCtx) && p.shouldFallback(policyCtx) {
+		return p.fallbackOrStop(policyCtx, "runtime exit")
+	}
+	if p.shouldRetry(policyCtx) && p.canRetry(policyCtx) {
+		delay := p.delay(policyCtx)
+		reason := "retryable failure"
+		if policyCtx.Err.Category == ErrorRateLimit {
+			reason = "rate limit"
+		}
+		return PolicyDecision{
+			Kind:          PolicyDecisionRetry,
+			Reason:        reason,
+			Detail:        policyCtx.Err.UserDetail,
+			Delay:         delay,
+			TargetIndex:   policyCtx.TargetIndex,
+			SessionAction: SessionActionDefault,
+			RateLimit:     policyCtx.RateLimit,
+		}, nil
+	}
+	return p.fallbackOrStop(policyCtx, "retry exhausted")
+}
+
+func (p BasicPolicy) canRetry(ctx PolicyContext) bool {
+	max := p.MaxAttemptsPerTarget
+	if max <= 0 {
+		return false
+	}
+	return ctx.AttemptOnTarget < max
+}
+
+func (p BasicPolicy) delay(ctx PolicyContext) time.Duration {
+	if ctx.RateLimit != nil {
+		if ctx.RateLimit.RetryAfter > 0 {
+			return ctx.RateLimit.RetryAfter
+		}
+		if !ctx.RateLimit.ResetAt.IsZero() {
+			if until := time.Until(ctx.RateLimit.ResetAt); until > 0 {
+				return until
+			}
+		}
+	}
+	if p.Backoff == nil {
+		return 0
+	}
+	return p.Backoff.Delay(ctx)
+}
+
+func (p BasicPolicy) fallbackOrStop(ctx PolicyContext, reason string) (PolicyDecision, error) {
+	if ctx.Err != nil && p.shouldFallback(ctx) {
+		fallbacks := p.Fallbacks
+		if len(fallbacks) == 0 {
+			fallbacks = ctx.Alternatives
+		}
+		next := ctx.TargetIndex + 1
+		if next < len(fallbacks)+1 {
+			target := fallbacks[next-1]
+			return PolicyDecision{
+				Kind:          PolicyDecisionFallback,
+				Reason:        reason,
+				Detail:        ctx.Err.UserDetail,
+[0m
+[0m✱ [0mGrep "func retryAfterFromAgent"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study · 1 match[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/runtime_metadata.go
+[0m✱ [0mGrep "type ProcessIdentity|BirthToken|type NativeProcessProbe|func NewProcessOwner|OwnerLeaseDuration ="[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol · 19 matches[0m

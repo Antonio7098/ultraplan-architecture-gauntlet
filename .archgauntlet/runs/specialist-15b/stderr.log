@@ -1,4 +1,579 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -3 && git status --short | head -5
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+[0m
+[0m$ [0mls docs && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace | head -30
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m$ [0mls docs/plans docs/reports && find internal -type d | sort
+docs/plans:
+integrated-roadmap.md
+post-execution-qa-and-repair-loop.md
+retrieval-ready-content-knowledge-graph-addendum.md
+retrieval-ready-content-plan.md
+server-shutdown-run-cancellation-contract.md
+sprint-code-context-stage.md
+ultraplan-local-server-experiment-plan.md
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515768795,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515768795,[]
+docs/reports:
+sprint-efficiency.md
+internal
+internal/app
+internal/codeextract
+internal/platform
+internal/platform/config
+internal/platform/filesystem
+internal/platform/logging
+internal/platform/process
+internal/platform/runtime
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/web/static
+internal/web/static/css
+internal/web/static/js
+internal/web/templates
+internal/web/templates/components
+internal/web/templates/layouts
+internal/web/templates/pages
+internal/web/templates/primitives
+internal/workspace
+internal/workspace/scaffold
+internal/workspace/scaffold/prompts
+internal/workspace/scaffold/templates
+[0m
+[0m$ [0mls -la internal/platform/filesystem internal/workspace internal/project && wc -l internal/platform/filesystem/*.go internal/workspace/*.go 2>/dev/null
+internal/platform/filesystem:
+total 4
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  12 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  74 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees 257 Aug 22 16:23 doc.go
+
+internal/project:
+total 56
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   262 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2689 Aug 22 16:23 discovery.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   600 Aug 22 16:23 doc.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1903 Aug 22 16:23 domain.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4321 Aug 22 16:23 index.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 10936 Aug 22 16:23 project_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3450 Aug 22 16:23 reasoning_defaults.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2043 Aug 22 16:23 reasoning_defaults_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2054 Aug 22 16:23 service.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2566 Aug 22 16:23 store_fs.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  7193 Aug 22 16:23 validation.go
+
+internal/workspace:
+total 84
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   210 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2530 Aug 22 16:23 defaults.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1587 Aug 22 16:23 discovery.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   246 Aug 22 16:23 doc.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  9344 Aug 22 16:23 init.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   903 Aug 22 16:23 paths.go
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    32 Aug 22 16:23 scaffold
+-rw-r--r--. 1 antonioborgerees antonioborgerees 31278 Aug 22 16:23 skills.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8592 Aug 22 16:23 skills_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   756 Aug 22 16:23 validation.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  6214 Aug 22 16:23 workspace_test.go
+    6 internal/platform/filesystem/doc.go
+   92 internal/workspace/defaults.go
+   78 internal/workspace/discovery.go
+    6 internal/workspace/doc.go
+  318 internal/workspace/init.go
+   42 internal/workspace/paths.go
+  438 internal/workspace/skills.go
+  248 internal/workspace/skills_test.go
+   29 internal/workspace/validation.go
+  192 internal/workspace/workspace_test.go
+ 1449 total
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/filesystem/doc.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/init.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/discovery.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/validation.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/store_fs.go
+[0m✱ [0mGrep "os\.Rename|CreateTemp|WriteFile|Sync\(\)"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 100 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/summary.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/session_state.go
+[0m✗ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/context_pack.go failed[90m [offset=200, limit=190][0m
+[91m[1mError: [0mOffset 200 is out of range for this file (121 lines)
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/context_pack.go
+[0m✱ [0mGrep "func atomicWriteFile|func syncDir"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 2 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/runtime_metrics.go[90m [limit=80, offset=100][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke.go[90m [limit=60, offset=670][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go[90m [limit=160, offset=230][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state.go
+[0m
+[0m$ [0mls internal/runcontrol && wc -l internal/runcontrol/*.go | tail -5
+benchmark_test.go
+doc.go
+errors.go
+fault_test.go
+id.go
+id_test.go
+import_boundary_test.go
+interfaces.go
+lifecycle.go
+lifecycle_test.go
+local_log.go
+local_log_test.go
+metrics.go
+migration.go
+migration_test.go
+model.go
+model_test.go
+process_darwin.go
+process.go
+process_integration_test.go
+process_linux.go
+process_other.go
+retention.go
+retention_test.go
+sanitize.go
+sanitize_test.go
+sqlite.go
+sqlite_test.go
+   111 internal/runcontrol/sanitize.go
+    73 internal/runcontrol/sanitize_test.go
+  1175 internal/runcontrol/sqlite.go
+   470 internal/runcontrol/sqlite_test.go
+  5464 total
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go
+[0m✱ [0mGrep "func |const |DatabaseRelativePath"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go · 100 matches[0m
+[0m✱ [0mGrep "DatabaseRelativePath\s*=|func OpenSQLiteRepository|RunStateInDatabase|ExecuteStateInDatabase|loadRunStateDatabase|saveRunStateDatabase"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 13 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state_database.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state_database.go
+[0m
+[0m$ [0mls internal/productstate && wc -l internal/productstate/*.go
+store.go
+206 internal/productstate/store.go
+[0m
+[0m✱ [0mGrep "func StudyPath|func DiscoverStudies|studies"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study · 95 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go[90m [limit=220][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/import_boundary_test.go
+[0m✱ [0mGrep "productstate\.|runcontrol\.DatabaseRelativePath|productstate\.DatabaseRelativePath"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 23 matches[0m
+[0m
+[0m$ [0mgrep -n "run-control.db\|productstate\|product state\|DatabaseRelativePath" docs/architecture.md docs/recovery.md docs/phase3-migration.md docs/configuration.md 2>/dev/null | head -40
+docs/architecture.md:52:handler packages. It cannot decide workflow semantics, persist product state,
+docs/architecture.md:156:`.ultraplan/run-control.db`. `internal/runcontrol` owns operational identity,
+docs/architecture.md:175:PID alone, or infers success from artifacts, locks, or product state. One
+docs/recovery.md:218:`.ultraplan/run-control.db` (maximum three retained backups and 512 MiB per
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/paths.go
+[0m
+[0m$ [0mgrep -rn "clearPlanningStageSession\|startPlanningStageRun" internal/sprint --include=*.go | grep -v _test
+internal/sprint/code_context.go:311:	result, runErr := s.startPlanningStageRun(ctx, sp, StageCodeContext, runtimeReq)
+internal/sprint/code_context.go:387:	_ = clearPlanningStageSession(sp, StageCodeContext)
+internal/sprint/flow.go:89:						_ = clearPlanningStageSession(sp, stage)
+internal/sprint/service.go:503:	runtimeResult, err := s.startPlanningStageRun(ctx, sp, StageRequirements, runtimeReq)
+internal/sprint/service.go:540:	_ = clearPlanningStageSession(sp, StageRequirements)
+internal/sprint/service.go:587:	runtimeResult, err := s.startPlanningStageRun(ctx, sp, StageSprintIndex, runtimeReq)
+internal/sprint/service.go:627:	_ = clearPlanningStageSession(sp, StageSprintIndex)
+internal/sprint/service.go:673:	runtimeResult, err := s.startPlanningStageRun(ctx, sp, StagePlan, runtimeReq)
+internal/sprint/service.go:710:	_ = clearPlanningStageSession(sp, StagePlan)
+internal/sprint/service.go:762:	runtimeResult, err := s.startPlanningStageRun(ctx, sp, StageTechnicalHandbook, runtimeReq)
+internal/sprint/service.go:799:	_ = clearPlanningStageSession(sp, StageTechnicalHandbook)
+internal/sprint/service.go:1177:		result, runErr := s.startPlanningStageRun(ctx, sp, StageAreaReasoning, runtimeReq)
+internal/sprint/service.go:1218:	_ = clearPlanningStageSession(sp, StageAreaReasoning)
+internal/sprint/service.go:1290:	runtimeResult, err := s.startPlanningStageRun(ctx, sp, StageReasoning, runtimeReq)
+internal/sprint/service.go:1327:	_ = clearPlanningStageSession(sp, StageReasoning)
+internal/sprint/session_state.go:94:func (s Service) startPlanningStageRun(ctx context.Context, sp Sprint, stage PlanningStage, req pruntime.Request) (pruntime.Result, error) {
+internal/sprint/session_state.go:143:func clearPlanningStageSession(sp Sprint, stage PlanningStage) error {
+internal/sprint/smoke_author.go:74:	run, runErr := s.startPlanningStageRun(ctx, prepared.Sprint, StageSmoke, req)
+internal/sprint/smoke_author.go:119:	_ = clearPlanningStageSession(prepared.Sprint, StageSmoke)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=140, offset=1580][0m
+[0m✗ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_history_summary.go failed[90m [limit=50, offset=550][0m
+[91m[1mError: [0mOffset 550 is out of range for this file (378 lines)
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_history_summary.go[90m [limit=60][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/cleanup_uncertain.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go[90m [limit=50, offset=555][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go[90m [limit=40, offset=1320][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop.go[90m [limit=80, offset=430][0m
+[0m
+[0m$ [0mgrep -rn "MigrateRunStateToDatabase\|MigrateFlowStateToDatabase\|MigrateExecuteStateToDatabase\|DeleteRecord\|DELETE FROM product_states" internal --include=*.go | grep -v _test
+internal/app/storage_commands.go:104:			err = study.MigrateRunStateToDatabase(item, state)
+internal/app/storage_commands.go:155:					loadErr = sprint.MigrateFlowStateToDatabase(root, sp, state)
+internal/app/storage_commands.go:178:					loadErr = sprint.MigrateExecuteStateToDatabase(root, sp, state)
+internal/sprint/state_database.go:143:func MigrateFlowStateToDatabase(root string, s Sprint, state FlowState) error {
+internal/sprint/state_database.go:146:func MigrateExecuteStateToDatabase(root string, s Sprint, state ExecuteRunState) error {
+internal/study/state_database.go:78:func MigrateRunStateToDatabase(study Study, state RunState) error {
+[0m
+[0m✱ [0mGrep "Reset|Migrate.*ToDatabase"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 5 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/storage_commands.go
+[0m
+[0m$ [0mcat go.mod | head -20 && ls .github/workflows && grep -n "runs-on\|matrix\|os:" .github/workflows/*.yml | head -20
+module github.com/Antonio7098/ultraplan-go
+
+go 1.26
+
+require gopkg.in/yaml.v3 v3.0.1
+
+require (
+	github.com/Antonio7098/agentwrap v0.0.0-20260821190033-e79a38a58da3
+	github.com/charmbracelet/bubbletea v1.3.10
+	github.com/charmbracelet/glamour v1.0.0
+	github.com/charmbracelet/lipgloss v1.1.1-0.20250404203927-76690c660834
+	github.com/yuin/goldmark v1.7.13
+	golang.org/x/sys v0.47.0
+	modernc.org/sqlite v1.57.0
+)
+
+require (
+	github.com/alecthomas/chroma/v2 v2.20.0 // indirect
+	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
+	github.com/aymerick/douceur v0.2.0 // indirect
+ci.yml
+10:    runs-on: ubuntu-latest
+[0m
+[0m✱ [0mGrep "Windows|windows|Linux|linux|macOS|darwin|platform"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs · 32 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/recovery.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/code_context.go[90m [limit=240, offset=270][0m
+[0m
+[0m$ [0mls internal/web/*.go | head -30 && grep -n "os\.\|filepath\." internal/web/artifacts.go | head -20
+internal/web/api_compatibility_test.go
+internal/web/artifacts.go
+internal/web/artifacts_test.go
+internal/web/handlers.go
+internal/web/import_boundary_test.go
+internal/web/integration_test.go
+internal/web/operation_handlers.go
+internal/web/operations_contract_test.go
+internal/web/operations.go
+internal/web/operations_test.go
+internal/web/packaging_test.go
+internal/web/routes.go
+internal/web/routes_test.go
+internal/web/run_handlers.go
+internal/web/run_handlers_test.go
+internal/web/security.go
+internal/web/security_test.go
+internal/web/server.go
+internal/web/server_policy.go
+internal/web/server_policy_test.go
+internal/web/server_test.go
+internal/web/sse_test.go
+internal/web/templates_test.go
+internal/web/test_fakes_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/artifacts.go
+[0m✱ [0mGrep "func.*Artifact|EvalSymlinks|WebPreviewByteLimit"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 23 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go[90m [limit=120, offset=690][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go[90m [limit=60, offset=880][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases.go[90m [limit=100, offset=140][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/defaults.go
+[0m
+[0m$ [0mgrep -n "session" internal/sprint/review.go | head -30 && grep -rn "RunStateDirName\s*=" internal/study
+77:	SessionID  string                `json:"sessionId,omitempty"`
+502:		sessionID string
+504:	type sessionItem struct {
+506:		sessionID  string
+510:	sessions := make(chan sessionItem, max(1, len(runCoverage)*4))
+518:				sessionID := resumeSessions[c.ID]
+519:				lastSessionID := sessionID
+520:				value, finalSessionID := s.runReviewer(ctx, m, c, sessionID, func(id string) {
+523:						sessions <- sessionItem{coverageID: c.ID, sessionID: id}
+526:				done <- item{index: i, value: value, sessionID: finalSessionID}
+536:		close(sessions)
+540:	for done != nil || sessions != nil {
+542:		case session, ok := <-sessions:
+544:				sessions = nil
+547:			if session.sessionID != "" && len(req.Focus) == 0 {
+548:				if saveErr := s.saveReviewResumeSession(projectRef, sprintRef, m.Fingerprint, session.coverageID, session.sessionID); saveErr != nil {
+572:				if saveErr := s.saveReviewResumeResult(projectRef, sprintRef, m.Fingerprint, got.value, got.sessionID); saveErr != nil {
+764:	sessions := map[string]string{}
+775:			sessions[item.ID] = checkpoint.SessionID
+779:	return run, coverage, sessions, completed
+792:func (s Service) saveReviewResumeSession(projectRef, sprintRef, fingerprint, coverageID, sessionID string) error {
+795:		// buffered session event may therefore be persisted after the terminal
+796:		// result; never let that late event restore a cleared session or regress a
+801:		checkpoint.SessionID = sessionID
+807:func (s Service) saveReviewResumeResult(projectRef, sprintRef, fingerprint string, result ReviewCoverageResult, sessionID string) error {
+816:			checkpoint.SessionID = sessionID
+868:func (s Service) runReviewer(ctx context.Context, m ReviewManifest, c ReviewInput, resumeSession string, onSession func(string)) (out ReviewCoverageResult, sessionID string) {
+914:	sessionID = r.SessionID
+915:	if sessionID != "" && onSession != nil {
+916:		onSession(sessionID)
+internal/study/domain.go:5:	RunStateDirName       = ".ultraplan"
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=130, offset=780][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=120, offset=470][0m
+[0m
+[0m$ [0mgrep -n "func.*Status\|persistDerived\|deriveStage\|SaveFlowState\|mutation lease\|Lease\|acquireMutation\|withSprintLease\|WithLease" internal/sprint/service.go | head -50
+70:func (s Service) WithoutStatusWrites() Service {
+77:func (s Service) acquireMutation(projectRef, sprintRef string) (func(), error) {
+130:func (s Service) Status(projectRef, sprintRef string) (StatusSummary, error) {
+192:		if err := SaveFlowState(s.root, sp, refreshed); err != nil {
+498:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+506:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+512:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+526:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+533:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+537:	if err := SaveFlowState(s.root, sp, NewFlowState(sp, stages, now)); err != nil {
+556:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+564:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+572:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+582:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+590:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+596:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+613:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+620:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+624:	if err := SaveFlowState(s.root, sp, NewFlowState(sp, stages, now)); err != nil {
+649:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+658:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+668:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+676:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+682:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+696:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+703:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+707:	if err := SaveFlowState(s.root, sp, NewFlowState(sp, stages, now)); err != nil {
+730:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+740:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+747:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+757:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+765:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+771:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+785:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+792:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+796:	if err := SaveFlowState(s.root, sp, NewFlowState(sp, stages, now)); err != nil {
+818:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+837:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+1120:		if err := SaveFlowState(s.root, sp, NewFlowState(sp, stages, now)); err != nil {
+1130:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+1138:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+1148:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+1154:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+1166:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+1172:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+1181:			_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+1192:				_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+1198:				_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+1211:		_ = SaveFlowState(s.root, sp, NewFlowState(sp, stages, now))
+1215:	if err := SaveFlowState(s.root, sp, NewFlowState(sp, stages, now)); err != nil {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go[90m [limit=150, offset=60][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go[90m [limit=100, offset=130][0m
+[0m
+[0m$ [0mgrep -rn "acquireVerificationFileLock\|verification.*lock\|lock" internal/sprint/verify_lock*.go internal/sprint/*.go 2>/dev/null | grep -i "func acquire\|func.*release\|path.*lock" | head; ls internal/sprint | grep -i lock
+internal/sprint/execute_state_test.go:177:	writeFileContent(t, sp.Path, `{"status":"complete","completedAt":"2026-05-30T10:07:22Z","files":[],"testsRun":[],"blockers":[]}`, ".run-state.json")
+internal/sprint/review.go:1515:	fmt.Fprintf(&b, "# Read-only Sprint Reviewer\n\nReview coverage `%s` (%s: %s). Do not write files, mutate git, or run destructive commands. Read the coverage source and governed inputs from the exact paths below; their hashes form the frozen fingerprint and inputs are checked again before promotion. Review only those inputs and the target scope. Cite logical manifest paths, not absolute read paths. Return exactly one JSON object matching: {\"schemaVersion\":1,\"coverageId\":string,\"applicability\":\"direct|partial|not_triggered|explicitly_deferred\",\"summary\":string,\"findings\":[{\"id\":string,\"severity\":\"info|low|medium|high|blocker\",\"applicability\":\"direct|partial|not_triggered|explicitly_deferred\",\"title\":string,\"detail\":string,\"action\":string,\"citations\":[{\"path\":string,\"startLine\":number,\"endLine\":number}]}]}. Every direct or partial finding requires real line citations. Findings are only for actionable deviations; summarize confirmed conformance in `summary` instead of emitting informational findings. Use stable unique finding IDs and emit no more than %d findings.\n\nTarget: %s\nFingerprint: %s\nChanged paths: %s\n\nCoverage source: logical `%s`; read `%s`; sha256 `%s`.\n\nFrozen input index:\n", c.ID, c.Kind, c.Name, maxReviewFindingsPerCoverage, m.Target, m.Fingerprint, strings.Join(m.ChangedPaths, ", "), c.Path, reviewInputReadPath(m, c), c.Hash)
+internal/sprint/runtime_validation.go:18:	fmt.Fprintf(&b, "Keep the complete response at or below %d bytes. Store source references only; every selected entry needs Path, Lines, and Rationale, with no copied source or fenced code blocks.\n", maxCodeContextBytes)
+internal/sprint/verification_lock.go:26:func acquireVerificationFileLock(root string, sprint Sprint, now time.Time) (*verificationFileLock, error) {
+internal/sprint/verification_lock.go:27:	path := filepath.Join(root, ".ultraplan", "locks", "sprint", sprint.Project+"--"+sprint.Slug+".lock")
+internal/sprint/verification_lock.go:78:func (lock *verificationFileLock) release() error {
+internal/sprint/verification_lock_test.go:25:	path := filepath.Join(root, ".ultraplan", "locks", "sprint", sp.Project+"--"+sp.Slug+".lock")
+locks.go
+locks_test.go
+verification_lock.go
+verification_lock_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verification_lock.go
+[0m
+[0m$ [0mgrep -n "acquireMutation\|WithoutStatusWrites" internal/sprint/*.go internal/app/*.go internal/web/*.go internal/tui/*.go 2>/dev/null | grep -v _test | head -30
+internal/sprint/execute.go:36:	ctx, release, err := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/execute.go:129:		lockedCtx, release, lockErr := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/flow.go:71:		ctx, release, err = s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/flow.go:129:		ctx, release, err = s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/locks.go:26:	lockedCtx, release, err := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/locks.go:90:func (s Service) acquireMutationContext(ctx context.Context, projectRef, sprintRef string) (context.Context, func(), error) {
+internal/sprint/locks.go:99:	release, err := s.acquireMutation(projectRef, sprintRef)
+internal/sprint/review.go:407:		lockedCtx, release, lockErr := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/service.go:67:// WithoutStatusWrites derives status from current artifacts without creating a
+internal/sprint/service.go:70:func (s Service) WithoutStatusWrites() Service {
+internal/sprint/service.go:77:func (s Service) acquireMutation(projectRef, sprintRef string) (func(), error) {
+internal/sprint/smoke.go:24:	lockedCtx, release, lockErr := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/verify.go:41:		lockedCtx, release, lockErr := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/app/usecases.go:127:		service = service.WithoutStatusWrites()
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases.go[90m [limit=50, offset=95, command=grep -rn "WithoutStatusWrites\|\.Status(" internal/app/sprint_commands.go internal/app/web_usecases.go internal/tui/*.go 2>/dev/null | grep -v _test | head, workdir=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go][0m
+[0m
+[0m$ [0mgrep -rn "func (s Service) saveReviewState" internal/sprint/review.go && grep -rn -A20 "func (s Service) saveReviewState" internal/sprint/review.go | head -40
+1190:func (s Service) saveReviewState(projectRef, sprintRef string, r ReviewResult, completed, total int) error {
+1190:func (s Service) saveReviewState(projectRef, sprintRef string, r ReviewResult, completed, total int) error {
+1191-	sp, _, _, err := s.resolveSprintInputs(projectRef, sprintRef)
+1192-	if err != nil {
+1193-		return err
+1194-	}
+1195-	state, err := LoadFlowState(s.root, sp)
+1196-	if err != nil {
+1197-		if !errors.Is(err, ErrFlowStateMissing) {
+1198-			return err
+1199-		}
+1200-		snap, e := s.store.ReadArtifacts(sp)
+1201-		if e != nil {
+1202-			return e
+1203-		}
+1204-		state = NewFlowState(sp, DeriveStages(sp, snap, nil), s.now())
+1205-	}
+1206-	now := s.now().UTC()
+1207-	current := state.Review
+1208-	if current == nil {
+1209-		current = &ReviewStageState{Path: ArtifactRelPath(sp, StageReview)}
+1210-	}
+[0m
+[0m✱ [0mGrep "concurren|race|during.*status|status.*during"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 14 matches[0m
+[0m
+[0m$ [0mgrep -rn "SaveRunState\|saveRunStateWithHooks" internal/study/*.go internal/app/study_*.go | grep -v _test | head -20
+internal/study/cleanup_uncertain.go:134:		if err := SaveRunState(st, state); err != nil {
+internal/study/run_loop.go:65:	err = SaveRunState(listing.Study, state)
+internal/study/run_loop.go:168:		err := SaveRunState(listing.Study, stateCopy)
+internal/study/state.go:59:func SaveRunState(study Study, state RunState) error {
+internal/study/state.go:70:	return saveRunStateWithHooks(study, state, atomicWriteHooks{})
+internal/study/state.go:73:func saveRunStateWithHooks(study Study, state RunState, hooks atomicWriteHooks) error {
+[0m
+[0m$ [0mgrep -rn "sprintService()\|readOnly" internal/app/web_usecases.go | head -10 && grep -rn "NewService\|sprint.NewService" internal/app/*.go | grep -v _test | head -10
+250:			readOnly:          true,
+506:	service := u.dashboard.sprintService()
+internal/app/operation_runner.go:75:			service := sprint.NewService(root.Path).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env)))
+internal/app/operation_runner.go:134:			service := study.NewService(root.Path)
+internal/app/operations.go:734:		validation, err := project.NewService(u.root).Validate(ref)
+internal/app/operations.go:745:		validation, err := study.NewService(u.root).ValidateStudy(ref)
+internal/app/project_commands.go:36:	service := project.NewService(root.Path)
+internal/app/project_usecases.go:29:	service := project.NewService(u.root)
+internal/app/sprint_commands.go:81:	service := sprint.NewService(root.Path).WithStageRuntime(planningStageRuntime(effective.Config)).WithReviewConcurrency(effective.Config.Execution.DefaultParallel).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env)))
+internal/app/sprint_commands.go:498:	return sprint.NewService(root.Path).WithRuntime(controlled, req).WithRuntimeProgress(progress).WithStageRuntime(planningStageRuntime(effective.Config)).WithReviewConcurrency(effective.Config.Execution.DefaultParallel).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env))), nil
+internal/app/study_commands.go:43:	service := study.NewService(root.Path)
+internal/app/study_commands.go:267:	service := study.NewService(root)
+[0m
+[0m$ [0mgrep -rn "productstate" internal/runcontrol internal/productstate --include=*.go | head; grep -rn "run-control.db" docs/*.md README.md | head
+internal/productstate/store.go:1:package productstate
+docs/architecture.md:156:`.ultraplan/run-control.db`. `internal/runcontrol` owns operational identity,
+docs/recovery.md:218:`.ultraplan/run-control.db` (maximum three retained backups and 512 MiB per
+[0m
+[0m$ [0mgrep -rn "storage migrate\|storage\b" docs/cli-reference.md | head -8 && grep -rn "phase3-migration\|product state" docs/phase3-migration.md | head -20
+(no output)
+[0m
+[0m$ [0mhead -60 docs/phase3-migration.md && grep -rn "productstate\|product_states\|product-state" docs -r | head
+# Phase 3 Verification Migration
+
+Legacy manually maintained verification files are not authoritative Phase 3 evidence.
+
+1. Back up any manual `review.md` or `deep-smoke.md` that must be retained outside the sprint directory.
+2. Remove the legacy sprint-root files.
+3. Run `ultraplan sprint <project> <sprint> status` and repair execute prerequisites.
+4. Preview with `verify --to smoke --dry-run`.
+5. Run `verify --to smoke --yes` to generate current `review.md`, `smoke.md`, and versioned flow state.
+6. Validate with `validate review`, `validate smoke`, and `status`.
+
+Do not rename `deep-smoke.md` to `smoke.md`: generated Phase 3 artifacts contain fingerprints, verdicts, evidence identity, and recovery facts that a legacy manual file does not prove. Raw run and issue evidence remains in the cataloged external smoke harness.
+
+Unknown durable-state versions fail closed. Preserve the file for diagnosis, then use the documented recovery path rather than hand-editing a version number.
+docs/migration-product-state.md:9:scripts/migrate-product-state.sh /path/to/workspace --dry-run
+docs/migration-product-state.md:15:scripts/migrate-product-state.sh /path/to/workspace
+docs/migration-product-state.md:28:The normalized tables are `product_states` and `product_state_items`. Study
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/migration-product-state.md
+[0m
+[0m$ [0mls scripts && head -40 scripts/migrate-product-state.sh 2>/dev/null
+install-ultraplan.sh
+migrate-legacy-sprint-state.sh
+migrate-product-state.sh
+reset-opencode-db.sh
+#!/usr/bin/env bash
+set -euo pipefail
+
+workspace_path=${1:-.}
+if [[ $# -gt 0 ]]; then
+  shift
+fi
+
+ultraplan_binary=${ULTRAPLAN_BIN:-ultraplan}
+exec "$ultraplan_binary" --workspace "$workspace_path" storage migrate "$@"
+[0m
+[0m$ [0mgrep -n "func.*RunHistory\|os.OpenFile\|O_APPEND\|atomicWriteFile\|WriteFile" internal/study/run_history.go | head -20
+66:func RunHistoryPath(study Study) string {
+70:func RunHistorySummaryPath(study Study) string {
+74:func AppendRunHistory(study Study, state RunState, task TaskState) error {
+82:func appendRunHistoryWithKeys(study Study, state RunState, task TaskState, existing map[string]bool) error {
+94:	file, err := os.OpenFile(path, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0o644)
+110:func SyncRunHistory(study Study, state RunState) error {
+123:func NewRunHistoryRecord(study Study, state RunState, task TaskState, recordedAt time.Time) RunHistoryRecord {
+185:func LoadRunHistory(study Study) ([]RunHistoryRecord, error) {
+198:func readRunHistory(r io.Reader) ([]RunHistoryRecord, error) {
+219:func readRunHistoryKeys(path string) (map[string]bool, error) {
+243:func runHistoryKey(record RunHistoryRecord) string {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_history.go[90m [limit=130, offset=60][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_history.go[90m [limit=70, offset=185][0m
+[0m
+[0m$ [0mgrep -rn "AppendRunHistory\|SyncRunHistory" internal/study/*.go | grep -v _test | grep -v "func "
+internal/study/cleanup_uncertain.go:137:		if err := SyncRunHistory(st, state); err != nil {
+internal/study/run_loop.go:70:	if err := SyncRunHistory(listing.Study, state); err != nil {
+internal/study/run_loop.go:389:	if err := SyncRunHistory(listing.Study, state); err != nil {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop.go[90m [limit=120, offset=40][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop.go[90m [limit=120, offset=160][0m
+[0m
+[0m$ [0mgrep -rn "malformed\|torn\|truncat\|corrupt" internal/study/run_history* internal/study/*history*_test.go 2>/dev/null | head; ls internal/study | grep history
+run_history.go
+run_history_summary.go
+run_history_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_history_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/local_log.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop_diagnostics.go[90m [limit=120, offset=100][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=60, offset=95][0m
+[0m
+[0m$ [0mgo build ./... && go vet ./internal/sprint ./internal/study ./internal/runcontrol ./internal/productstate 2>&1 | head -5
+(no output)
+[0m
+[0m$ [0mgo test ./internal/productstate ./internal/runcontrol ./internal/study -count=1 2>&1 | tail -5
+--- FAIL: TestRunLoopStartsPriorityTierBeforeLaterTiers (1.78s)
+    run_loop_test.go:303: first starts = []string{"analysis:01-structure", "analysis:02-runtime"}, want the priority dimension; all starts []string{"analysis:01-structure", "analysis:02-runtime", "analysis:02-runtime", "analysis:01-structure", "synthesis:01-structure", "synthesis:02-runtime"}
+FAIL
+FAIL	github.com/Antonio7098/ultraplan-go/internal/study	16.365s
+FAIL
+[0m
+[0m$ [0mgo test ./internal/productstate ./internal/runcontrol -count=1 2>&1 | tail -3 && go test ./internal/study -run TestRunLoopStartsPriorityTierBeforeLaterTiers -count=3 2>&1 | tail -4
+?   	github.com/Antonio7098/ultraplan-go/internal/productstate	[no test files]
+ok  	github.com/Antonio7098/ultraplan-go/internal/runcontrol	5.495s
+    run_loop_test.go:303: first starts = []string{"analysis:01-structure", "analysis:02-runtime"}, want the priority dimension; all starts []string{"analysis:01-structure", "analysis:02-runtime", "analysis:02-runtime", "analysis:01-structure", "synthesis:02-runtime", "synthesis:01-structure"}
+FAIL
+FAIL	github.com/Antonio7098/ultraplan-go/internal/study	5.584s
+FAIL
+[0m

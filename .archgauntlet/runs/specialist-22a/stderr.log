@@ -1,4 +1,1160 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go log --oneline -3
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go -type f -name "*.go" | head -80
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/code_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/code_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/config_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/defaults_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/json_output.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/markdown.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/markdown_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_inventory_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/skills_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/skills_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_error_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_verify_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/status_json.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/storage_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_init_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_prompt_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_all_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_loop_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_runs_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_runs_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_status_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_summary_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_validate_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/surfaces.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/version.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_operations_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/workspace_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/codeextract_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/parser.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/resolver.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/service.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/redaction.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/filesystem/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging/logging.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging/logging_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_other.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_unix.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/agentwrap.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/cache_test.go
+[0m
+[0m$ [0mls -R /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies 2>/dev/null | head -100
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies:
+agent-harness-study
+go-cli-study
+ultraplan-daemon-events-study
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515633178,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515633178,[]
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study:
+dimensions
+reports
+sources
+study-init.yml
+study.json
+summary.csv
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/dimensions:
+01.01-execution-model-taxonomy.md
+01.02-control-flow-ownership.md
+01.03-step-turn-task-atomicity.md
+01.04-termination-and-loop-bounds.md
+01.05-pause-resume-interrupt-semantics.md
+01.06-scheduling-and-trigger-semantics.md
+01.07-concurrency-and-parallel-advancement.md
+01.08-streaming-execution-semantics.md
+01.09-delivery-guarantees-idempotency.md
+01.10-replay-and-determinism.md
+01.11-terminal-outcome-arbitration.md
+02.01-state-taxonomy-and-ownership.md
+02.02-snapshot-and-checkpoint-architecture.md
+02.03-event-sourcing-and-replay-state.md
+02.04-mutation-discipline-and-state-transitions.md
+02.05-persistence-durability-tiers.md
+02.06-schema-versioning-and-migration.md
+02.07-session-thread-user-boundaries.md
+02.08-crash-recovery-and-reconstruction.md
+02.09-state-pruning-compaction-retention.md
+03.01-llm-turn-loop-structure.md
+03.02-reason-act-observe-cadence.md
+03.03-tool-calling-roundtrip-control.md
+03.04-planner-executor-separation.md
+03.05-reflection-reask-self-correction.md
+03.06-stuck-doom-loop-detection.md
+03.07-context-refresh-inside-loop.md
+03.08-subagent-forked-loop-design.md
+03.09-completion-and-finalization-semantics.md
+04.01-tool-definition-and-registration.md
+04.02-tool-schema-generation-validation.md
+04.03-tool-catalog-discovery-routing.md
+04.04-tool-context-dependency-injection.md
+04.05-tool-permissions-approval-metadata.md
+04.06-tool-result-contract-error-envelope.md
+04.07-external-tool-protocols-mcp.md
+04.08-agent-as-tool-composition.md
+05.01-short-term-conversation-memory.md
+05.02-working-memory-scratchpad.md
+05.03-long-term-user-project-domain-memory.md
+05.04-retrieval-augmented-memory.md
+05.05-memory-write-policy.md
+05.06-memory-compression-summarization.md
+05.07-memory-privacy-scope-deletion.md
+05.08-memory-evaluation-freshness.md
+06.01-planning-location-responsibility.md
+06.02-task-decomposition-representation.md
+06.03-plan-lifecycle-and-revision.md
+06.04-planner-executor-contract.md
+06.05-objective-progress-tracking.md
+06.06-search-backtracking-alternatives.md
+06.07-plan-observability-evaluation.md
+07.01-tool-scheduling-and-dispatch.md
+07.02-sequential-vs-parallel-tool-execution.md
+07.03-idempotency-and-retry-semantics.md
+07.04-timeouts-and-cancellation.md
+07.05-resource-locking-and-isolation.md
+07.06-side-effect-ledger-transaction-boundaries.md
+07.07-tool-output-streaming.md
+07.08-tool-failure-escalation.md
+08.01-capability-model-trust-boundaries.md
+08.02-permission-policy-approval-gates.md
+08.03-secrets-identity-environment.md
+08.04-security-auditability.md
+09.01-policy-injection-points.md
+09.02-risk-taxonomy-control-mapping.md
+09.03-governance-ux-operator-workflow.md
+09.04-governance-evidence-generation.md
+10.01-span-hierarchy-run-tree.md
+10.02-event-schema-lifecycle-events.md
+10.03-causal-links-lineage.md
+10.04-export-interoperability-observability.md
+10.05-event-retention-observer-delivery-backpressure.md
+11.01-context-selection-policy.md
+11.02-token-budgeting-and-compression.md
+11.03-repository-workspace-context-maps.md
+11.04-context-provenance-integrity.md
+12.01-prompt-storage-versioning.md
+12.02-prompt-templating-variable-contracts.md
+12.03-prompt-evaluation-experiments.md
+12.04-prompt-rollback-change-control.md
+13.01-error-taxonomy.md
+13.02-retry-fallback-degraded-mode.md
+13.03-failure-visibility.md
+13.04-recovery-vs-escalation.md
+14.01-human-in-the-loop-trigger-policy.md
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go -type d | sort
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/dist
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/plans
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/reports
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git/hooks
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.github
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.github/workflows
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git/info
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git/logs
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git/logs/refs
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git/logs/refs/heads
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git/logs/refs/remotes
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git/logs/refs/remotes/origin
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git/objects
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git/objects/info
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git/objects/pack
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git/refs
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git/refs/heads
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git/refs/remotes
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git/refs/remotes/origin
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/.git/refs/tags
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/filesystem
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/css
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/js
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/components
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/layouts
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/pages
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/primitives
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/scripts
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go -type f -name "*.go" | xargs grep -l -i "prompt" | head -40
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/defaults_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/skills_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_prompt_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_all_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_loop_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_runs_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/cache_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/reasoning_defaults.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/reasoning_defaults_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/local_log_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/context_pack.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/direct_inputs.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/direct_inputs_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/efficiency_improvements_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/efficiency_metrics_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/handbook_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/plan_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompt_bundle.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompt_context_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompts.go
+xargs: grep: terminated by signal 13
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime:
+agentwrap.go
+cache_test.go
+events.go
+health.go
+opencode.go
+opencode_test.go
+policy.go
+runtime.go
+runtime_test.go
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint:
+artifacts.go
+cleanup_uncertain.go
+cleanup_uncertain_test.go
+code_context.go
+code_context_test.go
+context_pack.go
+direct_inputs.go
+direct_inputs_test.go
+discovery.go
+doc.go
+domain.go
+efficiency_improvements_test.go
+efficiency_metrics_test.go
+execute.go
+execute_model.go
+execute_model_test.go
+execute_plan.go
+execute_plan_test.go
+execute_state.go
+execute_state_test.go
+execute_target.go
+execute_target_test.go
+flow.go
+freshness_policy.go
+handbook.go
+handbook_test.go
+index.go
+input_contract.go
+locks.go
+locks_test.go
+plan.go
+plan_test.go
+prompt_bundle.go
+prompt_context.go
+prompt_context_test.go
+prompts.go
+reasoning.go
+reasoning_test.go
+review.go
+review_runtime_validation.go
+review_test.go
+runtime_metrics.go
+runtime_progress_test.go
+runtime_validation.go
+service.go
+session_state.go
+session_state_test.go
+smoke_author.go
+smoke.go
+smoke_protocol.go
+smoke_test.go
+smoke_types.go
+sprint_index_test.go
+sprint_test.go
+state_database.go
+state.go
+store_fs.go
+validation.go
+verification_lock.go
+verification_lock_test.go
+verify.go
+verify_test.go
+[0m
+[0m$ [0mwc -l /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/*.go | sort -n | tail -30
+253 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/sprint_test.go
+   257 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_plan.go
+   258 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go
+   268 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/reasoning.go
+   281 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state.go
+   303 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review_runtime_validation.go
+   318 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state_test.go
+   320 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompts.go
+   327 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/reasoning_test.go
+   330 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_types.go
+   353 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/flow.go
+   354 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/domain.go
+   354 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/sprint_index_test.go
+   357 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/direct_inputs.go
+   381 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go
+   403 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_author.go
+   409 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/efficiency_improvements_test.go
+   454 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompt_context_test.go
+   498 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify.go
+   509 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompt_context.go
+   517 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/code_context_test.go
+   517 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_test.go
+   533 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/code_context.go
+   657 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_protocol.go
+   680 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review_test.go
+   724 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke.go
+   727 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go
+  1402 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go
+  1768 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go
+ 18300 total
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompts.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompt_bundle.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompt_context.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/context_pack.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/code_context.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/direct_inputs.go
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts:
+base.md
+create-area-reasoning.md
+create-code-context.md
+create-requirements.md
+create-sprint-index.md
+create-sprint-reasoning.md
+create-technical-handbook.md
+execute-sprint.md
+meta-plan.md
+meta-synthesize.md
+plan-sprint.md
+review.md
+smoke.md
+synthesize.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates:
+code-context.md
+meta-report.md
+project-index.md
+README.md
+repo-analysis.md
+report.md
+requirements.md
+review.md
+smoke.md
+sprint-index.md
+sprint-plan.md
+sprint-reasoning.md
+technical-handbook.md
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace && wc -l /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/*.go
+defaults.go
+discovery.go
+doc.go
+init.go
+paths.go
+scaffold
+skills.go
+skills_test.go
+validation.go
+workspace_test.go
+   92 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/defaults.go
+   78 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/discovery.go
+    6 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/doc.go
+  318 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/init.go
+   42 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/paths.go
+  438 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/skills.go
+  248 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/skills_test.go
+   29 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/validation.go
+  192 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/workspace_test.go
+ 1443 total
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/defaults.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/skills.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+[0m✱ [0mGrep "CacheDirective|PromptRef|PromptReference|Cache\."[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 19 matches[0m
+[0m✱ [0mGrep "runtimeRequest|composeSharedRuntimePrompt|composeSharedPrompt"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 30 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go[90m [offset=960, limit=120][0m
+[0m✱ [0mGrep "DefaultOverrideFiles|embed|go:embed"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace · 45 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/init.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=160, offset=800][0m
+[0m✱ [0mGrep "SharedPrefix|prepareReviewShared|renderReviewerPrompt"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 33 matches[0m
+[0m✗ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/runtime_metrics.go failed[90m [limit=120, offset=360][0m
+[91m[1mError: [0mOffset 360 is out of range for this file (170 lines)
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/runtime_metrics.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode.go
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/plans 2>/dev/null | head -50
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs:
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/plans:
+integrated-roadmap.md
+post-execution-qa-and-repair-loop.md
+retrieval-ready-content-knowledge-graph-addendum.md
+retrieval-ready-content-plan.md
+server-shutdown-run-cancellation-contract.md
+sprint-code-context-stage.md
+ultraplan-local-server-experiment-plan.md
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/skills_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=240, offset=60][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=180, offset=300][0m
+[0m✱ [0mGrep "reviewPromptMaxBytes|targetRevisionIdentity"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 9 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify.go[90m [limit=80, offset=400][0m
+[0m
+[0m$ [0mls ~/go/pkg/mod/github.com/ 2>/dev/null | head; find / -type d -name "agentwrap*" -path "*antonio*" 2>/dev/null | head -5
+agnivade
+alecthomas
+!antonio7098
+apache
+aws
+aymanbagabas
+aymerick
+benbjohnson
+beorn7
+blang
+/home/antonioborgerees/coding/agentwrap
+/home/antonioborgerees/coding/agentwrap/cmd/agentwrap
+/home/antonioborgerees/coding/agentwrap-smoke
+/home/antonioborgerees/coding/agentwrap-smoke/cmd/agentwrap_demo
+/home/antonioborgerees/coding/agentwrap-smoke/cmd/agentwrap-run
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/agentwrap; ls /home/antonioborgerees/coding/agentwrap/opencode 2>/dev/null | head -30
+CHANGELOG.md
+cmd
+config.go
+config_test.go
+doc.go
+docs
+errors.go
+errors_test.go
+events.go
+go.mod
+health.go
+health_test.go
+ids.go
+internal
+lifecycle_events.go
+lifecycle_events_test.go
+lifecycle.go
+lifecycle_test.go
+metadata.go
+observability.go
+observability_test.go
+opencode
+permissions.go
+permissions_test.go
+policy.go
+policy_test.go
+pricing.go
+pricing_test.go
+README.md
+redact.go
+redact_test.go
+runtime.go
+tool_observation_test.go
+validation.go
+validation_test.go
+agentwrap-smoke-output.txt
+decoder.go
+decoder_test.go
+doc.go
+health.go
+health_test.go
+integration_test.go
+models.go
+models_test.go
+options.go
+permissions.go
+pricing_test.go
+process.go
+process_linux.go
+process_other.go
+process_unix.go
+process_unix_test.go
+process_windows.go
+projector.go
+rate_limit.go
+runtime.go
+runtime_test.go
+testdata
+tool_observation_test.go
+[0m
+[0m✱ [0mGrep "Prompt|stdin|argv|Args"[90m in /home/antonioborgerees/coding/agentwrap/opencode · 94 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/agentwrap/opencode/runtime.go[90m [limit=120, offset=100][0m
+[0m✱ [0mGrep "sharedPromptStageBoundary|sharedRequirementsOpen|sharedCodeContextOpen|sharedSourceEvidenceOpen|directInputOpen|ULTRAPLAN STAGE-SPECIFIC"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 46 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/session_state.go
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study && wc -l /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/*.go | tail -5
+applicability.go
+cleanup_uncertain.go
+cleanup_uncertain_test.go
+config.go
+config_test.go
+dimension_refs.go
+discovery.go
+doc.go
+domain.go
+durable_metadata.go
+edit_warnings.go
+execution_domain.go
+init_clone.go
+init.go
+init_render.go
+init_test.go
+init_yaml.go
+locks.go
+locks_test.go
+markdown.go
+memory_pressure.go
+metadata_domain.go
+prompts.go
+prompts_test.go
+rating.go
+rating_test.go
+reports.go
+resolve.go
+run_all.go
+run_all_test.go
+run.go
+run_history.go
+run_history_summary.go
+run_history_test.go
+run_loop_diagnostics.go
+run_loop_diagnostics_test.go
+run_loop.go
+run_loop_test.go
+run_state_domain.go
+run_state.go
+run_test.go
+runtime_metadata.go
+runtime_metadata_test.go
+runtime_validation.go
+service.go
+state_database.go
+state.go
+state_test.go
+study_test.go
+summary.go
+summary_test.go
+synthesize.go
+validation_command.go
+validation_command_test.go
+validation.go
+validation_test.go
+   198 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/validation_command.go
+   178 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/validation_command_test.go
+   230 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/validation.go
+   311 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/validation_test.go
+ 10498 total
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/prompts.go[90m [limit=120][0m
+[0m✱ [0mGrep "STAGE-SPECIFIC INSTRUCTIONS BEGIN|BEGIN EXACT|BEGIN TRANSIENT|BEGIN UNTRUSTED|BEGIN ULTRAPLAN DIRECT"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 7 matches[0m
+[0m
+[0m$ [0mgrep -rn "<<<" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/ | head; grep -n "func ValidateRequirementsContent" -A 30 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/plan.go /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/*.go 2>/dev/null | grep -A 30 "func ValidateRequirementsContent" | head -40
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go:35:func ValidateRequirementsContent(content string) []ValidationFinding {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-36-	var findings []ValidationFinding
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-37-	if strings.TrimSpace(content) == "" {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-38-		return []ValidationFinding{finding("requirements.md", "", "", "empty requirements.md", "file has no content", "Generate or write sprint-specific requirements.")}
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-39-	}
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-40-	if containsPlaceholder(content) {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-41-		findings = append(findings, finding("requirements.md", "", "", "placeholder content", "file still contains placeholder markers", "Replace placeholders with concrete sprint requirements."))
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-42-	}
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-43-	for _, heading := range []string{"Sprint Goal", "Required Outputs", "Acceptance Criteria", "Non-Goals", "Constraints", "Dependencies", "Review Expectations"} {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-44-		if !markdownHeadingPresent(content, heading) {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-45-			findings = append(findings, finding("requirements.md", heading, "", "missing required section", "section was not found", "Add the required requirements.md section."))
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-46-		}
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-47-	}
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-48-	sortSprintFindings(findings)
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-49-	return findings
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-50-}
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-51-
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-52-func ParseSprintIndex(content string) (SprintIndex, []ValidationFinding) {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-53-	var index SprintIndex
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-54-	var findings []ValidationFinding
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-55-	if strings.TrimSpace(content) == "" {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-56-		return index, []ValidationFinding{finding("sprint-index.md", "", "", "empty sprint-index.md", "file has no content", "Generate or write the required sprint-index.md sections.")}
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-57-	}
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-58-	if containsPlaceholder(content) {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-59-		findings = append(findings, finding("sprint-index.md", "", "", "placeholder content", "file still contains placeholder markers", "Replace placeholders with concrete selected context."))
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-60-	}
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-61-	current := ""
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-62-	var headers []string
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-63-	seenSections := map[string]bool{}
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-64-	seenEntries := map[string]map[string]bool{}
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go-65-	for i, line := range strings.Split(content, "\n") {
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects 2>/dev/null && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/*/ | head -40
+aren-phase-01-execution-lifecycle
+ultraplan-go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle/:
+docs
+project-index.md
+roadmap.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/:
+docs
+project-index.md
+roadmap.md
+sprints
+[0m
+[0m✱ [0mGrep "PromptPreview|promptStage|runSprintPrompt"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 9 matches[0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/ && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ | head -30
+01-cli-foundation
+02-workspace-config-health
+03-study-listing-resolution
+04-study-init-yaml
+05-study-listing-inspection
+06-study-run-execution
+07-prompt-composition-generation
+08-run-state-persistence
+09-runtime-integration
+10-single-analysis-synthesis
+11-run-all-batch-execution
+12-durable-run-loop
+13-summary-and-code-extraction
+14-validation-and-diagnostics
+15-documentation-and-packaging
+16-project-domain-and-index
+17-artifact-domain-and-flow-state
+18-select-stage
+19-distill-stage
+20-reason-stage
+21-plan-stage
+22-documentaiton-and-release
+23-execute-stage
+24-tui-foundations
+25-operational-tui-controls
+26-review-stage
+27-deep-smoke
+28-review-to-smoke-flow
+29-phase-3-documentation-hardening-release
+30-web-foundations
+31-web-operations
+32-hardening-and-release
+33-code-context-stage
+34-shared-context
+35-durable-run-observability
+ARCHITECTURE.md
+PRD.md
+TRD.md
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=80, offset=150][0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage:
+code-context.md
+execute.md
+flow-state.json
+plan.md
+reasoning
+reasoning.md
+requirements.md
+review.md
+smoke.md
+sprint-index.md
+technical-handbook.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context:
+code-context.md
+execute.md
+flow-state.json
+plan.md
+reasoning
+reasoning.md
+requirements.md
+review.md
+smoke.md
+sprint-index.md
+technical-handbook.md
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/34-shared-context/requirements.md
+[0m
+[0m$ [0mgit log --oneline --follow -- internal/sprint/context_pack.go | head -5; git log --oneline --follow -- internal/sprint/prompt_bundle.go | head -5; git log --oneline | wc -l
+30e9574 Optimize sprint context and execution reuse
+d5b29f3 Inject governed inputs across sprint stages
+30e9574 Optimize sprint context and execution reuse
+195
+[0m
+[0m$ [0mgit log --oneline 30e9574 -1 --format="%H %s"; git show --stat 30e9574 | head -40
+30e95746607096c78e18bcc1e5cdd7969011a66d Optimize sprint context and execution reuse
+commit 30e95746607096c78e18bcc1e5cdd7969011a66d
+Author: antonio <antoniorees74@gmail.com>
+Date:   Fri Aug 21 11:47:53 2026 +0100
+
+    Optimize sprint context and execution reuse
+
+ docs/architecture.md                               |   8 +-
+ docs/cli-reference.md                              |   2 +-
+ docs/reports/sprint-efficiency.md                  | 137 +++++++
+ docs/user-guide.md                                 |   2 +-
+ internal/app/sprint_commands.go                    |  60 ++-
+ internal/app/sprint_commands_test.go               |  34 ++
+ internal/platform/runtime/cache_test.go            |  26 ++
+ internal/platform/runtime/runtime.go               |  32 +-
+ internal/sprint/code_context.go                    |  27 +-
+ internal/sprint/code_context_test.go               |   3 +-
+ internal/sprint/context_pack.go                    | 121 ++++++
+ internal/sprint/efficiency_improvements_test.go    | 417 +++++++++++++++++++++
+ internal/sprint/efficiency_metrics_test.go         |  79 ++++
+ internal/sprint/execute.go                         | 162 +++++++-
+ internal/sprint/handoff.go                         | 146 ++++++++
+ internal/sprint/input_contract.go                  |  48 +++
+ internal/sprint/prompt_bundle.go                   | 132 +++++++
+ internal/sprint/prompt_context.go                  | 173 +++++++--
+ internal/sprint/prompt_context_test.go             |  27 +-
+ internal/sprint/prompts.go                         |   7 +-
+ internal/sprint/review.go                          |  28 +-
+ internal/sprint/runtime_metrics.go                 | 170 +++++++++
+ internal/sprint/runtime_validation.go              |  27 +-
+ internal/sprint/service.go                         | 144 ++++---
+ internal/sprint/session_state.go                   |  16 +-
+ internal/sprint/session_state_test.go              |  20 +-
+ internal/sprint/smoke_author.go                    |   7 +-
+ internal/web/packaging_test.go                     |   5 +-
+ .../scaffold/prompts/create-technical-handbook.md  |   1 +
+ .../scaffold/templates/technical-handbook.md       |   2 +-
+ 30 files changed, 1907 insertions(+), 156 deletions(-)
+[0m
+[0m$ [0mgit log --oneline | head -30
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+0f99eb7 Surface fallback, staleness, and attempt history on study run cards
+9aac07e Show retry backoff, attempt counts, and provider/model/harness on run agent cards
+1d02602 Add OpenCode database reset maintenance script
+84a45c7 Surface study retries, session reuse, parallelism throttling, and failure reasons on web run pages
+e3a44a7 Prioritize active agents on run page with collapsible completed grid
+5839f9a resume interrupted study sessions
+8ee9d9c Skip legacy terminal sprint state during migration
+02e2ec4 Move mutable product state to SQLite
+f7936cf Expose study resource diagnostics in web UI
+3ef8645 Merge fix/reconcile-review-smoke-guidance
+e09d394 Add durable run control and adaptive study execution
+4365ea5 Merge remote-tracking branch 'origin/fix/reconcile-review-smoke-guidance'
+734eb5d Keep study run loop at requested parallelism
+d5b29f3 Inject governed inputs across sprint stages
+2308b88 feat(web): expose sprint prompt observability
+30e9574 Optimize sprint context and execution reuse
+a8cb4a8 Anchor smoke requirement details beside coverage codes
+7da6ee2 Render smoke coverage as an interactive matrix
+2896110 Describe required smoke coverage in results
+a07a39f Show smoke coverage mappings in sprint results
+90e251d Complete shared context and harden workflow safety
+0c9604a fix reconciliation smoke guidance
+77b94a2 Require review readiness after execution
+131c842 Make execute skill agent-driven
+da1c98c Pass stage reasoning variants to OpenCode
+[0m
+[0m✱ [0mGrep "context pack|context-pack|cache|Cache"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go · 100 matches[0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/scripts 2>/dev/null; grep -rln "prompt_cache\|context pack\|CacheDirective\|stable-prefix\|cache_key" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace --include="*.md" --include="*.yml" --include="*.json" 2>/dev/null | grep -v "sprints/3[0-9]" | head -20
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/scripts:
+build-and-serve-ultraplan.sh
+restart-ultraplan-server.sh
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system:
+contracts
+protocols
+reasoning
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/PRD.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/reports/final/01.09-delivery-guarantees-idempotency.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/reports/final/02.01-state-taxonomy-and-ownership.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/reports/source/01.03-step-turn-task-atomicity/langgraph.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/reports/source/01.03-step-turn-task-atomicity/pydantic-ai.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/reports/source/01.06-scheduling-and-trigger-semantics/langgraph.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/reports/source/01.09-delivery-guarantees-idempotency/langgraph.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study/reports/source/02.01-state-taxonomy-and-ownership/langgraph.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/go-cli-study/reports/final/07-state-context.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/go-cli-study/reports/source/07-state-context/mitchellh-cli.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/go-cli-study/reports/source/15-philosophy/mitchellh-cli.md
+[0m
+[0m$ [0mgrep -n "cache\|Cache" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md | head -20; grep -n "efficiency\|Efficiency" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md | head -10
+73:The new stage gathers implementation evidence once into `code-context.md` and reuses that exact foundation downstream. It does not introduce repository indexing, retrieval, cache ownership, automatic staleness, or a second machine-readable context format.
+1180:- cache policy for HTML/static/API responses; bounded polling/refetch behavior for changes made by CLI or TUI
+1262:- No repository index, RAG system, cache subsystem, cache key, provider-specific cache dependency, automatic staleness system, or amendment workflow enters this phase.
+1290:- no repository index, RAG system, cache subsystem, JSON context manifest, or automatic staleness system is introduced
+[0m
+[0m$ [0msed -n 1250,1300p /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md
+mandatory design inputs, not authority to expand a sprint silently.
+
+Required for Phase 5:
+
+- `internal/sprint` owns `code-context` stage order, prerequisites, status, validation, artifact paths, flow transitions, and downstream prompt integration.
+- The stage reuses the existing project implementation-repository/worktree resolution and may read the source repository while writing only the sprint's `code-context.md`.
+- `code-context.md` remains the single authoritative context-pack format; no parallel JSON manifest is added.
+- Existing workspaces and persisted sprint state that predate `code-context` remain usable through explicit compatibility handling.
+- Downstream prompts use one shared sprint-context renderer. Exact `requirements.md` and `code-context.md` content appear before stage-specific instructions without rewriting or dynamic run data.
+- Downstream agents may inspect any additional repository files needed to verify assumptions or complete their work.
+- CLI, TUI, and browser use the same application operations and durable state. The browser gains no route-specific `code-context` workflow semantics.
+- Runtime success alone is insufficient: the artifact must exist and pass structural validation before the stage completes.
+- No repository index, RAG system, cache subsystem, cache key, provider-specific cache dependency, automatic staleness system, or amendment workflow enters this phase.
+
+### Sprint 33: Code-Context Stage Vertical Slice
+
+**Goal:** make `code-context` a fully operational stage capable of inspecting the implementation repository and producing a validated source-context pack.
+
+**Build:**
+
+- add `StageCodeContext` immediately after `StageRequirements` in every canonical ordered stage list
+- add artifact-path, readiness, prerequisite, status, cumulative-flow, and flow-state support
+- preserve compatibility with existing sprint state that predates the stage
+- add the embedded `create-code-context` prompt and `code-context.md` template, including defaults-install registration
+- add stage-specific runtime model and variant configuration with existing fallback behavior
+- resolve the project repository/worktree through existing implementation-repository mechanisms
+- permit repository reads while restricting stage output to `code-context.md`
+- add prompt preview, structural validation, and runtime-backed application use cases
+- validate required sections, selected excerpts, repository-relative paths, rationale, language-tagged fenced code, safe paths, and well-formed line ranges
+- add CLI support for `prompt code-context`, `validate code-context`, `flow --to code-context`, help, status, and stable JSON projections
+- surface readiness, progress, validation findings, artifact preview, explicit rerun, cancellation, and recovery through the existing web operation model
+- add focused stage-order, runtime, state, compatibility, CLI, application, web, defaults, and validation tests
+
+**Acceptance:**
+
+- completed valid requirements make `code-context` ready, and a valid context pack makes `sprint-index` ready
+- a fake runtime or gated real runtime can inspect the source repository and produce a valid `code-context.md`
+- missing or invalid output fails truthfully, records actionable findings, and does not mark the stage complete
+- the browser observes and controls the stage through shared application and operation abstractions without new route-specific workflow semantics
+- existing workspaces and pre-stage flow state remain usable
+- no repository index, RAG system, cache subsystem, JSON context manifest, or automatic staleness system is introduced
+
+This sprint is useful independently of downstream prompt reuse: users can explicitly generate, inspect, validate, rerun, and recover the implementation evidence pack.
+
+### Sprint 34: Shared Context Integration and Grounded-Planning Release
+
+**Goal:** reuse the stored requirements and code-context pack unchanged across every downstream agent operation.
+
+**Build:**
+
+- add one shared sprint-context renderer
+[0m
+[0m$ [0mgit -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace log --oneline | head -15; grep -rn "stable-prefix\|prompt_cache\|context pack cache\|sprint-context" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md | head
+368a789 Add UltraPlan daemon and event system study
+2dc3b74 Advance sprints 30-35 and harden review/smoke flow
+0e151a0 update reconciliation smoke skill
+e7c0188 Record final sprint 32 implementation commits
+7756db0 Reconcile sprint 32 verification flow
+4c8236e Record sprint 32 execution evidence
+30a0f0e Expand Sprint 31 smoke findings
+1d99665 Harden manual review stage recovery guidance
+b423b75 docs: define layered web template architecture
+1f9d859 docs: align web and grounded planning roadmap
+9e273e4 Rematerialize sprint review skill
+e635ef0 Fix manual sprint review skill
+61cb26f Upgrade models to OpenAI GPT-5.6 and adjust variants
+e50a3f3 docs: make Sprint 31 server shutdown cancellation explicit
+9b40756 unignore run state files and update project docs
+1258:- Downstream prompts use one shared sprint-context renderer. Exact `requirements.md` and `code-context.md` content appear before stage-specific instructions without rewriting or dynamic run data.
+1300:- add one shared sprint-context renderer
+[0m
+[0m$ [0mgrep -n -i "cache\|context pack\|prefix" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md | head -40
+143:`internal/sprint` owns `code-context` generation, validation, source-reference resolution, and downstream prompt composition. The complete common prefix is rendered once per top-level operation in this fixed order: stable shared instructions; project/sprint identity; an external frame containing the exact stored `requirements.md` bytes; an external frame containing the exact stored reference-only `code-context.md` bytes; transient resolved source evidence in authored order; and one constant stage-specific boundary as the final prefix bytes. Stage names, output paths/contracts, task and reviewer identities, model/run/session/attempt data, timestamps, and smoke scope occur only after that boundary or in runtime metadata.
+145:Reference resolution is repository-contained, symlink-rejecting, regular-file-only, cancellation-aware, and fail-closed. References retain their authored labels, rationale, and symbol metadata while selected ranges from the same file are sorted and merged so source bytes are injected once and each file is scanned once. The complete prefix is capped at 256 KiB, with 64 KiB reserved for stage suffixes; overflow is an actionable error, never truncation or omission. Evidence is marked untrusted, and agents retain permission to inspect additional live source.
+147:After code-context validation, UltraPlan may persist a bounded, content-addressed, disposable context pack under `.ultra/cache/sprint-context/`; existing sprints create one lazily on their first runtime composition while prompt previews stay read-only. Its identity is derived only from the exact requirements, exact code-context artifact, and canonical target; it freezes the resolved source bytes so execution edits do not churn the planning prefix. It is an acceleration layer, never provenance or freshness authority: write failure is non-fatal, missing or invalid packs fall back to live resolution, and artifact changes select a different identity without invalidating, rerunning, or reopening completed stages. Exact-match dependency freshness remains disabled.
+149:`internal/platform/runtime` receives the final ordinary prompt plus content-free cache metadata: the stable-prefix digest, byte breakpoint, and a provider/model/work-directory cohort key. The current agentwrap/OpenCode boundary transports these values as metadata only; it cannot yet place a native cache-control breakpoint inside the single provider message, so no cache hit is guaranteed. Planning, execute, independent review requests, and agent-backed smoke authoring call the sprint-owned composition boundary explicitly. Review fan-out shares one immutable prefix. Runtime results append bounded, content-free prompt, token, cache-read/cache-write, cost, and timing measurements to the sprint's `.runtime-metrics.json`; `sprint ... metrics` exposes them. Prepared handoff packets and per-stage input contracts minimize downstream artifact reads without becoming dependency fingerprints; when present, the technical handbook's `Examples Worth Investigating` (or legacy `Examples Worth Inspecting`) section is copied directly into plan and execute prompts.
+151:Execute owns one reusable runtime session for the ordered pending-task queue rather than one independent agent per task. Its initial turn carries the shared sprint prefix, queue primer, current task, safety instructions, and optional handbook examples. After each task UltraPlan persists task-specific evidence and status, then submits only the next task delta with `SessionAction=continue`. A missing runtime session ID degrades safely to another complete prompt; failure or cancellation stops queue advancement, while explicit deferral may advance to the next task. Cross-command session reuse is based on model and target compatibility, not exact artifact fingerprints.
+[0m
+[0m$ [0msed -n 1,80p /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/reports/sprint-efficiency.md
+# Sprint Flow Efficiency Audit
+
+Date: 2026-08-21
+Baseline commit: `a8cb4a8bcdd3518795d46eac25e15c7bf876aa1f`
+Implementation branch: `codex/sprint-efficiency`
+Worktree: `/home/antonioborgerees/coding/ultraplan/ultraplan-go-sprint-efficiency`
+
+## Outcome
+
+The sprint pipeline now has one auditable prompt assembly contract, a stable provider-cache candidate prefix, bounded derived context reuse, smaller coverage-specific agent inputs, complete bounded direct-input packets, and persisted content-free runtime measurements. Agents receive governed upstream material directly and in deterministic dependency order instead of first spending tool calls rediscovering it. The changes also reduce local shared-context composition cost and make provider token/cache behavior measurable.
+
+No exact-match dependency freshness or automatic stage invalidation was added. The existing completed-review and completed-smoke snapshot freshness switches remain `false`. Review fingerprint behavior was not re-enabled or copied to another stage. Content hashes introduced here are used only for disposable cache lookup, prompt explainability, runtime observability, and existing session diagnostics; cache misses fall back to live composition and never rerun a stage. Interrupted sessions remain compatible across prompt edits when provider, model, and work directory still match.
+
+## Baseline audit
+
+The original flow already placed requirements, code-context, and resolved source evidence before a constant stage boundary. The main inefficiencies and ambiguities were:
+
+- Prompt structure was implicit string concatenation, with no machine-readable order, cache breakpoint, or per-stage input contract.
+- Every top-level operation resolved live code-context again. Execute edits could therefore churn source excerpts and reduce prefix reuse even when the governed planning artifacts had not changed.
+- Overlapping and duplicate source selections were emitted repeatedly, and each range rescanned its file.
+- Multi-area reasoning used one request shaped around the first template while expecting all selected outputs.
+- Execute opened an independent agent session for every top-level plan task, repeating shared context and forcing related tasks to rediscover prior work.
+- Final reasoning, plan, and smoke told agents where artifacts lived but did not provide a small decision-focused handoff, encouraging repeated file reads.
+- Every reviewer received sibling coverage sources that it did not own.
+- Code-context source/range/budget errors were discovered downstream rather than before artifact promotion.
+- A validation repair resent the original code-context request inside an existing session.
+- Provider-reported cache reads/writes, token usage, prompt split, and cost were not persisted, so real cache savings could not be compared.
+
+## Implemented improvements
+
+### Stable, explainable prompt assembly
+
+Shared prompts expose this exact ordered block contract:
+
+1. `shared-instructions`
+2. `requirements`
+3. `code-context`
+4. `source-evidence`
+5. `stage-boundary`
+6. `stage-instructions`
+7. one block per direct input, using its canonical input ID
+8. `stage-tail` when content follows the final direct input
+
+`sprint <project> <sprint> prompt <stage> --explain` returns content-free byte counts, SHA-256 digests, stable-prefix breakpoint, cache key, transport status, stage input contract, and `full`/`partial` mode for each directly copied input. Volatile stage/run/task/reviewer data remains after the boundary. Session continuation instructions are inserted after the boundary, preserving the prefix.
+
+Runtime requests carry a cache foundation key and a provider/model/work-directory/policy-scoped cohort key in metadata. This prevents observability from incorrectly grouping incompatible runtime envelopes.
+
+### Derived context reuse without freshness coupling
+
+Successful code-context generation validates actual file resolution, line ranges, UTF-8, reference/line limits, and the complete 256 KiB prompt budget before promotion. It then stores up to eight content-addressed context packs per sprint under `.ultra/cache/sprint-context/`. Existing sprints create the same pack lazily on their first real runtime composition; prompt previews remain read-only, and cache-write failure is ignored.
+
+The pack freezes the exact resolved source evidence selected during planning so later execute edits do not churn the shared planning prefix. Requirements, code-context, and canonical target identity choose the pack. A missing, corrupt, or different pack simply causes live rendering; it does not make an artifact stale and does not schedule work.
+
+### Less duplicated context and agent work
+
+- References are grouped by file in first-file order; adjacent, overlapping, and duplicate ranges are sorted and merged.
+- Authored entry labels remain visible, while source bytes appear once and each file is scanned once.
+- Reference rationale/symbol metadata is no longer repeated beside source because the exact code-context artifact already contains it.
+- Reference count is capped at 64 and unique selected source lines at 4,096, with errors reporting the correct unit.
+- Area reasoning launches one independently validated request for each missing/invalid selected template and excludes sibling templates.
+- Valid area outputs are skipped rather than regenerated.
+- Every agent-backed stage receives its governed file inputs directly when those inputs are bounded files. Full files are preferred. If the 64 KiB stage-suffix budget cannot hold everything, each available dependency receives a fair head/tail excerpt, is marked `partial`, and reports its omitted byte count. Unavailable inputs receive a safe omission reason and remain explicit fallbacks rather than silent gaps.
+- Requirements receives project index, roadmap, project docs, and all existing prior-sprint reviews except the current sprint. Sprint index receives project definitions. Handbook receives the selected sprint index and selected reports. Area/final reasoning, plan, and execute receive their required project context and all applicable prior sprint artifacts. Review receives its coverage-specific governed packet. Smoke authoring receives the complete planning, execution, review, and run-state chain.
+- The technical handbook is copied as a complete artifact into Plan and Execute, so `Examples Worth Investigating`/`Examples Worth Inspecting` and surrounding rationale arrive together without a separate special-case excerpt.
+- Execute uses one agent session for the ordered pending-task queue. The first turn receives shared sprint context, project definitions, every prior planning artifact, the concise queue, current task, and safety policy; later tasks are compact continuation turns in the same session. UltraPlan still checkpoints status and evidence after each task, resumes from the latest compatible session, stops on a failed/cancelled task, and falls back to a full fresh prompt if the runtime returns no reusable session ID.
+- Reviewers receive their own contract/handbook plus common governed inputs, execution evidence, and changed files, but no sibling coverage contract/handbook.
+- Code-context repair reuses the existing session without duplicating the full original request.
+
+The implementation repository itself is the intentional exception to file copying: code-context and execution must inspect the current approved repository, which is unbounded and mutable working state. Requirements are still copied into code-context, and the validated code-context references plus resolved source evidence are copied into the stable shared foundation for every later stage.
+
+| Stage | Direct governed inputs beyond generated instructions/templates |
+|---|---|
+| requirements | project index → roadmap → project docs → prior sprint reviews |
+| code-context | complete validated requirements; live approved implementation repository |
+| sprint-index | shared requirements/code/source → project index → roadmap → project docs |
+| technical-handbook | shared foundation → sprint index → selected evidence reports |
+| area-reasoning | shared foundation → project docs → sprint index → handbook → selected contracts/evidence/protocols |
+| reasoning | shared foundation → project index → roadmap → project docs → sprint index → handbook → selected context → area outputs |
+| plan | shared foundation → project index → roadmap → project docs → sprint index → handbook → area outputs → final reasoning |
+| execute | shared foundation → project index → roadmap → project docs → sprint index → handbook → area outputs → reasoning → plan → queue/current task |
+[0m
+[0m$ [0mgrep -n -i "metric\|cache\|token\|cost" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md | head -20
+27:| Operational telemetry | Structured logs, local metrics, diagnostics, and optional traces share run/attempt/stage/task/runtime correlation. Operator-visible health distinguishes storage failure, stale ownership, reconciliation backlog, replay gap, subscriber lag/drop, and cancellation uncertainty. |
+57:7. What lease duration, heartbeat cadence, clock assumptions, fencing token, and PID/process-birth checks make liveness truthful without declaring slow healthy work dead?
+62:12. Which diagnostics are always local, which metrics endpoint or command is appropriate, and whether OpenTelemetry export should be built now, provided as an optional adapter, or deferred?
+116:- include operator-facing evidence: correlated logs, metrics/diagnostics, reconciliation output, and an exportable redacted support bundle
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/input_contract.go
+[0m
+[0m$ [0mmkdir -p /tmp/opencode/collide && cat > /tmp/opencode/collide/main.go <<'EOF'
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+const (
+	sharedPromptStageBoundary = "\n<<< ULTRAPLAN STAGE-SPECIFIC INSTRUCTIONS BEGIN >>>\n"
+	sharedRequirementsOpen    = "\n<<< BEGIN EXACT requirements.md >>>\n"
+	sharedRequirementsClose   = "\n<<< END EXACT requirements.md >>>\n"
+	directInputOpen           = "<<< BEGIN ULTRAPLAN DIRECT INPUT >>>\n"
+	directInputClose          = "<<< END ULTRAPLAN DIRECT INPUT >>>\n"
+)
+
+func main() {
+	// Simulate: requirements.md (agent-authored) quotes UltraPlan's boundary marker.
+	requirements := "# Sprint Requirements\n\nWe must never emit " + strings.TrimSpace(sharedPromptStageBoundary) + " in any artifact.\n"
+	stage := "\n## UltraPlan Runtime Manifest\n\nstage instructions here\n"
+	prompt := sharedRequirementsOpen + requirements + sharedRequirementsClose + sharedPromptStageBoundary + stage
+
+	boundaryEnd := strings.Index(prompt, sharedPromptStageBoundary)
+	fmt.Printf("true prefix ends at %d; parser found first boundary at %d\n", strings.Index(prompt, sharedPromptStageBoundary+stage[:0]+sharedRequirementsClose)+len(sharedRequirementsClose)+len(sharedPromptStageBoundary), boundaryEnd)
+	suffix := len(prompt) - (boundaryEnd + len(sharedPromptStageBoundary))
+	fmt.Printf("parser-classified suffix bytes (budget 65536): %d; true stage suffix bytes: %d\n", suffix+len(stage)-suffix, suffix)
+
+	// insertStageContinuation equivalent:
+	boundary := strings.Index(prompt, sharedPromptStageBoundary)
+	inserted := prompt[:boundary] + "[CONTINUATION INSTRUCTION]\n" + prompt[boundary:]
+	fmt.Println("continuation inserted inside requirements frame:", strings.Contains(inserted[:strings.Index(inserted, sharedRequirementsClose)], "CONTINUATION INSTRUCTION"))
+}
+EOF
+cd /tmp/opencode/collide && go mod init collide >/dev/null 2>&1; go run main.go
+true prefix ends at 87; parser found first boundary at 183
+parser-classified suffix bytes (budget 65536): 56; true stage suffix bytes: 56
+continuation inserted inside requirements frame: false
+[0m
+[0m$ [0mcat > /tmp/opencode/collide/main.go <<'EOF'
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+const (
+	boundary  = "\n<<< ULTRAPLAN STAGE-SPECIFIC INSTRUCTIONS BEGIN >>>\n"
+	reqOpen   = "\n<<< BEGIN EXACT requirements.md >>>\n"
+	reqClose  = "\n<<< END EXACT requirements.md >>>\n"
+	diOpen    = "<<< BEGIN ULTRAPLAN DIRECT INPUT >>>\n"
+	diClose   = "<<< END ULTRAPLAN DIRECT INPUT >>>\n"
+)
+
+func main() {
+	// Agent-authored requirements.md quotes UltraPlan's structural marker.
+	requirements := "# Sprint Requirements\n\nNever emit " + strings.TrimSpace(boundary) + " in artifacts.\n"
+
+	prefix := "SHARED-INSTRUCTIONS" + reqOpen + requirements + reqClose + boundary
+	suffix := "STAGE INSTRUCTIONS\n" + diOpen + "ID: plan\n" + diClose
+	prompt := prefix + suffix // composeStagePrompt
+
+	trueEnd := strings.Index(prompt, reqClose) + len(reqClose) + len(boundary)
+	found := strings.Index(prompt, boundary)
+
+	fmt.Println("true stage-suffix starts at byte", trueEnd)
+	fmt.Println("explainComposedPrompt/insertStageContinuation treat boundary at byte", found)
+	fmt.Println("=> parser-classified 'suffix' includes artifact bytes:",
+		len(prompt)-(found+len(boundary)), "bytes instead of", len(suffix))
+
+	// insertStageContinuation equivalent
+	b := strings.Index(prompt, boundary)
+	fixed := prompt[:b] + "[CONTINUATION]\n\n" + prompt[b+len(boundary):]
+	inReq := strings.Index(fixed, reqClose)
+	fmt.Println("continuation lands inside requirements frame:", strings.Contains(fixed[:inReq], "[CONTINUATION]"))
+}
+EOF
+cd /tmp/opencode/collide && go run main.go
+true stage-suffix starts at byte 244
+explainComposedPrompt/insertStageContinuation treat boundary at byte 191
+=> parser-classified 'suffix' includes artifact bytes: 100 bytes instead of 100
+continuation lands inside requirements frame: false
+[0m

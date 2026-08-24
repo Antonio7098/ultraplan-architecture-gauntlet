@@ -1,4 +1,703 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mfind . -type f -name "*.go" | head -100 && echo "---" && ls
+./cmd/ultraplan/main.go
+./internal/app/app.go
+./internal/app/app_test.go
+./internal/app/code_commands.go
+./internal/app/code_commands_test.go
+./internal/app/config_commands.go
+./internal/app/defaults_commands.go
+./internal/app/health_commands.go
+./internal/app/health_commands_test.go
+./internal/app/json_output.go
+./internal/app/markdown.go
+./internal/app/markdown_test.go
+./internal/app/project_commands.go
+./internal/app/project_usecases.go
+./internal/app/run_commands.go
+./internal/app/run_commands_test.go
+./internal/app/run_control_inventory_test.go
+./internal/app/run_usecases.go
+./internal/app/serve_commands_test.go
+./internal/app/skills_commands.go
+./internal/app/skills_commands_test.go
+./internal/app/sprint_error_test.go
+./internal/app/sprint_usecases.go
+./internal/app/sprint_usecases_test.go
+./internal/app/sprint_verify_commands_test.go
+./internal/app/status_json.go
+./internal/app/storage_commands.go
+./internal/app/study_commands_test.go
+./internal/app/study_init_commands_test.go
+./internal/app/study_prompt_commands_test.go
+./internal/app/study_run_all_commands_test.go
+./internal/app/study_run_commands_test.go
+./internal/app/study_run_loop_commands_test.go
+./internal/app/study_runs_commands.go
+./internal/app/study_runs_commands_test.go
+./internal/app/study_status_commands_test.go
+./internal/app/study_summary_commands_test.go
+./internal/app/study_usecases.go
+./internal/app/study_validate_commands_test.go
+./internal/app/surfaces.go
+./internal/app/tui_commands.go
+./internal/app/usecases.go
+./internal/app/usecases_test.go
+./internal/app/version.go
+./internal/app/web_operations_test.go
+./internal/app/web_usecases_test.go
+./internal/app/workspace_commands.go
+./internal/app/durable_operations.go
+./internal/app/durable_operations_test.go
+./internal/app/operation_runner.go
+./internal/app/operations.go
+./internal/app/project_commands_test.go
+./internal/app/run_control.go
+./internal/app/run_control_test.go
+./internal/app/serve_commands.go
+./internal/app/sprint_commands.go
+./internal/app/sprint_commands_test.go
+./internal/app/study_commands.go
+./internal/app/tui_commands_test.go
+./internal/app/web_usecases.go
+./internal/codeextract/codeextract_test.go
+./internal/codeextract/doc.go
+./internal/codeextract/domain.go
+./internal/codeextract/parser.go
+./internal/codeextract/resolver.go
+./internal/codeextract/service.go
+./internal/platform/config/config.go
+./internal/platform/config/config_test.go
+./internal/platform/config/doc.go
+./internal/platform/config/redaction.go
+./internal/platform/filesystem/doc.go
+./internal/platform/logging/doc.go
+./internal/platform/logging/logging.go
+./internal/platform/logging/logging_test.go
+./internal/platform/process/process.go
+./internal/platform/process/process_other.go
+./internal/platform/process/process_test.go
+./internal/platform/process/process_unix.go
+./internal/platform/runtime/agentwrap.go
+./internal/platform/runtime/cache_test.go
+./internal/platform/runtime/events.go
+./internal/platform/runtime/health.go
+./internal/platform/runtime/opencode_test.go
+./internal/platform/runtime/policy.go
+./internal/platform/runtime/runtime_test.go
+./internal/platform/runtime/opencode.go
+./internal/platform/runtime/runtime.go
+./internal/productstate/store.go
+./internal/project/discovery.go
+./internal/project/doc.go
+./internal/project/domain.go
+./internal/project/index.go
+./internal/project/reasoning_defaults.go
+./internal/project/reasoning_defaults_test.go
+./internal/project/service.go
+./internal/project/project_test.go
+./internal/project/store_fs.go
+./internal/project/validation.go
+./internal/runcontrol/benchmark_test.go
+./internal/runcontrol/doc.go
+---
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m$ [0mfind . -type f -name "*.go" | wc -l && find . -type f \( -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.html" \) | grep -v node_modules | head -50
+291
+./internal/web/static/js/app.js
+./internal/web/static/js/operations.js
+./internal/web/static/js/sse.js
+./internal/web/static/resource-monitor.js
+./internal/web/static/app.js
+./internal/web/templates/artifact.html
+./internal/web/templates/components/components.html
+./internal/web/templates/dashboard.html
+./internal/web/templates/error.html
+./internal/web/templates/layouts/layouts.html
+./internal/web/templates/operation.html
+./internal/web/templates/pages/pages.html
+./internal/web/templates/primitives/primitives.html
+./internal/web/templates/project.html
+./internal/web/templates/projects.html
+./internal/web/templates/run.html
+./internal/web/templates/runs.html
+./internal/web/templates/shell.html
+./internal/web/templates/studies.html
+./internal/web/templates/operation-confirm.html
+./internal/web/templates/sprint.html
+./internal/web/templates/study.html
+[0m
+[0m$ [0mfind . -type d | grep -v node_modules | grep -v ".git" | sort
+.
+./cmd
+./cmd/ultraplan
+./dist
+./docs
+./docs/plans
+./docs/reports
+./internal
+./internal/app
+./internal/codeextract
+./internal/platform
+./internal/platform/config
+./internal/platform/filesystem
+./internal/platform/logging
+./internal/platform/process
+./internal/platform/runtime
+./internal/productstate
+./internal/project
+./internal/runcontrol
+./internal/sprint
+./internal/study
+./internal/tui
+./internal/web
+./internal/web/static
+./internal/web/static/css
+./internal/web/static/js
+./internal/web/templates
+./internal/web/templates/components
+./internal/web/templates/layouts
+./internal/web/templates/pages
+./internal/web/templates/primitives
+./internal/workspace
+./internal/workspace/scaffold
+./internal/workspace/scaffold/prompts
+./internal/workspace/scaffold/templates
+./scripts
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/surfaces.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases.go
+[0m
+[0m$ [0mls -la internal/tui internal/web && wc -l internal/tui/*.go internal/web/*.go | sort -rn | head -30
+internal/tui:
+total 132
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   310 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees 12701 Aug 22 16:23 app.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1078 Aug 22 16:23 doc.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1470 Aug 22 16:23 keys.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1601 Aug 22 16:23 markdown.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 20257 Aug 22 16:23 model.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 18709 Aug 22 16:23 model_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4923 Aug 22 16:23 run_view_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1256 Aug 22 16:23 test_fakes_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3193 Aug 22 16:23 theme.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1446 Aug 22 16:23 verify_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   921 Aug 22 16:23 viewport.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   449 Aug 22 16:23 viewport_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 21114 Aug 22 16:23 views.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8394 Aug 22 16:23 views_test.go
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515743649,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515743649,[]
+internal/web:
+total 320
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   818 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8408 Aug 22 16:23 api_compatibility_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   688 Aug 22 16:23 artifacts.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2398 Aug 22 16:23 artifacts_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 32258 Aug 22 16:23 handlers.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   867 Aug 22 16:23 import_boundary_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4268 Aug 22 16:23 integration_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 32565 Aug 22 16:23 operation_handlers.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8209 Aug 22 16:23 operations_contract_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 20911 Aug 22 16:23 operations.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 24442 Aug 22 16:23 operations_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3288 Aug 22 16:23 packaging_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 14752 Aug 22 16:23 routes.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  9852 Aug 22 16:23 routes_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 20327 Aug 22 16:23 run_handlers.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 17747 Aug 22 16:23 run_handlers_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 15772 Aug 22 16:23 security.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 14506 Aug 22 16:23 security_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4997 Aug 22 16:23 server.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3228 Aug 22 16:23 server_policy.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   970 Aug 22 16:23 server_policy_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3096 Aug 22 16:23 server_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   803 Aug 22 16:23 sse_test.go
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   114 Aug 22 16:23 static
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   380 Aug 22 16:23 templates
+-rw-r--r--. 1 antonioborgerees antonioborgerees 22876 Aug 22 16:23 templates_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8482 Aug 22 16:23 test_fakes_test.go
+  9775 total
+   852 internal/web/handlers.go
+   838 internal/web/operation_handlers.go
+   667 internal/web/operations.go
+   666 internal/tui/views.go
+   614 internal/tui/model.go
+   578 internal/web/run_handlers.go
+   566 internal/web/operations_test.go
+   492 internal/tui/model_test.go
+   457 internal/web/security.go
+   435 internal/web/templates_test.go
+   429 internal/web/routes.go
+   400 internal/tui/app.go
+   376 internal/web/run_handlers_test.go
+   351 internal/web/security_test.go
+   264 internal/web/routes_test.go
+   189 internal/web/operations_contract_test.go
+   179 internal/tui/views_test.go
+   177 internal/web/server.go
+   125 internal/web/test_fakes_test.go
+   119 internal/web/api_compatibility_test.go
+   111 internal/web/server_test.go
+   107 internal/web/integration_test.go
+   100 internal/tui/run_view_test.go
+    97 internal/web/packaging_test.go
+    71 internal/tui/theme.go
+    59 internal/tui/markdown.go
+    59 internal/tui/keys.go
+    58 internal/tui/viewport.go
+    54 internal/web/artifacts_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/app.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operation_handlers.go
+[0m✱ [0mGrep "confirmationDedupKey|DurableRefreshPath|durableRefreshPath"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 9 matches[0m
+[0m✗ [0mGrep "func (r |ErrConflict|ResolveOperationAlias|OperationAlias" failed[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol[0m
+[91m[1mError: [0mrg: regex parse error:
+    (?:func (r |ErrConflict|ResolveOperationAlias|OperationAlias)
+    ^
+error: unclosed group
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/security.go[90m [offset=420, limit=40][0m
+[0m✱ [0mGrep "ErrConflict|OperationAlias|ResolveOperationAlias"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol · 9 matches[0m
+[0m
+[0m$ [0mgrep -n "func (r \*SQLiteRepository)" internal/runcontrol/sqlite.go | head -30
+368:func (r *SQLiteRepository) Close() error {
+378:func (r *SQLiteRepository) Accept(ctx context.Context, input Acceptance) (snapshotResult Snapshot, resultErr error) {
+472:func (r *SQLiteRepository) ResolveOperationAlias(ctx context.Context, alias string) (Snapshot, error) {
+486:func (r *SQLiteRepository) Claim(ctx context.Context, input Claim) (Attempt, Snapshot, error) {
+594:func (r *SQLiteRepository) Snapshot(ctx context.Context, runID RunID) (Snapshot, error) {
+608:func (r *SQLiteRepository) Append(ctx context.Context, fence Fence, draft EventDraft) (eventResult Event, snapshotResult Snapshot, resultErr error) {
+722:func (r *SQLiteRepository) ProposeTerminal(ctx context.Context, fence Fence, proposal TerminalProposal) (snapshotResult Snapshot, wonResult bool, resultErr error) {
+809:func (r *SQLiteRepository) Events(ctx context.Context, runID RunID, after uint64, limit int) ([]Event, error) {
+856:func (r *SQLiteRepository) Health(ctx context.Context) (Health, error) {
+1121:func (r *SQLiteRepository) now() time.Time { return r.clock.Now().UTC() }
+1123:func (r *SQLiteRepository) SetLogger(logger Logger) {
+1132:func (r *SQLiteRepository) expiredLeasePredicate(grace time.Duration) (string, []any) {
+1136:func (r *SQLiteRepository) expiredTimestampPredicate(column string, grace time.Duration) (string, []any) {
+1143:func (r *SQLiteRepository) notify(runID RunID, sequence uint64) {
+1149:func (r *SQLiteRepository) log(ctx context.Context, level LogLevel, message string, fields ...LogField) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go[90m [limit=110, offset=378][0m
+[0m
+[0m$ [0mls -R system | head -60 && ls docs 2>/dev/null
+system:
+contracts
+protocols
+reasoning
+
+system/contracts:
+core
+runtime
+surfaces
+
+system/contracts/core:
+architecture.md
+configuration.md
+documentation.md
+errors.md
+observability.md
+privacy-and-data.md
+release-versioning.md
+security.md
+testing.md
+
+system/contracts/runtime:
+llm-evaluation-cost-safety.md
+llm.md
+performance.md
+persistence-and-migrations.md
+workflows.md
+
+system/contracts/surfaces:
+accessibility.md
+api-contracts.md
+cli.md
+frontend.md
+package-public-api.md
+
+system/protocols:
+architecture-review-protocol.md
+contract-mapping-protocol.md
+deep-smoke-sprint-protocol.md
+plan-sprint-protocol.md
+review-sprint-protocol.md
+sprint-review-protocol.md
+
+system/reasoning:
+api-design-reasoning-template.md
+architecture_reasoning_template.md
+cli-design-reasoning-template.md
+data-privacy-reasoning-template.md
+errors_reasoning_template.md
+eval-design-reasoning-template.md
+frontend-design-reasoning-template.md
+frontend-reasoning-template.md
+frontend-state-placement-template.md
+llm-feature-reasoning-template.md
+observability-reasoning-template.md
+package-api-reasoning-template.md
+performance-reasoning-template.md
+persistence-reasoning-template.md
+prompt-change-reasoning-template.md
+release-reasoning-template.md
+[0m
+[0m✱ [0mGrep "parity|TUI|tui|web dashboard|surface"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs · 100 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_inventory_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go
+[0m
+[0m$ [0mgrep -rn "exec.Command\|os/exec" --include="*.go" internal/ | grep -v "_test.go" | grep -v "platform/process" | grep -v "platform/runtime"
+internal/sprint/verify.go:12:	"os/exec"
+internal/sprint/verify.go:357:	if output, gitErr := exec.Command("git", "-C", root, "rev-parse", "--show-toplevel").Output(); gitErr == nil {
+internal/sprint/verify.go:361:	if output, gitErr := exec.Command("git", "-C", root, "rev-parse", "HEAD").Output(); gitErr == nil && gitRootOK {
+internal/sprint/verify.go:363:		if output, listErr := exec.Command("git", "-C", root, "ls-files", "-co", "--exclude-standard", "-z").Output(); listErr == nil {
+internal/sprint/verify.go:442:	if output, gitErr := exec.Command("git", "-C", root, "rev-parse", "--show-toplevel").Output(); gitErr == nil {
+internal/sprint/verify.go:445:			if output, headErr := exec.Command("git", "-C", root, "rev-parse", "HEAD").Output(); headErr == nil {
+internal/sprint/smoke_author.go:9:	"os/exec"
+internal/sprint/smoke_author.go:185:	listed, err := exec.Command("git", "-C", root, "ls-files", "-co", "--exclude-standard", "-z").Output()
+internal/study/init_clone.go:5:	"os/exec"
+internal/study/init_clone.go:45:	cmd := exec.Command("git", "clone", "--depth", "1", url, dest)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/cli-reference.md[90m [limit=60, offset=390][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/model.go
+[0m
+[0m$ [0mwc -l internal/web/static/js/*.js internal/web/static/*.js internal/web/static/css/* 2>/dev/null | sort -rn | head
+1593 total
+ 1460 internal/web/static/app.js
+   62 internal/web/static/resource-monitor.js
+   23 internal/web/static/js/operations.js
+   12 internal/web/static/js/sse.js
+   11 internal/web/static/css/tokens.css
+    6 internal/web/static/js/app.js
+    6 internal/web/static/css/base.css
+    5 internal/web/static/css/layouts.css
+    3 internal/web/static/css/primitives.css
+[0m
+[0m✱ [0mGrep "sprint-flow|study-run-loop|execute-start|review-start|smoke-start"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static · 7 matches[0m
+[0m
+[0m$ [0mgrep -rn "data-operation\|operationSpec\|startOperation\|kind:" internal/web/static/app.js | head -40 && grep -c "" internal/web/static/app.js
+189:        if (Number(sprint.execute?.running) > 0) active.push({kind: "execute-start", state: "running", project: sprint.project, sprint: sprint.slug, href: `${base}#stage-execute`});
+190:        if (sprint.review?.status === "running") active.push({kind: "review-start", state: "running", project: sprint.project, sprint: sprint.slug, href: `${base}#stage-review`});
+191:        if (sprint.smoke?.status === "running") active.push({kind: "smoke-start", state: "running", project: sprint.project, sprint: sprint.slug, href: `${base}#stage-smoke`});
+193:          if (stage.status === "running" && !["execute", "review", "smoke"].includes(stage.name)) active.push({kind: "sprint-stage", state: "running", project: sprint.project, sprint: sprint.slug, href: `${base}#stage-${encodeURIComponent(stage.name)}`});
+197:        if (study.run_active) active.push({kind: "study-start", state: "running", study: study.name, href: `/studies/${encodeURIComponent(study.name)}/progress`});
+271:        const entry = {kind: "study-loop", study: target.study, state: run.lifecycle, loopRunID: target.kind === "operation" ? run.run_id : "", agents: target.kind === "operation" ? 0 : 1};
+287:          kind: run.kind,
+295:          kind: run.target?.operation || run.target?.kind || "run",
+607:  const statusRoot = document.querySelector("[data-operation-id]");
+660:    return {kind: submitter?.dataset.operationKind || form.dataset.operationKind, scope, options};
+1078:    return {kind: parts[0] || "agent", dimension, source, title};
+1337:      payload: {kind: item.dataset.runKind, tool: item.dataset.runTool}
+1460
+[0m
+[0m$ [0mgrep -rn "data-operation-kind" internal/web/templates/ | head -30
+internal/web/templates/project.html:54:<section><h2>Project validation</h2><form class="operation-form" method="post" action="/operations/prepare" data-operation-kind="validation" data-project="{{.Project.Name}}"><input type="hidden" name="_csrf" value="{{.CSRF}}"><input type="hidden" name="kind" value="validation"><input type="hidden" name="project" value="{{.Project.Name}}"><p>Validate the current project index and catalogue.</p><button type="submit">Prepare project validation</button></form></section>{{template "component/operation-console" .}}
+internal/web/templates/sprint.html:41:<button type="submit" name="kind" value="sprint-flow" data-operation-kind="sprint-flow">Run flow</button></form>
+internal/web/templates/sprint.html:99:<form class="operation-form stage-start" method="post" action="/operations/prepare" data-project="{{$.Sprint.Project}}" data-sprint="{{$.Sprint.Slug}}" data-stage="{{.Name}}"><input type="hidden" name="_csrf" value="{{$.CSRF}}"><input type="hidden" name="project" value="{{$.Sprint.Project}}"><input type="hidden" name="sprint" value="{{$.Sprint.Slug}}"><input type="hidden" name="stage" value="{{.Name}}"><button type="submit" name="kind" value="sprint-flow" data-operation-kind="sprint-flow">Start run to {{.Name}}</button></form>
+internal/web/templates/study.html:37:<section><h2>Study operations</h2><div class="operation-actions"><form class="operation-form" method="post" action="/operations/prepare" data-operation-kind="validation" data-study="{{.Study.Name}}"><input type="hidden" name="_csrf" value="{{.CSRF}}"><input type="hidden" name="kind" value="validation"><input type="hidden" name="study" value="{{.Study.Name}}"><button type="submit">Prepare study validation</button></form><form class="operation-form" method="post" action="/operations/prepare" data-operation-kind="study_run_loop" data-study="{{.Study.Name}}"><input type="hidden" name="_csrf" value="{{.CSRF}}"><input type="hidden" name="kind" value="study_run_loop"><input type="hidden" name="study" value="{{.Study.Name}}"><label class="parallelism-choice">Parallel agents <select name="parallelism"><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></label><button type="submit">Prepare study run loop</button></form></div></section>
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/import_boundary_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/verify_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go
+[0m✱ [0mGrep "func sharedOperationRunner|sharedOperationRunner\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 3 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+[0m✱ [0mGrep "RunLoopRequest|Command \[\]string|\.Command\b"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 46 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go[90m [limit=130, offset=120][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks.go
+[0m
+[0m$ [0mgrep -rn "AcceptOperation\|digest" internal/app/tui_commands_test.go internal/web/operations_test.go internal/web/operations_contract_test.go 2>/dev/null | head -20
+(no output)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations_contract_test.go
+[0m
+[0m$ [0mgrep -rn "ConfirmationDigest\|OperationAlias\|confirmation digest\|idempoten" docs/ internal/ --include="*.go" --include="*.md" | grep -v _test | head -20
+docs/local-web.md:144:   idempotent.
+docs/plans/server-shutdown-run-cancellation-contract.md:201:- Shutdown cancellation is idempotent.
+docs/recovery.md:108:- Explicit cancellation is idempotent. A late cancel cannot replace an already
+docs/cli-reference.md:457:idempotent and does not overwrite an already-terminal winner.
+docs/release-checklist.md:110:- All nine embedded stage skills materialise idempotently and remain manual-only.
+internal/app/durable_operations.go:89:		Target: target, ProductStatus: "prepared", OperationAlias: digest, ConfirmationDigest: digest,
+internal/app/durable_operations.go:92:		existing, resolveErr := m.repository.ResolveOperationAlias(ctx, digest)
+internal/app/operations.go:39:// an execution goroutine. The confirmation digest is already non-reversible.
+internal/runcontrol/interfaces.go:51:	ResolveOperationAlias(context.Context, string) (Snapshot, error)
+internal/runcontrol/model.go:449:	OperationAlias     string
+internal/runcontrol/model.go:450:	ConfirmationDigest string
+internal/runcontrol/sqlite.go:402:	if len(input.ProductStatus) > MaxSafeValueBytes || len(input.ConfirmationDigest) > MaxSafeValueBytes {
+internal/runcontrol/sqlite.go:403:		return Snapshot{}, invalidField("acceptance", "contains an unbounded status or confirmation digest")
+internal/runcontrol/sqlite.go:438:		input.ConfirmationDigest, string(CancellationNone))
+internal/runcontrol/sqlite.go:445:	if input.OperationAlias != "" {
+internal/runcontrol/sqlite.go:446:		if len(input.OperationAlias) > MaxSafeValueBytes || strings.ContainsAny(input.OperationAlias, "\x00\r\n") {
+internal/runcontrol/sqlite.go:449:		if _, err := tx.ExecContext(ctx, `INSERT INTO operation_aliases (alias_id, run_id, alias_kind, created_at) VALUES (?, ?, 'operation', ?)`, input.OperationAlias, string(runID), formatTime(now)); err != nil {
+internal/runcontrol/sqlite.go:472:func (r *SQLiteRepository) ResolveOperationAlias(ctx context.Context, alias string) (Snapshot, error) {
+[0m
+[0m✱ [0mGrep "alias|digest|idempoten|parity"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system · 27 matches[0m
+[0m
+[0m$ [0mgrep -n "dedup\|Existing\|startConfirmed" internal/web/operations_test.go | head -20
+(no output)
+[0m
+[0m$ [0mgrep -rn "Existing\|already exists" internal/tui/*.go internal/app/*_test.go | grep -i "existing\|already" | head
+internal/tui/app.go:245:		if accepted.Existing {
+internal/tui/app.go:247:			m.model.Operation = &app.OperationResult{State: app.OperationState(accepted.Lifecycle), RunID: accepted.RunID, Message: "matching durable operation already exists"}
+internal/app/durable_operations_test.go:29:	if err := runID.Validate(); err != nil || accepted.Existing || accepted.Context == nil {
+internal/app/durable_operations_test.go:83:	if err != nil || !second.Existing || second.RunID != first.RunID {
+internal/app/study_run_loop_commands_test.go:136:func TestStudyRunLoopCommandConfirmsBeforeReplacingExistingState(t *testing.T) {
+internal/app/study_run_loop_commands_test.go:173:	assertContains(t, stdout, "Existing study progress is present")
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations_test.go
+[0m
+[0m$ [0mgrep -n "start\|Existing\|durable" internal/web/operations_test.go | head -40
+23:	started chan struct{}
+33:	startedMany chan struct{}
+40:	startedDeadline chan struct{}
+48:		startedDeadline:   make(chan struct{}),
+56:	close(f.startedDeadline)
+65:		startedMany:       make(chan struct{}, MaxActiveOperations),
+73:	f.startedMany <- struct{}{}
+91:	return &fakeWebOperations{started: make(chan struct{}), release: make(chan struct{}), done: make(chan struct{})}
+113:	f.once.Do(func() { close(f.started) })
+129:	doc, err := hub.start("session-a", prepared)
+133:	<-ops.started
+166:	if _, err := hub.start("session", prepared); err != nil {
+169:	<-ops.started
+176:	if _, err := hub.start("session", prepared); !errors.Is(err, errServerDraining) {
+177:		t.Fatalf("start while draining error=%v", err)
+185:	doc, err := hub.start("session", prepared)
+189:	<-ops.startedDeadline
+218:		if _, err := hub.start("session", prepared); err != nil {
+219:			t.Fatalf("start %d: %v", i+1, err)
+223:		<-ops.startedMany
+225:	if _, err := hub.start("session", prepared); !errors.Is(err, errOperationCapacity) {
+226:		t.Fatalf("ninth start error=%v, want %v", err, errOperationCapacity)
+239:	doc, err := hub.start("session", prepared)
+243:	<-ops.started
+320:	startBody := `{"operation":{"kind":"sprint_flow","scope":{"project":"alpha","sprint":"31-web"},"options":{"to_stage":"plan"}},"confirmation_token":"` + prepareEnvelope.Data.ConfirmationToken + `"}`
+321:	started := operationMutationRequest(h, http.MethodPost, "/api/v1/operations", startBody, cookie, csrf)
+322:	if started.Code != http.StatusAccepted || started.Header().Get("Location") == "" {
+323:		t.Fatalf("start status=%d headers=%v body=%s", started.Code, started.Header(), started.Body.String())
+325:	<-ops.started
+326:	var startedEnvelope struct {
+329:	if err := json.Unmarshal(started.Body.Bytes(), &startedEnvelope); err != nil {
+333:	if active.Code != http.StatusOK || !strings.Contains(active.Body.String(), `"id":"`+startedEnvelope.Data.ID+`"`) ||
+343:	if other.Code != http.StatusOK || strings.Contains(other.Body.String(), startedEnvelope.Data.ID) ||
+350:		req := httptest.NewRequest(http.MethodGet, "/api/v1/operations/"+startedEnvelope.Data.ID+"/events", nil)
+357:	cancelled := operationMutationRequest(h, http.MethodDelete, "/api/v1/operations/"+startedEnvelope.Data.ID, "", cookie, csrf)
+366:	status := operationSessionRequest(h, http.MethodGet, "/api/v1/operations/"+startedEnvelope.Data.ID, cookie)
+371:	if active.Code != http.StatusOK || strings.Contains(active.Body.String(), startedEnvelope.Data.ID) ||
+375:	replay := operationMutationRequest(h, http.MethodPost, "/api/v1/operations", startBody, cookie, csrf)
+376:	if replay.Code != http.StatusAccepted || replay.Header().Get("Location") != started.Header().Get("Location") {
+382:	if err := json.Unmarshal(replay.Body.Bytes(), &replayEnvelope); err != nil || replayEnvelope.Data.ID != startedEnvelope.Data.ID {
+[0m
+[0m$ [0mgrep -rln "internal/tui\|internal/web" --include="*.go" . | grep -v "internal/tui\|internal/web" && go list -deps ./cmd/ultraplan 2>/dev/null | grep ultraplan-go | head
+./cmd/ultraplan/main.go
+./internal/sprint/plan_test.go
+./internal/sprint/smoke_test.go
+github.com/Antonio7098/ultraplan-go/internal/codeextract
+github.com/Antonio7098/ultraplan-go/internal/platform/config
+github.com/Antonio7098/ultraplan-go/internal/platform/runtime
+github.com/Antonio7098/ultraplan-go/internal/productstate
+github.com/Antonio7098/ultraplan-go/internal/workspace
+github.com/Antonio7098/ultraplan-go/internal/project
+github.com/Antonio7098/ultraplan-go/internal/runcontrol
+github.com/Antonio7098/ultraplan-go/internal/platform/process
+github.com/Antonio7098/ultraplan-go/internal/sprint
+github.com/Antonio7098/ultraplan-go/internal/study
+[0m
+[0m$ [0mgo build ./... && go vet ./internal/app ./internal/tui ./internal/web 2>&1 | head
+(no output)
+[0m
+[0m$ [0mgrep -n "internal/tui\|internal/web" internal/sprint/plan_test.go internal/sprint/smoke_test.go | head
+internal/sprint/plan_test.go:114:	if containsPlaceholder("Run `go list -f '{{join .Imports \"\\n\"}}' ./internal/web`.") {
+internal/sprint/smoke_test.go:140:				"part": map[string]any{"tool": "write", "state": map[string]any{"input": map[string]any{"filePath": root + "/internal/web/server.go"}}},
+internal/sprint/smoke_test.go:147:				"part": map[string]any{"tool": "read", "state": map[string]any{"input": map[string]any{"filePath": root + "/internal/web/server.go"}}},
+[0m
+[0m$ [0mgrep -rn "WithoutStatusWrites\|readOnly\|read-only" internal/app/*.go | grep -v _test | head -20 && grep -n "read-only\|readonly" docs/local-web.md | head
+internal/app/app.go:268:  tui              Open a read-only terminal dashboard.
+internal/app/app.go:269:  serve            Start the read-only local browser dashboard.
+internal/app/operations.go:205:		c.Scope = []string{"one read-only reviewer per selected contract plus handbook", fmt.Sprintf("bounded parallelism: %d", req.Parallelism)}
+internal/app/project_commands.go:163:Shows read-only project planning root health without runtime execution.
+internal/app/serve_commands.go:50:		smokeSettings:     smokeSettings(effective, envLookup(deps.env)), readOnly: true,
+internal/app/sprint_commands.go:1175:  <project> <sprint> review            Run bounded read-only reviewers and atomically write review.md.
+internal/app/sprint_commands.go:1211:Runs bounded read-only reviewers. Compatible interrupted attempts resume validated coverage and retained OpenCode sessions by default. --restart discards the resumable attempt and starts every reviewer in a fresh session. A focused rerun requires complete same-fingerprint retained coverage and promotes only a fully validated canonical review.
+internal/app/sprint_usecases.go:115:					RefreshMayWrite:   !u.readOnly,
+internal/app/sprint_usecases.go:117:					Findings:          []DisplayFinding{{Severity: "error", Section: "sprint.status", Problem: displaySafe(err.Error()), Suggestion: "Inspect or regenerate sprint flow-state.json outside the read-only TUI."}},
+internal/app/sprint_usecases.go:161:				RefreshMayWrite:   !u.readOnly,
+internal/app/usecases.go:67:	readOnly          bool
+internal/app/usecases.go:126:	if u.readOnly {
+internal/app/usecases.go:127:		service = service.WithoutStatusWrites()
+internal/app/web_usecases.go:47:// WebPromptQueries is an additive read-only capability used by prompt
+internal/app/web_usecases.go:119:// WebPromptBundleResult is a content-free, read-only projection of the prompt
+internal/app/web_usecases.go:250:			readOnly:          true,
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases.go[90m [limit=120, offset=60][0m
+[0m
+[0m$ [0mgit log --oneline -3 -S "read-only terminal dashboard" -- internal/app/app.go && git log --oneline -3 -S "readOnly: true" -- internal/app/serve_commands.go
+7a94a11 add interactive read-only tui
+a221683 feat: add guarded web operations and SSE progress
+[0m
+[0m$ [0mgrep -n "WithoutStatusWrites\|statusWrites\|persistStatus" internal/sprint/*.go | grep -v _test | head -15
+internal/sprint/service.go:34:	statusWrites      bool
+internal/sprint/service.go:64:	return Service{root: root, store: NewFSStore(root), now: func() time.Time { return time.Now().UTC() }, processRunner: pprocess.DirectRunner{}, smokeSettings: DefaultSmokeSettings(), mutations: &sync.Map{}, metricsMu: &sync.Mutex{}, statusWrites: true}
+internal/sprint/service.go:67:// WithoutStatusWrites derives status from current artifacts without creating a
+internal/sprint/service.go:70:func (s Service) WithoutStatusWrites() Service {
+internal/sprint/service.go:71:	s.statusWrites = false
+internal/sprint/service.go:191:	if s.statusWrites && !legacyCodeContextState {
+[0m
+[0m$ [0mgrep -rln "parity\|Parity" --include="*_test.go" internal/ | head && grep -n "func Test" internal/tui/model_test.go | head -20
+internal/app/sprint_verify_commands_test.go
+12:func TestModelTabsRoutesPreviewAndQuit(t *testing.T) {
+67:func TestSprintNavigationExposesAllSprintOperations(t *testing.T) {
+105:func TestOperationViewRendersSprintFindings(t *testing.T) {
+116:func TestModelValidationResultAndBack(t *testing.T) {
+139:func TestOperationConfirmationProgressBoundAndTerminal(t *testing.T) {
+171:func TestFocusAndTabControls(t *testing.T) {
+192:func TestArrowNavigationMovesBetweenContentAndTabs(t *testing.T) {
+218:func TestKeyBindingsExposeOperationalConfirmation(t *testing.T) {
+231:func TestTeaConfirmImmediatelyShowsRunningState(t *testing.T) {
+253:func TestEscapeHidesForegroundRunWithoutCancelling(t *testing.T) {
+286:func TestBackNavigatesRoutesAfterRunIsBackgrounded(t *testing.T) {
+308:func TestCancelKeyWorksInsideRunView(t *testing.T) {
+325:func TestEnterTogglesPreviousRunsInsideRunView(t *testing.T) {
+344:func TestRunLoopParallelParameterEntry(t *testing.T) {
+374:func TestRunLoopParallelBlankUsesThree(t *testing.T) {
+392:func TestTeaModelLoadsRefreshesPreviewsAndQuits(t *testing.T) {
+[0m
+[0m$ [0mgrep -rn "parity" internal/app/sprint_verify_commands_test.go | head -5 && grep -n "func Test" internal/web/integration_test.go internal/web/api_compatibility_test.go
+internal/web/integration_test.go:17:func TestIntegrationStudyAndSprintSurfaceAgreement(t *testing.T) {
+internal/web/api_compatibility_test.go:14:func TestAPICompatibilityRouteMethodMatrix(t *testing.T) {
+internal/web/api_compatibility_test.go:50:func TestAPICompatibilityTransportSchemas(t *testing.T) {
+internal/web/api_compatibility_test.go:82:func TestAPICompatibilityErrorsAndCachePolicy(t *testing.T) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/integration_test.go
+[0m
+[0m$ [0mgo test ./internal/app ./internal/tui ./internal/web 2>&1 | tail -5
+ok  	github.com/Antonio7098/ultraplan-go/internal/app	(cached)
+ok  	github.com/Antonio7098/ultraplan-go/internal/tui	(cached)
+ok  	github.com/Antonio7098/ultraplan-go/internal/web	(cached)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_usecases.go
+[0m
+[0m$ [0mgrep -n "func (s Service) Status" internal/sprint/*.go && sed -n '150,230p' internal/sprint/status.go 2>/dev/null || grep -rn "statusWrites" internal/sprint/service.go
+internal/sprint/service.go:130:func (s Service) Status(projectRef, sprintRef string) (StatusSummary, error) {
+34:	statusWrites      bool
+64:	return Service{root: root, store: NewFSStore(root), now: func() time.Time { return time.Now().UTC() }, processRunner: pprocess.DirectRunner{}, smokeSettings: DefaultSmokeSettings(), mutations: &sync.Map{}, metricsMu: &sync.Mutex{}, statusWrites: true}
+71:	s.statusWrites = false
+191:	if s.statusWrites && !legacyCodeContextState {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go[90m [limit=110, offset=125][0m
+[0m
+[0m$ [0mgrep -rn "func SaveFlowState" internal/sprint/ && grep -A30 "func SaveFlowState" internal/sprint/*.go | head -45
+internal/sprint/state.go:201:func SaveFlowState(root string, s Sprint, state FlowState) error {
+internal/sprint/state.go:func SaveFlowState(root string, s Sprint, state FlowState) error {
+internal/sprint/state.go-	// Planning-stage refreshes must not erase the last complete verification
+internal/sprint/state.go-	// evidence. Explicit stage writers load and replace their own record.
+internal/sprint/state.go-	if state.Review == nil || state.Smoke == nil {
+internal/sprint/state.go-		if prior, err := LoadFlowState(root, s); err == nil {
+internal/sprint/state.go-			if state.Review == nil {
+internal/sprint/state.go-				state.Review = prior.Review
+internal/sprint/state.go-			}
+internal/sprint/state.go-			if state.Smoke == nil {
+internal/sprint/state.go-				state.Smoke = prior.Smoke
+internal/sprint/state.go-			}
+internal/sprint/state.go-		} else if !errors.Is(err, ErrFlowStateMissing) {
+internal/sprint/state.go-			return err
+internal/sprint/state.go-		}
+internal/sprint/state.go-	}
+internal/sprint/state.go-	if authoritative, err := FlowStateInDatabase(root, s); err != nil {
+internal/sprint/state.go-		return err
+internal/sprint/state.go-	} else if authoritative {
+internal/sprint/state.go-		if err := saveFlowStateDatabase(root, s, state); err != nil {
+internal/sprint/state.go-			return err
+internal/sprint/state.go-		}
+internal/sprint/state.go-		if !flowStateCheckpoint(state) {
+internal/sprint/state.go-			return nil
+internal/sprint/state.go-		}
+internal/sprint/state.go-		return saveFlowStateWithHooks(root, s, state, atomicWriteHooks{})
+internal/sprint/state.go-	}
+internal/sprint/state.go-	return saveFlowStateWithHooks(root, s, state, atomicWriteHooks{})
+internal/sprint/state.go-}
+internal/sprint/state.go-
+internal/sprint/state.go-func flowStateCheckpoint(state FlowState) bool {
+internal/sprint/state.go-	for _, stage := range state.Stages {
+[0m
+[0m$ [0mgrep -n "func NewFlowState" -A 25 internal/sprint/state.go | head -35
+361:func NewFlowState(s Sprint, stages []StageState, now time.Time) FlowState {
+362-	if now.IsZero() {
+363-		now = time.Now().UTC()
+364-	}
+365-	return FlowState{
+366-		SchemaVersion: FlowStateSchemaVersion,
+367-		Project:       s.Project,
+368-		Sprint:        s.Slug,
+369-		UpdatedAt:     now.UTC(),
+370-		Stages:        stages,
+371-	}
+372-}
+373-
+374-func syncDir(path string) {
+375-	dir, err := os.Open(path)
+376-	if err != nil {
+377-		return
+378-	}
+379-	defer dir.Close()
+380-	_ = dir.Sync()
+381-}
+[0m
+[0m$ [0mfind internal/workspace -name "*gitignore*" -o -name "*.tmpl" | head && grep -rn "flow-state" internal/workspace/scaffold/templates/* 2>/dev/null | head
+(no output)
+[0m
+[0m$ [0mls internal/workspace/scaffold/templates/ internal/workspace/scaffold/prompts/ 2>/dev/null | head -20 && grep -rln "gitignore\|flow-state" internal/workspace/ | head
+internal/workspace/scaffold/prompts/:
+base.md
+create-area-reasoning.md
+create-code-context.md
+create-requirements.md
+create-sprint-index.md
+create-sprint-reasoning.md
+create-technical-handbook.md
+execute-sprint.md
+meta-plan.md
+meta-synthesize.md
+plan-sprint.md
+review.md
+smoke.md
+synthesize.md
+
+internal/workspace/scaffold/templates/:
+code-context.md
+meta-report.md
+project-index.md
+internal/workspace/scaffold/prompts/review.md
+internal/workspace/skills.go
+[0m

@@ -1,4 +1,689 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go rev-parse HEAD && git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go status --porcelain | head -5
+eeaa034cb1e520ea10e806870f6026cf1bb6c4f7
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go -type f -name '*.go' | sort
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/code_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/code_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/config_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/defaults_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/json_output.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/markdown.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/markdown_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_inventory_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/skills_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/skills_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_error_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_verify_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/status_json.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/storage_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_init_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_prompt_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_all_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_loop_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_runs_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_runs_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_status_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_summary_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_validate_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/surfaces.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/version.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_operations_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/workspace_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/codeextract_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/parser.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/resolver.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/service.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/redaction.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/filesystem/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging/logging.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging/logging_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_other.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_unix.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/agentwrap.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/cache_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/events.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/health.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/policy.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/discovery.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/index.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/project_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/reasoning_defaults.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/reasoning_defaults_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/service.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/store_fs.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/validation.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/benchmark_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/errors.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/fault_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/id.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/id_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/import_boundary_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/interfaces.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/local_log.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/local_log_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/metrics.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/model.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/model_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_darwin.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_integration_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_linux.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_other.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/retention.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/retention_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/artifacts.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/cleanup_uncertain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/cleanup_uncertain_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/code_context.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/code_context_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/context_pack.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/direct_inputs.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/direct_inputs_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/discovery.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/efficiency_improvements_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/efficiency_metrics_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_model.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_model_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_plan.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_plan_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_target.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_target_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/flow.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/freshness_policy.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/handbook.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/handbook_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/input_contract.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/locks.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/locks_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/plan.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/plan_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompt_bundle.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompt_context.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompt_context_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompts.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/reasoning.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/reasoning_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review_runtime_validation.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/runtime_metrics.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/runtime_progress_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/runtime_validation.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/session_state.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/session_state_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_author.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_protocol.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_types.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/sprint_index_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/sprint_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state_database.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/store_fs.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/validation.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verification_lock.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verification_lock_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/applicability.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/cleanup_uncertain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/cleanup_uncertain_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/config.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/config_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/dimension_refs.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/discovery.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/durable_metadata.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/edit_warnings.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/execution_domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/init_clone.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/init.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/init_render.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/init_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/init_yaml.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/markdown.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/memory_pressure.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/metadata_domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/prompts.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/prompts_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/rating.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/rating_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/reports.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/resolve.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_all.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_all_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_history.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_history_summary.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_history_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop_diagnostics.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop_diagnostics_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_state_domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_state.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/runtime_metadata.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/runtime_metadata_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/runtime_validation.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/service.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state_database.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/study_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/summary.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/summary_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/synthesize.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/validation_command.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/validation_command_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/validation.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/validation_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/app.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/keys.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/markdown.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/model.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/model_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/run_view_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/test_fakes_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/theme.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/verify_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/viewport.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/viewport_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/views.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/views_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/api_compatibility_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/artifacts.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/artifacts_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/handlers.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/import_boundary_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/integration_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operation_handlers.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations_contract_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/packaging_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/routes.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/routes_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/security.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/security_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server_policy.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server_policy_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/sse_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/test_fakes_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/defaults.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/discovery.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/init.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/paths.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/skills.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/skills_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/validation.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/workspace_test.go
+[0m
+[0m✱ [0mGrep "exec\.Command|osexec|CommandContext"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 16 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_unix.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_other.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_other.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_darwin.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_linux.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_types.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_protocol.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_author.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode.go
+[0m
+[0m$ [0mcat /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/go.mod && ls $(go env GOMODCACHE)/github.com/\!antonio7098/ 2>/dev/null
+module github.com/Antonio7098/ultraplan-go
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515762591,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515762591,[]
+go 1.26
+
+require gopkg.in/yaml.v3 v3.0.1
+
+require (
+	github.com/Antonio7098/agentwrap v0.0.0-20260821190033-e79a38a58da3
+	github.com/charmbracelet/bubbletea v1.3.10
+	github.com/charmbracelet/glamour v1.0.0
+	github.com/charmbracelet/lipgloss v1.1.1-0.20250404203927-76690c660834
+	github.com/yuin/goldmark v1.7.13
+	golang.org/x/sys v0.47.0
+	modernc.org/sqlite v1.57.0
+)
+
+require (
+	github.com/alecthomas/chroma/v2 v2.20.0 // indirect
+	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
+	github.com/aymerick/douceur v0.2.0 // indirect
+	github.com/charmbracelet/colorprofile v0.2.3-0.20250311203215-f60798e515dc // indirect
+	github.com/charmbracelet/x/ansi v0.10.2 // indirect
+	github.com/charmbracelet/x/cellbuf v0.0.13 // indirect
+	github.com/charmbracelet/x/exp/slice v0.0.0-20250327172914-2fdc97757edf // indirect
+	github.com/charmbracelet/x/term v0.2.1 // indirect
+	github.com/dlclark/regexp2 v1.11.5 // indirect
+	github.com/dustin/go-humanize v1.0.1 // indirect
+	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
+	github.com/google/uuid v1.6.0 // indirect
+	github.com/gorilla/css v1.0.1 // indirect
+	github.com/lucasb-eyer/go-colorful v1.3.0 // indirect
+	github.com/mattn/go-isatty v0.0.24 // indirect
+	github.com/mattn/go-localereader v0.0.1 // indirect
+	github.com/mattn/go-runewidth v0.0.17 // indirect
+	github.com/microcosm-cc/bluemonday v1.0.27 // indirect
+	github.com/muesli/ansi v0.0.0-20230316100256-276c6243b2f6 // indirect
+	github.com/muesli/cancelreader v0.2.2 // indirect
+	github.com/muesli/reflow v0.3.0 // indirect
+	github.com/muesli/termenv v0.16.0 // indirect
+	github.com/ncruces/go-strftime v1.0.0 // indirect
+	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
+	github.com/rivo/uniseg v0.4.7 // indirect
+	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
+	github.com/yuin/goldmark-emoji v1.0.6 // indirect
+	golang.org/x/net v0.38.0 // indirect
+	golang.org/x/term v0.36.0 // indirect
+	golang.org/x/text v0.30.0 // indirect
+	modernc.org/libc v1.74.4 // indirect
+	modernc.org/mathutil v1.7.1 // indirect
+	modernc.org/memory v1.11.0 // indirect
+)
+agentwrap@v0.0.0-20260613122459-bc655a256a5f
+agentwrap@v0.0.0-20260629143324-a917627c22fb
+agentwrap@v0.0.0-20260629144550-2e8fbbe2c6cd
+agentwrap@v0.0.0-20260702175305-d1c785159a8d
+agentwrap@v0.0.0-20260710081656-59c61672c875
+agentwrap@v0.0.0-20260714161112-8ddfc132f7ca
+agentwrap@v0.0.0-20260815144406-3abac668be17
+agentwrap@v0.0.0-20260815154925-6aa129f822f3
+agentwrap@v0.0.0-20260815160303-e00b8e694497
+agentwrap@v0.0.0-20260816114448-0159fa923f42
+agentwrap@v0.0.0-20260816144152-043ad0dd8dd6
+agentwrap@v0.0.0-20260821190033-e79a38a58da3
+agentwrap@v0.0.0-20260822125309-004e30d47ac0
+agentwrap@v0.0.0-20260823194117-7610226fc449
+agentwrap@v0.0.0-20260824101248-dd61bdd9e971
+agentwrap@v0.0.0-20260824130256-3d1e4cbb6e03
+ultraplan-go@v0.1.0
+ultraplan-go@v0.1.1-0.20260629184531-01894ff216f3
+ultraplan-go@v0.1.1-0.20260701184158-211333865d5b
+ultraplan-go@v0.1.1-0.20260702110315-c8fea83c8c10
+ultraplan-go@v0.1.1-0.20260702121236-ea12c676255e
+ultraplan-go@v0.1.1-0.20260702124413-633bd352c6a3
+ultraplan-go@v0.1.1-0.20260702131822-913058d2fd23
+ultraplan-go@v0.1.1-0.20260702132418-8c6e4d57eba5
+ultraplan-go@v0.1.1-0.20260702132622-666a6ce0e25f
+ultraplan-go@v0.1.1-0.20260702133818-b95a0762df10
+ultraplan-go@v0.1.1-0.20260703090528-adb6fbb6cd4e
+ultraplan-go@v0.1.1-0.20260709165039-7a94a111f4dd
+ultraplan-go@v0.1.1-0.20260710081813-b332838b6e37
+ultraplan-go@v0.1.1-0.20260714160811-922062d3f013
+ultraplan-go@v0.1.1-0.20260714161246-73f3472b6dc4
+ultraplan-go@v0.1.1-0.20260722174204-d1e8b4518320
+ultraplan-go@v0.1.1-0.20260722191151-f142a7386e2f
+ultraplan-go@v0.1.1-0.20260722195008-76711a71155e
+ultraplan-go@v0.1.1-0.20260723152402-f4d6d3848a89
+ultraplan-go@v0.1.1-0.20260728132742-f8446a658259
+ultraplan-go@v0.1.1-0.20260815144532-9200a07a4802
+ultraplan-go@v0.1.1-0.20260815145458-5f6058a5e866
+ultraplan-go@v0.1.1-0.20260815150731-4b227527877f
+ultraplan-go@v0.1.1-0.20260815160513-ce223e49acbf
+ultraplan-go@v0.1.1-0.20260816103014-9545e91fe2f1
+ultraplan-go@v0.1.1-0.20260816110227-6471dcc088e7
+ultraplan-go@v0.1.1-0.20260816110716-b1330371bab2
+ultraplan-go@v0.1.1-0.20260816111250-cdbdec214e5d
+ultraplan-go@v0.1.1-0.20260816112656-02ab48fb44d4
+ultraplan-go@v0.1.1-0.20260816114532-0ab766386f92
+ultraplan-go@v0.1.1-0.20260816120258-bc52401a0f98
+ultraplan-go@v0.1.1-0.20260816155255-a2216837ba63
+ultraplan-go@v0.1.1-0.20260817105705-f8b639e681bc
+ultraplan-go@v0.1.1-0.20260817110456-17f108e8dc98
+ultraplan-go@v0.1.1-0.20260817110841-305c03eac36c
+ultraplan-go@v0.1.1-0.20260817111604-4837d369a87b
+ultraplan-go@v0.1.1-0.20260817112004-8e2f91c27fd2
+ultraplan-go@v0.1.1-0.20260817112408-217046b81649
+ultraplan-go@v0.1.1-0.20260817181627-9b3c02bb399b
+ultraplan-go@v0.1.1-0.20260817182807-2fbce1af2e3f
+ultraplan-go@v0.1.1-0.20260817183201-291d81e2b50e
+[0m
+[0m$ [0mls $(go env GOMODCACHE)/github.com/\!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/ && ls $(go env GOMODCACHE)/github.com/\!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/
+CHANGELOG.md
+config.go
+config_test.go
+doc.go
+docs
+errors.go
+errors_test.go
+events.go
+go.mod
+health.go
+health_test.go
+ids.go
+internal
+lifecycle_events.go
+lifecycle_events_test.go
+lifecycle.go
+lifecycle_test.go
+metadata.go
+observability.go
+observability_test.go
+opencode
+permissions.go
+permissions_test.go
+policy.go
+policy_test.go
+README.md
+redact.go
+redact_test.go
+runtime.go
+validation.go
+validation_test.go
+agentwrap-smoke-output.txt
+decoder.go
+decoder_test.go
+doc.go
+health.go
+health_test.go
+integration_test.go
+options.go
+permissions.go
+process.go
+process_linux.go
+process_other.go
+process_unix.go
+process_unix_test.go
+process_windows.go
+projector.go
+rate_limit.go
+runtime.go
+runtime_test.go
+testdata
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+[0m
+[0m$ [0mwc -l $(go env GOMODCACHE)/github.com/\!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/process.go $(go env GOMODCACHE)/github.com/\!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/runtime.go
+129 /home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/process.go
+ 1287 /home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/runtime.go
+ 1416 total
+[0m
+[0m→ [0mRead /home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/process_unix.go
+[0m→ [0mRead /home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/process.go
+[0m
+[0m$ [0mls $(go env GOMODCACHE)/github.com/\!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/ | grep -i process
+process.go
+process_linux.go
+process_other.go
+process_unix.go
+process_unix_test.go
+process_windows.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/init_clone.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/validation_command.go
+[0m✱ [0mGrep "processRunner|pprocess\.|platform/process"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 13 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_test.go
+[0m✱ [0mGrep "runCloneActions|CloneRunner|context\.|ctx"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study · 100 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/init.go[90m [offset=1, limit=120][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+[0m✱ [0mGrep "Smoke|smoke"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 100 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=70, offset=400][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify.go[90m [limit=130, offset=330, include=*.md, path=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace, pattern=environment][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify.go[90m [limit=40, offset=455, include=*.go, path=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint, pattern=Environment|smokeEnvironment|validProtocolEnvName|Getenv][0m
+[0m✱ [0mGrep "Environment|smokeEnvironment|validProtocolEnvName|Getenv"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 24 matches[0m
+[0m✱ [0mGrep "environment|allowlist|PATH, HOME, TMPDIR"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace · 100 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_test.go[90m [limit=120, offset=30][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_test.go[90m [limit=80, offset=430][0m
+[0m
+[0m$ [0mgrep -n -A6 'Smoke Harnesses' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/project-index.md
+131:## Smoke Harnesses
+132-
+133-| Harness | Path | Manifest | Evidence | Useful For | Status |
+134-|---|---|---|---|---|---|
+135-| `ultraplan-go-smoke` | `/home/antonioborgerees/coding/ultraplan/ultraplan-go-smoke/` | `ultraplan-smoke.json` | `runs/` and `issues/` under the harness root | Existing real-runtime evidence for `ultraplan-go`, including OpenCode execution, CLI/TUI behavior, diagnostics, persisted state, cancellation, security, redaction, and sprint-specific deep-smoke suites. `smoke.md` links the relevant run IDs and evidence paths. | Harness current; versioned Phase 3 manifest planned in Sprint 27 |
+136-
+137-## Prior Decisions
+[0m
+[0m✱ [0mGrep "Smoke|Environment"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config · 26 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config.go[90m [limit=40, offset=205, command=cat /home/antonioborgerees/coding/ultraplan/ultraplan-go-smoke/ultraplan-smoke.json 2>/dev/null | python3 -m json.tool 2>/dev/null | head -60 || ls /home/antonioborgerees/coding/ultraplan/ultraplan-go-smoke/ 2>/dev/null][0m
+[0m
+[0m$ [0msed -n '2040,2090p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md
+- require valid governed inputs through `execute`
+- resolve every selected contract and review protocol from `project-index.md`
+- reject missing, duplicate, unknown, unreadable, or escaping catalog paths
+- compute a deterministic fingerprint over requirements, sprint index, technical handbook, area reasoning, final reasoning, plan, execute state/summary, selected contracts/protocols, target implementation identity, and explicit changed-path scope
+- show the selected model source, reviewer count, concurrency, target scope, and permitted writes in dry-run/TUI confirmation
+
+UltraPlan, not the model, owns reviewer fan-out. It must issue one independent structured agentwrap request per selected contract plus one handbook request, with bounded concurrency, context cancellation, read-only permissions, and validated JSON results. A reviewer must classify each requirement/guidance item as direct, partial, not triggered, or explicitly deferred before judging conformance.
+
+Deterministic product checks must cover decision conformance, plan-task execution evidence, approved verification-command results, citation containment/line validity, complete reviewer coverage, deviations, and missing evidence. Runtime exit success alone cannot produce a passing review.
+
+The final review verdict is computed by product code. The final Markdown is written atomically to the sprint-root `review.md`, replacing the prior manual or generated file only when the command has permission to run. A failed/incomplete new review must not corrupt the last complete review artifact; current failed state and diagnostics remain visible through flow state and status.
+
+#### 18.9.2 Smoke Harness Contract And Execution
+
+`project-index.md` must catalog the smoke harness root and versioned manifest. The manifest must describe an executable plus argument prefix, protocol version, machine-readable discovery/run commands, bounded authoring paths, evidence directories, and supported capability flags. UltraPlan must never execute a shell command parsed from Markdown or README prose.
+
+Before discovery on every non-dry smoke run, UltraPlan must invoke the configured smoke author model in the external harness. The author receives the governed sprint inputs, execute/review evidence, target implementation, deterministic test inventory, existing harness, and manifest-declared writable paths. It must create or update a durable sprint-specific suite for real boundaries that deterministic unit/integration tests cannot prove. Those boundaries include real provider/model behavior where the product path uses a provider, process and signal lifecycle, real filesystem/configuration, network, credentials, browser engines, timing, cancellation, and platform behavior. It must not duplicate ordinary deterministic verification or introduce a provider call into an otherwise offline product path.
+
+Harness discovery must return structured levels, suites, enumerated tests, per-test coverage IDs, sprint mappings with required coverage IDs, runtime/network/credential prerequisites, expected duration/cost class, and evidence schema version. A complete mapping with empty suites, empty tests, missing required coverage, or unassigned coverage must not pass. Smoke selection prefers the authored sprint-specific suite, then directly mapped suites, then explicit tests for investigation. A narrow passing rerun does not replace required evidence from its containing suite.
+
+Smoke execution must:
+
+- require a current passing or non-blocking review by default
+- record the smoke author run/model and every changed harness path
+- show scope, prerequisites, model/runtime, duration/cost class, allowed mutation roots, and external evidence destination before execution
+- use explicit argv, contained cwd, bounded environment forwarding, timeout, context cancellation, and descendant-process cleanup
+- validate the harness run ID, exit/result counts, evidence paths, evidence identity, and relevant open/resolved issue references
+- keep raw run JSON, stdout/stderr, per-test artifacts, and issue files in the harness
+- atomically write the linked human-readable sprint-root `smoke.md` after validating the authoring scope and enumerated executed test identities
+- classify unavailable required environment as blocked and irrelevant scope as not applicable
+
+The product review/smoke workflows must not edit product source, product tests, governed sprint inputs, or Git state. Smoke authoring may edit only manifest-declared harness authoring paths; run and issue evidence remains confined to the manifest-declared evidence roots. Any other harness change or any product/governed-input identity change fails smoke.
+
+#### 18.9.3 Flow, Freshness, And TUI Parity
+
+The default order is `execute -> review -> smoke`. Blocking/high review findings stop smoke unless an explicit diagnostic override is confirmed. Flow state records execution status, verdict, artifact path, timestamp, input fingerprint, run/evidence ID where applicable, and safe diagnostics for both stages.
+
+Any governed input, selected contract/protocol, execute evidence, or implementation fingerprint change makes the prior review stale. A stale review also makes smoke stale. Status, JSON, and TUI must agree on readiness, running/completed/failed/cancelled state, verdict, staleness, artifact, evidence link, and required next action.
+
+Every Phase 3 delivery sprint must update the TUI in the same sprint. TUI operations use the shared app use cases and expose the same review/smoke scope, dry-run, confirmation, progress, cancellation, results, focused reruns, evidence links, and recovery behavior as the CLI. TUI code must not invoke CLI handlers, parse terminal output, interpret native provider payloads, or persist an alternate verification state.
+
+Normal tests use fake review runtimes and a fake smoke harness. Required tests cover success, findings, blocking failure, missing reviewer result, malformed structured output, stale inputs, missing harness, missing coverage, blocked environment, not-applicable scope, timeout, cancellation, malformed harness output, missing evidence, path escape, redaction, CLI/JSON/TUI agreement, and recovery.
+
+### 18.10 Deferred Technical Requirements
+
+The following remain explicitly deferred:
+
+- general-purpose issue tracking and remote issue synchronization
+- automatic product/test fixes from findings
+- Git add/commit/push
+- cross-sprint review/smoke scheduler
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/ultraplan-go-smoke/ && cat /home/antonioborgerees/coding/ultraplan/ultraplan-go-smoke/ultraplan-smoke.json 2>/dev/null
+DEEP_SMOKE_2026-06-02.md
+DEEP_SMOKE_SPRINT12_2026-06-12.md
+DEEP_SMOKE_SPRINT12_ROUND2_2026-06-12.md
+DEEP_SMOKE_SPRINT13_2026-06-12.md
+DEEP_SMOKE_SPRINT14_2026-06-13.md
+DEEP_SMOKE_ULTRA_2026-06-02.md
+issues
+node_modules
+package.json
+package-lock.json
+PLAN.md
+projects
+README.md
+runs
+src
+test-workspace
+tsconfig.json
+ultraplan-smoke.json
+{
+  "schemaVersion": 1,
+  "protocolVersion": "1.0",
+  "harness": {
+    "id": "ultraplan-go-smoke",
+    "version": "1.0.1"
+  },
+  "executable": "node_modules/.bin/tsx",
+  "args": ["src/protocol.ts"],
+  "cwd": ".",
+  "commands": {
+    "discover": ["discover"],
+    "run": ["run"]
+  },
+  "evidence": {
+    "runs": "runs",
+    "issues": "issues"
+  },
+  "authoring": {
+    "paths": ["src/tests", "src/scenarios", "src/protocol.ts", "src/cli.ts", "package.json", "package-lock.json", "tsconfig.json"]
+  },
+  "capabilities": ["discovery", "run", "evidence-v1", "scope-mapping", "authoring-v1"],
+  "environment": ["OPENCODE_MODEL", "OPENCODE_TIMEOUT"],
+  "defaults": {
+    "level": "core",
+    "timeout": "30m",
+    "durationClass": "long",
+    "costClass": "metered-runtime"
+  }
+}
+[0m
+[0m$ [0mgit log --oneline -S 'manifest.Environment' -- internal/sprint/ | head -10
+f142a73 feat: add review-gated deep smoke
+[0m
+[0m$ [0mgrep -rn 'smoke.environment\|smoke\.environment' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace --include='*.md' | head -20; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.ultra 2>/dev/null; find /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace -maxdepth 2 -name '*.yml' -o -maxdepth 2 -name '*config*' | head
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md:1494:- [ ] OpenCode smoke environment documented.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/29-phase-3-documentation-hardening-release/execute.md:22:- Removed `PATH` and `HOME` from the default smoke environment; retained only `TMPDIR`, `LANG`, and `LC_ALL`.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/29-phase-3-documentation-hardening-release/plan.md:32:  - Tighten smoke environment forwarding and redact sensitive configuration/extra-argument values in effective diagnostics.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/config
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/ultraplan.yml
+[0m
+[0m$ [0mcat /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/ultraplan.yml
+version: 1
+runtime:
+  default: opencode
+models:
+  default: minimax-coding-plan/MiniMax-M3
+  primary: minimax-coding-plan/MiniMax-M3
+  backup: minimax-coding-plan/MiniMax-M3
+execution:
+  default_variant: high
+  default_parallel: 5
+  default_timeout: 12m
+  default_retries: 1
+planning:
+  requirements_model: openai/gpt-5.6-sol
+  requirements_variant: high
+  code_context_model: openai/gpt-5.6-sol
+  code_context_variant: low
+  sprint_index_model: openai/gpt-5.6-sol
+  sprint_index_variant: high
+  technical_handbook_model: openai/gpt-5.6-sol
+  technical_handbook_variant: high
+  area_reasoning_model: openai/gpt-5.6-sol
+  area_reasoning_variant: high
+  reasoning_model: openai/gpt-5.6-sol
+  reasoning_variant: high
+  plan_model: openai/gpt-5.6-sol
+  plan_variant: high
+  review_model: minimax-coding-plan/MiniMax-M3
+  smoke_model: openai/gpt-5.6-sol
+  smoke_variant: low
+  execute_model: openai/gpt-5.6-sol
+  execute_variant: high
+logging:
+  format: text
+  level: debug
+agentwrap:
+  executable: opencode
+  permission_default: allow
+  required_health:
+    - runtime_available
+    - structured_output
+    - workdir
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+[0m✱ [0mGrep "sharedOperationRunner|WithStageRuntime|sprintRuntimeService\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 48 matches[0m
+[0m✱ [0mGrep "smoke|Smoke"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web · 32 matches[0m

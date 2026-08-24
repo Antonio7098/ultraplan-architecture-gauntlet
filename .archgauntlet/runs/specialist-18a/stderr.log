@@ -1,4 +1,807 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -5 && git status --short | head -20
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+[0m
+[0m$ [0mfind . -name "*.go" | grep -v _test | wc -l && find . -name "*_test.go" | wc -l && ls docs
+179
+112
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+[0m
+[0m$ [0mls internal/ && find . -path ./dist -prune -o -type d -print | grep -iE "event|log|metric|observ" 
+app
+codeextract
+platform
+productstate
+project
+runcontrol
+sprint
+study
+tui
+web
+workspace
+./.git/logs
+./.git/logs/refs
+./.git/logs/refs/remotes
+./.git/logs/refs/remotes/origin
+./.git/logs/refs/heads
+./internal/platform/logging
+[0m
+[0m$ [0mls internal/platform/logging internal/runcontrol internal/web 2>/dev/null
+internal/platform/logging:
+doc.go
+logging.go
+logging_test.go
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515608733,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515608733,[]
+internal/runcontrol:
+benchmark_test.go
+doc.go
+errors.go
+fault_test.go
+id.go
+id_test.go
+import_boundary_test.go
+interfaces.go
+lifecycle.go
+lifecycle_test.go
+local_log.go
+local_log_test.go
+metrics.go
+migration.go
+migration_test.go
+model.go
+model_test.go
+process_darwin.go
+process.go
+process_integration_test.go
+process_linux.go
+process_other.go
+retention.go
+retention_test.go
+sanitize.go
+sanitize_test.go
+sqlite.go
+sqlite_test.go
+
+internal/web:
+api_compatibility_test.go
+artifacts.go
+artifacts_test.go
+handlers.go
+import_boundary_test.go
+integration_test.go
+operation_handlers.go
+operations_contract_test.go
+operations.go
+operations_test.go
+packaging_test.go
+routes.go
+routes_test.go
+run_handlers.go
+run_handlers_test.go
+security.go
+security_test.go
+server.go
+server_policy.go
+server_policy_test.go
+server_test.go
+sse_test.go
+static
+templates
+templates_test.go
+test_fakes_test.go
+[0m
+[0m✱ [0mGrep "Emit|event|Event"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol · 100 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/retention.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/local_log.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/metrics.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/model.go
+[0m
+[0m$ [0mgit show eeaa034 --stat && git show c455510 --stat
+commit eeaa034cb1e520ea10e806870f6026cf1bb6c4f7
+Author: antonio <antoniorees74@gmail.com>
+Date:   Sat Aug 22 11:01:06 2026 +0100
+
+    observability: promote nested runtime payload facts to top level
+    
+    opencode events nest tool names, titles, and text under part/state/properties
+    maps. Downstream consumers (run-loop progress summaries, durable operation
+    journal, web timeline) only read top-level payload keys, so every event
+    rendered as a generic 'runtime' row with empty tool names.
+    
+    promoteObservablePayloadFields() lifts tool/name/title/detail/text/delta/
+    output/message/state/status/action/phase from nested maps (depth 4,
+    deterministic traversal) onto the payload top level in mapEvent(), without
+    overwriting existing top-level values.
+
+ internal/platform/runtime/runtime.go | 55 +++++++++++++++++++++++++++++++++++-
+ 1 file changed, 54 insertions(+), 1 deletion(-)
+commit c45551008e151538268c0f7a6421ce8f38b4a4b5
+Author: antonio <antoniorees74@gmail.com>
+Date:   Sat Aug 22 10:48:48 2026 +0100
+
+    observability: surface agent stream details in durable run events
+    
+    - widen platform runtime sanitize limits (64 fields, 16 slice, depth 3, 8k strings)
+    - preserve safe payload fields into runcontrol with nested flattening
+    - make progress coalescing content-aware via payloadHash
+    - map reasoning/text as EventMessage, tool_use as distinct progress
+    - expose DetailText in run event view and render in run.html timeline
+    - keeps SSE plumbing (already text/event-stream) but now carries tool/action/title
+    
+    Fixes generic 'runtime'/'Tool call' rows seen on agent-harness-study
+
+ internal/app/run_control.go            | 229 ++++++++++++++++++++++++++++++++-
+ internal/platform/runtime/agentwrap.go |   8 +-
+ internal/web/run_handlers.go           |  17 ++-
+ internal/web/templates/run.html        |   2 +-
+ 4 files changed, 246 insertions(+), 10 deletions(-)
+[0m
+[0m$ [0mls internal/platform internal/app
+internal/app:
+app.go
+app_test.go
+code_commands.go
+code_commands_test.go
+config_commands.go
+defaults_commands.go
+durable_operations.go
+durable_operations_test.go
+health_commands.go
+health_commands_test.go
+json_output.go
+markdown.go
+markdown_test.go
+operation_runner.go
+operations.go
+project_commands.go
+project_commands_test.go
+project_usecases.go
+run_commands.go
+run_commands_test.go
+run_control.go
+run_control_inventory_test.go
+run_control_test.go
+run_usecases.go
+serve_commands.go
+serve_commands_test.go
+skills_commands.go
+skills_commands_test.go
+sprint_commands.go
+sprint_commands_test.go
+sprint_error_test.go
+sprint_usecases.go
+sprint_usecases_test.go
+sprint_verify_commands_test.go
+status_json.go
+storage_commands.go
+study_commands.go
+study_commands_test.go
+study_init_commands_test.go
+study_prompt_commands_test.go
+study_run_all_commands_test.go
+study_run_commands_test.go
+study_run_loop_commands_test.go
+study_runs_commands.go
+study_runs_commands_test.go
+study_status_commands_test.go
+study_summary_commands_test.go
+study_usecases.go
+study_validate_commands_test.go
+surfaces.go
+tui_commands.go
+tui_commands_test.go
+usecases.go
+usecases_test.go
+version.go
+web_operations_test.go
+web_usecases.go
+web_usecases_test.go
+workspace_commands.go
+
+internal/platform:
+config
+filesystem
+logging
+process
+runtime
+[0m
+[0m$ [0mls internal/platform/runtime internal/platform/logging
+internal/platform/logging:
+doc.go
+logging.go
+logging_test.go
+
+internal/platform/runtime:
+agentwrap.go
+cache_test.go
+events.go
+health.go
+opencode.go
+opencode_test.go
+policy.go
+runtime.go
+runtime_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging/logging.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+[0m
+[0m$ [0mwc -l internal/app/run_control.go internal/platform/runtime/events.go internal/platform/runtime/opencode.go internal/web/run_handlers.go internal/runcontrol/sqlite.go
+667 internal/app/run_control.go
+  149 internal/platform/runtime/events.go
+   83 internal/platform/runtime/opencode.go
+  578 internal/web/run_handlers.go
+ 1175 internal/runcontrol/sqlite.go
+ 2652 total
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/events.go
+[0m
+[0m$ [0mgrep -rn "DetailText\|payload\.detail\|payload\[\"detail\"\]\|\"detail\"" internal/web internal/app --include="*.go" | head -30
+internal/web/operations.go:264:		"reason": safeWebText(event.Reason), "detail": safeWebText(event.Detail),
+internal/web/run_handlers.go:107:	DetailText string
+internal/web/run_handlers.go:288:	text := firstNonEmptyPayload(event.Payload, "text", "delta", "detail", "message", "content", "title", "output")
+internal/web/run_handlers.go:293:		Time: committedRunEventTime(event), DetailKind: event.Payload["kind"], DetailType: event.Payload["type"], DetailTool: event.Payload["tool"], DetailText: text, Omission: omission}
+internal/app/durable_operations.go:150:		"tool": event.Tool, "action": event.Action, "reason": event.Reason, "detail": event.Detail,
+internal/app/operation_runner.go:124:					event.Detail = runtimeEventValue(*p.RuntimeEvent, "detail", "error", "message")
+internal/app/run_control.go:435:				promote := map[string]bool{"tool": true, "title": true, "detail": true, "text": true, "delta": true, "content": true, "message": true, "action": true, "state": true, "status": true, "native_type": true, "line": true}
+internal/app/run_control.go:479:	for _, want := range []string{"tool", "action", "title", "detail", "text", "delta"} {
+internal/app/study_commands.go:425:	for _, key := range []string{"state", "phase", "status", "tool", "name", "attempt", "provider", "model", "retry_after", "delay", "reason", "detail", "error"} {
+internal/app/study_commands.go:455:	detail := runtimeEventValue(event, "detail", "reason", "error")
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers.go
+[0m
+[0m$ [0mgrep -rn "allowedEventPayloadFields\|\"text\"\|\"delta\"\|\"title\"\|\"content\"\|\"output\"" internal/runcontrol/*_test.go | head -20
+(no output)
+[0m
+[0m$ [0mgrep -rn "runtimeEventDraft\|payloadHash\|promoteObservablePayloadFields\|findNestedString\|isSensitivePayloadKey" internal/app/*_test.go internal/platform/runtime/*_test.go | head -30
+(no output)
+[0m
+[0m$ [0mgrep -rln "Append" internal/runcontrol/*_test.go | xargs grep -ln "Payload" | head; echo ---; grep -n "func Test" internal/runcontrol/sanitize_test.go
+internal/runcontrol/benchmark_test.go
+internal/runcontrol/fault_test.go
+internal/runcontrol/process_integration_test.go
+internal/runcontrol/retention_test.go
+internal/runcontrol/sanitize_test.go
+internal/runcontrol/sqlite_test.go
+---
+10:func TestAppendSanitizesHostileAndRawShapedDetailBeforeStorage(t *testing.T) {
+38:func TestAppendReplacesOversizeAllowedDetailWithWarning(t *testing.T) {
+[0m
+[0m$ [0mcp -r /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go /tmp/opencode/ultraplan-go-verify && ls /tmp/opencode/ultraplan-go-verify | head -5
+cmd
+dist
+docs
+go.mod
+go.sum
+[0m
+[0m$ [0msed -n 1,60p internal/runcontrol/sanitize_test.go && grep -n "func newTestRepository\|OpenSQLite(" internal/runcontrol/sqlite_test.go | head -5
+package runcontrol
+
+import (
+	"context"
+	"strings"
+	"testing"
+	"time"
+)
+
+func TestAppendSanitizesHostileAndRawShapedDetailBeforeStorage(t *testing.T) {
+	repository, fence := openClaimedRepository(t)
+	_, _, err := repository.Append(context.Background(), fence, EventDraft{
+		Type: EventMessage,
+		Payload: map[string]string{
+			"message":      "safe summary",
+			"prompt":       "full private prompt",
+			"access_token": "sk-secret-value",
+			"path":         "/private/workspace/file",
+			"kind":         "Bearer credential",
+		},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	events, err := repository.Events(context.Background(), fence.RunID, 0, 10)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(events) != 1 || events[0].Payload["message"] != "safe summary" || events[0].Omission == nil || events[0].Omission.Count != 4 {
+		t.Fatalf("sanitized event = %+v", events)
+	}
+	encoded := events[0].Payload["prompt"] + events[0].Payload["access_token"] + events[0].Payload["path"] + events[0].Payload["kind"]
+	if strings.Contains(encoded, "secret") || strings.Contains(encoded, "/private") || strings.Contains(encoded, "prompt") {
+		t.Fatalf("unsafe detail persisted: %+v", events[0])
+	}
+}
+
+func TestAppendReplacesOversizeAllowedDetailWithWarning(t *testing.T) {
+	repository, fence := openClaimedRepository(t)
+	large := strings.Repeat("a", MaxSafeValueBytes)
+	payload := map[string]string{
+		"runtime_event_id": large, "runtime_run_id": large, "agentwrap_run_id": large,
+		"session_id": large, "external_harness_run_id": large, "type": large,
+		"kind": large, "state": large, "status": large,
+	}
+	event, _, err := repository.Append(context.Background(), fence, EventDraft{Type: EventProgress, Payload: payload})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if event.Type != EventWarning || event.Payload["code"] != "event_detail_oversize" || event.Omission == nil {
+		t.Fatalf("oversize replacement = %+v", event)
+	}
+}
+
+func openClaimedRepository(t *testing.T) (*SQLiteRepository, Fence) {
+	t.Helper()
+	ctx := context.Background()
+	repository, err := OpenSQLite(ctx, t.TempDir(), SQLiteOptions{})
+	if err != nil {
+		t.Fatal(err)
+113:	repository, err := OpenSQLite(context.Background(), t.TempDir(), SQLiteOptions{Logger: logger})
+210:	if _, err := OpenSQLite(context.Background(), root, SQLiteOptions{}); !errors.Is(err, ErrInvalidArgument) {
+429:	repository, err := OpenSQLite(context.Background(), root, SQLiteOptions{Clock: fixedClock{at: time.Date(2026, 8, 21, 10, 0, 0, 0, time.UTC)}})
+[0m
+[0m$ [0mgrep -rn "func openClaimedRepository" -A 20 internal/runcontrol/sanitize_test.go
+55:func openClaimedRepository(t *testing.T) (*SQLiteRepository, Fence) {
+56-	t.Helper()
+57-	ctx := context.Background()
+58-	repository, err := OpenSQLite(ctx, t.TempDir(), SQLiteOptions{})
+59-	if err != nil {
+60-		t.Fatal(err)
+61-	}
+62-	t.Cleanup(func() { _ = repository.Close() })
+63-	snapshot, err := repository.Accept(ctx, Acceptance{Target: Target{Kind: "test", Operation: "journal"}})
+64-	if err != nil {
+65-		t.Fatal(err)
+66-	}
+67-	owner := Owner{ID: "owner", Process: ProcessIdentity{PID: 1}}
+68-	attempt, _, err := repository.Claim(ctx, Claim{RunID: snapshot.RunID, Owner: owner, Lease: 15 * time.Second})
+69-	if err != nil {
+70-		t.Fatal(err)
+71-	}
+72-	return repository, Fence{RunID: snapshot.RunID, AttemptID: attempt.ID, OwnerID: owner.ID, FencingGeneration: attempt.FencingGeneration}
+73-}
+[0m
+[0m$ [0mcat > /tmp/opencode/ultraplan-go-verify/internal/app/scratch_observability_test.go <<'EOF'
+package app
+
+import (
+	"context"
+	"fmt"
+	"sort"
+	"testing"
+	"time"
+
+	"github.com/Antonio7098/ultraplan-go/internal/platform/runtime"
+	"github.com/Antonio7098/ultraplan-go/internal/runcontrol"
+)
+
+// Reproduce the c455510 scenario: an opencode tool_use event with nested
+// part/state maps, mapped by runtime.Adapter.mapEvent (promote), then drafted
+// by runtimeEventDraft, then durably appended via runcontrol.Append.
+func TestScratchDurableEventFieldSurvival(t *testing.T) {
+	ctx := context.Background()
+	repository, err := runcontrol.OpenSQLite(ctx, t.TempDir(), runcontrol.SQLiteOptions{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer repository.Close()
+	snapshot, err := repository.Accept(ctx, runcontrol.Acceptance{Target: runcontrol.Target{Kind: "study", Operation: "execute"}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	owner := runcontrol.Owner{ID: "owner", Process: runcontrol.ProcessIdentity{PID: 1}}
+	attempt, _, err := repository.Claim(ctx, runcontrol.Claim{RunID: snapshot.RunID, Owner: owner, Lease: 15 * time.Second})
+	if err != nil {
+		t.Fatal(err)
+	}
+	fence := runcontrol.Fence{RunID: snapshot.RunID, AttemptID: attempt.ID, OwnerID: owner.ID, FencingGeneration: attempt.FencingGeneration}
+
+	req := runtime.Request{Metadata: map[string]string{"stage": "implement", "task": "task-1"}}
+	nested := map[string]any{
+		"type": "tool_use",
+		"part": map[string]any{
+			"type": "tool",
+			"state": map[string]any{
+				"status": "running",
+				"title":  "Read internal/app/run_control.go",
+				"input":  map[string]any{"file_path": "/home/user/internal/app/run_control.go"},
+				"metadata": map[string]any{"tool": "read", "action": "open"},
+			},
+			"tool": "read",
+		},
+		"text": "assistant reasoning delta about the plan",
+	}
+	draft := runtimeEventDraft(req, runtime.Event{ID: "evt-1", RunID: "r-1", SessionID: "s-1", Type: "message.part.updated", Kind: "tool", Payload: nested})
+	t.Logf("draft payload keys: %v", keysOf(draft.Payload))
+	t.Logf("draft omission: %+v", draft.Omission)
+
+	event, _, err := repository.Append(ctx, fence, draft)
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Logf("stored event type=%s payload=%v", event.Type, event.Payload)
+	t.Logf("stored omission: %+v", event.Omission)
+
+	events, err := repository.Events(ctx, snapshot.RunID, 0, 10)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, e := range events {
+		fmt.Printf("seq=%d type=%s payload_keys=%v omission=%+v\n", e.Sequence, e.Type, keysOf(e.Payload), e.Omission)
+	}
+}
+
+func keysOf(m map[string]string) []string {
+	out := make([]string, 0, len(m))
+	for k := range m {
+		out = append(out, k)
+	}
+	sort.Strings(out)
+	return out
+}
+EOF
+cd /tmp/opencode/ultraplan-go-verify && go test ./internal/app/ -run TestScratchDurableEventFieldSurvival -v 2>&1 | tail -30
+=== RUN   TestScratchDurableEventFieldSurvival
+    scratch_observability_test.go:51: draft payload keys: [kind part runtime_event_id runtime_run_id session_id state text title tool type]
+    scratch_observability_test.go:52: draft omission: <nil>
+    scratch_observability_test.go:58: stored event type=progress payload=map[kind:tool runtime_event_id:evt-1 runtime_run_id:r-1 session_id:s-1 state:map[input:map[file_path:/home/user/internal/app/run_control.go] metadata:map[action:open tool:read] status:running title:Read internal/app/run_control.go] tool:read type:message.part.updated]
+    scratch_observability_test.go:59: stored omission: &{Reason:unsafe event detail omitted Count:3 FirstAt:<nil> LastAt:<nil>}
+seq=1 type=progress payload_keys=[kind runtime_event_id runtime_run_id session_id state tool type] omission=&{Reason:unsafe event detail omitted Count:3 FirstAt:<nil> LastAt:<nil>}
+--- PASS: TestScratchDurableEventFieldSurvival (0.01s)
+PASS
+ok  	github.com/Antonio7098/ultraplan-go/internal/app	0.015s
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go[90m [offset=380, limit=340][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go[90m [offset=720][0m
+[0m
+[0m$ [0mgrep -rn "leaseRenewals\|cancellationRequests\|reconciliations\|compactions" internal/runcontrol/*.go | grep -v _test
+internal/runcontrol/lifecycle.go:66:	r.metrics.leaseRenewals.Add(1)
+internal/runcontrol/lifecycle.go:132:	r.metrics.cancellationRequests.Add(1)
+internal/runcontrol/lifecycle.go:424:	r.metrics.reconciliations.Add(1)
+internal/runcontrol/metrics.go:48:	leaseRenewals, cancellationRequests, reconciliations, compactions atomic.Uint64
+internal/runcontrol/metrics.go:54:		LeaseRenewals: m.leaseRenewals.Load(), CancellationRequests: m.cancellationRequests.Load(),
+internal/runcontrol/metrics.go:55:		ReconciliationScans: m.reconciliations.Load(), CompactionPasses: m.compactions.Load(),
+internal/runcontrol/retention.go:158:	r.metrics.compactions.Add(1)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle.go
+[0m
+[0m$ [0mgrep -rn "RuntimeRunID\|AgentwrapRunID\|ProviderSessionID\|ExternalHarnessRunID\|ProductRunID" --include="*.go" internal/ | grep -v _test | grep -v "model.go" | head -20
+internal/study/execution_domain.go:40:	RuntimeRunID     string
+internal/study/run.go:59:	result.RuntimeRunID = runtimeResult.RunID
+internal/study/run_loop.go:704:			t.Agent.RunID = res.RuntimeRunID
+internal/study/synthesize.go:56:	result.RuntimeRunID = runtimeResult.RunID
+[0m
+[0m$ [0mgrep -rn "\.Accept(\|\.Claim(\|Correlation{" --include="*.go" internal/app internal/study internal/sprint | grep -v _test | head -20
+internal/app/durable_operations.go:88:	snapshot, err := m.repository.Accept(ctx, runcontrol.Acceptance{
+internal/app/durable_operations.go:101:	attempt, _, err := m.repository.Claim(ctx, runcontrol.Claim{RunID: snapshot.RunID, Owner: m.owner, Lease: runcontrol.OwnerLeaseDuration})
+internal/app/run_control.go:124:	correlation := runcontrol.Correlation{ProductTaskID: boundedSafe(req.TraceID)}
+internal/app/run_control.go:125:	snapshot, err := r.repository.Accept(ctx, runcontrol.Acceptance{
+internal/app/run_control.go:133:	attempt, _, err := r.repository.Claim(ctx, runcontrol.Claim{
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m
+[0m$ [0msed -n 200,320p internal/web/operations.go
+record := &operationRecord{
+		doc: operationDocument{
+			ID: id, Kind: prepared.Request.Kind, State: "accepted", CreatedAt: created,
+			DurableStatus: durableStatusDTO{Available: prepared.DurableRefreshPath != "", RefreshPath: prepared.DurableRefreshPath},
+		},
+		session: session, request: prepared.Request, cancel: cancel, done: make(chan struct{}),
+		subscribers: make(map[uint64]*operationSubscriber), dedupKey: dedupKey,
+	}
+	h.records[id] = record
+	if dedupKey != "" {
+		h.dedup[dedupKey] = id
+	}
+	h.active++
+	h.counters.starts.Add(1)
+	h.counters.active.Add(1)
+	h.appendEventLocked(record, "snapshot", map[string]any{"state": "accepted"})
+	doc := cloneOperationDocument(record.doc)
+	go h.run(ctx, record)
+	return doc, nil
+}
+
+func (h *operationHub) run(ctx context.Context, record *operationRecord) {
+	started := h.now().UTC()
+	h.mu.Lock()
+	if record.doc.State == "accepted" {
+		record.doc.State = "running"
+		record.doc.StartedAt = &started
+		h.appendEventLocked(record, "progress", map[string]any{"message": "operation started", "state": "running"})
+	}
+	h.mu.Unlock()
+
+	result, runErr := h.ops.RunOperation(ctx, record.request, func(event app.OperationEvent) {
+		h.publishAppEvent(record, event)
+	})
+	if manager, ok := h.ops.(app.DurableOperationManager); ok {
+		finishCtx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+		finishErr := manager.FinishOperation(finishCtx, record.doc.ID, result.State, runErr)
+		cancel()
+		if finishErr != nil && !errors.Is(finishErr, app.ErrWebUnavailable) {
+			runErr = errors.Join(runErr, finishErr)
+		}
+	}
+	h.finish(record, result, runErr)
+}
+
+func (h *operationHub) publishAppEvent(record *operationRecord, event app.OperationEvent) {
+	if manager, ok := h.ops.(app.DurableOperationManager); ok {
+		committed, err := manager.RecordOperationEvent(context.Background(), record.doc.ID, event)
+		if err != nil && !errors.Is(err, app.ErrWebUnavailable) {
+			record.cancel()
+			return
+		}
+		if err == nil && !committed {
+			return
+		}
+	}
+	name := "progress"
+	if event.State == app.OperationFailed {
+		name = "warning"
+	}
+	payload := map[string]any{
+		"state": string(event.State), "stage": safeWebText(event.Stage), "task": safeWebText(event.Task),
+		"message": safeWebText(event.Message), "completed": event.Completed, "total": event.Total, "attempt": event.Attempt,
+		"event_kind": safeWebText(event.EventKind), "event_type": safeWebText(event.EventType), "tool": safeWebText(event.Tool), "action": safeWebText(event.Action),
+		"reason": safeWebText(event.Reason), "detail": safeWebText(event.Detail),
+		"runtime_attempts": event.RuntimeAttempts, "turns": event.Turns, "turns_known": event.TurnsKnown,
+		"tokens": event.Tokens, "tokens_known": event.TokensKnown, "duration": safeWebText(event.Duration),
+		"provider": safeWebText(event.Provider), "model": safeWebText(event.Model), "cost": safeWebText(event.Cost), "runtime_events": event.RuntimeEvents,
+	}
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	if terminalOperationState(record.doc.State) {
+		return
+	}
+	h.appendEventLocked(record, name, payload)
+}
+
+func (h *operationHub) finish(record *operationRecord, result app.OperationResult, runErr error) {
+	finished := h.now().UTC()
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	if terminalOperationState(record.doc.State) {
+		return
+	}
+	state := "succeeded"
+	switch {
+	case errors.Is(runErr, context.Canceled), result.State == app.OperationCancelled:
+		state = "cancelled"
+	case runErr != nil, result.State == app.OperationFailed:
+		state = "failed"
+	case result.State == app.OperationPartial:
+		state = "interrupted"
+	}
+	record.doc.State = state
+	record.doc.FinishedAt = &finished
+	record.doc.Result = projectOperationResult(result)
+	h.appendEventLocked(record, "terminal", map[string]any{"state": state, "reason": record.doc.Reason, "result": record.doc.Result})
+	h.active--
+	h.counters.active.Add(-1)
+	h.counters.terminal.Add(1)
+	close(record.done)
+	for id, subscriber := range record.subscribers {
+		close(subscriber.ch)
+		delete(record.subscribers, id)
+		h.streams--
+		h.counters.activeStreams.Add(-1)
+	}
+}
+
+func (h *operationHub) status(session, id string) (operationDocument, error) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	h.reapLocked()
+	record := h.records[id]
+	if record == nil || record.session != session {
+		return operationDocument{}, errOperationNotFound
+	}
+	return cloneOperationDocument(record.doc), nil
+}
+
+func (h *operationHub) activeOperations(session string) []activeOperationDTO {
+[0m
+[0m$ [0mcat internal/runcontrol/doc.go internal/platform/logging/doc.go && grep -n -iE "omission|sanitiz|event|log|metric|correlation" docs/architecture.md | head -50
+// Package runcontrol owns durable operational run identity and observation.
+//
+// It deliberately does not own product workflow state, artifacts, runtime
+// supervision, or presentation concerns. Product packages decide what work
+// means; runcontrol records the accepted execution, fenced owner attempts,
+// sanitized ordered events, and the single operational terminal result.
+package runcontrol
+// Package logging documents the future boundary for process-neutral logging
+// infrastructure.
+//
+// Structured logging, diagnostic records, runtime event logging, and log
+// configuration behavior are deferred to a later sprint.
+package logging
+46:- the bounded ephemeral operation hub, retained safe event/result projections,
+63:short-lived confirmations, and bounded ephemeral operation/event/subscriber
+65:at most eight active owners, recent already-redacted events, cancellation
+120:event, closes subscribers, and only then shuts down HTTP. If the deadline
+128:runtime tool events for write attribution. Concurrent target drift without an
+131:remain hard failures. Attribution observes the live runtime event callback and
+132:does not depend on the bounded retained-event tail.
+145:Reference resolution is repository-contained, symlink-rejecting, regular-file-only, cancellation-aware, and fail-closed. References retain their authored labels, rationale, and symbol metadata while selected ranges from the same file are sorted and merged so source bytes are injected once and each file is scanned once. The complete prefix is capped at 256 KiB, with 64 KiB reserved for stage suffixes; overflow is an actionable error, never truncation or omission. Evidence is marked untrusted, and agents retain permission to inspect additional live source.
+149:`internal/platform/runtime` receives the final ordinary prompt plus content-free cache metadata: the stable-prefix digest, byte breakpoint, and a provider/model/work-directory cohort key. The current agentwrap/OpenCode boundary transports these values as metadata only; it cannot yet place a native cache-control breakpoint inside the single provider message, so no cache hit is guaranteed. Planning, execute, independent review requests, and agent-backed smoke authoring call the sprint-owned composition boundary explicitly. Review fan-out shares one immutable prefix. Runtime results append bounded, content-free prompt, token, cache-read/cache-write, cost, and timing measurements to the sprint's `.runtime-metrics.json`; `sprint ... metrics` exposes them. Prepared handoff packets and per-stage input contracts minimize downstream artifact reads without becoming dependency fingerprints; when present, the technical handbook's `Examples Worth Investigating` (or legacy `Examples Worth Inspecting`) section is copied directly into plan and execute prompts.
+157:lifecycle, owner leases, fencing, cancellation commands, sanitized event
+160:state; run control only projects their safe correlations and status.
+179:Events are sanitized and committed before delivery. Payloads are allowlisted,
+184:`.ultraplan/run-control.log` JSONL file. The log is capped at 1 MiB and uses the
+186:terminal correlation vocabulary exposed by diagnostics and support export.
+191:are outside the supported topology.
+[0m
+[0m$ [0msed -n 150,200p docs/architecture.md && sed -n 55,70p docs/architecture.md
+Execute owns one reusable runtime session for the ordered pending-task queue rather than one independent agent per task. Its initial turn carries the shared sprint prefix, queue primer, current task, safety instructions, and optional handbook examples. After each task UltraPlan persists task-specific evidence and status, then submits only the next task delta with `SessionAction=continue`. A missing runtime session ID degrades safely to another complete prompt; failure or cancellation stops queue advancement, while explicit deferral may advance to the next task. Cross-command session reuse is based on model and target compatibility, not exact artifact fingerprints.
+
+## Durable run control
+
+UltraPlan records runtime-backed and asynchronous work in the workspace-local
+`.ultraplan/run-control.db`. `internal/runcontrol` owns operational identity,
+lifecycle, owner leases, fencing, cancellation commands, sanitized event
+ordering, retention, and terminal arbitration. Sprint, study, smoke, runtime,
+lock, artifact, and Git modules remain authoritative for their own product
+state; run control only projects their safe correlations and status.
+
+Each start is accepted and claimed in SQLite before a goroutine, runtime child,
+or external harness starts. A failed required write fails closed. Direct CLI
+commands, TUI actions, web operations, and individual runtime children share
+that boundary. IDs are opaque 128-bit `run_*` and `att_*` values. Writers use
+short transactions, WAL, `synchronous=FULL`, foreign keys, a five-second busy
+timeout, and repository-allocated fencing generations.
+
+Owners tick every second, persist heartbeats every five seconds with a
+15-second lease, and reconcile every ten seconds. Reconciliation waits 45
+seconds beyond lease expiry and uses exact process-birth identity where the
+platform can provide it. An accepted run that never acquired its first claim
+is interrupted after the same grace window, with no fabricated attempt or
+process evidence. Reconciliation never adopts a worker, signals a PID based on
+PID alone, or infers success from artifacts, locks, or product state. One
+immutable terminal proposal wins; a cancellation request may therefore coexist
+with a later successful completion.
+
+Events are sanitized and committed before delivery. Payloads are allowlisted,
+bounded to 16 KiB, and omit prompts, provider-native payloads, credentials,
+absolute paths, and unrestricted output. Consumers resume by `(run_id,
+sequence)` from SQLite; in-process notifications are only an optimization.
+Safe structured repository diagnostics are also written to the private bounded
+`.ultraplan/run-control.log` JSONL file. The log is capped at 1 MiB and uses the
+same run, attempt, owner/fence, sequence, cancellation, reconciliation, and
+terminal correlation vocabulary exposed by diagnostics and support export.
+
+This design supports direct writers and observers on one host and a trustworthy
+local filesystem. Multi-host access, network filesystems without reliable
+SQLite WAL/locking semantics, worker adoption, brokers, and remote signalling
+are outside the supported topology.
+composition root.
+
+## State And Artifact Ownership
+
+Workspace files and product-owned flow, execute, review, smoke, and study run
+state remain authoritative. Web requests perform fresh sequential app queries.
+The server retains only immutable configuration, parsed embedded templates,
+listener/server objects, request/session IDs, opaque artifact references,
+short-lived confirmations, and bounded ephemeral operation/event/subscriber
+state. The hub is transport lifecycle state, not workflow authority: it holds
+at most eight active owners, recent already-redacted events, cancellation
+handles, and terminal projections for ten minutes. It never persists a queue
+or operation history.
+
+Read-only sprint status uses the sprint service's non-persisting projection
+mode. Product-owned workspace artifacts, execute/review/smoke state, study run
+[0m
+[0m$ [0mgrep -rn "\.Events\b" internal/app internal/study --include="*.go" | grep -iv test | grep -i "result\|runtime" | head; sed -n 400,470p internal/app/study_commands.go
+internal/app/operation_runner.go:117:				event := OperationEvent{State: OperationRunning, Task: p.Task.ID, Stage: string(p.Event), Message: strings.TrimSpace(p.Task.DimensionRef + " " + p.Task.Source), Completed: p.ScopeCounts.Completed, Total: p.ScopeCounts.Total, Attempt: p.Task.Attempts, RuntimeAttempts: stats.RuntimeAttempts, Turns: stats.Turns, TurnsKnown: stats.TurnsKnown, Tokens: stats.Tokens, TokensKnown: stats.TokensKnown, InputTokens: stats.InputTokens, OutputTokens: stats.OutputTokens, ReasoningTokens: stats.ReasoningTokens, CacheReadTokens: stats.CacheReadTokens, CacheWriteTokens: stats.CacheWriteTokens, Duration: stats.Duration, Provider: stats.Provider, Model: stats.Model, Cost: stats.Cost, RuntimeEvents: stats.Events}
+internal/app/web_usecases.go:647:					result.Parallelism = &ParallelismSummary{Decreased: throttle.Decreased, Events: throttle.Events, RequestedParallelism: throttle.RequestedParallelism, EffectiveParallelism: throttle.EffectiveParallelism}
+internal/study/runtime_metadata.go:76:		meta.Events = &EventMetadata{
+internal/study/runtime_metadata.go:143:	for _, event := range result.Events {
+			fmt.Fprintf(deps.stdout, " | %s", runtimeProgressSummary(*progress.RuntimeEvent))
+			fmt.Fprintf(deps.stdout, " | scope done %d/%d study done %d/%d active %d pending %d retrying %d failed %d\n", scope.Completed, scope.Total, counts.Completed, counts.Total, counts.Active, counts.Pending, counts.Retrying, counts.Failed+counts.Cancelled)
+			return
+		}
+		fmt.Fprintf(deps.stdout, "[run-loop] %-9s %-9s %s", progress.Event, task.Kind, task.DimensionRef)
+		if task.Source != "" {
+			fmt.Fprintf(deps.stdout, " %s", task.Source)
+		}
+		if task.OutputPath != "" {
+			fmt.Fprintf(deps.stdout, " -> %s", runLoopProgressPath(root, task.OutputPath))
+		}
+		fmt.Fprintf(deps.stdout, " | scope done %d/%d study done %d/%d active %d pending %d failed %d\n", scope.Completed, scope.Total, counts.Completed, counts.Total, counts.Active, counts.Pending, counts.Failed+counts.Cancelled)
+		if task.LastError != nil {
+			fmt.Fprintf(deps.stdout, "[run-loop] error     %s: %s\n", task.ID, config.RedactValue("task.error", task.LastError.Message))
+		}
+	}
+}
+
+func runtimeProgressSummary(event runtimepkg.Event) string {
+	parts := []string{}
+	if event.Type != "" {
+		parts = append(parts, event.Type)
+	} else if event.Kind != "" {
+		parts = append(parts, event.Kind)
+	}
+	for _, key := range []string{"state", "phase", "status", "tool", "name", "attempt", "provider", "model", "retry_after", "delay", "reason", "detail", "error"} {
+		value, ok := event.Payload[key]
+		if !ok {
+			continue
+		}
+		text := strings.TrimSpace(fmt.Sprint(value))
+		if text == "" || text == "<nil>" {
+			continue
+		}
+		parts = append(parts, fmt.Sprintf("%s=%s", key, config.RedactValue("runtime."+key, text)))
+	}
+	if len(parts) == 0 {
+		return "event"
+	}
+	return strings.Join(parts, " ")
+}
+
+func runtimeEventValue(event runtimepkg.Event, keys ...string) string {
+	for _, key := range keys {
+		text := strings.TrimSpace(fmt.Sprint(event.Payload[key]))
+		if text != "" && text != "<nil>" {
+			return config.RedactValue("runtime."+key, text)
+		}
+	}
+	return ""
+}
+
+func runtimeProgressUserSummary(event runtimepkg.Event) string {
+	name := runtimeEventValue(event, "tool", "name")
+	action := runtimeEventValue(event, "action", "state", "phase", "status")
+	detail := runtimeEventValue(event, "detail", "reason", "error")
+	switch event.Kind {
+	case "tool":
+		if name != "" && detail != "" {
+			return "Used " + name + ": " + detail
+		}
+		if name != "" {
+			return "Used " + name
+		}
+		return "Used a tool"
+	case "lifecycle":
+		if action != "" {
+			return "Agent is " + strings.ReplaceAll(action, "_", " ")
+		}
+		return "Agent status changed"
+	case "artifact":
+[0m
+[0m$ [0mgrep -n "DetailText\|DetailTool\|Omission\|omission" internal/web/templates/run.html | head -20
+11:  <dl class="run-state-secondary"><div><dt>Replay boundary</dt><dd>oldest {{.OldestRetainedSequence}}, last {{.LastSequence}}, omitted {{.OmissionTotal}}</dd></div><div><dt>History</dt><dd>{{.History}}</dd></div>{{with .Terminal}}<div><dt>Terminal</dt><dd>{{.}}</dd></div>{{end}}</dl>
+18:      {{if .RunEvents}}<ol class="operation-timeline" data-run-timeline>{{range .RunEvents}}<li data-run-sequence="{{.Sequence}}" data-run-type="{{.Type}}" data-run-stage="{{.Stage}}" data-run-task="{{.Task}}"{{with .Time}} data-run-time="{{.}}"{{end}} data-run-kind="{{.DetailKind}}" data-run-type-detail="{{.DetailType}}" data-run-tool="{{.DetailTool}}"{{with .DetailText}} data-run-text="{{.}}"{{end}}><strong>{{.Sequence}} · {{.Type}}</strong>{{with .Stage}} <span>{{.}}</span>{{end}}{{with .Task}} <span>{{.}}</span>{{end}}{{with .DetailKind}} <small>kind={{.}}</small>{{end}}{{with .DetailTool}} <small>tool={{.}}</small>{{end}}{{with .DetailText}}<p class="run-event-detail">{{.}}</p>{{end}}{{with .Omission}}<p>{{.}}</p>{{end}}</li>{{end}}</ol>{{else}}<ol class="operation-timeline" data-run-timeline><li class="empty">No retained events.</li></ol>{{end}}
+[0m
+[0m$ [0mgrep -rn "OmissionTotal\|omission_total" internal/web internal/app --include="*.go" | grep -v _test | head
+internal/web/run_handlers.go:38:	OmissionTotal          uint64
+internal/web/run_handlers.go:274:		OmissionTotal: snapshot.OmissionTotal, CurrentAttempt: firstRunViewValue(string(snapshot.CurrentAttemptID), "none"), Target: runTargetLabel(snapshot.Target),
+[0m

@@ -1,4 +1,2558 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -5 && git status --short | head -20
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+[0m
+[0m$ [0mfind internal cmd -type d | sort && echo '---' && find . -name '*.go' | grep -v _test | xargs wc -l | tail -5 && echo '---' && find . -name '*_test.go' | wc -l
+cmd
+cmd/ultraplan
+internal
+internal/app
+internal/codeextract
+internal/platform
+internal/platform/config
+internal/platform/filesystem
+internal/platform/logging
+internal/platform/process
+internal/platform/runtime
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/web/static
+internal/web/static/css
+internal/web/static/js
+internal/web/templates
+internal/web/templates/components
+internal/web/templates/layouts
+internal/web/templates/pages
+internal/web/templates/primitives
+internal/workspace
+internal/workspace/scaffold
+internal/workspace/scaffold/prompts
+internal/workspace/scaffold/templates
+---
+    318 ./internal/workspace/init.go
+     42 ./internal/workspace/paths.go
+    438 ./internal/workspace/skills.go
+     29 ./internal/workspace/validation.go
+  43904 total
+---
+112
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+[0m
+[0m$ [0mgrep -rn 'interface {' --include='*.go' internal cmd | grep -v _test | grep -v 'error)' | head -60
+internal/app/run_commands.go:321:	if reader, ok := repository.(interface {
+internal/app/run_usecases.go:29:type RunUseCases interface {
+internal/app/usecases.go:24:type ReadOnlyUseCases interface {
+internal/app/operations.go:24:type OperationalUseCases interface {
+internal/app/operations.go:31:type WebOperations interface {
+internal/app/operations.go:40:type DurableOperationManager interface {
+internal/app/operations.go:56:type OperationCleanupRecorder interface {
+internal/app/operations.go:67:type OperationReconciler interface {
+internal/app/run_control.go:96:	base interface {
+internal/app/run_control.go:103:func controlledRuntimeFor(deps dependencies, workspaceRoot string, effectiveConfig config.Config, base interface {
+internal/app/web_usecases.go:35:type WebQueries interface {
+internal/app/web_usecases.go:50:type WebPromptQueries interface {
+internal/app/web_usecases.go:54:type WebResourceQueries interface {
+internal/app/web_usecases.go:58:type WebUseCases interface {
+internal/platform/process/process.go:54:type Runner interface {
+internal/platform/runtime/runtime.go:245:type Runtime interface {
+internal/runcontrol/id.go:26:type IDSource interface {
+internal/runcontrol/interfaces.go:9:type Clock interface {
+internal/runcontrol/interfaces.go:19:type ProcessProbe interface {
+internal/runcontrol/interfaces.go:37:type Logger interface {
+internal/runcontrol/interfaces.go:43:type Notifier interface {
+internal/runcontrol/interfaces.go:49:type Repository interface {
+internal/runcontrol/interfaces.go:70:type Control interface {
+internal/runcontrol/sqlite.go:916:type queryRower interface {
+internal/sprint/flow.go:13:type Runtime interface {
+internal/study/init_clone.go:38:type CloneRunner interface {
+internal/study/service.go:25:type Runtime interface {
+[0m
+[0m$ [0mfind . -name '*.go' -not -name '*_test.go' | xargs wc -l | sort -rn | head -40
+43904 total
+   1768 ./internal/sprint/review.go
+   1502 ./internal/app/study_commands.go
+   1402 ./internal/sprint/service.go
+   1318 ./internal/app/sprint_commands.go
+   1175 ./internal/runcontrol/sqlite.go
+    940 ./internal/study/run_loop.go
+    935 ./internal/app/web_usecases.go
+    852 ./internal/web/handlers.go
+    838 ./internal/web/operation_handlers.go
+    790 ./internal/app/operations.go
+    727 ./internal/sprint/execute.go
+    724 ./internal/sprint/smoke.go
+    724 ./internal/platform/runtime/runtime.go
+    667 ./internal/web/operations.go
+    667 ./internal/app/run_control.go
+    666 ./internal/tui/views.go
+    657 ./internal/sprint/smoke_protocol.go
+    614 ./internal/tui/model.go
+    578 ./internal/web/run_handlers.go
+    572 ./internal/runcontrol/lifecycle.go
+    549 ./internal/platform/config/config.go
+    533 ./internal/sprint/code_context.go
+    510 ./internal/app/run_commands.go
+    509 ./internal/sprint/prompt_context.go
+    504 ./internal/runcontrol/model.go
+    498 ./internal/sprint/verify.go
+    457 ./internal/web/security.go
+    438 ./internal/workspace/skills.go
+    429 ./internal/web/routes.go
+    411 ./internal/study/run_state.go
+    405 ./internal/app/sprint_usecases.go
+    403 ./internal/sprint/smoke_author.go
+    401 ./internal/study/run_loop_diagnostics.go
+    400 ./internal/tui/app.go
+    381 ./internal/sprint/state.go
+    378 ./internal/study/run_history_summary.go
+    363 ./internal/runcontrol/migration.go
+    357 ./internal/sprint/direct_inputs.go
+    354 ./internal/sprint/domain.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/ultraplan.yml
+[0m
+[0m$ [0mls -la internal/app/ && wc -l internal/app/*.go | sort -rn | head -30
+total 616
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  2342 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8323 Aug 22 16:23 app.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 10356 Aug 22 16:23 app_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3268 Aug 22 16:23 code_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5746 Aug 22 16:23 code_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5917 Aug 22 16:23 config_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3855 Aug 22 16:23 defaults_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  9570 Aug 22 16:23 durable_operations.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3618 Aug 22 16:23 durable_operations_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  7184 Aug 22 16:23 health_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4393 Aug 22 16:23 health_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   775 Aug 22 16:23 json_output.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   687 Aug 22 16:23 markdown.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   666 Aug 22 16:23 markdown_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8427 Aug 22 16:23 operation_runner.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 31413 Aug 22 16:23 operations.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5459 Aug 22 16:23 project_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4782 Aug 22 16:23 project_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2575 Aug 22 16:23 project_usecases.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 16972 Aug 22 16:23 run_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5269 Aug 22 16:23 run_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 22115 Aug 22 16:23 run_control.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1377 Aug 22 16:23 run_control_inventory_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4641 Aug 22 16:23 run_control_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2116 Aug 22 16:23 run_usecases.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4291 Aug 22 16:23 serve_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3576 Aug 22 16:23 serve_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4441 Aug 22 16:23 skills_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2494 Aug 22 16:23 skills_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 53045 Aug 22 16:23 sprint_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 37130 Aug 22 16:23 sprint_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1663 Aug 22 16:23 sprint_error_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 16185 Aug 22 16:23 sprint_usecases.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   950 Aug 22 16:23 sprint_usecases_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2269 Aug 22 16:23 sprint_verify_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5198 Aug 22 16:23 status_json.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  7445 Aug 22 16:23 storage_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 55440 Aug 22 16:23 study_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  5764 Aug 22 16:23 study_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  6023 Aug 22 16:23 study_init_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  6186 Aug 22 16:23 study_prompt_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3740 Aug 22 16:23 study_run_all_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8065 Aug 22 16:23 study_run_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  9358 Aug 22 16:23 study_run_loop_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1437 Aug 22 16:23 study_runs_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1433 Aug 22 16:23 study_runs_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8905 Aug 22 16:23 study_status_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1801 Aug 22 16:23 study_summary_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  9687 Aug 22 16:23 study_usecases.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4298 Aug 22 16:23 study_validate_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   539 Aug 22 16:23 surfaces.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2927 Aug 22 16:23 tui_commands.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3237 Aug 22 16:23 tui_commands_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8635 Aug 22 16:23 usecases.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3924 Aug 22 16:23 usecases_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   523 Aug 22 16:23 version.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  6029 Aug 22 16:23 web_operations_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 27545 Aug 22 16:23 web_usecases.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 10003 Aug 22 16:23 web_usecases_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  1566 Aug 22 16:23 workspace_commands.go
+ 13719 total
+  1502 internal/app/study_commands.go
+  1318 internal/app/sprint_commands.go
+   966 internal/app/sprint_commands_test.go
+   935 internal/app/web_usecases.go
+   790 internal/app/operations.go
+   667 internal/app/run_control.go
+   510 internal/app/run_commands.go
+   405 internal/app/sprint_usecases.go
+   319 internal/app/app.go
+   310 internal/app/app_test.go
+   288 internal/app/usecases.go
+   263 internal/app/web_usecases_test.go
+   255 internal/app/durable_operations.go
+   252 internal/app/study_run_commands_test.go
+   236 internal/app/study_usecases.go
+   230 internal/app/study_status_commands_test.go
+   213 internal/app/study_run_loop_commands_test.go
+   208 internal/app/storage_commands.go
+   201 internal/app/health_commands.go
+   175 internal/app/project_commands.go
+   167 internal/app/skills_commands.go
+   163 internal/app/study_init_commands_test.go
+   162 internal/app/web_operations_test.go
+   150 internal/app/operation_runner.go
+   149 internal/app/study_commands_test.go
+   147 internal/app/study_validate_commands_test.go
+   145 internal/app/status_json.go
+   144 internal/app/defaults_commands.go
+   141 internal/app/code_commands_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/interfaces.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_usecases.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go[90m [limit=200][0m
+[0m✱ [0mGrep "\bControl\b"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 12 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go[90m [limit=120][0m
+[0m
+[0m$ [0mgrep -rn 'Control\b' --include='*.go' . | grep -v 'Cache-Control\|Access-Control\|run_control\|runControl\|RunControl\|_test.go:' | head; echo '---tests---'; grep -rn '\bControl{' --include='*_test.go' internal | head; grep -rn 'runcontrol\.Control' -r . ; echo done
+./internal/runcontrol/interfaces.go:67:// Control is the adapter-neutral service capability. Keeping this interface
+./internal/runcontrol/interfaces.go:70:type Control interface {
+---tests---
+done
+[0m
+[0m$ [0mwc -l internal/sprint/*.go | sort -rn | head -30 && echo '---' && ls internal/study/ internal/runcontrol/ internal/platform/*/ | head -60
+18300 total
+  1768 internal/sprint/review.go
+  1402 internal/sprint/service.go
+   727 internal/sprint/execute.go
+   724 internal/sprint/smoke.go
+   680 internal/sprint/review_test.go
+   657 internal/sprint/smoke_protocol.go
+   533 internal/sprint/code_context.go
+   517 internal/sprint/smoke_test.go
+   517 internal/sprint/code_context_test.go
+   509 internal/sprint/prompt_context.go
+   498 internal/sprint/verify.go
+   454 internal/sprint/prompt_context_test.go
+   409 internal/sprint/efficiency_improvements_test.go
+   403 internal/sprint/smoke_author.go
+   381 internal/sprint/state.go
+   357 internal/sprint/direct_inputs.go
+   354 internal/sprint/sprint_index_test.go
+   354 internal/sprint/domain.go
+   353 internal/sprint/flow.go
+   330 internal/sprint/smoke_types.go
+   327 internal/sprint/reasoning_test.go
+   320 internal/sprint/prompts.go
+   318 internal/sprint/execute_state_test.go
+   303 internal/sprint/review_runtime_validation.go
+   281 internal/sprint/execute_state.go
+   268 internal/sprint/reasoning.go
+   258 internal/sprint/index.go
+   257 internal/sprint/execute_plan.go
+   253 internal/sprint/sprint_test.go
+---
+internal/platform/config/:
+config.go
+config_test.go
+doc.go
+redaction.go
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515639945,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515639945,[]
+internal/platform/filesystem/:
+doc.go
+
+internal/platform/logging/:
+doc.go
+logging.go
+logging_test.go
+
+internal/platform/process/:
+process.go
+process_other.go
+process_test.go
+process_unix.go
+
+internal/platform/runtime/:
+agentwrap.go
+cache_test.go
+events.go
+health.go
+opencode.go
+opencode_test.go
+policy.go
+runtime.go
+runtime_test.go
+
+internal/runcontrol/:
+benchmark_test.go
+doc.go
+errors.go
+fault_test.go
+id.go
+id_test.go
+import_boundary_test.go
+interfaces.go
+lifecycle.go
+lifecycle_test.go
+local_log.go
+local_log_test.go
+metrics.go
+migration.go
+migration_test.go
+model.go
+model_test.go
+process_darwin.go
+process.go
+process_integration_test.go
+process_linux.go
+process_other.go
+retention.go
+retention_test.go
+sanitize.go
+sanitize_test.go
+sqlite.go
+sqlite_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/filesystem/doc.go
+[0m
+[0m$ [0mgrep -rn 'platform/filesystem' --include='*.go' . ; echo '---'; cat internal/platform/config/doc.go internal/platform/logging/doc.go 2>/dev/null | head -50
+---
+// Package config documents the future boundary for loading and resolving
+// UltraPlan configuration.
+//
+// Configuration parsing, precedence, redaction, validation, and workspace
+// config behavior are deferred to a later sprint.
+package config
+// Package logging documents the future boundary for process-neutral logging
+// infrastructure.
+//
+// Structured logging, diagnostic records, runtime event logging, and log
+// configuration behavior are deferred to a later sprint.
+package logging
+[0m
+[0m$ [0mls -R system/ | head -50; echo '---'; ls studies/ projects/ 2>/dev/null | head -20
+system/:
+contracts
+protocols
+reasoning
+
+system/contracts:
+core
+runtime
+surfaces
+
+system/contracts/core:
+architecture.md
+configuration.md
+documentation.md
+errors.md
+observability.md
+privacy-and-data.md
+release-versioning.md
+security.md
+testing.md
+
+system/contracts/runtime:
+llm-evaluation-cost-safety.md
+llm.md
+performance.md
+persistence-and-migrations.md
+workflows.md
+
+system/contracts/surfaces:
+accessibility.md
+api-contracts.md
+cli.md
+frontend.md
+package-public-api.md
+
+system/protocols:
+architecture-review-protocol.md
+contract-mapping-protocol.md
+deep-smoke-sprint-protocol.md
+plan-sprint-protocol.md
+review-sprint-protocol.md
+sprint-review-protocol.md
+
+system/reasoning:
+api-design-reasoning-template.md
+architecture_reasoning_template.md
+cli-design-reasoning-template.md
+data-privacy-reasoning-template.md
+errors_reasoning_template.md
+eval-design-reasoning-template.md
+---
+projects/:
+aren-phase-01-execution-lifecycle
+ultraplan-go
+
+studies/:
+agent-harness-study
+go-cli-study
+ultraplan-daemon-events-study
+[0m
+[0m$ [0mwc -l system/contracts/core/architecture.md && head -120 system/contracts/core/architecture.md
+286 system/contracts/core/architecture.md
+# Architecture Contract
+
+## Purpose
+This contract defines the core architectural rules for application code, including Go CLIs, services, and tools.
+
+It governs:
+- package and module boundaries
+- dependency direction
+- module public APIs
+- composition structure
+- adapter boundaries
+- shared vs platform ownership
+
+It does not own every operational concern.
+Use the specialized contracts listed in [README.md](README.md) for failures, observability, testing, workflows, agents, and other surface-specific requirements.
+
+## Scope
+This contract applies when a change:
+- adds or edits application modules
+- introduces new use cases, services, or adapters
+- changes dependency wiring or composition
+- changes public module boundaries
+- adds new transport or orchestration entrypoints
+
+## How To Use This Contract
+Use this contract in three ways:
+- during reasoning, map the applicable requirement IDs to the sprint scope
+- during implementation, preserve the required boundaries and dependency direction
+- during review, verify conformance using the evidence guidance in each requirement
+
+## Requirement Index
+
+| ID | Title | Applies To | Severity If Violated |
+| --- | --- | --- | --- |
+| ARCH-CORE-001 | Module boundaries must remain explicit | new or changed modules | High |
+| ARCH-CORE-002 | Dependency direction must point inward | cross-layer dependencies | Blocker |
+| ARCH-LAYER-001 | Domain layer must remain pure | domain code | High |
+| ARCH-LAYER-002 | Use cases depend on ports when a real seam exists | use cases, services, command flows | Blocker |
+| ARCH-ENTRY-001 | Entrypoint adapters must stay thin | CLI, routes, webhooks, sockets | High |
+| ARCH-MODULE-001 | Module public APIs must stay small and stable | module exports | Medium |
+| ARCH-COMP-001 | Composition must happen through registrars | composition root and bootstrap | High |
+| ARCH-SHARED-001 | Shared and platform code must stay domain-neutral | shared and platform packages | High |
+
+## Core Principles
+
+1. A module should represent one bounded context, cohesive capability, or stable ownership boundary.
+2. Dependency direction should keep product behavior independent from process entrypoints, transports, vendors, and generic platform runtime details.
+3. High-level policy depends on abstractions at volatile side-effect boundaries, not for every helper function.
+4. Transport entrypoints and CLI command handlers are adapters, not business layers.
+5. Infrastructure is replaceable.
+6. Architectural seams must remain testable through public boundaries.
+7. Do not introduce ports, facades, services, registrars, or module boundaries speculatively. They must protect a real seam, side-effect boundary, ownership boundary, or test seam.
+8. In Go, package-level exports are the public API. Keep exported identifiers intentional and use package docs to state ownership when a module has no separate `internal` subpackage.
+9. For local CLI code, concrete filesystem collaborators are acceptable when they are narrow, deterministic, and testable. Ports become mandatory when the dependency is volatile, external, long-running, concurrent, provider-backed, persistent, or hard to substitute in tests.
+
+## Requirements
+
+### ARCH-CORE-001: Module Boundaries Must Remain Explicit
+
+**Rule**
+Each module must represent a bounded context, cohesive capability, or ownership boundary with a small public API and clear internal ownership.
+
+**Applies when**
+- creating a new module
+- expanding an existing module
+- exposing one module to another
+
+**Required**
+- keep module internals behind the module boundary
+- export only intentional public collaborators from the package root or equivalent public surface
+- in Go, use unexported identifiers for unstable helpers and package documentation to clarify ownership
+- keep domain, use-case, infra, and optional workflow responsibilities distinct
+
+**Forbidden**
+- importing another module's private/internal implementation details directly
+- exporting concrete infra from a product module when callers only need a use-case service or value
+- mixing unrelated bounded contexts in one module
+
+**Evidence**
+- module imports flow through public module APIs
+- package exports remain small and intentional
+- feature code does not reach into sibling module internals
+
+### ARCH-CORE-002: Dependency Direction Must Point Inward
+
+**Rule**
+Dependency direction must point from outer layers toward inner business logic.
+
+**Applies when**
+- adding imports across layers
+- introducing adapters or orchestration
+- wiring dependencies in composition
+
+**Required**
+- entrypoints such as `cmd/...` delegate to application or command packages
+- command, route, or transport adapters call module services, facades, or public package functions rather than owning product behavior
+- product modules may depend on platform packages for generic capabilities and on explicitly allowed product modules for stable product relationships
+- platform packages must not import product modules
+- vendor/provider/process adapters must remain outside domain code and behind a narrow boundary when used by use cases
+
+**Forbidden**
+- domain code importing command, transport, provider, persistence, or process-execution packages
+- product use cases calling provider SDKs, subprocess runners, databases, or long-running runtimes directly when those dependencies are volatile or need substitution
+- entrypoints reaching directly into runtime/provider adapters, database/session internals, or container internals
+- platform packages importing product modules
+
+**Evidence**
+- imports follow the allowed direction
+- use cases rely on ports where the collaborator is external, volatile, long-running, persistent, concurrent, or hard to fake
+- entrypoint code does not open direct infrastructure dependencies
+
+### ARCH-LAYER-001: Domain Layer Must Remain Pure
+
+**Rule**
+Domain code must model business behavior and must not depend on transport, persistence, or vendor concerns.
+
+**Applies when**
+- editing domain files, domain packages, or pure model/value-object code
+- introducing domain entities, value objects, or exceptions
+[0m
+[0m$ [0msed -n '120,286p' system/contracts/core/architecture.md
+**Required**
+- keep entities, value objects, domain rules, and domain exceptions in the domain layer
+- keep domain logic independent from ORM, transport, and SDK details
+
+**Forbidden**
+- ORM models in domain code
+- request or response schemas in domain code
+- sessions or vendor SDK usage in domain code
+
+**Evidence**
+- domain imports remain infrastructure-free
+- domain tests do not require transport or DB wiring
+
+### ARCH-LAYER-002: Use Cases Depend On Ports When A Real Seam Exists
+
+**Rule**
+Use cases and workflows must depend on narrow ports rather than concrete infrastructure when the collaborator crosses a meaningful side-effect, volatility, runtime, persistence, or test seam.
+
+**Applies when**
+- adding services, use cases, or command flows
+- adding repository/provider access
+- introducing orchestration
+- introducing external process execution, network/provider calls, durable state, clocks/timers, concurrency, or filesystem behavior that is expensive or difficult to fixture
+
+**Required**
+- define ports as narrow interfaces, function types, or equivalent application-layer contracts near the consumer in Go
+- implement those ports in platform, adapter, store, or runtime packages
+- inject implementations during composition
+- keep interfaces small and behavior-specific
+- prefer concrete local helpers when no real seam exists yet and tests can use public behavior or temporary files safely
+
+**Forbidden**
+- importing concrete provider clients, process runners, database/session handles, or vendor SDKs into use cases
+- leaking platform DB models, transport schemas, provider payloads, or subprocess details into use cases
+- broad interfaces with unrelated capabilities
+- creating interfaces only to satisfy ceremony when there is one stable in-process implementation and no substitution need
+
+**Evidence**
+- use-case constructors accept ports or facades for meaningful side-effect boundaries
+- fake implementations can replace collaborators through public seams
+- direct concrete dependencies are justified as local, narrow, deterministic, and testable
+
+### ARCH-ENTRY-001: Entrypoint Adapters Must Stay Thin
+
+**Rule**
+CLI handlers, HTTP routes, webhooks, and websocket handlers must remain entrypoint adapters.
+
+**Applies when**
+- adding or editing entrypoints
+- introducing request/response schemas
+- wiring command or route dependencies
+
+**Required**
+- validate input at the adapter boundary
+- resolve actor or context
+- call one service or facade
+- map results to transport output
+- in CLI code, keep stdout/stderr formatting and exit-status mapping in the command/app layer
+
+**Forbidden**
+- opening sessions directly in command or route files
+- calling runtime/provider adapters directly from entrypoints
+- touching container internals except through thin dependency helpers
+- reaching into private service fields such as `service._workflow` or `service._repo`
+- putting filesystem discovery, domain validation, scheduling, provider execution, or durable workflow state machines directly in command handlers
+
+**Evidence**
+- route or command code delegates to a service or facade
+- CLI command code delegates product behavior to a package-owned service or public function
+- infrastructure access stays outside transport files
+
+### ARCH-MODULE-001: Module Public APIs Must Stay Small And Stable
+
+**Rule**
+Every module must expose a small, stable public API and keep unstable details internal.
+
+**Applies when**
+- exporting module collaborators
+- sharing commands or views across modules
+
+**Required**
+- export the main service or facade when needed
+- export intentionally shared commands and views only when needed
+- export the module bootstrap function where appropriate
+- in Go, keep exported types/functions few, named for use cases, and documented when they are part of the stable surface
+
+**Forbidden**
+- exporting concrete repositories
+- exporting SQL helpers
+- exporting provider adapters
+- exporting ORM models
+- exporting broad managers or utility bags that expose unrelated module internals
+
+**Evidence**
+- module roots stay small
+- shared callers depend only on stable public symbols
+- `go doc`/package docs reveal a coherent public surface rather than internal mechanics
+
+### ARCH-COMP-001: Composition Must Happen Through Registrars
+
+**Rule**
+Application assembly must happen at a clear composition boundary. As systems grow, compose module bundles or factories instead of scattering wiring through entrypoints.
+
+**Applies when**
+- wiring the app container
+- adding modules to the app
+- changing bootstrap behavior
+- adding runtime/provider adapters, persistence stores, workers, diagnostics, or multiple implementations of a collaborator
+
+**Required**
+- keep process entrypoints thin, typically `cmd/<binary>/main.go -> internal/app`
+- keep shared wiring in `internal/app`, `internal/platform/composition`, or an equivalent explicit composition package
+- let modules expose constructors, bundles, or registrars when they have multiple collaborators or adapters
+- centralize provider/runtime/store/logger/config wiring once those collaborators enter scope
+
+**Forbidden**
+- one god-object constructor that knows every internal detail in the system
+- routes or external adapters reaching through the container into private service internals
+- command handlers repeatedly constructing provider clients, stores, runtimes, worker pools, or diagnostics pipelines
+
+**Evidence**
+- modules expose typed bundles or public collaborators
+- composition code depends on module bootstrap outputs, not module internals
+- small CLI skeletons may use simple app-level dependency structs when they do not hide volatile collaborators or block later composition
+
+### ARCH-SHARED-001: Shared And Platform Code Must Stay Domain-Neutral
+
+**Rule**
+`shared/` and `platform/` must remain free of bounded-context business behavior.
+
+**Applies when**
+- adding utilities to `shared/`
+- adding runtime infrastructure to `platform/`
+
+**Required**
+- use `shared/` or equivalent only for generic cross-cutting code such as base errors, IDs, typed primitives, and protocol helpers
+- use `platform/` for generic runtime infrastructure such as config loading, telemetry wiring, task execution, process execution, filesystem adapters, and orchestration wrappers
+- keep product defaults, scaffolds, templates, prompts, validation rules, and workflow semantics in the owning product module unless they are genuinely generic
+
+**Forbidden**
+- embedding bounded-context logic in `shared/`
+- embedding product-specific business behavior in `platform/`
+- moving product behavior to shared/platform packages solely to avoid an import relationship
+
+**Evidence**
+- platform packages expose runtime services, not product policy
+- shared packages remain reusable and domain-neutral
+- product-specific defaults and artifacts are owned by product/workspace modules, not generic platform runtime
+
+## Review Rejection Criteria
+Reject a change if it:
+- imports concrete volatile infra into use cases without a justified local/narrow exception
+- adds direct route access to sessions, provider adapters, or container internals
+- exports infra from a module root
+- introduces a god repository, god service, or god container
+- creates cross-module dependencies through private internals
+- puts bounded-context behavior into `shared/` or `platform/`
+- puts substantial product behavior, scheduling, runtime execution, or persistence logic directly in CLI command handlers
+
+## Related Contracts
+- [errors.md](errors.md)
+- [observability.md](observability.md)
+- [testing.md](testing.md)
+- [documentation.md](../core/documentation.md)
+- [security.md](../core/security.md)
+- [release-and-versioning.md](../core/release-and-versioning.md)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go[90m [limit=180][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/service.go
+[0m
+[0m$ [0mgrep -n 'type Runtime interface' -A 10 internal/sprint/flow.go && grep -rn 'Runtime interface\|StartRun(' internal/sprint/*.go | grep -v _test | head -20
+13:type Runtime interface {
+14-	StartRun(context.Context, runtime.Request) (runtime.Result, error)
+15-}
+16-
+17-type FlowRequest struct {
+18-	To              PlanningStage
+19-	DryRun          bool
+20-	ModelOverride   string
+21-	VariantOverride string
+22-	Review          ReviewRequest
+23-	Smoke           SmokeRequest
+internal/sprint/flow.go:13:type Runtime interface {
+internal/sprint/flow.go:14:	StartRun(context.Context, runtime.Request) (runtime.Result, error)
+internal/sprint/runtime_metrics.go:116:	result, runErr := s.runtime.StartRun(ctx, req)
+[0m
+[0m$ [0mgrep -n '^func ' internal/sprint/review.go | head -60
+167:func (s Service) PrepareReview(projectRef, sprintRef string, req ReviewRequest) (ReviewManifest, []ValidationFinding, error) {
+372:func (s Service) PromptReview(projectRef, sprintRef string, req ReviewRequest) (PromptPreview, error) {
+400:func (s Service) Review(ctx context.Context, projectRef, sprintRef string, req ReviewRequest) (ReviewResult, error) {
+633:func (s Service) persistReviewFailure(projectRef, sprintRef string, result ReviewResult, completed, total int, cause error) (ReviewResult, error) {
+640:func (s Service) reviewCoveragePlan(projectRef, sprintRef string, m ReviewManifest, focus []string) ([]ReviewInput, []ReviewCoverageResult, error) {
+688:func (s Service) initializeReviewResume(projectRef, sprintRef string, m ReviewManifest, restart bool) (ReviewResumeState, int, error) {
+738:func reviewResumeCompatible(state *ReviewResumeState, m ReviewManifest) bool {
+742:func reviewResumeShapeCompatible(state *ReviewResumeState, m ReviewManifest) bool {
+758:func reviewResumePlan(root string, m ReviewManifest, state ReviewResumeState) ([]ReviewInput, []ReviewCoverageResult, map[string]string, int) {
+782:func reviewCoverageCheckpointValid(root string, m ReviewManifest, result ReviewCoverageResult) bool {
+792:func (s Service) saveReviewResumeSession(projectRef, sprintRef, fingerprint, coverageID, sessionID string) error {
+807:func (s Service) saveReviewResumeResult(projectRef, sprintRef, fingerprint string, result ReviewCoverageResult, sessionID string) error {
+823:func (s Service) updateReviewResume(projectRef, sprintRef, fingerprint, coverageID string, update func(*ReviewCoverageCheckpoint, time.Time)) error {
+850:func (s Service) ValidateReview(projectRef, sprintRef string) (ValidationResult, error) {
+868:func (s Service) runReviewer(ctx context.Context, m ReviewManifest, c ReviewInput, resumeSession string, onSession func(string)) (out ReviewCoverageResult, sessionID string) {
+988:func validateReviewCoverage(root string, m ReviewManifest, results []ReviewCoverageResult) ([]ReviewFinding, []ReviewDiagnostic, ReviewVerdict) {
+1046:func RenderReviewMarkdown(m ReviewManifest, r ReviewResult) string {
+1097:func ValidateReviewContent(content string, m ReviewManifest) []ValidationFinding {
+1127:func validateReviewStageState(root string, sp Sprint, state ReviewStageState, path string) error {
+1190:func (s Service) saveReviewState(projectRef, sprintRef string, r ReviewResult, completed, total int) error {
+1253:func reviewDiagnosticStrings(values []ReviewDiagnostic) []string {
+1261:func reviewAttemptStatus(status ReviewExecutionStatus) AttemptStatus {
+1274:func (s Service) reviewModelSelection(override string) ExecuteModelSelection {
+1288:func reviewInput(id, kind, name, path, data string) ReviewInput {
+1292:func findReviewInput(in []ReviewInput, id string) ReviewInput {
+1300:func catalogEntry(c project.ProjectIndex, section project.CatalogSection, s SelectedItem) (project.CatalogEntry, bool) {
+1314:func slugReviewID(s string) string {
+1329:func fingerprintReviewManifest(m ReviewManifest) string {
+1345:func reviewRelevantProjectIndexContent(content string) string {
+1371:func reviewChangedPaths(data []byte) []string {
+1402:func excludeGovernedReviewPaths(paths []string, inputs []ReviewInput) []string {
+1419:func reviewRunStateIncomplete(data []byte) bool {
+1440:func unresolvedExecutePlanTasks(plan, runState string, manifest PlanManifest) bool {
+1466:func reviewVerificationCommands(plan string) []string {
+1494:func renderReviewPreview(m ReviewManifest) string {
+1511:func renderReviewerPrompt(m ReviewManifest, c ReviewInput) string {
+1535:func reviewerInputPacket(m ReviewManifest, coverage ReviewInput) []ReviewInput {
+1549:func reviewInputReadPath(m ReviewManifest, in ReviewInput) string {
+1565:func prepareReviewSnapshot(m ReviewManifest) (string, error) {
+1613:func extractReviewResult(r pruntime.Result, out *ReviewCoverageResult) bool {
+1624:func extractReviewValue(v any, out *ReviewCoverageResult) bool {
+1653:func extractReviewJSON(value string, out *ReviewCoverageResult) bool {
+1670:func validReviewCitation(root string, m ReviewManifest, c ReviewCitation) bool {
+1683:func atomicWriteReview(path string, data []byte) error {
+1686:func atomicWriteReviewWithHooks(path string, data []byte, hooks reviewWriteHooks) error {
+1718:func reviewArtifact(m ReviewManifest) string {
+1721:func appendUnique(values []string, v string) []string {
+1730:func safeReviewText(root, value string) string {
+1734:func validReviewApplicability(v string) bool {
+1737:func reviewApplicable(v string) bool { return v == "direct" || v == "partial" }
+1739:func loadReviewAsset(root, rel string, required []string) (string, error) {
+1766:func atoiReview(s string) int { n, _ := strconv.Atoi(s); return n }
+[0m
+[0m$ [0mgrep -rn 'func atomicWrite\|func.*atomicWrite' internal --include='*.go' | grep -v _test; echo '---'; grep -rln 'os.Rename\|WriteFile' internal --include='*.go' | grep -v _test | head -30
+internal/sprint/execute_state.go:132:func saveExecuteRunStateWithHooks(root string, s Sprint, state ExecuteRunState, hooks atomicWriteHooks) error {
+internal/sprint/smoke.go:692:func atomicWriteFile(path string, data []byte) error {
+internal/sprint/state.go:239:func saveFlowStateWithHooks(root string, s Sprint, state FlowState, hooks atomicWriteHooks) error {
+internal/sprint/review.go:1683:func atomicWriteReview(path string, data []byte) error {
+internal/sprint/review.go:1686:func atomicWriteReviewWithHooks(path string, data []byte, hooks reviewWriteHooks) error {
+internal/study/state.go:73:func saveRunStateWithHooks(study Study, state RunState, hooks atomicWriteHooks) error {
+internal/study/summary.go:94:func atomicWriteFile(path string, content []byte, tempPattern string) error {
+---
+internal/app/code_commands.go
+internal/app/study_commands.go
+internal/runcontrol/migration.go
+internal/sprint/cleanup_uncertain.go
+internal/sprint/context_pack.go
+internal/sprint/execute_state.go
+internal/sprint/runtime_metrics.go
+internal/sprint/smoke.go
+internal/sprint/state.go
+internal/sprint/code_context.go
+internal/sprint/execute.go
+internal/sprint/review.go
+internal/sprint/session_state.go
+internal/study/cleanup_uncertain.go
+internal/study/init.go
+internal/study/run_history_summary.go
+internal/study/run_loop_diagnostics.go
+internal/study/state.go
+internal/study/summary.go
+internal/study/run_loop.go
+internal/workspace/defaults.go
+internal/workspace/init.go
+internal/workspace/skills.go
+[0m
+[0m$ [0mgrep -n 'func atomicWriteFile' -A 20 internal/sprint/smoke.go | head -25; echo ===; grep -n 'func atomicWriteFile' -A 22 internal/study/summary.go | head -26; echo ===; grep -n 'func atomicWriteReviewWithHooks' -A 30 internal/sprint/review.go | head -33
+692:func atomicWriteFile(path string, data []byte) error {
+693-	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+694-		return err
+695-	}
+696-	file, err := os.CreateTemp(filepath.Dir(path), ".smoke.*.tmp")
+697-	if err != nil {
+698-		return err
+699-	}
+700-	temp := file.Name()
+701-	keep := true
+702-	defer func() {
+703-		if keep {
+704-			_ = os.Remove(temp)
+705-		}
+706-	}()
+707-	if _, err = file.Write(data); err != nil {
+708-		_ = file.Close()
+709-		return err
+710-	}
+711-	if err = file.Sync(); err != nil {
+712-		_ = file.Close()
+===
+94:func atomicWriteFile(path string, content []byte, tempPattern string) error {
+95-	temp, err := os.CreateTemp(filepath.Dir(path), tempPattern)
+96-	if err != nil {
+97-		return fmt.Errorf("create temporary file: %w", err)
+98-	}
+99-	tempPath := temp.Name()
+100-	cleanup := true
+101-	defer func() {
+102-		if cleanup {
+103-			_ = os.Remove(tempPath)
+104-		}
+105-	}()
+106-	if _, err := temp.Write(content); err != nil {
+107-		_ = temp.Close()
+108-		return fmt.Errorf("write temporary file %s: %w", tempPath, err)
+109-	}
+110-	if err := temp.Sync(); err != nil {
+111-		_ = temp.Close()
+112-		return fmt.Errorf("flush temporary file %s: %w", tempPath, err)
+113-	}
+114-	if err := temp.Close(); err != nil {
+115-		return fmt.Errorf("close temporary file %s: %w", tempPath, err)
+116-	}
+===
+1686:func atomicWriteReviewWithHooks(path string, data []byte, hooks reviewWriteHooks) error {
+1687-	if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
+1688-		return err
+1689-	}
+1690-	f, err := os.CreateTemp(filepath.Dir(path), ".review.*.tmp")
+1691-	if err != nil {
+1692-		return err
+1693-	}
+1694-	tmp := f.Name()
+1695-	defer os.Remove(tmp)
+1696-	if _, err = f.Write(data); err != nil {
+1697-		f.Close()
+1698-		return err
+1699-	}
+1700-	if err = f.Sync(); err != nil {
+1701-		f.Close()
+1702-		return err
+1703-	}
+1704-	if err = f.Close(); err != nil {
+1705-		return err
+1706-	}
+1707-	if hooks.BeforeRename != nil {
+1708-		if err := hooks.BeforeRename(path); err != nil {
+1709-			return err
+1710-		}
+1711-	}
+1712-	if err = os.Rename(tmp, path); err != nil {
+1713-		return err
+1714-	}
+1715-	syncDir(filepath.Dir(path))
+1716-	return nil
+[0m
+[0m$ [0mgrep -rn 'func.*atomicWrite\|func saveFlowStateWithHooks\|func saveExecuteRunStateWithHooks\|func saveRunStateWithHooks\|func syncDir' internal --include='*.go' | grep -v _test
+internal/sprint/execute_state.go:132:func saveExecuteRunStateWithHooks(root string, s Sprint, state ExecuteRunState, hooks atomicWriteHooks) error {
+internal/sprint/smoke.go:692:func atomicWriteFile(path string, data []byte) error {
+internal/sprint/state.go:239:func saveFlowStateWithHooks(root string, s Sprint, state FlowState, hooks atomicWriteHooks) error {
+internal/sprint/state.go:374:func syncDir(path string) {
+internal/sprint/review.go:1683:func atomicWriteReview(path string, data []byte) error {
+internal/sprint/review.go:1686:func atomicWriteReviewWithHooks(path string, data []byte, hooks reviewWriteHooks) error {
+internal/study/state.go:73:func saveRunStateWithHooks(study Study, state RunState, hooks atomicWriteHooks) error {
+internal/study/state.go:177:func syncDir(path string) {
+internal/study/summary.go:94:func atomicWriteFile(path string, content []byte, tempPattern string) error {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go[90m [limit=80, offset=200][0m
+[0m
+[0m$ [0mgrep -rn 'atomic' system/ --include='*.md' -il | head; echo ---; grep -rn 'platform' projects/ultraplan-go -l --include='*.md' | head -20
+system/contracts/core/testing.md
+system/contracts/runtime/persistence-and-migrations.md
+system/protocols/deep-smoke-sprint-protocol.md
+system/protocols/review-sprint-protocol.md
+system/reasoning/persistence-reasoning-template.md
+---
+projects/ultraplan-go/docs/ARCHITECTURE.md
+projects/ultraplan-go/docs/TRD.md
+projects/ultraplan-go/project-index.md
+projects/ultraplan-go/roadmap.md
+projects/ultraplan-go/sprints/01-cli-foundation/plan.md
+projects/ultraplan-go/sprints/01-cli-foundation/reasoning.md
+projects/ultraplan-go/sprints/01-cli-foundation/reasoning/architecture.md
+projects/ultraplan-go/sprints/01-cli-foundation/requirements.md
+projects/ultraplan-go/sprints/01-cli-foundation/sprint-index.md
+projects/ultraplan-go/sprints/02-workspace-config-health/plan.md
+projects/ultraplan-go/sprints/02-workspace-config-health/reasoning.md
+projects/ultraplan-go/sprints/02-workspace-config-health/requirements.md
+projects/ultraplan-go/sprints/02-workspace-config-health/sprint-index.md
+projects/ultraplan-go/sprints/02-workspace-config-health/technical-handbook.md
+projects/ultraplan-go/sprints/03-study-listing-resolution/plan.md
+projects/ultraplan-go/sprints/03-study-listing-resolution/reasoning.md
+projects/ultraplan-go/sprints/03-study-listing-resolution/reasoning/architecture.md
+projects/ultraplan-go/sprints/03-study-listing-resolution/requirements.md
+projects/ultraplan-go/sprints/03-study-listing-resolution/sprint-index.md
+projects/ultraplan-go/sprints/04-study-init-yaml/plan.md
+[0m
+[0m$ [0mgrep -n 'platform' projects/ultraplan-go/docs/ARCHITECTURE.md | head -20; echo ---; grep -rn 'filesystem' projects/ultraplan-go/docs/ARCHITECTURE.md | head
+21:This means study behavior should stay with the study module. Project catalog behavior should stay with the project module. Sprint planning, execute, review, and smoke behavior should stay with the sprint module. Code extraction behavior should stay with the code extraction module. Workspace behavior should stay with the workspace module. Shared platform packages should exist only for genuinely cross-cutting infrastructure.
+35:internal/platform/runtime owns generic execution only
+36:internal/platform/process owns safe generic external executable/argv execution only
+93:  platform/
+217:The study module may call platform runtime services, workspace path services, and config/logging infrastructure. Runtime and platform packages must not import `study`.
+278:`sprint` may depend on `project` for project catalogs, `workspace` for path rules, configuration for stage-specific runtime model selection, `platform/runtime` for generic prompt/reviewer/implementation execution, and `platform/process` for safe external harness invocation. It must not depend on `study` services, source/dimension models, study report validation, rating parsing, summary generation, or study run-loop scheduling.
+388:### `platform/runtime`
+390:Runtime is platform-level because it is generic execution infrastructure, not study behavior.
+425:study -> platform/runtime
+426:sprint -> platform/runtime
+427:platform/runtime -> no product modules
+430:### `platform/process`
+449:sprint -> platform/process
+450:platform/process -> no product modules
+453:Runtime supervision is delegated to `agentwrap`. UltraPlan's runtime integration should translate generic execution requests into agentwrap requests and translate generic results/events back to UltraPlan's platform-facing runtime model.
+521:Product modules may depend on platform packages.
+534:internal/app -> product modules + platform modules
+538:study -> platform/runtime
+539:study -> platform/config/logging/filesystem as needed
+541:project -> platform/config/logging/filesystem as needed
+---
+96:    filesystem/
+369:The final design must reason explicitly about a dedicated product module versus package-owned repositories coordinated through `app`; filesystem journal versus SQLite or another local store; one coordinator versus fenced multi-process writers; worker cancellation versus adoption after owner loss; and same-host versus shared-filesystem multi-host guarantees. Whichever choices are selected must satisfy the same public lifecycle, replay, security, migration, and fault-injection contracts.
+539:study -> platform/config/logging/filesystem as needed
+541:project -> platform/config/logging/filesystem as needed
+545:sprint -> platform/config/logging/filesystem as needed
+547:codeextract -> platform/filesystem/logging as needed
+548:workspace -> platform/filesystem as needed
+605:Current CLI foundation and study-discovery sprints may use concrete local filesystem collaborators when:
+655:If two modules need the same mechanical filesystem behavior, extract the mechanical helper. If two modules merely have similar product workflows, keep the behavior in the owning modules until repeated concrete implementations prove a shared abstraction is stable. Execute task semantics belong to `internal/sprint`; do not move them into a global scheduler or workflow package.
+662:filesystem-backed observable web
+[0m
+[0m$ [0msed -n '595,665p' projects/ultraplan-go/docs/ARCHITECTURE.md
+Clock/time
+External process execution
+```
+
+Avoid introducing interfaces for every internal helper. If a function is purely internal to a module and not volatile, keep it concrete.
+
+## Contract Interpretation For Go Sprints
+
+The shared contracts are production standards. Apply them through this Go module architecture rather than literal Python-style package shapes such as `use_cases/ports.py` or `bootstrap.py`.
+
+Current CLI foundation and study-discovery sprints may use concrete local filesystem collaborators when:
+
+```text
+The side effect is local and narrow.
+The package boundary is explicit.
+The behavior is tested through the public CLI or module surface.
+The design does not block later introduction of runtime, persistence, or process-execution ports.
+```
+
+Do not reject current-sprint code only because it lacks a port or registrar. Reject it when a concrete dependency crosses a volatile boundary, hides side effects, makes tests require private mutation, or couples product modules in a way this document does not allow.
+
+The following become mandatory when their capability enters scope:
+
+```text
+Runtime/provider execution: context propagation, cancellation, runtime ports, correlation IDs, retry ownership, bounded provider calls, and cost metadata.
+Batch/run-loop execution: bounded concurrency, durable task state, diagnostics, terminal failure state, and resumability.
+Stable public JSON/release: canonical structured error payloads, stable machine-readable error codes, scenario tests, documented compatibility, and migration/rejection behavior for durable formats.
+```
+
+`study -> workspace` is an allowed dependency for workspace path resolution and safety helpers. It is not a cross-module violation unless `study` starts depending on workspace-owned behavior that knows study semantics or reaches around the exported workspace package API.
+
+## Reuse Boundary For Phase 2
+
+Reuse infrastructure, not study semantics.
+
+Good candidates for reuse:
+
+```text
+workspace discovery and path safety
+config loading, precedence, and redaction
+generic runtime prompt execution
+command exit codes and output discipline
+atomic file and JSON writes
+durable task-state helpers when they remain product-neutral
+small result/diagnostic structs without product semantics
+```
+
+Do not extract these from `study` for Phase 2:
+
+```text
+study Service
+Source and Dimension models
+study prompt builders
+report validation
+rating parsing
+summary generation
+run-loop scheduling
+task state machines
+```
+
+If two modules need the same mechanical filesystem behavior, extract the mechanical helper. If two modules merely have similar product workflows, keep the behavior in the owning modules until repeated concrete implementations prove a shared abstraction is stable. Execute task semantics belong to `internal/sprint`; do not move them into a global scheduler or workflow package.
+
+## Gated Architecture Evolution After Durable Run Control
+
+The implementation plans describe a long-term direction, not permission to build every abstraction now. The architectural order is:
+
+```text
+filesystem-backed observable web
+-> code-context through shared app/web boundaries
+-> durable workspace-wide run control and observation
+-> minimal content identity and revision-aware provenance
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go[90m [limit=105, offset=278][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state.go[90m [limit=130, offset=60][0m
+[0m
+[0m$ [0mgrep -rn 'atomicWriteHooks\|reviewWriteHooks' internal --include='*.go' | grep -v _test | grep 'type\|struct' ; echo ---; grep -rn -A 4 'type atomicWriteHooks' internal/sprint/*.go internal/study/*.go
+internal/sprint/state.go:16:type atomicWriteHooks struct {
+internal/sprint/review.go:1681:type reviewWriteHooks struct{ BeforeRename func(string) error }
+internal/study/state.go:23:type atomicWriteHooks struct {
+---
+internal/sprint/state.go:16:type atomicWriteHooks struct {
+internal/sprint/state.go-17-	BeforeRename func(path string) error
+internal/sprint/state.go-18-}
+internal/sprint/state.go-19-
+internal/sprint/state.go-20-func LoadFlowState(root string, s Sprint) (FlowState, error) {
+--
+internal/study/state.go:23:type atomicWriteHooks struct {
+internal/study/state.go-24-	BeforeRename func(path string) error
+internal/study/state.go-25-}
+internal/study/state.go-26-
+internal/study/state.go-27-func LoadRunState(study Study) (RunState, error) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke.go[90m [limit=40, offset=688][0m
+[0m
+[0m$ [0mgrep -n 'func saveExecuteRunStateWithHooks' -A 60 internal/sprint/execute_state.go | sed -n '1,62p'
+132:func saveExecuteRunStateWithHooks(root string, s Sprint, state ExecuteRunState, hooks atomicWriteHooks) error {
+133-	path, err := ExecuteRunStatePath(root, s)
+134-	if err != nil {
+135-		return err
+136-	}
+137-	state.UpdatedAt = time.Now().UTC()
+138-	if err := ValidateExecuteRunState(root, s, state, path); err != nil {
+139-		return err
+140-	}
+141-	content, err := json.MarshalIndent(state, "", "  ")
+142-	if err != nil {
+143-		return fmt.Errorf("marshal execute run state %s: %w", path, err)
+144-	}
+145-	content = append(content, '\n')
+146-	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+147-		return fmt.Errorf("create execute run state directory %s: %w", filepath.Dir(path), err)
+148-	}
+149-	temp, err := os.CreateTemp(filepath.Dir(path), ".run-state.*.tmp")
+150-	if err != nil {
+151-		return fmt.Errorf("create temporary execute run state %s: %w", path, err)
+152-	}
+153-	tempPath := temp.Name()
+154-	cleanup := true
+155-	defer func() {
+156-		if cleanup {
+157-			_ = os.Remove(tempPath)
+158-		}
+159-	}()
+160-	if _, err := temp.Write(content); err != nil {
+161-		_ = temp.Close()
+162-		return fmt.Errorf("write temporary execute run state %s: %w", tempPath, err)
+163-	}
+164-	if err := temp.Sync(); err != nil {
+165-		_ = temp.Close()
+166-		return fmt.Errorf("flush temporary execute run state %s: %w", tempPath, err)
+167-	}
+168-	if err := temp.Close(); err != nil {
+169-		return fmt.Errorf("close temporary execute run state %s: %w", tempPath, err)
+170-	}
+171-	if hooks.BeforeRename != nil {
+172-		if err := hooks.BeforeRename(path); err != nil {
+173-			return fmt.Errorf("prepare execute run state rename %s: %w", path, err)
+174-		}
+175-	}
+176-	if err := os.Rename(tempPath, path); err != nil {
+177-		return fmt.Errorf("rename execute run state %s: %w", path, err)
+178-	}
+179-	cleanup = false
+180-	syncDir(filepath.Dir(path))
+181-	return nil
+182-}
+183-
+184-func ValidateExecuteRunState(root string, s Sprint, state ExecuteRunState, path string) error {
+185-	if state.SchemaVersion == 0 {
+186-		return fmt.Errorf("%w: %s: missing schemaVersion", ErrExecuteRunStateMalformed, path)
+187-	}
+188-	if state.SchemaVersion != ExecuteRunStateSchemaVersion {
+189-		return fmt.Errorf("%w: %s: schemaVersion %d", ErrExecuteRunStateUnsupported, path, state.SchemaVersion)
+190-	}
+191-	if state.Project == "" || state.Sprint == "" || state.Target.Path == "" || state.Target.Source == "" || state.PlanPath == "" || state.PlanFingerprint == "" || state.CreatedAt.IsZero() || state.UpdatedAt.IsZero() {
+192-		return fmt.Errorf("%w: %s: missing required top-level fields", ErrExecuteRunStateMalformed, path)
+[0m
+[0m$ [0mgrep -n 'RunStages\|Stages:' internal/app/web_usecases.go | head -20
+112:	RunStages         []StageSummary
+479:			result.RunStages = sprintRunStages(item)
+480:			result.TotalStages = len(result.RunStages)
+481:			for _, stage := range result.RunStages {
+583:func sprintRunStages(item SprintSummary) []StageSummary {
+797:		Stages:     stages,
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go[90m [limit=160, offset=440][0m
+[0m
+[0m$ [0mgrep -rn 'Sprint Goal' internal --include='*.go' | grep -v _test | head; echo ---; grep -rln 'requirements.md' internal --include='*.go' | grep -v _test
+internal/app/web_usecases.go:573:			inGoal = strings.EqualFold(strings.TrimSpace(strings.TrimPrefix(trimmed, "## ")), "Sprint Goal")
+internal/sprint/index.go:43:	for _, heading := range []string{"Sprint Goal", "Required Outputs", "Acceptance Criteria", "Non-Goals", "Constraints", "Dependencies", "Review Expectations"} {
+---
+internal/app/usecases.go
+internal/app/operations.go
+internal/app/sprint_commands.go
+internal/app/web_usecases.go
+internal/sprint/artifacts.go
+internal/sprint/context_pack.go
+internal/sprint/doc.go
+internal/sprint/index.go
+internal/sprint/prompts.go
+internal/sprint/runtime_validation.go
+internal/sprint/smoke.go
+internal/sprint/service.go
+internal/sprint/smoke_author.go
+internal/workspace/init.go
+internal/workspace/skills.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go
+[0m
+[0m$ [0mgrep -n 'func ' internal/study/run_loop.go | head -40
+23:func (s Service) RunLoop(ctx context.Context, req RunLoopRequest) (out RunLoopResult, err error) {
+399:func waitUntilRetry(ctx context.Context, retryAt time.Time, emit func()) {
+421:func emitRetryWait(state RunState, scope map[string]bool, statePath string, progress func(RunLoopProgress)) {
+436:func summarizeRunStateCountsForScope(state RunState, scope map[string]bool, statePath string) StatusSummary {
+454:func loadOrCreateRunLoopState(req RunLoopRequest, study Study, sources []Source, dimensions []Dimension, workspaceRoot string) (RunState, error) {
+477:func archiveRunStateIfExists(study Study) error {
+493:func progressEventForExecution(res ExecutionResult) RunLoopProgressEvent {
+509:func interestingRuntimeEvent(kind string) bool {
+518:func runnableTaskIDs(state RunState, scope map[string]bool, attempted map[string]bool, limit int, now time.Time, dimensionOrder []Dimension) []string {
+553:func dimensionPriorityRanks(order []Dimension) map[string]int {
+561:func dimensionTaskRank(task TaskState, ranks map[string]int, remainingRank int) int {
+568:func runLoopScope(study Study, allSources []Source, scopeSources []Source, dimensions []Dimension, sourceFiltered bool) map[string]bool {
+586:func filterRunState(state RunState, scope map[string]bool) RunState {
+604:func taskAttemptBlocked(task TaskState, attempted map[string]bool) bool {
+608:func taskRunnable(task TaskState, now time.Time) bool {
+622:func nextRetryAfter(state RunState, scope map[string]bool, now time.Time) *time.Time {
+639:func dependenciesComplete(state RunState, task TaskState) bool {
+647:func dependenciesCompleteFrom(byID map[string]TaskState, task TaskState) bool {
+656:func readySynthesisTaskIDs(state RunState, attempted map[string]bool, now time.Time) []string {
+673:func dependenciesTerminal(state RunState, task TaskState) bool {
+681:func dependenciesTerminalFrom(byID map[string]TaskState, task TaskState) bool {
+697:func applyExecutionResult(update func(string, func(*TaskState)) error, id string, res ExecutionResult) error {
+746:func executionTaskError(code string, res ExecutionResult) *TaskError {
+759:func executionShouldRetry(res ExecutionResult) bool {
+768:func defaultRuntimeRetryDelay(res ExecutionResult) time.Duration {
+775:func markSynthesisDependenciesFailed(update func(string, func(*TaskState)) error, id string) error {
+785:func markTaskCancelled(update func(string, func(*TaskState)) error, id string, err error) error {
+795:func safeExecutionMessage(res ExecutionResult) string {
+827:func formatAttemptTimeline(attempts []AttemptMetadata, decisions []PolicyDecisionMetadata) string {
+863:func allTasksComplete(state RunState) bool {
+872:func runLoopCounts(state RunState) RunAllCounts {
+889:func runLoopStatus(state RunState, counts RunAllCounts, cancelled bool) RunAllStatus {
+902:func hasCancelledTask(state RunState) bool {
+911:func cloneRunState(state RunState) RunState {
+931:func LockInfoForStatus(study Study) (*LockInfo, error) {
+[0m
+[0m$ [0mgrep -n 'func ' internal/sprint/execute.go | head -30; echo ---; grep -rn 'errgroup\|sync.WaitGroup' internal --include='*.go' | grep -v _test | head
+28:func (s Service) DeferExecuteTask(ctx context.Context, projectRef, sprintRef, taskID, reason string) (ExecuteResult, error) {
+93:func (s Service) PromptExecute(projectRef, sprintRef string, req ExecuteRequest) (PromptPreview, error) {
+127:func (s Service) Execute(ctx context.Context, projectRef, sprintRef string, req ExecuteRequest) (ExecuteResult, error) {
+331:func (s Service) prepareExecute(projectRef, sprintRef string, req ExecuteRequest) (Sprint, []ExecutePlanTask, ExecuteTargetRef, ExecuteModelSelection, []ValidationFinding, error) {
+366:func (s Service) validateResolvedResumeTasks(sp Sprint, tasks []ExecutePlanTask, planPath string) []ValidationFinding {
+403:func (s Service) agentDeferredTaskReason(sp Sprint, taskID string) (string, error) {
+432:func RenderExecutePrompt(sp Sprint, task ExecutePlanTask, target ExecuteTargetRef, selection ExecuteModelSelection) string {
+460:func (s Service) renderExecuteSessionPrompt(sp Sprint, task ExecutePlanTask, queue []ExecutePlanTask, target ExecuteTargetRef, selection ExecuteModelSelection) string {
+475:func RenderExecuteContinuationPrompt(sp Sprint, task ExecutePlanTask) string {
+499:func renderExecuteQueue(currentTaskID string, queue []ExecutePlanTask) string {
+516:func filterExecuteQueue(tasks []ExecutePlanTask, taskID string) []ExecutePlanTask {
+527:func executeQueueFromState(records []ExecuteTaskRecord, tasks []ExecutePlanTask, taskID string) []ExecutePlanTask {
+543:func reusableExecuteSession(records []ExecuteTaskRecord, taskID, model string) string {
+556:func WriteExecuteSummary(root string, sp Sprint, state ExecuteRunState) error {
+589:func ArtifactExecuteRelPath(s Sprint) string { return ArtifactRelPath(s, StageExecute) }
+591:func taskByID(tasks []ExecutePlanTask, id string) ExecutePlanTask {
+600:func reconcileExecuteState(existing ExecuteRunState, planned []ExecuteTaskRecord, now time.Time) ExecuteRunState {
+620:func runtimeSummary(run pruntime.Result, selection ExecuteModelSelection) *ExecuteRuntimeSummary {
+624:func formatRuntimeUsage(usage pruntime.Usage) string {
+641:func mergeRuntimeSummary(previous, current *ExecuteRuntimeSummary) *ExecuteRuntimeSummary {
+651:func hasDiagnosticOnlyCompletion(run pruntime.Result) bool {
+660:func safeArtifactPath(uri string) string {
+667:func ptrTime(t time.Time) *time.Time { return &t }
+669:func firstNonEmptyString(values ...string) string {
+678:func mustReadPlan(s Service, sp Sprint) string {
+683:func executeResultMessage(tasks []ExecuteTaskRecord) string {
+690:func (s Service) executeModelSelection(override string) ExecuteModelSelection {
+706:func joinProviderModel(provider, model string) string {
+716:func safeExecuteText(key, value string) string {
+720:func hasFailedExecuteTask(tasks []ExecuteTaskRecord) bool {
+---
+internal/platform/process/process.go:104:	var drains sync.WaitGroup
+internal/sprint/review.go:511:	var wg sync.WaitGroup
+internal/study/run_all.go:58:	var wg sync.WaitGroup
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go[90m [limit=120][0m
+[0m
+[0m$ [0mgrep -n 'case Operation' internal/app/operations.go | head -30; echo ---; grep -c 'case Operation' internal/app/operations.go; grep -rn 'OperationRequest{' internal/app/*.go | grep -v _test | wc -l
+180:	case OperationValidate, OperationPrompt, OperationFlowDryRun, OperationStageDryRun, OperationExecuteDryRun, OperationExecuteStatus, OperationReviewDryRun, OperationReviewStatus, OperationSmokeStatus:
+183:	case OperationSprintStatus:
+187:	case OperationFlow:
+192:	case OperationStage:
+197:	case OperationExecuteStart, OperationExecuteResume:
+202:	case OperationReviewStart:
+210:	case OperationSmokeDryRun, OperationSmokeStart:
+219:	case OperationVerifyDryRun, OperationVerifyStart:
+226:	case OperationStudyStart, OperationStudyResume:
+234:	case OperationStudyCancel:
+304:	case OperationValidate:
+320:	case OperationSprintStatus:
+326:	case OperationPrompt:
+332:	case OperationFlowDryRun:
+340:	case OperationStageDryRun:
+348:	case OperationExecuteDryRun:
+356:	case OperationExecuteStatus:
+367:	case OperationReviewDryRun:
+374:	case OperationReviewStatus:
+380:	case OperationSmokeStatus:
+386:	case OperationSmokeDryRun:
+393:	case OperationVerifyDryRun:
+488:	case OperationExecuteStart, OperationExecuteResume:
+490:	case OperationReviewStart:
+492:	case OperationSmokeStart, OperationVerifyStart:
+---
+25
+9
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go[90m [limit=220, offset=130][0m
+[0m
+[0m$ [0mgrep -rn 'sprint.NewService\|sprintService()' internal --include='*.go' | grep -v _test
+internal/app/sprint_usecases.go:98:	service := u.sprintService()
+internal/app/usecases.go:121:func (u dashboardUseCases) sprintService() sprint.Service {
+internal/app/usecases.go:122:	service := sprint.NewService(u.root).WithStageRuntime(u.stageRuntime).WithReviewConcurrency(u.reviewConcurrency)
+internal/app/operation_runner.go:75:			service := sprint.NewService(root.Path).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env)))
+internal/app/operations.go:211:		preview, err := u.sprintService().RunSmoke(ctx, req.Project, req.Sprint, sprint.SmokeRequest{Level: req.Level, Suite: req.Suite, Test: req.Test, ForceReview: req.ForceReview, OverrideConfirmed: req.ForceReview, OverrideRationale: req.OverrideRationale, DryRun: true})
+internal/app/operations.go:300:	ss := u.sprintService()
+internal/app/operations.go:765:		validation, err := validateSprintStage(u.sprintService(), req.Project, req.Sprint, stage)
+internal/app/sprint_commands.go:81:	service := sprint.NewService(root.Path).WithStageRuntime(planningStageRuntime(effective.Config)).WithReviewConcurrency(effective.Config.Execution.DefaultParallel).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env)))
+internal/app/sprint_commands.go:498:	return sprint.NewService(root.Path).WithRuntime(controlled, req).WithRuntimeProgress(progress).WithStageRuntime(planningStageRuntime(effective.Config)).WithReviewConcurrency(effective.Config.Execution.DefaultParallel).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env))), nil
+internal/app/web_usecases.go:336:		return sprint.NewService(u.root).RecordCleanupUncertain(ctx, record.Request.Project, record.Request.Sprint, sprint.CleanupUncertainRecord{
+internal/app/web_usecases.go:359:	service := sprint.NewService(u.root)
+internal/app/web_usecases.go:506:	service := u.dashboard.sprintService()
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+[0m
+[0m$ [0mgrep -n 'reviewConcurrency' internal/sprint/*.go | grep -v _test; echo ---; grep -n 'ForceReview' internal/sprint/smoke.go | head; echo ---; grep -rn 'smokeSettings(' internal/app/*.go | grep -v _test | head
+internal/sprint/review.go:175:		manifest.Concurrency = s.reviewConcurrency
+internal/sprint/service.go:29:	reviewConcurrency int
+internal/sprint/service.go:38:func (s Service) WithReviewConcurrency(n int) Service { s.reviewConcurrency = n; return s }
+---
+57:	result.ReviewOverride = req.ForceReview
+106:	result.DiagnosticOnly = selection.DiagnosticOnly || (req.ForceReview && (prepared.Review.Verdict == ReviewFail || prepared.Review.Verdict == ReviewVerdictBlocked))
+---
+internal/app/operation_runner.go:75:			service := sprint.NewService(root.Path).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env)))
+internal/app/serve_commands.go:50:		smokeSettings:     smokeSettings(effective, envLookup(deps.env)), readOnly: true,
+internal/app/serve_commands.go:62:		SmokeSettings:     smokeSettings(effective, envLookup(deps.env)),
+internal/app/sprint_commands.go:81:	service := sprint.NewService(root.Path).WithStageRuntime(planningStageRuntime(effective.Config)).WithReviewConcurrency(effective.Config.Execution.DefaultParallel).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env)))
+internal/app/sprint_commands.go:498:	return sprint.NewService(root.Path).WithRuntime(controlled, req).WithRuntimeProgress(progress).WithStageRuntime(planningStageRuntime(effective.Config)).WithReviewConcurrency(effective.Config.Execution.DefaultParallel).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env))), nil
+internal/app/sprint_commands.go:526:func smokeSettings(e config.Effective, lookups ...func(string) string) sprint.SmokeSettings {
+internal/app/tui_commands.go:40:		smokeSettings:     smokeSettings(effective, envLookup(deps.env)),
+[0m
+[0m$ [0mgrep -n 'PrepareReview\|prepareSmoke\|func (s Service) RunSmoke' internal/sprint/smoke.go | head; echo ---; sed -n '1,120p' internal/sprint/smoke.go
+20:func (s Service) RunSmoke(ctx context.Context, projectRef, sprintRef string, req SmokeRequest) (result SmokeResult, err error) {
+49:	prepared, err := s.prepareSmokeStatic(projectRef, sprintRef, req)
+232:	prepared, err := s.prepareSmokeStatic(projectRef, sprintRef, SmokeRequest{})
+---
+package sprint
+
+import (
+	"context"
+	"crypto/sha256"
+	"encoding/hex"
+	"encoding/json"
+	"errors"
+	"fmt"
+	"io"
+	"os"
+	"path/filepath"
+	"sort"
+	"strings"
+	"time"
+
+	pprocess "github.com/Antonio7098/ultraplan-go/internal/platform/process"
+)
+
+func (s Service) RunSmoke(ctx context.Context, projectRef, sprintRef string, req SmokeRequest) (result SmokeResult, err error) {
+	if req.DryRun {
+		return s.runSmoke(ctx, projectRef, sprintRef, req)
+	}
+	lockedCtx, release, lockErr := s.acquireMutationContext(ctx, projectRef, sprintRef)
+	if lockErr != nil {
+		return SmokeResult{Project: projectRef, Sprint: sprintRef, Status: SmokeFailed}, lockErr
+	}
+	defer release()
+	ctx = lockedCtx
+	if saveErr := s.saveSmokeAttempt(projectRef, sprintRef, SmokeResult{Project: projectRef, Sprint: sprintRef, Status: SmokeRunning}, nil, false); saveErr != nil {
+		return SmokeResult{Project: projectRef, Sprint: sprintRef, Status: SmokeFailed}, smokeError("smoke_state_write", "persistence", "smoke attempt could not be recorded", "Repair flow-state persistence before retrying; no harness work was started.", saveErr)
+	}
+	result, err = s.runSmoke(ctx, projectRef, sprintRef, req)
+	if saveErr := s.saveSmokeAttempt(projectRef, sprintRef, result, err, true); saveErr != nil {
+		stateErr := smokeError("smoke_state_write", "persistence", "terminal smoke state could not be recorded", "Inspect and repair flow-state persistence before retrying.", saveErr)
+		return result, errors.Join(err, stateErr)
+	}
+	return result, err
+}
+
+func (s Service) runSmoke(ctx context.Context, projectRef, sprintRef string, req SmokeRequest) (SmokeResult, error) {
+	result := SmokeResult{Project: projectRef, Sprint: sprintRef, Status: SmokeReady, DryRun: req.DryRun, OverrideRationale: strings.TrimSpace(req.OverrideRationale)}
+	emit := func(p SmokeProgress) {
+		if req.Progress != nil {
+			req.Progress(p)
+		}
+	}
+	emit(SmokeProgress{Phase: SmokePhasePreflight, Message: "validating review gate and harness manifest"})
+	prepared, err := s.prepareSmokeStatic(projectRef, sprintRef, req)
+	if err != nil {
+		return smokeFailedResult(result, err)
+	}
+	result.Project, result.Sprint = prepared.Sprint.Project, prepared.Sprint.Slug
+	result.Harness, result.Protocol = prepared.Manifest.Harness.ID, prepared.Manifest.ProtocolVersion
+	result.Artifact = ArtifactRelPath(prepared.Sprint, StageSmoke)
+	result.ReviewVerdict, result.ReviewFingerprint = prepared.Review.Verdict, prepared.Review.Fingerprint
+	result.ReviewOverride = req.ForceReview
+	result.Ready = true
+	result.EffectiveTimeout, result.TimeoutSource = smokeTimeout(s.smokeSettings, prepared.Manifest, req)
+	if !req.DryRun {
+		emit(SmokeProgress{Phase: SmokePhaseAuthoring, Message: "authoring sprint-specific deep-smoke coverage"})
+		if err := s.authorSmokeSuite(ctx, prepared, &result); err != nil {
+			return smokeFailedResult(result, err)
+		}
+	}
+
+	getenv := s.smokeSettings.Getenv
+	if getenv == nil {
+		getenv = os.Getenv
+	}
+	env := smokeEnvironment(s.smokeSettings, prepared.Manifest, getenv)
+	discoveryArgs := append(append([]string{}, prepared.Manifest.Args...), prepared.Manifest.Commands.Discover...)
+	discoveryArgs = append(discoveryArgs, "--target", prepared.Target)
+	emit(SmokeProgress{Phase: SmokePhaseDiscovery, Message: "discovering machine-readable smoke scopes"})
+	discoveryProcess, discoveryErr := s.processRunner.Run(ctx, pprocess.Request{Executable: prepared.Executable, Args: discoveryArgs, Dir: prepared.CWD, Env: env, Timeout: s.smokeSettings.DiscoveryTimeout, StdoutLimit: s.smokeSettings.StdoutLimit, StderrLimit: s.smokeSettings.StderrLimit, CleanupGrace: s.smokeSettings.CleanupGrace})
+	if discoveryErr != nil {
+		return smokeFailedResult(result, classifyProcessSmokeError("discovery", discoveryProcess, discoveryErr))
+	}
+	if discoveryProcess.StdoutTruncated {
+		return smokeFailedResult(result, smokeError("smoke_discovery_truncated", "protocol", "discovery output exceeded the configured bound", "Increase the bounded capture limit or reduce discovery output.", nil))
+	}
+	var discovery smokeDiscovery
+	if err := decodeOneJSON(discoveryProcess.Stdout, &discovery); err != nil {
+		return smokeFailedResult(result, smokeError("smoke_discovery_malformed", "protocol", "discovery did not return one valid JSON object", "Fix the harness discovery command.", err))
+	}
+	if err := validateSmokeDiscovery(discovery, prepared.Manifest); err != nil {
+		return smokeFailedResult(result, err)
+	}
+	result.CoverageMapping = smokeCoverageMapping(discovery, prepared.Sprint.Slug)
+	populateSmokeCoverageRequirements(result.CoverageMapping, filepath.Join(prepared.Sprint.Path, "requirements.md"))
+	emit(SmokeProgress{Phase: SmokePhaseSelection, Message: "selecting narrowest sufficient scope"})
+	selection, err := selectSmoke(discovery, prepared.Sprint.Slug, req)
+	if err != nil {
+		return smokeFailedResult(result, err)
+	}
+	result.ScopeKind, result.Scope, result.ScopeRationale = selection.Kind, strings.Join(selection.IDs, ","), selection.Rationale
+	result.DurationClass, result.CostClass = selection.DurationClass, selection.CostClass
+	if result.DurationClass == "" {
+		result.DurationClass = prepared.Manifest.Defaults.DurationClass
+	}
+	if result.CostClass == "" {
+		result.CostClass = prepared.Manifest.Defaults.CostClass
+	}
+	result.EvidenceRoots = []string{prepared.RunsRoot, prepared.IssuesRoot}
+	result.Prerequisites = selection.Prerequisites
+	result.DiagnosticOnly = selection.DiagnosticOnly || (req.ForceReview && (prepared.Review.Verdict == ReviewFail || prepared.Review.Verdict == ReviewVerdictBlocked))
+	if selection.Verdict == SmokeBlockedVerdict || selection.Verdict == SmokeNotApplicable {
+		result.Status, result.Verdict, result.NextAction = SmokeCompleted, selection.Verdict, selection.NextAction
+		if req.DryRun {
+			return result, nil
+		}
+		return s.commitSmoke(prepared, result)
+	}
+	if selection.DiagnosticOnly {
+		result.Diagnostics = append(result.Diagnostics, "selected diagnostic scope does not replace required containing-suite evidence")
+		result.NextAction = "Run the complete containing suite before treating smoke as current."
+	}
+	runArgs := append(append([]string{}, prepared.Manifest.Args...), prepared.Manifest.Commands.Run...)
+	runArgs = append(runArgs, "--project", prepared.Sprint.Project, "--sprint", prepared.Sprint.Slug, "--workspace", s.root, "--target", prepared.Target, "--scope-kind", selection.Kind, "--scope", strings.Join(selection.IDs, ","))
+	result.SafeArgv = safeArgv(prepared.Executable, runArgs)
+[0m
+[0m$ [0mgrep -n 's\.runtime\|runtimeConfig\|startRuntime\|s\.processRunner' internal/sprint/smoke_author.go internal/sprint/smoke_protocol.go internal/sprint/runtime_metrics.go | head -20
+internal/sprint/smoke_author.go:21:	if s.runtime == nil {
+internal/sprint/smoke_author.go:56:	req := s.runtimeRequest(prompt, map[string]string{"project": prepared.Sprint.Project, "sprint": prepared.Sprint.Slug, "stage": string(StageSmoke), "operation": "author"})
+internal/sprint/runtime_metrics.go:116:	result, runErr := s.runtime.StartRun(ctx, req)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_author.go[90m [limit=70][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands.go
+[0m
+[0m$ [0mgrep -rn 'OperationSmokeStart' internal --include='*.go' | head -20
+internal/app/run_control_inventory_test.go:26:				"Kind: OperationReviewStart", "Kind: OperationSmokeStart",
+internal/app/operation_runner.go:74:		case OperationSmokeStart:
+internal/app/operations.go:90:	OperationSmokeStart    OperationKind = "smoke-start"
+internal/app/operations.go:210:	case OperationSmokeDryRun, OperationSmokeStart:
+internal/app/operations.go:216:		c.Mutates = req.Kind == OperationSmokeStart
+internal/app/operations.go:492:	case OperationSmokeStart, OperationVerifyStart:
+internal/app/operations.go:498:	if req.Kind == OperationSmokeStart {
+internal/app/sprint_commands.go:431:			durable, err = beginDurableCLICommand(deps, OperationRequest{Kind: OperationSmokeStart, Project: args[0], Sprint: args[1], Stage: "smoke", Level: string(req.Level), Suite: req.Suite, Test: req.Test})
+internal/tui/model.go:485:				navItem{Label: "Run Smoke [EXTERNAL]", Operation: &app.OperationRequest{Kind: app.OperationSmokeStart, Project: route.Project, Sprint: route.Sprint, Stage: "smoke"}},
+internal/tui/model.go:486:				navItem{Label: "Run Smoke Diagnostic Override [EXTERNAL]", Operation: &app.OperationRequest{Kind: app.OperationSmokeStart, Project: route.Project, Sprint: route.Sprint, Stage: "smoke", ForceReview: true, OverrideRationale: "operator requested guarded TUI diagnostic evidence"}})
+internal/web/operations_contract_test.go:46:		{"smoke-start", app.OperationSmokeStart, projectScope},
+internal/web/operation_handlers.go:114:	if confirmation.Request.Kind == app.OperationSmokeStart || confirmation.Request.Kind == app.OperationSmokeDryRun {
+internal/web/operation_handlers.go:660:			req.Kind = app.OperationSmokeStart
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=150, offset=380][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands.go
+[0m
+[0m$ [0mgrep -n 'authorSmokeSuite\|Authoring\|authoring' internal/sprint/smoke.go | head -20; echo ---; sed -n '120,180p' internal/sprint/smoke.go
+61:		emit(SmokeProgress{Phase: SmokePhaseAuthoring, Message: "authoring sprint-specific deep-smoke coverage"})
+62:		if err := s.authorSmokeSuite(ctx, prepared, &result); err != nil {
+468:	fmt.Fprintf(&b, "## Smoke Authoring\n\nAuthor run ID: `%s`\nAuthor model: `%s`\nChanged harness paths:\n", printable(r.AuthorRunID), printable(r.AuthorModel))
+550:	b.WriteString("\n## Mutation And Safety Check\n\nOnly smoke.md, flow-state.json, manifest-declared harness authoring paths, and manifest-declared external evidence roots were approved for mutation. Product source and governed sprint inputs were identity-checked before and after authoring.\n\n")
+560:	for _, heading := range []string{"Smoke Context", "Review Gate", "Harness And Protocol", "Smoke Authoring", "Selected Scope And Rationale", "Preconditions And Environment", "Safe Invocation", "Run Evidence", "Findings", "Open Issues", "Resolved Issues", "Mutation And Safety Check", "Verdict And Next Action"} {
+---
+	result.SafeArgv = safeArgv(prepared.Executable, runArgs)
+	if req.DryRun {
+		result.Status = SmokeReady
+		result.NextAction = "Confirm and run the selected smoke scope."
+		return result, nil
+	}
+	result.Status = SmokeRunning
+	emit(SmokeProgress{Phase: SmokePhaseRunning, Message: "running external smoke harness"})
+	runProcess, runErr := s.processRunner.Run(ctx, pprocess.Request{Executable: prepared.Executable, Args: runArgs, Dir: prepared.CWD, Env: env, Timeout: result.EffectiveTimeout, StdoutLimit: s.smokeSettings.StdoutLimit, StderrLimit: s.smokeSettings.StderrLimit, CleanupGrace: s.smokeSettings.CleanupGrace, Progress: func(event pprocess.Event) { emit(SmokeProgress{Phase: SmokePhaseRunning, Message: "harness progress"}) }})
+	if runProcess.DroppedEvents > 0 {
+		result.Diagnostics = append(result.Diagnostics, fmt.Sprintf("%d progress events were dropped", runProcess.DroppedEvents))
+	}
+	if runProcess.StdoutTruncated {
+		return smokeFailedResult(result, smokeError("smoke_run_truncated", "process", "run response exceeded the configured stdout bound", "Increase the bounded capture limit or reduce run output.", nil))
+	}
+	var response smokeRunResponse
+	decodeErr := decodeOneJSON(runProcess.Stdout, &response)
+	if decodeErr != nil {
+		if runErr != nil {
+			return smokeFailedResult(result, classifyProcessSmokeError("run", runProcess, runErr))
+		}
+		return smokeFailedResult(result, smokeError("smoke_run_malformed", "protocol", "run did not return one valid JSON object", "Inspect external harness evidence and fix its protocol output.", decodeErr))
+	}
+	if runProcess.TimedOut || runProcess.Cancelled || !runProcess.CleanupComplete {
+		return smokeFailedResult(result, classifyProcessSmokeError("run", runProcess, runErr))
+	}
+	emit(SmokeProgress{Phase: SmokePhaseValidatingEvidence, Message: "validating external evidence identity"})
+	validated, issues, tests, err := validateSmokeRun(prepared, discovery, selection, response, runProcess)
+	if err != nil {
+		return smokeFailedResult(result, err)
+	}
+	result.RunID, result.Runtime, result.Model = response.RunID, response.Runtime, response.Model
+	result.Duration = time.Duration(response.DurationMs) * time.Millisecond
+	result.Counts = SmokeCounts{Total: response.Counts.Total, Passed: response.Counts.Passed, Failed: response.Counts.Failed, Skipped: response.Counts.Skipped, Errors: response.Counts.Errors}
+	result.Evidence, result.Issues, result.Tests = validated, issues, tests
+	result.Verdict = synthesizeSmokeVerdict(result.Counts, issues)
+	result.Status = SmokeCompleted
+	result.NextAction = nextSmokeAction(result)
+	if result.DiagnosticOnly {
+		return result, nil
+	}
+	emit(SmokeProgress{Phase: SmokePhaseWritingArtifact, Message: "writing validated smoke summary"})
+	committed, commitErr := s.commitSmoke(prepared, result)
+	if commitErr == nil {
+		emit(SmokeProgress{Phase: SmokePhaseCompleted, Message: "smoke complete"})
+	}
+	return committed, commitErr
+}
+
+func (s Service) saveSmokeAttempt(projectRef, sprintRef string, result SmokeResult, runErr error, terminal bool) error {
+	sp, _, _, err := s.resolveSprintInputs(projectRef, sprintRef)
+	if err != nil {
+		return err
+	}
+	state, err := LoadFlowState(s.root, sp)
+	if err != nil {
+		if !errors.Is(err, ErrFlowStateMissing) {
+			return err
+		}
+		snap, readErr := s.store.ReadArtifacts(sp)
+		if readErr != nil {
+[0m
+[0m$ [0mgrep -rln 'smoke' internal/app/*_test.go internal/web/*_test.go | head; echo ---; grep -rn 'RunSmoke\|smoke-start\|SmokeStart' internal/app/web_operations_test.go internal/app/sprint_commands_test.go 2>/dev/null | head -20
+internal/app/skills_commands_test.go
+internal/app/sprint_commands_test.go
+internal/app/sprint_error_test.go
+internal/app/sprint_verify_commands_test.go
+internal/app/web_usecases_test.go
+internal/web/api_compatibility_test.go
+internal/web/operations_contract_test.go
+internal/web/templates_test.go
+internal/web/test_fakes_test.go
+---
+[0m
+[0m$ [0mgrep -rn 'SmokeStart\|RunSmoke' internal/app/sprint_commands_test.go internal/web/test_fakes_test.go internal/app/web_usecases_test.go | head -20; echo ---; grep -rn 'sprintRuntimeFactory' internal/app/*.go cmd/**/*.go 2>/dev/null | grep -v _test | head
+---
+internal/app/app.go:119:		sprintRuntimeFactory: cfg.SprintRuntimeFactory,
+internal/app/app.go:122:	if deps.sprintRuntimeFactory == nil {
+internal/app/app.go:123:		deps.sprintRuntimeFactory = defaultSprintRuntimeFactory
+internal/app/app.go:190:	sprintRuntimeFactory SprintRuntimeFactory
+internal/app/sprint_commands.go:486:	rt, err := deps.sprintRuntimeFactory(effective.Config)
+[0m
+[0m$ [0msed -n '200,360p' internal/app/web_usecases.go
+Ref           string
+	DisplayPath   string
+	MediaType     string
+	Content       string
+	SizeBytes     int64
+	ReturnedBytes int
+	Truncated     bool
+	JSONValid     bool
+}
+
+type WebHealthResult struct {
+	Status    string
+	Server    bool
+	Workspace bool
+}
+
+type webRefTarget struct {
+	kind   string
+	values []string
+}
+
+type webUseCases struct {
+	root      string
+	dashboard dashboardUseCases
+	secret    [32]byte
+	mu        sync.RWMutex
+	refs      map[string]webRefTarget
+	runs      RunUseCases
+	durable   DurableOperationManager
+}
+
+func (u *webUseCases) StudyResources(ctx context.Context, name string) (study.RunLoopResourceHistory, error) {
+	if err := ctx.Err(); err != nil {
+		return study.RunLoopResourceHistory{}, err
+	}
+	listing, err := study.NewService(u.root).ListStudy(name)
+	if err != nil {
+		return study.RunLoopResourceHistory{}, fmt.Errorf("%w: study resources", ErrWebNotFound)
+	}
+	return study.LoadRunLoopResourceHistory(listing.Study, 240)
+}
+
+func NewWebUseCases(root string, opts WebUseCaseOptions) WebUseCases {
+	u := &webUseCases{
+		root: root,
+		dashboard: dashboardUseCases{
+			root:              root,
+			stageRuntime:      opts.StageRuntime,
+			reviewConcurrency: opts.ReviewConcurrency,
+			smokeSettings:     opts.SmokeSettings,
+			readOnly:          true,
+			runner:            opts.Runner,
+		},
+		refs:    make(map[string]webRefTarget),
+		runs:    opts.RunControl,
+		durable: opts.DurableOperations,
+	}
+	if _, err := rand.Read(u.secret[:]); err != nil {
+		u.secret = sha256.Sum256([]byte(filepath.Clean(root)))
+	}
+	return u
+}
+
+func (u *webUseCases) AcceptOperation(ctx context.Context, confirmation Confirmation, digest string) (AcceptedOperation, error) {
+	if u.durable == nil {
+		return AcceptedOperation{}, ErrWebUnavailable
+	}
+	return u.durable.AcceptOperation(ctx, confirmation, digest)
+}
+
+func (u *webUseCases) FinishOperation(ctx context.Context, runID string, state OperationState, runErr error) error {
+	if u.durable == nil {
+		return ErrWebUnavailable
+	}
+	return u.durable.FinishOperation(ctx, runID, state, runErr)
+}
+
+func (u *webUseCases) RecordOperationEvent(ctx context.Context, runID string, event OperationEvent) (bool, error) {
+	if u.durable == nil {
+		return false, ErrWebUnavailable
+	}
+	return u.durable.RecordOperationEvent(ctx, runID, event)
+}
+
+func (u *webUseCases) Runs(ctx context.Context, query runcontrol.Query) (runcontrol.Page, error) {
+	if u.runs == nil {
+		return runcontrol.Page{}, ErrWebUnavailable
+	}
+	return u.runs.Runs(ctx, query)
+}
+
+func (u *webUseCases) Run(ctx context.Context, id runcontrol.RunID) (runcontrol.Snapshot, error) {
+	if u.runs == nil {
+		return runcontrol.Snapshot{}, ErrWebUnavailable
+	}
+	return u.runs.Run(ctx, id)
+}
+
+func (u *webUseCases) RunEvents(ctx context.Context, id runcontrol.RunID, after uint64, limit int) ([]runcontrol.Event, error) {
+	if u.runs == nil {
+		return nil, ErrWebUnavailable
+	}
+	return u.runs.RunEvents(ctx, id, after, limit)
+}
+
+func (u *webUseCases) CancelRun(ctx context.Context, id runcontrol.RunID, reason string) (runcontrol.Snapshot, bool, error) {
+	if u.runs == nil {
+		return runcontrol.Snapshot{}, false, ErrWebUnavailable
+	}
+	return u.runs.CancelRun(ctx, id, reason)
+}
+
+func (u *webUseCases) RunHealth(ctx context.Context) (runcontrol.Health, error) {
+	if u.runs == nil {
+		return runcontrol.Health{}, ErrWebUnavailable
+	}
+	return u.runs.RunHealth(ctx)
+}
+
+func (u *webUseCases) Validate(ctx context.Context, req ValidationRequest) (ValidationOperationResult, error) {
+	return u.dashboard.Validate(ctx, req)
+}
+
+func (u *webUseCases) PrepareOperation(ctx context.Context, req OperationRequest) (Confirmation, error) {
+	return u.dashboard.PrepareOperation(ctx, req)
+}
+
+func (u *webUseCases) RunOperation(ctx context.Context, req OperationRequest, emit func(OperationEvent)) (OperationResult, error) {
+	return u.dashboard.RunOperation(ctx, req, emit)
+}
+
+func (u *webUseCases) RecordOperationCleanupUncertain(ctx context.Context, record OperationCleanupUncertain) error {
+	if err := ctx.Err(); err != nil {
+		return err
+	}
+	if record.Request.Project != "" && record.Request.Sprint != "" {
+		return sprint.NewService(u.root).RecordCleanupUncertain(ctx, record.Request.Project, record.Request.Sprint, sprint.CleanupUncertainRecord{
+			OperationID: record.OperationID,
+			Kind:        string(record.Request.Kind),
+			Reason:      record.Reason,
+			RecordedAt:  record.RecordedAt,
+		})
+	}
+	if record.Request.Study != "" {
+		return study.NewService(u.root).RecordCleanupUncertain(ctx, record.Request.Study, study.CleanupUncertainRecord{
+			OperationID: record.OperationID,
+			Kind:        string(record.Request.Kind),
+			Reason:      record.Reason,
+			RecordedAt:  record.RecordedAt,
+		})
+	}
+	return fmt.Errorf("durable cleanup uncertainty is unavailable for operation %q", record.Request.Kind)
+}
+
+func (u *webUseCases) ReconcileOperations(ctx context.Context) error {
+	summaries, err := u.dashboard.SprintSummaries(ctx)
+	if err != nil {
+		return err
+	}
+	service := sprint.NewService(u.root)
+	for _, summary := range summaries {
+[0m
+[0m$ [0mgrep -n 'runner' internal/app/operations.go internal/app/usecases.go | head -20; echo ---; sed -n '440,540p' internal/app/operations.go
+internal/app/operations.go:400:		if u.runner == nil {
+internal/app/operations.go:403:		return u.runner(ctx, req, emit)
+internal/app/usecases.go:63:	runner            func(context.Context, OperationRequest, func(OperationEvent)) (OperationResult, error)
+---
+	}
+	return nil
+}
+
+func normalizedStrings(values []string) []string {
+	seen := make(map[string]struct{}, len(values))
+	out := make([]string, 0, len(values))
+	for _, value := range values {
+		value = strings.TrimSpace(value)
+		if value == "" {
+			continue
+		}
+		if _, ok := seen[value]; ok {
+			continue
+		}
+		seen[value] = struct{}{}
+		out = append(out, value)
+	}
+	sort.Strings(out)
+	return out
+}
+
+func canonicalOperationRequest(req OperationRequest) (string, error) {
+	req.ExpectedFingerprint = ""
+	data, err := json.Marshal(req)
+	if err != nil {
+		return "", fmt.Errorf("canonicalize operation: %w", err)
+	}
+	return string(data), nil
+}
+
+func operationPrerequisites(req OperationRequest) []string {
+	prerequisites := []string{"workspace readable"}
+	if req.Project != "" {
+		prerequisites = append(prerequisites, "project and sprint resolvable")
+	}
+	if req.Study != "" {
+		prerequisites = append(prerequisites, "study resolvable")
+	}
+	if req.Kind == OperationExecuteStart || req.Kind == OperationExecuteResume {
+		prerequisites = append(prerequisites, "validated plan", "approved target implementation directory")
+	}
+	return prerequisites
+}
+
+func operationRuntimeIdentity(req OperationRequest, stages map[sprint.PlanningStage]sprint.StageRuntime) string {
+	stage := sprint.PlanningStage(req.Stage)
+	switch req.Kind {
+	case OperationExecuteStart, OperationExecuteResume:
+		stage = sprint.StageExecute
+	case OperationReviewStart:
+		stage = sprint.StageReview
+	case OperationSmokeStart, OperationVerifyStart:
+		stage = sprint.StageSmoke
+	}
+	if runtime, ok := stages[stage]; ok && (runtime.Model != "" || runtime.Variant != "") {
+		return strings.TrimSpace(runtime.Model + " variant=" + runtime.Variant)
+	}
+	if req.Kind == OperationSmokeStart {
+		return "configured smoke author and harness"
+	}
+	return "effective workspace runtime configuration"
+}
+
+func governedOperationInputs(req OperationRequest) []string {
+	if req.Project != "" {
+		base := filepath.ToSlash(filepath.Join("projects", req.Project))
+		inputs := []string{
+			filepath.ToSlash(filepath.Join(base, "project-index.md")),
+			filepath.ToSlash(filepath.Join(base, "roadmap.md")),
+			filepath.ToSlash(filepath.Join(base, "docs")),
+			filepath.ToSlash(filepath.Join(base, "sprints", req.Sprint, "requirements.md")),
+			filepath.ToSlash(filepath.Join(base, "sprints", req.Sprint, "code-context.md")),
+			filepath.ToSlash(filepath.Join(base, "sprints", req.Sprint, "sprint-index.md")),
+			filepath.ToSlash(filepath.Join(base, "sprints", req.Sprint, "technical-handbook.md")),
+			filepath.ToSlash(filepath.Join(base, "sprints", req.Sprint, "reasoning.md")),
+			filepath.ToSlash(filepath.Join(base, "sprints", req.Sprint, "plan.md")),
+		}
+		return append([]string{"ultraplan.yml"}, inputs...)
+	}
+	if req.Study != "" {
+		return []string{
+			"ultraplan.yml",
+			filepath.ToSlash(filepath.Join("studies", req.Study, "study.yml")),
+			filepath.ToSlash(filepath.Join("studies", req.Study, "study.yaml")),
+			filepath.ToSlash(filepath.Join("studies", req.Study, ".ultraplan", "run-state.json")),
+		}
+	}
+	return nil
+}
+
+func fingerprintOperationInputs(root, canonical string, inputs []string) (string, error) {
+	hash := sha256.New()
+	_, _ = hash.Write([]byte(canonical))
+	for _, rel := range inputs {
+		path := filepath.Join(root, filepath.FromSlash(rel))
+		info, err := os.Lstat(path)
+		if errors.Is(err, fs.ErrNotExist) {
+			continue
+		}
+		if err != nil {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go[90m [limit=30, offset=390][0m
+[0m
+[0m$ [0mgit log --oneline --follow -- internal/app/operation_runner.go | head -10; echo ---; git log -p --all -S 'OperationSmokeStart' --oneline -- internal/app/operation_runner.go 2>/dev/null | grep -n 'WithRuntime\|WithSmokeSettings\|sprint.NewService\|commit \|^\w{7} ' | head -30
+f067727 Propagate runtime failure diagnostics
+e09d394 Add durable run control and adaptive study execution
+0bf3cb9 fix: harden sprint review recovery and web operations
+a221683 feat: add guarded web operations and SSE progress
+f4d6d38 feat: add resumable review to smoke verification
+76711a7 feat: stream runtime progress across cli and tui
+f142a73 feat: add review-gated deep smoke
+d1e8b45 feat: expose all sprint operations in tui
+f1de940 feat: add automated sprint review stage
+922062d Improve TUI and study run controls
+---
+69:+			service := sprint.NewService(root.Path).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env)))
+[0m
+[0m$ [0mgit show f142a73 -- internal/app/operation_runner.go 2>/dev/null | grep -n 'OperationSmokeStart' -A 8 | head -20; echo ===; git log --oneline -3 f142a73; echo; git show f142a73 --stat | head -25
+===
+f142a73 feat: add review-gated deep smoke
+d1e8b45 feat: expose all sprint operations in tui
+f1de940 feat: add automated sprint review stage
+
+commit f142a7386e2f44c60543c432a7546d688e03191a
+Author: antonio <antoniorees74@gmail.com>
+Date:   Wed Jul 22 20:11:51 2026 +0100
+
+    feat: add review-gated deep smoke
+
+ docs/cli-reference.md                          |  32 +-
+ docs/configuration.md                          |  22 ++
+ docs/planning-smoke.md                         |  30 +-
+ docs/recovery.md                               |  11 +-
+ docs/user-guide.md                             |  15 +-
+ internal/app/config_commands.go                |   6 +
+ internal/app/operations.go                     |  40 +-
+ internal/app/sprint_commands.go                | 202 +++++++++-
+ internal/app/sprint_commands_test.go           |  16 +
+ internal/app/sprint_usecases.go                |  23 +-
+ internal/app/tui_commands.go                   |  23 +-
+ internal/app/usecases.go                       |   9 +-
+ internal/platform/config/config.go             |  81 +++-
+ internal/platform/config/config_test.go        |  13 +
+ internal/platform/config/redaction.go          |   3 +-
+ internal/platform/process/process.go           | 242 ++++++++++++
+ internal/platform/process/process_other.go     |  26 ++
+ internal/platform/process/process_test.go      |  98 +++++
+ internal/platform/process/process_unix.go      |  42 ++
+[0m
+[0m$ [0mgit log --oneline -S 'smoke_author_runtime' -- internal/sprint/ | head; echo ---; git log --oneline -S 'authorSmokeSuite' -- internal/sprint/smoke.go | head
+b9733ce Add agent-owned stage execution and smoke authoring
+---
+b9733ce Add agent-owned stage execution and smoke authoring
+[0m
+[0m$ [0mgit show b9733ce --stat | head -30; echo ===; git merge-base --is-ancestor b9733ce f142a73 && echo 'author-before-smoke' || echo 'smoke-before-author'; git log --oneline | wc -l
+commit b9733ce27858c901a1730b8db4db15be0244800e
+Author: antonio <antoniorees74@gmail.com>
+Date:   Sun Aug 16 15:40:58 2026 +0100
+
+    Add agent-owned stage execution and smoke authoring
+
+ docs/cli-reference.md                          |   2 +-
+ docs/planning-smoke.md                         |  10 +-
+ docs/stage-skills.md                           |  25 ++--
+ internal/app/operations.go                     | 188 +++++++++++++++++++++++++
+ internal/app/sprint_commands.go                |  13 +-
+ internal/platform/config/config.go             |   8 +-
+ internal/platform/config/redaction.go          |   2 +
+ internal/platform/runtime/agentwrap.go         |   3 -
+ internal/platform/runtime/runtime_test.go      |  14 +-
+ internal/sprint/execute.go                     |   1 -
+ internal/sprint/smoke.go                       | 117 ++++++++++++---
+ internal/sprint/smoke_author.go                | 178 +++++++++++++++++++++++
+ internal/sprint/smoke_protocol.go              |  83 ++++++++++-
+ internal/sprint/smoke_test.go                  |  80 +++++++++--
+ internal/sprint/smoke_types.go                 | 146 ++++++++++---------
+ internal/workspace/init.go                     |   7 +
+ internal/workspace/scaffold/prompts/smoke.md   |  50 +++++++
+ internal/workspace/scaffold/templates/smoke.md |   8 +-
+ internal/workspace/skills.go                   |  35 ++---
+ internal/workspace/skills_test.go              |  24 ++++
+ 20 files changed, 840 insertions(+), 154 deletions(-)
+===
+smoke-before-author
+195
+[0m
+[0m$ [0mgit show b9733ce -- internal/app/sprint_commands.go | head -60
+commit b9733ce27858c901a1730b8db4db15be0244800e
+Author: antonio <antoniorees74@gmail.com>
+Date:   Sun Aug 16 15:40:58 2026 +0100
+
+    Add agent-owned stage execution and smoke authoring
+
+diff --git a/internal/app/sprint_commands.go b/internal/app/sprint_commands.go
+index 1bf39d9..e789285 100644
+--- a/internal/app/sprint_commands.go
++++ b/internal/app/sprint_commands.go
+@@ -352,7 +352,14 @@ func runSprint(deps dependencies, args []string) error {
+ 				fmt.Fprintf(deps.stderr, " | %s\n", config.RedactValue("smoke.progress", progress.Message))
+ 			}
+ 		}
+-		result, runErr := service.RunSmoke(deps.ctx, args[0], args[1], req)
++		smokeService := service
++		if !req.DryRun {
++			smokeService, err = sprintRuntimeService(deps, root)
++			if err != nil {
++				return err
++			}
++		}
++		result, runErr := smokeService.RunSmoke(deps.ctx, args[0], args[1], req)
+ 		if jsonOut {
+ 			_ = json.NewEncoder(deps.stdout).Encode(map[string]any{"schema_version": 1, "operation": "sprint.smoke", "status": result.Status, "result": result})
+ 		} else {
+@@ -543,6 +550,7 @@ func planningStageRuntime(c config.Config) map[sprint.PlanningStage]sprint.Stage
+ 			Variant: c.Planning.ExecuteVariant,
+ 		},
+ 		sprint.StageReview: {Model: c.Planning.ReviewModel, Variant: c.Planning.ReviewVariant},
++		sprint.StageSmoke:  {Model: c.Planning.SmokeModel, Variant: c.Planning.SmokeVariant},
+ 	}
+ }
+ 
+@@ -941,6 +949,9 @@ func renderSprintSmoke(deps dependencies, result sprint.SmokeResult) {
+ 	fmt.Fprintf(deps.stdout, "Project: %s\nSprint: %s\nSmoke status: %s\nVerdict: %s\n", result.Project, result.Sprint, result.Status, result.Verdict)
+ 	fmt.Fprintf(deps.stdout, "Review gate: %s fingerprint=%s override=%t\n", result.ReviewVerdict, result.ReviewFingerprint, result.ReviewOverride)
+ 	fmt.Fprintf(deps.stdout, "Harness: %s protocol=%s\nScope: %s %s\nRationale: %s\n", result.Harness, result.Protocol, result.ScopeKind, result.Scope, result.ScopeRationale)
++	if result.AuthorRunID != "" {
++		fmt.Fprintf(deps.stdout, "Smoke author: %s model=%s changed=%d\n", result.AuthorRunID, result.AuthorModel, len(result.AuthorChangedPaths))
++	}
+ 	fmt.Fprintf(deps.stdout, "Duration/cost class: %s/%s\nEvidence roots: %s\n", result.DurationClass, result.CostClass, strings.Join(result.EvidenceRoots, ", "))
+ 	fmt.Fprintf(deps.stdout, "Effective timeout: %s (source=%s)\n", result.EffectiveTimeout, result.TimeoutSource)
+ 	if result.SafeArgv != "" {
+[0m
+[0m$ [0mwc -l internal/sprint/cleanup_uncertain.go internal/study/cleanup_uncertain.go; grep -n 'func ' internal/sprint/cleanup_uncertain.go internal/study/cleanup_uncertain.go
+82 internal/sprint/cleanup_uncertain.go
+ 178 internal/study/cleanup_uncertain.go
+ 260 total
+internal/sprint/cleanup_uncertain.go:31:func (s Service) RecordCleanupUncertain(ctx context.Context, projectRef, sprintRef string, record CleanupUncertainRecord) error {
+internal/sprint/cleanup_uncertain.go:60:func loadCleanupUncertain(sp Sprint) (CleanupUncertainRecord, error) {
+internal/sprint/cleanup_uncertain.go:76:func removeCleanupUncertain(sp Sprint) error {
+internal/study/cleanup_uncertain.go:31:func (s Service) RecordCleanupUncertain(ctx context.Context, studyRef string, record CleanupUncertainRecord) error {
+internal/study/cleanup_uncertain.go:66:func (s Service) ReconcileInterruptedRun(ctx context.Context, studyRef string) (bool, error) {
+internal/study/cleanup_uncertain.go:92:func (s Service) resolveCleanupStudy(ref string) (Study, error) {
+internal/study/cleanup_uncertain.go:100:func reconcileInterruptedRunLocked(st Study, now time.Time) (bool, error) {
+internal/study/cleanup_uncertain.go:152:func cleanupUncertainPath(st Study) string {
+internal/study/cleanup_uncertain.go:156:func loadCleanupUncertain(st Study) (CleanupUncertainRecord, error) {
+internal/study/cleanup_uncertain.go:172:func removeCleanupUncertain(st Study) error {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go[90m [limit=120, offset=230][0m
+[0m
+[0m$ [0mgrep -rn 'pruntime\.\|runtimepkg\.\|runtime\.New\|runtime\.OpenCode' internal --include='*.go' | grep -v _test | grep -v 'platform/runtime' | awk -F: '{print $1}' | sort | uniq -c
+3 internal/app/health_commands.go
+      9 internal/app/run_control.go
+      2 internal/app/sprint_commands.go
+     10 internal/app/study_commands.go
+     16 internal/sprint/code_context.go
+      5 internal/sprint/execute.go
+      3 internal/sprint/review.go
+      1 internal/sprint/review_runtime_validation.go
+      2 internal/sprint/runtime_metrics.go
+      9 internal/sprint/service.go
+      3 internal/sprint/session_state.go
+      6 internal/sprint/smoke_author.go
+      4 internal/study/execution_domain.go
+      2 internal/study/run_all.go
+     11 internal/study/run.go
+      1 internal/study/run_loop.go
+      1 internal/study/runtime_metadata.go
+      3 internal/study/service.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=180][0m
+[0m
+[0m$ [0mgrep -rn 'NewReadOnlyUseCases\|ErrWebUnavailable' internal --include='*.go' | grep -v _test | head -20
+internal/app/usecases.go:74:		return RunPage{}, ErrWebUnavailable
+internal/app/usecases.go:80:		return RunSnapshot{}, ErrWebUnavailable
+internal/app/usecases.go:86:		return nil, ErrWebUnavailable
+internal/app/usecases.go:92:		return RunSnapshot{}, false, ErrWebUnavailable
+internal/app/usecases.go:98:		return RunHealthResult{}, ErrWebUnavailable
+internal/app/usecases.go:104:		return AcceptedOperation{}, ErrWebUnavailable
+internal/app/usecases.go:110:		return false, ErrWebUnavailable
+internal/app/usecases.go:116:		return ErrWebUnavailable
+internal/app/usecases.go:132:func NewReadOnlyUseCases(root string) ReadOnlyUseCases {
+internal/app/web_usecases.go:32:	ErrWebUnavailable = errors.New("web query unavailable")
+internal/app/web_usecases.go:265:		return AcceptedOperation{}, ErrWebUnavailable
+internal/app/web_usecases.go:272:		return ErrWebUnavailable
+internal/app/web_usecases.go:279:		return false, ErrWebUnavailable
+internal/app/web_usecases.go:286:		return runcontrol.Page{}, ErrWebUnavailable
+internal/app/web_usecases.go:293:		return runcontrol.Snapshot{}, ErrWebUnavailable
+internal/app/web_usecases.go:300:		return nil, ErrWebUnavailable
+internal/app/web_usecases.go:307:		return runcontrol.Snapshot{}, false, ErrWebUnavailable
+internal/app/web_usecases.go:314:		return runcontrol.Health{}, ErrWebUnavailable
+internal/app/web_usecases.go:721:		return WebArtifactPreview{}, fmt.Errorf("%w: artifact read", ErrWebUnavailable)
+internal/app/web_usecases.go:730:		return WebArtifactPreview{}, fmt.Errorf("%w: artifact read", ErrWebUnavailable)
+[0m
+[0m$ [0mgrep -rn 'NewReadOnlyUseCases' internal cmd --include='*.go' | head; echo ---; grep -rn 'dashboardUseCases{' internal --include='*.go' | grep -v _test | head
+internal/app/usecases.go:132:func NewReadOnlyUseCases(root string) ReadOnlyUseCases {
+internal/app/usecases_test.go:23:	useCases := NewReadOnlyUseCases(dir)
+internal/app/usecases_test.go:68:	useCases := NewReadOnlyUseCases(dir)
+internal/app/usecases_test.go:92:	preview, err := NewReadOnlyUseCases(dir).PreviewArtifact(context.Background(), "projects/alpha/project-index.md")
+internal/app/usecases_test.go:108:	useCases := NewReadOnlyUseCases(dir)
+---
+internal/app/tui_commands.go:37:	useCases := dashboardUseCases{
+internal/app/usecases.go:133:	return dashboardUseCases{root: root}
+internal/app/operations.go:724:func NewOperationalUseCases(root string) OperationalUseCases { return dashboardUseCases{root: root} }
+internal/app/serve_commands.go:47:	dashboard := dashboardUseCases{
+internal/app/web_usecases.go:245:		dashboard: dashboardUseCases{
+[0m
+[0m$ [0mgrep -rn 'NewOperationalUseCases' internal cmd --include='*.go' | grep -v _test | head -5; echo ---; grep -n 'func ' internal/app/study_commands.go | head -50
+internal/app/operations.go:724:func NewOperationalUseCases(root string) OperationalUseCases { return dashboardUseCases{root: root} }
+---
+26:func runStudy(deps dependencies, args []string) error {
+122:func mapStudyError(err error) error {
+136:func studyHelp() string {
+180:func operationParallelism(value *int) int {
+187:func runStudyRunLoop(deps dependencies, root workspace.Root, studyRef string, args []string) error {
+230:func parseRunLoopArgs(args []string) (runAllFlags, error) {
+266:func confirmRunLoopReplacement(deps dependencies, root string, studyRef string, flags runAllFlags) error {
+307:func runLoopService(deps dependencies, root workspace.Root, flags runAllFlags) (study.Service, int, study.ConfigSummary, error) {
+343:func mapStudyRunLoopError(err error) error {
+354:func renderRunLoopResult(deps dependencies, root string, result study.RunLoopResult) {
+386:func renderRunLoopProgress(deps dependencies, root string) func(study.RunLoopProgress) {
+418:func runtimeProgressSummary(event runtimepkg.Event) string {
+442:func runtimeEventValue(event runtimepkg.Event, keys ...string) string {
+452:func runtimeProgressUserSummary(event runtimepkg.Event) string {
+490:func runtimeEventIsProgress(event runtimepkg.Event) bool {
+499:func renderStudyRuntimeProgress(deps dependencies, taskKind, dimensionRef, sourceRef string) func(runtimepkg.Event) {
+512:func renderRunAllRuntimeProgress(deps dependencies) func(study.RunAllProgress) {
+528:func runLoopProgressPath(root, path string) string {
+535:func runStudyRunAll(deps dependencies, root workspace.Root, studyRef string, args []string) error {
+567:func parseRunAllArgs(args []string) (runAllFlags, error) {
+618:func studyRunLoopHelp() string {
+637:func parsePositiveIntFlag(name, value string) (int, error) {
+648:func runAllService(deps dependencies, root workspace.Root, flags runAllFlags) (study.Service, int, error) {
+675:func renderRunAllResult(deps dependencies, result study.RunAllResult) {
+705:func classifyRunAllResult(result study.RunAllResult) error {
+720:func studyRunAllHelp() string {
+733:func runStudySummary(deps dependencies, root string, service study.Service, studyRef string, args []string) error {
+756:func mapStudySummaryError(err error) error {
+764:func studySummaryHelp() string {
+774:func runStudyRun(deps dependencies, root workspace.Root, studyRef string, args []string) error {
+799:func runStudySynthesize(deps dependencies, root workspace.Root, studyRef string, args []string) error {
+824:func executionService(deps dependencies, root workspace.Root) (study.Service, error) {
+844:func renderExecutionResult(deps dependencies, result study.ExecutionResult) {
+897:func classifyExecutionResult(prefix string, result study.ExecutionResult) error {
+914:func mapStudyExecutionError(prefix string, err error) error {
+925:func studyRunHelp() string {
+933:func studySynthesizeHelp() string {
+941:func runStudyValidate(deps dependencies, root string, service study.Service, studyRef string, args []string) error {
+975:func studyValidateHelp() string {
+985:func renderStudyValidate(w io.Writer, root string, result study.StudyValidationResult) {
+1015:func redactedStudyValidationResult(root string, result study.StudyValidationResult) study.StudyValidationResult {
+1031:func redactedValidationCheck(root string, check study.ValidationCheck) study.ValidationCheck {
+1041:func runStudyStatus(deps dependencies, root string, service study.Service, studyRef string, args []string) error {
+1079:func studyStatusHelp() string {
+1091:func mapStudyStatusError(root string, st study.Study, err error) error {
+1103:func statusRunStateErrorDisplay(root string, st study.Study, err error) string {
+1109:func renderStudyStatus(w io.Writer, root string, summary study.StatusSummary) {
+1142:func renderStatusTaskSection(w io.Writer, title string, tasks []study.TaskState, include func(study.TaskState) bool) {
+1207:func formatTaskError(taskErr study.TaskError) string {
+1219:func runStudyPrompt(deps dependencies, root string, service study.Service, studyRef string, args []string) error {
+[0m
+[0m$ [0msed -n '307,343p;648,675p;824,844p' internal/app/study_commands.go
+func runLoopService(deps dependencies, root workspace.Root, flags runAllFlags) (study.Service, int, study.ConfigSummary, error) {
+	effective, err := loadEffectiveConfig(root, deps, config.CLIOverrides{})
+	if err != nil {
+		return study.Service{}, 0, study.ConfigSummary{}, err
+	}
+	parallelism := effective.Config.Execution.DefaultParallel
+	if flags.parallelism != nil {
+		parallelism = *flags.parallelism
+	}
+	if parallelism < 1 {
+		return study.Service{}, 0, study.ConfigSummary{}, classified(ExitConfig, "study run-loop: parallelism must be at least 1")
+	}
+	req, err := runtimepkg.RequestFromConfig(effective.Config, root.Path)
+	if err != nil {
+		return study.Service{}, 0, study.ConfigSummary{}, classified(ExitConfig, "runtime.config: %w", err)
+	}
+	rt, err := studyRuntimeFactory(effective.Config)
+	if err != nil {
+		return study.Service{}, 0, study.ConfigSummary{}, classified(ExitRuntime, "runtime.init: %w", err)
+	}
+	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+	if err != nil {
+		return study.Service{}, 0, study.ConfigSummary{}, classified(ExitRuntime, "run-control.init: %w", err)
+	}
+	summary := study.ConfigSummary{
+		Runtime:          effective.Config.Runtime.Default,
+		Model:            effective.Config.Models.Default,
+		Variant:          effective.Config.Execution.DefaultVariant,
+		DefaultParallel:  effective.Config.Execution.DefaultParallel,
+		DefaultTimeout:   effective.Config.Execution.DefaultTimeout,
+		DefaultRetries:   effective.Config.Execution.DefaultRetries,
+		WorkspaceVersion: strconv.Itoa(effective.Config.Version),
+	}
+	return study.NewService(root.Path, study.WithRuntime(controlled, req)), parallelism, summary, nil
+}
+
+func mapStudyRunLoopError(err error) error {
+func runAllService(deps dependencies, root workspace.Root, flags runAllFlags) (study.Service, int, error) {
+	effective, err := loadEffectiveConfig(root, deps, config.CLIOverrides{})
+	if err != nil {
+		return study.Service{}, 0, err
+	}
+	parallelism := effective.Config.Execution.DefaultParallel
+	if flags.parallelism != nil {
+		parallelism = *flags.parallelism
+	}
+	if parallelism < 1 {
+		return study.Service{}, 0, classified(ExitConfig, "study run-all: parallelism must be at least 1")
+	}
+	req, err := runtimepkg.RequestFromConfig(effective.Config, root.Path)
+	if err != nil {
+		return study.Service{}, 0, classified(ExitConfig, "runtime.config: %w", err)
+	}
+	rt, err := studyRuntimeFactory(effective.Config)
+	if err != nil {
+		return study.Service{}, 0, classified(ExitRuntime, "runtime.init: %w", err)
+	}
+	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+	if err != nil {
+		return study.Service{}, 0, classified(ExitRuntime, "run-control.init: %w", err)
+	}
+	return study.NewService(root.Path, study.WithRuntime(controlled, req)), parallelism, nil
+}
+
+func renderRunAllResult(deps dependencies, result study.RunAllResult) {
+func executionService(deps dependencies, root workspace.Root) (study.Service, error) {
+	effective, err := loadEffectiveConfig(root, deps, config.CLIOverrides{})
+	if err != nil {
+		return study.Service{}, err
+	}
+	req, err := runtimepkg.RequestFromConfig(effective.Config, root.Path)
+	if err != nil {
+		return study.Service{}, classified(ExitConfig, "runtime.config: %w", err)
+	}
+	rt, err := studyRuntimeFactory(effective.Config)
+	if err != nil {
+		return study.Service{}, classified(ExitRuntime, "runtime.init: %w", err)
+	}
+	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+	if err != nil {
+		return study.Service{}, classified(ExitRuntime, "run-control.init: %w", err)
+	}
+	return study.NewService(root.Path, study.WithRuntime(controlled, req)), nil
+}
+
+func renderExecutionResult(deps dependencies, result study.ExecutionResult) {
+[0m
+[0m$ [0mgrep -n 'RuntimeFactory\|defaultSprintRuntimeFactory\|func studyRuntimeFactory\|func defaultStudyRuntimeFactory' internal/app/*.go | grep -v _test | head
+internal/app/app.go:38:	SprintRuntimeFactory SprintRuntimeFactory
+internal/app/app.go:119:		sprintRuntimeFactory: cfg.SprintRuntimeFactory,
+internal/app/app.go:122:	if deps.sprintRuntimeFactory == nil {
+internal/app/app.go:123:		deps.sprintRuntimeFactory = defaultSprintRuntimeFactory
+internal/app/app.go:190:	sprintRuntimeFactory SprintRuntimeFactory
+internal/app/sprint_commands.go:21:type SprintRuntimeFactory func(config.Config) (sprint.Runtime, error)
+internal/app/sprint_commands.go:23:func defaultSprintRuntimeFactory(c config.Config) (sprint.Runtime, error) {
+internal/app/sprint_commands.go:486:	rt, err := deps.sprintRuntimeFactory(effective.Config)
+internal/app/study_commands.go:22:var studyRuntimeFactory = func(c config.Config) (study.Runtime, error) {
+internal/app/study_commands.go:323:	rt, err := studyRuntimeFactory(effective.Config)
+[0m
+[0m$ [0msed -n '21,40p' internal/app/sprint_commands.go; echo ---; sed -n '20,30p' internal/app/study_commands.go
+type SprintRuntimeFactory func(config.Config) (sprint.Runtime, error)
+
+func defaultSprintRuntimeFactory(c config.Config) (sprint.Runtime, error) {
+	return runtimepkg.NewOpenCode(c)
+}
+
+func runSprint(deps dependencies, args []string) error {
+	if len(args) == 0 {
+		return classified(ExitUsage, "sprint requires a subcommand\n\nRun 'ultraplan sprint --help' for usage.")
+	}
+	if args[0] == "--help" || args[0] == "-h" {
+		_, err := deps.stdout.Write([]byte(sprintHelp()))
+		return err
+	}
+	if len(args) >= 4 && (args[3] == "--help" || args[3] == "-h") && args[2] == "status" {
+		_, err := deps.stdout.Write([]byte(sprintStatusHelp()))
+		return err
+	}
+	if len(args) >= 4 && (args[3] == "--help" || args[3] == "-h") {
+		switch args[2] {
+---
+)
+
+var studyRuntimeFactory = func(c config.Config) (study.Runtime, error) {
+	return runtimepkg.NewOpenCode(c)
+}
+
+func runStudy(deps dependencies, args []string) error {
+	if len(args) == 0 {
+		return classified(ExitUsage, "study requires a subcommand\n\nRun 'ultraplan study --help' for usage.")
+	}
+	if args[0] == "--help" || args[0] == "-h" {
+[0m
+[0m$ [0mgrep -rn 'studyRuntimeFactory' internal --include='*_test.go' | head -8; echo ---; grep -rn 'SprintRuntimeFactory:' internal --include='*_test.go' | head -5
+internal/app/study_run_commands_test.go:194:	old := studyRuntimeFactory
+internal/app/study_run_commands_test.go:195:	studyRuntimeFactory = func(config.Config) (study.Runtime, error) {
+internal/app/study_run_commands_test.go:198:	return func() { studyRuntimeFactory = old }
+internal/app/study_status_commands_test.go:89:	orig := studyRuntimeFactory
+internal/app/study_status_commands_test.go:90:	studyRuntimeFactory = func(config.Config) (study.Runtime, error) {
+internal/app/study_status_commands_test.go:94:	defer func() { studyRuntimeFactory = orig }()
+internal/app/study_validate_commands_test.go:80:	orig := studyRuntimeFactory
+internal/app/study_validate_commands_test.go:81:	studyRuntimeFactory = func(config.Config) (study.Runtime, error) {
+---
+internal/app/app_test.go:285:		SprintRuntimeFactory: testSprintRuntimeFactory,
+[0m
+[0m$ [0mgo doc ./internal/sprint 2>/dev/null | grep -c '^func\|^type'; go doc ./internal/sprint 2>/dev/null | grep '^type' | wc -l; echo ---; grep -rn 'sprint\.[A-Z]' internal/app internal/web internal/tui --include='*.go' -o | grep -v _test | awk -F: '{print $3}' | sort -u | wc -l
+125
+89
+---
+13
+[0m
+[0m$ [0mgrep -rn 'PromptRequirements\|PromptCodeContext\|PromptSprintIndex' internal/app internal/tui --include='*.go' | grep -v _test | awk -F: '{print $1":"$2}' | head -20
+internal/app/operations.go:679
+internal/app/operations.go:681
+internal/app/operations.go:683
+internal/app/sprint_commands.go:179
+internal/app/sprint_commands.go:181
+internal/app/sprint_commands.go:183
+internal/app/web_usecases.go:513
+internal/app/web_usecases.go:515
+internal/app/web_usecases.go:517
+[0m
+[0m$ [0msed -n '670,724p' internal/app/operations.go; echo ===; sed -n '170,200p' internal/app/sprint_commands.go
+func operationFirstNonEmpty(a, b string) string {
+	if strings.Trim(a, "/") != "" {
+		return strings.Trim(a, "/")
+	}
+	return b
+}
+func promptSprintStage(s sprint.Service, p, sp string, stage sprint.PlanningStage) (sprint.PromptPreview, error) {
+	switch stage {
+	case sprint.StageRequirements:
+		return s.PromptRequirements(p, sp)
+	case sprint.StageCodeContext:
+		return s.PromptCodeContext(p, sp)
+	case sprint.StageSprintIndex:
+		return s.PromptSprintIndex(p, sp)
+	case sprint.StageTechnicalHandbook:
+		return s.PromptTechnicalHandbook(p, sp)
+	case sprint.StageAreaReasoning:
+		return s.PromptAreaReasoning(p, sp)
+	case sprint.StageReasoning:
+		return s.PromptReasoning(p, sp)
+	case sprint.StagePlan:
+		return s.PromptPlan(p, sp)
+	case sprint.StageExecute:
+		return s.PromptExecute(p, sp, sprint.ExecuteRequest{})
+	case sprint.StageReview:
+		return s.PromptReview(p, sp, sprint.ReviewRequest{})
+	default:
+		return sprint.PromptPreview{}, fmt.Errorf("unsupported prompt stage %q", stage)
+	}
+}
+
+type ValidationSubject string
+
+const (
+	ValidationProject ValidationSubject = "project"
+	ValidationStudy   ValidationSubject = "study"
+	ValidationSprint  ValidationSubject = "sprint"
+)
+
+type ValidationRequest struct {
+	Subject ValidationSubject
+	Project string
+	Study   string
+	Sprint  string
+	Stage   string
+}
+
+type ValidationOperationResult struct {
+	Operation string
+	Subject   string
+	Status    string
+	Findings  []DisplayFinding
+}
+
+func NewOperationalUseCases(root string) OperationalUseCases { return dashboardUseCases{root: root} }
+===
+	case "prompt":
+		explain := len(args) == 5 && args[4] == "--explain"
+		if len(args) != 4 && !explain {
+			return classified(ExitUsage, "sprint.prompt: expected 'prompt <requirements|code-context|sprint-index|technical-handbook|area-reasoning|reasoning|plan>'")
+		}
+		var preview sprint.PromptPreview
+		var err error
+		switch sprint.PlanningStage(args[3]) {
+		case sprint.StageRequirements:
+			preview, err = service.PromptRequirements(args[0], args[1])
+		case sprint.StageCodeContext:
+			preview, err = service.PromptCodeContext(args[0], args[1])
+		case sprint.StageSprintIndex:
+			preview, err = service.PromptSprintIndex(args[0], args[1])
+		case sprint.StageTechnicalHandbook:
+			preview, err = service.PromptTechnicalHandbook(args[0], args[1])
+		case sprint.StageAreaReasoning:
+			preview, err = service.PromptAreaReasoning(args[0], args[1])
+		case sprint.StageReasoning:
+			preview, err = service.PromptReasoning(args[0], args[1])
+		case sprint.StagePlan:
+			preview, err = service.PromptPlan(args[0], args[1])
+		case sprint.StageExecute:
+			preview, err = service.PromptExecute(args[0], args[1], sprint.ExecuteRequest{})
+		case sprint.StageReview:
+			preview, err = service.PromptReview(args[0], args[1], sprint.ReviewRequest{})
+		default:
+			return classified(ExitUsage, "sprint.prompt: unsupported stage %q", args[3])
+		}
+		if err != nil {
+			return mapSprintError("sprint.prompt", err)
+[0m
+[0m$ [0mfor f in metrics sanitize retention id local_log; do echo "== $f"; grep -rn "runcontrol\.$(grep -oP 'func \K[A-Z][A-Za-z]+' internal/runcontrol/$f.go 2>/dev/null | head -1)" internal/app internal/web internal/tui cmd --include='*.go' 2>/dev/null | grep -v _test | head -2; done
+== metrics
+internal/app/run_commands.go:42:func runRepository(deps dependencies) (runcontrol.Repository, string, error) {
+internal/app/run_commands.go:86:	page, err := repository.List(deps.ctx, runcontrol.Query{Lifecycle: lifecycle, Project: *project, Sprint: *sprint, Study: *study, Limit: *limit, After: *after})
+== sanitize
+internal/app/run_commands.go:42:func runRepository(deps dependencies) (runcontrol.Repository, string, error) {
+internal/app/run_commands.go:86:	page, err := repository.List(deps.ctx, runcontrol.Query{Lifecycle: lifecycle, Project: *project, Sprint: *sprint, Study: *study, Limit: *limit, After: *after})
+== retention
+internal/app/run_commands.go:42:func runRepository(deps dependencies) (runcontrol.Repository, string, error) {
+internal/app/run_commands.go:86:	page, err := repository.List(deps.ctx, runcontrol.Query{Lifecycle: lifecycle, Project: *project, Sprint: *sprint, Study: *study, Limit: *limit, After: *after})
+== id
+internal/app/run_commands.go:42:func runRepository(deps dependencies) (runcontrol.Repository, string, error) {
+internal/app/run_commands.go:86:	page, err := repository.List(deps.ctx, runcontrol.Query{Lifecycle: lifecycle, Project: *project, Sprint: *sprint, Study: *study, Limit: *limit, After: *after})
+== local_log
+internal/app/run_control.go:58:	logger, err := runcontrol.OpenLocalFileLogger(workspaceRoot)
+[0m
+[0m$ [0mgrep -rn 'logging\.' internal --include='*.go' | grep -v _test | grep -v platform/logging | head -5; echo ---; grep -rln 'platform/filesystem' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go 2>/dev/null | head -5
+internal/app/config_commands.go:82:	fmt.Fprintf(deps.stdout, "logging.format: %s\n", redacted.Logging.Format)
+internal/app/config_commands.go:83:	fmt.Fprintf(deps.stdout, "logging.level: %s\n", redacted.Logging.Level)
+internal/platform/config/config.go:133:		{Key: "ULTRAPLAN_LOG_FORMAT", Field: "logging.format"},
+internal/platform/config/config.go:134:		{Key: "ULTRAPLAN_LOG_LEVEL", Field: "logging.level"},
+internal/platform/config/config.go:144:	for _, field := range []string{"version", "runtime.default", "models.default", "models.primary", "models.backup", "execution.default_variant", "execution.default_parallel", "execution.default_timeout", "execution.default_retries", "planning.requirements_model", "planning.requirements_variant", "planning.code_context_model", "planning.code_context_variant", "planning.sprint_index_model", "planning.sprint_index_variant", "planning.technical_handbook_model", "planning.technical_handbook_variant", "planning.area_reasoning_model", "planning.area_reasoning_variant", "planning.reasoning_model", "planning.reasoning_variant", "planning.plan_model", "planning.plan_variant", "planning.execute_model", "planning.execute_variant", "planning.review_model", "planning.review_variant", "planning.smoke_model", "planning.smoke_variant", "smoke.discovery_timeout", "smoke.run_timeout", "smoke.stdout_limit", "smoke.stderr_limit", "smoke.cleanup_grace", "smoke.environment", "run_control.full_history", "run_control.tombstone_history", "run_control.workspace_quota_bytes", "logging.format", "logging.level", "agentwrap.executable", "agentwrap.extra_args", "agentwrap.env", "agentwrap.stderr_limit", "agentwrap.required_health", "agentwrap.required_capabilities", "agentwrap.sandbox", "agentwrap.permission_mode", "agentwrap.permission_default", "agentwrap.permission_unsupported_behavior"} {
+---
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/roadmap.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/01-cli-foundation/.run-state.json
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/01-cli-foundation/plan.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/01-cli-foundation/reasoning.md
+[0m
+[0m$ [0mgrep -rn 'platform/filesystem\|atomic' projects/ultraplan-go/sprints/*/plan.md 2>/dev/null | head -10; echo ---; ls projects/ultraplan-go/sprints/ | tail -8; echo ---; grep -rn 'atomic write' projects/ultraplan-go/docs/*.md | head -5
+projects/ultraplan-go/sprints/01-cli-foundation/plan.md:88:  - [x] Add `doc.go` for `internal/platform/filesystem` that documents the future filesystem boundary and states workspace path logic is deferred.
+projects/ultraplan-go/sprints/08-run-state-persistence/plan.md:31:| Save state atomically with same-directory temp files | `reasoning.md#decision-3-save-state-atomically-with-same-directory-temp-files-and-preserve-prior-valid-state-on-failure` | Implement save/load in `internal/study/state.go` using same-directory temp file, flush/close, rename, wrapped diagnostics, and targeted test seams. |
+projects/ultraplan-go/sprints/08-run-state-persistence/plan.md:79:  - [x] Add only targeted clock/filesystem seams needed for deterministic timestamps and atomic-write failure tests; do not create a global filesystem abstraction package.
+projects/ultraplan-go/sprints/08-run-state-persistence/plan.md:102:  - [x] Test atomic save/load round trip, malformed JSON, unsupported schema version, missing state, and failed atomic write preserving a prior valid state where feasible.
+projects/ultraplan-go/sprints/08-run-state-persistence/plan.md:125:- [x] Tests prove atomic save/load behavior and prior valid state preservation on failed writes where feasible.
+projects/ultraplan-go/sprints/08-run-state-persistence/plan.md:151:| Atomic rename semantics vary by filesystem/platform. | `reasoning.md#decision-3-save-state-atomically-with-same-directory-temp-files-and-preserve-prior-valid-state-on-failure` | Implemented same-directory temp, flush, close, rename, and best-effort directory sync; residual platform semantics carried forward. | mitigated |
+projects/ultraplan-go/sprints/08-run-state-persistence/plan.md:176:| 2026-05-31 implementation | Added run-state schema, deterministic construction, atomic persistence, resume validation, status summaries, and `ultraplan study <study> status`. | Implemented in `internal/study/domain.go`, `internal/study/run_state.go`, `internal/study/state.go`, and `internal/app/study_commands.go`. |
+projects/ultraplan-go/sprints/12-durable-run-loop/plan.md:34:| Use atomic run-state persistence with explicit schema handling | `reasoning.md#decision-3-use-atomic-run-state-persistence-with-explicit-schema-handling` | Load, validate, reject or explicitly migrate supported state versions, and atomically save every meaningful transition with same-directory temp writes, flush/close, rename, and best-effort directory sync. |
+projects/ultraplan-go/sprints/12-durable-run-loop/plan.md:49:| `AC-05`, `AC-06`, `AC-21`, Persistence And Migrations | Every meaningful transition is saved atomically, and required write failures are loud while preserving the previous valid state. | Failure-injection tests for temp write, flush/close, rename, directory sync where testable, and final error paths. |
+projects/ultraplan-go/sprints/12-durable-run-loop/plan.md:59:| `CON-01` through `CON-12` | Preserve module ownership, runtime boundary, context propagation, bounded concurrency, path safety, atomic writes, safe diagnostics, Markdown applicability, and offline verification. | Combined unit, command, race, build, security, and architecture review evidence. |
+---
+28-review-to-smoke-flow
+29-phase-3-documentation-hardening-release
+30-web-foundations
+31-web-operations
+32-hardening-and-release
+33-code-context-stage
+34-shared-context
+35-durable-run-observability
+---
+projects/ultraplan-go/docs/TRD.md:1705:- filesystem helpers that are genuinely cross-module, such as atomic writes
+[0m
+[0m$ [0msed -n '1690,1725p' projects/ultraplan-go/docs/TRD.md
+project -> workspace
+platform/* -> no product modules
+study -> no project or sprint modules
+```
+
+Study outputs may be referenced by project indexes and sprint artifacts as evidence paths, but `project` and `sprint` must not depend on study services, source/dimension models, report validators, run-loop scheduling, summary generation, or rating parsing.
+
+### 18.2 Reuse Boundary
+
+Phase 2 may reuse generic infrastructure from Phase 1:
+
+- workspace discovery and path safety
+- config precedence and redaction
+- command exit code and output conventions
+- generic runtime prompt execution
+- filesystem helpers that are genuinely cross-module, such as atomic writes
+- small validation/result structs when they do not carry study semantics
+
+Phase 2 must not prematurely abstract study behavior into shared packages. Keep these local to `study`:
+
+- study `Service`
+- source and dimension models
+- study prompt builders
+- report validation
+- rating parsing
+- summary generation
+- task scheduling and run-loop state
+
+If sprint and study both need the same mechanical file operation, extract the file operation. If they both happen to validate Markdown headings, implement locally first and extract only after the second concrete use proves the shared behavior is stable.
+
+### 18.3 Project Model
+
+```go
+type Project struct {
+    Name         string
+    Root         string
+[0m
+[0m$ [0mgrep -rn 'sprint\|study\|ultraplan' internal/platform/*/*.go | grep -v _test | grep -vi 'ultraplan-go\|UltraPlan configuration\|UltraPlan config' | head -15
+internal/platform/config/config.go:44:	SprintIndexModel         string `json:"sprint_index_model"`
+internal/platform/config/config.go:45:	SprintIndexVariant       string `json:"sprint_index_variant"`
+internal/platform/config/config.go:144:	for _, field := range []string{"version", "runtime.default", "models.default", "models.primary", "models.backup", "execution.default_variant", "execution.default_parallel", "execution.default_timeout", "execution.default_retries", "planning.requirements_model", "planning.requirements_variant", "planning.code_context_model", "planning.code_context_variant", "planning.sprint_index_model", "planning.sprint_index_variant", "planning.technical_handbook_model", "planning.technical_handbook_variant", "planning.area_reasoning_model", "planning.area_reasoning_variant", "planning.reasoning_model", "planning.reasoning_variant", "planning.plan_model", "planning.plan_variant", "planning.execute_model", "planning.execute_variant", "planning.review_model", "planning.review_variant", "planning.smoke_model", "planning.smoke_variant", "smoke.discovery_timeout", "smoke.run_timeout", "smoke.stdout_limit", "smoke.stderr_limit", "smoke.cleanup_grace", "smoke.environment", "run_control.full_history", "run_control.tombstone_history", "run_control.workspace_quota_bytes", "logging.format", "logging.level", "agentwrap.executable", "agentwrap.extra_args", "agentwrap.env", "agentwrap.stderr_limit", "agentwrap.required_health", "agentwrap.required_capabilities", "agentwrap.sandbox", "agentwrap.permission_mode", "agentwrap.permission_default", "agentwrap.permission_unsupported_behavior"} {
+internal/platform/config/config.go:148:		if err := loadFile(filepath.Join(opts.WorkspaceRoot, "ultraplan.yml"), &e); err != nil {
+internal/platform/config/config.go:311:	case "planning.sprint_index_model":
+internal/platform/config/config.go:313:	case "planning.sprint_index_variant":
+internal/platform/config/doc.go:5:// config behavior are deferred to a later sprint.
+internal/platform/config/redaction.go:54:	p.SprintIndexModel = RedactValue("planning.sprint_index_model", p.SprintIndexModel)
+internal/platform/filesystem/doc.go:5:// persistence behavior are deferred to owning modules in later sprints.
+internal/platform/logging/doc.go:5:// configuration behavior are deferred to a later sprint.
+internal/platform/runtime/policy.go:7:	MetadataStudy      = "study"
+internal/platform/runtime/runtime.go:515:		metadata["prompt_cache_key"] = "ultraplan-cohort-v1-" + hex.EncodeToString(sum[:16])
+[0m
+[0m$ [0mgrep -n 'platform/config' projects/ultraplan-go/docs/ARCHITECTURE.md | head; echo ---; sed -n '/### `platform\/config`/,/^### /p' projects/ultraplan-go/docs/ARCHITECTURE.md | head -40
+539:study -> platform/config/logging/filesystem as needed
+541:project -> platform/config/logging/filesystem as needed
+545:sprint -> platform/config/logging/filesystem as needed
+---
+[0m
+[0m$ [0mgrep -n 'config' projects/ultraplan-go/docs/ARCHITECTURE.md | sed -n '1,30p'
+94:    config/
+217:The study module may call platform runtime services, workspace path services, and config/logging infrastructure. Runtime and platform packages must not import `study`.
+235:`project` may call workspace path services and config/logging infrastructure. It should not import `study`; study outputs are referenced as catalog paths, not consumed through study services.
+278:`sprint` may depend on `project` for project catalogs, `workspace` for path rules, configuration for stage-specific runtime model selection, `platform/runtime` for generic prompt/reviewer/implementation execution, and `platform/process` for safe external harness invocation. It must not depend on `study` services, source/dimension models, study report validation, rating parsing, summary generation, or study run-loop scheduling.
+282:Phase 5 inserts `code-context` after requirements. The sprint module resolves the implementation target through project-owned configuration, invokes generic runtime execution with read access to that target, permits only `code-context.md` as stage output, validates the Markdown, and advances flow state. A shared renderer then inserts exact requirements and code-context bytes before stage-specific instructions for later agent requests. The pack is durable prepared evidence, not an index or exclusive repository view; downstream stages may inspect more live source.
+291:workspace/config/runtime preflight wiring
+463:Workspace marker/config lookup
+539:study -> platform/config/logging/filesystem as needed
+541:project -> platform/config/logging/filesystem as needed
+545:sprint -> platform/config/logging/filesystem as needed
+634:config loading, precedence, and redaction
+[0m
+[0m$ [0mgo build ./... && go test ./internal/app/ ./internal/sprint/ 2>&1 | tail -5
+ok  	github.com/Antonio7098/ultraplan-go/internal/app	(cached)
+ok  	github.com/Antonio7098/ultraplan-go/internal/sprint	(cached)
+[0m
+[0m$ [0mgo test ./... 2>&1 | grep -v '^ok\|no test files' | head -10; echo EXIT=$?
+EXIT=0
+[0m
+[0m$ [0mgrep -n 'RunOperation\|u.runner\|\.runner(' internal/tui/*.go | head; echo ---; sed -n '640,680p' internal/web/operation_handlers.go
+internal/tui/app.go:286:		r, e := m.model.UseCases.RunOperation(ctx, req, func(event app.OperationEvent) {
+internal/tui/test_fakes_test.go:28:func (f *fakeUseCases) RunOperation(ctx context.Context, req app.OperationRequest, emit func(app.OperationEvent)) (app.OperationResult, error) {
+---
+	case "execute-resume":
+		req.Kind = app.OperationExecuteResume
+	case "review", "review-start":
+		if options.Action == "status" {
+			req.Kind = app.OperationReviewStatus
+		} else if options.DryRun {
+			req.Kind = app.OperationReviewDryRun
+		} else {
+			req.Kind = app.OperationReviewStart
+		}
+	case "review-status":
+		req.Kind = app.OperationReviewStatus
+	case "review-dry-run":
+		req.Kind = app.OperationReviewDryRun
+	case "smoke", "smoke-start":
+		if options.Action == "status" {
+			req.Kind = app.OperationSmokeStatus
+		} else if options.DryRun {
+			req.Kind = app.OperationSmokeDryRun
+		} else {
+			req.Kind = app.OperationSmokeStart
+		}
+	case "smoke-status":
+		req.Kind = app.OperationSmokeStatus
+	case "smoke-dry-run":
+		req.Kind = app.OperationSmokeDryRun
+	case "verify", "verify-start":
+		if options.DryRun {
+			req.Kind = app.OperationVerifyDryRun
+		} else {
+			req.Kind = app.OperationVerifyStart
+		}
+	case "verify-dry-run":
+		req.Kind = app.OperationVerifyDryRun
+	case "study-run-loop", "study-start":
+		if options.Resume {
+			req.Kind = app.OperationStudyResume
+		} else {
+			req.Kind = app.OperationStudyStart
+		}
+	case "study-resume":
+[0m
+[0m$ [0mgrep -rn 'WebRunner\|TUIRunner\|runServe\|runTUI' internal/app/app.go cmd/ultraplan/*.go | grep -v _test | head -12
+internal/app/app.go:36:	TUIRunner            TUIRunner
+internal/app/app.go:37:	WebRunner            WebRunner
+internal/app/app.go:117:		tuiRunner:            cfg.TUIRunner,
+internal/app/app.go:118:		webRunner:            cfg.WebRunner,
+internal/app/app.go:170:		return failOrOK(stderr, runTUI(deps, args[1:]))
+internal/app/app.go:172:		return failOrOK(stderr, runServe(deps, args[1:]))
+internal/app/app.go:188:	tuiRunner            TUIRunner
+internal/app/app.go:189:	webRunner            WebRunner
+cmd/ultraplan/main.go:27:		TUIRunner: func(ctx context.Context, opts app.TUIRunOptions) error {
+cmd/ultraplan/main.go:30:		WebRunner: func(ctx context.Context, opts app.ServeRunOptions) error {
+[0m
+[0m$ [0mgrep -n 'ErrWebUnavailable\|Unavailable' internal/app/web_usecases_test.go internal/app/web_operations_test.go | head -8
+internal/app/web_usecases_test.go:137:	if err != nil || smoke.Available || smoke.UnavailableReason == "" || smoke.InputContract.Stage != sprint.StageSmoke {
+[0m
+[0m$ [0mgrep -n 'type SmokeSettings' -A 15 internal/sprint/smoke_types.go internal/sprint/*.go 2>/dev/null | grep -A 15 'type SmokeSettings' | head -18
+internal/sprint/smoke_types.go:44:type SmokeSettings struct {
+internal/sprint/smoke_types.go-45-	DiscoveryTimeout, RunTimeout, CleanupGrace time.Duration
+internal/sprint/smoke_types.go-46-	StdoutLimit, StderrLimit                   int
+internal/sprint/smoke_types.go-47-	Environment                                []string
+internal/sprint/smoke_types.go-48-	Sources                                    map[string]string
+internal/sprint/smoke_types.go-49-	Getenv                                     func(string) string
+internal/sprint/smoke_types.go-50-}
+internal/sprint/smoke_types.go-51-
+internal/sprint/smoke_types.go-52-func DefaultSmokeSettings() SmokeSettings {
+internal/sprint/smoke_types.go-53-	return SmokeSettings{DiscoveryTimeout: 30 * time.Second, RunTimeout: 30 * time.Minute, CleanupGrace: 5 * time.Second, StdoutLimit: 4 << 20, StderrLimit: 1 << 20, Environment: []string{"PATH", "HOME", "TMPDIR", "LANG", "LC_ALL"}, Sources: map[string]string{}, Getenv: os.Getenv}
+internal/sprint/smoke_types.go-54-}
+internal/sprint/smoke_types.go-55-
+internal/sprint/smoke_types.go-56-type SmokeRequest struct {
+internal/sprint/smoke_types.go-57-	Level, Suite, Test string
+internal/sprint/smoke_types.go-58-	Timeout            time.Duration
+internal/sprint/smoke_types.go-59-	ForceReview        bool
+--
+internal/sprint/smoke_types.go:44:type SmokeSettings struct {
+[0m
+[0m$ [0mgrep -n 'WithRuntime' internal/sprint/smoke_test.go | head -5; echo ---; grep -rn 'smoke_author_runtime' internal --include='*.go' | head
+323:	service := NewService(root).WithRuntime(reviewer).WithStageRuntime(map[PlanningStage]StageRuntime{StageReview: {Model: "test/model"}})
+341:	service = NewService(root).WithRuntime(author).WithProcessRunner(runner).WithSmokeSettings(DefaultSmokeSettings()).WithStageRuntime(map[PlanningStage]StageRuntime{StageReview: {Model: "test/model"}, StageSmoke: {Model: "test/author"}})
+---
+internal/sprint/smoke_author.go:22:		return smokeError("smoke_author_runtime", "runtime", "runtime is required to author deep-smoke coverage", "Configure the smoke model/runtime and rerun smoke.", nil)
+internal/sprint/smoke_author.go:108:		return smokeError("smoke_author_runtime", "runtime", "smoke authoring runtime failed", "Inspect the bounded runtime diagnostics and rerun authoring.", runErr)
+[0m
+[0m$ [0mgrep -n -i 'atomic\|filesystem' projects/ultraplan-go/roadmap.md | head -8
+56:The server and browser UI are local interfaces over the existing filesystem-backed product. They do not add hosted service behavior, a remote worker protocol, accounts, tenancy, or a database-backed alternate source of truth.
+126:- local filesystem path safety
+132:- concrete local filesystem collaborators when the side effect is narrow and testable
+165:- atomic writes and compatibility or migration behavior for durable formats
+198:internal/platform/filesystem
+343:- Markdown prompts embed stripped document content and forbid external code/filesystem exploration.
+362:- atomic state writes
+451:- atomic `run-state.json`
+[0m
+[0m$ [0msed -n '190,210p' projects/ultraplan-go/roadmap.md
+- `cmd/ultraplan/main.go`
+- `internal/app`
+- initial package layout:
+
+```text
+internal/platform/config
+internal/platform/logging
+internal/platform/filesystem
+internal/platform/runtime
+internal/workspace
+internal/study
+internal/codeextract
+```
+
+- `ultraplan --help`
+- `ultraplan version`
+
+**Evidence:**
+
+```bash
+[0m

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "created_at": "2026-08-22T11:46:58.055387891Z",
-  "updated_at": "2026-08-24T11:18:14.48282417Z",
+  "updated_at": "2026-08-24T15:15:14.20677066Z",
   "target_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go",
   "target_commit": "eeaa034cb1e520ea10e806870f6026cf1bb6c4f7",
   "workspace_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace",
@@ -352,10 +352,10 @@
       "role": "arch-inspector",
       "focus": "Composition root, dependency construction, shared use cases, CLI/TUI/web reuse, typed boundaries, and business logic leakage.",
       "broad": false,
-      "status": "failed",
-      "attempts": 4,
-      "started_at": "2026-08-24T11:17:27.114007842Z",
-      "completed_at": "2026-08-23T20:09:02.535441373Z"
+      "status": "succeeded",
+      "attempts": 5,
+      "started_at": "2026-08-24T12:01:55.809788512Z",
+      "completed_at": "2026-08-24T12:23:15.083394007Z"
     },
     {
       "id": "specialist-10b",
@@ -364,10 +364,10 @@
       "role": "arch-inspector",
       "focus": "Composition root, dependency construction, shared use cases, CLI/TUI/web reuse, typed boundaries, and business logic leakage.",
       "broad": false,
-      "status": "failed",
-      "attempts": 4,
-      "started_at": "2026-08-24T11:18:14.48281977Z",
-      "completed_at": "2026-08-23T20:09:02.862122046Z"
+      "status": "succeeded",
+      "attempts": 5,
+      "started_at": "2026-08-24T12:01:55.810954935Z",
+      "completed_at": "2026-08-24T12:19:22.82374801Z"
     },
     {
       "id": "specialist-11a",
@@ -376,11 +376,10 @@
       "role": "arch-inspector",
       "focus": "Surface isolation, duplicated workflow logic, command-as-protocol leakage, presentation state, and interface-specific authority.",
       "broad": false,
-      "status": "failed",
-      "attempts": 3,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:09:02.536985218Z",
-      "completed_at": "2026-08-23T20:09:08.696434909Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-24T12:19:22.82820438Z",
+      "completed_at": "2026-08-24T12:39:29.026462711Z"
     },
     {
       "id": "specialist-11b",
@@ -389,11 +388,10 @@
       "role": "arch-inspector",
       "focus": "Surface isolation, duplicated workflow logic, command-as-protocol leakage, presentation state, and interface-specific authority.",
       "broad": false,
-      "status": "failed",
-      "attempts": 3,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:09:02.863957758Z",
-      "completed_at": "2026-08-23T20:09:09.066889471Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-24T12:23:15.085301725Z",
+      "completed_at": "2026-08-24T12:36:22.085908944Z"
     },
     {
       "id": "specialist-12a",
@@ -402,11 +400,10 @@
       "role": "arch-inspector",
       "focus": "HTTP/SSE transport, subscribers, buffering/backpressure, browser disconnect, worker lifetime, draining, shutdown, restart and security boundaries.",
       "broad": false,
-      "status": "failed",
-      "attempts": 3,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:09:08.698051947Z",
-      "completed_at": "2026-08-23T20:09:14.798034796Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-24T12:36:22.089986915Z",
+      "completed_at": "2026-08-24T12:50:16.083335969Z"
     },
     {
       "id": "specialist-12b",
@@ -415,11 +412,10 @@
       "role": "arch-inspector",
       "focus": "HTTP/SSE transport, subscribers, buffering/backpressure, browser disconnect, worker lifetime, draining, shutdown, restart and security boundaries.",
       "broad": false,
-      "status": "failed",
-      "attempts": 3,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:09:09.068944695Z",
-      "completed_at": "2026-08-23T20:09:15.248088834Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-24T12:39:29.031040755Z",
+      "completed_at": "2026-08-24T12:53:22.094527545Z"
     },
     {
       "id": "specialist-13a",
@@ -428,11 +424,10 @@
       "role": "arch-inspector",
       "focus": "Generic runtime contract, adapter leakage, runtime supervision ownership, model/provider concepts, events, cancellation, result translation.",
       "broad": false,
-      "status": "failed",
-      "attempts": 3,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:09:14.799572426Z",
-      "completed_at": "2026-08-23T20:09:20.883644068Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-24T12:50:16.088491319Z",
+      "completed_at": "2026-08-24T12:50:29.7762249Z"
     },
     {
       "id": "specialist-13b",
@@ -441,11 +436,10 @@
       "role": "arch-inspector",
       "focus": "Generic runtime contract, adapter leakage, runtime supervision ownership, model/provider concepts, events, cancellation, result translation.",
       "broad": false,
-      "status": "failed",
-      "attempts": 3,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:09:15.249731923Z",
-      "completed_at": "2026-08-23T20:09:21.445522629Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-24T12:50:29.778875944Z",
+      "completed_at": "2026-08-24T13:07:20.798540302Z"
     },
     {
       "id": "specialist-14a",
@@ -454,11 +448,10 @@
       "role": "arch-inspector",
       "focus": "External process boundary, argv/env/cwd/timeouts, process groups, evidence ownership, harness selection, cancellation, and cleanup.",
       "broad": false,
-      "status": "failed",
-      "attempts": 3,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:09:20.885475031Z",
-      "completed_at": "2026-08-23T20:09:26.970766804Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-24T12:53:22.099019611Z",
+      "completed_at": "2026-08-24T13:13:50.761994774Z"
     },
     {
       "id": "specialist-14b",
@@ -467,11 +460,10 @@
       "role": "arch-inspector",
       "focus": "External process boundary, argv/env/cwd/timeouts, process groups, evidence ownership, harness selection, cancellation, and cleanup.",
       "broad": false,
-      "status": "failed",
-      "attempts": 3,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:09:21.447401294Z",
-      "completed_at": "2026-08-23T20:09:27.646243651Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-24T13:07:20.801151532Z",
+      "completed_at": "2026-08-24T13:18:04.608159911Z"
     },
     {
       "id": "specialist-15a",
@@ -480,11 +472,10 @@
       "role": "arch-inspector",
       "focus": "Path ownership, atomic writes, directory contracts, artifact authority, partial writes, locking, consistency, and cross-platform assumptions.",
       "broad": false,
-      "status": "failed",
-      "attempts": 3,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:09:26.972343823Z",
-      "completed_at": "2026-08-23T20:09:33.067914719Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-24T13:13:50.770463952Z",
+      "completed_at": "2026-08-24T13:22:30.982364669Z"
     },
     {
       "id": "specialist-15b",
@@ -493,11 +484,10 @@
       "role": "arch-inspector",
       "focus": "Path ownership, atomic writes, directory contracts, artifact authority, partial writes, locking, consistency, and cross-platform assumptions.",
       "broad": false,
-      "status": "failed",
-      "attempts": 3,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:09:27.647946245Z",
-      "completed_at": "2026-08-23T20:09:33.845602416Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-24T13:18:04.610451897Z",
+      "completed_at": "2026-08-24T13:35:01.521695886Z"
     },
     {
       "id": "specialist-16a",
@@ -506,11 +496,10 @@
       "role": "arch-inspector",
       "focus": "Config precedence, model selection, override semantics, redaction, ownership, hidden globals, and drift across surfaces.",
       "broad": false,
-      "status": "failed",
-      "attempts": 3,
-      "last_error": "signal: terminated",
-      "started_at": "2026-08-23T20:09:33.069545586Z",
-      "completed_at": "2026-08-24T09:43:01.292159572Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-24T13:22:30.987665563Z",
+      "completed_at": "2026-08-24T13:37:01.170388648Z"
     },
     {
       "id": "specialist-16b",
@@ -519,11 +508,10 @@
       "role": "arch-inspector",
       "focus": "Config precedence, model selection, override semantics, redaction, ownership, hidden globals, and drift across surfaces.",
       "broad": false,
-      "status": "failed",
-      "attempts": 3,
-      "last_error": "signal: terminated",
-      "started_at": "2026-08-23T20:09:33.84740202Z",
-      "completed_at": "2026-08-24T09:43:01.278943239Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-24T13:35:01.524798172Z",
+      "completed_at": "2026-08-24T13:40:33.073157893Z"
     },
     {
       "id": "specialist-17a",
@@ -532,10 +520,10 @@
       "role": "arch-inspector",
       "focus": "Error taxonomy, wrapping, retry safety, partial progress, idempotency, cancellation races, cleanup uncertainty, and actionable recovery.",
       "broad": false,
-      "status": "failed",
-      "attempts": 3,
-      "started_at": "2026-08-24T09:43:01.282299878Z",
-      "completed_at": "2026-08-23T20:06:47.735315094Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-24T13:37:01.175641632Z",
+      "completed_at": "2026-08-24T13:37:13.837263988Z"
     },
     {
       "id": "specialist-17b",
@@ -544,10 +532,10 @@
       "role": "arch-inspector",
       "focus": "Error taxonomy, wrapping, retry safety, partial progress, idempotency, cancellation races, cleanup uncertainty, and actionable recovery.",
       "broad": false,
-      "status": "failed",
-      "attempts": 3,
-      "started_at": "2026-08-24T09:43:01.294963278Z",
-      "completed_at": "2026-08-23T20:06:48.383188788Z"
+      "status": "succeeded",
+      "attempts": 4,
+      "started_at": "2026-08-24T13:37:13.839805308Z",
+      "completed_at": "2026-08-24T14:01:02.721858983Z"
     },
     {
       "id": "specialist-18a",
@@ -556,11 +544,10 @@
       "role": "arch-inspector",
       "focus": "Events, logs, metrics, correlation, truthfulness, event retention, sanitization, operational diagnosis, and duplicated projections.",
       "broad": false,
-      "status": "failed",
-      "attempts": 2,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:06:47.736760392Z",
-      "completed_at": "2026-08-23T20:06:53.784881364Z"
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-24T13:40:33.076574885Z",
+      "completed_at": "2026-08-24T13:50:16.791498998Z"
     },
     {
       "id": "specialist-18b",
@@ -569,11 +556,10 @@
       "role": "arch-inspector",
       "focus": "Events, logs, metrics, correlation, truthfulness, event retention, sanitization, operational diagnosis, and duplicated projections.",
       "broad": false,
-      "status": "failed",
-      "attempts": 2,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:06:48.384960875Z",
-      "completed_at": "2026-08-23T20:06:54.465079702Z"
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-24T13:50:16.79417113Z",
+      "completed_at": "2026-08-24T14:07:04.132371966Z"
     },
     {
       "id": "specialist-19a",
@@ -582,11 +568,10 @@
       "role": "arch-inspector",
       "focus": "Goroutine ownership, worker pools, boundedness, race surfaces, locks, channels, backpressure, cancellation propagation, and cleanup.",
       "broad": false,
-      "status": "failed",
-      "attempts": 2,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:06:53.786325755Z",
-      "completed_at": "2026-08-23T20:06:59.818308116Z"
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-24T14:01:02.72435295Z",
+      "completed_at": "2026-08-24T14:01:11.434746646Z"
     },
     {
       "id": "specialist-19b",
@@ -595,11 +580,10 @@
       "role": "arch-inspector",
       "focus": "Goroutine ownership, worker pools, boundedness, race surfaces, locks, channels, backpressure, cancellation propagation, and cleanup.",
       "broad": false,
-      "status": "failed",
-      "attempts": 2,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:06:54.466647712Z",
-      "completed_at": "2026-08-23T20:07:00.517621916Z"
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-24T14:01:11.436274008Z",
+      "completed_at": "2026-08-24T14:12:33.01317802Z"
     },
     {
       "id": "specialist-20a",
@@ -608,11 +592,10 @@
       "role": "arch-inspector",
       "focus": "Test seams, fake boundaries, fault injection, import/architecture tests, brittle tests, missing invariant tests, and testability of policy.",
       "broad": false,
-      "status": "failed",
-      "attempts": 2,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:06:59.820026774Z",
-      "completed_at": "2026-08-23T20:07:05.880520017Z"
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-24T14:07:04.13405675Z",
+      "completed_at": "2026-08-24T14:18:17.696302501Z"
     },
     {
       "id": "specialist-20b",
@@ -621,11 +604,10 @@
       "role": "arch-inspector",
       "focus": "Test seams, fake boundaries, fault injection, import/architecture tests, brittle tests, missing invariant tests, and testability of policy.",
       "broad": false,
-      "status": "failed",
-      "attempts": 2,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:07:00.518612826Z",
-      "completed_at": "2026-08-23T20:07:06.549514182Z"
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-24T14:12:33.015876483Z",
+      "completed_at": "2026-08-24T14:12:42.839565885Z"
     },
     {
       "id": "specialist-21a",
@@ -634,11 +616,10 @@
       "role": "arch-inspector",
       "focus": "Workspace paths, source repo access, external execution, env/secrets, local HTTP, CSRF/origin/host policy, log/event sanitization.",
       "broad": false,
-      "status": "failed",
-      "attempts": 2,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:07:05.882028103Z",
-      "completed_at": "2026-08-23T20:07:11.999981643Z"
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-24T14:12:42.841689972Z",
+      "completed_at": "2026-08-24T14:23:43.41517961Z"
     },
     {
       "id": "specialist-21b",
@@ -647,11 +628,10 @@
       "role": "arch-inspector",
       "focus": "Workspace paths, source repo access, external execution, env/secrets, local HTTP, CSRF/origin/host policy, log/event sanitization.",
       "broad": false,
-      "status": "failed",
-      "attempts": 2,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:07:06.550409689Z",
-      "completed_at": "2026-08-23T20:07:12.669590133Z"
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-24T14:18:17.699650978Z",
+      "completed_at": "2026-08-24T14:35:29.007633771Z"
     },
     {
       "id": "specialist-22a",
@@ -660,11 +640,10 @@
       "role": "arch-inspector",
       "focus": "Prompt ownership, context packs, code-context, skills, evidence injection, caching assumptions, prompt drift, and agent-facing authority.",
       "broad": false,
-      "status": "failed",
-      "attempts": 2,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:07:12.00160392Z",
-      "completed_at": "2026-08-23T20:07:18.232115039Z"
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-24T14:23:43.439812819Z",
+      "completed_at": "2026-08-24T14:39:44.3705574Z"
     },
     {
       "id": "specialist-22b",
@@ -673,11 +652,10 @@
       "role": "arch-inspector",
       "focus": "Prompt ownership, context packs, code-context, skills, evidence injection, caching assumptions, prompt drift, and agent-facing authority.",
       "broad": false,
-      "status": "failed",
-      "attempts": 2,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:07:12.670988918Z",
-      "completed_at": "2026-08-23T20:07:18.926718453Z"
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-24T14:35:29.010381333Z",
+      "completed_at": "2026-08-24T14:36:40.314495816Z"
     },
     {
       "id": "specialist-23a",
@@ -686,11 +664,10 @@
       "role": "arch-inspector",
       "focus": "Deep modules vs god modules, speculative interfaces, generic engines, duplicated knowledge, pass-through abstractions, and accidental ceremony.",
       "broad": false,
-      "status": "failed",
-      "attempts": 2,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:07:18.233111677Z",
-      "completed_at": "2026-08-23T20:07:24.326712415Z"
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-24T14:36:40.321997624Z",
+      "completed_at": "2026-08-24T14:57:49.715767624Z"
     },
     {
       "id": "specialist-23b",
@@ -699,11 +676,10 @@
       "role": "arch-inspector",
       "focus": "Deep modules vs god modules, speculative interfaces, generic engines, duplicated knowledge, pass-through abstractions, and accidental ceremony.",
       "broad": false,
-      "status": "failed",
-      "attempts": 2,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:07:18.928498502Z",
-      "completed_at": "2026-08-23T20:07:24.998177151Z"
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-24T14:39:44.371963308Z",
+      "completed_at": "2026-08-24T14:59:58.157275301Z"
     },
     {
       "id": "specialist-24a",
@@ -712,11 +688,10 @@
       "role": "arch-inspector",
       "focus": "How architecture absorbs new stages, surfaces, runtimes, state versions, events, policies, review strategies, and future roadmap changes.",
       "broad": false,
-      "status": "failed",
-      "attempts": 2,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:07:24.32871889Z",
-      "completed_at": "2026-08-23T20:07:30.36573186Z"
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-24T14:57:49.724092375Z",
+      "completed_at": "2026-08-24T15:15:14.206766819Z"
     },
     {
       "id": "specialist-24b",
@@ -725,11 +700,10 @@
       "role": "arch-inspector",
       "focus": "How architecture absorbs new stages, surfaces, runtimes, state versions, events, policies, review strategies, and future roadmap changes.",
       "broad": false,
-      "status": "failed",
-      "attempts": 2,
-      "last_error": "exit status 1",
-      "started_at": "2026-08-23T20:07:24.999127693Z",
-      "completed_at": "2026-08-23T20:07:31.091563267Z"
+      "status": "succeeded",
+      "attempts": 3,
+      "started_at": "2026-08-24T14:59:58.158481254Z",
+      "completed_at": "2026-08-24T15:13:03.06671123Z"
     },
     {
       "id": "failure-01",

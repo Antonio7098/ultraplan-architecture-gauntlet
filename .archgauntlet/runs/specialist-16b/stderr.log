@@ -4,11 +4,17 @@
 [0m
 [0m→ [0mSkill "ultraplan-architecture-gauntlet"
 [0m
-[0m$ [0mgit log --oneline -3 && git status --short | head -5; echo "---"; ls
-eeaa034 observability: promote nested runtime payload facts to top level
-c455510 observability: surface agent stream details in durable run events
-4f440ca Show session continuation and harness session ID in run agent modal
----
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m$ [0mls -R /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go | head -100
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go:
 cmd
 dist
 docs
@@ -17,153 +23,22 @@ go.sum
 internal
 README.md
 scripts
-[0m
-[0m$ [0mfind . -type f -name "*.go" | grep -v _test | head -60
-./cmd/ultraplan/main.go
-./internal/app/app.go
-./internal/app/code_commands.go
-./internal/app/config_commands.go
-./internal/app/defaults_commands.go
-./internal/app/health_commands.go
-./internal/app/json_output.go
-./internal/app/markdown.go
-./internal/app/project_commands.go
-./internal/app/project_usecases.go
-./internal/app/run_commands.go
-./internal/app/run_usecases.go
-./internal/app/skills_commands.go
-./internal/app/sprint_usecases.go
-./internal/app/status_json.go
-./internal/app/storage_commands.go
-./internal/app/study_runs_commands.go
-./internal/app/study_usecases.go
-./internal/app/surfaces.go
-./internal/app/tui_commands.go
-./internal/app/usecases.go
-./internal/app/version.go
-./internal/app/workspace_commands.go
-./internal/app/durable_operations.go
-./internal/app/operation_runner.go
-./internal/app/operations.go
-./internal/app/run_control.go
-./internal/app/serve_commands.go
-./internal/app/sprint_commands.go
-./internal/app/study_commands.go
-./internal/app/web_usecases.go
-./internal/codeextract/doc.go
-./internal/codeextract/domain.go
-./internal/codeextract/parser.go
-./internal/codeextract/resolver.go
-./internal/codeextract/service.go
-./internal/platform/config/config.go
-./internal/platform/config/doc.go
-./internal/platform/config/redaction.go
-./internal/platform/filesystem/doc.go
-./internal/platform/logging/doc.go
-./internal/platform/logging/logging.go
-./internal/platform/process/process.go
-./internal/platform/process/process_other.go
-./internal/platform/process/process_unix.go
-./internal/platform/runtime/agentwrap.go
-./internal/platform/runtime/events.go
-./internal/platform/runtime/health.go
-./internal/platform/runtime/policy.go
-./internal/platform/runtime/opencode.go
-./internal/platform/runtime/runtime.go
-./internal/productstate/store.go
-./internal/project/discovery.go
-./internal/project/doc.go
-./internal/project/domain.go
-./internal/project/index.go
-./internal/project/reasoning_defaults.go
-./internal/project/service.go
-./internal/project/store_fs.go
-./internal/project/validation.go
-[0m
-[0m$ [0mfind . -type f -name "*.go" | wc -l; find . -type f -name "*.go" | grep -v _test | tail -40; echo ---; wc -l internal/platform/config/*.go internal/app/config_commands.go internal/project/reasoning_defaults.go 2>/dev/null
-291
-./internal/study/run_state.go
-./internal/study/run_state_domain.go
-./internal/study/runtime_metadata.go
-./internal/study/runtime_validation.go
-./internal/study/state.go
-./internal/study/state_database.go
-./internal/study/summary.go
-./internal/study/validation.go
-./internal/study/validation_command.go
-./internal/study/config.go
-./internal/study/execution_domain.go
-./internal/study/run.go
-./internal/study/run_all.go
-./internal/study/run_loop.go
-./internal/study/service.go
-./internal/study/synthesize.go
-./internal/tui/app.go
-./internal/tui/doc.go
-./internal/tui/keys.go
-./internal/tui/markdown.go
-./internal/tui/model.go
-./internal/tui/theme.go
-./internal/tui/viewport.go
-./internal/tui/views.go
-./internal/web/artifacts.go
-./internal/web/operations.go
-./internal/web/run_handlers.go
-./internal/web/security.go
-./internal/web/server.go
-./internal/web/server_policy.go
-./internal/web/handlers.go
-./internal/web/operation_handlers.go
-./internal/web/routes.go
-./internal/workspace/defaults.go
-./internal/workspace/discovery.go
-./internal/workspace/doc.go
-./internal/workspace/init.go
-./internal/workspace/paths.go
-./internal/workspace/skills.go
-./internal/workspace/validation.go
----
-  549 internal/platform/config/config.go
-  213 internal/platform/config/config_test.go
-    6 internal/platform/config/doc.go
-   74 internal/platform/config/redaction.go
-  114 internal/app/config_commands.go
-  114 internal/project/reasoning_defaults.go
- 1070 total
-[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/redaction.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/reasoning_defaults.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/config_commands.go
-[0m✱ [0mGrep "loadEffectiveConfig"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 12 matches[0m
-[0m✱ [0mGrep "os\.Getenv|os\.LookupEnv"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 22 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_types.go[90m [offset=250, limit=120][0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_types.go[90m [limit=130][0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=110, offset=470][0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app.go[90m [limit=80, offset=270][0m
-[0m✱ [0mGrep "RequestFromConfig|Planning\.|Models\."[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime · 5 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go[90m [limit=120, offset=420][0m
-[0m✱ [0mGrep "planningStageRuntime|func splitModel|ReasoningModel|PlanModel|ExecuteModel|ReviewModel|SmokeModel|RequirementsModel"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 77 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go[90m [limit=60, offset=680][0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=70, offset=600][0m
-[0m✱ [0mGrep "ResolveExecuteModel|executeModelSelection\(|reviewModelSelection\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 10 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=45, offset=1265][0m
-[0m✱ [0mGrep "ResolveExecuteModel"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 5 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_model.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go[90m [limit=115, offset=325][0m
-[0m✱ [0mGrep "runtimeConfig\s+pruntime|runtimeConfig =|WithRuntime\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 49 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go[90m [limit=14, offset=711, include=*.go, path=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal, pattern=DefaultVariant|default_variant][0m
-[0m✱ [0mGrep "DefaultVariant"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 8 matches[0m
-[0m✱ [0mGrep "DefaultRetries|default_retries"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 16 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/init.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands.go[90m [limit=90][0m
-[0m✱ [0mGrep "LogFormat|LogLevel"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 17 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode.go[90m [limit=80][0m
-[0m
-[0m$ [0mls -R docs | head -50; ls internal/workspace/scaffold 2>/dev/null
-docs:
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd:
+ultraplan
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan:
+main.go
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/dist:
+checksums.txt
+smoke-evidence.md
+ultraplan-darwin-amd64
+ultraplan-darwin-arm64
+ultraplan-linux-amd64
+ultraplan-linux-arm64
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs:
 architecture.md
 cli-reference.md
 configuration.md
@@ -183,7 +58,7 @@ ui-audit.md
 user-guide.md
 web-compatibility-baseline.md
 
-docs/plans:
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/plans:
 integrated-roadmap.md
 post-execution-qa-and-repair-loop.md
 retrieval-ready-content-knowledge-graph-addendum.md
@@ -192,292 +67,285 @@ server-shutdown-run-cancellation-contract.md
 sprint-code-context-stage.md
 ultraplan-local-server-experiment-plan.md
 
-docs/reports:
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/reports:
 sprint-efficiency.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal:
+app
+codeextract
+platform
+productstate
+project
+runcontrol
+sprint
+study
+tui
+web
+workspace
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app:
+app.go
+app_test.go
+code_commands.go
+code_commands_test.go
+config_commands.go
+defaults_commands.go
+durable_operations.go
+durable_operations_test.go
+health_commands.go
+health_commands_test.go
+json_output.go
+markdown.go
+markdown_test.go
+operation_runner.go
+operations.go
+project_commands.go
+project_commands_test.go
+project_usecases.go
+run_commands.go
+run_commands_test.go
+run_control.go
+run_control_inventory_test.go
+run_control_test.go
+run_usecases.go
+serve_commands.go
+serve_commands_test.go
+skills_commands.go
+skills_commands_test.go
+sprint_commands.go
+sprint_commands_test.go
+[0m
+[0m$ [0mls -R /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal | tail -80
+operations.js
+sse.js
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates:
+artifact.html
+components
+dashboard.html
+error.html
+layouts
+operation-confirm.html
+operation.html
+pages
+primitives
+project.html
+projects.html
+run.html
+runs.html
+shell.html
+sprint.html
+studies.html
+study.html
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/components:
+components.html
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/layouts:
+layouts.html
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/pages:
+pages.html
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/primitives:
+primitives.html
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace:
+defaults.go
+discovery.go
+doc.go
+init.go
+paths.go
+scaffold
+skills.go
+skills_test.go
+validation.go
+workspace_test.go
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold:
 prompts
 templates
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts:
+base.md
+create-area-reasoning.md
+create-code-context.md
+create-requirements.md
+create-sprint-index.md
+create-sprint-reasoning.md
+create-technical-handbook.md
+execute-sprint.md
+meta-plan.md
+meta-synthesize.md
+plan-sprint.md
+review.md
+smoke.md
+synthesize.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates:
+code-context.md
+meta-report.md
+project-index.md
+README.md
+repo-analysis.md
+report.md
+requirements.md
+review.md
+smoke.md
+sprint-index.md
+sprint-plan.md
+sprint-reasoning.md
+technical-handbook.md
 [0m
-[0m✱ [0mGrep "ULTRAPLAN_|precedence|override|env"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs · 100 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/configuration.md
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/policy.go
-[0m✱ [0mGrep "SandboxMode|PermissionMode\(|sandbox"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 8 matches[0m
-[0m
-[0m$ [0mcat go.mod | head -20; ls $(go env GOMODCACHE)/github.com/\!antonio7098/ 2>/dev/null
-module github.com/Antonio7098/ultraplan-go
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app:
+app.go
+app_test.go
+code_commands.go
+code_commands_test.go
+config_commands.go
+defaults_commands.go
+durable_operations.go
+durable_operations_test.go
+health_commands.go
+health_commands_test.go
+json_output.go
+markdown.go
+markdown_test.go
+operation_runner.go
+operations.go
+project_commands.go
+project_commands_test.go
+project_usecases.go
+run_commands.go
+run_commands_test.go
+run_control.go
+run_control_inventory_test.go
+run_control_test.go
+run_usecases.go
+serve_commands.go
+serve_commands_test.go
+skills_commands.go
+skills_commands_test.go
+sprint_commands.go
+sprint_commands_test.go
+sprint_error_test.go
+sprint_usecases.go
+sprint_usecases_test.go
+sprint_verify_commands_test.go
+status_json.go
+storage_commands.go
+study_commands.go
+study_commands_test.go
+study_init_commands_test.go
+study_prompt_commands_test.go
+study_run_all_commands_test.go
+study_run_commands_test.go
+study_run_loop_commands_test.go
+study_runs_commands.go
+study_runs_commands_test.go
+study_status_commands_test.go
+study_summary_commands_test.go
+study_usecases.go
+study_validate_commands_test.go
+surfaces.go
+tui_commands.go
+tui_commands_test.go
+usecases.go
+usecases_test.go
+version.go
+web_operations_test.go
+web_usecases.go
+web_usecases_test.go
+workspace_commands.go
 
-go 1.26
-
-require gopkg.in/yaml.v3 v3.0.1
-
-require (
-	github.com/Antonio7098/agentwrap v0.0.0-20260821190033-e79a38a58da3
-	github.com/charmbracelet/bubbletea v1.3.10
-	github.com/charmbracelet/glamour v1.0.0
-	github.com/charmbracelet/lipgloss v1.1.1-0.20250404203927-76690c660834
-	github.com/yuin/goldmark v1.7.13
-	golang.org/x/sys v0.47.0
-	modernc.org/sqlite v1.57.0
-)
-
-require (
-	github.com/alecthomas/chroma/v2 v2.20.0 // indirect
-	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
-	github.com/aymerick/douceur v0.2.0 // indirect
-agentwrap@v0.0.0-20260613122459-bc655a256a5f
-agentwrap@v0.0.0-20260629143324-a917627c22fb
-agentwrap@v0.0.0-20260629144550-2e8fbbe2c6cd
-agentwrap@v0.0.0-20260702175305-d1c785159a8d
-agentwrap@v0.0.0-20260710081656-59c61672c875
-agentwrap@v0.0.0-20260714161112-8ddfc132f7ca
-agentwrap@v0.0.0-20260815144406-3abac668be17
-agentwrap@v0.0.0-20260815154925-6aa129f822f3
-agentwrap@v0.0.0-20260815160303-e00b8e694497
-agentwrap@v0.0.0-20260816114448-0159fa923f42
-agentwrap@v0.0.0-20260816144152-043ad0dd8dd6
-agentwrap@v0.0.0-20260821190033-e79a38a58da3
-agentwrap@v0.0.0-20260822125309-004e30d47ac0
-agentwrap@v0.0.0-20260823194117-7610226fc449
-ultraplan-go@v0.1.0
-ultraplan-go@v0.1.1-0.20260629184531-01894ff216f3
-ultraplan-go@v0.1.1-0.20260701184158-211333865d5b
-ultraplan-go@v0.1.1-0.20260702110315-c8fea83c8c10
-ultraplan-go@v0.1.1-0.20260702121236-ea12c676255e
-ultraplan-go@v0.1.1-0.20260702124413-633bd352c6a3
-ultraplan-go@v0.1.1-0.20260702131822-913058d2fd23
-ultraplan-go@v0.1.1-0.20260702132418-8c6e4d57eba5
-ultraplan-go@v0.1.1-0.20260702132622-666a6ce0e25f
-ultraplan-go@v0.1.1-0.20260702133818-b95a0762df10
-ultraplan-go@v0.1.1-0.20260703090528-adb6fbb6cd4e
-ultraplan-go@v0.1.1-0.20260709165039-7a94a111f4dd
-ultraplan-go@v0.1.1-0.20260710081813-b332838b6e37
-ultraplan-go@v0.1.1-0.20260714160811-922062d3f013
-ultraplan-go@v0.1.1-0.20260714161246-73f3472b6dc4
-ultraplan-go@v0.1.1-0.20260722174204-d1e8b4518320
-ultraplan-go@v0.1.1-0.20260722191151-f142a7386e2f
-ultraplan-go@v0.1.1-0.20260722195008-76711a71155e
-ultraplan-go@v0.1.1-0.20260723152402-f4d6d3848a89
-ultraplan-go@v0.1.1-0.20260728132742-f8446a658259
-ultraplan-go@v0.1.1-0.20260815144532-9200a07a4802
-ultraplan-go@v0.1.1-0.20260815145458-5f6058a5e866
-ultraplan-go@v0.1.1-0.20260815150731-4b227527877f
-ultraplan-go@v0.1.1-0.20260815160513-ce223e49acbf
-ultraplan-go@v0.1.1-0.20260816103014-9545e91fe2f1
-ultraplan-go@v0.1.1-0.20260816110227-6471dcc088e7
-ultraplan-go@v0.1.1-0.20260816110716-b1330371bab2
-ultraplan-go@v0.1.1-0.20260816111250-cdbdec214e5d
-ultraplan-go@v0.1.1-0.20260816112656-02ab48fb44d4
-ultraplan-go@v0.1.1-0.20260816114532-0ab766386f92
-ultraplan-go@v0.1.1-0.20260816120258-bc52401a0f98
-ultraplan-go@v0.1.1-0.20260816155255-a2216837ba63
-ultraplan-go@v0.1.1-0.20260817105705-f8b639e681bc
-ultraplan-go@v0.1.1-0.20260817110456-17f108e8dc98
-ultraplan-go@v0.1.1-0.20260817110841-305c03eac36c
-ultraplan-go@v0.1.1-0.20260817111604-4837d369a87b
-ultraplan-go@v0.1.1-0.20260817112004-8e2f91c27fd2
-ultraplan-go@v0.1.1-0.20260817112408-217046b81649
-ultraplan-go@v0.1.1-0.20260817181627-9b3c02bb399b
-ultraplan-go@v0.1.1-0.20260817182807-2fbce1af2e3f
-ultraplan-go@v0.1.1-0.20260817183201-291d81e2b50e
-[0m
-[0m$ [0mgrep -rn "SandboxMode\|PermissionMode" $(go env GOMODCACHE)/github.com/\!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/*.go 2>/dev/null | grep -i "valid\|switch\|const\|type" | head; echo ---; grep -rln "yaml" --include="*.go" internal/ | head
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/runtime.go:43:type PermissionMode string
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/runtime.go:46:type SandboxMode string
----
-internal/app/operations.go
-internal/study/discovery.go
-internal/study/init_render.go
-internal/study/init_test.go
-internal/study/init_yaml.go
-internal/study/markdown.go
-internal/workspace/skills.go
-internal/workspace/skills_test.go
-[0m
-[0m$ [0mgrep -n "Sandbox\|PermissionMode" $(go env GOMODCACHE)/github.com/\!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/runtime.go | head -20; echo ===; sed -n '30,80p' $(go env GOMODCACHE)/github.com/\!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/runtime.go
-30:	Permissions      PermissionMode
-32:	Sandbox          SandboxMode
-42:// PermissionMode is an open placeholder for future permission policies.
-43:type PermissionMode string
-45:// SandboxMode is an open placeholder for future sandbox requirements.
-46:type SandboxMode string
-===
-	Permissions      PermissionMode
-	PermissionPolicy *PermissionPolicy
-	Sandbox          SandboxMode
-	Timeout          time.Duration
-	Metadata         map[string]string
-	WantSession      bool
-	SessionAction    SessionAction
-	RequireCaps      []Capability
-	RequireHealth    []HealthCheckID
-	Validation       *ValidationSpec
-}
-
-// PermissionMode is an open placeholder for future permission policies.
-type PermissionMode string
-
-// SandboxMode is an open placeholder for future sandbox requirements.
-type SandboxMode string
-
-// RunResult is the final caller-visible result for a run.
-type RunResult struct {
-	RunID     RunID
-	SessionID SessionID
-	TurnID    TurnID
-	Status    RunStatus
-	// TerminalOutput is the last bounded assistant output observed by the
-	// adapter. It lets caller-defined validators inspect structured results
-	// without depending on runtime-native event payloads.
-	TerminalOutput string
-	Metadata       RunMetadata
-	Artifacts      []ArtifactRef
-	Warnings       []string
-	Usage          Usage
-	StartedAt      time.Time
-	FinishedAt     time.Time
-	Err            *SDKError
-}
-
-// Capabilities describes runtime-supported contract features.
-type Capabilities struct {
-	RuntimeKind RuntimeKind
-	Features    map[Capability]CapabilitySupport
-	Unsupported []UnsupportedCapability
-}
-
-// Supports reports whether a capability is explicitly supported.
-func (c Capabilities) Supports(capability Capability) bool {
-	return c.Features[capability].Supported
-}
-
-// Capability is an open contract-level runtime feature identifier.
-type Capability string
-[0m
-[0m$ [0mls $(go env GOMODCACHE)/github.com/\!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/ 2>/dev/null; grep -rn "Sandbox\|Permissions" $(go env GOMODCACHE)/github.com/\!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/*.go 2>/dev/null | head -20
-agentwrap-smoke-output.txt
-decoder.go
-decoder_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project:
+discovery.go
 doc.go
-health.go
-health_test.go
-integration_test.go
-options.go
-permissions.go
+domain.go
+index.go
+project_test.go
+reasoning_defaults.go
+reasoning_defaults_test.go
+service.go
+store_fs.go
+validation.go
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol:
+benchmark_test.go
+doc.go
+errors.go
+fault_test.go
+id.go
+id_test.go
+import_boundary_test.go
+interfaces.go
+lifecycle.go
+lifecycle_test.go
+local_log.go
+local_log_test.go
+metrics.go
+migration.go
+migration_test.go
+model.go
+model_test.go
+process_darwin.go
 process.go
+process_integration_test.go
 process_linux.go
 process_other.go
-process_unix.go
-process_unix_test.go
-process_windows.go
-projector.go
-rate_limit.go
+retention.go
+retention_test.go
+sanitize.go
+sanitize_test.go
+sqlite.go
+sqlite_test.go
+[0m
+[0m✱ [0mGrep "model"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project · 0 matches[0m
+[0m✱ [0mGrep "reasoning|model"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 100 matches[0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform:
+config
+filesystem
+logging
+process
+runtime
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config:
+config.go
+config_test.go
+doc.go
+redaction.go
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime:
+agentwrap.go
+cache_test.go
+events.go
+health.go
+opencode.go
+opencode_test.go
+policy.go
 runtime.go
 runtime_test.go
-testdata
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/health.go:306:	if req.Permissions != "" {
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/health.go:307:		caller.Permissions = &req.Permissions
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/health.go:309:	if req.Sandbox != "" {
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/health.go:310:		caller.Sandbox = &req.Sandbox
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/integration_test.go:254:		if result.Metadata.Permissions.Policy.Tools[agentwrap.PermissionToolShell] != agentwrap.PermissionActionAllow {
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/integration_test.go:255:			t.Fatalf("permission metadata = %#v", result.Metadata.Permissions)
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/integration_test.go:257:		if len(result.Metadata.Permissions.Audit) == 0 {
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/integration_test.go:258:			t.Fatalf("missing permission audit metadata: %#v", result.Metadata.Permissions)
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/integration_test.go:313:		if len(result.Metadata.Permissions.Unsupported) == 0 {
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/integration_test.go:314:			t.Fatalf("missing unsupported permission metadata: %#v", result.Metadata.Permissions)
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/integration_test.go:347:		if result.Metadata.Permissions.Policy.Tools[agentwrap.PermissionToolShell] != agentwrap.PermissionActionAsk {
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/integration_test.go:348:			t.Fatalf("permission metadata = %#v", result.Metadata.Permissions)
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/options.go:120:			agentwrap.CapabilityPermissions:      {Supported: true, Detail: "permission requests are surfaced and non-interactive OpenCode auto-rejects by default"},
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/permissions.go:38:func translatePermissions(req agentwrap.RunRequest) (permissionTranslation, error) {
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/permissions.go:39:	metadata := agentwrap.PermissionMetadata{Mode: req.Permissions}
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/runtime.go:43:	permissions, err := translatePermissions(req)
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/runtime.go:106:		Permissions:    req.Permissions,
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/runtime.go:107:		Sandbox:        req.Sandbox,
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/runtime.go:468:		Permissions: r.permissions,
-/home/antonioborgerees/go/pkg/mod/github.com/!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/runtime.go:1030:	if len(r.permissions.Audit) == 0 && len(r.permissions.Support) == 0 && r.req.Permissions == "" {
 [0m
-[0m$ [0msed -n '30,110p' $(go env GOMODCACHE)/github.com/\!antonio7098/agentwrap@v0.0.0-20260821190033-e79a38a58da3/opencode/permissions.go
-agentwrap.PermissionToolSkill:             "skill",
-}
-
-type permissionTranslation struct {
-	config   map[string]any
-	metadata agentwrap.PermissionMetadata
-}
-
-func translatePermissions(req agentwrap.RunRequest) (permissionTranslation, error) {
-	metadata := agentwrap.PermissionMetadata{Mode: req.Permissions}
-	if req.PermissionPolicy == nil {
-		return permissionTranslation{metadata: metadata}, nil
-	}
-	if err := agentwrap.ValidatePermissionPolicy(req.PermissionPolicy); err != nil {
-		return permissionTranslation{}, err
-	}
-	metadata.Policy = req.PermissionPolicy.Summary()
-	metadata.PolicyID = metadata.Policy.ID
-	permissionConfig := map[string]any{}
-	if req.PermissionPolicy.Default != agentwrap.PermissionActionDefault {
-		for _, nativeTool := range opencodePermissionTools {
-			permissionConfig[nativeTool] = string(req.PermissionPolicy.Default)
-		}
-		metadata.Support = append(metadata.Support, agentwrap.PermissionFeatureSupport{
-			Feature:     "default",
-			Enforcement: agentwrap.PermissionEnforcementNative,
-			Reason:      "expanded to OpenCode native tool permissions",
-		})
-	}
-	for tool, action := range req.PermissionPolicy.Tools {
-		nativeTool, ok := opencodePermissionTools[tool]
-		if !ok {
-			unsupported := unsupportedFeature(string(tool), req.PermissionPolicy.UnsupportedBehavior, "OpenCode subprocess permission config has no native tool mapping")
-			metadata.Support = append(metadata.Support, unsupported)
-			metadata.Unsupported = append(metadata.Unsupported, unsupported)
-			if req.PermissionPolicy.UnsupportedBehavior != agentwrap.PermissionUnsupportedBestEffort {
-				return permissionTranslation{}, unsupportedPermissionError(unsupported)
-			}
-			continue
-		}
-		if action == agentwrap.PermissionActionDefault {
-			continue
-		}
-		permissionConfig[nativeTool] = string(action)
-		metadata.Support = append(metadata.Support, agentwrap.PermissionFeatureSupport{
-			Feature:     string(tool),
-			Enforcement: agentwrap.PermissionEnforcementNative,
-			Reason:      fmt.Sprintf("mapped to OpenCode permission %q", nativeTool),
-		})
-		metadata.Audit = append(metadata.Audit, agentwrap.PermissionAudit{
-			Source:      "opencode.config",
-			Tool:        tool,
-			Action:      action,
-			Enforcement: agentwrap.PermissionEnforcementNative,
-			Reason:      "initialized from SDK permission policy",
-		})
-	}
-	for _, rule := range req.PermissionPolicy.PathRules {
-		paths, ok := permissionConfig["external_directory"].(map[string]any)
-		if !ok {
-			paths = map[string]any{}
-			if fallback, exists := permissionConfig["external_directory"]; exists {
-				paths["*"] = fallback
-			}
-		}
-		paths[rule.Path] = string(rule.Action)
-		permissionConfig["external_directory"] = paths
-		metadata.Support = append(metadata.Support, agentwrap.PermissionFeatureSupport{
-			Feature:     "path:" + rule.Path,
-			Enforcement: agentwrap.PermissionEnforcementNative,
-			Reason:      "mapped to OpenCode external_directory path permissions",
-		})
-		metadata.Audit = append(metadata.Audit, agentwrap.PermissionAudit{
-			Source:      "opencode.config",
-			Tool:        agentwrap.PermissionToolExternalDirectory,
-			Action:      rule.Action,
-			Enforcement: agentwrap.PermissionEnforcementNative,
-			Reason:      "initialized from SDK path permission rule",
-		})
-	}
-	if len(permissionConfig) == 0 {
-[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go[90m [limit=65, offset=615][0m
-[0m✱ [0mGrep "ModelSource|model_source|Selection\.Source|selection\.Source"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 12 matches[0m
-[0m✱ [0mGrep "ModelSource|model_source|plan_model"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 17 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go[90m [limit=75, offset=295][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/redaction.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode.go
+[0m✱ [0mGrep "RequestFromConfig|Planning\.[A-Z]|Models\."[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 100 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [offset=440, limit=280][0m
+[0m✱ [0mGrep "ModelOverride|VariantOverride|StageRuntime|ExecuteModelSelection|resolveStage|modelFor"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 71 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go
+[0m✱ [0mGrep "req\.ModelOverride|req\.VariantOverride|ModelOverride !=|VariantOverride !="[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 8 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/configuration.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_model.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go[90m [limit=80, offset=660][0m
+[0m✱ [0mGrep "ResolveExecuteModel"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 5 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go[90m [limit=130, offset=320][0m
+[0m✱ [0mGrep "unresolved|selection\.Model"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 16 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go[90m [limit=140, offset=120][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=130, offset=130][0m
+[0m✱ [0mGrep "runtimeRequest\(|startPlanningStageRun\(|startSprintRuntime\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 37 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/flow.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=120, offset=719][0m

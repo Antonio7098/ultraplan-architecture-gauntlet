@@ -1,4 +1,335 @@
-[91m[1mError: [0mUnexpected error
-
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515750201,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515750201,[]
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m$ [0mgit log --oneline -3 && git status --short | head -20
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+[0m
+[0m$ [0mfind internal cmd -type d | sort
+cmd
+cmd/ultraplan
+internal
+internal/app
+internal/codeextract
+internal/platform
+internal/platform/config
+internal/platform/filesystem
+internal/platform/logging
+internal/platform/process
+internal/platform/runtime
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/web/static
+internal/web/static/css
+internal/web/static/js
+internal/web/templates
+internal/web/templates/components
+internal/web/templates/layouts
+internal/web/templates/pages
+internal/web/templates/primitives
+internal/workspace
+internal/workspace/scaffold
+internal/workspace/scaffold/prompts
+internal/workspace/scaffold/templates
+[0m
+[0m✱ [0mGrep "text/event-stream|Flusher|event-stream"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 8 matches[0m
+[0m
+[0m$ [0mls -la internal/web/ && wc -l internal/web/*.go | sort -n
+total 320
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   818 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8408 Aug 22 16:23 api_compatibility_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   688 Aug 22 16:23 artifacts.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2398 Aug 22 16:23 artifacts_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 32258 Aug 22 16:23 handlers.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   867 Aug 22 16:23 import_boundary_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4268 Aug 22 16:23 integration_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 32565 Aug 22 16:23 operation_handlers.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8209 Aug 22 16:23 operations_contract_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 20911 Aug 22 16:23 operations.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 24442 Aug 22 16:23 operations_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3288 Aug 22 16:23 packaging_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 14752 Aug 22 16:23 routes.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  9852 Aug 22 16:23 routes_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 20327 Aug 22 16:23 run_handlers.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 17747 Aug 22 16:23 run_handlers_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 15772 Aug 22 16:23 security.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees 14506 Aug 22 16:23 security_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4997 Aug 22 16:23 server.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3228 Aug 22 16:23 server_policy.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   970 Aug 22 16:23 server_policy_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3096 Aug 22 16:23 server_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees   803 Aug 22 16:23 sse_test.go
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   114 Aug 22 16:23 static
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   380 Aug 22 16:23 templates
+-rw-r--r--. 1 antonioborgerees antonioborgerees 22876 Aug 22 16:23 templates_test.go
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8482 Aug 22 16:23 test_fakes_test.go
+    21 internal/web/artifacts.go
+    27 internal/web/server_policy_test.go
+    29 internal/web/sse_test.go
+    41 internal/web/import_boundary_test.go
+    53 internal/web/server_policy.go
+    54 internal/web/artifacts_test.go
+    97 internal/web/packaging_test.go
+   107 internal/web/integration_test.go
+   111 internal/web/server_test.go
+   119 internal/web/api_compatibility_test.go
+   125 internal/web/test_fakes_test.go
+   177 internal/web/server.go
+   189 internal/web/operations_contract_test.go
+   264 internal/web/routes_test.go
+   351 internal/web/security_test.go
+   376 internal/web/run_handlers_test.go
+   429 internal/web/routes.go
+   435 internal/web/templates_test.go
+   457 internal/web/security.go
+   566 internal/web/operations_test.go
+   578 internal/web/run_handlers.go
+   667 internal/web/operations.go
+   838 internal/web/operation_handlers.go
+   852 internal/web/handlers.go
+  6963 total
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/security.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server_policy.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operation_handlers.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/routes.go
+[0m✱ [0mGrep "type (WebOperations|DurableOperationManager|RunUseCases|WebQueries|OperationCleanupRecorder|OperationReconciler) interface"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 6 matches[0m
+[0m
+[0m$ [0mls internal/app/ && ls cmd/ultraplan/ && ls docs/
+app.go
+app_test.go
+code_commands.go
+code_commands_test.go
+config_commands.go
+defaults_commands.go
+durable_operations.go
+durable_operations_test.go
+health_commands.go
+health_commands_test.go
+json_output.go
+markdown.go
+markdown_test.go
+operation_runner.go
+operations.go
+project_commands.go
+project_commands_test.go
+project_usecases.go
+run_commands.go
+run_commands_test.go
+run_control.go
+run_control_inventory_test.go
+run_control_test.go
+run_usecases.go
+serve_commands.go
+serve_commands_test.go
+skills_commands.go
+skills_commands_test.go
+sprint_commands.go
+sprint_commands_test.go
+sprint_error_test.go
+sprint_usecases.go
+sprint_usecases_test.go
+sprint_verify_commands_test.go
+status_json.go
+storage_commands.go
+study_commands.go
+study_commands_test.go
+study_init_commands_test.go
+study_prompt_commands_test.go
+study_run_all_commands_test.go
+study_run_commands_test.go
+study_run_loop_commands_test.go
+study_runs_commands.go
+study_runs_commands_test.go
+study_status_commands_test.go
+study_summary_commands_test.go
+study_usecases.go
+study_validate_commands_test.go
+surfaces.go
+tui_commands.go
+tui_commands_test.go
+usecases.go
+usecases_test.go
+version.go
+web_operations_test.go
+web_usecases.go
+web_usecases_test.go
+workspace_commands.go
+main.go
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/local-web.md[90m [limit=120][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/local-web.md[90m [offset=121, limit=186][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/sse_test.go
+[0m✱ [0mGrep "SetWriteDeadline|WriteTimeout|NewResponseController"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 6 matches[0m
+[0m
+[0m$ [0mls internal/web/static/js/ && wc -l internal/web/static/js/*.js
+app.js
+operations.js
+sse.js
+   6 internal/web/static/js/app.js
+  23 internal/web/static/js/operations.js
+  12 internal/web/static/js/sse.js
+  41 total
+[0m
+[0m✱ [0mGrep "func .*(AcceptOperation|FinishOperation|RecordOperationEvent|ReconcileOperations|RecordOperationCleanupUncertain)"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 11 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/js/sse.js
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go[90m [limit=300, offset=60][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go[90m [limit=140, offset=230][0m
+[0m✱ [0mGrep "func .*Serve|signal.Notify|NotifyContext"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 7 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands.go
+[0m
+[0m$ [0mgrep -n "NotifyContext\|signal" cmd/ultraplan/main.go internal/app/app.go | head -20
+cmd/ultraplan/main.go:8:	"os/signal"
+cmd/ultraplan/main.go:19:	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations_test.go
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/docs 2>/dev/null | head -40
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m✱ [0mGrep "func Test"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers_test.go · 84 matches[0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ && find /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace -name "*.md" -path "*web*" | head -20
+aren-phase-01-execution-lifecycle
+ultraplan-go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/30-web-foundations/execute.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/30-web-foundations/plan.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/30-web-foundations/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/30-web-foundations/reasoning/api-design.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/30-web-foundations/reasoning/architecture.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/30-web-foundations/reasoning/frontend.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/30-web-foundations/requirements.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/30-web-foundations/review.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/30-web-foundations/smoke.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/30-web-foundations/sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/30-web-foundations/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/31-web-operations/execute.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/31-web-operations/plan.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/31-web-operations/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/31-web-operations/reasoning/api-design.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/31-web-operations/reasoning/architecture.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/31-web-operations/reasoning/frontend.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/31-web-operations/requirements.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/31-web-operations/review.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/31-web-operations/smoke.md
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/
+01-cli-foundation
+02-workspace-config-health
+03-study-listing-resolution
+04-study-init-yaml
+05-study-listing-inspection
+06-study-run-execution
+07-prompt-composition-generation
+08-run-state-persistence
+09-runtime-integration
+10-single-analysis-synthesis
+11-run-all-batch-execution
+12-durable-run-loop
+13-summary-and-code-extraction
+14-validation-and-diagnostics
+15-documentation-and-packaging
+16-project-domain-and-index
+17-artifact-domain-and-flow-state
+18-select-stage
+19-distill-stage
+20-reason-stage
+21-plan-stage
+22-documentaiton-and-release
+23-execute-stage
+24-tui-foundations
+25-operational-tui-controls
+26-review-stage
+27-deep-smoke
+28-review-to-smoke-flow
+29-phase-3-documentation-hardening-release
+30-web-foundations
+31-web-operations
+32-hardening-and-release
+33-code-context-stage
+34-shared-context
+35-durable-run-observability
+[0m
+[0m✱ [0mGrep "WriteTimeout|write deadline|MaxStreamLifetime|stream lifetime|heartbeat"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints · 68 matches[0m
+[0m
+[0m$ [0mgrep -rn "SSE\|stream" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/reasoning.md | head -30
+grep: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/reasoning.md: No such file or directory
+[0m
+[0m✱ [0mGrep "heartbeat"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web · 9 matches[0m
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/ && grep -n "SSE\|follow\|stream" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/reasoning*.md 2>/dev/null | head -25
+flow-state.json
+requirements.md
+[0m
+[0m$ [0mgrep -n "SSE\|stream\|follow\|Last-Event-ID\|poll" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md | head -30
+9:Make every accepted runtime-backed UltraPlan execution a durable, workspace-visible run that can be discovered, inspected, followed, cancelled when authorized, and reconciled consistently from CLI, TUI, and any local web-server instance attached to the same workspace.
+23:| Replayable live event delivery | The web event transport resumes from a durable sequence cursor, makes truncation or retention gaps explicit, and continues from durable state when a different local server instance serves the same workspace. SSE may remain the transport; the transport is not the source of truth. |
+37:- Refreshing a page, rotating or expiring a browser session, restarting the observing server, or losing an SSE connection does not erase the run identity or turn a valid run into an unexplained 404.
+43:- Raw provider payloads, secrets, full prompts, unsafe paths, and unbounded output are not persisted or streamed by default. Redaction occurs before durable recording and fan-out.
+66:Decisions that materially affect public API compatibility, authority, topology, security, or recoverability must be recorded in reasoning before implementation planning. The plan must include migration, rollback, and fault-injection work rather than treating them as follow-up polish.
+74:- Persisting unredacted provider-native streams, full prompts, arbitrary stdout/stderr, or unlimited event history.
+83:- `internal/web` remains an interface adapter. It may own HTTP/SSE connection state and bounded delivery buffers, but not durable run identity, lifecycle authority, or cross-process discovery.
+85:- Commands and cancellation remain explicit operations; event streaming remains an observation channel.
+94:- Sprint 31 guarded operations, SSE, cancellation, locking, reconnect, and shutdown behavior.
+[0m
+[0m✱ [0mGrep "func appendRunEventWithRetry|func proposeRunTerminalWithRetry"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 2 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=80, offset=280][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations_contract_test.go[90m [limit=75, offset=116][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers_test.go[90m [limit=145, offset=232][0m
+[0m✱ [0mGrep "event-stream|followRunSSE|followDurable"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web · 14 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/test_fakes_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/app.js[90m [limit=120, offset=1340][0m
+[0m✱ [0mGrep "recover\(\)"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 1 match[0m
+[0m✱ [0mGrep "func \(h \*handler\) (writeJSON|writeSuccess|writeError|render|renderError|serveHealth|handleDashboard|handleHealth)"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/handlers.go · 5 matches[0m
+[0m
+[0m$ [0mgit log --oneline -6 -- internal/web/run_handlers.go && echo --- && git log --oneline -4 -- internal/web/operations.go && echo --- && git log -S "SetWriteDeadline" --oneline -- internal/web/
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+9aac07e Show retry backoff, attempt counts, and provider/model/harness on run agent cards
+84a45c7 Surface study retries, session reuse, parallelism throttling, and failure reasons on web run pages
+e09d394 Add durable run control and adaptive study execution
+---
+f067727 Propagate runtime failure diagnostics
+e09d394 Add durable run control and adaptive study execution
+2d10aba Add code context planning stage
+7d1c086 Harden sprint operations and smoke authoring
+---
+a221683 feat: add guarded web operations and SSE progress
+[0m

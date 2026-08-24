@@ -1,4 +1,1301 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mgit log --oneline -3 && git status --short | head -5
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+[0m
+[0m$ [0mfind internal cmd -type d | sort
+cmd
+cmd/ultraplan
+internal
+internal/app
+internal/codeextract
+internal/platform
+internal/platform/config
+internal/platform/filesystem
+internal/platform/logging
+internal/platform/process
+internal/platform/runtime
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/web/static
+internal/web/static/css
+internal/web/static/js
+internal/web/templates
+internal/web/templates/components
+internal/web/templates/layouts
+internal/web/templates/pages
+internal/web/templates/primitives
+internal/workspace
+internal/workspace/scaffold
+internal/workspace/scaffold/prompts
+internal/workspace/scaffold/templates
+[0m
+[0m$ [0mls docs/ && ls internal/*/ 2>/dev/null | head -60
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+internal/app/:
+app.go
+app_test.go
+code_commands.go
+code_commands_test.go
+config_commands.go
+defaults_commands.go
+durable_operations.go
+durable_operations_test.go
+health_commands.go
+health_commands_test.go
+json_output.go
+markdown.go
+markdown_test.go
+operation_runner.go
+operations.go
+project_commands.go
+project_commands_test.go
+project_usecases.go
+run_commands.go
+run_commands_test.go
+run_control.go
+run_control_inventory_test.go
+run_control_test.go
+run_usecases.go
+serve_commands.go
+serve_commands_test.go
+skills_commands.go
+skills_commands_test.go
+sprint_commands.go
+sprint_commands_test.go
+sprint_error_test.go
+sprint_usecases.go
+sprint_usecases_test.go
+sprint_verify_commands_test.go
+status_json.go
+storage_commands.go
+study_commands.go
+study_commands_test.go
+study_init_commands_test.go
+study_prompt_commands_test.go
+study_run_all_commands_test.go
+study_run_commands_test.go
+study_run_loop_commands_test.go
+study_runs_commands.go
+study_runs_commands_test.go
+study_status_commands_test.go
+study_summary_commands_test.go
+study_usecases.go
+study_validate_commands_test.go
+surfaces.go
+tui_commands.go
+tui_commands_test.go
+usecases.go
+usecases_test.go
+version.go
+web_operations_test.go
+web_usecases.go
+web_usecases_test.go
+workspace_commands.go
+[0m
+[0m$ [0mls internal/platform/filesystem internal/workspace internal/runcontrol
+internal/platform/filesystem:
+doc.go
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515768023,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515768023,[]
+internal/runcontrol:
+benchmark_test.go
+doc.go
+errors.go
+fault_test.go
+id.go
+id_test.go
+import_boundary_test.go
+interfaces.go
+lifecycle.go
+lifecycle_test.go
+local_log.go
+local_log_test.go
+metrics.go
+migration.go
+migration_test.go
+model.go
+model_test.go
+process_darwin.go
+process.go
+process_integration_test.go
+process_linux.go
+process_other.go
+retention.go
+retention_test.go
+sanitize.go
+sanitize_test.go
+sqlite.go
+sqlite_test.go
+
+internal/workspace:
+defaults.go
+discovery.go
+doc.go
+init.go
+paths.go
+scaffold
+skills.go
+skills_test.go
+validation.go
+workspace_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/filesystem/doc.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/paths.go
+[0m
+[0m$ [0mrg -n "os\.Rename|CreateTemp|\.tmp|fsync|Sync\(\)" internal --type go -g '!*_test.go' | head -50
+internal/study/run_loop.go:490:	return os.Rename(path, filepath.Join(archiveDir, name))
+internal/study/summary.go:88:	if err := atomicWriteFile(path, buf.Bytes(), "."+filepath.Base(path)+".*.tmp"); err != nil {
+internal/study/summary.go:95:	temp, err := os.CreateTemp(filepath.Dir(path), tempPattern)
+internal/study/summary.go:110:	if err := temp.Sync(); err != nil {
+internal/study/summary.go:117:	if err := os.Rename(tempPath, path); err != nil {
+internal/study/cleanup_uncertain.go:61:	return atomicWriteFile(path, data, "."+cleanupUncertainFileName+".*.tmp")
+internal/study/locks.go:93:	if err := file.Sync(); err != nil {
+internal/study/state.go:84:	temp, err := os.CreateTemp(filepath.Dir(path), "."+RunStateFileName+".*.tmp")
+internal/study/state.go:101:	if err := temp.Sync(); err != nil {
+internal/study/state.go:113:	if err := os.Rename(tempPath, path); err != nil {
+internal/study/state.go:183:	_ = dir.Sync()
+internal/sprint/execute_state.go:149:	temp, err := os.CreateTemp(filepath.Dir(path), ".run-state.*.tmp")
+internal/sprint/execute_state.go:164:	if err := temp.Sync(); err != nil {
+internal/sprint/execute_state.go:176:	if err := os.Rename(tempPath, path); err != nil {
+internal/study/run_loop_diagnostics.go:183:		_ = os.Rename(d.path, d.path+".1")
+internal/sprint/session_state.go:69:	tmp, err := os.CreateTemp(sp.Path, ".stage-sessions.*.tmp")
+internal/sprint/session_state.go:84:	return os.Rename(tmpPath, path)
+internal/sprint/smoke.go:696:	file, err := os.CreateTemp(filepath.Dir(path), ".smoke.*.tmp")
+internal/sprint/smoke.go:711:	if err = file.Sync(); err != nil {
+internal/sprint/smoke.go:718:	if err = os.Rename(temp, path); err != nil {
+internal/sprint/state.go:256:	temp, err := os.CreateTemp(filepath.Dir(path), ".flow-state.*.tmp")
+internal/sprint/state.go:271:	if err := temp.Sync(); err != nil {
+internal/sprint/state.go:283:	if err := os.Rename(tempPath, path); err != nil {
+internal/sprint/state.go:380:	_ = dir.Sync()
+internal/app/run_commands.go:369:	if err := file.Sync(); err != nil {
+internal/sprint/code_context.go:282:	candidate, err := os.CreateTemp(sp.Path, ".code-context.*.candidate.md")
+internal/sprint/code_context.go:477:	if err := os.Rename(candidatePath, finalPath); err != nil {
+internal/sprint/code_context.go:486:			restore, restoreErr := os.CreateTemp(sp.Path, ".code-context.*.restore.md")
+internal/sprint/code_context.go:490:					restoreErr = restore.Sync()
+internal/sprint/code_context.go:496:					restoreErr = os.Rename(restore.Name(), finalPath)
+internal/sprint/review.go:1690:	f, err := os.CreateTemp(filepath.Dir(path), ".review.*.tmp")
+internal/sprint/review.go:1700:	if err = f.Sync(); err != nil {
+internal/sprint/review.go:1712:	if err = os.Rename(tmp, path); err != nil {
+internal/runcontrol/migration.go:128:	if err := file.Sync(); err != nil {
+internal/runcontrol/migration.go:226:	if err := out.Sync(); err != nil {
+internal/runcontrol/migration.go:317:	temp, err := os.CreateTemp(directory, ".run-control.restore.*.tmp")
+internal/runcontrol/migration.go:341:	if err := temp.Sync(); err != nil {
+internal/runcontrol/migration.go:347:	if err := os.Rename(tempPath, databasePath); err != nil {
+[0m
+[0m$ [0mrg -n "WriteFile|OpenFile|os.Create" internal --type go -g '!*_test.go' | head -60
+internal/workspace/skills.go:336:			if err := os.WriteFile(full, []byte(files[op.Path]), 0o644); err != nil {
+internal/workspace/defaults.go:86:			if err := os.WriteFile(full, []byte(files[op.Path]), 0o644); err != nil {
+internal/workspace/init.go:290:				if err := os.WriteFile(full, []byte(workspaceFiles[op.Path]), 0o644); err != nil {
+internal/study/locks.go:59:	file, err := os.OpenFile(path, os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0o644)
+internal/study/locks.go:70:				file, err = os.OpenFile(path, os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0o644)
+internal/study/cleanup_uncertain.go:61:	return atomicWriteFile(path, data, "."+cleanupUncertainFileName+".*.tmp")
+internal/study/init.go:76:		if err := os.WriteFile(file.path, file.content, 0o644); err != nil {
+internal/study/run_loop_diagnostics.go:185:	file, err := os.OpenFile(d.path, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0o644)
+internal/study/run_history_summary.go:22:	return os.WriteFile(path, []byte(content), 0o644)
+internal/study/run_history.go:94:	file, err := os.OpenFile(path, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0o644)
+internal/study/summary.go:88:	if err := atomicWriteFile(path, buf.Bytes(), "."+filepath.Base(path)+".*.tmp"); err != nil {
+internal/study/summary.go:94:func atomicWriteFile(path string, content []byte, tempPattern string) error {
+internal/study/summary.go:95:	temp, err := os.CreateTemp(filepath.Dir(path), tempPattern)
+internal/study/state.go:84:	temp, err := os.CreateTemp(filepath.Dir(path), "."+RunStateFileName+".*.tmp")
+internal/app/code_commands.go:64:		if err := os.WriteFile(output, buf.Bytes(), 0o644); err != nil {
+internal/runcontrol/migration.go:94:	file, err := os.OpenFile(path, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0o600)
+internal/runcontrol/migration.go:102:				file, err = os.OpenFile(path, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0o600)
+internal/runcontrol/migration.go:208:	out, err := os.OpenFile(destination, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0o600)
+internal/runcontrol/migration.go:317:	temp, err := os.CreateTemp(directory, ".run-control.restore.*.tmp")
+internal/runcontrol/sqlite.go:175:		file, createErr := os.OpenFile(path, os.O_CREATE|os.O_EXCL|os.O_RDWR, 0o600)
+internal/sprint/session_state.go:69:	tmp, err := os.CreateTemp(sp.Path, ".stage-sessions.*.tmp")
+internal/runcontrol/local_log.go:58:	file, err := os.OpenFile(path, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0o600)
+internal/app/study_commands.go:1345:	if err := os.WriteFile(path, []byte(rendered), 0o644); err != nil {
+internal/sprint/execute_state.go:149:	temp, err := os.CreateTemp(filepath.Dir(path), ".run-state.*.tmp")
+internal/sprint/context_pack.go:85:	if err := atomicWriteFile(path, append(data, '\n')); err != nil {
+internal/sprint/review.go:1603:		if err := os.WriteFile(path, []byte(content), 0o400); err != nil {
+internal/sprint/review.go:1607:	if err := os.WriteFile(marker, []byte(m.Fingerprint+"\n"), 0o400); err != nil {
+internal/sprint/review.go:1690:	f, err := os.CreateTemp(filepath.Dir(path), ".review.*.tmp")
+internal/sprint/cleanup_uncertain.go:57:	return atomicWriteFile(filepath.Join(sp.Path, cleanupUncertainFileName), data)
+internal/sprint/state.go:256:	temp, err := os.CreateTemp(filepath.Dir(path), ".flow-state.*.tmp")
+internal/sprint/verification_lock.go:33:		file, err := os.OpenFile(path, os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0o644)
+internal/sprint/runtime_metrics.go:165:	return atomicWriteFile(path, data)
+internal/sprint/smoke.go:426:	if err := atomicWriteFile(path, []byte(content)); err != nil {
+internal/sprint/smoke.go:692:func atomicWriteFile(path string, data []byte) error {
+internal/sprint/smoke.go:696:	file, err := os.CreateTemp(filepath.Dir(path), ".smoke.*.tmp")
+internal/sprint/code_context.go:282:	candidate, err := os.CreateTemp(sp.Path, ".code-context.*.candidate.md")
+internal/sprint/code_context.go:356:		if err := os.WriteFile(candidatePath, []byte(content+"\n"), 0o644); err != nil {
+internal/sprint/code_context.go:486:			restore, restoreErr := os.CreateTemp(sp.Path, ".code-context.*.restore.md")
+internal/sprint/execute.go:586:	return os.WriteFile(path, []byte(b.String()), 0o644)
+internal/app/run_commands.go:355:	file, err := os.OpenFile(path, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0o600)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/summary.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/context_pack.go
+[0m
+[0m$ [0msed -n '670,740p' internal/sprint/smoke.go
+if strings.HasPrefix(strings.TrimSpace(line), prefix) {
+			return strings.Trim(strings.TrimSpace(strings.TrimPrefix(strings.TrimSpace(line), prefix)), "`")
+		}
+	}
+	return ""
+}
+func printable(value string) string {
+	value = strings.TrimSpace(value)
+	if value == "" {
+		return "none"
+	}
+	value = strings.ReplaceAll(value, "`", "'")
+	return value
+}
+func hashBytes(data []byte) string { sum := sha256.Sum256(data); return hex.EncodeToString(sum[:]) }
+func hashFile(path string) (string, error) {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return "", err
+	}
+	return hashBytes(data), nil
+}
+func atomicWriteFile(path string, data []byte) error {
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return err
+	}
+	file, err := os.CreateTemp(filepath.Dir(path), ".smoke.*.tmp")
+	if err != nil {
+		return err
+	}
+	temp := file.Name()
+	keep := true
+	defer func() {
+		if keep {
+			_ = os.Remove(temp)
+		}
+	}()
+	if _, err = file.Write(data); err != nil {
+		_ = file.Close()
+		return err
+	}
+	if err = file.Sync(); err != nil {
+		_ = file.Close()
+		return err
+	}
+	if err = file.Close(); err != nil {
+		return err
+	}
+	if err = os.Rename(temp, path); err != nil {
+		return err
+	}
+	keep = false
+	syncDir(filepath.Dir(path))
+	return nil
+}
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verification_lock.go
+[0m
+[0m$ [0mrg -n "acquireVerificationFileLock|verificationFileLock" internal --type go -g '!*_test.go'
+internal/sprint/service.go:89:	fileLock, lockErr := acquireVerificationFileLock(s.root, sp, s.now().UTC())
+internal/sprint/verification_lock.go:21:type verificationFileLock struct {
+internal/sprint/verification_lock.go:26:func acquireVerificationFileLock(root string, sprint Sprint, now time.Time) (*verificationFileLock, error) {
+internal/sprint/verification_lock.go:44:			return &verificationFileLock{path: path, info: info}, nil
+internal/sprint/verification_lock.go:78:func (lock *verificationFileLock) release() error {
+[0m
+[0m$ [0mrg -n "lease|Lease" internal/sprint --type go -g '!*_test.go' -l && rg -n "func .*[Ll]ock|flock|Flock" internal --type go -g '!*_test.go' | head -30
+internal/sprint/cleanup_uncertain.go
+internal/sprint/execute.go
+internal/sprint/service.go
+internal/sprint/smoke.go
+internal/sprint/flow.go
+internal/sprint/verify.go
+internal/sprint/locks.go
+internal/sprint/review.go
+internal/sprint/verification_lock.go
+internal/study/markdown.go:48:func leadingFrontmatterBlock(content string) (string, bool, error) {
+internal/web/server.go:161:func (w *lockedWriter) Write(data []byte) (int, error) {
+internal/study/run_loop.go:604:func taskAttemptBlocked(task TaskState, attempted map[string]bool) bool {
+internal/study/run_loop.go:931:func LockInfoForStatus(study Study) (*LockInfo, error) {
+internal/study/locks.go:25:func RunLoopLockPath(study Study) string {
+internal/study/locks.go:34:func AcquireRunLoopLock(study Study, command []string, force bool, now time.Time) (*studyLock, error) {
+internal/study/locks.go:105:func (l *studyLock) Release() error {
+internal/study/locks.go:125:func ReadRunLoopLock(study Study) (LockInfo, error) {
+internal/study/locks.go:131:func RunLoopActive(study Study) (bool, LockInfo, error) {
+internal/study/locks.go:141:func CancelRunLoop(study Study) (LockInfo, error) {
+internal/study/locks.go:161:func ForceUnlockRunLoop(study Study) error {
+internal/study/locks.go:169:func readLockPath(path string) (LockInfo, error) {
+internal/web/security.go:438:func (s *preparationStore) reapLocked() {
+internal/study/cleanup_uncertain.go:100:func reconcileInterruptedRunLocked(st Study, now time.Time) (bool, error) {
+internal/study/run_all.go:213:func synthesisBlockers(results []ExecutionResult, dimension Dimension) []string {
+internal/web/operations.go:426:func (h *operationHub) appendEventLocked(record *operationRecord, name string, payload any) {
+internal/web/operations.go:563:func (h *operationHub) reapLocked() {
+internal/sprint/verification_lock.go:26:func acquireVerificationFileLock(root string, sprint Sprint, now time.Time) (*verificationFileLock, error) {
+internal/sprint/verification_lock.go:63:func readVerificationFileLock(path string) (verificationLockInfo, error) {
+internal/sprint/verification_lock.go:78:func (lock *verificationFileLock) release() error {
+internal/sprint/prompt_bundle.go:183:func directInputMetadata(block, name string) string {
+internal/sprint/service.go:41:func (s Service) WithClock(now func() time.Time) Service {
+internal/sprint/direct_inputs.go:289:func renderDirectInputBlock(input directPromptInput, content, mode string, originalBytes int) string {
+internal/runcontrol/interfaces.go:15:func (WallClock) Now() time.Time { return time.Now().UTC() }
+internal/runcontrol/sqlite.go:1121:func (r *SQLiteRepository) now() time.Time { return r.clock.Now().UTC() }
+internal/runcontrol/migration.go:25:func migrateSchema(ctx context.Context, db *sql.DB, databasePath string, clock Clock) error {
+internal/runcontrol/migration.go:92:func acquireMigrationLock(databasePath string) (func(), error) {
+internal/runcontrol/migration.go:140:func removeStaleMigrationLock(path string) (bool, error) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/locks.go
+[0m
+[0m$ [0mrg -n "func (s Service) acquireMutation|func .*acquireMutation\b" internal/sprint --type go -g '!*_test.go'
+internal/sprint/service.go:77:func (s Service) acquireMutation(projectRef, sprintRef string) (func(), error) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process[90m [command=ls internal/platform/process internal/platform/runtime && sed -n '1,80p' internal/platform/process/process.go 2>/dev/null, workdir=/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_unix.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m
+[0m$ [0mrg -n "recovery|marker" internal/app --type go -g '!*_test.go' -i | grep -iv "test" | head -20
+internal/app/web_usecases.go:753:	info, err := os.Stat(filepath.Join(u.root, workspace.MarkerFile))
+internal/app/sprint_commands.go:1122:	return map[string]string{"code": code, "message": displaySafe(err.Error()), "recovery": "Inspect stderr and sprint status, repair the reported cause, then retry."}
+internal/app/health_commands.go:65:	checks = append(checks, healthCheck{ID: "filesystem.read", Name: "filesystem.read", Status: "ok", Message: workspace.MarkerFile})
+internal/app/run_control.go:503:	for _, marker := range []string{"secret", "token", "password", "authorization", "cookie", "api_key", "apikey", "credential", "auth"} {
+internal/app/run_control.go:504:		if strings.Contains(lower, marker) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/cleanup_uncertain.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go[90m [limit=220][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/discovery.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/init.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/local_log.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_other.go
+[0m
+[0m$ [0mrg -n "probeNativeProcess|ProcessIdentity|ErrProcessIdentityUnavailable" internal/runcontrol/process_linux.go internal/runcontrol/process_darwin.go internal/runcontrol/model.go | head -20
+internal/runcontrol/model.go:193:type ProcessIdentity struct {
+internal/runcontrol/model.go:200:func (p ProcessIdentity) Validate() error {
+internal/runcontrol/model.go:214:	Process ProcessIdentity `json:"process"`
+internal/runcontrol/process_linux.go:16:func probeNativeProcess(ctx context.Context, pid int) (ProcessIdentity, error) {
+internal/runcontrol/process_linux.go:18:		return ProcessIdentity{}, err
+internal/runcontrol/process_linux.go:21:		return ProcessIdentity{}, err
+internal/runcontrol/process_linux.go:25:		return ProcessIdentity{}, ErrProcessNotFound
+internal/runcontrol/process_linux.go:28:		return ProcessIdentity{}, fmt.Errorf("%w: read process stat: %v", ErrProcessIdentityUnavailable, err)
+internal/runcontrol/process_linux.go:32:		return ProcessIdentity{}, fmt.Errorf("%w: malformed process stat", ErrProcessIdentityUnavailable)
+internal/runcontrol/process_linux.go:36:		return ProcessIdentity{}, fmt.Errorf("%w: process start token missing", ErrProcessIdentityUnavailable)
+internal/runcontrol/process_linux.go:40:		return ProcessIdentity{}, fmt.Errorf("%w: boot identity missing", ErrProcessIdentityUnavailable)
+internal/runcontrol/process_linux.go:42:	return ProcessIdentity{
+internal/runcontrol/process_darwin.go:13:func probeNativeProcess(ctx context.Context, pid int) (ProcessIdentity, error) {
+internal/runcontrol/process_darwin.go:15:		return ProcessIdentity{}, err
+internal/runcontrol/process_darwin.go:18:		return ProcessIdentity{}, err
+internal/runcontrol/process_darwin.go:23:			return ProcessIdentity{}, ErrProcessNotFound
+internal/runcontrol/process_darwin.go:25:		return ProcessIdentity{HostDigest: localHostDigest(), PID: pid}, fmt.Errorf("%w: read darwin process metadata: %v", ErrProcessIdentityUnavailable, err)
+internal/runcontrol/process_darwin.go:28:		return ProcessIdentity{HostDigest: localHostDigest(), PID: pid}, fmt.Errorf("%w: darwin process start time unavailable", ErrProcessIdentityUnavailable)
+internal/runcontrol/process_darwin.go:32:		return ProcessIdentity{HostDigest: localHostDigest(), PID: pid}, fmt.Errorf("%w: darwin boot identity unavailable", ErrProcessIdentityUnavailable)
+internal/runcontrol/process_darwin.go:34:	return ProcessIdentity{
+[0m
+[0m$ [0msed -n '1,60p' internal/runcontrol/process_linux.go
+//go:build linux
+
+package runcontrol
+
+import (
+	"context"
+	"errors"
+	"fmt"
+	"io/fs"
+	"os"
+	"path/filepath"
+	"strconv"
+	"strings"
+)
+
+func probeNativeProcess(ctx context.Context, pid int) (ProcessIdentity, error) {
+	if err := validateProbePID(pid); err != nil {
+		return ProcessIdentity{}, err
+	}
+	if err := ctx.Err(); err != nil {
+		return ProcessIdentity{}, err
+	}
+	stat, err := os.ReadFile(filepath.Join("/proc", strconv.Itoa(pid), "stat"))
+	if errors.Is(err, fs.ErrNotExist) {
+		return ProcessIdentity{}, ErrProcessNotFound
+	}
+	if err != nil {
+		return ProcessIdentity{}, fmt.Errorf("%w: read process stat: %v", ErrProcessIdentityUnavailable, err)
+	}
+	closeParen := strings.LastIndexByte(string(stat), ')')
+	if closeParen < 0 {
+		return ProcessIdentity{}, fmt.Errorf("%w: malformed process stat", ErrProcessIdentityUnavailable)
+	}
+	fields := strings.Fields(string(stat)[closeParen+1:])
+	if len(fields) <= 19 || fields[19] == "" {
+		return ProcessIdentity{}, fmt.Errorf("%w: process start token missing", ErrProcessIdentityUnavailable)
+	}
+	boot, err := os.ReadFile("/proc/sys/kernel/random/boot_id")
+	if err != nil || strings.TrimSpace(string(boot)) == "" {
+		return ProcessIdentity{}, fmt.Errorf("%w: boot identity missing", ErrProcessIdentityUnavailable)
+	}
+	return ProcessIdentity{
+		HostDigest: localHostDigest(), BootID: strings.TrimSpace(string(boot)), PID: pid, BirthToken: fields[19],
+	}, nil
+}
+[0m
+[0m$ [0msed -n '560,600p' internal/sprint/execute.go && sed -n '40,80p' internal/app/code_commands.go && sed -n '1580,1720p' internal/sprint/review.go
+}
+	var b strings.Builder
+	fmt.Fprintf(&b, "# Execute Summary\n\nPlan: `%s`\nRun state: `%s`\n\n", state.PlanPath, ExecuteRunStateRelPath(sp))
+	counts := map[ExecuteTaskStatus]int{}
+	for _, task := range state.Tasks {
+		counts[task.Status]++
+	}
+	fmt.Fprintln(&b, "## Task Counts")
+	fmt.Fprintln(&b)
+	for _, status := range ExecuteTaskStatuses() {
+		fmt.Fprintf(&b, "- %s: %d\n", status, counts[status])
+	}
+	fmt.Fprintln(&b, "\n## Tasks")
+	fmt.Fprintln(&b)
+	for _, task := range state.Tasks {
+		fmt.Fprintf(&b, "- `%s` %s: %s (attempts: %d)\n", task.ID, task.Status, task.Identity.Name, task.Attempts)
+		for _, evidence := range task.Evidence {
+			fmt.Fprintf(&b, "  - evidence: %s %s\n", evidence.Kind, evidence.Summary)
+		}
+		for _, diagnostic := range task.Diagnostics {
+			fmt.Fprintf(&b, "  - diagnostic: %s %s\n", diagnostic.Code, diagnostic.Message)
+		}
+	}
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return err
+	}
+	return os.WriteFile(path, []byte(b.String()), 0o644)
+}
+
+func ArtifactExecuteRelPath(s Sprint) string { return ArtifactRelPath(s, StageExecute) }
+
+func taskByID(tasks []ExecutePlanTask, id string) ExecutePlanTask {
+	for _, task := range tasks {
+		if task.ID == id {
+			return task
+		}
+	}
+	return ExecutePlanTask{}
+}
+
+func reconcileExecuteState(existing ExecuteRunState, planned []ExecuteTaskRecord, now time.Time) ExecuteRunState {
+		}
+		reports = append(reports, path)
+	}
+	result, err := codeextract.Extract(codeextract.Request{WorkspaceRoot: root.Path, Reports: reports})
+	if err != nil {
+		return classified(ExitWorkspace, "code.extract: %w", err)
+	}
+	var buf bytes.Buffer
+	if flags.json {
+		err = codeextract.RenderJSON(&buf, result)
+	} else {
+		err = codeextract.RenderText(&buf, root.Path, result)
+	}
+	if err != nil {
+		return classified(ExitError, "code.render: %w", err)
+	}
+	if flags.output != "" {
+		output := flags.output
+		if !filepath.IsAbs(output) {
+			output = filepath.Join(deps.workDir, output)
+		}
+		if err := os.MkdirAll(filepath.Dir(output), 0o755); err != nil {
+			return classified(ExitWorkspace, "code.output: %w", err)
+		}
+		if err := os.WriteFile(output, buf.Bytes(), 0o644); err != nil {
+			return classified(ExitWorkspace, "code.output: %w", err)
+		}
+	} else if _, err := deps.stdout.Write(buf.Bytes()); err != nil {
+		return err
+	}
+	switch result.Status {
+	case codeextract.StatusValidation:
+		return classedError{class: ExitValidation, code: errorCode(ExitValidation), err: fmt.Errorf("code.extract: validation failed")}
+	case codeextract.StatusPartial:
+		return classedError{class: ExitPartial, code: errorCode(ExitPartial), err: fmt.Errorf("code.extract: unresolved references")}
+	default:
+		return nil
+	}
+}
+
+func parseCodeArgs(args []string) (codeFlags, error) {
+	cleanup := true
+	defer func() {
+		if cleanup {
+			_ = os.RemoveAll(root)
+		}
+	}()
+	for _, in := range m.Inputs {
+		if in.Kind == "asset" || in.Path == "target/.identity" {
+			continue
+		}
+		content, ok := m.Contents[in.Path]
+		if !ok {
+			return "", fmt.Errorf("frozen review input %q has no captured content", in.Path)
+		}
+		copyManifest := m
+		copyManifest.ReviewerRoot = root
+		path := reviewInputReadPath(copyManifest, in)
+		if !inside(root, path) {
+			return "", fmt.Errorf("frozen review input %q escapes snapshot", in.Path)
+		}
+		if err := os.MkdirAll(filepath.Dir(path), 0o700); err != nil {
+			return "", fmt.Errorf("create frozen review snapshot directory: %w", err)
+		}
+		if err := os.WriteFile(path, []byte(content), 0o400); err != nil {
+			return "", fmt.Errorf("write frozen review input %q: %w", in.Path, err)
+		}
+	}
+	if err := os.WriteFile(marker, []byte(m.Fingerprint+"\n"), 0o400); err != nil {
+		return "", fmt.Errorf("complete frozen review snapshot: %w", err)
+	}
+	cleanup = false
+	return root, nil
+}
+func extractReviewResult(r pruntime.Result, out *ReviewCoverageResult) bool {
+	if extractReviewValue(r.TerminalOutput, out) {
+		return true
+	}
+	for i := len(r.Events) - 1; i >= 0; i-- {
+		if extractReviewValue(r.Events[i].Payload, out) {
+			return true
+		}
+	}
+	return false
+}
+func extractReviewValue(v any, out *ReviewCoverageResult) bool {
+	switch x := v.(type) {
+	case map[string]any:
+		var candidate ReviewCoverageResult
+		if raw, e := json.Marshal(x); e == nil && json.Unmarshal(raw, &candidate) == nil && candidate.CoverageID != "" {
+			*out = candidate
+			return true
+		}
+		for _, k := range []string{"review_result", "structured_output", "output", "content", "text", "message", "part"} {
+			if y, ok := x[k]; ok && extractReviewValue(y, out) {
+				return true
+			}
+		}
+	case []any:
+		for i := len(x) - 1; i >= 0; i-- {
+			if extractReviewValue(x[i], out) {
+				return true
+			}
+		}
+	case string:
+		return extractReviewJSON(x, out)
+	}
+	return false
+}
+
+// extractReviewJSON tolerates runtime output that contains reasoning, Markdown,
+// or other prose before the canonical result. Trying each object boundary with
+// a streaming decoder avoids the brittle first-"{"/last-"}" assumption while
+// still accepting only an object that decodes as an actual review result.
+func extractReviewJSON(value string, out *ReviewCoverageResult) bool {
+	found := false
+	for offset := 0; offset < len(value); {
+		relative := strings.IndexByte(value[offset:], '{')
+		if relative < 0 {
+			break
+		}
+		start := offset + relative
+		var candidate ReviewCoverageResult
+		if err := json.NewDecoder(strings.NewReader(value[start:])).Decode(&candidate); err == nil && candidate.CoverageID != "" {
+			*out = candidate
+			found = true
+		}
+		offset = start + 1
+	}
+	return found
+}
+func validReviewCitation(root string, m ReviewManifest, c ReviewCitation) bool {
+	if c.StartLine < 1 || c.EndLine < c.StartLine {
+		return false
+	}
+	data, ok := m.Contents[c.Path]
+	if !ok {
+		return false
+	}
+	return c.EndLine <= len(strings.Split(data, "\n"))
+}
+
+type reviewWriteHooks struct{ BeforeRename func(string) error }
+
+func atomicWriteReview(path string, data []byte) error {
+	return atomicWriteReviewWithHooks(path, data, reviewWriteHooks{})
+}
+func atomicWriteReviewWithHooks(path string, data []byte, hooks reviewWriteHooks) error {
+	if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
+		return err
+	}
+	f, err := os.CreateTemp(filepath.Dir(path), ".review.*.tmp")
+	if err != nil {
+		return err
+	}
+	tmp := f.Name()
+	defer os.Remove(tmp)
+	if _, err = f.Write(data); err != nil {
+		f.Close()
+		return err
+	}
+	if err = f.Sync(); err != nil {
+		f.Close()
+		return err
+	}
+	if err = f.Close(); err != nil {
+		return err
+	}
+	if hooks.BeforeRename != nil {
+		if err := hooks.BeforeRename(path); err != nil {
+			return err
+		}
+	}
+	if err = os.Rename(tmp, path); err != nil {
+		return err
+	}
+	syncDir(filepath.Dir(path))
+	return nil
+}
+func reviewArtifact(m ReviewManifest) string {
+	return filepath.ToSlash(filepath.Join(m.SprintRoot, "review.md"))
+}
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/code_context.go[90m [offset=240, limit=280][0m
+[0m
+[0m$ [0msed -n '330,395p' internal/app/run_commands.go
+if err != nil {
+		return err
+	}
+	for _, snapshot := range page.Runs {
+		events, err := repository.Events(ctx, snapshot.RunID, 0, 50)
+		if err != nil {
+			return err
+		}
+		item := runSupportEvents{RunID: snapshot.RunID}
+		for _, event := range events {
+			item.Events = append(item.Events, struct {
+				Sequence uint64               `json:"sequence"`
+				Type     runcontrol.EventType `json:"type"`
+				Omission *runcontrol.Omission `json:"omission,omitempty"`
+			}{event.Sequence, event.Type, event.Omission})
+		}
+		export.Events = append(export.Events, item)
+	}
+	encoded, err := json.MarshalIndent(export, "", "  ")
+	if err != nil {
+		return err
+	}
+	if len(encoded) > 1<<20 {
+		return errors.New("support export exceeds 1 MiB limit")
+	}
+	file, err := os.OpenFile(path, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0o600)
+	if err != nil {
+		return err
+	}
+	ok := false
+	defer func() {
+		_ = file.Close()
+		if !ok {
+			_ = os.Remove(path)
+		}
+	}()
+	if _, err := file.Write(append(encoded, '\n')); err != nil {
+		return err
+	}
+	if err := file.Sync(); err != nil {
+		return err
+	}
+	if err := file.Close(); err != nil {
+		return err
+	}
+	ok = true
+	return nil
+}
+
+func parseLifecycleFilter(value string) ([]runcontrol.Lifecycle, error) {
+	if strings.TrimSpace(value) == "" {
+		return nil, nil
+	}
+	var out []runcontrol.Lifecycle
+	for _, part := range strings.Split(value, ",") {
+		state := runcontrol.Lifecycle(strings.TrimSpace(part))
+		if !state.IsValid() {
+			return nil, fmt.Errorf("unknown lifecycle %q", part)
+		}
+		out = append(out, state)
+	}
+	return out, nil
+}
+
+func canonicalCancellationReason(value string) bool {
+	switch value {
+[0m
+[0m$ [0mls internal/web/*.go | head -30 && rg -n "ResolveInside|resolveSprintContained|EvalSymlinks|Lstat" internal/sprint/store.go internal/web/artifacts.go 2>/dev/null | head -30
+internal/web/api_compatibility_test.go
+internal/web/artifacts.go
+internal/web/artifacts_test.go
+internal/web/handlers.go
+internal/web/import_boundary_test.go
+internal/web/integration_test.go
+internal/web/operation_handlers.go
+internal/web/operations_contract_test.go
+internal/web/operations.go
+internal/web/operations_test.go
+internal/web/packaging_test.go
+internal/web/routes.go
+internal/web/routes_test.go
+internal/web/run_handlers.go
+internal/web/run_handlers_test.go
+internal/web/security.go
+internal/web/security_test.go
+internal/web/server.go
+internal/web/server_policy.go
+internal/web/server_policy_test.go
+internal/web/server_test.go
+internal/web/sse_test.go
+internal/web/templates_test.go
+internal/web/test_fakes_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/artifacts.go
+[0m
+[0m$ [0mrg -n "EvalSymlinks|allowlist|Allowlist|artifactRef|ArtifactRef|WebPreviewByteLimit" internal/app --type go -g '!*_test.go' | head -30
+internal/app/web_usecases.go:27:	WebPreviewByteLimit = 256 * 1024
+internal/app/web_usecases.go:728:	data, err := io.ReadAll(io.LimitReader(file, WebPreviewByteLimit+1))
+internal/app/web_usecases.go:732:	truncated := len(data) > WebPreviewByteLimit
+internal/app/web_usecases.go:734:		data = data[:WebPreviewByteLimit]
+internal/app/web_usecases.go:897:	root, err := filepath.EvalSymlinks(u.root)
+internal/app/web_usecases.go:901:	path, err = filepath.EvalSymlinks(path)
+internal/app/serve_commands.go:121:loopback addresses, exposes allowlisted app operations with current
+[0m
+[0m$ [0msed -n '640,940p' internal/app/web_usecases.go
+}
+	for _, item := range items {
+		if item.Name == name {
+			result := u.webStudy(item)
+			if listing, listErr := study.NewService(u.root).ListStudy(name); listErr == nil {
+				if history, histErr := study.LoadRunLoopResourceHistory(listing.Study, 240); histErr == nil {
+					throttle := study.SummarizeParallelismThrottle(history)
+					result.Parallelism = &ParallelismSummary{Decreased: throttle.Decreased, Events: throttle.Events, RequestedParallelism: throttle.RequestedParallelism, EffectiveParallelism: throttle.EffectiveParallelism}
+				}
+			}
+			return result, nil
+		}
+	}
+	return WebStudyResult{}, ErrWebNotFound
+}
+
+func (u *webUseCases) Validations(ctx context.Context, scope, ref string) (WebValidationResult, error) {
+	target, ok := u.resolve(ref, scope)
+	if !ok {
+		return WebValidationResult{}, ErrWebNotFound
+	}
+	var findings []DisplayFinding
+	switch scope {
+	case "workspace":
+		if err := ctx.Err(); err != nil {
+			return WebValidationResult{}, err
+		}
+		result := workspace.Validate(u.root)
+		for _, issue := range result.Issues {
+			findings = append(findings, DisplayFinding{Severity: "error", Section: "workspace", Problem: displaySafe(issue)})
+		}
+	case "project":
+		result, err := u.Project(ctx, target.values[0])
+		if err != nil {
+			return WebValidationResult{}, err
+		}
+		findings = append(findings, result.Findings...)
+	case "sprint":
+		result, err := u.Sprint(ctx, target.values[0], target.values[1])
+		if err != nil {
+			return WebValidationResult{}, err
+		}
+		findings = append(findings, result.Findings...)
+	case "study":
+		result, err := u.Study(ctx, target.values[0])
+		if err != nil {
+			return WebValidationResult{}, err
+		}
+		findings = append(findings, result.Findings...)
+	default:
+		return WebValidationResult{}, ErrWebNotFound
+	}
+	total := len(findings)
+	findings = bounded(findings)
+	if findings == nil {
+		findings = []DisplayFinding{}
+	}
+	return WebValidationResult{Scope: scope, Ref: ref, Findings: findings, CollectionInfo: collectionInfo(len(findings), total)}, nil
+}
+
+func (u *webUseCases) Artifact(ctx context.Context, ref string) (WebArtifactPreview, error) {
+	target, ok := u.resolve(ref, "artifact")
+	if !ok || len(target.values) != 1 {
+		return WebArtifactPreview{}, ErrWebNotFound
+	}
+	rel := target.values[0]
+	if err := ctx.Err(); err != nil {
+		return WebArtifactPreview{}, err
+	}
+	if !supportedPreviewPath(rel) {
+		return WebArtifactPreview{}, ErrWebNotFound
+	}
+	path, err := u.containedArtifactPath(rel)
+	if err != nil {
+		return WebArtifactPreview{}, ErrWebNotFound
+	}
+	file, err := os.Open(path)
+	if err != nil {
+		if errors.Is(err, fs.ErrNotExist) {
+			return WebArtifactPreview{}, ErrWebNotFound
+		}
+		return WebArtifactPreview{}, fmt.Errorf("%w: artifact read", ErrWebUnavailable)
+	}
+	defer file.Close()
+	info, err := file.Stat()
+	if err != nil || !info.Mode().IsRegular() {
+		return WebArtifactPreview{}, ErrWebNotFound
+	}
+	data, err := io.ReadAll(io.LimitReader(file, WebPreviewByteLimit+1))
+	if err != nil {
+		return WebArtifactPreview{}, fmt.Errorf("%w: artifact read", ErrWebUnavailable)
+	}
+	truncated := len(data) > WebPreviewByteLimit
+	if truncated {
+		data = data[:WebPreviewByteLimit]
+	}
+	media := mediaTypeForPath(rel)
+	return WebArtifactPreview{
+		Ref:           ref,
+		DisplayPath:   filepath.ToSlash(rel),
+		MediaType:     media,
+		Content:       string(data),
+		SizeBytes:     info.Size(),
+		ReturnedBytes: len(data),
+		Truncated:     truncated,
+		JSONValid:     media != "application/json" || json.Valid(data),
+	}, nil
+}
+
+func (u *webUseCases) Health(ctx context.Context) (WebHealthResult, error) {
+	if err := ctx.Err(); err != nil {
+		return WebHealthResult{}, err
+	}
+	info, err := os.Stat(filepath.Join(u.root, workspace.MarkerFile))
+	available := err == nil && !info.IsDir()
+	status := "ok"
+	if !available {
+		status = "unavailable"
+	}
+	return WebHealthResult{Status: status, Server: true, Workspace: available}, nil
+}
+
+func (u *webUseCases) webProject(item ProjectSummary, sprints []WebSprintResult) WebProjectResult {
+	docs := append([]string(nil), item.MarkdownDocs...)
+	if docs == nil {
+		docs = []string{}
+	}
+	findings := bounded(append([]DisplayFinding(nil), item.Findings...))
+	if findings == nil {
+		findings = []DisplayFinding{}
+	}
+	return WebProjectResult{
+		Ref:       u.issue("project", item.Name),
+		Name:      item.Name,
+		Docs:      docs,
+		Findings:  findings,
+		Artifacts: u.webArtifacts(item.Artifacts),
+		Sprints:   nonNil(sprints),
+	}
+}
+
+func (u *webUseCases) webSprint(item SprintSummary) WebSprintResult {
+	stages := append([]StageSummary(nil), item.Stages...)
+	if stages == nil {
+		stages = []StageSummary{}
+	}
+	findings := bounded(append([]DisplayFinding(nil), item.Findings...))
+	if findings == nil {
+		findings = []DisplayFinding{}
+	}
+	return WebSprintResult{
+		Ref:        u.issue("sprint", item.Project, item.Slug),
+		Project:    item.Project,
+		Slug:       item.Slug,
+		Status:     item.Status,
+		Assessment: item.Assessment,
+		NextAction: displaySafe(item.NextAction),
+		Stages:     stages,
+		Execute:    item.Execute,
+		Review:     item.Review,
+		Smoke:      item.Smoke,
+		Findings:   findings,
+		Artifacts:  u.webArtifacts(item.Artifacts),
+	}
+}
+
+func (u *webUseCases) webStudy(item StudySummary) WebStudyResult {
+	findings := bounded(append([]DisplayFinding(nil), item.Findings...))
+	if findings == nil {
+		findings = []DisplayFinding{}
+	}
+	retried := make([]WebStudyTaskRetry, 0, len(item.Tasks))
+	for _, task := range item.Tasks {
+		if task.Retries == 0 && task.Status != "retrying" {
+			continue
+		}
+		retries := task.Retries
+		if retries == 0 {
+			retries = 1
+		}
+		retried = append(retried, WebStudyTaskRetry{ID: task.ID, Kind: task.Kind, Status: task.Status, Retries: retries, SessionReuse: task.SessionReuse})
+	}
+	if retried == nil {
+		retried = []WebStudyTaskRetry{}
+	}
+	return WebStudyResult{
+		Ref:          u.issue("study", item.Name),
+		Name:         item.Name,
+		Sources:      nonNil(append([]string(nil), item.Sources...)),
+		Dimensions:   nonNil(append([]string(nil), item.Dimensions...)),
+		Status:       item.Status,
+		RunID:        displaySafe(item.RunID),
+		Total:        item.Total,
+		Completed:    item.Completed,
+		Failed:       item.Failed,
+		RunActive:    item.RunActive,
+		ActiveTasks:  item.ActiveTasks,
+		Pending:      item.Pending,
+		Cancelled:    item.Cancelled,
+		Retries:      item.Retries,
+		RetriedTasks: retried,
+		Tasks:        append([]RunTaskSummary(nil), item.Tasks...),
+		Findings:     findings,
+		Artifacts:    u.webArtifacts(item.Artifacts),
+	}
+}
+
+func (u *webUseCases) webArtifacts(items []DisplayArtifact) []WebArtifactLink {
+	out := make([]WebArtifactLink, 0, len(items))
+	for _, item := range items {
+		rel := filepath.ToSlash(filepath.Clean(filepath.FromSlash(item.Path)))
+		if filepath.IsAbs(rel) || !supportedPreviewPath(rel) {
+			continue
+		}
+		out = append(out, WebArtifactLink{
+			Ref:         u.issue("artifact", rel),
+			Label:       item.Label,
+			DisplayPath: rel,
+			MediaType:   mediaTypeForPath(rel),
+		})
+		if len(out) == WebCollectionLimit {
+			break
+		}
+	}
+	if out == nil {
+		return []WebArtifactLink{}
+	}
+	return out
+}
+
+func (u *webUseCases) issue(kind string, values ...string) string {
+	mac := hmac.New(sha256.New, u.secret[:])
+	_, _ = mac.Write([]byte(kind))
+	for _, value := range values {
+		_, _ = mac.Write([]byte{0})
+		_, _ = mac.Write([]byte(value))
+	}
+	ref := base64.RawURLEncoding.EncodeToString(mac.Sum(nil))
+	target := webRefTarget{kind: kind, values: append([]string(nil), values...)}
+	u.mu.Lock()
+	u.refs[ref] = target
+	u.mu.Unlock()
+	return ref
+}
+
+func (u *webUseCases) resolve(ref, kind string) (webRefTarget, bool) {
+	u.mu.RLock()
+	target, ok := u.refs[ref]
+	u.mu.RUnlock()
+	return target, ok && target.kind == kind
+}
+
+func (u *webUseCases) containedArtifactPath(rel string) (string, error) {
+	path, err := workspace.ResolveInside(u.root, rel)
+	if err != nil {
+		return "", err
+	}
+	root, err := filepath.EvalSymlinks(u.root)
+	if err != nil {
+		return "", err
+	}
+	path, err = filepath.EvalSymlinks(path)
+	if err != nil {
+		return "", err
+	}
+	inside, err := filepath.Rel(root, path)
+	if err != nil || inside == ".." || strings.HasPrefix(inside, ".."+string(filepath.Separator)) {
+		return "", errors.New("artifact escapes workspace")
+	}
+	return path, nil
+}
+
+func mediaTypeForPath(path string) string {
+	if strings.EqualFold(filepath.Ext(path), ".json") {
+		return "application/json"
+	}
+	return "text/markdown"
+}
+
+func bounded[T any](items []T) []T {
+	if len(items) > WebCollectionLimit {
+		items = items[:WebCollectionLimit]
+	}
+	return items
+}
+
+func nonNil[T any](items []T) []T {
+	if items == nil {
+		return []T{}
+	}
+	return items
+}
+
+func collectionInfo(returned, total int) CollectionInfo {
+	return CollectionInfo{ReturnedCount: returned, TotalCount: total, Truncated: returned < total}
+}
+[0m
+[0m$ [0mls internal/sprint/*.go | grep -v test && rg -n "func resolveSprintContained|func .*ReadArtifact|func .*WriteArtifact|func .*ReadPlanningInputs" internal/sprint --type go -g '!*_test.go' | head
+internal/sprint/artifacts.go
+internal/sprint/cleanup_uncertain.go
+internal/sprint/code_context.go
+internal/sprint/context_pack.go
+internal/sprint/direct_inputs.go
+internal/sprint/discovery.go
+internal/sprint/doc.go
+internal/sprint/domain.go
+internal/sprint/execute.go
+internal/sprint/execute_model.go
+internal/sprint/execute_plan.go
+internal/sprint/execute_state.go
+internal/sprint/execute_target.go
+internal/sprint/flow.go
+internal/sprint/freshness_policy.go
+internal/sprint/handbook.go
+internal/sprint/index.go
+internal/sprint/input_contract.go
+internal/sprint/locks.go
+internal/sprint/plan.go
+internal/sprint/prompt_bundle.go
+internal/sprint/prompt_context.go
+internal/sprint/prompts.go
+internal/sprint/reasoning.go
+internal/sprint/review.go
+internal/sprint/review_runtime_validation.go
+internal/sprint/runtime_metrics.go
+internal/sprint/runtime_validation.go
+internal/sprint/service.go
+internal/sprint/session_state.go
+internal/sprint/smoke_author.go
+internal/sprint/smoke.go
+internal/sprint/smoke_protocol.go
+internal/sprint/smoke_types.go
+internal/sprint/state_database.go
+internal/sprint/state.go
+internal/sprint/store_fs.go
+internal/sprint/validation.go
+internal/sprint/verification_lock.go
+internal/sprint/verify.go
+internal/sprint/artifacts.go:55:func resolveSprintContained(root string, s Sprint, rel string) (string, error) {
+internal/sprint/store_fs.go:35:func (s FSStore) ReadArtifacts(sp Sprint) (ArtifactSnapshot, error) {
+internal/sprint/store_fs.go:95:func (s FSStore) ReadPlanningInputs(sp Sprint) (PlanningInputs, error) {
+internal/sprint/store_fs.go:142:func (s FSStore) ReadArtifact(sp Sprint, stage PlanningStage) (string, error) {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/store_fs.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/artifacts.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/runtime_metrics.go
+[0m
+[0m$ [0mrg -n "Status\(|acquireMutation|ReconcileInterruptedMutation" internal/app/run_commands.go internal/app/sprint_commands.go internal/app/run_usecases.go internal/app/usecases.go 2>/dev/null | head -20
+internal/app/sprint_commands.go:88:		status, err := service.Status(args[0], args[1])
+internal/app/sprint_commands.go:93:		smokeReadiness, smokeErr := service.SmokeStatus(args[0], args[1])
+internal/app/sprint_commands.go:109:		renderSprintStatus(deps, status)
+internal/app/sprint_commands.go:265:			verification, _ := flowService.VerificationStatus(args[0], args[1])
+internal/app/sprint_commands.go:888:func renderSprintStatus(deps dependencies, status sprint.StatusSummary) {
+[0m
+[0m$ [0mrg -rn "statusWrites|WithoutStatusWrites" internal --type go -g '!*_test.go' | head -20
+internal/sprint/service.go:	n      bool
+internal/sprint/service.go:	return Service{root: root, store: NewFSStore(root), now: func() time.Time { return time.Now().UTC() }, processRunner: pprocess.DirectRunner{}, smokeSettings: DefaultSmokeSettings(), mutations: &sync.Map{}, metricsMu: &sync.Mutex{}, n: true}
+internal/sprint/service.go:// n derives status from current artifacts without creating a
+internal/sprint/service.go:func (s Service) n() Service {
+internal/sprint/service.go:	s.n = false
+internal/sprint/service.go:	if s.n && !legacyCodeContextState {
+internal/app/usecases.go:		service = service.n()
+[0m
+[0m$ [0mrg -n "WithoutStatusWrites" internal/app/usecases.go internal/app/*.go -g '!*_test.go'
+internal/app/usecases.go:127:		service = service.WithoutStatusWrites()
+internal/app/usecases.go:127:		service = service.WithoutStatusWrites()
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases.go[90m [limit=80, offset=80][0m
+[0m
+[0m$ [0msed -n '1,120p' internal/app/sprint_commands.go
+package app
+
+import (
+	"context"
+	"encoding/json"
+	"errors"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+	"sync"
+	"time"
+
+	"github.com/Antonio7098/ultraplan-go/internal/platform/config"
+	runtimepkg "github.com/Antonio7098/ultraplan-go/internal/platform/runtime"
+	"github.com/Antonio7098/ultraplan-go/internal/project"
+	"github.com/Antonio7098/ultraplan-go/internal/sprint"
+	"github.com/Antonio7098/ultraplan-go/internal/workspace"
+)
+
+type SprintRuntimeFactory func(config.Config) (sprint.Runtime, error)
+
+func defaultSprintRuntimeFactory(c config.Config) (sprint.Runtime, error) {
+	return runtimepkg.NewOpenCode(c)
+}
+
+func runSprint(deps dependencies, args []string) error {
+	if len(args) == 0 {
+		return classified(ExitUsage, "sprint requires a subcommand\n\nRun 'ultraplan sprint --help' for usage.")
+	}
+	if args[0] == "--help" || args[0] == "-h" {
+		_, err := deps.stdout.Write([]byte(sprintHelp()))
+		return err
+	}
+	if len(args) >= 4 && (args[3] == "--help" || args[3] == "-h") && args[2] == "status" {
+		_, err := deps.stdout.Write([]byte(sprintStatusHelp()))
+		return err
+	}
+	if len(args) >= 4 && (args[3] == "--help" || args[3] == "-h") {
+		switch args[2] {
+		case "validate":
+			_, err := deps.stdout.Write([]byte(sprintValidateHelp()))
+			return err
+		case "metrics":
+			_, err := deps.stdout.Write([]byte(sprintMetricsHelp()))
+			return err
+		case "prompt":
+			_, err := deps.stdout.Write([]byte(sprintPromptHelp()))
+			return err
+		case "flow":
+			_, err := deps.stdout.Write([]byte(sprintFlowHelp()))
+			return err
+		case "smoke":
+			_, err := deps.stdout.Write([]byte(sprintSmokeHelp()))
+			return err
+		case "verify":
+			_, err := deps.stdout.Write([]byte(sprintVerifyHelp()))
+			return err
+		case "execute":
+			_, err := deps.stdout.Write([]byte(sprintExecuteHelp()))
+			return err
+		case "review":
+			_, err := deps.stdout.Write([]byte(sprintReviewHelp()))
+			return err
+		}
+	}
+	if len(args) < 3 {
+		if len(args) == 2 {
+			return classified(ExitUsage, "sprint: expected '<project> <sprint> status'")
+		}
+		return classified(ExitUsage, "sprint: expected '<project> <sprint> <status|metrics|validate|prompt|flow|execute|review|smoke|verify>'")
+	}
+	root, err := discoverWorkspace(deps)
+	if err != nil {
+		return err
+	}
+	effective, err := loadEffectiveConfig(root, deps, config.CLIOverrides{})
+	if err != nil {
+		return err
+	}
+	service := sprint.NewService(root.Path).WithStageRuntime(planningStageRuntime(effective.Config)).WithReviewConcurrency(effective.Config.Execution.DefaultParallel).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env)))
+	switch args[2] {
+	case "status":
+		jsonOut := len(args) == 4 && args[3] == "--json"
+		if len(args) != 3 && !jsonOut {
+			return classified(ExitUsage, "sprint: expected '<project> <sprint> status'")
+		}
+		status, err := service.Status(args[0], args[1])
+		if err != nil {
+			return mapSprintError("sprint.status", err)
+		}
+		statusLabel := "ok"
+		smokeReadiness, smokeErr := service.SmokeStatus(args[0], args[1])
+		if smokeErr != nil {
+			smokeReadiness.Ready = false
+			if smokeFailure, ok := sprint.AsSmokeError(smokeErr); ok && (smokeFailure.Category == "catalog" || smokeFailure.Category == "review_gate") {
+				statusLabel = "partial"
+			} else {
+				mapped := mapSmokeError(smokeErr)
+				if jsonOut {
+					_ = json.NewEncoder(deps.stdout).Encode(map[string]any{"schema_version": 1, "operation": "sprint.status", "status": "failed", "result": status, "smoke_readiness": smokeReadiness, "error": stableCommandError(mapped)})
+				}
+				return mapped
+			}
+		}
+		if jsonOut {
+			return json.NewEncoder(deps.stdout).Encode(map[string]any{"schema_version": 1, "operation": "sprint.status", "status": statusLabel, "result": status, "smoke_readiness": smokeReadiness})
+		}
+		renderSprintStatus(deps, status)
+		fmt.Fprintf(deps.stdout, "  readiness: %t\n", smokeReadiness.Ready)
+		for _, diagnostic := range smokeReadiness.Diagnostics {
+			fmt.Fprintf(deps.stdout, "  diagnostic: %s\n", diagnostic)
+		}
+		return nil
+	case "metrics":
+		jsonOut := len(args) == 4 && args[3] == "--json"
+		if len(args) != 3 && !jsonOut {
+			return classified(ExitUsage, "sprint.metrics: expected 'metrics [--json]'")
+		}
+		metrics, err := service.RuntimeMetrics(args[0], args[1])
+[0m
+[0m$ [0mrg -n "acquireMutationContext|acquireMutation\(" internal/sprint --type go -g '!*_test.go'
+internal/sprint/smoke.go:24:	lockedCtx, release, lockErr := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/service.go:77:func (s Service) acquireMutation(projectRef, sprintRef string) (func(), error) {
+internal/sprint/verify.go:41:		lockedCtx, release, lockErr := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/review.go:407:		lockedCtx, release, lockErr := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/locks.go:26:	lockedCtx, release, err := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/locks.go:90:func (s Service) acquireMutationContext(ctx context.Context, projectRef, sprintRef string) (context.Context, func(), error) {
+internal/sprint/locks.go:99:	release, err := s.acquireMutation(projectRef, sprintRef)
+internal/sprint/execute.go:36:	ctx, release, err := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/execute.go:129:		lockedCtx, release, lockErr := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/flow.go:71:		ctx, release, err = s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/flow.go:129:		ctx, release, err = s.acquireMutationContext(ctx, projectRef, sprintRef)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/flow.go[90m [limit=160][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop_diagnostics.go

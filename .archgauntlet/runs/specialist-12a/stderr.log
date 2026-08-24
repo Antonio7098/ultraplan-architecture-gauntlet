@@ -1,4 +1,831 @@
-[91m[1mError: [0mUnexpected error
+[93m[1m! [0m agent "arch-inspector" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m$ [0mls -la /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+total 32
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   136 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    62 Aug 22 16:23 ..
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    18 Aug 22 16:23 cmd
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   232 Aug 22 16:23 dist
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   596 Aug 22 16:23 docs
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   122 Aug 24 13:31 .git
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    18 Aug 22 16:23 .github
+-rw-r--r--. 1 antonioborgerees antonioborgerees    10 Aug 22 16:23 .gitignore
+-rw-r--r--. 1 antonioborgerees antonioborgerees  2188 Aug 22 16:23 go.mod
+-rw-r--r--. 1 antonioborgerees antonioborgerees 11725 Aug 22 16:23 go.sum
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   154 Aug 22 16:23 internal
+-rw-r--r--. 1 antonioborgerees antonioborgerees 10930 Aug 22 16:23 README.md
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   188 Aug 22 16:23 scripts
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && git log --oneline -5 && git status --short | head -20
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs:
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
 
-Failed query: insert into "project" ("id", "worktree", "vcs", "name", "icon_url", "icon_url_override", "icon_color", "time_created", "time_updated", "time_initialized", "sandboxes", "commands") values (?, ?, ?, null, null, null, null, ?, ?, null, ?, null) on conflict ("project"."id") do update set "worktree" = ?, "vcs" = ?, "time_updated" = ?, "sandboxes" = ?
-params: 301876ff7505cee44cc416ead4f4b407501e54d7,/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787412392775,1787515749747,[],/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet,git,1787515749747,[]
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace:
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd -type f | sort
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/code_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/code_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/config_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/defaults_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/json_output.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/markdown.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/markdown_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_inventory_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/skills_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/skills_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_error_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_verify_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/status_json.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/storage_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_init_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_prompt_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_all_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_loop_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_runs_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_runs_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_status_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_summary_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_validate_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/surfaces.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/version.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_operations_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/workspace_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/codeextract_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/parser.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/resolver.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/service.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/redaction.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/filesystem/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging/logging.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging/logging_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_other.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_unix.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/agentwrap.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/cache_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/events.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/health.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/policy.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/discovery.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/index.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/project_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/reasoning_defaults.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/reasoning_defaults_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/service.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/store_fs.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/validation.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/benchmark_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/errors.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/fault_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/id.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/id_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/import_boundary_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/interfaces.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/local_log.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/local_log_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/metrics.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/model.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/model_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_darwin.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_integration_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_linux.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_other.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/retention.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/retention_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/artifacts.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/cleanup_uncertain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/cleanup_uncertain_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/code_context.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/code_context_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/context_pack.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/direct_inputs.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/direct_inputs_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/discovery.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/efficiency_improvements_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/efficiency_metrics_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_model.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_model_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_plan.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_plan_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_state_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_target.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_target_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/flow.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/freshness_policy.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/handbook.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/handbook_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/input_contract.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/locks.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/locks_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/plan.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/plan_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompt_bundle.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompt_context.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompt_context_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompts.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/reasoning.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/reasoning_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review_runtime_validation.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/runtime_metrics.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/runtime_progress_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/runtime_validation.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/session_state.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/session_state_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_author.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_protocol.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_types.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/sprint_index_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/sprint_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state_database.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/store_fs.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/validation.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verification_lock.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verification_lock_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verify_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/applicability.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/cleanup_uncertain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/cleanup_uncertain_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/config.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/config_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/dimension_refs.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/discovery.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/durable_metadata.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/edit_warnings.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/execution_domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/init_clone.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/init.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/init_render.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/init_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/init_yaml.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/markdown.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/memory_pressure.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/metadata_domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/prompts.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/prompts_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/rating.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/rating_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/reports.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/resolve.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_all.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_all_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_history.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_history_summary.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_history_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop_diagnostics.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop_diagnostics_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_loop_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_state_domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_state.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/runtime_metadata.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/runtime_metadata_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/runtime_validation.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/service.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state_database.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/state_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/study_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/summary.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/summary_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/synthesize.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/validation_command.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/validation_command_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/validation.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/validation_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/app.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/keys.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/markdown.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/model.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/model_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/run_view_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/test_fakes_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/theme.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/verify_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/viewport.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/viewport_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/views.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/views_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/api_compatibility_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/artifacts.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/artifacts_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/handlers.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/import_boundary_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/integration_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operation_handlers.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations_contract_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/packaging_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/routes.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/routes_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/security.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/security_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server_policy.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server_policy_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/sse_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/app.css
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/app.js
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/css/base.css
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/css/components.css
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/css/layouts.css
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/css/primitives.css
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/css/tokens.css
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/css/utilities.css
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/js/app.js
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/js/operations.js
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/js/sse.js
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/resource-monitor.css
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/resource-monitor.js
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/artifact.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/components/components.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/dashboard.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/error.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/layouts/layouts.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/operation-confirm.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/operation.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/pages/pages.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/primitives/primitives.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/project.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/projects.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/run.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/runs.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/shell.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/sprint.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/studies.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates/study.html
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/templates_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/test_fakes_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/defaults.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/discovery.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/init.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/paths.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/base.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/create-area-reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/create-code-context.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/create-requirements.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/create-sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/create-sprint-reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/create-technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/execute-sprint.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/meta-plan.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/meta-synthesize.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/plan-sprint.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/review.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/smoke.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/prompts/synthesize.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/code-context.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/meta-report.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/project-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/README.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/repo-analysis.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/report.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/requirements.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/review.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/smoke.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/sprint-index.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/sprint-plan.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/sprint-reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/scaffold/templates/technical-handbook.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/skills.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/skills_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/validation.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/workspace_test.go
+[0m
+[0m$ [0mls -R /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system 2>/dev/null | head -60
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system:
+contracts
+protocols
+reasoning
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts:
+core
+runtime
+surfaces
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core:
+architecture.md
+configuration.md
+documentation.md
+errors.md
+observability.md
+privacy-and-data.md
+release-versioning.md
+security.md
+testing.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime:
+llm-evaluation-cost-safety.md
+llm.md
+performance.md
+persistence-and-migrations.md
+workflows.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/surfaces:
+accessibility.md
+api-contracts.md
+cli.md
+frontend.md
+package-public-api.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols:
+architecture-review-protocol.md
+contract-mapping-protocol.md
+deep-smoke-sprint-protocol.md
+plan-sprint-protocol.md
+review-sprint-protocol.md
+sprint-review-protocol.md
+
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning:
+api-design-reasoning-template.md
+architecture_reasoning_template.md
+cli-design-reasoning-template.md
+data-privacy-reasoning-template.md
+errors_reasoning_template.md
+eval-design-reasoning-template.md
+frontend-design-reasoning-template.md
+frontend-reasoning-template.md
+frontend-state-placement-template.md
+llm-feature-reasoning-template.md
+observability-reasoning-template.md
+package-api-reasoning-template.md
+performance-reasoning-template.md
+persistence-reasoning-template.md
+prompt-change-reasoning-template.md
+release-reasoning-template.md
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/routes.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/handlers.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operation_handlers.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/security.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server_policy.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server.go
+[0m✱ [0mGrep "SetWriteDeadline|WriteTimeout"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 6 matches[0m
+[0m✱ [0mGrep "MaxStreamLifetime|SSEHeartbeat|heartbeat"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web · 1 match[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/local-web.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/js/sse.js
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/js/app.js
+[0m✱ [0mGrep "EventSource|events\?|/events|UltraPlanSSE"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static · 7 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/app.js[90m [offset=790, limit=130][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/static/app.js[90m [limit=140, offset=1330][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+[0m✱ [0mGrep "func appendRunEventWithRetry|func proposeRunTerminalWithRetry|busy_timeout|_busy|ProgressCoalesceWindow|OwnerTickInterval|HeartbeatInterval|OwnerLeaseDuration|ReconciliationInterval"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol · 17 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go[90m [limit=120][0m
+[0m✱ [0mGrep "func appendRunEventWithRetry|func proposeRunTerminalWithRetry"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 2 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=80, offset=280][0m
+[0m✱ [0mGrep "Notifier|notifier"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go · 7 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/sse_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/integration_test.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server_test.go
+[0m
+[0m$ [0mgrep -n "followRunSSE\|/events\|Last-Event-ID\|text/event-stream\|heartbeat" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers_test.go | head -40
+208:	for _, target := range []string{"/api/v1/runs?project=alpha&limit=50", "/api/v1/runs/" + string(testRunID), "/api/v1/runs/" + string(testRunID) + "/events?after=0"} {
+214:	ahead := request(h, http.MethodGet, "/api/v1/runs/"+string(testRunID)+"/events?after=3", nil)
+218:	conflictRequest := httptest.NewRequest(http.MethodGet, "/api/v1/runs/"+string(testRunID)+"/events?after=0", nil)
+220:	conflictRequest.Header.Set("Last-Event-ID", "1")
+229:	gap := request(h, http.MethodGet, "/api/v1/runs/"+string(testRunID)+"/events?after=0", nil)
+317:	stream := request(h, http.MethodGet, "/api/v1/operations/"+string(testRunID)+"/events", nil)
+362:		response := request(handler, http.MethodGet, "/api/v1/runs/"+string(snapshot.RunID)+"/events?after=0", nil)
+[0m
+[0m✱ [0mGrep "SSE|stream|heartbeat|WriteTimeout|lifetime"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/web-compatibility-baseline.md · 100 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers_test.go
+[0m
+[0m$ [0mmkdir -p /tmp/opencode/wtest && cat > /tmp/opencode/wtest/main.go <<'EOF'
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"net/http/httptest"
+	"time"
+)
+
+func main() {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/plain", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		for i := 0; i < 8; i++ {
+			if _, err := fmt.Fprintf(w, "tick %d\n", i); err != nil {
+				fmt.Printf("plain write failed at tick %d: %v\n", i, err)
+				return
+			}
+			time.Sleep(500 * time.Millisecond)
+		}
+		fmt.Println("plain completed all ticks")
+	})
+	mux.HandleFunc("/extended", func(w http.ResponseWriter, r *http.Request) {
+		http.NewResponseController(w).SetWriteDeadline(time.Now().Add(10 * time.Second))
+		w.WriteHeader(http.StatusOK)
+		for i := 0; i < 8; i++ {
+			if _, err := fmt.Fprintf(w, "tick %d\n", i); err != nil {
+				fmt.Printf("extended write failed at tick %d: %v\n", i, err)
+				return
+			}
+			time.Sleep(500 * time.Millisecond)
+		}
+		fmt.Println("extended completed all ticks")
+	})
+	srv := httptest.NewUnstartedServer(mux)
+	srv.WriteTimeout = 2 * time.Second // stand-in for ultraplan-go's 30s vs 4s test loop
+	srv.Start()
+	defer srv.Close()
+
+	resp, err := http.Get(srv.URL + "/plain")
+	if err != nil { panic(err) }
+	fmt.Println("plain status:", resp.StatusCode)
+	time.Sleep(5 * time.Second)
+
+	resp2, err := http.Get(srv.URL + "/extended")
+	if err != nil { panic(err) }
+	fmt.Println("extended status:", resp2.StatusCode)
+	time.Sleep(5 * time.Second)
+}
+EOF
+cd /tmp/opencode/wtest && go mod init wtest >/dev/null 2>&1; go run main.go
+# command-line-arguments
+./main.go:36:6: srv.WriteTimeout undefined (type *httptest.Server has no field or method WriteTimeout)
+[0m
+[0m$ [0mcat > /tmp/opencode/wtest/main.go <<'EOF'
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"time"
+)
+
+func main() {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/plain", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		for i := 0; i < 8; i++ {
+			if _, err := fmt.Fprintf(w, "tick %d\n", i); err != nil {
+				fmt.Printf("plain write failed at tick %d: %v\n", i, err)
+				return
+			}
+			time.Sleep(500 * time.Millisecond)
+		}
+		fmt.Println("plain completed all ticks")
+	})
+	mux.HandleFunc("/extended", func(w http.ResponseWriter, r *http.Request) {
+		http.NewResponseController(w).SetWriteDeadline(time.Now().Add(10 * time.Second))
+		w.WriteHeader(http.StatusOK)
+		for i := 0; i < 8; i++ {
+			if _, err := fmt.Fprintf(w, "tick %d\n", i); err != nil {
+				fmt.Printf("extended write failed at tick %d: %v\n", i, err)
+				return
+			}
+			time.Sleep(500 * time.Millisecond)
+		}
+		fmt.Println("extended completed all ticks")
+	})
+	srv := &http.Server{Addr: "127.0.0.1:18321", Handler: mux, WriteTimeout: 2 * time.Second}
+	go srv.ListenAndServe()
+	time.Sleep(200 * time.Millisecond)
+
+	resp, err := http.Get("http://127.0.0.1:18321/plain")
+	if err != nil { panic(err) }
+	fmt.Println("plain status:", resp.StatusCode)
+	readSome(resp)
+	time.Sleep(5 * time.Second)
+
+	resp2, err := http.Get("http://127.0.0.1:18321/extended")
+	if err != nil { panic(err) }
+	fmt.Println("extended status:", resp2.StatusCode)
+	readSome(resp2)
+	time.Sleep(5 * time.Second)
+}
+
+func readSome(resp *http.Response) {
+	buf := make([]byte, 256)
+	n, _ := resp.Body.Read(buf)
+	fmt.Printf("client read: %q\n", string(buf[:n]))
+}
+EOF
+cd /tmp/opencode/wtest && go run main.go
+plain completed all ticks
+panic: Get "http://127.0.0.1:18321/plain": EOF
+
+goroutine 1 [running]:
+main.main()
+	/tmp/opencode/wtest/main.go:39 +0x275
+exit status 2
+[0m
+[0m$ [0mgo version && grep -n "SetWriteDeadline" $(go env GOROOT)/src/net/http/server.go | head
+go version go1.26.6-X:nodwarf5 linux/amd64
+503:func (c *response) SetWriteDeadline(deadline time.Time) error {
+504:	return c.conn.rwc.SetWriteDeadline(deadline)
+988:			c.rwc.SetWriteDeadline(time.Now().Add(d))
+1919:			c.rwc.SetWriteDeadline(dl)
+1939:			c.rwc.SetWriteDeadline(time.Time{})
+2075:		c.rwc.SetWriteDeadline(time.Time{})
+[0m
+[0m$ [0msed -n 1900,1950p $(go env GOROOT)/src/net/http/server.go && sed -n 975,995p $(go env GOROOT)/src/net/http/server.go
+if inFlightResponse != nil {
+			inFlightResponse.cancelCtx()
+			inFlightResponse.disableWriteContinue()
+		}
+		if !c.hijacked() {
+			if inFlightResponse != nil {
+				inFlightResponse.conn.r.abortPendingRead()
+				inFlightResponse.reqBody.Close()
+			}
+			c.close()
+			c.setState(c.rwc, StateClosed, runHooks)
+		}
+	}()
+
+	if tlsConn, ok := c.rwc.(*tls.Conn); ok {
+		tlsTO := c.server.tlsHandshakeTimeout()
+		if tlsTO > 0 {
+			dl := time.Now().Add(tlsTO)
+			c.rwc.SetReadDeadline(dl)
+			c.rwc.SetWriteDeadline(dl)
+		}
+		if err := tlsConn.HandshakeContext(ctx); err != nil {
+			// If the handshake failed due to the client not speaking
+			// TLS, assume they're speaking plaintext HTTP and write a
+			// 400 response on the TLS conn's underlying net.Conn.
+			var reason string
+			if re, ok := err.(tls.RecordHeaderError); ok && re.Conn != nil && tlsRecordHeaderLooksLikeHTTP(re.RecordHeader) {
+				io.WriteString(re.Conn, "HTTP/1.0 400 Bad Request\r\n\r\nClient sent an HTTP request to an HTTPS server.\n")
+				re.Conn.Close()
+				reason = "client sent an HTTP request to an HTTPS server"
+			} else {
+				reason = err.Error()
+			}
+			c.server.logf("http: TLS handshake error from %s: %v", c.rwc.RemoteAddr(), reason)
+			return
+		}
+		// Restore Conn-level deadlines.
+		if tlsTO > 0 {
+			c.rwc.SetReadDeadline(time.Time{})
+			c.rwc.SetWriteDeadline(time.Time{})
+		}
+		c.tlsState = new(tls.ConnectionState)
+		*c.tlsState = tlsConn.ConnectionState()
+		if proto := c.tlsState.NegotiatedProtocol; validNextProto(proto) {
+			if fn := c.server.TLSNextProto[proto]; fn != nil {
+				h := initALPNRequest{ctx, tlsConn, serverHandler{c.server}}
+				// Mark freshly created HTTP/2 as active and prevent any server state hooks
+				// from being run on these connections. This prevents closeIdleConns from
+				// closing such connections. See issue https://golang.org/issue/39776.
+				c.setState(c.rwc, StateActive, skipHooks)
+				fn(c.server, tlsConn, h)
+// Read next request from connection.
+func (c *conn) readRequest(ctx context.Context) (w *response, err error) {
+	if c.hijacked() {
+		return nil, ErrHijacked
+	}
+
+	t0 := time.Now()
+	var wholeReqDeadline time.Time // or zero if none
+	if d := c.server.ReadTimeout; d > 0 {
+		wholeReqDeadline = t0.Add(d)
+	}
+	if d := c.server.WriteTimeout; d > 0 {
+		defer func() {
+			c.rwc.SetWriteDeadline(time.Now().Add(d))
+		}()
+	}
+
+	c.r.setReadLimit(c.server.initialReadLimitSize())
+	if c.lastMethod == "POST" {
+		// RFC 7230 section 3 tolerance for old buggy clients.
+		peek, _ := c.bufr.Peek(4) // ReadRequest will get err below
+[0m
+[0m$ [0mcat > /tmp/opencode/wtest/main.go <<'EOF'
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"time"
+)
+
+func stream(w http.ResponseWriter, extend bool) {
+	if extend {
+		http.NewResponseController(w).SetWriteDeadline(time.Now().Add(10 * time.Second))
+	}
+	flusher := w.(http.Flusher)
+	w.WriteHeader(http.StatusOK)
+	flusher.Flush()
+	for i := 0; i < 8; i++ {
+		time.Sleep(500 * time.Millisecond)
+		if _, err := fmt.Fprintf(w, "tick %d\n", i); err != nil {
+			fmt.Printf("%s: write failed at tick %d (t≈%.1fs): %v\n", label(extend), i, float64(i+1)*0.5, err)
+			return
+		}
+		flusher.Flush()
+	}
+	fmt.Printf("%s: completed all 8 ticks (4s)\n", label(extend))
+}
+
+func label(extend bool) string { if extend { return "extended" }; return "plain    " }
+
+func main() {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/plain", func(w http.ResponseWriter, r *http.Request) { stream(w, false) })
+	mux.HandleFunc("/extended", func(w http.ResponseWriter, r *http.Request) { stream(w, true) })
+	srv := &http.Server{Addr: "127.0.0.1:18322", Handler: mux, WriteTimeout: 2 * time.Second}
+	go srv.ListenAndServe()
+	time.Sleep(200 * time.Millisecond)
+
+	for _, path := range []string{"/plain", "/extended"} {
+		resp, err := http.Get("http://127.0.0.1:18322" + path)
+		if err != nil { panic(err) }
+		go func() {
+			buf := make([]byte, 64)
+			for {
+				n, err := resp.Body.Read(buf)
+				if n > 0 { fmt.Printf("%s client read: %q", path, string(buf[:n])) }
+				if err != nil { fmt.Printf("%s client read end: %v\n", path, err); return }
+			}
+		}()
+	}
+	time.Sleep(6 * time.Second)
+	srv.Close()
+}
+EOF
+cd /tmp/opencode/wtest && go run main.go
+/extended client read: "tick 0\n"/plain client read: "tick 0\n"/plain client read: "tick 1\n"/extended client read: "tick 1\n"/extended client read: "tick 2\n"/plain client read: "tick 2\n"/extended client read: "tick 3\n"/extended client read: "tick 4\n"/plain client read end: unexpected EOF
+/extended client read: "tick 5\n"plain    : write failed at tick 5 (t≈3.0s): write tcp 127.0.0.1:18322->127.0.0.1:46588: i/o timeout
+/extended client read: "tick 6\n"extended: completed all 8 ticks (4s)
+/extended client read: "tick 7\n"/extended client read end: EOF
+[0m
+[0m✱ [0mGrep "eventIDHeader\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web · 1 match[0m
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && go vet ./internal/web/ ./internal/app/ 2>&1 | head; grep -rn "eventIDHeader" --include="*.go" . | wc -l
+1
+[0m
+[0m$ [0mgrep -n "SSE\|sse\|stream" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/surfaces/api-contracts.md | head -30
+170:- API tests assert stable error shapes for important failure cases
+[0m
+[0m$ [0mgrep -rn -i "sse\|event-stream\|heartbeat\|stream lifetime\|backpressure\|slow subscriber" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/ | head -30
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/architecture.md:137:Use cases and workflows must depend on narrow ports rather than concrete infrastructure when the collaborator crosses a meaningful side-effect, volatility, runtime, persistence, or test seam.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/architecture.md:222:Application assembly must happen at a clear composition boundary. As systems grow, compose module bundles or factories instead of scattering wiring through entrypoints.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/documentation.md:144:- docs generation check passes or drift is reviewed
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/errors.md:49:| ERR-DEP-001 | External dependency failures must remain classified and observable | runtimes, providers, subprocesses, network dependencies | High |
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/errors.md:62:7. Health signals must reflect operational truth, not optimistic guesses.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/errors.md:148:- keep codes specific enough to distinguish materially different failure classes
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/errors.md:157:- operators and review can distinguish major failure classes from codes alone
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/errors.md:228:- workflow and module registry assembly
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/observability.md:80:- calling runtimes, subprocesses, providers, or dependencies
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/observability.md:250:- adds debug or verbose output that bypasses redaction, correlation, or surface-specific output-channel rules
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/privacy-and-data.md:21:- collects, stores, processes, logs, exports, or transmits user data
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/release-versioning.md:172:- bypasses relevant failing checks without documented risk acceptance
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/security.md:22:- processes untrusted input
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/security.md:125:- pass command arguments as arrays/lists when subprocesses are necessary
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/security.md:186:- prevent `..`, symlink, absolute-path, or platform-specific bypasses where relevant
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/security.md:248:- require explicit opt-in for permissive CORS, insecure TLS, test auth bypasses, and public diagnostics
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/testing.md:89:- prefer stable behavior checks over exact phrasing assertions
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/testing.md:93:- brittle provider smokes that assert cosmetic output wording
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/testing.md:138:Tests must prefer deterministic signals and avoid flaky or over-coupled assertions.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/testing.md:141:- assert on stable behavior, structure, lifecycle, and state transitions
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/testing.md:150:- assertions target stable fields and behavior
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/testing.md:219:- introduces brittle smoke or provider assertions that check cosmetic phrasing instead of durable behavior
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/llm-evaluation-cost-safety.md:79:- asserting exact wording where semantic behaviour is what matters
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/llm-evaluation-cost-safety.md:134:- unbounded context assembly or tool loops
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/llm.md:100:- hardwiring mode-specific tool behavior into generic runtime classes
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/llm.md:189:- retry prompts or retry issue context must be derived from the last failed attempt and passed through the structured task's message builder
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/llm.md:294:- mode-specific monitoring infrastructure that bypasses the canonical observability runtime
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/runtime/workflows.md:129:- leaving partial side effects unaddressed in failure scenarios
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/surfaces/accessibility.md:149:- avoid essential information conveyed only through motion
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/surfaces/accessibility.md:150:- respect reduced-motion settings for non-essential animation
+[0m
+[0m$ [0mgrep -rn -i "shutdown\|drain\|browser disconnect" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/surfaces/frontend.md /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/security.md 2>/dev/null | head -20
+(no output)
+[0m
+[0m$ [0mgrep -n -B3 -A8 "SSE timeout\|sse timeout" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/plans/server-shutdown-run-cancellation-contract.md
+173-- closing the browser tab;
+174-- refreshing the page;
+175-- losing network connectivity;
+176:- an SSE timeout;
+177-- reconnecting from another browser session.
+178-
+179-The user must be able to reconnect and observe the current durable operation state while the server remains alive.
+180-
+181-## 5. Forced termination and crash recovery
+182-
+183-`SIGKILL`, host failure, power loss, runtime crash, or an unrecoverable server panic cannot guarantee graceful cancellation.
+184-
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/web-compatibility-baseline.md

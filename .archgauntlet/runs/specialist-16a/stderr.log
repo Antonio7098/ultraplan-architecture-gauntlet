@@ -2,8 +2,6 @@
 [0m
 > build · stealth/ox-alpha
 [0m
-[0m→ [0mSkill "ultraplan-architecture-gauntlet"
-[0m
 [0m$ [0mgit log --oneline -3 && git status --short | head -5
 eeaa034 observability: promote nested runtime payload facts to top level
 c455510 observability: surface agent stream details in durable run events
@@ -11,348 +9,818 @@ c455510 observability: surface agent stream details in durable run events
 [0m
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
 [0m
-[0m$ [0mfind internal cmd -type d | sort
-cmd
-cmd/ultraplan
-internal
-internal/app
-internal/codeextract
-internal/platform
-internal/platform/config
-internal/platform/filesystem
-internal/platform/logging
-internal/platform/process
-internal/platform/runtime
-internal/productstate
-internal/project
-internal/runcontrol
-internal/sprint
-internal/study
-internal/tui
-internal/web
-internal/web/static
-internal/web/static/css
-internal/web/static/js
-internal/web/templates
-internal/web/templates/components
-internal/web/templates/layouts
-internal/web/templates/pages
-internal/web/templates/primitives
-internal/workspace
-internal/workspace/scaffold
-internal/workspace/scaffold/prompts
-internal/workspace/scaffold/templates
-[0m
-[0m$ [0mls internal/platform/config internal/platform/runtime && wc -l internal/platform/config/*.go
-internal/platform/config:
-config.go
-config_test.go
-doc.go
-redaction.go
-
-internal/platform/runtime:
-agentwrap.go
-cache_test.go
-events.go
-health.go
-opencode.go
-opencode_test.go
-policy.go
-runtime.go
-runtime_test.go
-  549 internal/platform/config/config.go
-  213 internal/platform/config/config_test.go
-    6 internal/platform/config/doc.go
-   74 internal/platform/config/redaction.go
-  842 total
+[0m$ [0mfind internal cmd docs -type f -name "*.go" -o -name "*.md" | sort
+cmd/ultraplan/main.go
+docs/architecture.md
+docs/cli-reference.md
+docs/configuration.md
+docs/local-web.md
+docs/migration-from-ultra-cli.md
+docs/migration-product-state.md
+docs/opencode-smoke.md
+docs/phase3-json-schemas.md
+docs/phase3-migration.md
+docs/planning-smoke.md
+docs/plans/integrated-roadmap.md
+docs/plans/post-execution-qa-and-repair-loop.md
+docs/plans/retrieval-ready-content-knowledge-graph-addendum.md
+docs/plans/retrieval-ready-content-plan.md
+docs/plans/server-shutdown-run-cancellation-contract.md
+docs/plans/sprint-code-context-stage.md
+docs/plans/ultraplan-local-server-experiment-plan.md
+docs/recovery.md
+docs/release-checklist.md
+docs/reports/sprint-efficiency.md
+docs/stage-skills.md
+docs/ui-audit.md
+docs/user-guide.md
+docs/web-compatibility-baseline.md
+internal/app/app.go
+internal/app/app_test.go
+internal/app/code_commands.go
+internal/app/code_commands_test.go
+internal/app/config_commands.go
+internal/app/defaults_commands.go
+internal/app/durable_operations.go
+internal/app/durable_operations_test.go
+internal/app/health_commands.go
+internal/app/health_commands_test.go
+internal/app/json_output.go
+internal/app/markdown.go
+internal/app/markdown_test.go
+internal/app/operation_runner.go
+internal/app/operations.go
+internal/app/project_commands.go
+internal/app/project_commands_test.go
+internal/app/project_usecases.go
+internal/app/run_commands.go
+internal/app/run_commands_test.go
+internal/app/run_control.go
+internal/app/run_control_inventory_test.go
+internal/app/run_control_test.go
+internal/app/run_usecases.go
+internal/app/serve_commands.go
+internal/app/serve_commands_test.go
+internal/app/skills_commands.go
+internal/app/skills_commands_test.go
+internal/app/sprint_commands.go
+internal/app/sprint_commands_test.go
+internal/app/sprint_error_test.go
+internal/app/sprint_usecases.go
+internal/app/sprint_usecases_test.go
+internal/app/sprint_verify_commands_test.go
+internal/app/status_json.go
+internal/app/storage_commands.go
+internal/app/study_commands.go
+internal/app/study_commands_test.go
+internal/app/study_init_commands_test.go
+internal/app/study_prompt_commands_test.go
+internal/app/study_run_all_commands_test.go
+internal/app/study_run_commands_test.go
+internal/app/study_run_loop_commands_test.go
+internal/app/study_runs_commands.go
+internal/app/study_runs_commands_test.go
+internal/app/study_status_commands_test.go
+internal/app/study_summary_commands_test.go
+internal/app/study_usecases.go
+internal/app/study_validate_commands_test.go
+internal/app/surfaces.go
+internal/app/tui_commands.go
+internal/app/tui_commands_test.go
+internal/app/usecases.go
+internal/app/usecases_test.go
+internal/app/version.go
+internal/app/web_operations_test.go
+internal/app/web_usecases.go
+internal/app/web_usecases_test.go
+internal/app/workspace_commands.go
+internal/codeextract/codeextract_test.go
+internal/codeextract/doc.go
+internal/codeextract/domain.go
+internal/codeextract/parser.go
+internal/codeextract/resolver.go
+internal/codeextract/service.go
+internal/platform/config/config.go
+internal/platform/config/config_test.go
+internal/platform/config/doc.go
+internal/platform/config/redaction.go
+internal/platform/filesystem/doc.go
+internal/platform/logging/doc.go
+internal/platform/logging/logging.go
+internal/platform/logging/logging_test.go
+internal/platform/process/process.go
+internal/platform/process/process_other.go
+internal/platform/process/process_test.go
+internal/platform/process/process_unix.go
+internal/platform/runtime/agentwrap.go
+internal/platform/runtime/cache_test.go
+internal/platform/runtime/events.go
+internal/platform/runtime/health.go
+internal/platform/runtime/opencode.go
+internal/platform/runtime/opencode_test.go
+internal/platform/runtime/policy.go
+internal/platform/runtime/runtime.go
+internal/platform/runtime/runtime_test.go
+internal/productstate/store.go
+internal/project/discovery.go
+internal/project/doc.go
+internal/project/domain.go
+internal/project/index.go
+internal/project/project_test.go
+internal/project/reasoning_defaults.go
+internal/project/reasoning_defaults_test.go
+internal/project/service.go
+internal/project/store_fs.go
+internal/project/validation.go
+internal/runcontrol/benchmark_test.go
+internal/runcontrol/doc.go
+internal/runcontrol/errors.go
+internal/runcontrol/fault_test.go
+internal/runcontrol/id.go
+internal/runcontrol/id_test.go
+internal/runcontrol/import_boundary_test.go
+internal/runcontrol/interfaces.go
+internal/runcontrol/lifecycle.go
+internal/runcontrol/lifecycle_test.go
+internal/runcontrol/local_log.go
+internal/runcontrol/local_log_test.go
+internal/runcontrol/metrics.go
+internal/runcontrol/migration.go
+internal/runcontrol/migration_test.go
+internal/runcontrol/model.go
+internal/runcontrol/model_test.go
+internal/runcontrol/process_darwin.go
+internal/runcontrol/process.go
+internal/runcontrol/process_integration_test.go
+internal/runcontrol/process_linux.go
+internal/runcontrol/process_other.go
+internal/runcontrol/retention.go
+internal/runcontrol/retention_test.go
+internal/runcontrol/sanitize.go
+internal/runcontrol/sanitize_test.go
+internal/runcontrol/sqlite.go
+internal/runcontrol/sqlite_test.go
+internal/sprint/artifacts.go
+internal/sprint/cleanup_uncertain.go
+internal/sprint/cleanup_uncertain_test.go
+internal/sprint/code_context.go
+internal/sprint/code_context_test.go
+internal/sprint/context_pack.go
+internal/sprint/direct_inputs.go
+internal/sprint/direct_inputs_test.go
+internal/sprint/discovery.go
+internal/sprint/doc.go
+internal/sprint/domain.go
+internal/sprint/efficiency_improvements_test.go
+internal/sprint/efficiency_metrics_test.go
+internal/sprint/execute.go
+internal/sprint/execute_model.go
+internal/sprint/execute_model_test.go
+internal/sprint/execute_plan.go
+internal/sprint/execute_plan_test.go
+internal/sprint/execute_state.go
+internal/sprint/execute_state_test.go
+internal/sprint/execute_target.go
+internal/sprint/execute_target_test.go
+internal/sprint/flow.go
+internal/sprint/freshness_policy.go
+internal/sprint/handbook.go
+internal/sprint/handbook_test.go
+internal/sprint/index.go
+internal/sprint/input_contract.go
+internal/sprint/locks.go
+internal/sprint/locks_test.go
+internal/sprint/plan.go
+internal/sprint/plan_test.go
+internal/sprint/prompt_bundle.go
+internal/sprint/prompt_context.go
+internal/sprint/prompt_context_test.go
+internal/sprint/prompts.go
+internal/sprint/reasoning.go
+internal/sprint/reasoning_test.go
+internal/sprint/review.go
+internal/sprint/review_runtime_validation.go
+internal/sprint/review_test.go
+internal/sprint/runtime_metrics.go
+internal/sprint/runtime_progress_test.go
+internal/sprint/runtime_validation.go
+internal/sprint/service.go
+internal/sprint/session_state.go
+internal/sprint/session_state_test.go
+internal/sprint/smoke_author.go
+internal/sprint/smoke.go
+internal/sprint/smoke_protocol.go
+internal/sprint/smoke_test.go
+internal/sprint/smoke_types.go
+internal/sprint/sprint_index_test.go
+internal/sprint/sprint_test.go
+internal/sprint/state_database.go
+internal/sprint/state.go
+internal/sprint/store_fs.go
+internal/sprint/validation.go
+internal/sprint/verification_lock.go
+internal/sprint/verification_lock_test.go
+internal/sprint/verify.go
+internal/sprint/verify_test.go
+internal/study/applicability.go
+internal/study/cleanup_uncertain.go
+internal/study/cleanup_uncertain_test.go
+internal/study/config.go
+internal/study/config_test.go
+internal/study/dimension_refs.go
+internal/study/discovery.go
+internal/study/doc.go
+internal/study/domain.go
+internal/study/durable_metadata.go
+internal/study/edit_warnings.go
+internal/study/execution_domain.go
+internal/study/init_clone.go
+internal/study/init.go
+internal/study/init_render.go
+internal/study/init_test.go
+internal/study/init_yaml.go
+internal/study/locks.go
+internal/study/locks_test.go
+internal/study/markdown.go
+internal/study/memory_pressure.go
+internal/study/metadata_domain.go
+internal/study/prompts.go
+internal/study/prompts_test.go
+internal/study/rating.go
+internal/study/rating_test.go
+internal/study/reports.go
+internal/study/resolve.go
+internal/study/run_all.go
+internal/study/run_all_test.go
+internal/study/run.go
+internal/study/run_history.go
+internal/study/run_history_summary.go
+internal/study/run_history_test.go
+internal/study/run_loop_diagnostics.go
+internal/study/run_loop_diagnostics_test.go
+internal/study/run_loop.go
+internal/study/run_loop_test.go
+internal/study/run_state_domain.go
+internal/study/run_state.go
+internal/study/run_test.go
+internal/study/runtime_metadata.go
+internal/study/runtime_metadata_test.go
+internal/study/runtime_validation.go
+internal/study/service.go
+internal/study/state_database.go
+internal/study/state.go
+internal/study/state_test.go
+internal/study/study_test.go
+internal/study/summary.go
+internal/study/summary_test.go
+internal/study/synthesize.go
+internal/study/validation_command.go
+internal/study/validation_command_test.go
+internal/study/validation.go
+internal/study/validation_test.go
+internal/tui/app.go
+internal/tui/doc.go
+internal/tui/keys.go
+internal/tui/markdown.go
+internal/tui/model.go
+internal/tui/model_test.go
+internal/tui/run_view_test.go
+internal/tui/test_fakes_test.go
+internal/tui/theme.go
+internal/tui/verify_test.go
+internal/tui/viewport.go
+internal/tui/viewport_test.go
+internal/tui/views.go
+internal/tui/views_test.go
+internal/web/api_compatibility_test.go
+internal/web/artifacts.go
+internal/web/artifacts_test.go
+internal/web/handlers.go
+internal/web/import_boundary_test.go
+internal/web/integration_test.go
+internal/web/operation_handlers.go
+internal/web/operations_contract_test.go
+internal/web/operations.go
+internal/web/operations_test.go
+internal/web/packaging_test.go
+internal/web/routes.go
+internal/web/routes_test.go
+internal/web/run_handlers.go
+internal/web/run_handlers_test.go
+internal/web/security.go
+internal/web/security_test.go
+internal/web/server.go
+internal/web/server_policy.go
+internal/web/server_policy_test.go
+internal/web/server_test.go
+internal/web/sse_test.go
+internal/web/templates_test.go
+internal/web/test_fakes_test.go
+internal/workspace/defaults.go
+internal/workspace/discovery.go
+internal/workspace/doc.go
+internal/workspace/init.go
+internal/workspace/paths.go
+internal/workspace/scaffold/prompts/base.md
+internal/workspace/scaffold/prompts/create-area-reasoning.md
+internal/workspace/scaffold/prompts/create-code-context.md
+internal/workspace/scaffold/prompts/create-requirements.md
+internal/workspace/scaffold/prompts/create-sprint-index.md
+internal/workspace/scaffold/prompts/create-sprint-reasoning.md
+internal/workspace/scaffold/prompts/create-technical-handbook.md
+internal/workspace/scaffold/prompts/execute-sprint.md
+internal/workspace/scaffold/prompts/meta-plan.md
+internal/workspace/scaffold/prompts/meta-synthesize.md
+internal/workspace/scaffold/prompts/plan-sprint.md
+internal/workspace/scaffold/prompts/review.md
+internal/workspace/scaffold/prompts/smoke.md
+internal/workspace/scaffold/prompts/synthesize.md
+internal/workspace/scaffold/templates/code-context.md
+internal/workspace/scaffold/templates/meta-report.md
+internal/workspace/scaffold/templates/project-index.md
+internal/workspace/scaffold/templates/README.md
+internal/workspace/scaffold/templates/repo-analysis.md
+internal/workspace/scaffold/templates/report.md
+internal/workspace/scaffold/templates/requirements.md
+internal/workspace/scaffold/templates/review.md
+internal/workspace/scaffold/templates/smoke.md
+internal/workspace/scaffold/templates/sprint-index.md
+internal/workspace/scaffold/templates/sprint-plan.md
+internal/workspace/scaffold/templates/sprint-reasoning.md
+internal/workspace/scaffold/templates/technical-handbook.md
+internal/workspace/skills.go
+internal/workspace/skills_test.go
+internal/workspace/validation.go
+internal/workspace/workspace_test.go
 [0m
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/doc.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/configuration.md
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/redaction.go
-[0m✱ [0mGrep "\.Models\.|\.Planning\.|ModelFor|ResolveModel|selectModel|PickModel"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 98 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [offset=560, limit=130][0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_model.go
-[0m✱ [0mGrep "ExecuteModelSelection|ResolveExecuteModel|StageRuntime"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 78 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=40, offset=1255][0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go[90m [limit=40, offset=675][0m
-[0m✱ [0mGrep "ResolveExecuteModel\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 3 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go[90m [limit=120, offset=400][0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode.go[90m [limit=80][0m
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/config_commands.go
-[0m✱ [0mGrep "smokeSettings|SmokeModel|StageSmoke\b.*Model|smokeModel"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 25 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
-[0m✱ [0mGrep "AuthorModel|authorModel|reviewModelSelection|executeModelSelection|runtime == nil"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 23 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_author.go[90m [limit=120][0m
-[0m✱ [0mGrep "authorSmokeSuite|Authoring\b.*Deep|deepSmoke|Level == |authoringRequired"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 2 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke.go[90m [limit=80, offset=20][0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=130, offset=30][0m
-[0m✱ [0mGrep "func sprintRuntimeService|RunSmoke|service\.Review\(|service\.Execute\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 7 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=120, offset=400][0m
-[0m✱ [0mGrep "OperationSmokeStart|sharedOperationRunner"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 17 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config_test.go
+[0m✱ [0mGrep "loadEffectiveConfig|config\.Load\(|LoadOptions\{"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 16 matches[0m
+[0m✗ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_model.go failed[90m [limit=120, offset=260][0m
+[91m[1mError: [0mOffset 260 is out of range for this file (30 lines)
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute_model.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/reasoning.go
+[0m✱ [0mGrep "Planning\.(RequirementsModel|CodeContextModel|SprintIndexModel|TechnicalHandbookModel|AreaReasoningModel|ReasoningModel|PlanModel|ExecuteModel|ReviewModel|SmokeModel)"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 44 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=130, offset=560][0m
+[0m✱ [0mGrep "ResolveExecuteModel|StageRuntime|DefaultVariant"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 62 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go
+[0m✱ [0mGrep "runtime\.Request\{|Models\.Primary|Models\.Default"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 28 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go[90m [limit=120, offset=400][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=120, offset=40][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=110, offset=420][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go[90m [limit=120, offset=280][0m
+[0m✱ [0mGrep "--model|\.Model\b.*FlowRequest|FlowRequest\{|OverrideModel|ModelOverride"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 69 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=100, offset=120][0m
+[0m✱ [0mGrep "func \(s Service\) (reviewModelSelection|executeModelSelection)"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 2 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/review.go[90m [limit=40, offset=1260][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go[90m [limit=60, offset=660][0m
+[0m✱ [0mGrep "ResolveExecuteModel"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 5 matches[0m
+[0m✱ [0mGrep "ConfigSummary|summary\.Model\b|cfg\.Model\b"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 16 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/config.go
+[0m✱ [0mGrep "runtimeConfig|Request\.Model|req\.Model|\.Provider"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study · 22 matches[0m
+[0m✱ [0mGrep ""ULTRAPLAN_[A-Z_]+""[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 58 matches[0m
+[0m✱ [0mGrep "Environment|envAllowlist|allowedEnv"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 15 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_protocol.go[90m [limit=60, offset=600][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=35, offset=526][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_test.go[90m [limit=40, offset=100][0m
+[0m✱ [0mGrep "environment|PATH|HOME|smoke"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace · 68 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/init.go[90m [limit=80, offset=130][0m
 [0m
-[0m$ [0mgit log --oneline -5 -- internal/app/operation_runner.go && git log -S "OperationSmokeStart:" --oneline -- internal/app/operation_runner.go | head -5
-f067727 Propagate runtime failure diagnostics
-e09d394 Add durable run control and adaptive study execution
-0bf3cb9 fix: harden sprint review recovery and web operations
-a221683 feat: add guarded web operations and SSE progress
-a221683 feat: add guarded web operations and SSE progress
+[0m$ [0mrg -n "not forwarded by default|platform set" --glob '!ultraplan-go' -l . 2>/dev/null | head; rg -n "PATH and HOME" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace 2>/dev/null | head -20
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/28-review-to-smoke-flow/flow-state.json:600:                "detail": "smokeEnvironment (smoke_protocol.go:482-501) builds the allowlist from settings.Environment and only forwards variables that are in the settings allowlist. The smoke manifest may request additional names, but they are only added when also present in settings.Environment. safeArgv (smoke.go:496-515) replaces non-flag argument values with [ARG] and flag values containing '=' with name=[REDACTED] in stable smoke output. config.RedactValue is applied to sprint/smoke progress messages before they reach stderr (sprint_commands.go:352, sprint_commands.go:412). ValidateSmokeContent rejects forbidden raw payload markers ('-----BEGIN', 'Authorization: Bearer', '\"stdout\":', '\"stderr\":') (smoke.go:449-453). However, the default SmokeSettings.Environment includes PATH, HOME, TMPDIR, LANG, LC_ALL (smoke_types.go:52). PATH and HOME commonly reveal filesystem layout and are arguably sensitive in multi-tenant settings. CFG-SECRET-001 is satisfied for argv and progress, but the default allowlist is broader than necessary.",
 [0m
-[0m$ [0mgit show a221683 -- internal/app/operation_runner.go | grep -A 12 "case OperationSmokeStart"
-+		case OperationSmokeStart:
-+			service := sprint.NewService(root.Path).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env)))
-+			var timeout time.Duration
-+			if req.Timeout != "" {
-+				timeout, _ = time.ParseDuration(req.Timeout)
-+			}
-+			r, e := service.RunSmoke(ctx, req.Project, req.Sprint, sprint.SmokeRequest{Level: req.Level, Suite: req.Suite, Test: req.Test, Timeout: timeout, ForceReview: req.ForceReview, OverrideConfirmed: req.ForceReview, OverrideRationale: req.OverrideRationale, Progress: func(p sprint.SmokeProgress) {
-+				emit(OperationEvent{State: OperationRunning, Stage: string(p.Phase), Task: operationFirstNonEmpty(p.Test, p.Suite), Message: p.Message, Completed: p.Completed, Total: p.Total})
-+			}})
-+			result.Message = fmt.Sprintf("%s verdict=%s run=%s next=%s", r.Status, r.Verdict, r.RunID, r.NextAction)
-+			if r.Artifact != "" {
-+				if preview, readErr := useCases.PreviewArtifact(ctx, r.Artifact); readErr == nil {
-+					result.Content, result.Truncated = boundContent(preview.Content)
+[0m$ [0mrg -n "smoke.environment|platform set|TMPDIR" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints --glob '*.md' -l | head -20
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/29-phase-3-documentation-hardening-release/plan.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/29-phase-3-documentation-hardening-release/execute.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/27-deep-smoke/execute.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/27-deep-smoke/reasoning.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/27-deep-smoke/plan.md
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/12-durable-run-loop/plan.md
 [0m
-[0m$ [0mgit log -S "authorSmokeSuite" --oneline | tail -3; git log --oneline --follow -- internal/sprint/smoke_author.go | tail -3
-b9733ce Add agent-owned stage execution and smoke authoring
-2fbce1a Disable brittle verification snapshots
-9b3c02b Surface concurrent harness drift and harden smoke authoring
-b9733ce Add agent-owned stage execution and smoke authoring
+[0m$ [0mrg -n "platform set|not forwarded|PATH" "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/29-phase-3-documentation-hardening-release/execute.md" | head -20; rg -n "smoke.environment|platform set|PATH and HOME|not forwarded" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/*.md
+22:- Removed `PATH` and `HOME` from the default smoke environment; retained only `TMPDIR`, `LANG`, and `LC_ALL`.
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/configuration.md:214:Smoke configuration is resolved after manifest defaults and before command/TUI overrides. UltraPlan passes only named environment variables; values never appear in config output, JSON, Markdown, or TUI diagnostics. The built-in platform set is limited to `TMPDIR`, `LANG`, and `LC_ALL`; `PATH` and `HOME` are not forwarded by default. Add a manifest-declared name to `smoke.environment` only when the harness genuinely needs it. The real-harness test lane is opt-in with `ULTRAPLAN_REAL_SMOKE=1`; normal tests never launch it.
 [0m
-[0m$ [0mgit log --oneline --format="%h %ad %s" --date=short a221683 b9733ce -1 2>/dev/null; git show -s --format="%h %ad %s" --date=short a221683 b9733ce
-a221683 2026-08-16 feat: add guarded web operations and SSE progress
-a221683 2026-08-16 feat: add guarded web operations and SSE progress
-b9733ce 2026-08-16 Add agent-owned stage execution and smoke authoring
+[0m$ [0mgit log --oneline -S "not forwarded by default" -- docs/configuration.md | head -5; git log --oneline -S '"TMPDIR", "LANG", "LC_ALL"' -- internal/platform/config/config.go internal/sprint/smoke_types.go | head -10
+f8446a6 feat: complete phase 3 release hardening
+f142a73 feat: add review-gated deep smoke
 [0m
-[0m$ [0mgit log --oneline | grep -n -E "a221683|b9733ce|f067727" ; git merge-base --is-ancestor a221683 b9733ce && echo "a221683 is ancestor of b9733ce"
-5:f067727 Propagate runtime failure diagnostics
-67:a221683 feat: add guarded web operations and SSE progress
-69:b9733ce Add agent-owned stage execution and smoke authoring
-[0m
-[0m$ [0mgit show b9733ce --stat | head -20; git show b9733ce -- internal/sprint/smoke.go | grep -B3 -A6 "authorSmokeSuite" | head -40
-commit b9733ce27858c901a1730b8db4db15be0244800e
+[0m$ [0mgit show f8446a6 --stat | head -30; git show f8446a6 -- internal/platform/config/config.go | grep -A5 -B5 "Environment" | head -40
+commit f8446a658259683a7798e3d8c5e98f6ec692552f
 Author: antonio <antoniorees74@gmail.com>
-Date:   Sun Aug 16 15:40:58 2026 +0100
+Date:   Tue Jul 28 14:27:42 2026 +0100
 
-    Add agent-owned stage execution and smoke authoring
+    feat: complete phase 3 release hardening
 
- docs/cli-reference.md                          |   2 +-
- docs/planning-smoke.md                         |  10 +-
- docs/stage-skills.md                           |  25 ++--
- internal/app/operations.go                     | 188 +++++++++++++++++++++++++
- internal/app/sprint_commands.go                |  13 +-
- internal/platform/config/config.go             |   8 +-
- internal/platform/config/redaction.go          |   2 +
- internal/platform/runtime/agentwrap.go         |   3 -
- internal/platform/runtime/runtime_test.go      |  14 +-
- internal/sprint/execute.go                     |   1 -
- internal/sprint/smoke.go                       | 117 ++++++++++++---
- internal/sprint/smoke_author.go                | 178 +++++++++++++++++++++++
- internal/sprint/smoke_protocol.go              |  83 ++++++++++-
- internal/sprint/smoke_test.go                  |  80 +++++++++--
- 	result.EffectiveTimeout, result.TimeoutSource = smokeTimeout(s.smokeSettings, prepared.Manifest, req)
-+	if !req.DryRun {
-+		emit(SmokeProgress{Phase: SmokePhaseAuthoring, Message: "authoring sprint-specific deep-smoke coverage"})
-+		if err := s.authorSmokeSuite(ctx, prepared, &result); err != nil {
-+			return smokeFailedResult(result, err)
-+		}
-+	}
- 
- 	getenv := s.smokeSettings.Getenv
- 	if getenv == nil {
-[0m
-[0m$ [0mgit show b9733ce -- internal/app/sprint_commands.go | head -60
-commit b9733ce27858c901a1730b8db4db15be0244800e
-Author: antonio <antoniorees74@gmail.com>
-Date:   Sun Aug 16 15:40:58 2026 +0100
-
-    Add agent-owned stage execution and smoke authoring
-
-diff --git a/internal/app/sprint_commands.go b/internal/app/sprint_commands.go
-index 1bf39d9..e789285 100644
---- a/internal/app/sprint_commands.go
-+++ b/internal/app/sprint_commands.go
-@@ -352,7 +352,14 @@ func runSprint(deps dependencies, args []string) error {
- 				fmt.Fprintf(deps.stderr, " | %s\n", config.RedactValue("smoke.progress", progress.Message))
- 			}
- 		}
--		result, runErr := service.RunSmoke(deps.ctx, args[0], args[1], req)
-+		smokeService := service
-+		if !req.DryRun {
-+			smokeService, err = sprintRuntimeService(deps, root)
-+			if err != nil {
-+				return err
-+			}
-+		}
-+		result, runErr := smokeService.RunSmoke(deps.ctx, args[0], args[1], req)
- 		if jsonOut {
- 			_ = json.NewEncoder(deps.stdout).Encode(map[string]any{"schema_version": 1, "operation": "sprint.smoke", "status": result.Status, "result": result})
- 		} else {
-@@ -543,6 +550,7 @@ func planningStageRuntime(c config.Config) map[sprint.PlanningStage]sprint.Stage
- 			Variant: c.Planning.ExecuteVariant,
- 		},
- 		sprint.StageReview: {Model: c.Planning.ReviewModel, Variant: c.Planning.ReviewVariant},
-+		sprint.StageSmoke:  {Model: c.Planning.SmokeModel, Variant: c.Planning.SmokeVariant},
+ README.md                                |  2 ++
+ docs/cli-reference.md                    | 24 ++++++++++++++++++
+ docs/configuration.md                    |  2 +-
+ docs/phase3-json-schemas.md              | 43 ++++++++++++++++++++++++++++++++
+ docs/phase3-migration.md                 | 14 +++++++++++
+ docs/recovery.md                         |  2 +-
+ docs/release-checklist.md                | 11 +++++---
+ internal/platform/config/config.go       |  2 +-
+ internal/platform/runtime/runtime.go     | 14 +++++++++++
+ internal/sprint/runtime_progress_test.go | 11 ++++++++
+ internal/sprint/service.go               | 23 +++++++++++++++++
+ internal/sprint/smoke_types.go           |  2 +-
+ internal/sprint/state.go                 |  3 ---
+ internal/sprint/verify.go                |  8 +++---
+ internal/sprint/verify_test.go           | 10 ++++----
+ 15 files changed, 151 insertions(+), 20 deletions(-)
++++ b/internal/platform/config/config.go
+@@ -156,7 +156,7 @@ func Defaults() Config {
+ 		Models:    Models{Default: "provider/model", Primary: "provider/model", Backup: "provider/model"},
+ 		Execution: Execution{DefaultVariant: "high", DefaultParallel: 3, DefaultTimeout: "30m", DefaultRetries: 3},
+ 		Planning:  Planning{},
+-		Smoke:     Smoke{DiscoveryTimeout: "30s", RunTimeout: "30m", StdoutLimit: 4 << 20, StderrLimit: 1 << 20, CleanupGrace: "5s", Environment: []string{"PATH", "HOME", "TMPDIR", "LANG", "LC_ALL"}},
++		Smoke:     Smoke{DiscoveryTimeout: "30s", RunTimeout: "30m", StdoutLimit: 4 << 20, StderrLimit: 1 << 20, CleanupGrace: "5s", Environment: []string{"TMPDIR", "LANG", "LC_ALL"}},
+ 		Logging:   Logging{Format: "text", Level: "info"},
+ 		Agentwrap: Agentwrap{Executable: "opencode", StderrLimit: 16 * 1024, RequiredHealth: []string{"runtime_available", "structured_output", "workdir"}, RequiredCapabilities: []string{"structured_events", "cancellation"}, Sandbox: "workspace_write", PermissionMode: "restricted", PermissionDefault: "ask"},
  	}
+[0m
+[0m$ [0mgit log --oneline -S '"PATH", "HOME", "TMPDIR"' -- internal/platform/config/config.go | head; git log --oneline -S 'TestDefaultSmokeEnvironmentPreservesInterpreterPath' | head
+bc52401 make smoke discovery runnable and namespace-safe
+f8446a6 feat: complete phase 3 release hardening
+f142a73 feat: add review-gated deep smoke
+bc52401 make smoke discovery runnable and namespace-safe
+[0m
+[0m$ [0mgit show bc52401 --stat | head -25 && git show bc52401 -- internal/platform/config/config.go internal/sprint/smoke_types.go | head -60
+commit bc52401a0f984d04cf62e58a4b33c66622f9c1ff
+Author: antonio <antoniorees74@gmail.com>
+Date:   Sun Aug 16 13:02:58 2026 +0100
+
+    make smoke discovery runnable and namespace-safe
+
+ internal/platform/config/config.go |  2 +-
+ internal/sprint/smoke_protocol.go  | 24 ++++++++++++----------
+ internal/sprint/smoke_test.go      | 42 ++++++++++++++++++++++++++++++++++++++
+ internal/sprint/smoke_types.go     |  2 +-
+ 4 files changed, 57 insertions(+), 13 deletions(-)
+commit bc52401a0f984d04cf62e58a4b33c66622f9c1ff
+Author: antonio <antoniorees74@gmail.com>
+Date:   Sun Aug 16 13:02:58 2026 +0100
+
+    make smoke discovery runnable and namespace-safe
+
+diff --git a/internal/platform/config/config.go b/internal/platform/config/config.go
+index abd8857..99d358a 100644
+--- a/internal/platform/config/config.go
++++ b/internal/platform/config/config.go
+@@ -156,7 +156,7 @@ func Defaults() Config {
+ 		Models:    Models{Default: "provider/model", Primary: "provider/model", Backup: "provider/model"},
+ 		Execution: Execution{DefaultVariant: "high", DefaultParallel: 3, DefaultTimeout: "30m", DefaultRetries: 3},
+ 		Planning:  Planning{},
+-		Smoke:     Smoke{DiscoveryTimeout: "30s", RunTimeout: "30m", StdoutLimit: 4 << 20, StderrLimit: 1 << 20, CleanupGrace: "5s", Environment: []string{"TMPDIR", "LANG", "LC_ALL"}},
++		Smoke:     Smoke{DiscoveryTimeout: "30s", RunTimeout: "30m", StdoutLimit: 4 << 20, StderrLimit: 1 << 20, CleanupGrace: "5s", Environment: []string{"PATH", "HOME", "TMPDIR", "LANG", "LC_ALL"}},
+ 		Logging:   Logging{Format: "text", Level: "info"},
+ 		Agentwrap: Agentwrap{Executable: "opencode", StderrLimit: 16 * 1024, RequiredHealth: []string{"runtime_available", "structured_output", "workdir"}, RequiredCapabilities: []string{"structured_events", "cancellation"}, Sandbox: "workspace_write", PermissionMode: "restricted", PermissionDefault: "ask"},
+ 	}
+diff --git a/internal/sprint/smoke_types.go b/internal/sprint/smoke_types.go
+index 9fa56c2..cded7d0 100644
+--- a/internal/sprint/smoke_types.go
++++ b/internal/sprint/smoke_types.go
+@@ -49,7 +49,7 @@ type SmokeSettings struct {
  }
  
-@@ -941,6 +949,9 @@ func renderSprintSmoke(deps dependencies, result sprint.SmokeResult) {
- 	fmt.Fprintf(deps.stdout, "Project: %s\nSprint: %s\nSmoke status: %s\nVerdict: %s\n", result.Project, result.Sprint, result.Status, result.Verdict)
- 	fmt.Fprintf(deps.stdout, "Review gate: %s fingerprint=%s override=%t\n", result.ReviewVerdict, result.ReviewFingerprint, result.ReviewOverride)
- 	fmt.Fprintf(deps.stdout, "Harness: %s protocol=%s\nScope: %s %s\nRationale: %s\n", result.Harness, result.Protocol, result.ScopeKind, result.Scope, result.ScopeRationale)
-+	if result.AuthorRunID != "" {
-+		fmt.Fprintf(deps.stdout, "Smoke author: %s model=%s changed=%d\n", result.AuthorRunID, result.AuthorModel, len(result.AuthorChangedPaths))
-+	}
- 	fmt.Fprintf(deps.stdout, "Duration/cost class: %s/%s\nEvidence roots: %s\n", result.DurationClass, result.CostClass, strings.Join(result.EvidenceRoots, ", "))
- 	fmt.Fprintf(deps.stdout, "Effective timeout: %s (source=%s)\n", result.EffectiveTimeout, result.TimeoutSource)
- 	if result.SafeArgv != "" {
+ func DefaultSmokeSettings() SmokeSettings {
+-	return SmokeSettings{DiscoveryTimeout: 30 * time.Second, RunTimeout: 30 * time.Minute, CleanupGrace: 5 * time.Second, StdoutLimit: 4 << 20, StderrLimit: 1 << 20, Environment: []string{"TMPDIR", "LANG", "LC_ALL"}, Sources: map[string]string{}, Getenv: os.Getenv}
++	return SmokeSettings{DiscoveryTimeout: 30 * time.Second, RunTimeout: 30 * time.Minute, CleanupGrace: 5 * time.Second, StdoutLimit: 4 << 20, StderrLimit: 1 << 20, Environment: []string{"PATH", "HOME", "TMPDIR", "LANG", "LC_ALL"}, Sources: map[string]string{}, Getenv: os.Getenv}
+ }
+ 
+ type SmokeRequest struct {
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go[90m [limit=120, offset=40][0m
+[0m
+[0m$ [0mrg -n "default_variant|reasoning_effort|variant" docs/cli-reference.md docs/user-guide.md | head -30
+(no output)
+[0m
+[0m$ [0mrg -n "default_variant|variant" docs/*.md | head -40
+docs/ui-audit.md:97:- Introduce real design-system primitives: `.btn` variants (primary/secondary/destructive), consistent card/badge/tab components consuming the (currently ignored) spacing tokens in `css/tokens.css`; unify tokens into one file; add light theme support later if wanted.
+docs/configuration.md:57:  default_variant: high
+docs/configuration.md:182:- empty required model/runtime/variant/executable fields.
+docs/configuration.md:238:size, and polling intervals are fixed safety invariants rather than settings.
+docs/planning-smoke.md:79:The project catalog must contain one `Smoke Harnesses` row with an absolute harness root and a manifest contained by that root. The manifest is strict protocol v1 and supplies direct executable/argv forms, discovery/run commands, bounded authoring paths, evidence roots, capabilities, and environment names. Configure `planning.smoke_model` and `planning.smoke_variant` for the authoring agent.
+[0m
+[0m✱ [0mGrep "Variant|reasoning_effort"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime · 14 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode.go
+[0m
+[0m$ [0mrg -n -i "variant" internal/study/*.go | grep -v _test | head -20; rg -n -i "variant" internal/runcontrol/*.go | grep -v _test | head
+internal/study/run_state_domain.go:40:	Variant          string `json:"variant,omitempty"`
+internal/runcontrol/errors.go:22:	CodeInvariant         ErrorCode = "invariant_violation"
+internal/runcontrol/errors.go:37:	ErrInvariant         = &Error{Code: CodeInvariant}
+internal/runcontrol/sqlite.go:31:// safety pragmas are fixed product invariants and cannot be weakened here.
+internal/runcontrol/sqlite.go:223:			return wrapError(CodeInvariant, "verify_pragma", fmt.Sprintf("SQLite %s=%s; require %s", check.name, got, check.want), false, nil)
+internal/runcontrol/sqlite.go:662:			return Event{}, Snapshot{}, runError(CodeInvariant, "append", fence.RunID, fmt.Sprintf("invalid lifecycle transition %s -> %s", current, draft.Lifecycle), false, nil)
+internal/runcontrol/sqlite.go:1116:		return coded.Code()&0xff == 19 // SQLITE_CONSTRAINT and extended variants.
+[0m
+[0m$ [0mrg -n "ConfigSummary|config_summary" internal/study/run_state.go internal/study/run_state_domain.go internal/app/status_json.go internal/app/study_commands.go | grep -v _test | head -25
+internal/study/run_state_domain.go:26:	Config                   ConfigSummary `json:"config_summary"`
+internal/study/run_state_domain.go:37:type ConfigSummary struct {
+internal/app/study_commands.go:307:func runLoopService(deps dependencies, root workspace.Root, flags runAllFlags) (study.Service, int, study.ConfigSummary, error) {
+internal/app/study_commands.go:310:		return study.Service{}, 0, study.ConfigSummary{}, err
+internal/app/study_commands.go:317:		return study.Service{}, 0, study.ConfigSummary{}, classified(ExitConfig, "study run-loop: parallelism must be at least 1")
+internal/app/study_commands.go:321:		return study.Service{}, 0, study.ConfigSummary{}, classified(ExitConfig, "runtime.config: %w", err)
+internal/app/study_commands.go:325:		return study.Service{}, 0, study.ConfigSummary{}, classified(ExitRuntime, "runtime.init: %w", err)
+internal/app/study_commands.go:329:		return study.Service{}, 0, study.ConfigSummary{}, classified(ExitRuntime, "run-control.init: %w", err)
+internal/app/study_commands.go:331:	summary := study.ConfigSummary{
+internal/study/run_state.go:23:	Config        ConfigSummary
+internal/app/status_json.go:43:	Config    study.ConfigSummary `json:"config_summary"`
+[0m
+[0m$ [0mrg -n "Config\b" internal/study/run_state.go | head; rg -n "func NewRunState" -A 30 internal/study/run_state.go | head -45
+23:	Config        ConfigSummary
+60:		Config:                   req.Config,
+26:func NewRunState(req NewRunStateRequest) (RunState, error) {
+27-	now := req.Now
+28-	if now.IsZero() {
+29-		now = time.Now().UTC()
+30-	}
+31-	runID := strings.TrimSpace(req.RunID)
+32-	if runID == "" {
+33-		runID = fmt.Sprintf("run-%s", now.UTC().Format("20060102T150405Z"))
+34-	}
+35-
+36-	dimensions := append([]Dimension(nil), req.Dimensions...)
+37-	sort.Slice(dimensions, func(i, j int) bool {
+38-		if dimensions[i].Number == dimensions[j].Number {
+39-			return dimensions[i].Slug < dimensions[j].Slug
+40-		}
+41-		return dimensions[i].Number < dimensions[j].Number
+42-	})
+43-
+44-	sources := append([]Source(nil), req.Sources...)
+45-	sort.Slice(sources, func(i, j int) bool {
+46-		if sources[i].Name == sources[j].Name {
+47-			return sources[i].Kind < sources[j].Kind
+48-		}
+49-		return sources[i].Name < sources[j].Name
+50-	})
+51-
+52-	tasks, fingerprint := buildCurrentTaskGraph(req.WorkspaceRoot, req.Study, sources, dimensions, now)
+53-	return RunState{
+54-		SchemaVersion:            RunStateSchemaVersion,
+55-		RunID:                    runID,
+56-		Study:                    req.Study.Name,
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go[90m [limit=80, offset=620][0m
+[0m
+[0m$ [0mrg -n "^var |^\tvar .*=" internal/sprint/*.go internal/app/*.go | grep -v _test | grep -v "Err|= map|= \[\]" | head -30
+internal/sprint/cleanup_uncertain.go:17:var ErrCleanupUncertain = errors.New("sprint cleanup remains uncertain")
+internal/sprint/domain.go:14:var (
+internal/sprint/code_context.go:18:var (
+internal/sprint/index.go:10:var unresolvedTemplatePlaceholder = regexp.MustCompile(`\{\{\s*[A-Za-z][A-Za-z0-9_-]*\s*\}\}`)
+internal/sprint/index.go:27:var sprintIndexSections = map[string]string{
+internal/sprint/prompt_context.go:94:var codeContextSymbolRE = regexp.MustCompile(`(?im)^\s*-?\s*\*\*Symbol:\*\*\s*` + "`?" + `([^` + "`" + `\r\n]+)` + "`?" + `\s*$`)
+internal/sprint/handbook.go:159:var mdPathPattern = regexp.MustCompile(`(?:\.ultra/)?[A-Za-z0-9._/-]+/reports/final/[A-Za-z0-9._/-]+\.md`)
+internal/sprint/review.go:1768:var _ = errors.Is
+internal/app/health_commands.go:28:var runtimeHealthChecks = runRuntimeHealth
+internal/sprint/service.go:75:var ErrVerificationConflict = errors.New("verification mutation already in progress")
+internal/app/run_usecases.go:20:var (
+internal/app/web_usecases.go:30:var (
+internal/app/operations.go:164:var ErrStaleOperation = errors.New("operation inputs changed after preparation")
+internal/app/study_commands.go:22:var studyRuntimeFactory = func(c config.Config) (study.Runtime, error) {
+internal/app/study_commands.go:1089:var timeNow = func() time.Time { return time.Now().UTC() }
+[0m
+[0m$ [0mrg -n "strictCompletedReviewSnapshotFreshness" internal/sprint/*.go | head -5; rg -n "var strict|strict.*=.*(true|false)$" internal/sprint/*.go | head
+internal/sprint/freshness_policy.go:12:	strictCompletedReviewSnapshotFreshness = false
+internal/sprint/verify.go:178:		} else if strictCompletedReviewSnapshotFreshness && manifest.Fingerprint != r.Fingerprint {
+internal/sprint/verify.go:192:			if !strictCompletedReviewSnapshotFreshness {
+internal/sprint/smoke_protocol.go:186:	review.Stale = reviewErr != nil || len(reviewFindings) > 0 || (strictCompletedReviewSnapshotFreshness && reviewManifest.Fingerprint != review.Fingerprint)
+internal/sprint/smoke_protocol.go:190:		if !strictCompletedReviewSnapshotFreshness {
+internal/sprint/freshness_policy.go:12:	strictCompletedReviewSnapshotFreshness = false
+internal/sprint/freshness_policy.go:13:	strictCompletedSmokeSnapshotFreshness  = false
+internal/sprint/freshness_policy.go:14:	strictSmokeAuthorProtectedSnapshots    = false
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/freshness_policy.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go[90m [limit=60, offset=460][0m
+[0m
+[0m$ [0mcat > /tmp/opencode/cfg_probe_test.go <<'EOF'
+package config
+
+import (
+	"strings"
+	"testing"
+)
+
+func TestProbeMissingWorkspaceFile(t *testing.T) {
+	_, err := Load(LoadOptions{WorkspaceRoot: t.TempDir()})
+	t.Logf("missing-file err=%v", err)
+	_, err2 := Load(LoadOptions{WorkspaceRoot: t.TempDir(), Env: func(k string) string {
+		if k == "ULTRAPLAN_DEFAULT_PARALLEL" { return "abc" }
+		return ""
+	}})
+	t.Logf("bad-env-int err=%v", err2)
+	e3, err3 := Load(LoadOptions{WorkspaceRoot: t.TempDir(), Env: func(k string) string {
+		if k == "ULTRAPLAN_DEFAULT_PARALLEL" { return "abc" }
+		return ""
+	}})
+	if err3 == nil {
+		t.Logf("sources parallel=%q value=%d variant-source=%q", e3.Sources["execution.default_parallel"], e3.Config.Execution.DefaultParallel, e3.Sources["execution.default_variant"])
+	}
+	_ = strings.TrimSpace
+}
+EOF
+cp /tmp/opencode/cfg_probe_test.go internal/platform/config/zz_probe_test.go && go test ./internal/platform/config/ -run TestProbe -v 2>&1 | head -20; rm internal/platform/config/zz_probe_test.go
+=== RUN   TestProbeMissingWorkspaceFile
+    zz_probe_test.go:10: missing-file err=read workspace config: open /tmp/TestProbeMissingWorkspaceFile835069988/001/ultraplan.yml: no such file or directory
+    zz_probe_test.go:15: bad-env-int err=read workspace config: open /tmp/TestProbeMissingWorkspaceFile835069988/002/ultraplan.yml: no such file or directory
+--- PASS: TestProbeMissingWorkspaceFile (0.00s)
+PASS
+ok  	github.com/Antonio7098/ultraplan-go/internal/platform/config	0.005s
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace/validation.go
+[0m
+[0m$ [0mrg -n "ultraplan.yml" internal/workspace/paths.go internal/workspace/*.go | grep -v _test | head; rg -rn "RequiredFiles" internal/workspace/paths.go
+internal/workspace/discovery.go:9:const MarkerFile = "ultraplan.yml"
+internal/workspace/init.go:103:	"ultraplan.yml": defaultConfig,
+internal/workspace/init.go:300:	return []string{"ultraplan.yml", "README.md"}
+[0m
+[0m$ [0mcat > internal/platform/config/zz_probe_test.go <<'EOF'
+package config
+
+import (
+	"os"
+	"path/filepath"
+	"testing"
+)
+
+func TestProbeBadEnvProvenance(t *testing.T) {
+	root := t.TempDir()
+	os.WriteFile(filepath.Join(root, "ultraplan.yml"), []byte("version: 1\n"), 0o644)
+	e, err := Load(LoadOptions{WorkspaceRoot: root, Env: func(k string) string {
+		if k == "ULTRAPLAN_DEFAULT_PARALLEL" { return "abc" }
+		return ""
+	}})
+	if err != nil { t.Fatalf("load: %v", err) }
+	t.Logf("parallel=%d source=%q", e.Config.Execution.DefaultParallel, e.Sources["execution.default_parallel"])
+}
+EOF
+go test ./internal/platform/config/ -run TestProbeBadEnv -v 2>&1 | head -8; rm internal/platform/config/zz_probe_test.go
+=== RUN   TestProbeBadEnvProvenance
+    zz_probe_test.go:17: parallel=3 source="env"
+--- PASS: TestProbeBadEnvProvenance (0.00s)
+PASS
+ok  	github.com/Antonio7098/ultraplan-go/internal/platform/config	0.005s
+[0m
+[0m$ [0mrg -n "sprintRuntimeFactory|studyRuntimeFactory|controlledRuntimeFor" internal/app/app.go internal/app/study_commands.go internal/app/run_control.go internal/app/*.go | grep -v _test | head -20
+internal/app/app.go:119:		sprintRuntimeFactory: cfg.SprintRuntimeFactory,
+internal/app/app.go:122:	if deps.sprintRuntimeFactory == nil {
+internal/app/app.go:123:		deps.sprintRuntimeFactory = defaultSprintRuntimeFactory
+internal/app/app.go:190:	sprintRuntimeFactory SprintRuntimeFactory
+internal/app/run_control.go:103:func controlledRuntimeFor(deps dependencies, workspaceRoot string, effectiveConfig config.Config, base interface {
+internal/app/run_control.go:103:func controlledRuntimeFor(deps dependencies, workspaceRoot string, effectiveConfig config.Config, base interface {
+internal/app/study_commands.go:22:var studyRuntimeFactory = func(c config.Config) (study.Runtime, error) {
+internal/app/study_commands.go:323:	rt, err := studyRuntimeFactory(effective.Config)
+internal/app/study_commands.go:327:	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+internal/app/study_commands.go:664:	rt, err := studyRuntimeFactory(effective.Config)
+internal/app/study_commands.go:668:	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+internal/app/study_commands.go:833:	rt, err := studyRuntimeFactory(effective.Config)
+internal/app/study_commands.go:837:	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+internal/app/app.go:119:		sprintRuntimeFactory: cfg.SprintRuntimeFactory,
+internal/app/app.go:122:	if deps.sprintRuntimeFactory == nil {
+internal/app/app.go:123:		deps.sprintRuntimeFactory = defaultSprintRuntimeFactory
+internal/app/app.go:190:	sprintRuntimeFactory SprintRuntimeFactory
+internal/app/study_commands.go:22:var studyRuntimeFactory = func(c config.Config) (study.Runtime, error) {
+internal/app/study_commands.go:323:	rt, err := studyRuntimeFactory(effective.Config)
+internal/app/study_commands.go:327:	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go[90m [limit=40, offset=15][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=80, offset=95][0m
+[0m
+[0m$ [0mrg -n "config" internal/runcontrol/import_boundary_test.go internal/web/import_boundary_test.go | head -20; rg -n "import" internal/sprint/doc.go; rg -l "platform/config" internal/sprint/ | head
+internal/sprint/execute_model_test.go
+internal/sprint/execute_model.go
+internal/sprint/execute.go
+internal/sprint/flow.go
+[0m
+[0m$ [0mrg -n "platform/config" internal/sprint/execute.go internal/sprint/flow.go; rg -n "RedactValue|config\." internal/sprint/execute.go | head -8
+internal/sprint/execute.go:12:	"github.com/Antonio7098/ultraplan-go/internal/platform/config"
+internal/sprint/flow.go:9:	"github.com/Antonio7098/ultraplan-go/internal/platform/config"
+717:	return config.RedactValue(key, safeError(fmt.Errorf("%s", value)))
+[0m
+[0m$ [0mrg -n "ULTRAPLAN_" docs/cli-reference.md docs/user-guide.md README.md | head -30
+docs/user-guide.md:82:2. `ULTRAPLAN_WORKSPACE`
+docs/cli-reference.md:16:Workspace discovery order is explicit flag, `ULTRAPLAN_WORKSPACE`, then current directory ancestry containing `ultraplan.yml`.
+docs/cli-reference.md:389:normal precedence: global `--workspace`, `ULTRAPLAN_WORKSPACE`, then current
+[0m
+[0m$ [0mrg -n "Config|Model|Variant" internal/app/study_commands.go | rg -n "render|Fprintf" ; rg -n "cfg\.Model|config_summary|summary.Config|state.Config" internal/app/study_commands.go internal/study/*.go | grep -v _test | head -15
+37:1176:			fmt.Fprintf(w, "    runtime: provider=%s model=%s status=%s run=%s\n", task.Agent.Provider, task.Agent.Model, task.Agent.Status, task.Agent.RunID)
+internal/study/run_state_domain.go:26:	Config                   ConfigSummary `json:"config_summary"`
+internal/study/run_history.go:149:		record.Runtime = state.Config.Runtime
+internal/study/run_history.go:152:		record.Model = state.Config.Model
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_history.go[90m [limit=50, offset=120][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/reasoning_defaults.go
+[0m
+[0m$ [0mrg -n "applyEnv|setField" internal/platform/config/*.go | grep -v "func " ; go test ./internal/platform/config/ ./internal/app/ -run 'TestLoad|TestRedact|TestPlanningStageRuntime|TestRunControlConfig' 2>&1 | tail -3
+internal/platform/config/config.go:152:	applyEnv(&e, opts.Env)
+internal/platform/config/config.go:244:		if err := setField(&e.Config, field, value); err != nil {
+internal/platform/config/config.go:265:			_ = setField(&e.Config, override.Field, value)
+ok  	github.com/Antonio7098/ultraplan-go/internal/platform/config	0.007s
+ok  	github.com/Antonio7098/ultraplan-go/internal/app	0.012s
 [0m
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operation_handlers.go[90m [limit=60, offset=620][0m
-[0m✱ [0mGrep "OperationSmokeStart|runner\(ctx|useCases.runner|Runner:"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 10 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go[90m [limit=90, offset=290][0m
-[0m✱ [0mGrep "ConfigSummary|summary\.Model|\.Model\b.*[Dd]isplay|modelLabel"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 16 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/run_state_domain.go[90m [limit=40, offset=20][0m
-[0m✱ [0mGrep "req\.Provider|req\.Model|RequestFromConfig|Model:"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study · 18 matches[0m
 [0m
-[0m$ [0mls docs internal/study 2>/dev/null; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
-docs:
-architecture.md
-cli-reference.md
-configuration.md
-local-web.md
-migration-from-ultra-cli.md
-migration-product-state.md
-opencode-smoke.md
-phase3-json-schemas.md
-phase3-migration.md
-planning-smoke.md
-plans
-recovery.md
-release-checklist.md
-reports
-stage-skills.md
-ui-audit.md
-user-guide.md
-web-compatibility-baseline.md
+[0m$ [0mrg -n "ModelOverride|VariantOverride" internal/sprint/*.go | grep -v _test
+internal/sprint/execute.go:24:	ModelOverride string
+internal/sprint/execute.go:358:	selection := s.executeModelSelection(req.ModelOverride)
+internal/sprint/code_context.go:293:	if strings.TrimSpace(req.ModelOverride) != "" {
+internal/sprint/code_context.go:294:		runtimeReq.Provider, runtimeReq.Model = splitProviderModel(strings.TrimSpace(req.ModelOverride))
+internal/sprint/code_context.go:299:	if strings.TrimSpace(req.VariantOverride) != "" {
+internal/sprint/code_context.go:300:		runtimeReq.Metadata["variant"] = strings.TrimSpace(req.VariantOverride)
+internal/sprint/code_context.go:301:		runtimeReq.Metadata["reasoning_effort"] = strings.TrimSpace(req.VariantOverride)
+internal/sprint/flow.go:20:	ModelOverride   string
+internal/sprint/flow.go:21:	VariantOverride string
+internal/sprint/flow.go:80:		stageReq := FlowRequest{To: stage, DryRun: req.DryRun, ModelOverride: req.ModelOverride, VariantOverride: req.VariantOverride}
+internal/sprint/review.go:136:	ModelOverride      string
+internal/sprint/review.go:183:	selection := s.reviewModelSelection(req.ModelOverride)
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/code_context.go[90m [limit=80, offset=255][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/flow.go
+[0m
+[0m$ [0mrg -n -B2 -A4 "\-\-model" docs/cli-reference.md | head -60
+309-
+310-```text
+311:ultraplan sprint <project> <sprint> execute [--task <id>] [--dry-run] [--resume] [--model <provider/model>]
+312-```
+313-
+314-Executes validated top-level `plan.md` task checkboxes through one reusable generic-runtime agent session. The first turn receives the shared sprint context, ordered queue, and current task; each later task is a compact continuation in that session. UltraPlan checkpoints each task before advancing, stops the queue on failure/cancellation, writes `.run-state.json` and `execute.md`, requires runtime evidence or a safe diagnostic before marking a task complete, and constrains work to the project index target implementation directory. If the runtime supplies no reusable session ID, execution safely falls back to complete independent prompts.
+315-
+--
+333-
+334-```text
+335:ultraplan sprint <project> <sprint> review [--focus <coverage-id>] [--restart] [--dry-run] [--model <provider/model>] [--parallel <n>] [--json]
+336-```
+337-
+338-Runs bounded read-only conformance reviewers and atomically writes `review.md`. Compatible interrupted attempts resume validated coverage and retained OpenCode sessions. Use `--restart` to discard the resumable attempt and start fresh. A focused rerun promotes only when all other coverage can be retained from the same current fingerprint.
+339-
+[0m
+[0m$ [0mrg -n -B3 -A8 "sprint flow" docs/cli-reference.md | head -50; rg -n "flow" docs/cli-reference.md | head
+61:validation, and flow-state reconciliation.
+63:The manual-only `code-context` skill delegates to the canonical `sprint ... flow --to code-context` operation. It does not reproduce repository selection, prompt construction, artifact validation, atomic replacement, or state transitions.
+255:Inspects planning, execute, review, and smoke state and refreshes `projects/<project>/sprints/<sprint>/flow-state.json`. Static smoke readiness validates the catalog, manifest, review gate, artifact, fingerprint, and evidence paths without launching discovery or a run.
+291:### `ultraplan sprint <project> <sprint> flow`
+294:ultraplan sprint <project> <sprint> flow --to requirements [--dry-run]
+295:ultraplan sprint <project> <sprint> flow --to code-context [--dry-run]
+296:ultraplan sprint <project> <sprint> flow --to sprint-index [--dry-run]
+297:ultraplan sprint <project> <sprint> flow --to technical-handbook [--dry-run]
+298:ultraplan sprint <project> <sprint> flow --to area-reasoning [--dry-run]
+299:ultraplan sprint <project> <sprint> flow --to reasoning [--dry-run]
+[0m
+[0m$ [0msed -n '291,310p' docs/cli-reference.md
+### `ultraplan sprint <project> <sprint> flow`
 
-internal/study:
-applicability.go
-cleanup_uncertain.go
-cleanup_uncertain_test.go
-config.go
-config_test.go
-dimension_refs.go
-discovery.go
-doc.go
-domain.go
-durable_metadata.go
-edit_warnings.go
-execution_domain.go
-init_clone.go
-init.go
-init_render.go
-init_test.go
-init_yaml.go
-locks.go
-locks_test.go
-markdown.go
-memory_pressure.go
-metadata_domain.go
-prompts.go
-prompts_test.go
-rating.go
-rating_test.go
-reports.go
-resolve.go
-run_all.go
-run_all_test.go
-run.go
-run_history.go
-run_history_summary.go
-run_history_test.go
-run_loop_diagnostics.go
-run_loop_diagnostics_test.go
-run_loop.go
-run_loop_test.go
-run_state_domain.go
-run_state.go
-run_test.go
-runtime_metadata.go
-runtime_metadata_test.go
-runtime_validation.go
-service.go
-state_database.go
-state.go
-state_test.go
-study_test.go
-summary.go
-summary_test.go
-synthesize.go
-validation_command.go
-validation_command_test.go
-validation.go
-validation_test.go
-previews
-projects
-README.md
-scripts
-studies
-system
-ultraplan.yml
+```text
+ultraplan sprint <project> <sprint> flow --to requirements [--dry-run]
+ultraplan sprint <project> <sprint> flow --to code-context [--dry-run]
+ultraplan sprint <project> <sprint> flow --to sprint-index [--dry-run]
+ultraplan sprint <project> <sprint> flow --to technical-handbook [--dry-run]
+ultraplan sprint <project> <sprint> flow --to area-reasoning [--dry-run]
+ultraplan sprint <project> <sprint> flow --to reasoning [--dry-run]
+ultraplan sprint <project> <sprint> flow --to plan [--dry-run]
+ultraplan sprint <project> <sprint> flow --to execute [--dry-run]
+ultraplan sprint <project> <sprint> flow --to review [--restart-review] [--dry-run]
+ultraplan sprint <project> <sprint> flow --to smoke [--restart-review] [--dry-run] [--yes]
+```
+
+Runs or previews the governed stage flow through smoke. Cumulative planning order is `requirements -> code-context -> sprint-index -> technical-handbook -> area-reasoning -> reasoning -> plan`; `flow --to plan` dispatches code-context exactly once when it is not already complete and valid. A code-context rerun reads the configured implementation target with restricted permissions and atomically replaces only `code-context.md`. A non-dry-run flow reports each stage as it is checked, started, skipped, completed, or failed and interleaves sanitized runtime progress. Review and smoke use the same sprint-owned transition as `verify`. Compatible interrupted reviews resume by default; `--restart-review` discards retained review progress. A non-dry-run smoke transition requires `--yes`.
+
+### `ultraplan sprint <project> <sprint> execute`
+
+```text
 [0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/configuration.md
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=85, offset=1140][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/execute.go[90m [limit=60, offset=330][0m
 [0m
-[0m$ [0mgrep -rn "planning" docs/ | grep -iE "model|variant" | head -20; echo ---; cat /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/ultraplan.yml
-docs/planning-smoke.md:79:The project catalog must contain one `Smoke Harnesses` row with an absolute harness root and a manifest contained by that root. The manifest is strict protocol v1 and supplies direct executable/argv forms, discovery/run commands, bounded authoring paths, evidence roots, capabilities, and environment names. Configure `planning.smoke_model` and `planning.smoke_variant` for the authoring agent.
-docs/plans/sprint-code-context-stage.md:306:Add stage-specific model and variant configuration matching existing planning stages:
-docs/cli-reference.md:352:Gates on the current review fingerprint, then uses `planning.smoke_model` to create or update a durable sprint-specific suite in the cataloged protocol-v1 harness. Authoring is restricted to manifest-declared paths and targets non-deterministic real boundaries not already settled by normal tests. UltraPlan then discovers enumerated coverage/tests, selects sufficient scope, invokes direct bounded argv, verifies the exact executed test identities and external evidence, and atomically writes `smoke.md` before smoke flow state. `--force-review` additionally requires `--override-reason`; the resulting run is diagnostic and cannot promote the review or overall assessment. Raw streams and run/issue evidence remain external. Timeout, cancellation, missing coverage, out-of-scope author changes, malformed evidence, path escape, and uncertain cleanup never replace a valid summary.
----
-version: 1
-runtime:
-  default: opencode
-models:
-  default: minimax-coding-plan/MiniMax-M3
-  primary: minimax-coding-plan/MiniMax-M3
-  backup: minimax-coding-plan/MiniMax-M3
-execution:
-  default_variant: high
-  default_parallel: 5
-  default_timeout: 12m
-  default_retries: 1
-planning:
-  requirements_model: openai/gpt-5.6-sol
-  requirements_variant: high
-  code_context_model: openai/gpt-5.6-sol
-  code_context_variant: low
-  sprint_index_model: openai/gpt-5.6-sol
-  sprint_index_variant: high
-  technical_handbook_model: openai/gpt-5.6-sol
-  technical_handbook_variant: high
-  area_reasoning_model: openai/gpt-5.6-sol
-  area_reasoning_variant: high
-  reasoning_model: openai/gpt-5.6-sol
-  reasoning_variant: high
-  plan_model: openai/gpt-5.6-sol
-  plan_variant: high
-  review_model: minimax-coding-plan/MiniMax-M3
-  smoke_model: openai/gpt-5.6-sol
-  smoke_variant: low
-  execute_model: openai/gpt-5.6-sol
-  execute_variant: high
-logging:
-  format: text
-  level: debug
-agentwrap:
-  executable: opencode
-  permission_default: allow
-  required_health:
-    - runtime_available
-    - structured_output
-    - workdir
+[0m$ [0mrg -rn "code_context_model|ULTRAPLAN_CODE_CONTEXT" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects --glob '*.md' -l | head -5; rg -n "default_variant" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/*/plan.md | head -10
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/review.md
 [0m
-[0m$ [0mgrep -rn "code_context_model\|planning\.\|requirements_model" docs/user-guide.md docs/architecture.md README.md 2>/dev/null | head; echo ---; grep -rn "ULTRAPLAN_CODE_CONTEXT" docs/ | head
----
-[0m
-[0m$ [0mgrep -rln "models.primary\|model precedence\|planning\.\|ULTRAPLAN_MODEL" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/docs /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system 2>/dev/null | head -20
-(no output)
+[0m$ [0mrg -n "ULTRAPLAN_CODE_CONTEXT|env" "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints/33-code-context-stage/review.md" | head -8; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints | tail -12
+137:- `contract-cli-surface` — direct: The Sprint 33 implementation conforms to the CLI Surface contract across all nine requirement IDs. CLI-SHAPE-001 is met: the code-context stage is a value integrated uniformly into `prompt`, `validate`, `flow`, `status`, and stable JSON projections rather than a parallel command family (`target/internal/app/sprint_commands.go:78-181`, `target/internal/app/sprint_commands.go:182-230`). CLI-HELP-001 is met: `--help` is honored at the root and per-subcommand level with stage-specific help text listing `code-context` alongside the other planning stages (`target/internal/app/sprint_commands.go:30-62`, `target/internal/app/sprint_commands.go:1052-1106`, `target/internal/app/sprint_commands.go:1139-1156`). CLI-IO-001 is met: result data goes to stdout (prompt preview, status, flow output, validate, JSON envelopes) while progress, lifecycle events, and smoke progress go to stderr (`target/internal/app/sprint_commands.go:312-317`, `target/internal/app/sprint_commands.go:350-361`, `target/internal/app/sprint_commands.go:426-449`). CLI-EXIT-001 is met: stable classified exit codes (ExitOK, ExitUsage, ExitValidation, ExitRuntime, ExitWorkspace, ExitConfig, ExitCancel, ExitPartial) are used consistently across commands (`target/internal/app/sprint_commands.go:146`, `:212`, `:269`, `:296`, `:331`, `:381`). CLI-JSON-001 is met: every JSON-emitting command uses the same `{schema_version:1, operation, status, result, [error]}` envelope and rejects trailing output (`target/internal/app/sprint_commands.go:97`, `:103`, `:203`, `:210`, `:227`, `:257`, `:325`, `:373`; test `target/internal/app/sprint_commands_test.go:106-133`). CLI-CONFIG-001 is met: precedence defaults < workspace < env < CLI is enforced, redaction is applied to known secret markers and to display paths, and effective values are surfaced in both text and JSON modes with the source map preserved (`target/internal/platform/config/config.go:107-156`, `target/internal/platform/config/redaction.go:23-43`, `target/internal/app/config_commands.go:42-87`). CLI-LIFE-001 is met: caller-owned `context.Context` is propagated through service, runner, and web operation seams; cancellation, timeout, and cleanup-uncertain outcomes are mapped to distinct terminal states (`target/internal/sprint/code_context.go:270-275`, `target/internal/sprint/code_context.go:316-330`, `target/internal/sprint/code_context.go:346-395`, `target/internal/app/operations.go:265-390`). CLI-SAFE-001 is met: `--dry-run` is accepted on `flow --to code-context`, atomic candidate promotion preserves the last valid artifact on failed rerun, and `--force-review` requires an explicit `--override-reason` rationale (`target/internal/app/sprint_commands.go:182-230`, `target/internal/app/sprint_commands.go:489-512`, `target/internal/sprint/code_context.go:237-307`). CLI-NONINT-001 is met: smoke requires `--yes`/`--non-interactive`, code-context flow does not block on prompts, and prompt/validate/status are deterministic offline reads (`target/internal/app/sprint_commands.go:190-192`, `:347-348`; tests `target/internal/sprint/code_context_test.go:180-223`, `target/internal/app/sprint_commands_test.go:176-350`).
+138:- `contract-configuration` — direct: Sprint 33 correctly applies the Configuration contract to the new code-context stage settings. The Planning struct in `target/internal/platform/config/config.go` adds `CodeContextModel` and `CodeContextVariant` typed fields with `json:"code_context_model"`/`json:"code_context_variant"` tags (lines 41-42), explicit source initialization to "default" (line 135), workspace YAML parsing precedence (lines 297-300 in `setField`), and prefixed environment variable overrides `ULTRAPLAN_CODE_CONTEXT_MODEL`/`ULTRAPLAN_CODE_CONTEXT_VARIANT` (lines 117-118). `Validate()` (line 377) is invoked at the end of `Load()` before any consumer sees the config (line 152), satisfying CFG-START-001. Redaction applies the existing safe-projection rules to the new fields via `RedactValue` in `target/internal/platform/config/redaction.go:51-52`. The `config show` CLI projection in `target/internal/app/config_commands.go:57-58` reports the effective values together with their source labels, supporting CFG-OBS-001. The runtime wiring in `target/internal/app/sprint_commands.go:531-551` applies the documented stage-specific fallback (`Planning.CodeContextModel` -> `Models.Primary` -> `Models.Default`; `Planning.CodeContextVariant` -> `Execution.DefaultVariant`) and passes the result to the existing `StageRuntime` map. Tests in `target/internal/platform/config/config_test.go` cover workspace/env/CLI precedence, env-over-workspace precedence for code-context, source tracking at `Sources["planning.code_context_model"]`, and code-context redaction (lines 33-34, 47-49, 72, 81, 89-90). The implementation inherits the existing pre-sprint pattern of substring-heuristic secret detection rather than explicit field marking; this is the project's pre-existing redaction rule and is applied consistently to the new code-context fields as called out in `requirements.md` row 'Configuration redaction'.
+140:- `contract-errors` — direct: The errors contract is partially conformant. The implementation distinguishes lifecycle states (StageStatus, LatestOutcome, ExecuteTaskStatus, AttemptStatus, OperationState) and uses sentinel errors for malformed/unsupported flow state, atomic write with restore on persistence failure (target/internal/sprint/code_context.go:346-395), explicit runtime-required failures before runtime invocation (target/internal/sprint/code_context.go:234-236, target/internal/sprint/service.go:476-481), and a bounded corrective retry path for LLM output validation (target/internal/sprint/service.go:1002-1016). However, the implementation does not produce a structured OperationalError with the required canonical fields (code, category, severity, retryable, details, correlation_id, trace_id, cause, causes, timestamp). Error codes are derived from err.Error() substring matching in failedOperation (target/internal/app/operations.go:615-625) and mapSprintError (target/internal/app/sprint_commands.go:595-601), the translated Cause field duplicates Message, the StageState.Error field is a plain string with no code/component/operation, safeError truncates to 180 chars without redaction, raw error strings are forwarded to user-facing progress callbacks, and the HTTP error envelope drops cause and category. Re-review is required after the structured-error migration.
+153:- `contract-cli-surface` — direct: The Sprint 33 implementation conforms to the CLI Surface contract across all nine requirement IDs. CLI-SHAPE-001 is met: the code-context stage is a value integrated uniformly into `prompt`, `validate`, `flow`, `status`, and stable JSON projections rather than a parallel command family (`target/internal/app/sprint_commands.go:78-181`, `target/internal/app/sprint_commands.go:182-230`). CLI-HELP-001 is met: `--help` is honored at the root and per-subcommand level with stage-specific help text listing `code-context` alongside the other planning stages (`target/internal/app/sprint_commands.go:30-62`, `target/internal/app/sprint_commands.go:1052-1106`, `target/internal/app/sprint_commands.go:1139-1156`). CLI-IO-001 is met: result data goes to stdout (prompt preview, status, flow output, validate, JSON envelopes) while progress, lifecycle events, and smoke progress go to stderr (`target/internal/app/sprint_commands.go:312-317`, `target/internal/app/sprint_commands.go:350-361`, `target/internal/app/sprint_commands.go:426-449`). CLI-EXIT-001 is met: stable classified exit codes (ExitOK, ExitUsage, ExitValidation, ExitRuntime, ExitWorkspace, ExitConfig, ExitCancel, ExitPartial) are used consistently across commands (`target/internal/app/sprint_commands.go:146`, `:212`, `:269`, `:296`, `:331`, `:381`). CLI-JSON-001 is met: every JSON-emitting command uses the same `{schema_version:1, operation, status, result, [error]}` envelope and rejects trailing output (`target/internal/app/sprint_commands.go:97`, `:103`, `:203`, `:210`, `:227`, `:257`, `:325`, `:373`; test `target/internal/app/sprint_commands_test.go:106-133`). CLI-CONFIG-001 is met: precedence defaults < workspace < env < CLI is enforced, redaction is applied to known secret markers and to display paths, and effective values are surfaced in both text and JSON modes with the source map preserved (`target/internal/platform/config/config.go:107-156`, `target/internal/platform/config/redaction.go:23-43`, `target/internal/app/config_commands.go:42-87`). CLI-LIFE-001 is met: caller-owned `context.Context` is propagated through service, runner, and web operation seams; cancellation, timeout, and cleanup-uncertain outcomes are mapped to distinct terminal states (`target/internal/sprint/code_context.go:270-275`, `target/internal/sprint/code_context.go:316-330`, `target/internal/sprint/code_context.go:346-395`, `target/internal/app/operations.go:265-390`). CLI-SAFE-001 is met: `--dry-run` is accepted on `flow --to code-context`, atomic candidate promotion preserves the last valid artifact on failed rerun, and `--force-review` requires an explicit `--override-reason` rationale (`target/internal/app/sprint_commands.go:182-230`, `target/internal/app/sprint_commands.go:489-512`, `target/internal/sprint/code_context.go:237-307`). CLI-NONINT-001 is met: smoke requires `--yes`/`--non-interactive`, code-context flow does not block on prompts, and prompt/validate/status are deterministic offline reads (`target/internal/app/sprint_commands.go:190-192`, `:347-348`; tests `target/internal/sprint/code_context_test.go:180-223`, `target/internal/app/sprint_commands_test.go:176-350`).
+154:- `contract-configuration` — direct: Sprint 33 correctly applies the Configuration contract to the new code-context stage settings. The Planning struct in `target/internal/platform/config/config.go` adds `CodeContextModel` and `CodeContextVariant` typed fields with `json:"code_context_model"`/`json:"code_context_variant"` tags (lines 41-42), explicit source initialization to "default" (line 135), workspace YAML parsing precedence (lines 297-300 in `setField`), and prefixed environment variable overrides `ULTRAPLAN_CODE_CONTEXT_MODEL`/`ULTRAPLAN_CODE_CONTEXT_VARIANT` (lines 117-118). `Validate()` (line 377) is invoked at the end of `Load()` before any consumer sees the config (line 152), satisfying CFG-START-001. Redaction applies the existing safe-projection rules to the new fields via `RedactValue` in `target/internal/platform/config/redaction.go:51-52`. The `config show` CLI projection in `target/internal/app/config_commands.go:57-58` reports the effective values together with their source labels, supporting CFG-OBS-001. The runtime wiring in `target/internal/app/sprint_commands.go:531-551` applies the documented stage-specific fallback (`Planning.CodeContextModel` -> `Models.Primary` -> `Models.Default`; `Planning.CodeContextVariant` -> `Execution.DefaultVariant`) and passes the result to the existing `StageRuntime` map. Tests in `target/internal/platform/config/config_test.go` cover workspace/env/CLI precedence, env-over-workspace precedence for code-context, source tracking at `Sources["planning.code_context_model"]`, and code-context redaction (lines 33-34, 47-49, 72, 81, 89-90). The implementation inherits the existing pre-sprint pattern of substring-heuristic secret detection rather than explicit field marking; this is the project's pre-existing redaction rule and is applied consistently to the new code-context fields as called out in `requirements.md` row 'Configuration redaction'.
+156:- `contract-errors` — direct: The errors contract is partially conformant. The implementation distinguishes lifecycle states (StageStatus, LatestOutcome, ExecuteTaskStatus, AttemptStatus, OperationState) and uses sentinel errors for malformed/unsupported flow state, atomic write with restore on persistence failure (target/internal/sprint/code_context.go:346-395), explicit runtime-required failures before runtime invocation (target/internal/sprint/code_context.go:234-236, target/internal/sprint/service.go:476-481), and a bounded corrective retry path for LLM output validation (target/internal/sprint/service.go:1002-1016). However, the implementation does not produce a structured OperationalError with the required canonical fields (code, category, severity, retryable, details, correlation_id, trace_id, cause, causes, timestamp). Error codes are derived from err.Error() substring matching in failedOperation (target/internal/app/operations.go:615-625) and mapSprintError (target/internal/app/sprint_commands.go:595-601), the translated Cause field duplicates Message, the StageState.Error field is a plain string with no code/component/operation, safeError truncates to 180 chars without redaction, raw error strings are forwarded to user-facing progress callbacks, and the HTTP error envelope drops cause and category. Re-review is required after the structured-error migration.
+169:- `contract-cli-surface` — direct: The Sprint 33 implementation conforms to the CLI Surface contract across all nine requirement IDs. CLI-SHAPE-001 is met: the code-context stage is a value integrated uniformly into `prompt`, `validate`, `flow`, `status`, and stable JSON projections rather than a parallel command family (`target/internal/app/sprint_commands.go:78-181`, `target/internal/app/sprint_commands.go:182-230`). CLI-HELP-001 is met: `--help` is honored at the root and per-subcommand level with stage-specific help text listing `code-context` alongside the other planning stages (`target/internal/app/sprint_commands.go:30-62`, `target/internal/app/sprint_commands.go:1052-1106`, `target/internal/app/sprint_commands.go:1139-1156`). CLI-IO-001 is met: result data goes to stdout (prompt preview, status, flow output, validate, JSON envelopes) while progress, lifecycle events, and smoke progress go to stderr (`target/internal/app/sprint_commands.go:312-317`, `target/internal/app/sprint_commands.go:350-361`, `target/internal/app/sprint_commands.go:426-449`). CLI-EXIT-001 is met: stable classified exit codes (ExitOK, ExitUsage, ExitValidation, ExitRuntime, ExitWorkspace, ExitConfig, ExitCancel, ExitPartial) are used consistently across commands (`target/internal/app/sprint_commands.go:146`, `:212`, `:269`, `:296`, `:331`, `:381`). CLI-JSON-001 is met: every JSON-emitting command uses the same `{schema_version:1, operation, status, result, [error]}` envelope and rejects trailing output (`target/internal/app/sprint_commands.go:97`, `:103`, `:203`, `:210`, `:227`, `:257`, `:325`, `:373`; test `target/internal/app/sprint_commands_test.go:106-133`). CLI-CONFIG-001 is met: precedence defaults < workspace < env < CLI is enforced, redaction is applied to known secret markers and to display paths, and effective values are surfaced in both text and JSON modes with the source map preserved (`target/internal/platform/config/config.go:107-156`, `target/internal/platform/config/redaction.go:23-43`, `target/internal/app/config_commands.go:42-87`). CLI-LIFE-001 is met: caller-owned `context.Context` is propagated through service, runner, and web operation seams; cancellation, timeout, and cleanup-uncertain outcomes are mapped to distinct terminal states (`target/internal/sprint/code_context.go:270-275`, `target/internal/sprint/code_context.go:316-330`, `target/internal/sprint/code_context.go:346-395`, `target/internal/app/operations.go:265-390`). CLI-SAFE-001 is met: `--dry-run` is accepted on `flow --to code-context`, atomic candidate promotion preserves the last valid artifact on failed rerun, and `--force-review` requires an explicit `--override-reason` rationale (`target/internal/app/sprint_commands.go:182-230`, `target/internal/app/sprint_commands.go:489-512`, `target/internal/sprint/code_context.go:237-307`). CLI-NONINT-001 is met: smoke requires `--yes`/`--non-interactive`, code-context flow does not block on prompts, and prompt/validate/status are deterministic offline reads (`target/internal/app/sprint_commands.go:190-192`, `:347-348`; tests `target/internal/sprint/code_context_test.go:180-223`, `target/internal/app/sprint_commands_test.go:176-350`).
+170:- `contract-configuration` — direct: Sprint 33 correctly applies the Configuration contract to the new code-context stage settings. The Planning struct in `target/internal/platform/config/config.go` adds `CodeContextModel` and `CodeContextVariant` typed fields with `json:"code_context_model"`/`json:"code_context_variant"` tags (lines 41-42), explicit source initialization to "default" (line 135), workspace YAML parsing precedence (lines 297-300 in `setField`), and prefixed environment variable overrides `ULTRAPLAN_CODE_CONTEXT_MODEL`/`ULTRAPLAN_CODE_CONTEXT_VARIANT` (lines 117-118). `Validate()` (line 377) is invoked at the end of `Load()` before any consumer sees the config (line 152), satisfying CFG-START-001. Redaction applies the existing safe-projection rules to the new fields via `RedactValue` in `target/internal/platform/config/redaction.go:51-52`. The `config show` CLI projection in `target/internal/app/config_commands.go:57-58` reports the effective values together with their source labels, supporting CFG-OBS-001. The runtime wiring in `target/internal/app/sprint_commands.go:531-551` applies the documented stage-specific fallback (`Planning.CodeContextModel` -> `Models.Primary` -> `Models.Default`; `Planning.CodeContextVariant` -> `Execution.DefaultVariant`) and passes the result to the existing `StageRuntime` map. Tests in `target/internal/platform/config/config_test.go` cover workspace/env/CLI precedence, env-over-workspace precedence for code-context, source tracking at `Sources["planning.code_context_model"]`, and code-context redaction (lines 33-34, 47-49, 72, 81, 89-90). The implementation inherits the existing pre-sprint pattern of substring-heuristic secret detection rather than explicit field marking; this is the project's pre-existing redaction rule and is applied consistently to the new code-context fields as called out in `requirements.md` row 'Configuration redaction'.
+24-tui-foundations
+25-operational-tui-controls
+26-review-stage
+27-deep-smoke
+28-review-to-smoke-flow
+29-phase-3-documentation-hardening-release
+30-web-foundations
+31-web-operations
+32-hardening-and-release
+33-code-context-stage
+34-shared-context
+35-durable-run-observability
 [0m

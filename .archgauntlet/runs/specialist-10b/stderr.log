@@ -4,72 +4,247 @@
 [0m
 [0m→ [0mSkill "ultraplan-architecture-gauntlet"
 [0m
-[0m$ [0mgit log --oneline -3 && git status --short | head -5
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go -type f -name "*.go" | head -100 && echo "---" && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/code_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/code_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/config_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/defaults_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/health_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/json_output.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/markdown.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/markdown_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_inventory_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/skills_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/skills_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_error_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_verify_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/status_json.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/storage_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_init_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_prompt_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_all_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_run_loop_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_runs_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_runs_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_status_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_summary_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_validate_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/surfaces.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/version.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_operations_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/workspace_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/project_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/codeextract_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/parser.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/resolver.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract/service.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/config_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/config/redaction.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/filesystem/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging/logging.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/logging/logging_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_other.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/process/process_unix.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/agentwrap.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/cache_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/events.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/health.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/policy.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/opencode.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/discovery.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/doc.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/domain.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/index.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/reasoning_defaults.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/reasoning_defaults_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/service.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/project_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/store_fs.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project/validation.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/benchmark_test.go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/doc.go
+---
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && git log --oneline -5 && git status --short | head -20
 eeaa034 observability: promote nested runtime payload facts to top level
 c455510 observability: surface agent stream details in durable run events
 4f440ca Show session continuation and harness session ID in run agent modal
+0bf3d2c Layout run page: two-column workspace, event-first ordering, full-width diagnostics
+f067727 Propagate runtime failure diagnostics
 [0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && find . -type d -name node_modules -prune -o -type d -print | grep -v "^\./\.git" | sort
+.
+./cmd
+./cmd/ultraplan
+./dist
+./docs
+./docs/plans
+./docs/reports
+./internal
+./internal/app
+./internal/codeextract
+./internal/platform
+./internal/platform/config
+./internal/platform/filesystem
+./internal/platform/logging
+./internal/platform/process
+./internal/platform/runtime
+./internal/productstate
+./internal/project
+./internal/runcontrol
+./internal/sprint
+./internal/study
+./internal/tui
+./internal/web
+./internal/web/static
+./internal/web/static/css
+./internal/web/static/js
+./internal/web/templates
+./internal/web/templates/components
+./internal/web/templates/layouts
+./internal/web/templates/pages
+./internal/web/templates/primitives
+./internal/workspace
+./internal/workspace/scaffold
+./internal/workspace/scaffold/prompts
+./internal/workspace/scaffold/templates
+./scripts
 [0m
-[0m$ [0mfind cmd internal -type d | sort && echo '---' && find cmd internal -name '*.go' | wc -l
-cmd
-cmd/ultraplan
-internal
-internal/app
-internal/codeextract
-internal/platform
-internal/platform/config
-internal/platform/filesystem
-internal/platform/logging
-internal/platform/process
-internal/platform/runtime
-internal/productstate
-internal/project
-internal/runcontrol
-internal/sprint
-internal/study
-internal/tui
-internal/web
-internal/web/static
-internal/web/static/css
-internal/web/static/js
-internal/web/templates
-internal/web/templates/components
-internal/web/templates/layouts
-internal/web/templates/pages
-internal/web/templates/primitives
-internal/workspace
-internal/workspace/scaffold
-internal/workspace/scaffold/prompts
-internal/workspace/scaffold/templates
----
-291
-[0m
-[0m$ [0mls -la cmd/ultraplan/ && wc -l cmd/ultraplan/*.go | sort -rn | head -20
-total 4
-drwxr-xr-x. 1 antonioborgerees antonioborgerees   14 Aug 22 16:23 .
-drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:23 ..
--rw-r--r--. 1 antonioborgerees antonioborgerees 1647 Aug 22 16:23 main.go
-62 cmd/ultraplan/main.go
-[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app.go
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/cmd/ultraplan/main.go
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && wc -l internal/app/*.go | sort -rn | head -40
+13719 total
+  1502 internal/app/study_commands.go
+  1318 internal/app/sprint_commands.go
+   966 internal/app/sprint_commands_test.go
+   935 internal/app/web_usecases.go
+   790 internal/app/operations.go
+   667 internal/app/run_control.go
+   510 internal/app/run_commands.go
+   405 internal/app/sprint_usecases.go
+   319 internal/app/app.go
+   310 internal/app/app_test.go
+   288 internal/app/usecases.go
+   263 internal/app/web_usecases_test.go
+   255 internal/app/durable_operations.go
+   252 internal/app/study_run_commands_test.go
+   236 internal/app/study_usecases.go
+   230 internal/app/study_status_commands_test.go
+   213 internal/app/study_run_loop_commands_test.go
+   208 internal/app/storage_commands.go
+   201 internal/app/health_commands.go
+   175 internal/app/project_commands.go
+   167 internal/app/skills_commands.go
+   163 internal/app/study_init_commands_test.go
+   162 internal/app/web_operations_test.go
+   150 internal/app/operation_runner.go
+   149 internal/app/study_commands_test.go
+   147 internal/app/study_validate_commands_test.go
+   145 internal/app/status_json.go
+   144 internal/app/defaults_commands.go
+   141 internal/app/code_commands_test.go
+   136 internal/app/study_prompt_commands_test.go
+   136 internal/app/run_commands_test.go
+   133 internal/app/run_control_test.go
+   131 internal/app/serve_commands.go
+   122 internal/app/usecases_test.go
+   120 internal/app/code_commands.go
+   114 internal/app/config_commands.go
+   113 internal/app/project_commands_test.go
+   111 internal/app/health_commands_test.go
+   109 internal/app/serve_commands_test.go
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/app.go
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/usecases.go
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/surfaces.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_usecases.go
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/tui_commands.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/web_usecases.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands.go
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operations.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_usecases.go
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/serve_commands.go
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go
-[0m✱ [0mGrep "defaultSprintRuntimeFactory|sprintRuntimeService|runLoopService|planningStageRuntime|func runRepository"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 25 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=120, offset=1][0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_commands.go[90m [limit=260, offset=440][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases.go
 [0m
-[0m$ [0mls internal/web/ && wc -l internal/web/*.go | tail -3
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && ls internal/web internal/tui && wc -l internal/web/*.go internal/tui/*.go 2>/dev/null | tail -5
+internal/tui:
+app.go
+doc.go
+keys.go
+markdown.go
+model.go
+model_test.go
+run_view_test.go
+test_fakes_test.go
+theme.go
+verify_test.go
+viewport.go
+viewport_test.go
+views.go
+views_test.go
+
+internal/web:
 api_compatibility_test.go
 artifacts.go
 artifacts_test.go
@@ -96,39 +271,2945 @@ static
 templates
 templates_test.go
 test_fakes_test.go
-   435 internal/web/templates_test.go
-   125 internal/web/test_fakes_test.go
-  6963 total
+    58 internal/tui/viewport.go
+    18 internal/tui/viewport_test.go
+   666 internal/tui/views.go
+   179 internal/tui/views_test.go
+  9775 total
 [0m
 [0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/import_boundary_test.go
-[0m✱ [0mGrep "internal/app"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web · 18 matches[0m
 [0m
-[0m$ [0mls internal/tui/ && grep -rn 'internal/' internal/tui/*.go | grep -v _test | grep import -A2; grep -rn '"github.com/Antonio7098' internal/tui/*.go | grep -v _test
-app.go
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "app\." internal/web/*.go internal/tui/*.go | grep -v "_test.go" | head -30
+internal/web/artifacts.go:9:func validateArtifact(result app.WebArtifactPreview) error {
+internal/web/artifacts.go:13:	if result.ReturnedBytes < 0 || result.ReturnedBytes > app.WebPreviewByteLimit ||
+internal/web/handlers.go:241:	Projects      []app.WebProjectResult
+internal/web/handlers.go:242:	Project       *app.WebProjectResult
+internal/web/handlers.go:243:	Sprints       []app.WebSprintResult
+internal/web/handlers.go:244:	Sprint        *app.WebSprintResult
+internal/web/handlers.go:245:	Studies       []app.WebStudyResult
+internal/web/handlers.go:246:	Study         *app.WebStudyResult
+internal/web/handlers.go:247:	Artifact      *app.WebArtifactPreview
+internal/web/handlers.go:250:	Health        *app.WebHealthResult
+internal/web/handlers.go:440:		queries, ok := h.queries.(app.WebPromptQueries)
+internal/web/handlers.go:442:			h.handleQueryError(w, r, true, app.ErrWebUnavailable)
+internal/web/handlers.go:466:		queries, ok := h.queries.(app.WebResourceQueries)
+internal/web/handlers.go:468:			h.handleQueryError(w, r, true, app.ErrWebUnavailable)
+internal/web/handlers.go:558:func renderMarkdown(artifact app.WebArtifactPreview) template.HTML {
+internal/web/handlers.go:562:	rendered, err := app.RenderSafeMarkdown(artifact.Content)
+internal/web/handlers.go:624:	case errors.Is(err, app.ErrWebNotFound):
+internal/web/handlers.go:626:	case errors.Is(err, app.ErrWebUnavailable), errors.Is(err, context.Canceled), errors.Is(err, context.DeadlineExceeded):
+internal/web/handlers.go:640:func (h *handler) writeSuccess(w http.ResponseWriter, r *http.Request, status int, data any, collection *app.CollectionInfo) {
+internal/web/handlers.go:703:func mapProject(item app.WebProjectResult, includeSprints bool) projectDTO {
+internal/web/handlers.go:711:func mapCollection(item app.CollectionInfo) collectionDTO {
+internal/web/handlers.go:715:func mapProjects(items []app.WebProjectResult, includeSprints bool) []projectDTO {
+internal/web/handlers.go:723:func mapSprint(item app.WebSprintResult) sprintDTO {
+internal/web/handlers.go:742:func mapPromptBundle(item app.WebPromptBundleResult) promptBundleDTO {
+internal/web/handlers.go:770:func mapSprints(items []app.WebSprintResult) []sprintDTO {
+internal/web/handlers.go:778:func mapStudyParallelism(item *app.ParallelismSummary) *studyParallelismDTO {
+internal/web/handlers.go:785:func mapStudy(item app.WebStudyResult) studyDTO {
+internal/web/handlers.go:804:func mapStudies(items []app.WebStudyResult) []studyDTO {
+internal/web/handlers.go:812:func mapFindings(items []app.DisplayFinding) []findingDTO {
+internal/web/handlers.go:820:func mapArtifacts(items []app.WebArtifactLink) []artifactDTO {
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 1,120p internal/web/server.go
+package web
+
+import (
+	"context"
+	"errors"
+	"fmt"
+	"io"
+	"net"
+	"net/http"
+	"sync"
+	"time"
+
+	"github.com/Antonio7098/ultraplan-go/internal/app"
+)
+
+const (
+	ReadHeaderTimeout = 5 * time.Second
+	ReadTimeout       = 15 * time.Second
+	WriteTimeout      = 30 * time.Second
+	IdleTimeout       = 60 * time.Second
+	ShutdownTimeout   = 10 * time.Second
+	MaxInFlight       = 32
+)
+
+type Options struct {
+	Listen        string
+	OpenBrowser   bool
+	Queries       app.WebQueries
+	Operations    app.WebOperations
+	Runs          app.RunUseCases
+	Stdout        io.Writer
+	Diagnostics   io.Writer
+	ListenFunc    func(string, string) (net.Listener, error)
+	LaunchBrowser func(context.Context, string) error
+	Now           func() time.Time
+	RequestID     func() string
+}
+
+func Run(ctx context.Context, opts Options) error {
+	if ctx == nil {
+		ctx = context.Background()
+	}
+	if err := app.ValidateLoopbackListen(opts.Listen); err != nil {
+		return fmt.Errorf("validate listen address: %w", err)
+	}
+	if err := ValidateServerPolicy(DefaultServerPolicy()); err != nil {
+		return fmt.Errorf("validate local-web policy: %w", err)
+	}
+	if opts.Queries == nil {
+		return errors.New("web queries are required")
+	}
+	if opts.Stdout == nil {
+		opts.Stdout = io.Discard
+	}
+	if opts.Diagnostics == nil {
+		opts.Diagnostics = io.Discard
+	}
+	diagnostics := &lockedWriter{writer: opts.Diagnostics}
+	if opts.ListenFunc == nil {
+		opts.ListenFunc = net.Listen
+	}
+
+	listener, err := opts.ListenFunc("tcp", opts.Listen)
+	if err != nil {
+		return fmt.Errorf("listen on configured loopback address: %w", err)
+	}
+	defer listener.Close()
+	authority, err := canonicalAuthority(listener.Addr())
+	if err != nil {
+		return err
+	}
+	if err := app.ValidateLoopbackListen(authority); err != nil {
+		return fmt.Errorf("listener resolved outside loopback policy: %w", err)
+	}
+	origin := "http://" + authority
+	if reconciler, ok := opts.Operations.(app.OperationReconciler); ok {
+		if err := reconciler.ReconcileOperations(ctx); err != nil {
+			_ = listener.Close()
+			return fmt.Errorf("reconcile interrupted operations: %w", err)
+		}
+	}
+
+	operationRoot, cancelOperations := context.WithCancel(context.Background())
+	defer cancelOperations()
+	hub := newOperationHub(operationRoot, opts.Operations, opts.Now, opts.RequestID)
+	handler, err := NewHandler(HandlerOptions{
+		Queries:     opts.Queries,
+		Operations:  opts.Operations,
+		Runs:        opts.Runs,
+		Authority:   authority,
+		Diagnostics: diagnostics,
+		Now:         opts.Now,
+		RequestID:   opts.RequestID,
+		RootContext: operationRoot,
+		Hub:         hub,
+	})
+	if err != nil {
+		return fmt.Errorf("initialize web presentation: %w", err)
+	}
+	server := &http.Server{
+		Handler:           handler,
+		ReadHeaderTimeout: ReadHeaderTimeout,
+		ReadTimeout:       ReadTimeout,
+		WriteTimeout:      WriteTimeout,
+		IdleTimeout:       IdleTimeout,
+		BaseContext:       func(net.Listener) context.Context { return ctx },
+	}
+
+	if _, err := fmt.Fprintf(opts.Stdout, "Dashboard: %s/\n", origin); err != nil {
+		return fmt.Errorf("write dashboard URL: %w", err)
+	}
+	serveErr := make(chan error, 1)
+	go func() {
+		serveErr <- server.Serve(listener)
+	}()
+	fmt.Fprintf(diagnostics, "event=server_started listen=%s\n", authority)
+	if opts.OpenBrowser {
+		if opts.LaunchBrowser == nil {
+			fmt.Fprintln(diagnostics, "event=browser_launch warning=launcher_unavailable")
+		} else if err := opts.LaunchBrowser(ctx, origin+"/"); err != nil {
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -n "interface" internal/web/server.go internal/web/handlers.go internal/web/routes.go | head -20
+(no output)
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "app\." internal/tui/*.go | grep -v "_test" | head -40 && echo "=== tui.Run ===" && sed -n 1,80p internal/tui/app.go
+internal/tui/app.go:18:	UseCases app.OperationalUseCases
+internal/tui/app.go:41:	eventStream <-chan app.OperationEvent
+internal/tui/app.go:45:func newTeaModel(ctx context.Context, useCases app.OperationalUseCases, width int) teaModel {
+internal/tui/app.go:109:				if runs, ok := m.model.UseCases.(app.RunUseCases); ok {
+internal/tui/app.go:110:					if _, _, err := runs.CancelRun(m.ctx, app.RunID(m.model.ActiveRunID), "user_requested"); err != nil {
+internal/tui/app.go:123:				if runs, ok := m.model.UseCases.(app.RunUseCases); ok {
+internal/tui/app.go:124:					if _, _, err := runs.CancelRun(m.ctx, app.RunID(route.RunID), "user_requested"); err != nil {
+internal/tui/app.go:139:				return m.beginOperation(app.OperationRequest{Kind: app.OperationStudyCancel, Study: study})
+internal/tui/app.go:161:			if m.model.Running && !m.model.OperationHidden && (m.model.ActiveOperation.Kind == app.OperationStudyStart || m.model.ActiveOperation.Kind == app.OperationStudyResume) {
+internal/tui/app.go:175:				if item.Operation.Kind == app.OperationStudyResume || item.Operation.Kind == app.OperationStudyStart {
+internal/tui/app.go:194:			if action == ActionBack && m.model.Running && !m.model.OperationHidden && (m.model.ActiveOperation.Kind == app.OperationStudyStart || m.model.ActiveOperation.Kind == app.OperationStudyResume) {
+internal/tui/app.go:232:func (m teaModel) beginOperation(req app.OperationRequest) (tea.Model, tea.Cmd) {
+internal/tui/app.go:235:	if manager, ok := m.model.UseCases.(app.DurableOperationManager); ok && m.model.Confirmation != nil {
+internal/tui/app.go:247:			m.model.Operation = &app.OperationResult{State: app.OperationState(accepted.Lifecycle), RunID: accepted.RunID, Message: "matching durable operation already exists"}
+internal/tui/app.go:265:	m.model.Operation = &app.OperationResult{State: app.OperationRunning, RunID: acceptedRunID, Subject: operationSubject(req), Message: "operation running; c requests durable cancellation; q keeps the run active"}
+internal/tui/app.go:266:	stream := make(chan app.OperationEvent, 128)
+internal/tui/app.go:275:func (m teaModel) confirmationCmd(req app.OperationRequest) tea.Cmd {
+internal/tui/app.go:282:func (m teaModel) operationCmd(ctx context.Context, req app.OperationRequest, runID string, stream chan app.OperationEvent) tea.Cmd {
+internal/tui/app.go:286:		r, e := m.model.UseCases.RunOperation(ctx, req, func(event app.OperationEvent) {
+internal/tui/app.go:287:			if manager, ok := m.model.UseCases.(app.DurableOperationManager); ok && runID != "" {
+internal/tui/app.go:289:				if err != nil && !errors.Is(err, app.ErrWebUnavailable) {
+internal/tui/app.go:302:		if manager, ok := m.model.UseCases.(app.DurableOperationManager); ok && runID != "" {
+internal/tui/app.go:314:func waitOperationEvent(stream <-chan app.OperationEvent) tea.Cmd {
+internal/tui/app.go:324:func operationSubject(req app.OperationRequest) string {
+internal/tui/app.go:331:func (m teaModel) validationCmd(req app.ValidationRequest) tea.Cmd {
+internal/tui/app.go:357:func (m teaModel) dashboardAndRuns() (app.DashboardResult, []app.RunSnapshot, []app.RunEvent, error) {
+internal/tui/app.go:362:	runsCapability, ok := m.model.UseCases.(app.RunUseCases)
+internal/tui/app.go:366:	page, err := runsCapability.Runs(m.ctx, app.RunQuery{Limit: 200})
+internal/tui/app.go:367:	if err != nil && !errors.Is(err, app.ErrWebUnavailable) {
+internal/tui/app.go:370:	var events []app.RunEvent
+internal/tui/app.go:395:			return PreviewMsg{Result: app.ArtifactPreviewResult{Error: "no previewable artifact selected"}, Route: m.model.currentRoute(), Title: "Preview"}
+internal/tui/model.go:52:	UseCases              app.OperationalUseCases
+internal/tui/model.go:53:	Data                  app.DashboardResult
+internal/tui/model.go:58:	Preview               *app.ArtifactPreviewResult
+internal/tui/model.go:64:	Validation            *app.ValidationOperationResult
+internal/tui/model.go:65:	Confirmation          *app.Confirmation
+internal/tui/model.go:66:	Operation             *app.OperationResult
+internal/tui/model.go:67:	Events                []app.OperationEvent
+internal/tui/model.go:71:	ActiveOperation       app.OperationRequest
+internal/tui/model.go:74:	ParallelForm          *app.OperationRequest
+=== tui.Run ===
+package tui
+
+import (
+	"context"
+	"crypto/sha256"
+	"encoding/hex"
+	"errors"
+	"fmt"
+	"io"
+	"strconv"
+	"time"
+
+	"github.com/Antonio7098/ultraplan-go/internal/app"
+	tea "github.com/charmbracelet/bubbletea"
+)
+
+type Options struct {
+	UseCases app.OperationalUseCases
+	Stdout   io.Writer
+	Width    int
+}
+
+func Run(ctx context.Context, opts Options) error {
+	if opts.UseCases == nil {
+		return fmt.Errorf("tui: missing read-only use cases")
+	}
+	if opts.Stdout == nil {
+		opts.Stdout = io.Discard
+	}
+	program := tea.NewProgram(newTeaModel(ctx, opts.UseCases, opts.Width), tea.WithAltScreen(), tea.WithOutput(opts.Stdout))
+	_, err := program.Run()
+	return err
+}
+
+type teaModel struct {
+	ctx         context.Context
+	model       Model
+	width       int
+	height      int
+	cancel      context.CancelFunc
+	eventStream <-chan app.OperationEvent
+}
+type runViewTickMsg struct{}
+
+func newTeaModel(ctx context.Context, useCases app.OperationalUseCases, width int) teaModel {
+	if width <= 0 {
+		width = 100
+	}
+	return teaModel{ctx: ctx, model: NewModel(useCases), width: width, height: 40}
+}
+
+func (m teaModel) Init() tea.Cmd {
+	return m.loadCmd()
+}
+
+func (m teaModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+	switch v := msg.(type) {
+	case tea.WindowSizeMsg:
+		m.width = v.Width
+		m.height = v.Height
+		return m, nil
+	case tea.KeyMsg:
+		if m.model.ParallelForm != nil {
+			switch v.String() {
+			case "esc":
+				m.model.ParallelForm = nil
+				m.model.ParallelValue = ""
+				m.model.ParallelError = ""
+				return m, nil
+			case "backspace":
+				if len(m.model.ParallelValue) > 0 {
+					m.model.ParallelValue = m.model.ParallelValue[:len(m.model.ParallelValue)-1]
+				}
+				m.model.ParallelError = ""
+				return m, nil
+			case "enter":
+				value := 3
+				if m.model.ParallelValue != "" {
+					parsed, err := strconv.Atoi(m.model.ParallelValue)
+					if err != nil || parsed < 1 || parsed > 64 {
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "Sprint Goal" --include="*.go" . | grep -v _test | head && echo === && grep -rn "NewReadOnlyUseCases\|NewOperationalUseCases\|NewWebUseCases" --include="*.go" . | head -20
+./internal/app/web_usecases.go:573:			inGoal = strings.EqualFold(strings.TrimSpace(strings.TrimPrefix(trimmed, "## ")), "Sprint Goal")
+./internal/sprint/index.go:43:	for _, heading := range []string{"Sprint Goal", "Required Outputs", "Acceptance Criteria", "Non-Goals", "Constraints", "Dependencies", "Review Expectations"} {
+===
+./internal/app/usecases.go:132:func NewReadOnlyUseCases(root string) ReadOnlyUseCases {
+./internal/app/usecases_test.go:23:	useCases := NewReadOnlyUseCases(dir)
+./internal/app/usecases_test.go:68:	useCases := NewReadOnlyUseCases(dir)
+./internal/app/usecases_test.go:92:	preview, err := NewReadOnlyUseCases(dir).PreviewArtifact(context.Background(), "projects/alpha/project-index.md")
+./internal/app/usecases_test.go:108:	useCases := NewReadOnlyUseCases(dir)
+./internal/app/web_operations_test.go:130:	useCases := NewWebUseCases(root, WebUseCaseOptions{})
+./internal/app/web_usecases_test.go:29:	queries := NewWebUseCases(root, WebUseCaseOptions{})
+./internal/app/web_usecases_test.go:85:	queries := NewWebUseCases(root, WebUseCaseOptions{})
+./internal/app/web_usecases_test.go:120:	queries := NewWebUseCases(root, WebUseCaseOptions{})
+./internal/app/web_usecases_test.go:154:	queries := NewWebUseCases(root, WebUseCaseOptions{})
+./internal/app/web_usecases_test.go:205:	concrete := NewWebUseCases(root, WebUseCaseOptions{}).(*webUseCases)
+./internal/app/web_usecases_test.go:235:	queries := NewWebUseCases(root, WebUseCaseOptions{})
+./internal/app/web_usecases_test.go:251:	queries := NewWebUseCases(root, WebUseCaseOptions{})
+./internal/app/operations.go:724:func NewOperationalUseCases(root string) OperationalUseCases { return dashboardUseCases{root: root} }
+./internal/app/serve_commands.go:59:	useCases := NewWebUseCases(root.Path, WebUseCaseOptions{
+./internal/app/web_usecases.go:242:func NewWebUseCases(root string, opts WebUseCaseOptions) WebUseCases {
+./internal/web/integration_test.go:32:	useCases := app.NewWebUseCases(root, app.WebUseCaseOptions{})
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "sprintRuntimeService\|defaultSprintRuntimeFactory\|planningStageRuntime\|runLoopService" --include="*.go" internal/app/*.go | grep -v _test | grep "func " 
+internal/app/sprint_commands.go:23:func defaultSprintRuntimeFactory(c config.Config) (sprint.Runtime, error) {
+internal/app/sprint_commands.go:477:func sprintRuntimeService(deps dependencies, root workspace.Root, observers ...func(sprint.RuntimeProgress)) (sprint.Service, error) {
+internal/app/sprint_commands.go:606:func planningStageRuntime(c config.Config) map[sprint.PlanningStage]sprint.StageRuntime {
+internal/app/study_commands.go:307:func runLoopService(deps dependencies, root workspace.Root, flags runAllFlags) (study.Service, int, study.ConfigSummary, error) {
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 1,120p internal/app/sprint_commands.go
+package app
+
+import (
+	"context"
+	"encoding/json"
+	"errors"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+	"sync"
+	"time"
+
+	"github.com/Antonio7098/ultraplan-go/internal/platform/config"
+	runtimepkg "github.com/Antonio7098/ultraplan-go/internal/platform/runtime"
+	"github.com/Antonio7098/ultraplan-go/internal/project"
+	"github.com/Antonio7098/ultraplan-go/internal/sprint"
+	"github.com/Antonio7098/ultraplan-go/internal/workspace"
+)
+
+type SprintRuntimeFactory func(config.Config) (sprint.Runtime, error)
+
+func defaultSprintRuntimeFactory(c config.Config) (sprint.Runtime, error) {
+	return runtimepkg.NewOpenCode(c)
+}
+
+func runSprint(deps dependencies, args []string) error {
+	if len(args) == 0 {
+		return classified(ExitUsage, "sprint requires a subcommand\n\nRun 'ultraplan sprint --help' for usage.")
+	}
+	if args[0] == "--help" || args[0] == "-h" {
+		_, err := deps.stdout.Write([]byte(sprintHelp()))
+		return err
+	}
+	if len(args) >= 4 && (args[3] == "--help" || args[3] == "-h") && args[2] == "status" {
+		_, err := deps.stdout.Write([]byte(sprintStatusHelp()))
+		return err
+	}
+	if len(args) >= 4 && (args[3] == "--help" || args[3] == "-h") {
+		switch args[2] {
+		case "validate":
+			_, err := deps.stdout.Write([]byte(sprintValidateHelp()))
+			return err
+		case "metrics":
+			_, err := deps.stdout.Write([]byte(sprintMetricsHelp()))
+			return err
+		case "prompt":
+			_, err := deps.stdout.Write([]byte(sprintPromptHelp()))
+			return err
+		case "flow":
+			_, err := deps.stdout.Write([]byte(sprintFlowHelp()))
+			return err
+		case "smoke":
+			_, err := deps.stdout.Write([]byte(sprintSmokeHelp()))
+			return err
+		case "verify":
+			_, err := deps.stdout.Write([]byte(sprintVerifyHelp()))
+			return err
+		case "execute":
+			_, err := deps.stdout.Write([]byte(sprintExecuteHelp()))
+			return err
+		case "review":
+			_, err := deps.stdout.Write([]byte(sprintReviewHelp()))
+			return err
+		}
+	}
+	if len(args) < 3 {
+		if len(args) == 2 {
+			return classified(ExitUsage, "sprint: expected '<project> <sprint> status'")
+		}
+		return classified(ExitUsage, "sprint: expected '<project> <sprint> <status|metrics|validate|prompt|flow|execute|review|smoke|verify>'")
+	}
+	root, err := discoverWorkspace(deps)
+	if err != nil {
+		return err
+	}
+	effective, err := loadEffectiveConfig(root, deps, config.CLIOverrides{})
+	if err != nil {
+		return err
+	}
+	service := sprint.NewService(root.Path).WithStageRuntime(planningStageRuntime(effective.Config)).WithReviewConcurrency(effective.Config.Execution.DefaultParallel).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env)))
+	switch args[2] {
+	case "status":
+		jsonOut := len(args) == 4 && args[3] == "--json"
+		if len(args) != 3 && !jsonOut {
+			return classified(ExitUsage, "sprint: expected '<project> <sprint> status'")
+		}
+		status, err := service.Status(args[0], args[1])
+		if err != nil {
+			return mapSprintError("sprint.status", err)
+		}
+		statusLabel := "ok"
+		smokeReadiness, smokeErr := service.SmokeStatus(args[0], args[1])
+		if smokeErr != nil {
+			smokeReadiness.Ready = false
+			if smokeFailure, ok := sprint.AsSmokeError(smokeErr); ok && (smokeFailure.Category == "catalog" || smokeFailure.Category == "review_gate") {
+				statusLabel = "partial"
+			} else {
+				mapped := mapSmokeError(smokeErr)
+				if jsonOut {
+					_ = json.NewEncoder(deps.stdout).Encode(map[string]any{"schema_version": 1, "operation": "sprint.status", "status": "failed", "result": status, "smoke_readiness": smokeReadiness, "error": stableCommandError(mapped)})
+				}
+				return mapped
+			}
+		}
+		if jsonOut {
+			return json.NewEncoder(deps.stdout).Encode(map[string]any{"schema_version": 1, "operation": "sprint.status", "status": statusLabel, "result": status, "smoke_readiness": smokeReadiness})
+		}
+		renderSprintStatus(deps, status)
+		fmt.Fprintf(deps.stdout, "  readiness: %t\n", smokeReadiness.Ready)
+		for _, diagnostic := range smokeReadiness.Diagnostics {
+			fmt.Fprintf(deps.stdout, "  diagnostic: %s\n", diagnostic)
+		}
+		return nil
+	case "metrics":
+		jsonOut := len(args) == 4 && args[3] == "--json"
+		if len(args) != 3 && !jsonOut {
+			return classified(ExitUsage, "sprint.metrics: expected 'metrics [--json]'")
+		}
+		metrics, err := service.RuntimeMetrics(args[0], args[1])
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 460,680p internal/app/sprint_commands.go
+func stripFlag(args []string, flag string) ([]string, bool) {
+	out := make([]string, 0, len(args))
+	found := false
+	for _, arg := range args {
+		if arg == flag {
+			found = true
+			continue
+		}
+		out = append(out, arg)
+	}
+	return out, found
+}
+
+func runSprintFlow(ctx context.Context, service sprint.Service, projectRef, sprintRef string, req sprint.FlowRequest) (sprint.FlowResult, error) {
+	return service.Flow(ctx, projectRef, sprintRef, req)
+}
+
+func sprintRuntimeService(deps dependencies, root workspace.Root, observers ...func(sprint.RuntimeProgress)) (sprint.Service, error) {
+	effective, err := loadEffectiveConfig(root, deps, config.CLIOverrides{})
+	if err != nil {
+		return sprint.Service{}, err
+	}
+	req, err := runtimepkg.RequestFromConfig(effective.Config, root.Path)
+	if err != nil {
+		return sprint.Service{}, classified(ExitConfig, "runtime.config: %w", err)
+	}
+	rt, err := deps.sprintRuntimeFactory(effective.Config)
+	if err != nil {
+		return sprint.Service{}, classified(ExitRuntime, "runtime.init: %w", err)
+	}
+	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+	if err != nil {
+		return sprint.Service{}, classified(ExitRuntime, "run-control.init: %w", err)
+	}
+	progress := renderSprintRuntimeProgress(deps)
+	if len(observers) > 0 {
+		progress = observers[0]
+	}
+	return sprint.NewService(root.Path).WithRuntime(controlled, req).WithRuntimeProgress(progress).WithStageRuntime(planningStageRuntime(effective.Config)).WithReviewConcurrency(effective.Config.Execution.DefaultParallel).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env))), nil
+}
+
+func renderSprintFlowProgress(deps dependencies) func(sprint.FlowProgress) {
+	return func(progress sprint.FlowProgress) {
+		fmt.Fprintf(deps.stderr, "[sprint] %-18s %-8s %s\n", progress.Stage, progress.State, config.RedactValue("sprint.progress", progress.Message))
+	}
+}
+
+func renderSprintRuntimeProgress(deps dependencies) func(sprint.RuntimeProgress) {
+	var mu sync.Mutex
+	return func(progress sprint.RuntimeProgress) {
+		if !runtimeEventIsProgress(progress.Event) {
+			return
+		}
+		mu.Lock()
+		defer mu.Unlock()
+		fmt.Fprintf(deps.stderr, "[runtime] %-18s", progress.Stage)
+		if progress.Task != "" {
+			fmt.Fprintf(deps.stderr, " task=%s", progress.Task)
+		}
+		if progress.CoverageID != "" {
+			fmt.Fprintf(deps.stderr, " coverage=%s", progress.CoverageID)
+		}
+		fmt.Fprintf(deps.stderr, " | %s\n", runtimeProgressSummary(progress.Event))
+	}
+}
+
+func smokeSettings(e config.Effective, lookups ...func(string) string) sprint.SmokeSettings {
+	discovery, _ := time.ParseDuration(e.Config.Smoke.DiscoveryTimeout)
+	run, _ := time.ParseDuration(e.Config.Smoke.RunTimeout)
+	cleanup, _ := time.ParseDuration(e.Config.Smoke.CleanupGrace)
+	getenv := os.Getenv
+	if len(lookups) > 0 && lookups[0] != nil {
+		getenv = lookups[0]
+	}
+	return sprint.SmokeSettings{DiscoveryTimeout: discovery, RunTimeout: run, CleanupGrace: cleanup, StdoutLimit: e.Config.Smoke.StdoutLimit, StderrLimit: e.Config.Smoke.StderrLimit, Environment: append([]string(nil), e.Config.Smoke.Environment...), Sources: e.Sources, Getenv: getenv}
+}
+
+func parseSprintSmokeArgs(args []string) (sprint.SmokeRequest, bool, error) {
+	var req sprint.SmokeRequest
+	jsonOut := false
+	for i := 0; i < len(args); i++ {
+		switch args[i] {
+		case "--level", "--suite", "--test", "--timeout", "--override-reason":
+			if i+1 >= len(args) {
+				return req, jsonOut, fmt.Errorf("%s requires a value", args[i])
+			}
+			key, value := args[i], args[i+1]
+			i++
+			switch key {
+			case "--level":
+				req.Level = value
+			case "--suite":
+				req.Suite = value
+			case "--test":
+				req.Test = value
+			case "--timeout":
+				d, err := time.ParseDuration(value)
+				if err != nil || d <= 0 || d > 24*time.Hour {
+					return req, jsonOut, fmt.Errorf("--timeout must be positive and no more than 24h")
+				}
+				req.Timeout = d
+			case "--override-reason":
+				req.OverrideRationale = value
+			}
+		case "--force-review":
+			req.ForceReview = true
+		case "--dry-run", "--preview":
+			req.DryRun = true
+		case "--yes", "--non-interactive":
+			req.NonInteractive, req.OverrideConfirmed = true, true
+		case "--json":
+			jsonOut = true
+		default:
+			return req, jsonOut, fmt.Errorf("unsupported argument %q", args[i])
+		}
+	}
+	selected := 0
+	for _, value := range []string{req.Level, req.Suite, req.Test} {
+		if value != "" {
+			selected++
+		}
+	}
+	if selected > 1 {
+		return req, jsonOut, fmt.Errorf("choose only one of --level, --suite, or --test")
+	}
+	if req.ForceReview && strings.TrimSpace(req.OverrideRationale) == "" {
+		return req, jsonOut, fmt.Errorf("--force-review requires --override-reason")
+	}
+	return req, jsonOut, nil
+}
+
+func mapSmokeError(err error) error {
+	se, ok := sprint.AsSmokeError(err)
+	if !ok {
+		return mapSprintError("sprint.smoke", err)
+	}
+	switch se.Category {
+	case "cancellation":
+		return classifiedCause(ExitCancel, se, "%s", se.Code)
+	case "process", "timeout", "cleanup":
+		return classifiedCause(ExitRuntime, se, "%s", se.Code)
+	default:
+		return classifiedCause(ExitValidation, se, "%s", se.Code)
+	}
+}
+
+func planningStageRuntime(c config.Config) map[sprint.PlanningStage]sprint.StageRuntime {
+	codeContextModel := c.Planning.CodeContextModel
+	if strings.TrimSpace(codeContextModel) == "" {
+		codeContextModel = c.Models.Primary
+		if strings.TrimSpace(codeContextModel) == "" {
+			codeContextModel = c.Models.Default
+		}
+	}
+	codeContextVariant := c.Planning.CodeContextVariant
+	if strings.TrimSpace(codeContextVariant) == "" {
+		codeContextVariant = c.Execution.DefaultVariant
+	}
+	return map[sprint.PlanningStage]sprint.StageRuntime{
+		sprint.StageRequirements: {
+			Model:   c.Planning.RequirementsModel,
+			Variant: c.Planning.RequirementsVariant,
+		},
+		sprint.StageCodeContext: {
+			Model:   codeContextModel,
+			Variant: codeContextVariant,
+		},
+		sprint.StageSprintIndex: {
+			Model:   c.Planning.SprintIndexModel,
+			Variant: c.Planning.SprintIndexVariant,
+		},
+		sprint.StageTechnicalHandbook: {
+			Model:   c.Planning.TechnicalHandbookModel,
+			Variant: c.Planning.TechnicalHandbookVariant,
+		},
+		sprint.StageAreaReasoning: {
+			Model:   c.Planning.AreaReasoningModel,
+			Variant: c.Planning.AreaReasoningVariant,
+		},
+		sprint.StageReasoning: {
+			Model:   c.Planning.ReasoningModel,
+			Variant: c.Planning.ReasoningVariant,
+		},
+		sprint.StagePlan: {
+			Model:   c.Planning.PlanModel,
+			Variant: c.Planning.PlanVariant,
+		},
+		sprint.StageExecute: {
+			Model:   c.Planning.ExecuteModel,
+			Variant: c.Planning.ExecuteVariant,
+		},
+		sprint.StageReview: {Model: c.Planning.ReviewModel, Variant: c.Planning.ReviewVariant},
+		sprint.StageSmoke:  {Model: c.Planning.SmokeModel, Variant: c.Planning.SmokeVariant},
+	}
+}
+
+func mapSprintError(prefix string, err error) error {
+	var projectRef project.RefError
+	var sprintRef sprint.RefError
+	switch {
+	case errors.Is(err, context.Canceled):
+		return classified(ExitCancel, "%s: %w", prefix, err)
+	case errors.Is(err, context.DeadlineExceeded):
+		return classified(ExitRuntime, "%s: %w", prefix, err)
+	case errors.Is(err, sprint.ErrVerificationConflict):
+		return classified(ExitPartial, "%s: %w", prefix, err)
+	case errors.Is(err, sprint.ErrFlowStateMalformed), errors.Is(err, sprint.ErrFlowStateUnsupported):
+		return classified(ExitValidation, "%s: %w", prefix, err)
+	case errors.Is(err, sprint.ErrExecuteRunStateMissing), errors.Is(err, sprint.ErrExecuteRunStateMalformed), errors.Is(err, sprint.ErrExecuteRunStateUnsupported):
+		return classified(ExitValidation, "%s: %w", prefix, err)
+	case errors.As(err, &projectRef), errors.As(err, &sprintRef):
+		return classified(ExitValidation, "%s: %w", prefix, err)
+	default:
+		return classified(ExitWorkspace, "%s: %w", prefix, err)
+	}
+}
+
+func parseSprintFlowArgs(args []string) (sprint.FlowRequest, error) {
+	req := sprint.FlowRequest{}
+	for i := 0; i < len(args); i++ {
+		switch args[i] {
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 290,380p internal/app/study_commands.go
+}
+	fmt.Fprintln(deps.stdout, "Omit --reset to resume existing study progress instead.")
+	fmt.Fprint(deps.stdout, "Archive and replace existing study progress? Type yes to replace: ")
+	answer, err := bufio.NewReader(deps.stdin).ReadString('\n')
+	if err != nil && err != io.EOF {
+		return classified(ExitPartial, "study.run-loop: read replacement confirmation: %w", err)
+	}
+	switch strings.ToLower(strings.TrimSpace(answer)) {
+	case "yes", "y":
+		fmt.Fprintln(deps.stdout, "Replacing existing study progress.")
+		return nil
+	default:
+		fmt.Fprintln(deps.stdout, "Keeping existing study progress. Re-run without --reset to resume it, or use --reset --yes to replace without prompting.")
+		return classified(ExitPartial, "study.run-loop: replacement not confirmed")
+	}
+}
+
+func runLoopService(deps dependencies, root workspace.Root, flags runAllFlags) (study.Service, int, study.ConfigSummary, error) {
+	effective, err := loadEffectiveConfig(root, deps, config.CLIOverrides{})
+	if err != nil {
+		return study.Service{}, 0, study.ConfigSummary{}, err
+	}
+	parallelism := effective.Config.Execution.DefaultParallel
+	if flags.parallelism != nil {
+		parallelism = *flags.parallelism
+	}
+	if parallelism < 1 {
+		return study.Service{}, 0, study.ConfigSummary{}, classified(ExitConfig, "study run-loop: parallelism must be at least 1")
+	}
+	req, err := runtimepkg.RequestFromConfig(effective.Config, root.Path)
+	if err != nil {
+		return study.Service{}, 0, study.ConfigSummary{}, classified(ExitConfig, "runtime.config: %w", err)
+	}
+	rt, err := studyRuntimeFactory(effective.Config)
+	if err != nil {
+		return study.Service{}, 0, study.ConfigSummary{}, classified(ExitRuntime, "runtime.init: %w", err)
+	}
+	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+	if err != nil {
+		return study.Service{}, 0, study.ConfigSummary{}, classified(ExitRuntime, "run-control.init: %w", err)
+	}
+	summary := study.ConfigSummary{
+		Runtime:          effective.Config.Runtime.Default,
+		Model:            effective.Config.Models.Default,
+		Variant:          effective.Config.Execution.DefaultVariant,
+		DefaultParallel:  effective.Config.Execution.DefaultParallel,
+		DefaultTimeout:   effective.Config.Execution.DefaultTimeout,
+		DefaultRetries:   effective.Config.Execution.DefaultRetries,
+		WorkspaceVersion: strconv.Itoa(effective.Config.Version),
+	}
+	return study.NewService(root.Path, study.WithRuntime(controlled, req)), parallelism, summary, nil
+}
+
+func mapStudyRunLoopError(err error) error {
+	switch {
+	case errors.Is(err, study.ErrStudyLocked):
+		return classified(ExitPartial, "study.run-loop: %w", err)
+	case errors.Is(err, study.ErrRunStateMalformed), errors.Is(err, study.ErrRunStateUnsupported):
+		return classified(ExitValidation, "study.run-loop: %w", err)
+	default:
+		return mapStudyExecutionError("study.run-loop", err)
+	}
+}
+
+func renderRunLoopResult(deps dependencies, root string, result study.RunLoopResult) {
+	fmt.Fprintf(deps.stdout, "Study progress: %s\n", result.Status)
+	fmt.Fprintf(deps.stdout, "Study: %s\n", result.Study.Name)
+	fmt.Fprintf(deps.stdout, "Parallelism: %d\n", result.Parallelism)
+	fmt.Fprintf(deps.stdout, "Study progress state: %s\n", workspace.Rel(root, result.StatePath))
+	fmt.Fprintf(deps.stdout, "Study progress summary: %s\n", workspace.Rel(root, study.RunHistorySummaryPath(result.Study)))
+	fmt.Fprintf(deps.stdout, "Lock: %s\n", workspace.Rel(root, result.LockPath))
+	fmt.Fprintf(deps.stdout, "Study completed: %d\n", result.Counts.Completed)
+	fmt.Fprintf(deps.stdout, "Study failed: %d\n", result.Counts.Failed)
+	fmt.Fprintf(deps.stdout, "Study skipped: %d\n", result.Counts.Skipped)
+	fmt.Fprintf(deps.stdout, "Study pending: %d\n", result.Counts.Pending)
+	if result.ScopeCounts != result.Counts {
+		fmt.Fprintf(deps.stdout, "Scope completed: %d\n", result.ScopeCounts.Completed)
+		fmt.Fprintf(deps.stdout, "Scope failed: %d\n", result.ScopeCounts.Failed)
+		fmt.Fprintf(deps.stdout, "Scope skipped: %d\n", result.ScopeCounts.Skipped)
+		fmt.Fprintf(deps.stdout, "Scope pending: %d\n", result.ScopeCounts.Pending)
+	}
+	for _, task := range result.State.Tasks {
+		if task.Status == study.TaskStatusCompleted {
+			continue
+		}
+		fmt.Fprintf(deps.stderr, "%s %s %s", task.Kind, task.Status, task.DimensionRef)
+		if task.Source != "" {
+			fmt.Fprintf(deps.stderr, " %s", task.Source)
+		}
+		if task.LastError != nil {
+			fmt.Fprintf(deps.stderr, ": %s", formatTaskError(*task.LastError))
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 1,120p internal/web/operations.go
+package web
+
+import (
+	"context"
+	"encoding/json"
+	"errors"
+	"fmt"
+	"sort"
+	"strconv"
+	"strings"
+	"sync"
+	"sync/atomic"
+	"time"
+
+	"github.com/Antonio7098/ultraplan-go/internal/app"
+)
+
+const (
+	MaxActiveOperations        = 8
+	MaxPreparations            = 128
+	PreparationTTL             = 2 * time.Minute
+	MaxEventsPerOperation      = 256
+	MaxEventBytesPerOperation  = 256 * 1024
+	MaxEncodedEventBytes       = 16 * 1024
+	MaxTerminalResultBytes     = 256 * 1024
+	MaxSubscribersPerOperation = 8
+	MaxConcurrentStreams       = 32
+	SubscriberQueueSize        = 32
+	TerminalRetention          = 10 * time.Minute
+	SSEHeartbeat               = 15 * time.Second
+	MaxStreamLifetime          = 30 * time.Minute
+)
+
+var (
+	errOperationCapacity  = errors.New("operation capacity reached")
+	errSubscriberCapacity = errors.New("subscriber capacity reached")
+	errServerDraining     = errors.New("server draining")
+	errOperationNotFound  = errors.New("operation not found")
+)
+
+type operationDocument struct {
+	ID            string              `json:"id"`
+	Kind          app.OperationKind   `json:"kind"`
+	State         string              `json:"state"`
+	Reason        string              `json:"reason,omitempty"`
+	CreatedAt     time.Time           `json:"created_at"`
+	StartedAt     *time.Time          `json:"started_at,omitempty"`
+	FinishedAt    *time.Time          `json:"finished_at,omitempty"`
+	LastEventID   string              `json:"last_event_id"`
+	DurableStatus durableStatusDTO    `json:"durable_status"`
+	Result        *operationResultDTO `json:"result,omitempty"`
+}
+
+type activeOperationDTO struct {
+	ID        string            `json:"id"`
+	Kind      app.OperationKind `json:"kind"`
+	State     string            `json:"state"`
+	Project   string            `json:"project,omitempty"`
+	Sprint    string            `json:"sprint,omitempty"`
+	Study     string            `json:"study,omitempty"`
+	StartedAt *time.Time        `json:"started_at,omitempty"`
+}
+
+type durableStatusDTO struct {
+	Available   bool   `json:"available"`
+	RefreshPath string `json:"refresh_path,omitempty"`
+}
+
+type operationResultDTO struct {
+	State     string       `json:"state"`
+	Subject   string       `json:"subject,omitempty"`
+	Message   string       `json:"message,omitempty"`
+	Content   string       `json:"content,omitempty"`
+	Truncated bool         `json:"truncated,omitempty"`
+	Findings  []findingDTO `json:"findings,omitempty"`
+	Error     *errorBody   `json:"error,omitempty"`
+}
+
+type operationEvent struct {
+	ID   uint64
+	Name string
+	Data []byte
+}
+
+type operationSubscriber struct {
+	id uint64
+	ch chan operationEvent
+}
+
+type operationRecord struct {
+	doc         operationDocument
+	session     string
+	request     app.OperationRequest
+	cancel      context.CancelFunc
+	cancelOnce  sync.Once
+	done        chan struct{}
+	nextEventID uint64
+	events      []operationEvent
+	eventBytes  int
+	subscribers map[uint64]*operationSubscriber
+	nextSubID   uint64
+	dedupKey    string
+}
+
+type operationHub struct {
+	rootCtx context.Context
+	ops     app.WebOperations
+	now     func() time.Time
+	id      func() string
+
+	mu       sync.Mutex
+	records  map[string]*operationRecord
+	dedup    map[string]string
+	active   int
+	streams  int
+	draining bool
+	counters operationCounters
+}
+
+type operationCounters struct {
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "beginDurableCLICommand\|finishDurableCLICommand" --include="*.go" . | head -20
+./internal/app/run_control_inventory_test.go:44:			if got := strings.Count(source, "beginDurableCLICommand("); got != test.wantCall {
+./internal/app/durable_operations.go:41:func beginDurableCLICommand(deps dependencies, request OperationRequest) (*durableCLICommand, error) {
+./internal/app/durable_operations.go:71:func finishDurableCLICommand(command *durableCLICommand, runErr error) error {
+./internal/app/sprint_commands.go:227:			durable, err = beginDurableCLICommand(deps, OperationRequest{Kind: OperationFlow, Project: args[0], Sprint: args[1], Stage: string(req.To)})
+./internal/app/sprint_commands.go:234:				return finishDurableCLICommand(durable, err)
+./internal/app/sprint_commands.go:239:		err = finishDurableCLICommand(durable, err)
+./internal/app/sprint_commands.go:282:			durable, err = beginDurableCLICommand(deps, OperationRequest{Kind: OperationVerifyStart, Project: args[0], Sprint: args[1], Stage: string(req.To)})
+./internal/app/sprint_commands.go:289:				return finishDurableCLICommand(durable, err)
+./internal/app/sprint_commands.go:294:		runErr = finishDurableCLICommand(durable, runErr)
+./internal/app/sprint_commands.go:328:			durable, err = beginDurableCLICommand(deps, OperationRequest{Kind: OperationExecuteStart, Project: args[0], Sprint: args[1], Stage: "execute", Task: req.TaskID})
+./internal/app/sprint_commands.go:335:				return finishDurableCLICommand(durable, err)
+./internal/app/sprint_commands.go:344:		err = finishDurableCLICommand(durable, err)
+./internal/app/sprint_commands.go:375:			durable, err = beginDurableCLICommand(deps, OperationRequest{Kind: OperationReviewStart, Project: args[0], Sprint: args[1], Stage: "review", RestartReview: req.Restart})
+./internal/app/sprint_commands.go:382:				return finishDurableCLICommand(durable, err)
+./internal/app/sprint_commands.go:386:		runErr = finishDurableCLICommand(durable, runErr)
+./internal/app/sprint_commands.go:431:			durable, err = beginDurableCLICommand(deps, OperationRequest{Kind: OperationSmokeStart, Project: args[0], Sprint: args[1], Stage: "smoke", Level: string(req.Level), Suite: req.Suite, Test: req.Test})
+./internal/app/sprint_commands.go:438:				return finishDurableCLICommand(durable, err)
+./internal/app/sprint_commands.go:442:		runErr = finishDurableCLICommand(durable, runErr)
+./internal/app/study_commands.go:201:	durable, err := beginDurableCLICommand(deps, OperationRequest{Kind: OperationStudyResume, Study: studyRef, Parallelism: operationParallelism(flags.parallelism)})
+./internal/app/study_commands.go:207:		return finishDurableCLICommand(durable, err)
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 200,260p internal/app/sprint_commands.go && sed -n 30,60p internal/app/run_control_inventory_test.go
+return mapSprintError("sprint.prompt", err)
+		}
+		if explain {
+			if preview.Explanation == nil {
+				explanation := sprint.ExplainPrompt(preview.Prompt)
+				preview.Explanation = &explanation
+			}
+			contract := sprint.InputContract(sprint.PlanningStage(args[3]))
+			preview.Explanation.InputContract = &contract
+			return json.NewEncoder(deps.stdout).Encode(preview.Explanation)
+		}
+		fmt.Fprint(deps.stdout, preview.Prompt)
+		return nil
+	case "flow":
+		flowArgs, jsonOut := stripFlag(args[3:], "--json")
+		req, err := parseSprintFlowArgs(flowArgs)
+		if err != nil {
+			return classified(ExitUsage, "sprint.flow: %w", err)
+		}
+		flowService := service
+		runCtx := deps.ctx
+		var durable *durableCLICommand
+		if !req.DryRun {
+			if req.To == sprint.StageSmoke && !req.Smoke.NonInteractive {
+				return classified(ExitUsage, "sprint.flow: --yes is required for smoke execution")
+			}
+			req.Progress = renderSprintFlowProgress(deps)
+			durable, err = beginDurableCLICommand(deps, OperationRequest{Kind: OperationFlow, Project: args[0], Sprint: args[1], Stage: string(req.To)})
+			if err != nil {
+				return err
+			}
+			runCtx = durable.Context()
+			flowService, err = sprintRuntimeService(deps, root)
+			if err != nil {
+				return finishDurableCLICommand(durable, err)
+			}
+		}
+		var result sprint.FlowResult
+		result, err = runSprintFlow(runCtx, flowService, args[0], args[1], req)
+		err = finishDurableCLICommand(durable, err)
+		if result.DryRun && err == nil {
+			if jsonOut {
+				return json.NewEncoder(deps.stdout).Encode(map[string]any{"schema_version": 1, "operation": "sprint.flow", "status": "ready", "result": result})
+			}
+			renderSprintFlow(deps, result)
+			return nil
+		}
+		if err != nil {
+			if jsonOut {
+				_ = json.NewEncoder(deps.stdout).Encode(map[string]any{"schema_version": 1, "operation": "sprint.flow", "status": "failed", "result": result})
+				if len(result.Findings) > 0 {
+					return classified(ExitValidation, "sprint.flow: %w", err)
+				}
+				return mapSprintError("sprint.flow", err)
+			}
+			if len(result.Findings) > 0 {
+				renderSprintFlow(deps, result)
+				return classified(ExitValidation, "sprint.flow: %w", err)
+			}
+			if strings.Contains(err.Error(), "runtime") {
+				return classified(ExitRuntime, "sprint.flow: %w", err)
+			file: "study_commands.go", wantCall: 4,
+			entries: []string{
+				"Kind: OperationStudyResume", "Kind: OperationStudyStart, Study: studyRef, Parallelism:",
+				`Stage: "analysis"`, `Stage: "synthesis"`,
+			},
+		},
+	}
+	for _, test := range cases {
+		t.Run(test.file, func(t *testing.T) {
+			content, err := os.ReadFile(filepath.Join(directory, test.file))
+			if err != nil {
+				t.Fatal(err)
+			}
+			source := string(content)
+			if got := strings.Count(source, "beginDurableCLICommand("); got != test.wantCall {
+				t.Fatalf("durable entry calls=%d, want %d", got, test.wantCall)
+			}
+			for _, entry := range test.entries {
+				if !strings.Contains(source, entry) {
+					t.Fatalf("runtime-backed inventory entry %q bypasses the durable boundary", entry)
+				}
+			}
+		})
+	}
+}
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control_inventory_test.go
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace && ls system projects 2>/dev/null && ls projects/*/sprints 2>/dev/null | head -30
+projects:
+aren-phase-01-execution-lifecycle
+ultraplan-go
+
+system:
+contracts
+protocols
+reasoning
+01-cli-foundation
+02-workspace-config-health
+03-study-listing-resolution
+04-study-init-yaml
+05-study-listing-inspection
+06-study-run-execution
+07-prompt-composition-generation
+08-run-state-persistence
+09-runtime-integration
+10-single-analysis-synthesis
+11-run-all-batch-execution
+12-durable-run-loop
+13-summary-and-code-extraction
+14-validation-and-diagnostics
+15-documentation-and-packaging
+16-project-domain-and-index
+17-artifact-domain-and-flow-state
+18-select-stage
+19-distill-stage
+20-reason-stage
+21-plan-stage
+22-documentaiton-and-release
+23-execute-stage
+24-tui-foundations
+25-operational-tui-controls
+26-review-stage
+27-deep-smoke
+28-review-to-smoke-flow
+29-phase-3-documentation-hardening-release
+30-web-foundations
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace && ls system/contracts system/protocols system/reasoning && ls projects/ultraplan-go/sprints
+system/contracts:
+core
+runtime
+surfaces
+
+system/protocols:
+architecture-review-protocol.md
+contract-mapping-protocol.md
+deep-smoke-sprint-protocol.md
+plan-sprint-protocol.md
+review-sprint-protocol.md
+sprint-review-protocol.md
+
+system/reasoning:
+api-design-reasoning-template.md
+architecture_reasoning_template.md
+cli-design-reasoning-template.md
+data-privacy-reasoning-template.md
+errors_reasoning_template.md
+eval-design-reasoning-template.md
+frontend-design-reasoning-template.md
+frontend-reasoning-template.md
+frontend-state-placement-template.md
+llm-feature-reasoning-template.md
+observability-reasoning-template.md
+package-api-reasoning-template.md
+performance-reasoning-template.md
+persistence-reasoning-template.md
+prompt-change-reasoning-template.md
+release-reasoning-template.md
+security-threat-reasoning-template.md
+testing-strategy-reasoning-template.md
+01-cli-foundation
+02-workspace-config-health
+03-study-listing-resolution
+04-study-init-yaml
+05-study-listing-inspection
+06-study-run-execution
+07-prompt-composition-generation
+08-run-state-persistence
+09-runtime-integration
+10-single-analysis-synthesis
+11-run-all-batch-execution
+12-durable-run-loop
+13-summary-and-code-extraction
+14-validation-and-diagnostics
+15-documentation-and-packaging
+16-project-domain-and-index
+17-artifact-domain-and-flow-state
+18-select-stage
+19-distill-stage
+20-reason-stage
+21-plan-stage
+22-documentaiton-and-release
+23-execute-stage
+24-tui-foundations
+25-operational-tui-controls
+26-review-stage
+27-deep-smoke
+28-review-to-smoke-flow
+29-phase-3-documentation-hardening-release
+30-web-foundations
+31-web-operations
+32-hardening-and-release
+33-code-context-stage
+34-shared-context
+35-durable-run-observability
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace && ls system/contracts/core system/contracts/surfaces && ls projects/ultraplan-go/sprints/34-shared-context
+system/contracts/core:
+architecture.md
+configuration.md
+documentation.md
+errors.md
+observability.md
+privacy-and-data.md
+release-versioning.md
+security.md
+testing.md
+
+system/contracts/surfaces:
+accessibility.md
+api-contracts.md
+cli.md
+frontend.md
+package-public-api.md
+code-context.md
+execute.md
+flow-state.json
+plan.md
+reasoning
+reasoning.md
+requirements.md
+review.md
+smoke.md
+sprint-index.md
+technical-handbook.md
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts/core/architecture.md
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -n "func NewService\|func (s Service)\|type Service" internal/sprint/*.go internal/study/*.go | head && grep -rn "studyRuntimeFactory" internal/app/*.go | grep -v _test
+internal/sprint/cleanup_uncertain.go:31:func (s Service) RecordCleanupUncertain(ctx context.Context, projectRef, sprintRef string, record CleanupUncertainRecord) error {
+internal/sprint/code_context.go:206:func (s Service) PromptCodeContext(projectRef, sprintRef string) (PromptPreview, error) {
+internal/sprint/code_context.go:221:func (s Service) ValidateCodeContext(projectRef, sprintRef string) (ValidationResult, error) {
+internal/sprint/code_context.go:237:func (s Service) codeContextPrerequisite(sp Sprint) ([]ValidationFinding, error) {
+internal/sprint/code_context.go:257:func (s Service) FlowCodeContext(ctx context.Context, projectRef, sprintRef string, req FlowRequest) (FlowResult, error) {
+internal/sprint/code_context.go:427:func (s Service) resolveCodeContextTarget(projectIndex string) (ExecuteTargetRef, []ValidationFinding) {
+internal/sprint/code_context.go:434:func (s Service) failCodeContext(sp Sprint, req FlowRequest, now time.Time, result pruntime.Result, findings []ValidationFinding, err error) (FlowResult, error) {
+internal/sprint/code_context.go:464:func (s Service) promoteCodeContext(ctx context.Context, sp Sprint, candidatePath string, state FlowState) error {
+internal/sprint/execute.go:28:func (s Service) DeferExecuteTask(ctx context.Context, projectRef, sprintRef, taskID, reason string) (ExecuteResult, error) {
+internal/sprint/execute.go:93:func (s Service) PromptExecute(projectRef, sprintRef string, req ExecuteRequest) (PromptPreview, error) {
+internal/app/study_commands.go:22:var studyRuntimeFactory = func(c config.Config) (study.Runtime, error) {
+internal/app/study_commands.go:323:	rt, err := studyRuntimeFactory(effective.Config)
+internal/app/study_commands.go:664:	rt, err := studyRuntimeFactory(effective.Config)
+internal/app/study_commands.go:833:	rt, err := studyRuntimeFactory(effective.Config)
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 1,80p internal/web/operation_handlers.go
+package web
+
+import (
+	"context"
+	"encoding/json"
+	"errors"
+	"fmt"
+	"io"
+	"net/http"
+	"strconv"
+	"strings"
+	"time"
+
+	"github.com/Antonio7098/ultraplan-go/internal/app"
+)
+
+type operationScopeRequest struct {
+	Project string `json:"project,omitempty"`
+	Sprint  string `json:"sprint,omitempty"`
+	Study   string `json:"study,omitempty"`
+}
+
+type operationOptionsRequest struct {
+	Stage             string   `json:"stage,omitempty"`
+	ToStage           string   `json:"to_stage,omitempty"`
+	Task              string   `json:"task,omitempty"`
+	Action            string   `json:"action,omitempty"`
+	DryRun            bool     `json:"dry_run,omitempty"`
+	Resume            bool     `json:"resume,omitempty"`
+	Level             string   `json:"level,omitempty"`
+	Suite             string   `json:"suite,omitempty"`
+	Test              string   `json:"test,omitempty"`
+	Timeout           string   `json:"timeout,omitempty"`
+	ForceReview       bool     `json:"force_review,omitempty"`
+	RestartReview     bool     `json:"restart_review,omitempty"`
+	OverrideRationale string   `json:"override_rationale,omitempty"`
+	ReviewFocus       []string `json:"review_focus,omitempty"`
+	Sources           []string `json:"sources,omitempty"`
+	Dimensions        []string `json:"dimensions,omitempty"`
+	Parallelism       int      `json:"parallelism,omitempty"`
+}
+
+type operationSpecRequest struct {
+	Kind    string                  `json:"kind"`
+	Scope   operationScopeRequest   `json:"scope"`
+	Options operationOptionsRequest `json:"options,omitempty"`
+}
+
+type prepareRequest struct {
+	Operation operationSpecRequest `json:"operation"`
+}
+
+type startRequest struct {
+	Operation         operationSpecRequest `json:"operation"`
+	ConfirmationToken string               `json:"confirmation_token"`
+}
+
+type preparationDTO struct {
+	PreparationID     string         `json:"preparation_id"`
+	Operation         map[string]any `json:"operation"`
+	AffectedPaths     []string       `json:"affected_paths"`
+	MutationClass     string         `json:"mutation_class"`
+	Runtime           map[string]any `json:"runtime,omitempty"`
+	Harness           map[string]any `json:"harness,omitempty"`
+	Prerequisites     []string       `json:"prerequisites"`
+	InputFingerprint  string         `json:"input_fingerprint"`
+	ExpiresAt         time.Time      `json:"expires_at"`
+	ConfirmationToken string         `json:"confirmation_token"`
+}
+
+type operationPreparationView struct {
+	Preparation preparationDTO
+	Spec        operationSpecRequest
+}
+
+func (h *handler) handleOperationPrepare(w http.ResponseWriter, r *http.Request) {
+	if h.hub == nil || h.hub.ops == nil {
+		h.writeOperationError(w, r, errors.New("operation capability unavailable"))
+		return
+	}
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -n "operationRequestFromSpec\|func decodeOperation\|ExpectedFingerprint" internal/web/*.go | head && grep -n "operationRequestFromSpec" -A 40 internal/web/operation_handlers.go | sed -n 1,60p
+internal/web/operations_test.go:101:	req.ExpectedFingerprint = fingerprint
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -n "func (s operationSpecRequest)\|func operationRequest\|toOperationRequest\|buildOperationRequest" internal/web/*.go && sed -n 80,140p internal/web/operations_test.go
+(no output)
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "OperationRequest{" internal/web/*.go | grep -v _test | head && sed -n 60,140p internal/web/operations_test.go
+internal/web/operation_handlers.go:591:		return app.OperationRequest{}, fmt.Errorf("operation scope contains an invalid identifier")
+internal/web/operation_handlers.go:594:	req := app.OperationRequest{
+internal/web/operation_handlers.go:685:		return app.OperationRequest{}, fmt.Errorf("unsupported operation kind %q", spec.Kind)
+internal/web/operation_handlers.go:689:			return app.OperationRequest{}, fmt.Errorf("validation requires one project or study scope")
+internal/web/operation_handlers.go:693:			return app.OperationRequest{}, fmt.Errorf("study operations require only scope.study")
+internal/web/operation_handlers.go:696:		return app.OperationRequest{}, fmt.Errorf("project operations require scope.project")
+internal/web/operation_handlers.go:698:		return app.OperationRequest{}, fmt.Errorf("sprint operations require scope.sprint")
+}
+
+func newCapacityWebOperations() *capacityWebOperations {
+	return &capacityWebOperations{
+		fakeWebOperations: newFakeWebOperations(),
+		startedMany:       make(chan struct{}, MaxActiveOperations),
+		releaseMany:       make(chan struct{}),
+		finished:          make(chan struct{}, MaxActiveOperations),
+	}
+}
+
+func (f *capacityWebOperations) RunOperation(ctx context.Context, _ app.OperationRequest, emit func(app.OperationEvent)) (app.OperationResult, error) {
+	emit(app.OperationEvent{State: app.OperationRunning, Stage: "plan", Message: "working"})
+	f.startedMany <- struct{}{}
+	defer func() { f.finished <- struct{}{} }()
+	select {
+	case <-f.releaseMany:
+		return app.OperationResult{State: app.OperationComplete, Message: "complete"}, nil
+	case <-ctx.Done():
+		return app.OperationResult{State: app.OperationCancelled, Message: "cancelled"}, ctx.Err()
+	}
+}
+
+func (f *fakeWebOperations) RecordOperationCleanupUncertain(_ context.Context, record app.OperationCleanupUncertain) error {
+	f.mu.Lock()
+	defer f.mu.Unlock()
+	f.cleanup = append(f.cleanup, record)
+	return nil
+}
+
+func newFakeWebOperations() *fakeWebOperations {
+	return &fakeWebOperations{started: make(chan struct{}), release: make(chan struct{}), done: make(chan struct{})}
+}
+
+func (f *fakeWebOperations) Validate(context.Context, app.ValidationRequest) (app.ValidationOperationResult, error) {
+	return app.ValidationOperationResult{Status: "valid"}, nil
+}
+
+func (f *fakeWebOperations) PrepareOperation(_ context.Context, req app.OperationRequest) (app.Confirmation, error) {
+	canonical := string(req.Kind) + ":" + req.Project + ":" + req.Sprint + ":" + req.Study + ":" + req.Stage
+	fingerprint := "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+	req.ExpectedFingerprint = fingerprint
+	return app.Confirmation{
+		Request: req, Subject: req.Project + "/" + req.Sprint, Paths: []string{"projects/" + req.Project + "/sprints/" + req.Sprint},
+		MutationClass: "sprint_mutation", CanonicalRequest: canonical, InputFingerprint: fingerprint,
+		Prerequisites: []string{"workspace readable"}, DurableRefreshPath: "/api/v1/projects/" + req.Project + "/sprints/" + req.Sprint,
+	}, nil
+}
+
+func (f *fakeWebOperations) RunOperation(ctx context.Context, _ app.OperationRequest, emit func(app.OperationEvent)) (app.OperationResult, error) {
+	f.mu.Lock()
+	f.runs++
+	f.mu.Unlock()
+	f.once.Do(func() { close(f.started) })
+	emit(app.OperationEvent{State: app.OperationRunning, Stage: "plan", Message: "working"})
+	defer close(f.done)
+	select {
+	case <-f.release:
+		return app.OperationResult{State: app.OperationComplete, Message: "complete"}, nil
+	case <-ctx.Done():
+		return app.OperationResult{State: app.OperationCancelled, Message: "cancelled"}, ctx.Err()
+	}
+}
+
+func TestOperationHubLifecycleCancellationAndSessionOwnership(t *testing.T) {
+	ops := newFakeWebOperations()
+	now := time.Date(2026, 8, 16, 12, 0, 0, 0, time.UTC)
+	hub := newOperationHub(context.Background(), ops, func() time.Time { return now }, func() string { return "id" })
+	prepared, _ := ops.PrepareOperation(context.Background(), app.OperationRequest{Kind: app.OperationFlow, Project: "alpha", Sprint: "31-web", Stage: "plan"})
+	doc, err := hub.start("session-a", prepared)
+	if err != nil {
+		t.Fatal(err)
+	}
+	<-ops.started
+	active := hub.activeOperations("session-a")
+	if len(active) != 1 || active[0].ID != doc.ID || active[0].Kind != app.OperationFlow || active[0].Project != "alpha" || active[0].Sprint != "31-web" {
+		t.Fatalf("active operations=%+v", active)
+	}
+	if other := hub.activeOperations("session-b"); len(other) != 0 {
+		t.Fatalf("cross-session active operations=%+v", other)
+	}
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 580,700p internal/web/operation_handlers.go
+return fmt.Errorf("invalid JSON request: %w", err)
+	}
+	var extra any
+	if err := decoder.Decode(&extra); !errors.Is(err, io.EOF) {
+		return fmt.Errorf("request must contain one JSON value")
+	}
+	return nil
+}
+
+func mapOperationRequest(spec operationSpecRequest) (app.OperationRequest, error) {
+	if !validOptionalIdentifier(spec.Scope.Project) || !validOptionalIdentifier(spec.Scope.Sprint) || !validOptionalIdentifier(spec.Scope.Study) {
+		return app.OperationRequest{}, fmt.Errorf("operation scope contains an invalid identifier")
+	}
+	options := spec.Options
+	req := app.OperationRequest{
+		Project: spec.Scope.Project, Sprint: spec.Scope.Sprint, Study: spec.Scope.Study,
+		Stage: firstString(options.ToStage, options.Stage), Task: options.Task,
+		Level: options.Level, Suite: options.Suite, Test: options.Test, Timeout: options.Timeout,
+		ForceReview: options.ForceReview, RestartReview: options.RestartReview, OverrideRationale: options.OverrideRationale,
+		ReviewFocus: options.ReviewFocus, Sources: options.Sources, Dimensions: options.Dimensions, Parallelism: options.Parallelism,
+	}
+	kind := strings.ReplaceAll(strings.TrimSpace(spec.Kind), "_", "-")
+	switch kind {
+	case "validation", "validate":
+		req.Kind = app.OperationValidate
+	case "sprint-status":
+		req.Kind = app.OperationSprintStatus
+	case "prompt-preview", "sprint-prompt":
+		req.Kind = app.OperationPrompt
+	case "dry-run", "sprint-flow-dry-run":
+		req.Kind = app.OperationFlowDryRun
+	case "sprint-flow":
+		if options.DryRun {
+			req.Kind = app.OperationFlowDryRun
+		} else {
+			req.Kind = app.OperationFlow
+		}
+	case "sprint-stage":
+		if options.DryRun {
+			req.Kind = app.OperationStageDryRun
+		} else {
+			req.Kind = app.OperationStage
+		}
+	case "sprint-stage-dry-run":
+		req.Kind = app.OperationStageDryRun
+	case "execute", "execute-start":
+		switch {
+		case options.Action == "status":
+			req.Kind = app.OperationExecuteStatus
+		case options.DryRun:
+			req.Kind = app.OperationExecuteDryRun
+		case options.Resume:
+			req.Kind = app.OperationExecuteResume
+		default:
+			req.Kind = app.OperationExecuteStart
+		}
+	case "execute-status":
+		req.Kind = app.OperationExecuteStatus
+	case "execute-dry-run":
+		req.Kind = app.OperationExecuteDryRun
+	case "execute-resume":
+		req.Kind = app.OperationExecuteResume
+	case "review", "review-start":
+		if options.Action == "status" {
+			req.Kind = app.OperationReviewStatus
+		} else if options.DryRun {
+			req.Kind = app.OperationReviewDryRun
+		} else {
+			req.Kind = app.OperationReviewStart
+		}
+	case "review-status":
+		req.Kind = app.OperationReviewStatus
+	case "review-dry-run":
+		req.Kind = app.OperationReviewDryRun
+	case "smoke", "smoke-start":
+		if options.Action == "status" {
+			req.Kind = app.OperationSmokeStatus
+		} else if options.DryRun {
+			req.Kind = app.OperationSmokeDryRun
+		} else {
+			req.Kind = app.OperationSmokeStart
+		}
+	case "smoke-status":
+		req.Kind = app.OperationSmokeStatus
+	case "smoke-dry-run":
+		req.Kind = app.OperationSmokeDryRun
+	case "verify", "verify-start":
+		if options.DryRun {
+			req.Kind = app.OperationVerifyDryRun
+		} else {
+			req.Kind = app.OperationVerifyStart
+		}
+	case "verify-dry-run":
+		req.Kind = app.OperationVerifyDryRun
+	case "study-run-loop", "study-start":
+		if options.Resume {
+			req.Kind = app.OperationStudyResume
+		} else {
+			req.Kind = app.OperationStudyStart
+		}
+	case "study-resume":
+		req.Kind = app.OperationStudyResume
+	case "study-cancel":
+		req.Kind = app.OperationStudyCancel
+	default:
+		return app.OperationRequest{}, fmt.Errorf("unsupported operation kind %q", spec.Kind)
+	}
+	if req.Kind == app.OperationValidate {
+		if (req.Project == "") == (req.Study == "") {
+			return app.OperationRequest{}, fmt.Errorf("validation requires one project or study scope")
+		}
+	} else if strings.HasPrefix(string(req.Kind), "study-") {
+		if req.Study == "" || req.Project != "" || req.Sprint != "" {
+			return app.OperationRequest{}, fmt.Errorf("study operations require only scope.study")
+		}
+	} else if req.Project == "" {
+		return app.OperationRequest{}, fmt.Errorf("project operations require scope.project")
+	} else if req.Sprint == "" {
+		return app.OperationRequest{}, fmt.Errorf("sprint operations require scope.sprint")
+	}
+	return req, nil
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -n "RunOperation\|ExpectedFingerprint\|preparation" internal/web/operations.go | head -30 && sed -n 120,260p internal/web/operations.go
+231:	result, runErr := h.ops.RunOperation(ctx, record.request, func(event app.OperationEvent) {
+type operationCounters struct {
+	starts             atomic.Int64
+	active             atomic.Int64
+	terminal           atomic.Int64
+	capacityRejections atomic.Int64
+	cancellations      atomic.Int64
+	activeStreams      atomic.Int64
+	slowSubscribers    atomic.Int64
+	replayGaps         atomic.Int64
+	projectionDrops    atomic.Int64
+	shutdownCleanups   atomic.Int64
+}
+
+func newOperationHub(rootCtx context.Context, ops app.WebOperations, now func() time.Time, id func() string) *operationHub {
+	if rootCtx == nil {
+		rootCtx = context.Background()
+	}
+	if now == nil {
+		now = time.Now
+	}
+	if id == nil {
+		id = randomRequestID
+	}
+	return &operationHub{rootCtx: rootCtx, ops: ops, now: now, id: id, records: make(map[string]*operationRecord), dedup: make(map[string]string)}
+}
+
+func (h *operationHub) start(session string, prepared app.Confirmation) (operationDocument, error) {
+	return h.startConfirmed(session, "", func() (app.Confirmation, error) { return prepared, nil })
+}
+
+func (h *operationHub) startConfirmed(session, dedupKey string, confirm func() (app.Confirmation, error)) (operationDocument, error) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	h.reapLocked()
+	if id := h.dedup[dedupKey]; dedupKey != "" && id != "" {
+		if record := h.records[id]; record != nil && record.session == session {
+			return cloneOperationDocument(record.doc), nil
+		}
+		delete(h.dedup, dedupKey)
+	}
+	if h.draining {
+		h.counters.capacityRejections.Add(1)
+		return operationDocument{}, errServerDraining
+	}
+	if h.active >= MaxActiveOperations {
+		h.counters.capacityRejections.Add(1)
+		return operationDocument{}, errOperationCapacity
+	}
+	if h.ops == nil {
+		return operationDocument{}, errors.New("operation capability unavailable")
+	}
+	prepared, err := confirm()
+	if err != nil {
+		return operationDocument{}, err
+	}
+	id := "op_" + h.id()
+	for h.records[id] != nil {
+		id = "op_" + h.id()
+	}
+	created := h.now().UTC()
+	ctx, cancel := context.WithCancel(h.rootCtx)
+	if manager, ok := h.ops.(app.DurableOperationManager); ok {
+		accepted, acceptErr := manager.AcceptOperation(ctx, prepared, dedupKey)
+		if acceptErr != nil {
+			if !errors.Is(acceptErr, app.ErrWebUnavailable) {
+				cancel()
+				return operationDocument{}, acceptErr
+			}
+		} else {
+			id = accepted.RunID
+			if accepted.Context != nil {
+				ctx = accepted.Context
+			}
+			if accepted.Existing {
+				doc := operationDocument{ID: id, Kind: prepared.Request.Kind, State: accepted.Lifecycle, CreatedAt: created, DurableStatus: durableStatusDTO{Available: true, RefreshPath: "/runs/" + id}}
+				cancel()
+				return doc, nil
+			}
+		}
+	}
+	record := &operationRecord{
+		doc: operationDocument{
+			ID: id, Kind: prepared.Request.Kind, State: "accepted", CreatedAt: created,
+			DurableStatus: durableStatusDTO{Available: prepared.DurableRefreshPath != "", RefreshPath: prepared.DurableRefreshPath},
+		},
+		session: session, request: prepared.Request, cancel: cancel, done: make(chan struct{}),
+		subscribers: make(map[uint64]*operationSubscriber), dedupKey: dedupKey,
+	}
+	h.records[id] = record
+	if dedupKey != "" {
+		h.dedup[dedupKey] = id
+	}
+	h.active++
+	h.counters.starts.Add(1)
+	h.counters.active.Add(1)
+	h.appendEventLocked(record, "snapshot", map[string]any{"state": "accepted"})
+	doc := cloneOperationDocument(record.doc)
+	go h.run(ctx, record)
+	return doc, nil
+}
+
+func (h *operationHub) run(ctx context.Context, record *operationRecord) {
+	started := h.now().UTC()
+	h.mu.Lock()
+	if record.doc.State == "accepted" {
+		record.doc.State = "running"
+		record.doc.StartedAt = &started
+		h.appendEventLocked(record, "progress", map[string]any{"message": "operation started", "state": "running"})
+	}
+	h.mu.Unlock()
+
+	result, runErr := h.ops.RunOperation(ctx, record.request, func(event app.OperationEvent) {
+		h.publishAppEvent(record, event)
+	})
+	if manager, ok := h.ops.(app.DurableOperationManager); ok {
+		finishCtx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+		finishErr := manager.FinishOperation(finishCtx, record.doc.ID, result.State, runErr)
+		cancel()
+		if finishErr != nil && !errors.Is(finishErr, app.ErrWebUnavailable) {
+			runErr = errors.Join(runErr, finishErr)
+		}
+	}
+	h.finish(record, result, runErr)
+}
+
+func (h *operationHub) publishAppEvent(record *operationRecord, event app.OperationEvent) {
+	if manager, ok := h.ops.(app.DurableOperationManager); ok {
+		committed, err := manager.RecordOperationEvent(context.Background(), record.doc.ID, event)
+		if err != nil && !errors.Is(err, app.ErrWebUnavailable) {
+			record.cancel()
+			return
+		}
+		if err == nil && !committed {
+			return
+		}
+	}
+	name := "progress"
+	if event.State == app.OperationFailed {
+		name = "warning"
+	}
+	payload := map[string]any{
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "Goal\|goal" internal/sprint/index.go | head -20 && grep -rn "sprintOverview" internal/app/*.go
+43:	for _, heading := range []string{"Sprint Goal", "Required Outputs", "Acceptance Criteria", "Non-Goals", "Constraints", "Dependencies", "Review Expectations"} {
+internal/app/web_usecases.go:478:			result.Overview = u.sprintOverview(project, slug)
+internal/app/web_usecases.go:559:func (u *webUseCases) sprintOverview(project, slug string) string {
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 25,80p internal/sprint/index.go
+}
+
+var sprintIndexSections = map[string]string{
+	"Selected Contracts":           "contracts",
+	"Selected Evidence Reports":    "evidence",
+	"Selected Reasoning Templates": "templates",
+	"Required Review Protocols":    "protocols",
+	"Excluded Context":             "excluded",
+}
+
+func ValidateRequirementsContent(content string) []ValidationFinding {
+	var findings []ValidationFinding
+	if strings.TrimSpace(content) == "" {
+		return []ValidationFinding{finding("requirements.md", "", "", "empty requirements.md", "file has no content", "Generate or write sprint-specific requirements.")}
+	}
+	if containsPlaceholder(content) {
+		findings = append(findings, finding("requirements.md", "", "", "placeholder content", "file still contains placeholder markers", "Replace placeholders with concrete sprint requirements."))
+	}
+	for _, heading := range []string{"Sprint Goal", "Required Outputs", "Acceptance Criteria", "Non-Goals", "Constraints", "Dependencies", "Review Expectations"} {
+		if !markdownHeadingPresent(content, heading) {
+			findings = append(findings, finding("requirements.md", heading, "", "missing required section", "section was not found", "Add the required requirements.md section."))
+		}
+	}
+	sortSprintFindings(findings)
+	return findings
+}
+
+func ParseSprintIndex(content string) (SprintIndex, []ValidationFinding) {
+	var index SprintIndex
+	var findings []ValidationFinding
+	if strings.TrimSpace(content) == "" {
+		return index, []ValidationFinding{finding("sprint-index.md", "", "", "empty sprint-index.md", "file has no content", "Generate or write the required sprint-index.md sections.")}
+	}
+	if containsPlaceholder(content) {
+		findings = append(findings, finding("sprint-index.md", "", "", "placeholder content", "file still contains placeholder markers", "Replace placeholders with concrete selected context."))
+	}
+	current := ""
+	var headers []string
+	seenSections := map[string]bool{}
+	seenEntries := map[string]map[string]bool{}
+	for i, line := range strings.Split(content, "\n") {
+		trimmed := strings.TrimSpace(line)
+		if strings.HasPrefix(trimmed, "## ") {
+			headers = nil
+			title := strings.TrimSpace(strings.TrimPrefix(trimmed, "## "))
+			current = sprintIndexSections[title]
+			if current != "" {
+				seenSections[current] = true
+			}
+			continue
+		}
+		if current == "" {
+			continue
+		}
+		if current == "templates" && strings.Contains(strings.ToLower(trimmed), "no reasoning templates") {
+			index.NoTemplates = true
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "Sprint Goal" internal/workspace/scaffold/templates/* 2>/dev/null | head -5; grep -rln "Sprint Goal" internal/workspace/ | head
+internal/workspace/scaffold/templates/requirements.md:7:## Sprint Goal
+internal/workspace/scaffold/templates/sprint-index.md:12:- **Sprint Goal:** `[goal]`
+internal/workspace/scaffold/prompts/create-requirements.md
+internal/workspace/scaffold/templates/requirements.md
+internal/workspace/scaffold/templates/sprint-index.md
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_usecases.go
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "func ReconcileRunState\|func LoadRunLoopResourceHistory\|func SummarizeParallelismThrottle" internal/study/*.go && grep -n "func ReconcileRunState" -A 30 internal/study/runstate.go 2>/dev/null | head -40
+internal/study/run_loop_diagnostics.go:348:func SummarizeParallelismThrottle(history RunLoopResourceHistory) ParallelismThrottle {
+internal/study/run_loop_diagnostics.go:369:func LoadRunLoopResourceHistory(study Study, limit int) (RunLoopResourceHistory, error) {
+internal/study/run_state.go:67:func ReconcileRunState(state *RunState, workspaceRoot string, study Study, sources []Source, dimensions []Dimension, now time.Time) {
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 55,130p internal/study/run_state.go
+RunID:                    runID,
+		Study:                    req.Study.Name,
+		CreatedAt:                now,
+		UpdatedAt:                now,
+		Filters:                  req.Filters,
+		Config:                   req.Config,
+		ApplicabilityFingerprint: fingerprint,
+		Tasks:                    tasks,
+		Complete:                 len(tasks) == 0,
+	}, nil
+}
+
+func ReconcileRunState(state *RunState, workspaceRoot string, study Study, sources []Source, dimensions []Dimension, now time.Time) {
+	if now.IsZero() {
+		now = time.Now().UTC()
+	}
+	current, fingerprint := buildCurrentTaskGraph(workspaceRoot, study, sources, dimensions, now)
+	existing := make(map[string]TaskState, len(state.Tasks))
+	for _, task := range state.Tasks {
+		existing[task.ID] = task
+	}
+	for i := range current {
+		if prior, ok := existing[current[i].ID]; ok {
+			expected := current[i]
+			current[i] = prior
+			current[i].Dimension = expected.Dimension
+			current[i].DimensionRef = expected.DimensionRef
+			current[i].Source = expected.Source
+			current[i].SourceKind = expected.SourceKind
+			current[i].OutputPath = expected.OutputPath
+			current[i].Dependencies = expected.Dependencies
+			if current[i].Kind == TaskKindSynthesis && dependenciesChanged(prior.Dependencies, current[i].Dependencies) && prior.Status == TaskStatusCompleted {
+				current[i].Status = TaskStatusPending
+				current[i].CompletedAt = nil
+				current[i].Validation = nil
+				current[i].LastError = nil
+				current[i].UpdatedAt = now
+			}
+		}
+	}
+	sort.Slice(current, func(i, j int) bool { return current[i].ID < current[j].ID })
+	state.Tasks = current
+	state.ApplicabilityFingerprint = fingerprint
+	state.UpdatedAt = now
+	state.Complete = allTasksComplete(*state)
+}
+
+func buildCurrentTaskGraph(workspaceRoot string, study Study, sources []Source, dimensions []Dimension, now time.Time) ([]TaskState, string) {
+	dimensions = append([]Dimension(nil), dimensions...)
+	sort.Slice(dimensions, func(i, j int) bool {
+		if dimensions[i].Number == dimensions[j].Number {
+			return dimensions[i].Slug < dimensions[j].Slug
+		}
+		return dimensions[i].Number < dimensions[j].Number
+	})
+	sources = append([]Source(nil), sources...)
+	sort.Slice(sources, func(i, j int) bool {
+		if sources[i].Name == sources[j].Name {
+			return sources[i].Kind < sources[j].Kind
+		}
+		return sources[i].Name < sources[j].Name
+	})
+	var tasks []TaskState
+	var fingerprint strings.Builder
+	for _, dimension := range dimensions {
+		fmt.Fprintf(&fingerprint, "dimension:%s:%s\n", dimension.Number, dimension.Slug)
+		applicable := GetApplicableSources(sources, dimension)
+		sort.Slice(applicable, func(i, j int) bool {
+			if applicable[i].Name == applicable[j].Name {
+				return applicable[i].Kind < applicable[j].Kind
+			}
+			return applicable[i].Name < applicable[j].Name
+		})
+		if len(applicable) == 0 {
+			continue
+		}
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 1,80p internal/app/storage_commands.go
+package app
+
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+	"path/filepath"
+
+	"github.com/Antonio7098/ultraplan-go/internal/productstate"
+	"github.com/Antonio7098/ultraplan-go/internal/project"
+	"github.com/Antonio7098/ultraplan-go/internal/runcontrol"
+	"github.com/Antonio7098/ultraplan-go/internal/sprint"
+	"github.com/Antonio7098/ultraplan-go/internal/study"
+)
+
+type storageMigrationItem struct {
+	Kind   string `json:"kind"`
+	Scope  string `json:"scope"`
+	Path   string `json:"path"`
+	Status string `json:"status"`
+	Error  string `json:"error,omitempty"`
+}
+
+type storageMigrationResult struct {
+	SchemaVersion int                    `json:"schema_version"`
+	DryRun        bool                   `json:"dry_run"`
+	Imported      int                    `json:"imported"`
+	Skipped       int                    `json:"skipped"`
+	Failed        int                    `json:"failed"`
+	Items         []storageMigrationItem `json:"items"`
+}
+
+func runStorage(deps dependencies, args []string) error {
+	if len(args) == 0 || args[0] == "--help" || args[0] == "-h" {
+		_, err := deps.stdout.Write([]byte(storageHelp()))
+		return err
+	}
+	if args[0] != "migrate" {
+		return classified(ExitUsage, "storage: expected 'migrate'")
+	}
+	dryRun, jsonOut := false, false
+	for _, arg := range args[1:] {
+		switch arg {
+		case "--dry-run":
+			dryRun = true
+		case "--json":
+			jsonOut = true
+		case "--help", "-h":
+			_, err := deps.stdout.Write([]byte(storageHelp()))
+			return err
+		default:
+			return classified(ExitUsage, "storage migrate: unknown argument %q", arg)
+		}
+	}
+	root, err := discoverWorkspace(deps)
+	if err != nil {
+		return err
+	}
+	if !dryRun {
+		repository, err := runcontrol.OpenSQLite(deps.ctx, root.Path, runcontrol.SQLiteOptions{})
+		if err != nil {
+			return classifiedCause(ExitWorkspace, err, "storage.migrate: open workspace database")
+		}
+		defer repository.Close()
+		if _, err := productstate.Ensure(root.Path); err != nil {
+			return classifiedCause(ExitWorkspace, err, "storage.migrate: create product-state schema")
+		}
+	}
+	result := storageMigrationResult{SchemaVersion: 1, DryRun: dryRun, Items: []storageMigrationItem{}}
+	appendItem := func(item storageMigrationItem) {
+		result.Items = append(result.Items, item)
+		switch item.Status {
+		case "imported", "would_import":
+			result.Imported++
+		case "skipped":
+			result.Skipped++
+		case "failed":
+			result.Failed++
+		}
+	}
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 1,60p internal/app/json_output.go && sed -n 1,40p internal/app/version.go
+package app
+
+import (
+	"encoding/json"
+	"io"
+	"time"
+)
+
+const jsonEnvelopeSchemaVersion = 1
+
+type jsonEnvelope struct {
+	SchemaVersion int       `json:"schema_version"`
+	Command       string    `json:"command"`
+	Workspace     string    `json:"workspace,omitempty"`
+	Status        string    `json:"status"`
+	GeneratedAt   time.Time `json:"generated_at"`
+	Result        any       `json:"result"`
+}
+
+func writeJSON(w io.Writer, command, workspacePath, status string, result any) error {
+	payload := jsonEnvelope{
+		SchemaVersion: jsonEnvelopeSchemaVersion,
+		Command:       command,
+		Workspace:     workspacePath,
+		Status:        status,
+		GeneratedAt:   timeNow(),
+		Result:        result,
+	}
+	enc := json.NewEncoder(w)
+	enc.SetIndent("", "  ")
+	return enc.Encode(payload)
+}
+package app
+
+import "runtime"
+
+const (
+	defaultVersion   = "0.0.0-local"
+	defaultCommit    = "local"
+	defaultBuildDate = "local"
+)
+
+type Version struct {
+	Version   string
+	Commit    string
+	BuildDate string
+	GoVersion string
+}
+
+func DefaultVersion() Version {
+	return Version{
+		Version:   defaultVersion,
+		Commit:    defaultCommit,
+		BuildDate: defaultBuildDate,
+		GoVersion: runtime.Version(),
+	}
+}
+
+func (v Version) IsZero() bool {
+	return v.Version == "" && v.Commit == "" && v.BuildDate == "" && v.GoVersion == ""
+}
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 80,208p internal/app/storage_commands.go
+}
+	studies, err := study.DiscoverStudies(root.Path)
+	if err != nil {
+		return classifiedCause(ExitWorkspace, err, "storage.migrate: discover studies")
+	}
+	for _, item := range studies {
+		path := study.RunStatePath(item)
+		if _, err := os.Stat(path); err != nil {
+			if !os.IsNotExist(err) {
+				appendItem(storageMigrationItem{Kind: "study_run", Scope: item.Name, Path: path, Status: "failed", Error: err.Error()})
+			}
+			continue
+		}
+		stored, err := study.RunStateInDatabase(item)
+		if err != nil {
+			appendItem(storageMigrationItem{Kind: "study_run", Scope: item.Name, Path: path, Status: "failed", Error: err.Error()})
+			continue
+		}
+		if stored {
+			appendItem(storageMigrationItem{Kind: "study_run", Scope: item.Name, Path: path, Status: "skipped"})
+			continue
+		}
+		state, err := study.LoadRunState(item)
+		if err == nil && !dryRun {
+			err = study.MigrateRunStateToDatabase(item, state)
+		}
+		appendItem(migrationItem("study_run", item.Name, path, dryRun, err))
+	}
+	projects, err := project.DiscoverProjects(root.Path)
+	if err != nil {
+		return classifiedCause(ExitWorkspace, err, "storage.migrate: discover projects")
+	}
+	for _, projectItem := range projects {
+		sprints, err := sprint.DiscoverSprints(root.Path, projectItem)
+		if err != nil {
+			appendItem(storageMigrationItem{Kind: "project", Scope: projectItem.Name, Path: projectItem.Path, Status: "failed", Error: err.Error()})
+			continue
+		}
+		for _, sprintItem := range sprints {
+			migrateSprintState(root.Path, sprintItem, dryRun, appendItem)
+		}
+	}
+	if jsonOut {
+		if err := json.NewEncoder(deps.stdout).Encode(result); err != nil {
+			return err
+		}
+	} else {
+		for _, item := range result.Items {
+			fmt.Fprintf(deps.stdout, "%-12s %-14s %s %s", item.Status, item.Kind, item.Scope, filepath.ToSlash(item.Path))
+			if item.Error != "" {
+				fmt.Fprintf(deps.stdout, " | %s", item.Error)
+			}
+			fmt.Fprintln(deps.stdout)
+		}
+		fmt.Fprintf(deps.stdout, "Product-state migration: %d imported, %d skipped, %d failed\n", result.Imported, result.Skipped, result.Failed)
+	}
+	if result.Failed > 0 {
+		return classified(ExitPartial, "storage.migrate: %d state artifact(s) failed validation or import", result.Failed)
+	}
+	return nil
+}
+
+func migrateSprintState(root string, sp sprint.Sprint, dryRun bool, appendItem func(storageMigrationItem)) {
+	scope := sp.Project + "/" + sp.Slug
+	flowPath, flowPathErr := sprint.FlowStatePath(root, sp)
+	if flowPathErr == nil {
+		if _, err := os.Stat(flowPath); err == nil {
+			stored, checkErr := sprint.FlowStateInDatabase(root, sp)
+			if checkErr != nil {
+				appendItem(storageMigrationItem{Kind: "sprint_flow", Scope: scope, Path: flowPath, Status: "failed", Error: checkErr.Error()})
+			} else if stored {
+				appendItem(storageMigrationItem{Kind: "sprint_flow", Scope: scope, Path: flowPath, Status: "skipped"})
+			} else {
+				state, loadErr := sprint.LoadFlowState(root, sp)
+				if loadErr == nil && !dryRun {
+					loadErr = sprint.MigrateFlowStateToDatabase(root, sp, state)
+				}
+				appendItem(migrationItem("sprint_flow", scope, flowPath, dryRun, loadErr))
+			}
+		} else if !os.IsNotExist(err) {
+			appendItem(storageMigrationItem{Kind: "sprint_flow", Scope: scope, Path: flowPath, Status: "failed", Error: err.Error()})
+		}
+	}
+	executePath, executePathErr := sprint.ExecuteRunStatePath(root, sp)
+	if executePathErr == nil {
+		if _, err := os.Stat(executePath); err == nil {
+			if _, legacy := sprint.LegacyTerminalExecuteStatus(root, sp); legacy {
+				appendItem(storageMigrationItem{Kind: "sprint_execute", Scope: scope, Path: executePath, Status: "skipped"})
+				return
+			}
+			stored, checkErr := sprint.ExecuteStateInDatabase(root, sp)
+			if checkErr != nil {
+				appendItem(storageMigrationItem{Kind: "sprint_execute", Scope: scope, Path: executePath, Status: "failed", Error: checkErr.Error()})
+			} else if stored {
+				appendItem(storageMigrationItem{Kind: "sprint_execute", Scope: scope, Path: executePath, Status: "skipped"})
+			} else {
+				state, loadErr := sprint.LoadExecuteRunState(root, sp)
+				if loadErr == nil && !dryRun {
+					loadErr = sprint.MigrateExecuteStateToDatabase(root, sp, state)
+				}
+				appendItem(migrationItem("sprint_execute", scope, executePath, dryRun, loadErr))
+			}
+		} else if !os.IsNotExist(err) {
+			appendItem(storageMigrationItem{Kind: "sprint_execute", Scope: scope, Path: executePath, Status: "failed", Error: err.Error()})
+		}
+	}
+}
+
+func migrationItem(kind, scope, path string, dryRun bool, err error) storageMigrationItem {
+	if err != nil {
+		return storageMigrationItem{Kind: kind, Scope: scope, Path: path, Status: "failed", Error: err.Error()}
+	}
+	status := "imported"
+	if dryRun {
+		status = "would_import"
+	}
+	return storageMigrationItem{Kind: kind, Scope: scope, Path: path, Status: status}
+}
+
+func storageHelp() string {
+	return `ultraplan storage migrate
+
+Usage:
+  ultraplan [--workspace <path>] storage migrate [--dry-run] [--json]
+
+Imports existing study run state, sprint flow state, and sprint execute state
+into the workspace SQLite database. Existing files remain as checkpoints.
+`
+}
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints && grep -l "use case\|UseCases\|composition" */requirements.md | head && grep -rn "dashboardUseCases\|WebUseCases\|OperationalUseCases" 31-web-operations/requirements.md 30-web-foundations/requirements.md 2>/dev/null | head -10
+01-cli-foundation/requirements.md
+02-workspace-config-health/requirements.md
+03-study-listing-resolution/requirements.md
+04-study-init-yaml/requirements.md
+05-study-listing-inspection/requirements.md
+06-study-run-execution/requirements.md
+07-prompt-composition-generation/requirements.md
+08-run-state-persistence/requirements.md
+09-runtime-integration/requirements.md
+10-single-analysis-synthesis/requirements.md
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/sprints && sed -n 1,60p 31-web-operations/requirements.md
+# Sprint Requirements: Guarded Web Operations and SSE Progress
+
+> Project: `ultraplan-go`
+> Sprint: `31-web-operations`
+> Purpose: the authoritative, human-readable sprint contract. All other sprint artifacts must satisfy these requirements.
+
+## Sprint Goal
+
+Expose existing guarded validation, planning, execute, review, smoke, verify, study run-loop, and cancellation operations through the local web surface with server-issued confirmations and bounded SSE progress, without adding a second workflow engine or durable web-owned state. Gracefully stopping the server must cancel every active server-owned operation through the same product/runtime cleanup paths used by explicit cancellation.
+
+## Required Outputs
+
+| Output | Path | Description |
+| --- | --- | --- |
+| Sprint requirements | `projects/ultraplan-go/sprints/31-web-operations/requirements.md` | This sprint contract derived from the project index, roadmap, PRD, TRD, architecture, Sprint 30 artifacts, and prior sprint reviews. |
+| Architecture reasoning | `projects/ultraplan-go/sprints/31-web-operations/reasoning/architecture.md` | Decision record for operation capabilities, app/web boundaries, mutation locks, cancellation ownership, graceful server draining and cancel-all shutdown, and recovery through durable product state. |
+| API design reasoning | `projects/ultraplan-go/sprints/31-web-operations/reasoning/api-design.md` | Decision record for confirmation, operation start/status/result/cancellation endpoints, SSE event schema, shutdown-visible operation states, error envelopes, and compatibility constraints. |
+| Frontend reasoning | `projects/ultraplan-go/sprints/31-web-operations/reasoning/frontend.md` | Decision record for browser confirmations, progress, result, finding, cancellation, server-shutdown interruption, failure, and recovery views using server-rendered pages plus minimal JavaScript. |
+| App operation use cases | `../ultraplan-go/internal/app/web_operations.go` | Typed prepare/start/status/cancel operation use cases over existing app operations, with normalized scope, fingerprints, runtime/model summaries, safe progress events, and canonical cancellation propagation. |
+| App operation tests | `../ultraplan-go/internal/app/web_operations_test.go` | Covers confirmation binding, supported operation mapping, explicit and server-shutdown cancellation, typed errors, redaction, and CLI/TUI/web agreement with fake dependencies. |
+| Sprint mutation lock support | `../ultraplan-go/internal/sprint/locks.go` | Product-owned per-sprint mutation exclusion for sprint flow, execute, review, smoke, and verify operations with actionable conflict diagnostics. |
+| Sprint lock tests | `../ultraplan-go/internal/sprint/locks_test.go` | Covers lock acquire/release, conflict reporting, cancellation cleanup, server-shutdown cleanup ordering, stale-lock handling policy, and non-overlap with existing study locks. |
+| Web operation hub | `../ultraplan-go/internal/web/operations.go` | Bounded ephemeral operation hub with operation IDs, cancellation functions, recent safe event buffers, subscribers, terminal results, short retention, server draining state, and cancel-all shutdown coordination. |
+| Web operation routes | `../ultraplan-go/internal/web/routes.go` | Adds the confirmed-operation, status/result, SSE, and cancellation routes while preserving Sprint 30 read-only routes and API error behavior. |
+| Web operation handlers | `../ultraplan-go/internal/web/handlers.go` | Maps HTTP requests to app operation use cases and renders JSON/HTML/SSE without importing product modules or CLI handlers. |
+| Web confirmation and CSRF/session support | `../ultraplan-go/internal/web/security.go` | Extends local HTTP security with short-lived same-origin mutation protection and confirmation-token validation. |
+| Web operation tests | `../ultraplan-go/internal/web/operations_test.go` | Covers operation lifecycle, retention, draining, rejection of new work during shutdown, cancellation of all active server-owned operations, bounded cleanup, result projection, conflict handling, redaction, and no durable web state. |
+| Web route/API tests | `../ultraplan-go/internal/web/routes_test.go` | Covers POST/DELETE methods, prepare/start/status/cancel route shape, API envelopes, method rejection, server-draining responses, and compatibility with Sprint 30 read-only endpoints. |
+| SSE tests | `../ultraplan-go/internal/web/sse_test.go` | Covers typed SSE events, monotonic event IDs, heartbeat comments, reconnect, buffer rollover, slow subscribers, disconnect behavior, server-shutdown cancellation events, and bounded stream closure. |
+| Browser operation templates | `../ultraplan-go/internal/web/templates/*.html` | Updates pages/partials for operation scope confirmation, progress, results, findings, failures, cancellation, server shutdown, interruption, and recovery guidance. |
+| Browser operation JavaScript | `../ultraplan-go/internal/web/static/*` | Minimal dependency-free progressive enhancement for prepare/start/cancel requests, EventSource subscription, reconnect, and durable-state refresh prompts. |
+| Web documentation | `../ultraplan-go/docs/local-web.md` | Documents guarded browser operations, confirmation flow, SSE progress, explicit cancellation, browser disconnect behavior, graceful server shutdown cancellation, recovery, local-only trust limits, and durable state authority. |
+| CLI/API documentation updates | `../ultraplan-go/docs/cli-reference.md` | Documents web operation behavior and server shutdown semantics as browser/API affordances over existing CLI/TUI use cases without changing CLI automation semantics. |
+| Architecture documentation updates | `../ultraplan-go/docs/architecture.md` | Documents operation-hub ephemerality, server-owned run lifecycle, graceful shutdown draining and cancellation, SSE as progress-only transport, app/product ownership, mutation locks, and no web-owned workflow state. |
+
+## Acceptance Criteria
+
+- [ ] `POST /api/v1/operations/prepare` returns a normalized operation scope, affected workspace/target paths, runtime/model or harness information when relevant, mutation class, current governed-input fingerprint, expiry, and a server-issued confirmation token bound to the normalized request.
+- [ ] Mutating or runtime-backed operations cannot start without a valid, unexpired, current confirmation token that matches the normalized start request and current input fingerprint.
+- [ ] Supported browser operations are limited to existing app use cases for validation, prompt preview, dry-run, sprint flow, execute, review, smoke, verify, study run-loop, operation status/result inspection, and explicit cancellation.
+- [ ] HTTP commands use `POST` for prepare/start and `DELETE` for cancellation; SSE is one-way progress only and cannot start, mutate, complete, fail, or cancel work.
+- [ ] The operation hub is bounded and ephemeral: it stores only safe recent events, subscribers, cancellation handles, and terminal results for short retention, and server restart recovery rereads durable product state.
+- [ ] Every operation started by the server is owned by the server lifecycle, including its root context, cancellation function, nested tasks, runtime or harness calls, process tree, locks, progress publication, cleanup, and durable terminal-state reconciliation; detached background runs that intentionally outlive the server are not supported.
+- [ ] SSE emits typed event names with monotonic event IDs, heartbeat comments, safe redacted payloads, and reconnect behavior that resumes from buffered events when available or instructs the browser to refresh durable status when not.
+- [ ] A disconnected or slow browser subscriber cannot block the underlying app operation, cannot change the operation result, and cancels only its own subscription.
+- [ ] Explicit cancellation reaches the shared app operation context, product/runtime cleanup path, or smoke-harness cleanup path as applicable, and leaves durable state recoverable from CLI, TUI, and browser status views.
+- [ ] Graceful server shutdown enters a draining state, rejects new operation starts, prevents queued work from beginning, records `reason: server_shutdown`, invokes every active operation's canonical cancellation function exactly once, propagates cancellation through nested tasks and owned process trees, waits for bounded cleanup and reconciliation, persists a truthful cancelled, interrupted, or cleanup-uncertain outcome, and only then closes SSE streams and exits.
+- [ ] A graceful shutdown deadline that expires must escalate cleanup for remaining owned process trees and record interruption or cleanup uncertainty; it must not report success, release mutation locks as though cleanup succeeded, or leave active child processes intentionally detached.
+- [ ] After a crash or forced termination, the next server start reconciles stale running operations and locks from durable product state, marks unresolved work interrupted or recovery-required, and never promotes stale running state to success.
+- [ ] Conflicting sprint mutations and existing study run-loop mutations fail with actionable conflict diagnostics rather than running concurrently; sprint mutation exclusion is owned by `internal/sprint`, not by HTTP middleware alone.
+- [ ] Structured API errors cover conflict, stale confirmation, invalid request, validation failure, runtime failure, cancellation, server draining, unavailable prerequisite, timeout, and internal failure without leaking secrets, raw provider payloads, unrestricted stderr, or absolute local paths.
+- [ ] Browser pages show operation scope before confirmation and show truthful progress, final result, findings, failures, explicit or server-shutdown cancellation status, stale/reconnect guidance, and recovery actions after completion or interruption.
+- [ ] `internal/web` does not import `internal/study`, `internal/project`, `internal/sprint`, runtime adapters, process adapters, or CLI handlers; HTTP handlers call typed `internal/app` use cases only.
+- [ ] Existing CLI and TUI behavior remain supported and unchanged except for shared app-use-case additions required by the web surface.
+- [ ] Normal verification passes with deterministic fakes: focused app operation tests, focused sprint lock tests, focused web operation/SSE/security/route/template tests, graceful-shutdown cancel-all and restart-reconciliation tests, `go test ./...`, `go test -race ./...`, and `go build ./cmd/ultraplan` from `../ultraplan-go`.
+
+## Non-Goals
+
+- Adding new product workflows, new sprint stages, or a browser-specific workflow engine is not included.
+- Detached or daemonized local operations that intentionally survive graceful server shutdown are not included; a future durable worker architecture must define separate leases, heartbeats, ownership, and reconciliation before survival across control-plane restart is allowed.
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 225,315p internal/tui/app.go
+}
+		return m, nil
+	default:
+		return m, nil
+	}
+}
+
+func (m teaModel) beginOperation(req app.OperationRequest) (tea.Model, tea.Cmd) {
+	opctx, cancel := context.WithCancel(m.ctx)
+	acceptedRunID := ""
+	if manager, ok := m.model.UseCases.(app.DurableOperationManager); ok && m.model.Confirmation != nil {
+		basis := m.model.Confirmation.CanonicalRequest + "\x00" + m.model.Confirmation.InputFingerprint
+		digest := sha256.Sum256([]byte(basis))
+		accepted, err := manager.AcceptOperation(opctx, *m.model.Confirmation, hex.EncodeToString(digest[:]))
+		if err != nil {
+			cancel()
+			m.model.Error = err.Error()
+			m.model.Loading = false
+			return m, nil
+		}
+		if accepted.Existing {
+			cancel()
+			m.model.Operation = &app.OperationResult{State: app.OperationState(accepted.Lifecycle), RunID: accepted.RunID, Message: "matching durable operation already exists"}
+			m.model.Confirmation = nil
+			return m, nil
+		}
+		acceptedRunID = accepted.RunID
+		if accepted.Context != nil {
+			opctx = accepted.Context
+		}
+	}
+	m.cancel = cancel
+	m.model.Running = true
+	m.model.Events = nil
+	m.model.Confirmation = nil
+	m.model.RunViewStudy = ""
+	m.model.ActiveOperation = req
+	m.model.OperationShowPrevious = false
+	m.model.OperationHidden = false
+	m.model.ActiveRunID = acceptedRunID
+	m.model.Operation = &app.OperationResult{State: app.OperationRunning, RunID: acceptedRunID, Subject: operationSubject(req), Message: "operation running; c requests durable cancellation; q keeps the run active"}
+	stream := make(chan app.OperationEvent, 128)
+	m.eventStream = stream
+	return m, tea.Batch(m.operationCmd(opctx, req, acceptedRunID, stream), waitOperationEvent(stream))
+}
+
+func runViewTickCmd() tea.Cmd {
+	return tea.Tick(time.Second, func(time.Time) tea.Msg { return runViewTickMsg{} })
+}
+
+func (m teaModel) confirmationCmd(req app.OperationRequest) tea.Cmd {
+	route := m.model.currentRoute()
+	return func() tea.Msg {
+		r, e := m.model.UseCases.PrepareOperation(m.ctx, req)
+		return ConfirmationMsg{Result: r, Err: e, Route: route}
+	}
+}
+func (m teaModel) operationCmd(ctx context.Context, req app.OperationRequest, runID string, stream chan app.OperationEvent) tea.Cmd {
+	route := m.model.currentRoute()
+	return func() tea.Msg {
+		defer close(stream)
+		r, e := m.model.UseCases.RunOperation(ctx, req, func(event app.OperationEvent) {
+			if manager, ok := m.model.UseCases.(app.DurableOperationManager); ok && runID != "" {
+				committed, err := manager.RecordOperationEvent(context.Background(), runID, event)
+				if err != nil && !errors.Is(err, app.ErrWebUnavailable) {
+					return
+				}
+				if err == nil && !committed {
+					return
+				}
+			}
+			select {
+			case stream <- event:
+			default:
+			}
+		})
+		r.RunID = runID
+		if manager, ok := m.model.UseCases.(app.DurableOperationManager); ok && runID != "" {
+			finishCtx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+			finishErr := manager.FinishOperation(finishCtx, runID, r.State, e)
+			cancel()
+			if finishErr != nil {
+				e = errors.Join(e, finishErr)
+			}
+		}
+		return OperationMsg{Result: r, Err: e, Route: route}
+	}
+}
+
+func waitOperationEvent(stream <-chan app.OperationEvent) tea.Cmd {
+	return func() tea.Msg {
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 1,50p internal/app/markdown.go && grep -n "type Service\|func NewService" internal/sprint/service.go internal/study/*.go | head
+package app
+
+import (
+	"bytes"
+	"fmt"
+
+	"github.com/yuin/goldmark"
+	"github.com/yuin/goldmark/extension"
+)
+
+// RenderSafeMarkdown converts bounded, app-owned Markdown artifact content to
+// safe HTML. Goldmark's default renderer omits raw HTML and filters unsafe link
+// destinations; the web adapter remains responsible for marking this reviewed
+// projection as trusted template content.
+func RenderSafeMarkdown(source string) (string, error) {
+	var out bytes.Buffer
+	markdown := goldmark.New(goldmark.WithExtensions(extension.GFM))
+	if err := markdown.Convert([]byte(source), &out); err != nil {
+		return "", fmt.Errorf("render safe markdown: %w", err)
+	}
+	return out.String(), nil
+}
+internal/sprint/service.go:21:type Service struct {
+internal/sprint/service.go:63:func NewService(root string) Service {
+internal/study/service.go:9:type Service struct {
+internal/study/service.go:36:func NewService(workspaceRoot string, opts ...Option) Service {
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 1,62p internal/sprint/service.go
+package sprint
+
+import (
+	"context"
+	"crypto/sha256"
+	"encoding/hex"
+	"errors"
+	"fmt"
+	"os"
+	"path/filepath"
+	"strings"
+	"sync"
+	"time"
+
+	pprocess "github.com/Antonio7098/ultraplan-go/internal/platform/process"
+	pruntime "github.com/Antonio7098/ultraplan-go/internal/platform/runtime"
+	"github.com/Antonio7098/ultraplan-go/internal/project"
+	"github.com/Antonio7098/ultraplan-go/internal/workspace"
+)
+
+type Service struct {
+	root              string
+	store             FSStore
+	now               func() time.Time
+	runtime           Runtime
+	runtimeConfig     pruntime.Request
+	runtimeProgress   func(RuntimeProgress)
+	stageRuntime      map[PlanningStage]StageRuntime
+	reviewConcurrency int
+	processRunner     pprocess.Runner
+	smokeSettings     SmokeSettings
+	mutations         *sync.Map
+	metricsMu         *sync.Mutex
+	statusWrites      bool
+	codeContextTarget func(string) (ExecuteTargetRef, []ValidationFinding)
+}
+
+func (s Service) WithReviewConcurrency(n int) Service { s.reviewConcurrency = n; return s }
+
+// WithClock supplies a deterministic clock for state-transition tests.
+func (s Service) WithClock(now func() time.Time) Service {
+	if now != nil {
+		s.now = now
+	}
+	return s
+}
+
+func (s Service) WithProcessRunner(runner pprocess.Runner) Service {
+	s.processRunner = runner
+	return s
+}
+
+func (s Service) WithSmokeSettings(settings SmokeSettings) Service {
+	s.smokeSettings = settings
+	return s
+}
+
+type StageRuntime struct {
+	Model   string
+	Variant string
+}
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 1,60p internal/app/app_test.go
+package app
+
+import (
+	"bytes"
+	"encoding/json"
+	"errors"
+	"os"
+	"path/filepath"
+	"strings"
+	"testing"
+)
+
+func TestRunHelp(t *testing.T) {
+	for _, tc := range []struct {
+		name string
+		args []string
+	}{
+		{name: "no args", args: nil},
+		{name: "long help", args: []string{"--help"}},
+		{name: "short help", args: []string{"-h"}},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			stdout, stderr, status := runForTest(tc.args)
+
+			if status != ExitOK {
+				t.Fatalf("status = %d, want %d", status, ExitOK)
+			}
+			if stderr != "" {
+				t.Fatalf("stderr = %q, want empty", stderr)
+			}
+			assertContains(t, stdout, "ultraplan")
+			assertContains(t, stdout, "Usage:")
+			assertContains(t, stdout, "init-workspace")
+			assertContains(t, stdout, "config")
+			assertContains(t, stdout, "health")
+			assertContains(t, stdout, "skills")
+			assertContains(t, stdout, "sprint")
+			assertContains(t, stdout, "version")
+
+			for _, deferred := range []string{
+				"runtime",
+				"summary",
+				"validation",
+				"target",
+			} {
+				assertNotContains(t, stdout, deferred)
+			}
+		})
+	}
+}
+
+func TestRunVersion(t *testing.T) {
+	stdout, stderr, status := runForTest([]string{"version"})
+
+	if status != ExitOK {
+		t.Fatalf("status = %d, want %d", status, ExitOK)
+	}
+	if stderr != "" {
+		t.Fatalf("stderr = %q, want empty", stderr)
+	}
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && timeout 600 go build ./... && timeout 900 go test ./internal/app/ 2>&1 | tail -5
+ok  	github.com/Antonio7098/ultraplan-go/internal/app	5.081s
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "run_control_run_id\|TraceID\|ParentRun" --include="*.go" internal | grep -v _test | head -20
+internal/app/run_control.go:124:	correlation := runcontrol.Correlation{ProductTaskID: boundedSafe(req.TraceID)}
+internal/app/run_control.go:147:	req.Metadata["run_control_run_id"] = string(snapshot.RunID)
+internal/platform/runtime/runtime.go:24:	TraceID       string
+internal/platform/runtime/runtime.go:25:	ParentTraceID string
+internal/sprint/service.go:1013:	if req.TraceID == "" {
+internal/sprint/service.go:1015:		req.TraceID = hex.EncodeToString(trace[:16])
+internal/sprint/service.go:1017:	req.Metadata["trace_id"] = req.TraceID
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 990,1060p internal/sprint/service.go && grep -n "TraceID" internal/platform/runtime/opencode.go | head
+findings = append(findings, planFindings...)
+	sortSprintFindings(findings)
+	return manifest, findings
+}
+
+func (s Service) runtimeRequest(prompt string, metadata map[string]string) pruntime.Request {
+	req := s.runtimeConfig
+	req.Prompt = prompt
+	req.WorkDir = s.root
+	req.Metadata = cloneMetadata(req.Metadata, metadata)
+	stage := strings.TrimSpace(metadata["stage"])
+	project := strings.TrimSpace(metadata["project"])
+	sprint := strings.TrimSpace(metadata["sprint"])
+	sum := sha256.Sum256([]byte(prompt))
+	checksum := hex.EncodeToString(sum[:])
+	req.PromptRef = pruntime.PromptReference{
+		ID:        "sprint." + stage,
+		Version:   "1",
+		OwnerKind: "sprint",
+		OwnerID:   project + "/" + sprint,
+		Purpose:   stage,
+		Checksum:  checksum,
+	}
+	if req.TraceID == "" {
+		trace := sha256.Sum256([]byte(project + "\x00" + sprint + "\x00" + stage + "\x00" + checksum + "\x00" + s.now().UTC().Format(time.RFC3339Nano)))
+		req.TraceID = hex.EncodeToString(trace[:16])
+	}
+	req.Metadata["trace_id"] = req.TraceID
+	req.Metadata["prompt_id"] = req.PromptRef.ID
+	req.Metadata["prompt_version"] = req.PromptRef.Version
+	req.Metadata["prompt_checksum"] = req.PromptRef.Checksum
+	explanation := explainComposedPrompt(prompt)
+	if explanation.CacheCandidate {
+		req.Cache = pruntime.CacheDirective{Key: explanation.CacheKey, BreakpointBytes: explanation.CacheBreakpoint, PrefixDigest: explanation.SharedPrefixDigest, Mode: "stable-prefix"}
+		req.Metadata["prompt_prefix_bytes"] = fmt.Sprintf("%d", explanation.SharedPrefixBytes)
+		req.Metadata["prompt_suffix_bytes"] = fmt.Sprintf("%d", explanation.StageSuffixBytes)
+		req.Metadata["prompt_prefix_sha256"] = explanation.SharedPrefixDigest
+		req.Metadata["prompt_cache_transport"] = explanation.CacheTransport
+	}
+	if stage := PlanningStage(metadata["stage"]); stage != "" {
+		contract := InputContract(stage)
+		req.Metadata["prompt_required_inputs"] = contract.requiredMetadata()
+		if len(contract.Optional) > 0 {
+			req.Metadata["prompt_optional_inputs"] = strings.Join(contract.Optional, ",")
+		}
+		if override, ok := s.stageRuntime[stage]; ok {
+			if override.Model != "" {
+				req.Provider, req.Model = splitProviderModel(override.Model)
+			}
+			if override.Variant != "" {
+				req.Metadata["variant"] = override.Variant
+				req.Metadata["reasoning_effort"] = override.Variant
+			}
+		}
+	}
+	if s.runtimeProgress != nil {
+		configured := req.OnEvent
+		stage := PlanningStage(metadata["stage"])
+		task := metadata["task"]
+		coverageID := metadata["coverage"]
+		req.OnEvent = func(event pruntime.Event) {
+			if configured != nil {
+				configured(event)
+			}
+			s.runtimeProgress(RuntimeProgress{Stage: stage, Task: task, CoverageID: coverageID, Event: event})
+		}
+	}
+	return req
+}
+
+func (s Service) repairGeneratedArtifact(ctx context.Context, req pruntime.Request, previous pruntime.Result, path string, findings []ValidationFinding, validate func() []ValidationFinding) (pruntime.Result, []ValidationFinding, error) {
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && ls internal/runcontrol/ && grep -n "func.*Accept(" internal/runcontrol/*.go | head
+benchmark_test.go
 doc.go
-keys.go
-markdown.go
+errors.go
+fault_test.go
+id.go
+id_test.go
+import_boundary_test.go
+interfaces.go
+lifecycle.go
+lifecycle_test.go
+local_log.go
+local_log_test.go
+metrics.go
+migration.go
+migration_test.go
 model.go
 model_test.go
-run_view_test.go
-test_fakes_test.go
-theme.go
-verify_test.go
-viewport.go
-viewport_test.go
-views.go
-views_test.go
-internal/tui/app.go:13:	"github.com/Antonio7098/ultraplan-go/internal/app"
-internal/tui/model.go:9:	"github.com/Antonio7098/ultraplan-go/internal/app"
-internal/tui/views.go:8:	"github.com/Antonio7098/ultraplan-go/internal/app"
+process_darwin.go
+process.go
+process_integration_test.go
+process_linux.go
+process_other.go
+retention.go
+retention_test.go
+sanitize.go
+sanitize_test.go
+sqlite.go
+sqlite_test.go
+internal/runcontrol/sqlite.go:378:func (r *SQLiteRepository) Accept(ctx context.Context, input Acceptance) (snapshotResult Snapshot, resultErr error) {
 [0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/app.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_commands.go
-[0m✱ [0mGrep "Sprint Goal"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 7 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/index.go[90m [limit=100][0m
-[0m✱ [0mGrep "func [A-Z]\w*\("[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint · 100 matches[0m
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/server.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/sprint_usecases.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/study_commands.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations.go
-[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operation_handlers.go
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 370,440p internal/runcontrol/sqlite.go && grep -n "OperationAlias\|operation_alias" internal/runcontrol/*.go | grep -v _test | head
+return nil
+	}
+	if err := r.db.Close(); err != nil {
+		return classifyStoreError("close", "close run-control database failed", err)
+	}
+	return nil
+}
+
+func (r *SQLiteRepository) Accept(ctx context.Context, input Acceptance) (snapshotResult Snapshot, resultErr error) {
+	metricStarted := time.Now()
+	defer func() { r.metrics.acceptance.observe(metricStarted, resultErr) }()
+	if ctx == nil {
+		ctx = context.Background()
+	}
+	if usage, err := r.storageBytes(); err != nil {
+		return Snapshot{}, err
+	} else if usage >= r.retention.HardQuotaBytes*80/100 {
+		if _, compactErr := r.Compact(ctx, 64); compactErr != nil {
+			return Snapshot{}, compactErr
+		}
+	}
+	if usage, err := r.storageBytes(); err != nil {
+		return Snapshot{}, err
+	} else if usage >= r.softQuota {
+		return Snapshot{}, wrapError(CodeQuota, "accept_quota", "run-control soft quota prevents new acceptance", true, nil)
+	}
+	if err := input.Target.Validate(); err != nil {
+		return Snapshot{}, err
+	}
+	if err := input.Correlation.Validate(); err != nil {
+		return Snapshot{}, err
+	}
+	if len(input.ProductStatus) > MaxSafeValueBytes || len(input.ConfirmationDigest) > MaxSafeValueBytes {
+		return Snapshot{}, invalidField("acceptance", "contains an unbounded status or confirmation digest")
+	}
+	runID := input.RunID
+	var err error
+	if runID == "" {
+		runID, err = r.ids.NewRunID()
+		if err != nil {
+			return Snapshot{}, err
+		}
+	}
+	if err := runID.Validate(); err != nil {
+		return Snapshot{}, err
+	}
+	correlation, err := marshalBounded(input.Correlation, MaxSafeValueBytes*8)
+	if err != nil {
+		return Snapshot{}, err
+	}
+	now := r.now()
+	tx, err := r.db.BeginTx(ctx, nil)
+	if err != nil {
+		if ctxErr := ctx.Err(); ctxErr != nil {
+			return Snapshot{}, ctxErr
+		}
+		return Snapshot{}, classifyStoreError("accept_begin", "begin durable acceptance failed", err)
+	}
+	defer tx.Rollback()
+	_, err = tx.ExecContext(ctx, `
+INSERT INTO runs (
+    run_id, target_kind, operation_kind, project_id, sprint_id, study_id, stage_id, task_id,
+    lifecycle, liveness, record_state, accepted_at, updated_at, correlation_json,
+    product_status, confirmation_digest, cancellation_state
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+		string(runID), input.Target.Kind, input.Target.Operation, input.Target.Project, input.Target.Sprint,
+		input.Target.Study, input.Target.Stage, input.Target.Task, string(LifecycleAccepted), string(LivenessUnknown),
+		string(RecordFull), formatTime(now), formatTime(now), correlation, input.ProductStatus,
+		input.ConfirmationDigest, string(CancellationNone))
+	if err != nil {
+		if isConstraint(err) {
+internal/runcontrol/interfaces.go:51:	ResolveOperationAlias(context.Context, string) (Snapshot, error)
+internal/runcontrol/model.go:449:	OperationAlias     string
+internal/runcontrol/sqlite.go:306:CREATE TABLE IF NOT EXISTS operation_aliases (
+internal/runcontrol/sqlite.go:340:CREATE INDEX IF NOT EXISTS idx_operation_aliases_run ON operation_aliases(run_id, alias_id);
+internal/runcontrol/sqlite.go:445:	if input.OperationAlias != "" {
+internal/runcontrol/sqlite.go:446:		if len(input.OperationAlias) > MaxSafeValueBytes || strings.ContainsAny(input.OperationAlias, "\x00\r\n") {
+internal/runcontrol/sqlite.go:447:			return Snapshot{}, invalidField("operation_alias", "must be a bounded opaque value")
+internal/runcontrol/sqlite.go:449:		if _, err := tx.ExecContext(ctx, `INSERT INTO operation_aliases (alias_id, run_id, alias_kind, created_at) VALUES (?, ?, 'operation', ?)`, input.OperationAlias, string(runID), formatTime(now)); err != nil {
+internal/runcontrol/sqlite.go:472:func (r *SQLiteRepository) ResolveOperationAlias(ctx context.Context, alias string) (Snapshot, error) {
+internal/runcontrol/sqlite.go:474:		return Snapshot{}, invalidField("operation_alias", "must be a bounded opaque value")
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace && grep -rln "durable run\|run-control\|run control" system/contracts/core/observability.md projects/ultraplan-go/sprints/12-durable-run-loop/requirements.md 2>/dev/null | head && grep -n "parent\|child\|hierarch\|session run\|per-session\|one run per" projects/ultraplan-go/sprints/12-durable-run-loop/requirements.md | head -10
+projects/ultraplan-go/sprints/12-durable-run-loop/requirements.md
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace && grep -rn "one durable run\|durable run per\|run per task\|per agent session\|every runtime\|each runtime" projects/ultraplan-go/sprints/*/requirements.md system/contracts/core/observability.md 2>/dev/null | head -12
+(no output)
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace && sed -n 1,50p projects/ultraplan-go/sprints/12-durable-run-loop/requirements.md
+# Sprint Requirements: 12 Durable Run Loop
+
+> Project: `ultraplan-go`
+> Sprint: `12-durable-run-loop`
+> Purpose: the authoritative, human-readable sprint contract. All other sprint artifacts must satisfy these requirements.
+
+## Sprint Goal
+
+Implement `ultraplan study <study> run-loop` as durable, resumable study orchestration with atomic state updates, bounded execution, retry/fallback metadata, cancellation handling, stale-task recovery, and per-study locking.
+
+## Required Outputs
+
+| Output | Path | Description |
+| ---------- | -------- | --------------- |
+| Requirements | `projects/ultraplan-go/sprints/12-durable-run-loop/requirements.md` | This sprint contract defining scope, outputs, acceptance criteria, constraints, dependencies, and review expectations. |
+| Sprint index | `projects/ultraplan-go/sprints/12-durable-run-loop/sprint-index.md` | Selected contracts, evidence reports, docs, protocols, prior decisions, and exclusions for durable run-loop implementation. |
+| Technical handbook | `projects/ultraplan-go/sprints/12-durable-run-loop/technical-handbook.md` | Sprint-specific implementation guidance for durable orchestration, locking, state transitions, retry metadata, cancellation, status, and fake-runtime verification. |
+| Area reasoning | `projects/ultraplan-go/sprints/12-durable-run-loop/reasoning/durable-run-loop.md` | Detailed reasoning for run-loop state machines, resume policy, stale-running recovery, retry/fallback persistence, lock semantics, and trade-offs. |
+| Consolidated reasoning | `projects/ultraplan-go/sprints/12-durable-run-loop/reasoning.md` | Decision log summarizing the selected design and mapping decisions to requirements, docs, contracts, and prior sprint follow-ups. |
+| Implementation plan | `projects/ultraplan-go/sprints/12-durable-run-loop/plan.md` | Ordered implementation checklist with verification commands and review evidence expectations. |
+| Sprint review | `projects/ultraplan-go/sprints/12-durable-run-loop/review.md` | Completed review recording acceptance evidence, deviations, residual risks, and carry-forward follow-ups. |
+| Durable run-loop orchestration | `/home/antonioborgerees/coding/ultraplan-go/internal/study/run_loop.go` | Study-owned run-loop execution for creating/loading state, scheduling pending tasks, handling retries, unblocking synthesis, persisting transitions, and completing runs. |
+| Run-loop lock handling | `/home/antonioborgerees/coding/ultraplan-go/internal/study/locks.go` | Per-study lock acquisition, stale-lock detection, release, and force-unlock support for `run-loop`. |
+| Run-state domain updates | `/home/antonioborgerees/coding/ultraplan-go/internal/study/domain.go` | Durable task status, run-loop request/result, retry/fallback, cancellation, lock, runtime metadata, cost/usage, and diagnostic fields needed by the state machine. |
+| Run-state construction and resume updates | `/home/antonioborgerees/coding/ultraplan-go/internal/study/run_state.go` | Deterministic initial task state, resume validation, stale-running reconciliation, completed-output revalidation, and status summary updates. |
+| Run-state persistence updates | `/home/antonioborgerees/coding/ultraplan-go/internal/study/state.go` | Atomic load/save behavior, schema compatibility or rejection behavior, and persistence hooks needed by durable run-loop execution. |
+| Study service wiring | `/home/antonioborgerees/coding/ultraplan-go/internal/study/service.go` | Public study service method and dependencies required to invoke `run-loop` without leaking CLI concerns into study logic. |
+| CLI command wiring | `/home/antonioborgerees/coding/ultraplan-go/internal/app/study_commands.go` | Thin CLI handling for `ultraplan study <study> run-loop`, lock-related flags, cancellation wiring, status rendering updates, and documented help text. |
+| Run-loop tests | `/home/antonioborgerees/coding/ultraplan-go/internal/study/run_loop_test.go` | Fake-runtime tests for initial state creation, resume, bounded scheduling, retries, fallback metadata, synthesis unblocking, cancellation, stale recovery, and terminal states. |
+| Lock tests | `/home/antonioborgerees/coding/ultraplan-go/internal/study/locks_test.go` | Tests for lock creation, concurrent-lock refusal, conservative stale-lock behavior, force-unlock behavior, and lock cleanup on terminal exit. |
+| State tests | `/home/antonioborgerees/coding/ultraplan-go/internal/study/state_test.go` | Updated tests for atomic writes, schema compatibility or rejection, resume persistence, completed-output revalidation, and prior-state preservation on write failure. |
+| CLI run-loop tests | `/home/antonioborgerees/coding/ultraplan-go/internal/app/study_run_loop_commands_test.go` | Command-level tests for arguments, flags, help, exit codes, cancellation, lock failures, resume behavior, and fake-runtime outcomes. |
+| CLI status tests | `/home/antonioborgerees/coding/ultraplan-go/internal/app/study_status_commands_test.go` | Updated command tests showing durable run-loop status, retry times, active/recent tasks, failures, cancelled tasks, and safe diagnostics without runtime calls. |
+
+## Acceptance Criteria
+
+- [ ] `ultraplan study <study> run-loop` is available in study help and command help with documented flags for filters, parallelism, retry/cancellation behavior, and lock override or force-unlock behavior.
+- [ ] Starting `run-loop` with no existing state creates `studies/<study>/.ultraplan/run-state.json` from the deterministic applicable task matrix, preserving source/dimension filters and excluding inapplicable Markdown document source/dimension pairs.
+- [ ] Starting `run-loop` with an existing state loads and validates the state before scheduling work; malformed, unsupported, or unsafe state fails before runtime launch with an actionable diagnostic.
+- [ ] If the run-state schema changes, the implementation either migrates compatible prior state or rejects unsupported prior state with a tested, explicit error; it must not silently reinterpret unknown durable formats.
+- [ ] Every meaningful task transition is persisted atomically to `run-state.json`, including pending, running, retrying or waiting, validating, completed, failed, cancelled, skipped, and synthesis-unblocked transitions.
+- [ ] Atomic state writes use a same-directory temporary file, flush/close, rename, and best-effort directory sync; tests prove a failed write preserves the prior valid state.
+- [ ] `run-loop` acquires a per-study lock before mutating run state, refuses a second concurrent `run-loop`, records PID, command, and timestamp in the lock file, and releases the lock on normal terminal exit.
+- [ ] Stale lock handling is conservative: the command must not delete an active-looking lock automatically, and any force-unlock path must be explicit, tested, and scoped to the selected study.
+- [ ] Stale running tasks from a prior interrupted process are recovered on resume by resetting them to a safe schedulable or terminal state according to the selected policy, preserving attempt/error history and recording the recovery decision in state/status.
+- [ ] Completed analysis and synthesis tasks are revalidated on resume before being trusted; missing or invalid artifacts move the affected task back to a non-completed state or a failed state with a clear validation diagnostic.
+- [ ] Analysis tasks reuse existing single-run prompt composition, runtime request mapping, workdir rules, permission policy mapping, runtime event handling, and per-source report validation.
+- [ ] Synthesis tasks are scheduled only when all applicable selected per-source reports for a dimension exist and pass validation; synthesis reuses existing synthesis prompt composition and final-report validation.
+- [ ] The scheduler uses bounded workers and never starts more runtime tasks concurrently than the resolved configuration or CLI override allows.
+- [ ] Cancellation through context or user interrupt stops new scheduling, cancels active runtime runs through the platform runtime boundary, waits for owned runs to finish cleanup, saves state, records cancelled or retryable active tasks, and exits with the existing cancellation exit-code convention.
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace && grep -n "operation\|session\|correlation\|trace" projects/ultraplan-go/sprints/35-durable-run-observability/requirements.md | head -25
+11:The sprint repairs the operational control plane exposed by real use: CLI-started work must appear in the browser running-process indicator, a run opened through another server must retain useful history and continue with live events, and a browser session or server restart must not turn a legitimate run into an unexplained `404 Operation not retained` dead end.
+13:This sprint does not change the authority of project, sprint, study, or Markdown artifacts. Durable operational run state is a separate product concern from the later gated decision about alternate persistence for authored product content.
+19:| Run identity and lifecycle model | A stable workspace-scoped run ID, attempt identity, operation/stage identity, timestamps, ownership/liveness facts, safe correlation fields, and one arbitrated terminal outcome exist independently of a browser session, HTTP server process, or event subscriber. |
+20:| Durable run repository and event journal | Accepted runs and sanitized progress events are durably recorded before they are advertised as observable; events have monotonic per-run ordering and can be replayed after reconnect, session expiry, or server restart. The reasoning and plan stages select the concrete package and storage mechanism. |
+21:| Workspace-wide active-run projection | CLI, TUI, dashboard, project, sprint, study, and local web surfaces derive running counts and run lists from the same workspace-wide lifecycle model rather than the current web process's in-memory operation map or only the page currently being viewed. |
+22:| Stable run inspection | A durable run detail surface reports identity, target, lifecycle state, latest heartbeat, stage/task progress, safe diagnostics, event history, terminal result, and recovery guidance. Read visibility is not coupled to the browser session that started the work. |
+26:| Compatibility and migration | Current sprint/study locks, flow state, execute state, runtime checkpoints, operation URLs, and JSON clients have an explicit migration or compatibility story. Legacy or expired operation links resolve to a durable run, a retained tombstone, or precise recovery guidance rather than a generic dashboard error. |
+27:| Operational telemetry | Structured logs, local metrics, diagnostics, and optional traces share run/attempt/stage/task/runtime correlation. Operator-visible health distinguishes storage failure, stale ownership, reconciliation backlog, replay gap, subscriber lag/drop, and cancellation uncertainty. |
+28:| Verification and fault injection | Deterministic, race, integration, and browser tests prove CLI-to-web discovery, multiple local servers, refresh/reconnect replay, session expiry, server restart, abrupt owner death, stale leases, PID reuse, slow subscribers, bounded storage, duplicate cancellation, and terminal-state races. |
+29:| Documentation | Architecture, PRD, TRD, CLI/API, local-web, operations, and recovery documentation explain the lifecycle model, authority boundaries, visibility guarantees, retention behavior, diagnostic workflow, compatibility policy, and intentionally unresolved design choices. |
+37:- Refreshing a page, rotating or expiring a browser session, restarting the observing server, or losing an SSE connection does not erase the run identity or turn a valid run into an unexplained 404.
+42:- Durable operational records do not become a shadow authority for `requirements.md`, `code-context.md`, flow-state outcomes, generated artifacts, Git/source state, or external smoke evidence.
+56:6. What identifiers and hierarchy are needed between user operation, product run, stage execution, task attempt, agentwrap run, provider session, OS process, and external smoke-harness run?
+60:10. Which run fields and historical events are readable across browser sessions, and what fresh authorization is required for cancel, retry, or other mutations?
+61:11. How should legacy `/operations/{id}` URLs, API clients, current lock files, `.flow-state.json`, `.run-state.json`, and runtime session checkpoints map into the new model without fabricating history?
+81:- The run must exist independently of the process that presents it, the browser session that requested it, the transport used to observe it, and any single in-memory subscriber hub.
+85:- Commands and cancellation remain explicit operations; event streaming remains an observation channel.
+86:- Required operational state commits use atomic/durable semantics appropriate to the chosen store. A successful HTTP response or visible running badge must not precede the authoritative acceptance record.
+94:- Sprint 31 guarded operations, SSE, cancellation, locking, reconnect, and shutdown behavior.
+96:- Sprint 34 shared-context real-runtime dogfood, which supplied the cross-surface operational evidence for this sprint.
+101:- Current agentwrap event, observing runtime, run-store, cancellation, session, cleanup, and process-identity capabilities.
+102:- Existing workspace lock, sprint flow state, execute run state, study run state, runtime session checkpoint, and external smoke evidence formats.
+108:- trace a run from acceptance through owner lease, runtime attempt, durable events, surface projections, and terminal arbitration
+113:- test session expiry, old URLs, replay cursors, retention gaps, slow consumers, corrupt/torn records, disk-full behavior, and redaction
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -n "RecordOperationEvent\|ErrWebUnavailable" internal/tui/test_fakes_test.go | head && grep -rn "NewOperationalUseCases\|NewReadOnlyUseCases" docs/ 2>/dev/null | head
+(no output)
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "OperationalUseCases\|ReadOnlyUseCases" docs/*.md | head && ls docs/
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -n "internal/app\|use case\|use-case" docs/architecture.md | head -20
+4:local interfaces adapt shared typed application use cases.
+12:cmd/ultraplan -> internal/app
+16:internal/tui -> internal/app
+17:internal/web -> internal/app
+18:internal/app -> product and platform modules
+21:This composition avoids the prohibited `internal/app -> internal/web ->
+22:internal/app` cycle. Runners are ordinary injected functions; there is no
+31:`internal/app/web_usecases.go` owns the browser query facade, while the closed
+32:operation capability in `internal/app/operations.go` is shared with the TUI. It
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 1,80p internal/app/health_commands.go
+package app
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/Antonio7098/ultraplan-go/internal/platform/config"
+	runtimepkg "github.com/Antonio7098/ultraplan-go/internal/platform/runtime"
+	"github.com/Antonio7098/ultraplan-go/internal/workspace"
+)
+
+type healthCheck struct {
+	ID       string `json:"id"`
+	Name     string `json:"name"`
+	Status   string `json:"status"`
+	Message  string `json:"message,omitempty"`
+	Guidance string `json:"guidance,omitempty"`
+}
+
+type healthResult struct {
+	SchemaVersion int           `json:"schema_version"`
+	Runtime       string        `json:"runtime,omitempty"`
+	Workspace     string        `json:"workspace,omitempty"`
+	Config        string        `json:"config,omitempty"`
+	Checks        []healthCheck `json:"checks"`
+}
+
+var runtimeHealthChecks = runRuntimeHealth
+
+func runHealth(deps dependencies, args []string) error {
+	jsonOut := false
+	for _, arg := range args {
+		switch arg {
+		case "--help", "-h":
+			_, err := deps.stdout.Write([]byte(healthHelp()))
+			return err
+		case "--json":
+			jsonOut = true
+		default:
+			return classified(ExitUsage, "health: unknown argument %q", arg)
+		}
+	}
+	var checks []healthCheck
+	root, err := discoverWorkspace(deps)
+	if err != nil {
+		checks = append(checks, healthCheck{ID: "workspace.discovery", Name: "workspace.discovery", Status: "fail", Message: config.RedactValue("workspace.error", err.Error()), Guidance: "run from an UltraPlan workspace or pass --workspace"})
+		if jsonOut {
+			_ = writeJSON(deps.stdout, "health", "", "fail", healthResult{SchemaVersion: 1, Checks: checks})
+		}
+		return err
+	}
+	checks = append(checks, healthCheck{ID: "workspace.discovery", Name: "workspace.discovery", Status: "ok", Message: workspace.Rel(root.Path, root.Path)})
+	validation := workspace.Validate(root.Path)
+	if validation.Valid {
+		checks = append(checks, healthCheck{ID: "workspace.structure", Name: "workspace.structure", Status: "ok"})
+	} else {
+		checks = append(checks, healthCheck{ID: "workspace.structure", Name: "workspace.structure", Status: "fail", Message: config.RedactValue("workspace.structure", validation.Issues[0]), Guidance: "run 'ultraplan init-workspace' or restore required workspace files"})
+	}
+	effective, cfgErr := loadEffectiveConfig(root, deps, config.CLIOverrides{JSON: jsonOut})
+	if cfgErr == nil {
+		checks = append(checks, healthCheck{ID: "config.validation", Name: "config.validation", Status: "ok"})
+	} else {
+		checks = append(checks, healthCheck{ID: "config.validation", Name: "config.validation", Status: "fail", Message: config.RedactValue("config.error", cfgErr.Error()), Guidance: "fix ultraplan.yml or CLI overrides"})
+	}
+	checks = append(checks, healthCheck{ID: "filesystem.read", Name: "filesystem.read", Status: "ok", Message: workspace.MarkerFile})
+	checks = append(checks, healthCheck{ID: "environment.overrides", Name: "environment.overrides", Status: "ok", Message: envSummary(deps)})
+	runtimeFailed := false
+	if cfgErr == nil {
+		runtimeChecks, err := runtimeHealthChecks(deps.ctx, root.Path, effective.Config)
+		checks = append(checks, sanitizeHealthChecks(runtimeChecks)...)
+		if err != nil {
+			runtimeFailed = true
+		}
+	}
+	result := healthResult{SchemaVersion: 1, Workspace: root.Path, Checks: checks}
+	if cfgErr == nil {
+		result.Runtime = effective.Config.Runtime.Default
+		result.Config = "valid"
+	} else {
+		result.Config = "invalid"
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "equivalent progress coalesced" internal --include="*.go" | grep -v _test && echo === && grep -rn "sprintOverview\|Overview" internal/app/web_usecases_test.go internal/web/*_test.go 2>/dev/null | head -8
+internal/app/durable_operations.go:159:			omission = &runcontrol.Omission{Reason: "equivalent progress coalesced"}
+internal/app/durable_operations.go:231:		_, _, appendErr := appendRunEventWithRetry(ctx, m.repository, owned.fence, runcontrol.EventDraft{Type: runcontrol.EventOmission, Omission: &runcontrol.Omission{Reason: "equivalent progress coalesced", Count: owned.omitted, FirstAt: &owned.omittedFirst, LastAt: &owned.omittedLast}})
+internal/app/run_control.go:190:				draft.Omission = &runcontrol.Omission{Reason: "equivalent progress coalesced"}
+internal/app/run_control.go:268:				Reason: "equivalent progress coalesced", Count: progressOmitted,
+===
+internal/web/templates_test.go:265:	for _, want := range []string{`aria-label="Artefact navigation"`, `>Overview</a>`, ">Definition</summary>", ">Delivery</summary>", "/projects/alpha/sprints/30-web/artifacts/artifact_ref"} {
+internal/web/templates_test.go:330:		for _, want := range []string{">Overview</a>", ">Docs</a>", ">Sprints</a>"} {
+internal/web/templates_test.go:371:func TestDetailOverviewPagesStayFocused(t *testing.T) {
+internal/web/test_fakes_test.go:35:		Overview: "Make sprint delivery easier to understand.", Assessment: "pass", NextAction: "Continue to review.",
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "sprintOverview" internal/app/*_test.go; grep -rn "RecordOperationEvent" internal/web/operations_test.go internal/app/durable_operations_test.go | head -8
+internal/app/durable_operations_test.go:39:	committed, err := manager.RecordOperationEvent(ctx, accepted.RunID, OperationEvent{State: OperationRunning, Stage: "execute", Task: "task-1", Message: "not stored", Completed: 1, Total: 2, EventType: "tool.completed", EventKind: "tool", Tool: "bash"})
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "internal/" internal/tui/*.go | grep -v _test | grep import -A2; awk '/^import \(/,/^\)/' internal/tui/app.go internal/tui/model.go internal/tui/views.go 2>/dev/null | grep "internal/" | sort -u
+"github.com/Antonio7098/ultraplan-go/internal/app"
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 630,700p internal/app/study_commands.go
+--reset             Archive existing study progress and rebuild it from the current study graph.
+  --yes, -y           Replace existing study progress without prompting. Only applies with --reset.
+
+By default, run-loop resumes shared study progress and filters only choose which slice is eligible to advance. The run-loop persists studies/<study>/.ultraplan/run-state.json after each meaningful task transition, appends execution history to studies/<study>/.ultraplan/runs/tasks.jsonl, refreshes studies/<study>/.ultraplan/runs/summary.md, cancels through the runtime boundary on interrupt, and refuses concurrent invocations unless --force-unlock is used.
+`
+}
+
+func parsePositiveIntFlag(name, value string) (int, error) {
+	n, err := strconv.Atoi(value)
+	if err != nil {
+		return 0, fmt.Errorf("%s must be an integer", name)
+	}
+	if n < 1 {
+		return 0, fmt.Errorf("%s must be at least 1", name)
+	}
+	return n, nil
+}
+
+func runAllService(deps dependencies, root workspace.Root, flags runAllFlags) (study.Service, int, error) {
+	effective, err := loadEffectiveConfig(root, deps, config.CLIOverrides{})
+	if err != nil {
+		return study.Service{}, 0, err
+	}
+	parallelism := effective.Config.Execution.DefaultParallel
+	if flags.parallelism != nil {
+		parallelism = *flags.parallelism
+	}
+	if parallelism < 1 {
+		return study.Service{}, 0, classified(ExitConfig, "study run-all: parallelism must be at least 1")
+	}
+	req, err := runtimepkg.RequestFromConfig(effective.Config, root.Path)
+	if err != nil {
+		return study.Service{}, 0, classified(ExitConfig, "runtime.config: %w", err)
+	}
+	rt, err := studyRuntimeFactory(effective.Config)
+	if err != nil {
+		return study.Service{}, 0, classified(ExitRuntime, "runtime.init: %w", err)
+	}
+	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+	if err != nil {
+		return study.Service{}, 0, classified(ExitRuntime, "run-control.init: %w", err)
+	}
+	return study.NewService(root.Path, study.WithRuntime(controlled, req)), parallelism, nil
+}
+
+func renderRunAllResult(deps dependencies, result study.RunAllResult) {
+	fmt.Fprintf(deps.stdout, "Run-all: %s\n", result.Status)
+	fmt.Fprintf(deps.stdout, "Study: %s\n", result.Study.Name)
+	fmt.Fprintf(deps.stdout, "Parallelism: %d\n", result.Parallelism)
+	fmt.Fprintf(deps.stdout, "Completed: %d\n", result.Counts.Completed)
+	fmt.Fprintf(deps.stdout, "Failed: %d\n", result.Counts.Failed)
+	fmt.Fprintf(deps.stdout, "Skipped: %d\n", result.Counts.Skipped)
+	fmt.Fprintf(deps.stdout, "Pending: %d\n", result.Counts.Pending)
+	fmt.Fprintf(deps.stdout, "Summary: %s\n", workspace.Rel(result.Study.Path, result.SummaryPath))
+	for _, item := range append(append([]study.ExecutionResult{}, result.Analysis...), result.Synthesis...) {
+		if item.Status == study.ExecutionStatusCompleted {
+			continue
+		}
+		fmt.Fprintf(deps.stderr, "%s %s", item.TaskKind, item.Status)
+		if item.Dimension.Ref() != "" {
+			fmt.Fprintf(deps.stderr, " %s", item.Dimension.Ref())
+		}
+		if item.Source.Name != "" {
+			fmt.Fprintf(deps.stderr, " %s", item.Source.Name)
+		}
+		if item.RuntimeCategory != "" {
+			fmt.Fprintf(deps.stderr, ": %s", item.RuntimeCategory)
+		}
+		fmt.Fprintln(deps.stderr)
+	}
+	for _, warning := range result.Warnings {
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rn "studyRuntimeFactory =\|studyRuntimeFactory=" internal/app/*_test.go | head -5 && sed -n 20,26p internal/app/study_commands.go
+internal/app/study_run_commands_test.go:195:	studyRuntimeFactory = func(config.Config) (study.Runtime, error) {
+internal/app/study_run_commands_test.go:198:	return func() { studyRuntimeFactory = old }
+internal/app/study_status_commands_test.go:90:	studyRuntimeFactory = func(config.Config) (study.Runtime, error) {
+internal/app/study_status_commands_test.go:94:	defer func() { studyRuntimeFactory = orig }()
+internal/app/study_validate_commands_test.go:81:	studyRuntimeFactory = func(config.Config) (study.Runtime, error) {
+)
+
+var studyRuntimeFactory = func(c config.Config) (study.Runtime, error) {
+	return runtimepkg.NewOpenCode(c)
+}
+
+func runStudy(deps dependencies, args []string) error {
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -rln "t.Parallel" internal/app/*_test.go | head -3; echo "---"; sed -n 1,40p internal/app/code_commands.go
+---
+package app
+
+import (
+	"bytes"
+	"fmt"
+	"os"
+	"path/filepath"
+	"strings"
+
+	"github.com/Antonio7098/ultraplan-go/internal/codeextract"
+)
+
+type codeFlags struct {
+	json    bool
+	output  string
+	reports []string
+}
+
+func runCode(deps dependencies, args []string) error {
+	if len(args) == 0 {
+		return classified(ExitUsage, "code requires at least one report\n\nRun 'ultraplan code --help' for usage.")
+	}
+	if len(args) == 1 && (args[0] == "--help" || args[0] == "-h") {
+		_, err := deps.stdout.Write([]byte(codeHelp()))
+		return err
+	}
+	flags, err := parseCodeArgs(args)
+	if err != nil {
+		return classified(ExitUsage, "code: %w", err)
+	}
+	root, err := discoverWorkspace(deps)
+	if err != nil {
+		return err
+	}
+	reports := make([]string, 0, len(flags.reports))
+	for _, report := range flags.reports {
+		path := report
+		if !filepath.IsAbs(path) {
+			path = filepath.Join(deps.workDir, path)
+		}
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -n "publishAppEvent" -A 12 internal/web/operations.go | sed -n 1,16p
+232:		h.publishAppEvent(record, event)
+233-	})
+234-	if manager, ok := h.ops.(app.DurableOperationManager); ok {
+235-		finishCtx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+236-		finishErr := manager.FinishOperation(finishCtx, record.doc.ID, result.State, runErr)
+237-		cancel()
+238-		if finishErr != nil && !errors.Is(finishErr, app.ErrWebUnavailable) {
+239-			runErr = errors.Join(runErr, finishErr)
+240-		}
+241-	}
+242-	h.finish(record, result, runErr)
+243-}
+244-
+245:func (h *operationHub) publishAppEvent(record *operationRecord, event app.OperationEvent) {
+246-	if manager, ok := h.ops.(app.DurableOperationManager); ok {
+247-		committed, err := manager.RecordOperationEvent(context.Background(), record.doc.ID, event)
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n 245,262p internal/web/operations.go && sed -n 282,296p internal/tui/app.go
+func (h *operationHub) publishAppEvent(record *operationRecord, event app.OperationEvent) {
+	if manager, ok := h.ops.(app.DurableOperationManager); ok {
+		committed, err := manager.RecordOperationEvent(context.Background(), record.doc.ID, event)
+		if err != nil && !errors.Is(err, app.ErrWebUnavailable) {
+			record.cancel()
+			return
+		}
+		if err == nil && !committed {
+			return
+		}
+	}
+	name := "progress"
+	if event.State == app.OperationFailed {
+		name = "warning"
+	}
+	payload := map[string]any{
+		"state": string(event.State), "stage": safeWebText(event.Stage), "task": safeWebText(event.Task),
+		"message": safeWebText(event.Message), "completed": event.Completed, "total": event.Total, "attempt": event.Attempt,
+func (m teaModel) operationCmd(ctx context.Context, req app.OperationRequest, runID string, stream chan app.OperationEvent) tea.Cmd {
+	route := m.model.currentRoute()
+	return func() tea.Msg {
+		defer close(stream)
+		r, e := m.model.UseCases.RunOperation(ctx, req, func(event app.OperationEvent) {
+			if manager, ok := m.model.UseCases.(app.DurableOperationManager); ok && runID != "" {
+				committed, err := manager.RecordOperationEvent(context.Background(), runID, event)
+				if err != nil && !errors.Is(err, app.ErrWebUnavailable) {
+					return
+				}
+				if err == nil && !committed {
+					return
+				}
+			}
+			select {
+[0m
