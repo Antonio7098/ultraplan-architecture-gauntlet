@@ -1,7 +1,7 @@
 {
   "version": 1,
   "created_at": "2026-08-22T11:46:58.055387891Z",
-  "updated_at": "2026-08-25T10:25:19.119427642Z",
+  "updated_at": "2026-08-25T10:48:44.34062162Z",
   "target_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go",
   "target_commit": "eeaa034cb1e520ea10e806870f6026cf1bb6c4f7",
   "workspace_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace",
@@ -1132,8 +1132,10 @@
       "role": "arch-synth",
       "focus": "Resolve presentation, priority, and disputes across the three independent syntheses and six chairs. Do not invent findings. Produce the final architecture-review.md package.",
       "broad": true,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-25T10:25:22.958938834Z",
+      "completed_at": "2026-08-25T10:48:44.340578108Z"
     }
   ]
 }

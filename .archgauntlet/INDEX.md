@@ -121,5 +121,5 @@ Target: `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go`
 
 ## Arbiter
 
-- `arbiter-01` — **pending** — Chief architect arbiter — [result](runs/arbiter-01/stdout.md)
+- `arbiter-01` — **succeeded** — Chief architect arbiter — [result](runs/arbiter-01/stdout.md)
 
