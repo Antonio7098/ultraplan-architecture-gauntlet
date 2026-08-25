@@ -1,7 +1,7 @@
 {
   "version": 1,
   "created_at": "2026-08-22T11:46:58.055387891Z",
-  "updated_at": "2026-08-24T21:21:47.755950745Z",
+  "updated_at": "2026-08-25T09:07:13.909377289Z",
   "target_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go",
   "target_commit": "eeaa034cb1e520ea10e806870f6026cf1bb6c4f7",
   "workspace_path": "/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace",
@@ -1024,8 +1024,10 @@
       "role": "arch-chair",
       "focus": "Challenge candidate findings concerning study, project, sprint, artifacts, prompt/context ownership, and module boundaries. Try to make weak findings disappear.",
       "broad": true,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 2,
+      "started_at": "2026-08-24T22:33:34.656775859Z",
+      "completed_at": "2026-08-25T09:07:13.90935955Z"
     },
     {
       "id": "chair-02",
@@ -1034,8 +1036,10 @@
       "role": "arch-chair",
       "focus": "Challenge findings concerning runcontrol, runtime, process, concurrency, ownership leases, cancellation, terminal arbitration, and failure semantics.",
       "broad": true,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-24T21:21:51.555731977Z",
+      "completed_at": "2026-08-24T22:04:33.085250016Z"
     },
     {
       "id": "chair-03",
@@ -1044,8 +1048,10 @@
       "role": "arch-chair",
       "focus": "Challenge findings concerning filesystem, SQLite/productstate, migrations, durable/derived/ephemeral truth, consistency, and recovery.",
       "broad": true,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-24T21:23:25.936626185Z",
+      "completed_at": "2026-08-24T21:50:32.2995374Z"
     },
     {
       "id": "chair-04",
@@ -1054,8 +1060,10 @@
       "role": "arch-chair",
       "focus": "Challenge findings concerning app composition, CLI/TUI/web, HTTP/SSE, presentation state, and cross-surface parity.",
       "broad": true,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-24T21:50:32.304103972Z",
+      "completed_at": "2026-08-24T22:01:10.11911706Z"
     },
     {
       "id": "chair-05",
@@ -1064,8 +1072,10 @@
       "role": "arch-chair",
       "focus": "Challenge findings concerning security, errors, observability, testing, performance, and operational claims.",
       "broad": true,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-24T22:01:10.129820935Z",
+      "completed_at": "2026-08-24T22:33:04.568423712Z"
     },
     {
       "id": "chair-06",
@@ -1074,8 +1084,10 @@
       "role": "arch-chair",
       "focus": "Challenge findings concerning simplicity, abstraction, change locality, agent legibility, documentation drift, and roadmap fitness.",
       "broad": true,
-      "status": "pending",
-      "attempts": 0
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-24T22:04:33.088339445Z",
+      "completed_at": "2026-08-24T22:32:38.8052193Z"
     },
     {
       "id": "synth-01",

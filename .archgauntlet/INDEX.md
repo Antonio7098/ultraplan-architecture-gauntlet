@@ -106,12 +106,12 @@ Target: `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go`
 
 ## Chair
 
-- `chair-01` — **pending** — Product/domain tribunal synthesis — [result](runs/chair-01/stdout.md)
-- `chair-02` — **pending** — Execution tribunal synthesis — [result](runs/chair-02/stdout.md)
-- `chair-03` — **pending** — State tribunal synthesis — [result](runs/chair-03/stdout.md)
-- `chair-04` — **pending** — Interface tribunal synthesis — [result](runs/chair-04/stdout.md)
-- `chair-05` — **pending** — Quality tribunal synthesis — [result](runs/chair-05/stdout.md)
-- `chair-06` — **pending** — Evolution tribunal synthesis — [result](runs/chair-06/stdout.md)
+- `chair-01` — **succeeded** — Product/domain tribunal synthesis — [result](runs/chair-01/stdout.md)
+- `chair-02` — **succeeded** — Execution tribunal synthesis — [result](runs/chair-02/stdout.md)
+- `chair-03` — **succeeded** — State tribunal synthesis — [result](runs/chair-03/stdout.md)
+- `chair-04` — **succeeded** — Interface tribunal synthesis — [result](runs/chair-04/stdout.md)
+- `chair-05` — **succeeded** — Quality tribunal synthesis — [result](runs/chair-05/stdout.md)
+- `chair-06` — **succeeded** — Evolution tribunal synthesis — [result](runs/chair-06/stdout.md)
 
 ## Synth
 

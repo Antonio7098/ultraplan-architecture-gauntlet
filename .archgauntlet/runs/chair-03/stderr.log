@@ -1,0 +1,714 @@
+[93m[1m! [0m agent "arch-chair" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/finding-contract.md
+[0m
+[0m$ [0mls -la /home/antonioborgerees/coding/ultraplan/gauntlet-run/ 2>/dev/null && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/.archgauntlet/ 2>/dev/null
+total 0
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  62 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees 490 Aug 23 19:29 ..
+drwxr-xr-x. 1 antonioborgerees antonioborgerees 136 Aug 22 16:23 ultraplan-go
+drwxr-xr-x. 1 antonioborgerees antonioborgerees 158 Aug 22 16:23 ultraplan-workspace
+[0m
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/synthesis-contract.md[90m [command=ls -la .archgauntlet/ 2>/dev/null; ls .archgauntlet/runs 2>/dev/null; ls -la /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet 2>/dev/null || echo "gauntlet-run copy does not exist", workdir=/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet][0m
+[0m
+[0m$ [0mls -la .archgauntlet/ 2>/dev/null; ls .archgauntlet/runs 2>/dev/null; ls -la /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet 2>/dev/null || echo "NO gauntlet-run copy"
+total 60
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    70 Aug 24 22:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   226 Aug 24 20:54 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees    95 Aug 24 22:21 index.md
+-rw-r--r--. 1 antonioborgerees antonioborgerees 10795 Aug 24 22:21 INDEX.md
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   768 Aug 24 22:21 logs
+-rw-r--r--. 1 antonioborgerees antonioborgerees 44483 Aug 24 22:23 review.json
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  2236 Aug 22 16:22 runs
+arbiter-01
+chair-01
+chair-02
+chair-03
+chair-04
+chair-05
+chair-06
+challenge-01
+challenge-02
+challenge-03
+challenge-04
+challenge-05
+challenge-06
+change-01
+change-02
+change-03
+change-04
+change-05
+change-06
+change-07
+change-08
+failure-01
+failure-02
+failure-03
+failure-04
+failure-05
+failure-06
+failure-07
+failure-08
+failure-09
+failure-10
+failure-11
+failure-12
+generalist-01
+generalist-02
+generalist-03
+generalist-04
+scout-01
+scout-02
+scout-03
+scout-04
+scout-05
+scout-06
+specialist-01a
+specialist-01b
+specialist-02a
+specialist-02b
+specialist-03a
+specialist-03b
+specialist-04a
+specialist-04b
+specialist-05a
+specialist-05b
+specialist-06a
+specialist-06b
+specialist-07a
+specialist-07b
+specialist-08a
+specialist-08b
+specialist-09a
+specialist-09b
+specialist-10a
+specialist-10b
+specialist-11a
+specialist-11b
+specialist-12a
+specialist-12b
+specialist-13a
+specialist-13b
+specialist-14a
+specialist-14b
+specialist-15a
+specialist-15b
+specialist-16a
+specialist-16b
+specialist-17a
+specialist-17b
+specialist-18a
+specialist-18b
+specialist-19a
+specialist-19b
+specialist-20a
+specialist-20b
+specialist-21a
+specialist-21b
+specialist-22a
+specialist-22b
+specialist-23a
+specialist-23b
+specialist-24a
+specialist-24b
+synth-01
+synth-02
+synth-03
+NO gauntlet-run copy
+[0m
+[0m$ [0mls -la .archgauntlet/runs/chair-03/ && echo "---" && ls -la .archgauntlet/runs/challenge-03/ 2>/dev/null | head -20
+total 8
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 22:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees 2236 Aug 22 16:22 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees 3599 Aug 22 16:25 prompt.md
+-rw-r--r--. 1 antonioborgerees antonioborgerees 3198 Aug 24 22:24 stderr.log
+-rw-r--r--. 1 antonioborgerees antonioborgerees    0 Aug 24 22:23 stdout.md
+---
+total 84
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    56 Aug 24 20:17 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  2236 Aug 22 16:22 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3606 Aug 22 16:25 prompt.md
+-rw-r--r--. 1 antonioborgerees antonioborgerees 54315 Aug 24 21:35 stderr.log
+-rw-r--r--. 1 antonioborgerees antonioborgerees 24300 Aug 24 21:37 stdout.md
+[0m
+[0m→ [0mRead .archgauntlet/INDEX.md
+[0m→ [0mRead .archgauntlet/runs/chair-03/prompt.md
+[0m→ [0mRead .archgauntlet/runs/chair-03/stderr.log
+[0m→ [0mRead .archgauntlet/runs/challenge-03/stdout.md
+[0m
+[0m$ [0mgit -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go log --oneline -1 && git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go status --porcelain | wc -l && git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace log --oneline -1
+eeaa034 observability: promote nested runtime payload facts to top level
+0
+368a789 Add UltraPlan daemon and event system study
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -n "sqlite\|modernc" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/go.mod
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+14:	modernc.org/sqlite v1.57.0
+48:	modernc.org/libc v1.74.4 // indirect
+49:	modernc.org/mathutil v1.7.1 // indirect
+50:	modernc.org/memory v1.11.0 // indirect
+[0m
+[0m• [0mVerify restore sidecar claims[90m Arch-Worker Agent[0m
+[0m• [0mVerify study history ledger claims[90m Arch-Worker Agent[0m
+[0m• [0mVerify productstate governance claims[90m Arch-Worker Agent[0m
+[0m• [0mSummarize filesystem-stage outputs[90m Arch-Worker Agent[0m
+[0m✗ [0mVerify restore sidecar claims failed[90m Arch-Worker Agent[0m
+[91m[1mError: [0mSubagent failed (task_id: ses_fca5515d6ffe3SII3MfVkVAzsi): [Stealth] stealth/ox-alpha is temporarily rate-limited upstream. Please retry shortly.
+[0m✓ [0mVerify study history ledger claims[90m Arch-Worker Agent[0m
+[0m✓ [0mVerify productstate governance claims[90m Arch-Worker Agent[0m
+[0m✓ [0mSummarize filesystem-stage outputs[90m Arch-Worker Agent[0m
+[0m• [0mProvenance and execute-summary evidence[90m Arch-Worker Agent[0m
+[0m✓ [0mProvenance and execute-summary evidence[90m Arch-Worker Agent[0m
+[0m• [0mVerify restore sidecar claims[90m Arch-Worker Agent[0m
+[0m✗ [0mVerify restore sidecar claims failed[90m Arch-Worker Agent[0m
+[91m[1mError: [0mSubagent failed (task_id: ses_fca47d2feffeF1sgKqRQAzv0w9): [Stealth] stealth/ox-alpha is temporarily rate-limited upstream. Please retry shortly.
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go
+[0m
+[0m$ [0mrg -n -- "-wal|-shm" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go --glob '!*.sum' | head -30; echo "=== callers of RestoreBackup ==="; rg -n "RestoreBackup" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+rg: --glob: No such file or directory (os error 2)
+rg: !*.sum: No such file or directory (os error 2)
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/scripts/reset-opencode-db.sh:131:    rm -f "$database_path" "${database_path}-shm" "${database_path}-wal"
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/scripts/reset-opencode-db.sh:139:rm -f "${database_path}-shm" "${database_path}-wal"
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/scripts/reset-opencode-db.sh:177:  rm -f "$old_path" "${old_path}-shm" "${old_path}-wal"
+=== callers of RestoreBackup ===
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration_test.go:137:	if err := RestoreBackup(context.Background(), root, filepath.Base(backup)); err != nil {
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration_test.go:138:		t.Fatalf("RestoreBackup: %v", err)
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go:293:// RestoreBackup replaces the stopped workspace database with one bounded,
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go:296:func RestoreBackup(ctx context.Context, workspaceRoot, backupName string) error {
+[0m
+[0m$ [0mrg -ln "SCOUT-05-F01|SCOUT-05-F03|reconcileUnclaimed|sanitize allowlist|allowlist drops" .archgauntlet/runs/*/stdout.md
+.archgauntlet/runs/chair-03/stdout.md
+.archgauntlet/runs/failure-10/stdout.md
+.archgauntlet/runs/challenge-03/stdout.md
+.archgauntlet/runs/challenge-02/stdout.md
+.archgauntlet/runs/challenge-05/stdout.md
+.archgauntlet/runs/failure-09/stdout.md
+.archgauntlet/runs/failure-02/stdout.md
+.archgauntlet/runs/scout-05/stdout.md
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration_test.go[90m [offset=85, limit=75][0m
+[0m
+[0m$ [0mrg -n "restore|backup|WAL|wal" docs/recovery.md | head -40; echo === ; rg -n "database_path=" scripts/reset-opencode-db.sh | head -5
+85:- `smoke evidence`: restore immutable run/issue evidence or rerun the sufficient suite. Do not copy raw evidence into the sprint.
+217:Schema migrations create private timestamped backups next to
+218:`.ultraplan/run-control.db` (maximum three retained backups and 512 MiB per
+219:backup). Restoration is an offline procedure: stop every UltraPlan process for
+220:the workspace, keep the backup unchanged, restore the matching UltraPlan
+221:binary, and use the tested restore path before reopening the workspace. Never
+222:copy only the database while a WAL writer is active. An unsupported newer
+227:with reliable SQLite locking/WAL semantics. Move the workspace to such a
+===
+59:database_path="$(opencode db path)"
+[0m
+[0m$ [0mrg -n "SCOUT-05-F01|SCOUT-05-F03|reconcileUnclaimed|allowlist" .archgauntlet/runs/challenge-02/stdout.md .archgauntlet/runs/challenge-05/stdout.md .archgauntlet/runs/failure-02/stdout.md | head -30
+.archgauntlet/runs/failure-02/stdout.md:7:- `internal/runcontrol`: `doc.go`, `model.go`, `lifecycle.go` (Heartbeat, RequestCancellation/Acknowledge, Reconcile, reconcileUnclaimed, reconcileProcessDecision), `sqlite.go` (Claim fencing, ProposeTerminal arbitration), `process.go`/`process_linux.go`/`process_darwin.go`, `fault_test.go`, `process_integration_test.go`
+.archgauntlet/runs/failure-02/stdout.md:72:- **“A dead owner’s unclaimed run leaves fabricated or adoptable evidence.”** Rejected: `reconcileUnclaimed` records `interrupted`/`owner_never_claimed_after_grace` with no invented attempt or process identity (lifecycle.go:427-479, tested :127-175), matching recovery.md:206-209.
+.archgauntlet/runs/challenge-02/stdout.md:27:- `internal/runcontrol/lifecycle.go` (full — Heartbeat, RequestCancellation/AcknowledgeCancellation, List/cursor, Reconcile, `reconcileUnclaimed`, `markStalled`, `recordReconciliation`), `sqlite.go` (Append/Claim/ProposeTerminal/verifyFence region :560–820, schema/CHECK regions, `classifyStoreError` :1085–1108, `isConstraint`, `expiredLeasePredicate`, `reservedEventType`, health query), `retention.go` (full), `sanitize.go` (full), `model.go` constants (:427–481)
+.archgauntlet/runs/challenge-02/stdout.md:158:**Claim:** The durable-event payload contract is jointly owned by three layers with no shared definition or round-trip test, and it has already drifted: the producer promotes `title/detail/text/delta/content/native_type/line` for durable carriage (commit c455510's stated goal), the storage allowlist silently drops all of them except `tool/action/message/state/status`, and consumers read exactly the dropped keys.
+.archgauntlet/runs/challenge-02/stdout.md:164:- Same drop hits web-operation events built in durable_operations.go:148–152 (`detail` key not allowlisted).
+.archgauntlet/runs/challenge-02/stdout.md:171:**Counter-evidence searched:** strict-allowlist-as-security-policy is plausible for the *gate itself* — but it cannot explain the consumer expectations and commit intent contradicting it; browser JS reads mostly surviving keys, so degradation is partial; no aliasing/normalization exists downstream of Append.
+.archgauntlet/runs/challenge-02/stdout.md:175:**Provenance:** confirms SCOUT-05-F01, SCOUT-06-F01, SPECIALIST-07B-F01. **Priority recalibrated from the prior P1s:** no lifecycle, arbitration, or correctness impact; bounded to observability fidelity and change-cost — the true P1s in this scope are F01/F03. Kept at P2 because the failure semantics actively misreport ("unsafe") and the drift is guaranteed to recur.
+.archgauntlet/runs/challenge-02/stdout.md:363:2. **"`reconcileUnclaimed`'s direct INSERT+CAS is a present-day double-arbiter bug"** (challenging SCOUT-05-F03's framing). Partially rejected as defect: `ProposeTerminal` structurally requires a bound attempt an unclaimed run cannot have; predicates are semantically equivalent today; no test exercises the unclaimed shape, so it stands only as duplication risk (P3 hygiene), not the P2 its priority implied.
+.archgauntlet/runs/challenge-02/stdout.md:376:2. **Is the `sanitize.go` allowlist widening (F05) slated for review in unfinished sprint-35 slices** (requirements exist; no reasoning/plan/review artifacts in the workspace)? If the strict gate is ratified as policy, the remedy flips from "extend list" to "document gate as authoritative and fix commit/consumer expectations."
+.archgauntlet/runs/challenge-05/stdout.md:14:- **F01 (P1)**: Sanitize-gate/promotion drift re-derived end-to-end — producers promote `title/detail/text/delta/…`, gate drops them, durable consumers read exactly those keys (`run_handlers.go:288`), zero pinning tests; plus new nuance: eeaa034's namespaced keys are structurally impossible to pass the fixed allowlist.
+.archgauntlet/runs/challenge-05/stdout.md:22:**Open questions (3)**: allowlist policy ratification, F02 root cause, near-quota WAL transience.
+.archgauntlet/runs/challenge-05/stdout.md:24:**Evidence:** REALITY. Producer promotes `tool,title,detail,text,delta,content,message,action,state,status,native_type,line` plus namespaced `<field>_<sub>` keys (`internal/app/run_control.go:435,438,479-486`); allowlist permits none of `title/detail/text/delta/content/output/native_type/line` or any namespaced key (`internal/runcontrol/sanitize.go:10-17`), applied on every append (`sqlite.go:617`), incrementing `"unsafe event detail omitted"` (`sanitize.go:30-44`). Durable web timeline reads precisely the doomed keys: `firstNonEmptyPayload(event.Payload, "text","delta","detail","message","content","title","output")` (`web/run_handlers.go:288`) rendered at `templates/run.html:18` (`data-run-text`, `.run-event-detail`), omission total shown (`run.html:11`); TUI renders omission counts (`tui/views.go:338-339`). `sanitize.go` untouched since initial commit `e09d394` while `c455510` ("surface agent stream details in durable run events") and `eeaa034` ("promote nested runtime payload facts to top level") touched only producers. No test in `runcontrol/*_test.go`, `app/run_control_test.go`, `durable_operations_test.go`, or `web/run_handlers_test.go` asserts survival of any promoted key through Append→Events (grep verified empty). New nuance beyond prior outputs: eeaa034's namespaced keys are *structurally impossible* to pass the gate (not enumerable in a fixed allowlist), and the coalescing hash is computed pre-sanitization over draft payload (`run_control.go:177-178`), so events differing only in gate-doomed keys never coalesce — inflating durable rows while their content is discarded.
+.archgauntlet/runs/challenge-05/stdout.md:25:**Architectural reason:** drift / change-surface — the allowlist is the documented final redaction authority but nothing connects it to producer promotion lists; adding one observable field requires synchronized edits across `platform/runtime`, `app/run_control.go`, and `runcontrol/sanitize.go` with no shared contract or integration test.
+.archgauntlet/runs/challenge-05/stdout.md:27:**Counter-evidence searched:** alternative unsanitized read path (none — Append is sole write path); live-SSE bypass making durable loss irrelevant (production passes no Notifier — `OpenSQLite` call sites `run_control.go:54`, `storage_commands.go:60`; consumers poll repository events); tests asserting intentional drop (none); docs ratifying strictness post-c455510 (none found). Corroborates SCOUT-05-F01, SCOUT-06-F01, SPECIALIST-07A/B, GENERALIST-04-F01, CHALLENGE-02 F05 — independently re-derived here.
+.archgauntlet/runs/challenge-05/stdout.md:51:**Counter-evidence searched:** richer inputs available to copy 2 (result.State carries only Cancelled/Failed/Partial/Succeeded — no Timeout state exists in the enum path); intentional conflation rationale in docs/comments (none found); whether reconciler disambiguates later (no — `reconcileUnclaimed`/probe decisions are independent copies #4/#5, `lifecycle.go:446-495`). Refines SPECIALIST-07B F02 with full site enumeration.
+.archgauntlet/runs/challenge-05/stdout.md:71:**Claim:** The smoke environment builder returns nil when its allowlist yields nothing, and `process.DirectRunner` treats nil env as inherit-parent — so deny-by-default silently inverts to allow-all exactly in the hardened-environment case the allowlist exists for.
+.archgauntlet/runs/challenge-05/stdout.md:72:**Evidence:** REALITY. `smoke_protocol.go:635-641`: `var env []string` appended only for non-empty getenv hits → nil when all lookups fail (e.g., cleared-env sandbox); default allowlist PATH/HOME/TMPDIR/LANG/LC_ALL (`smoke_types.go:53`) supplies names but values come from the parent environment. `process/process.go:84-86`: `cmd.Env = append([]string(nil), req.Env...)` → nil → Go exec semantics inherit `os.Environ()` wholesale.
+.archgauntlet/runs/challenge-05/stdout.md:86:**Concrete consequence:** allowlisted fields carrying nested values (e.g., `message` built from a map) store `map[foo:bar]` Go syntax instead of JSON; downstream consumers parsing or diffing durable payloads get misleading artifacts; oversize nested values bypass the promised truncation inside the helper (outer bounds eventually catch them).
+.archgauntlet/runs/challenge-05/stdout.md:131:**Claim:** Secret VALUE markers diverge between the durable storage gate and the config-display classifier: tokens like `xoxb-…`/AWS secret keys are caught for config display but not for durable event payloads, so a secret embedded in an allowlisted field value persists everywhere.
+.archgauntlet/runs/challenge-05/stdout.md:135:**Counter-evidence searched:** whether the field ALLOWLIST already dominates (largely yes for KEY names — only 28 fixed names pass, none credential-like, so the fragmented KEY-lists concern mostly dissolves; the residual risk is precisely VALUES of allowlisted fields, where the divergence is real); whether unify-into-one-classifier is viable (no — see rejected hypotheses). Narrows GENERALIST-02's five-engine claim to the defensible kernel.
+.archgauntlet/runs/challenge-05/stdout.md:141:- **"Unify the five redaction engines into one shared classifier" (GENERALIST-02 remedy). Rejected.** `runcontrol` is test-enforced to import only stdlib + sqlite + x/sys (`import_boundary_test.go:12-39`), and each layer filters a different domain (storage keys/values, producer keys, config key+value, projected display text, argv fragments). A shared classifier couples the durable leaf to `platform/config` and adds translation indirection without removing any list. Correct scope is marker-set alignment at the value level (F10) and allowlist ownership clarity (F01).
+.archgauntlet/runs/challenge-05/stdout.md:143:- **"agentwrap inheriting `os.Environ()` leaks secrets into an untrusted process" (SPECIALIST-14A strong form). Defended.** The opencode harness is the component that consumes provider credentials by design; docs direct secrets to the runtime-native environment (`user-guide.md:94`); `WithEnv` is intentionally additive (`opencode.go:21`), and the smoke path — the actually untrusted boundary — is deny-by-default via explicit minimal allowlist (`smoke_protocol.go:623-642`). Residual kernel captured as F05.
+.archgauntlet/runs/challenge-05/stdout.md:148:- **Web security posture concerns. Rejected.** Loopback-only enforced pre-bind and post-bind (`serve_commands.go:92-112`, `server.go:167-177`), HttpOnly+SameSite=Strict cookies, host pinning, origin proofs, CSRF header on API mutations with one-time preparation store for form mutations, 64 KiB body cap (`security.go:134-169`); static assets from embed allowlist; artifact refs are opaque HMAC-mapped with symlink+containment checks (`web_usecases.go:892-910`). CSPRNG-failure fallbacks are impractical to trigger and validity doesn't hinge on them (concur with SPECIALIST-21B).
+.archgauntlet/runs/challenge-05/stdout.md:152:1. **F01 remedy direction:** was the strict allowlist ratified as policy after c455510 (flips remedy from "extend list" to "retract producer/consumer expectations")? Same open question CHALLENGE-02 posed; author answer decides.
+[0m
+[0m$ [0mls "$(go env GOMODCACHE)/modernc.org/" 2>/dev/null | head; mkdir -p /tmp/opencode/waltest
+cc
+ccgo
+fileutil@v1.4.0
+gc
+goabi0@v0.2.0
+libc@v1.72.3
+libc@v1.74.4
+mathutil@v1.7.1
+memory@v1.11.0
+opt@v0.2.0
+[0m
+[0m$ [0mls "$(go env GOMODCACHE)/modernc.org/" | grep -i sqlite; ls "$(go env GOMODCACHE)/cache/download/modernc.org/sqlite/@v/" 2>/dev/null | head
+sqlite@v1.51.0
+sqlite@v1.57.0
+list
+v1.51.0.info
+v1.51.0.lock
+v1.51.0.mod
+v1.51.0.zip
+v1.51.0.ziphash
+v1.57.0.info
+v1.57.0.lock
+v1.57.0.mod
+v1.57.0.zip
+[0m
+[0m$ [0mcat > /tmp/opencode/waltest/go.mod <<'EOF'
+module waltest
+
+go 1.24
+
+require modernc.org/sqlite v1.57.0
+EOF
+grep -c . /tmp/opencode/waltest/go.mod
+3
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go[90m [limit=50, offset=59][0m
+[0m
+[0m$ [0mcat > /tmp/opencode/waltest/main.go <<'EOF'
+package main
+
+import (
+	"database/sql"
+	"fmt"
+	"os"
+
+	_ "modernc.org/sqlite"
+)
+
+func dsn(path string) string {
+	return "file:" + path + "?_busy_timeout=5000&_foreign_keys=on&_journal_mode=WAL&_synchronous=FULL&_txlock=immediate"
+}
+
+func mustOpen(path string) *sql.DB {
+	db, err := sql.Open("sqlite", dsn(path))
+	if err != nil {
+		panic(err)
+	}
+	if err := db.Ping(); err != nil {
+		panic(err)
+	}
+	return db
+}
+
+func main() {
+	switch os.Args[1] {
+	case "setup": // phase 1: create, seed, checkpoint, backup; then commit newer and crash WITHOUT close
+		os.RemoveAll("/tmp/opencode/waltest/data")
+		os.MkdirAll("/tmp/opencode/waltest/data", 0o755)
+		db := mustOpen("/tmp/opencode/waltest/data/run.db")
+		db.Exec(`CREATE TABLE runs(id INTEGER PRIMARY KEY, name TEXT)`)
+		db.Exec(`INSERT INTO runs(name) VALUES ('original')`)
+		var busy, logFrames, ckpt int
+		if err := db.QueryRow(`PRAGMA wal_checkpoint(TRUNCATE)`).Scan(&busy, &logFrames, &ckpt); err != nil {
+			panic(err)
+		}
+		db.Close()
+		// clean close: does the -wal survive?
+		if _, err := os.Stat("/tmp/opencode/waltest/data/run.db-wal"); err == nil {
+			info, _ := os.Stat("/tmp/opencode/waltest/data/run.db-wal")
+			fmt.Printf("AFTER-CLEAN-CLOSE wal size=%d\n", info.Size())
+		} else {
+			fmt.Println("AFTER-CLEAN-CLOSE wal deleted")
+		}
+		// operator takes a file-copy backup (consistent: no writers)
+		src, _ := os.ReadFile("/tmp/opencode/waltest/data/run.db")
+		os.WriteFile("/tmp/opencode/waltest/data/run.db.bak", src, 0o600)
+		// new session commits newer data, then CRASHES without Close
+		db2 := mustOpen("/tmp/opencode/waltest/data/run.db")
+		if _, err := db2.Exec(`INSERT INTO runs(name) VALUES ('newer')`); err != nil {
+			panic(err)
+		}
+		db2.Exec(`PRAGMA wal_checkpoint(PASSIVE)`) // ensure frames hit the -wal file
+		os.Exit(1)                                 // simulate SIGKILL: -wal/-shm left on disk
+	case "restore-keep-wal": // operator restores db but leaves stale sidecars
+		os.Rename("/tmp/opencode/waltest/data/run.db.bak", "/tmp/opencode/waltest/data/run.db")
+		for _, suf := range []string{"-wal", "-shm"} {
+			if _, err := os.Stat("/tmp/opencode/waltest/data/run.db" + suf); err == nil {
+				fmt.Printf("stale %s present\n", suf)
+			}
+		}
+		report()
+	case "restore-clean-sidecars": // operator restores db AND deletes stale sidecars
+		os.Rename("/tmp/opencode/waltest/data/run.db.bak", "/tmp/opencode/waltest/data/run.db")
+		os.Remove("/tmp/opencode/waltest/data/run.db-wal")
+		os.Remove("/tmp/opencode/waltest/data/run.db-shm")
+		report()
+	}
+}
+
+func report() {
+	db := mustOpen("/tmp/opencode/waltest/data/run.db")
+	defer db.Close()
+	rows, err := db.Query(`SELECT name FROM runs ORDER BY id`)
+	if err != nil {
+		fmt.Println("OPEN/QUERY FAILED:", err)
+		return
+	}
+	defer rows.Close()
+	var names []string
+	for rows.Next() {
+		var n string
+		rows.Scan(&n)
+		names = append(names, n)
+	}
+	fmt.Printf("ROWS-AFTER-RESTORE: %v\n", names)
+}
+EOF
+cd /tmp/opencode/waltest && GOFLAGS=-mod=mod GOPROXY=off go build . && echo BUILD-OK
+BUILD-OK
+[0m
+[0m$ [0mcd /tmp/opencode/waltest && ./waltest setup; echo "--- exit=$? (simulated crash)"; ls -la data/ | grep run.db; ./waltest restore-keep-wal; echo "=== now with sidecars removed ==="; ./waltest setup >/dev/null 2>&1; ./waltest restore-clean-sidecars
+AFTER-CLEAN-CLOSE wal deleted
+--- exit=1 (simulated crash)
+-rw-r--r--. 1 antonioborgerees antonioborgerees  8192 Aug 24 22:45 run.db
+-rw-------. 1 antonioborgerees antonioborgerees  8192 Aug 24 22:45 run.db.bak
+-rw-r--r--. 1 antonioborgerees antonioborgerees 32768 Aug 24 22:45 run.db-shm
+-rw-r--r--. 1 antonioborgerees antonioborgerees  4152 Aug 24 22:45 run.db-wal
+stale -wal present
+stale -shm present
+ROWS-AFTER-RESTORE: [original newer]
+=== now with sidecars removed ===
+ROWS-AFTER-RESTORE: [original]
+[0m
+[0m$ [0msed -n '90,110p;195,235p' internal/study/run_history.go; echo "=== run_loop.go 68-78 ==="; sed -n '68,78p' internal/study/run_loop.go
+path := RunHistoryPath(study)
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return err
+	}
+	file, err := os.OpenFile(path, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0o644)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+	data, err := json.Marshal(record)
+	if err != nil {
+		return err
+	}
+	if _, err := file.Write(append(data, '\n')); err != nil {
+		return err
+	}
+	existing[record.Key] = true
+	return nil
+}
+
+func SyncRunHistory(study Study, state RunState) error {
+	return readRunHistory(file)
+}
+
+func readRunHistory(r io.Reader) ([]RunHistoryRecord, error) {
+	scanner := bufio.NewScanner(r)
+	scanner.Buffer(make([]byte, 0, 64*1024), 4*1024*1024)
+	var records []RunHistoryRecord
+	for scanner.Scan() {
+		line := scanner.Bytes()
+		if len(line) == 0 {
+			continue
+		}
+		var record RunHistoryRecord
+		if err := json.Unmarshal(line, &record); err != nil {
+			return nil, err
+		}
+		records = append(records, record)
+	}
+	if err := scanner.Err(); err != nil {
+		return nil, err
+	}
+	return records, nil
+}
+
+func readRunHistoryKeys(path string) (map[string]bool, error) {
+	file, err := os.Open(path)
+	if err != nil {
+		if errors.Is(err, os.ErrNotExist) {
+			return map[string]bool{}, nil
+		}
+		return nil, err
+	}
+	defer file.Close()
+	records, err := readRunHistory(file)
+	if err != nil {
+		return nil, err
+	}
+	keys := make(map[string]bool, len(records))
+	for _, record := range records {
+		keys[record.Key] = true
+	}
+=== run_loop.go 68-78 ===
+		return RunLoopResult{}, err
+	}
+	if err := SyncRunHistory(listing.Study, state); err != nil {
+		return RunLoopResult{}, err
+	}
+	historyKeys, err := readRunHistoryKeys(RunHistoryPath(listing.Study))
+	if err != nil {
+		return RunLoopResult{}, err
+	}
+
+	result := RunLoopResult{
+[0m
+[0m$ [0msed -n '30,56p' internal/runcontrol/retention.go; echo "=== freshness ==="; sed -n '1,15p' internal/sprint/freshness_policy.go; echo "=== migration doc authority ==="; grep -n "authoritative\|authority" docs/migration-product-state.md | head
+return RetentionPolicy{}, invalidField("retention.hard_quota", "must be at least 64 MiB with 16 MiB reserved headroom")
+	}
+	return policy, nil
+}
+
+func (r *SQLiteRepository) storageBytes() (int64, error) {
+	directory := filepath.Dir(r.path)
+	entries, err := os.ReadDir(directory)
+	if err != nil {
+		return 0, classifyStoreError("quota_read", "inspect run-control storage usage failed", err)
+	}
+	prefix := filepath.Base(r.path)
+	var total int64
+	for _, entry := range entries {
+		if !strings.HasPrefix(entry.Name(), prefix) {
+			continue
+		}
+		info, err := entry.Info()
+		if err != nil {
+			return 0, classifyStoreError("quota_read", "inspect run-control storage file failed", err)
+		}
+		if info.Mode().IsRegular() {
+			total += info.Size()
+		}
+	}
+	return total, nil
+}
+=== freshness ===
+package sprint
+
+// Snapshot-based freshness is temporarily disabled because unrelated, concurrent,
+// or very small edits make completed review and smoke evidence unnecessarily
+// brittle. Keep the implementation behind these switches so it can be
+// reintroduced once freshness can be attributed to the operation that made the
+// relevant change instead of treating every filesystem delta as invalidating.
+//
+// Artifact existence, format, recorded digest checks, and the smoke harness
+// authoring allowlist remain enforced while these switches are disabled.
+const (
+	strictCompletedReviewSnapshotFreshness = false
+	strictCompletedSmokeSnapshotFreshness  = false
+	strictSmokeAuthorProtectedSnapshots    = false
+)
+=== migration doc authority ===
+24:After import, SQLite is authoritative for that record. Existing JSON files stay
+[0m
+[0m$ [0mcat > /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-03/stdout.md <<'CHAIR_EOF'
+# CHAIR-03 — State tribunal synthesis (filesystem, SQLite/productstate, migrations, durable/derived/ephemeral truth, consistency, recovery)
+
+Input: challenge-03 (five candidate findings) plus standing state-domain outputs from scout-05, specialist-08a/08b, failure-09/10/12, change-05. Every load-bearing claim below was re-derived firsthand from source at eeaa034, and the highest-consequence mechanism (restore vs stale WAL) was settled empirically, not by argument. Cross-tribunal items are marked as owned elsewhere, not duplicated.
+
+### Scope inspected
+
+**Implementation repo** `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go` @ eeaa034 (clean, read-only):
+
+- Read in full, firsthand: `internal/runcontrol/migration.go` (all 363 lines — `migrateSchema`, `acquireMigrationLock`, `removeStaleMigrationLock`, `checkpointWAL`, `createMigrationBackup`, `RestoreBackup`, `validateBackupIntegrity`, `pruneMigrationBackups`), `internal/runcontrol/sqlite.go:59–108` (DSN construction, `_defensive`, pragma set).
+- Verified key-region, firsthand: `internal/study/run_history.go` (:90–110 append, :198–235 parsers), `internal/study/run_loop.go:68–78`, `internal/runcontrol/retention.go:35–56` (`storageBytes` prefix sum), `internal/sprint/freshness_policy.go:1–15`, `internal/runcontrol/migration_test.go:85–152`.
+- Bounded-discovery subagents (evidence-only, conclusions re-derived here): (a) `internal/study/run_history*.go` full consumer map incl. `cleanup_uncertain.go:137`, `app/study_runs_commands.go:28`, `run_history_summary.go:13`; contrast reader `run_loop_diagnostics.go:369–401`; (b) `internal/productstate/store.go` full read + runcontrol `app_schema` machinery (`sqlite.go:230–234,344–366`; `migration.go:236–248`) + SchemaVersion handling in `sprint/state_database.go`, `study/state_database.go`, validators `sprint/state.go:295–297`, `study/state.go:125–127`, `execute_state.go:188–190` + exhaustive zero-coverage grep + `storage_commands.go:33–140,199–207` + lease sites (`locks.go`, `service.go:77–98`) + git history of `store.go` (single commit `02e2ec4`); (c) prior-output provenance for specialist-15a/15b, failure-01, failure-10, scout-05 + direct verification of `internal/platform/filesystem/doc.go`, duplicate atomic-write helper inventory, `code_context.go:464–513`; (d) prior-output provenance for specialist-08a/08b, failure-09, failure-12, change-05 + direct verification of `execute.go:556–587`, sibling atomic writers (`smoke.go:692–724`, `review.go:1686–1717`, `state.go:239–289`), review manifest (`review.go:213–220,335–338`), verify gate (`verify.go:97–140`), contract quote `persistence-and-migrations.md:88–102`.
+- **Docs**: `docs/recovery.md:217–224` (restore procedure), `docs/migration-product-state.md:24` ("After import, SQLite is authoritative"), `system/contracts/runtime/persistence-and-migrations.md` (PERSIST-ATOMIC-001 Required clause verbatim).
+- **Commands**: `git log` both repos (commits/dirty flags match assignment header); module-cache inspection.
+- **Empirical experiment** (outside target repos, `/tmp/opencode/waltest`, new code written only there): reproduced the restore/stale-WAL interaction end-to-end with `modernc.org/sqlite v1.57.0` (`go.mod:14`) and the modules' exact DSN parameters (`_busy_timeout/_foreign_keys/_journal_mode=WAL/_synchronous=FULL/_txlock=immediate`). Results below under CHAIR-03-F01.
+- **Prior outputs read**: challenge-03, scout-05, specialist-08a/08b, failure-09, failure-10, failure-12, change-05, challenge-02, challenge-05, failure-02, INDEX.md.
+
+### Architecture assessment
+
+The durable core is sound and survived adversarial re-derivation twice (challenge stage, then this chair). Run-control mutations are single immediate transactions with fence/CAS checks; the initial schema migration commits DDL + `app_schema('run_control',1)` + `user_version` atomically (`migration.go:71` → `sqlite.go:344–366`); corrupt databases are rejected without replacing evidence; migration backups are bounded, fsynced, pruned; product-file writers overwhelmingly meet temp+fsync+rename+dirsync; DB-over-file authority is implemented identically in all three loaders and matches the documented rule (`docs/migration-product-state.md:24`). None of the loud upstream P1 framings (restore destroying product authority, fake pragmas, dual-pool corruption, split-brain precedence) survived contact with the code.
+
+Stress concentrates in three places, and this tribunal's net contribution is narrowing and hardening them:
+
+1. **The recovery surface itself.** The shipped restore primitive has a stale-sidecar hole that is now *empirically proven* (CHAIR-03-F01), has no executable entrypoint (FAILURE-10-F02), and the migration-lock recovery path can permanently wedge a workspace with a misleading error (FAILURE-10-F01, verified here). Recovery is the least-tested, least-governed part of an otherwise disciplined durability story.
+2. **The co-tenancy seam.** `productstate` shares run-control.db's physical file but none of its lifecycle machinery, with zero test coverage on the DB-backed authority path (CHAIR-03-F02). Adjudication: intentional co-location (HISTORY/FUTURE-INTENT), so the defect is the missing registration/governance hook and absent tests — not the sharing, and not worth a second database or a shared sqlite-kit abstraction.
+3. **Two append-ledger/writer edges** below the codebase's own standard: the study history ledger is appended without fsync and parsed fatally (CHAIR-03-F03), and `WriteExecuteSummary` writes governed evidence non-atomically (CHAIR-03-F04).
+
+No P1 survives challenge in this domain. Provenance warnings for downstream stages: **specialist-15a, specialist-15b, and failure-01 emitted no final reports** (empty or narration-only stdout.md; their transcripts end mid-exploration). The filesystem/artifact-persistence twin lens therefore never produced findings; this chair partially compensates via direct verification (helper inventory, `promoteCodeContext`, atomic-writer contrasts), but the arbiter should treat that lens as under-covered. Side observation flagged for the quality tribunal, corroborated independently by the specialist-15b transcript: `go test -count=1 ./internal/study` fails deterministically on `TestRunLoopStartsPriorityTierBeforeLaterTiers` (`run_loop_test.go:303`).
+
+Cross-tribunal ownership (not re-reported here): the sanitize-allowlist/event-payload drift (SCOUT-05-F01) is owned by the execution tribunal (CHALLENGE-02, recalibrated P2) and independently re-derived by the quality tribunal (their F01, P1) — the priority dispute between those two belongs to the arbiter. The `reconcileUnclaimed` second terminal-write path (SCOUT-05-F03) was adjudicated by challenge-02 as P3 duplication risk, not a double-arbiter bug; I concur from the same evidence.
+
+### Candidate findings
+
+---
+
+**ID: CHAIR-03-F01**
+**Priority: P2**
+
+**Claim:** Restoring `run-control.db` without removing stale `-wal`/`-shm` sidecars silently resurrects the pre-restore committed state through WAL replay. Empirically demonstrated with the project's own driver and DSN parameters. `RestoreBackup` itself never touches sidecars, the sole test defuses the trap by cleanly closing first, and neither the function nor the runbook tells operators to clear them.
+
+**Evidence:**
+- REALITY: `RestoreBackup` (`migration.go:296–352`) validates, copies to temp, fsyncs (:341), renames (:347), enforces mode (:351) — no reference to `-wal`/`-shm` anywhere in the function or file.
+- REALITY: repo-wide search: only `scripts/reset-opencode-db.sh:131,139,177` removes sidecars — for the opencode database (`database_path="$(opencode db path)"`, line 59), not run-control.db. Nothing in code or docs ever clears them for this file.
+- REALITY: the only restore test takes a checkpoint+backup, commits a *post-backup* run (`migration_test.go:131`), then calls `repository.Close()` (:134) **before** restoring (:137). A clean last-connection close deletes the WAL, so the test passes while never exercising the crash condition it exists to cover.
+- REALITY: `docs/recovery.md:217–222` instructs "stop every UltraPlan process … use the tested restore path … Never copy only the database while a WAL writer is active" — it never mentions deleting `-wal`/`-shm` left by a dead process. And "the tested restore path" has no CLI surface: sole caller of `RestoreBackup` is its own test (`migration_test.go:137`; grep-verified).
+- **EMPIRICAL** (this chair, `/tmp/opencode/waltest`, modernc.org/sqlite v1.57.0, DSN params identical to both modules): seed → checkpoint TRUNCATE → clean close (WAL deleted, confirming open-question resolution) → file-copy backup → reopen, commit `'newer'` → `os.Exit(1)` simulating SIGKILL → `-wal` (4152 bytes) and `-shm` persist on disk → copy backup over db keeping sidecars → next open returns **ROWS-AFTER-RESTORE: [original newer]**. Same setup with sidecars removed after restore → **[original]**. The rollback is silently undone exactly when restores happen (after unclean death).
+
+**Architectural reason:** failure-semantics / lifecycle — the recovery operation models the database file but not the durability state surviving beside it; the contract ("offline, matching binary") is necessary but insufficient.
+
+**Concrete consequence:** power loss or SIGKILL mid-write → integrity failure or failed first migration → operator follows the runbook (or hand-copies) → first open replays the crashed era's committed transactions over the rollback. `integrity_check` passes, `ultraplan health` reports ok, and diagnosis points anywhere but two hidden sidecar files.
+
+**Counter-evidence searched:** clean-close WAL deletion (verified empirically — narrows trigger to unclean death, which is precisely when restores occur); TRUNCATEd/zero-length WAL inertness; whether `validateBackupIntegrity` or `preparePrivateDatabase` touch sidecars (they do not); whether query-only/defensive flags alter recovery (they do not). No prior stage reported the mechanism; this chair converted challenge-03's medium-confidence reasoning into empirical fact.
+
+**Confidence:** high (mechanism proven end-to-end on the pinned driver version).
+
+**Smallest useful action:** in `RestoreBackup`, after the rename, remove `<db>-wal` and `<db>-shm` (safe under the documented all-processes-stopped contract; discarding post-backup frames is the intent of rollback), extend `TestBackupRestoreFixture` to skip the clean close so the crash condition is exercised, and add one bullet beside `docs/recovery.md:222`.
+
+---
+
+**ID: CHAIR-03-F02**
+**Priority: P2**
+
+**Claim:** Cluster adjudication: `productstate` deliberately co-locates with run-control (`store.go:19` == `sqlite.go:21–22`; single commit `02e2ec4`, HISTORY) but participates in none of the file-level lifecycle machinery its co-owner built — no `app_schema` component row (only `'run_control'` registers, `sqlite.go:356`), no version gate or migration hook on DB loads, no quota attribution, no restore awareness, no integrity gate — and the entire DB-backed authority path has zero test coverage. Upstream P1 framings (SPECIALIST-08A-F01/08B-F01) are rejected as framed; what survives is this registration/governance gap, three sharp edges, and the coverage hole.
+
+**Evidence:**
+- Ungoverned tenant: bare `CREATE TABLE IF NOT EXISTS` on every open including read paths (`store.go:79,92–116`; readers route through `Existing`→`open`: `study/state_database.go:18`, `sprint/state_database.go:58`) vs runcontrol's `user_version` + `app_schema` + migration lock + bounded backups + integrity gate (`migration.go:25–82`). Repo-wide: no `app_schema` row for any product component; no comment acknowledges the sharing.
+- Version asymmetry: DB loaders ignore the `schema_version` column entirely (`sprint/state_database.go:24–55`, `study/state_database.go:29–39`) while validators accept only the current constant (`sprint/state.go:295–297`, `study/state.go:125–127`, `execute_state.go:188–190`); the file path auto-heals v1→v2 via `migrateFlowStateV1` (`state.go:53–73,150–192`) but no analogous DB hook exists. Latent today (one schema generation ever shipped) — the evolution half is structural debt, not live breakage.
+- Sharp edge A (staleness): pure row-existence authority with no staleness signal; checkpoint files written only at terminal boundaries (`execute_state.go:112–130`, `study/state.go:66–68`); if the DB record disappears while a stale checkpoint remains, loads silently resume from it and a later `storage migrate` re-imports the regressed state as current (FAILURE-12-F01, mechanism verified).
+- Sharp edge B (unlocked import): `storage migrate` flips per-record authority with no mutation lease or quiesce guidance (`storage_commands.go:59–68,93–106,147–158,170–181`; help text :199–207 silent), while all normal writers hold the product mutation lease (`locks.go:13–15,26`; seven leased call sites enumerated).
+- Coverage hole: exhaustive grep — no `*_test.go` anywhere references `productstate`/`InDatabase`/`Migrate*ToDatabase`/`storage migrate`/`product_states`; the package contains one file, no tests; introduced in commit `02e2ec4` (766 insertions, zero tests), untouched since. Independently reproduced TRUE by challenge-03, SPECIALIST-08A-F03, CHANGE-05-F3.
+- Quota coupling (benign in direction): `storageBytes()` sums every regular file prefixed `run-control.db*` including `-wal/-shm/.bak.*` (`retention.go:41–56`), so product growth consumes run-control quota attributed to run events.
+
+**Architectural reason:** ownership / boundary / change-surface — one substrate, two owners, one unaware of the other's protocol; the untested half is the half that became authoritative.
+
+**Concrete consequence:** the first product-schema evolution, or the first real restore/migration accident, lands on a persistence layer with no governance hook, no test, and diagnostics attributing its failures to the wrong subsystem — and today, a documented recovery procedure can silently regress live workspaces to older checkpoints with status surfaces presenting them as current.
+
+**Counter-evidence searched:** co-location intentional per `docs/migration-product-state.md` and embedded-schema plans (FUTURE-INTENT — not reported as absent); `migrateSchema` handles foreign pre-existing schemas safely (backup-before-create, `migration.go:58–74` — and product tables merely count as "has schema", get backed up, left in place); restore yields a coherent whole-file snapshot; immediate-txlock + busy timeout + O_EXCL serialize the two pools correctly (dual-pool corruption rejected); imports go through validating loaders, so stored rows are import-time-current by construction (CHANGE-05 defended item).
+
+**Confidence:** high on structure and coverage; medium-high on calibration.
+
+**Provenance:** confirms-and-recalibrates SPECIALIST-08A-F01, SPECIALIST-08B-F01 (both P1 → cluster-P2), folds CHANGE-05-F1/F2 (evolution half), FAILURE-12-F01/F03 and SPECIALIST-08A-F04/SPECIALIST-08B-F02 (sharp edges), SPECIALIST-08B-F04/F06 and FAILURE-09-F01 (asymmetries, folded), FAILURE-10-F02 (restore has no entrypoint — see F01 action). Rejects SPECIALIST-08A-F02's P2 (see CHAIR-03-F05).
+
+**Smallest useful action:** register a `product_state` component row in the existing `app_schema` ledger inside schema creation and gate loads on it; add store round-trip, load-precedence, and terminal-checkpoint-gating tests; take (or document quiesce requirements for) the mutation lease in `storage migrate`. No second database file; no shared sqlite-kit abstraction.
+
+---
+
+**ID: CHAIR-03-F03**
+**Priority: P3**
+
+**Claim:** The study run-history ledger (`studies/<s>/.ultraplan/runs/tasks.jsonl`) is appended without fsync and parsed strictly, so one torn trailing line permanently poisons every consumer — run-loop startup, completion, reconciliation, and `study runs summary` all fail closed until an operator hand-edits a hidden file, with no recovery-doc guidance.
+
+**Evidence (mechanism verified firsthand; consumer map by subagent, spot-checked):**
+- Append: `os.OpenFile(..., os.O_CREATE|os.O_WRONLY|os.O_APPEND)` + single `Write(append(data,'\n'))`, no `Sync()` anywhere in the file (`run_history.go:94,103`; repo-wide `.Sync()` sweep confirms this is the only durable study artifact written without fsync).
+- Strict parse: `readRunHistory` fails the whole file on any `json.Unmarshal` error (`run_history.go:207–210`); `readRunHistoryKeys` propagates (:228–231); a torn final line from ENOSPC short-write or power loss is unrecoverable.
+- Fail-closed consumers: run-loop start aborts (`run_loop.go:70–76` — verified firsthand), completion errors after state save (:389–391), `cleanup_uncertain.go:137` aborts reconciliation, `app/study_runs_commands.go:28` and `run_history_summary.go:13` block summaries.
+- Contrast: `run-loop-memory.jsonl` swallows encode/close errors and silently skips malformed lines on read (`run_loop_diagnostics.go:185–191,387`) — same format, opposite corruption policy, in the same package.
+- Tests cover happy path + dedup only (`run_history_test.go:11–103`); docs never mention the ledger (grep: zero hits for `tasks.jsonl`/`run_history` in docs/).
+
+**Architectural reason:** failure-semantics / durability — a restart-safe idempotency ledger written below the codebase's own temp+fsync+rename standard, read stricter than any other log in the tree.
+
+**Concrete consequence:** quota pressure or power loss during a long study tears line N; every subsequent run-loop/resume/summary command for that study dies with a raw `json.Unmarshal` error naming no file and no remedy; dedup keys become unreachable, so safe auto-resume is blocked (fail-closed — no double-execution, but a stuck study).
+
+**Counter-evidence searched:** dedup keys give idempotent re-append (only after successful parse — does not help); single small writes are near-atomic between processes (irrelevant to page-cache tearing/ENOSPC); callers downgrading errors to warnings (none — all six consumers return).
+
+**Confidence:** high on mechanism; low-medium on frequency.
+
+**Provenance:** confirms CHALLENGE-03-F02; consumer enumeration extended beyond it (reconciliation + summary surfaces).
+
+**Smallest useful action:** tolerate a malformed *final* line (skip-with-warning — standard append-log repair) in `readRunHistory`, fsync the append, and add one `docs/recovery.md` bullet.
+
+---
+
+**ID: CHAIR-03-F04**
+**Priority: P3**
+
+**Claim:** `WriteExecuteSummary` writes governed evidence with plain truncate-and-overwrite `os.WriteFile` (`execute.go:586`) — confirming FAILURE-09-F04's mechanism while correcting its mitigation: `execute.md` is not an unvalidated bystander; its exact bytes enter the review input fingerprint (`review.go:219` entry `{"execute","governed",StageExecute}`, contents hashed via `reviewInput` :1288–1291) and approved verification commands must appear in it (`review.go:335–338`), yet the verify gate checks only non-emptiness (`verify.go:127–130`) and no gate-time hash of `execute.md` exists (`strictCompletedReviewSnapshotFreshness = false`, `freshness_policy.go:12`, comment :3–10).
+
+**Evidence:** non-atomic write firsthand-quoted (`execute.go:556–587`; call sites :73, :317 — both after `SaveExecuteRunState` commits, so machine truth is safe); sibling writers all temp+fsync+rename+dirsync (`smoke.go:692–724`, `review.go:1686–1717`, `state.go:239–289` — verified); contract PERSIST-ATOMIC-001 Required clause: "use temporary files plus same-directory rename for important file state where practical" (`persistence-and-migrations.md:88–97`); Forbidden list includes "partial durable writes … with no compensation".
+
+**Architectural reason:** failure-semantics / drift — one governed artifact written below the contract its siblings meet.
+
+**Concrete consequence:** crash or disk-full mid-write leaves truncated `execute.md`; the emptiness gate passes on partial content; if it precedes `PrepareReview`, garbage bytes freeze into the evidence fingerprint and can ride through a review cycle undetected (no gate-time hashing; snapshot freshness disabled). Bounded: regeneration is possible via `flow --to execute` (re-invokes Execute with Resume:true, rewriting the summary, `flow.go:159–161`), and `execute.md` is the sole writer's output (grep-verified).
+
+**Counter-evidence searched:** any validator hashing `execute.md` at gate time (none); alternative writers (none); FAILURE-09-F04's "not truth" mitigation (rejected — fingerprint membership makes the bytes evidentiary).
+
+**Confidence:** high on facts; low on incidence.
+
+**Provenance:** confirms FAILURE-09-F04; corrects its severity rationale; extends CHALLENGE-03-F04 with the freshness-disabled nuance.
+
+**Smallest useful action:** route `WriteExecuteSummary` through the existing `atomicWriteFile`.
+
+---
+
+**ID: CHAIR-03-F05**
+**Priority: P3**
+
+**Claim:** `productstate.Store.Load` reads header and items as two autocommit statements (`store.go:127–148`, no `BeginTx`) while `Save` is fully transactional (:150–205), so a concurrent save between the two reads yields a header/items mismatch presented as truth. Real but narrow: every production writer holds the mutation lease; several legitimate readers do not.
+
+**Evidence:** mechanism verified firsthand (no tx in Load; hash columns written at :160–178 but never read back or compared at :127–148). Lock-free readers: `service.go:151,202` (Status), `verify.go:150` (VerificationStatus), `requireCompleteExecute` when called from `ExecuteComplete` (`verify.go:134–140`), smoke dry-run path (`smoke.go:21–22` bypassing acquisition), study-side `run_loop.go:456`, `cleanup_uncertain.go:106`, `validation_command.go:167`.
+
+**Architectural reason:** consistency — the read API is weaker than the write API it mirrors, at the boundary feeding reconcile classification (`locks.go:46–78` classifies from loaded items).
+
+**Concrete consequence:** a torn read during a concurrent server-side save could flip running→failed classification on wrong pairing — silent, durably recorded misclassification. Probability low: two statements racing one commit, single-user tool.
+
+**Counter-evidence searched:** implicit `database/sql` wrapping (none); readerside retry/coherence validation (validators check shape, not cross-statement pairing); lease coverage of readers (enumerated above — genuinely absent for status/verify-complete/smoke-dry-run).
+
+**Confidence:** high on mechanism; low on practical incidence.
+
+**Provenance:** confirms SPECIALIST-08A-F02/SPECIALIST-08B-F03 with downward calibration P2→P3 (lease serialization of all writers); folds FAILURE-12-F02's unused-hash observation.
+
+**Smallest useful action:** wrap Load's two statements in one deferred read transaction (~3 lines).
+
+---
+
+**ID: CHAIR-03-F06**
+**Priority: P3**
+
+**Claim:** Process death inside `acquireMigrationLock`'s creation window (O_EXCL create :94 → PID probe :111 → marshal :117 → write :123 → sync :128) strands an empty or partial `.migrate.lock` that `removeStaleMigrationLock` refuses to reclaim by design (malformed records "cannot authorize lock removal", :146–148), permanently bricking every run-control open for the workspace behind `CodeBusy` with the misleading message "another local UltraPlan process owns the schema migration lock" (:105). Undocumented anywhere in docs/.
+
+**Evidence (mechanism verified firsthand this chair):** `migration.go:92–138` creation sequence with best-effort self-cleanup on error paths only (:113–135 — ineffective against SIGKILL); `:140–165` reclaim logic requiring a complete, valid identity whose PID is provably dead; behavior pinned by `migration_test.go:85–91` (foreign lock content → `ErrBusy`) and valid-dead-owner reclaim proven :94–117; `rg 'migrate.lock' docs/` → zero hits; per FAILURE-10 (not re-verified here), `health` never opens run control, so it reports ok while the workspace is wedged.
+
+**Architectural reason:** failure-semantics / lifecycle — a conservative anti-footgun rule (never delete a lock you cannot attribute) converts a millisecond crash window into an unrecoverable-by-tooling state with an actively wrong diagnostic.
+
+**Concrete consequence:** SIGKILL/power loss during the once-per-workspace first migration leaves the workspace unusable for serve/run/storage until an operator finds and deletes a hidden dotfile whose error message told them something false.
+
+**Counter-evidence searched:** error paths do clean up (true — narrows to hard kill); valid-record reclaim works and is tested (true — narrows to the pre-sync window); whether any liveness surface detects the wedge (health does not open the DB — per FAILURE-10-F01's citation).
+
+**Confidence:** high on mechanism; low on frequency (millisecond window, once per workspace lifetime).
+
+**Provenance:** confirms FAILURE-10-F01 with downward calibration P2→P3 (window width and once-per-lifetime frequency), contra its original rating; the misleading-message and undocumented-remedy aspects stand unchanged.
+
+**Smallest useful action:** document the lock and its remedy in `docs/recovery.md` alongside the restore bullet, and make the `CodeBusy` message name the lock file path so hand-repair is discoverable.
+
+### Defended architecture / rejected hypotheses
+
+1. **"RestoreBackup destroys product-state authority" as a P1 current defect (SPECIALIST-08A-F01/08B-F01 headline).** Rejected as framed: restore produces a coherent point-in-time snapshot of the whole file including both tenants; per-record authority gates make post-restore loads consistent with the restored era; the silent-regression kernel is captured as F02 sharp edge A, and the true restore defect is the sidecar hole (F01) — narrower and differently fixed than the upstream framing implied.
+2. **"modernc DSN pragmas are ignored / concurrency config is fake."** Disproved: driver honors the parameters, and runcontrol additionally verifies them at open (`sqlite.go:104,207–227`); productstate's lack of verification is the already-folded asymmetry, not fake config.
+3. **"Two connection pools on one file is a corruption hazard."** Largely rejected: O_EXCL creation, immediate txlock, busy timeout, and idempotent DDL serialize correctly; my empirical harness exercised both pools' parameter set without anomaly. Residual windows (DDL interleaving a migration backup; cold-start busy) are fail-closed or already reported.
+4. **"Extract a shared sqlite-kit / platform-filesystem helper package."** Rejected as a fix: DSN overlap is ~5 lines; the atomic-write duplication is factual (2× `atomicWriteFile` with different signatures, 2× identical `syncDir`, 1× `atomicWriteReviewWithHooks`, ~5 inline copies) but each is small and locally owned; `internal/platform/filesystem/doc.go` explicitly defers generic helpers to owning modules. Consolidation today buys indirection, not correctness. Revisit only if a third copy appears.
+5. **"DB-vs-file precedence is inconsistent (split-brain)."** Disproved: all three loaders prefer the DB unconditionally when the row exists and saves gate identically on the `InDatabase` checks; the documented rule matches implementation. The genuine defect is absence of staleness signaling on fallback (F02 edge A).
+6. **"`promoteCodeContext` renames without fsyncing the candidate — standalone defect."** Downgraded to accepted note: visibility is atomic-by-rename; the state-persist failure path has a tested compensating restore that does fsync (`code_context.go:486–509`, tested `code_context_test.go:488–508`); regeneration is documented. Only power-loss durability of the newly promoted bytes is weaker than siblings — acceptable for a regenerable artifact.
+7. **"`SaveFlowState`'s authority check is a separate TOCTOU defect."** Folded into F02 edge B: exploitable only by the lease-free importer; normal writers are serialized by the mutation lease.
+8. **"`tasks.jsonl` poisoning justifies a rewrite-the-ledger redesign."** Rejected: the ledger is small, append-only, and human-repairable; tail-line tolerance plus fsync restores the codebase's own standard without new structure.
+9. **Challenge-03 open question 1 resolved, not carried:** modernc.org/sqlite v1.57.0 deletes the WAL on clean last-connection close (empirically shown), so the F01 trigger is confined to unclean death — which is exactly when restores happen.
+
+### Open questions
+
+1. Will Gate D (single storage authority selection) be ratified, and does any roadmap item plan `product_states` DDL evolution? Answers decide whether F02's version-gate half escalates back toward P1 or stays latent structural debt.
+2. Does any supported external tooling read `flow-state.json`/`run-state.json` directly while DB-authoritative mid-run? If yes, F02 edge A escalates from confusing to breaking.
+3. Was the strict sanitize allowlist ratified as policy after c455510? (Owned by execution/quality tribunals; listed only because their P1-vs-P2 dispute affects the state domain's "no P1" verdict.)
+4. Root cause of the deterministic `TestRunLoopStartsPriorityTierBeforeLaterTiers` failure (`run_loop_test.go:303`; observed by this chair's scope check and independently by the lost specialist-15b transcript) — quality tribunal's to place, but it currently undermines cached-run CI signal for the study state machine.
+5. Should the arbiter commission a re-run of the filesystem/artifact-persistence lens (specialist-15 twins and failure-01 produced no findings)? This chair's direct verification covered the highest-value ground, but the lens is formally uncovered.
+CHAIR_EOF
+wc -l /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-03/stdout.md
+191 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-03/stdout.md
+[0m
+[0m$ [0mhead -5 .archgauntlet/runs/chair-03/stdout.md; echo ...; tail -3 .archgauntlet/runs/chair-03/stdout.md; git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go status --porcelain | wc -l; git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace status --porcelain | wc -l
+# CHAIR-03 — State tribunal synthesis (filesystem, SQLite/productstate, migrations, durable/derived/ephemeral truth, consistency, recovery)
+
+Input: challenge-03 (five candidate findings) plus standing state-domain outputs from scout-05, specialist-08a/08b, failure-09/10/12, change-05. Every load-bearing claim below was re-derived firsthand from source at eeaa034, and the highest-consequence mechanism (restore vs stale WAL) was settled empirically, not by argument. Cross-tribunal items are marked as owned elsewhere, not duplicated.
+
+### Scope inspected
+...
+3. Was the strict sanitize allowlist ratified as policy after c455510? (Owned by execution/quality tribunals; listed only because their P1-vs-P2 dispute affects the state domain's "no P1" verdict.)
+4. Root cause of the deterministic `TestRunLoopStartsPriorityTierBeforeLaterTiers` failure (`run_loop_test.go:303`; observed by this chair's scope check and independently by the lost specialist-15b transcript) — quality tribunal's to place, but it currently undermines cached-run CI signal for the study state machine.
+5. Should the arbiter commission a re-run of the filesystem/artifact-persistence lens (specialist-15 twins and failure-01 produced no findings)? This chair's direct verification covered the highest-value ground, but the lens is formally uncovered.
+0
+0
+[0m

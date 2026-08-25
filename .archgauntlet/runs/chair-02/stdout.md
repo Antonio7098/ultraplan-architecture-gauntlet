@@ -1,0 +1,358 @@
+I'm arch-chair for chair-02 (execution tribunal synthesis). Let me start by orienting: check the gauntlet index, verify target repo state, and map my scope.
+Commits verified clean and matching. Now let me map the target repo structure and start my own re-derivation of the highest-stakes claims while dispatching subagents for bounded verification.
+Now I'll dispatch parallel verification subagents for the bounded finding clusters while I re-derive the P1/P2 core (F01–F04) firsthand.
+One subagent returned (F09/F10/F13 cluster confirmed with extra surprises); two hit rate limits. Retrying those and adding the locks-verification worker now.
+Strong verification returned with material corrections (the "~250ms terminal budget" in F02 is actually a 30s-bounded backoff loop). Now retrying the retention/payload/uncertain worker and dispatching the locks worker.
+Retention/payload/uncertain cluster verified with corrections (allowlist is 27 keys, not 5 — but the drift gap is real; the wedge additionally kills the run). Now dispatching the locks worker while I read the core owner-loop files myself for F01/F02/F04 re-derivation.
+run_control.go fully read — F01 windows A/B confirmed firsthand (flush on dead `runCtx` at :264-274; missing `ctx.Err()` guard on ack branch :232-235), and F02's "~250ms terminal budget" is disproved firsthand (`proposeRunTerminalWithRetry` loops until the 30s caller ctx dies; only the sleep cap is 100ms). Now reading durable_operations.go and the runtime adapter + sprint execute path for F03/F04.
+Adapter abandonment exits confirmed firsthand (runtime.go:314-320, :339). Now the consumer side — sprint execute's OnEvent closure and main loop:
+F03 consumer half confirmed firsthand: OnEvent closure mutates+saves under `sessionMu` (execute.go:244-259); main loop mutates the same fields and saves **without** it (:266-306, mutex taken only to read `checkpointErr` :261-263). Now verifying durable_operations.go (F04) and the agentwrap close-ordering linchpin:
+F04 confirmed firsthand from durable_operations.go (bare cancel on store errors :190-216, no persistence case in finish switch :243-252, completed-op demotion :232-234→:248-249). Now verifying the agentwrap close-ordering linchpin and execute test blindness:
+Pinned agentwrap confirms the linchpin: LIFO defer order at opencode/runtime.go:289-291 means `close(r.done)` (unblocking `Wait`) precedes `close(r.events)` — events keep flowing after Wait returns. Now checking execute-test blindness and the service mutex inventory:
+agentwrap LIFO ordering confirmed against the pinned version (`r.cancel()` → `close(r.done)` → `close(r.events)`), and all sprint fakes fire OnEvent synchronously inside StartRun — test blindness confirmed. Now the service mutex inventory, test inventories, and REALITY checks:
+All core regions verified firsthand. One last region — Append's ctx pre-check and compaction ordering (underpins F01 window A and F06):
+All verification complete — every P0/P1 claim re-derived firsthand, every P2/P3 cluster covered by independent workers whose citations I've spot-checked against source. Writing the chair synthesis to the designated result path:
+Path resolved — the live runs tree is under the working directory. Writing the chair-02 synthesis:
+chair-02 synthesis complete, written to `.archgauntlet/runs/chair-02/stdout.md`. Both target repos remain clean.
+
+**Verdict summary — 13/13 tribunal findings adjudicated, none manufactured:**
+
+- **Confirmed at P1:** F01 (durable cancellation terminalized as false `persistence_degraded` via dead-ctx flush + missing ack guard), F03 (adapter exports no OnEvent quiescence; sprint execute races its own main loop — verified end-to-end including pinned agentwrap LIFO close ordering)
+- **Confirmed with corrections:** F02's "~250ms terminal budget" leg **refuted** firsthand (real budget: 30s caller ctx); F05's allowlist corrected to 27 keys (drift gap survives); F04 aggravated (silent cause-dropping vs sprint-35's never-silent rule, asymmetric self-cancel guards, dual shutdown vocabularies)
+- **Confirmed P2:** F06 (wedge kills the run, strengthened), F07 (TRD:2132 verbatim vs hub-only cancel), F08 (bare-PID locks vs TRD:2208 + in-repo birth-token cure; new reachability/swallow evidence), F09 (envelope escape widened to SSE payloads/replay/TUI, blast radius verified latent), F10 (WriteTimeout caps two SSE paths)
+- **Confirmed P3:** F11 (`uncertain` write-dead), F12 (quota-before-fence ordering; fire-and-forget evidence), F13 (TUI silent drops)
+- 12 rejected hypotheses defended with evidence, 5 open questions framed for synth/arbiter
+perations_test.go` (2 tests), sprint fakes (`session_state_test.go:19`, `execute_state_test.go:35`, `efficiency_improvements_test.go:384`, `review_test.go:55` — all synchronous-inside-StartRun), `sprint/service.go` mutex inventory.
+- **Commands**: `go build ./...` (clean); `go test -race -count=1 ./internal/runcontrol ./internal/app ./internal/sprint` — all pass (detector silence is coverage absence, see F03).
+
+**Bounded verification workers dispatched by the chair** (evidence returned, spot-checked against source): (a) web envelope/SSE/TUI cluster — `web/operation_handlers.go` (:415/:424 raw cast, :242 sole deadline extension, :501–513 name normalization), `web/server.go` (:19/:104 WriteTimeout, :131–137 drain wiring), `web/operations.go` (`terminalOperationState` :614–621, `drainAndWait` :477–501, hub writers, `slowSubscribers` :127/:463, cleanup recorder :517–521), `operations_contract_test.go` (:83/:110–112/:148–150), `docs/local-web.md:146–149`, `static/app.js:850/:1410`; (b) control-loop/contract cluster — retry helpers, `serve_commands.go:55–65`, `tui_commands.go:42–47`, `durableCLICommand.Finish` :56–62, workspace TRD quotes (:2130–2134, :2208, :2210, :2223), sprint-35 requirements.md open question #13 + absent reasoning.md, `lifecycle_test.go` grace constants; (c) payload/retention/uncertain cluster — `sanitize.go` (27-key allowlist :10–17, omission accounting :30–45), promotion layers (`run_control.go:407–486` + `platform/runtime` `promoteObservablePayloadFields`, added by HEAD commit eeaa034 itself), consumer key reads (`run_handlers.go:288/:293`), commit c455510 message/stat, `retention.go` removable literals (:75–77, :185–188) and exhaustion errors (:85–86, :94), `retention_test.go:59–76`, uncertain-state grep (zero writers); (d) product-lock cluster — `study/locks.go` (`processAlive` :17–23, reclaim :62–81, `CancelRunLoop` guards :141–158, `ForceUnlockRunLoop` :161–167, release refusal :116–118), `sprint/verification_lock.go` (:14–19, :32–59, :95–101), `runcontrol/process_linux.go:16–45` birth identity, `migration.go:159`, `lifecycle_test.go:176/:186/:313`, caller chains (`operation_runner.go:133–143`, `web/operation_handlers.go:682–683`, `tui/app.go:139`), `sprint/locks.go:28–30` swallowed conflicts, docs (`cli-reference.md:210`, `recovery.md:128/:134/:197–198`, `architecture.md:174–175`), TRD:2202–2225 verbatim.
+
+**Prior outputs used for provenance**: challenge-02 (primary input — all 13 candidate findings re-derived before acceptance), with upstream attributions preserved per finding below. Commits of both target repos verified matching the assignment.
+
+### Architecture assessment
+
+**Sound under adversarial re-derivation.** Terminal arbitration is genuinely single-winner: `ProposeTerminal` verifies the fence, then CASes `WHERE run_id = ? AND current_attempt_id = ? AND terminal_outcome IS NULL` with an idempotent loser path returning the existing terminal (sqlite.go:746–757, :769–786) — re-read firsthand. Reconciliation never infers success: every outcome requires process-probe evidence keyed on host+boot+PID+birth-token identity (`reconcileProcessDecision`, lifecycle.go:481–495), and the unclaimed-run path uses an equivalent-predicate direct CAS guarded on `current_attempt_id IS NULL` (:443, :456–458). Leases are judged by SQLite's own clock in production (`julianday('now')`, sqlite.go:1129–1141). Every journal mutation is fence-guarded, including Append's sequence CAS (sqlite.go:677–685). Acceptance fails closed before any child work starts (run_control.go:125–138). This durable core is the strongest part of the repository and should not be reworked.
+
+**Where stress concentrates** (all confirmed, none manufactured): the *app layer* is where store errors are translated into terminal truth, and it does that translation inconsistently across its two hand-copied owner loops (F01/F04), with zero retry tolerance on observation calls that share nothing with the run except the store file (F02); the *runtime adapter seam* exports an implicit no-callback-after-return postcondition its implementation does not honor, and exactly one consumer trusts it without synchronization (F03); *product locks* kept a bare-PID identity oracle the repo itself has outgrown and its own TRD forbids (F08); and the *web compatibility surface* projects an unowned vocabulary through an envelope its guard test pins stale (F09/F10). Two chair-level corrections to the tribunal's report: the claimed "~250 ms terminal-proposal budget" is factually wrong (30 s caller-bounded backoff loop), and the event allowlist is 27 keys, not 5 — both corrections narrow consequence without flipping any verdict.
+
+### Candidate findings
+
+---
+
+**ID: CHAIR-02-F01**
+**Priority: P1**
+**Verdict: CONFIRMED (chair re-derived windows A/B firsthand; extends FAILURE-07-F1 via CHALLENGE-02-F01)**
+
+**Claim:** In `controlledRuntime.StartRun`, a user/durable cancellation racing completion or teardown is durably terminalized as `persistence_degraded` ("durable event persistence failed") instead of `cancelled`/`succeeded`, corrupting the truthful-terminal property the whole arbitration design exists to provide.
+
+**Evidence (REALITY):**
+- Window A: the post-return omission flush runs on the already-cancellable `runCtx` (run_control.go:264–274). When the watch loop acknowledges a durable cancellation it has already called `cancel()` (:236); `Append` then fails through the explicit ctx check (sqlite.go:639–643) or driver error, `context.Canceled` passes through unclassified (sqlite.go:1100–1102), is non-retryable (`retryableRunControlError`, run_control.go:330–332), so `persistenceErr` is set (:272–274) and the dedicated branch proposes `TerminalPersistenceLost` on a detached context (:282–291) — `terminalOutcome` (:294, :625–637), which would yield `cancelled`, is unreachable whenever `persistErr != nil`. Straggler OnEvent appends during teardown hit the same dead `runCtx` (:197–199).
+- Window B: the `AcknowledgeCancellation` error branch lacks the `runCtx.Err()` self-cancel guard its three siblings have (compare :232–235 with :225–227, :241–243, :251–253).
+- No test covers either window (`run_control_test.go`: exactly 3 tests — happy path, fail-closed start, generic failure; inventory verified).
+
+**Architectural reason:** failure-semantics / lifecycle — the app-layer owner mislabels the cause of a journal-write abort; the immutable terminal field then lies to every downstream consumer (health, recovery docs' triage flow, retention).
+
+**Concrete consequence:** cancelling a chatty run with a coalesced progress backlog deterministically yields `lifecycle=persistence_degraded` plus dangling `cancellation_state=requested|acknowledged` (ProposeTerminal's UPDATE sets no cancellation fields — sqlite.go:769–776). Operators chase phantom storage incidents; TRD's "one truthful terminal outcome" requirement is violated structurally, not marginally.
+
+**Counter-evidence searched:** flush context is genuinely not detached (unlike both terminal paths, :283/:295); no `ctx.Err()` pre-check exists before any `setPersistenceErr`; considered "the journal really couldn't be written" defense — rejected, omitted entries are coalesced diagnostics, not product truth. Note for downstream stages: the twin operation supervisor's plain-cancel shape (durable_operations.go:196–201) avoids the false persistence label but lands in the opposite wrong bucket (see F04) — it is half a correct precedent, not a full one.
+
+**Confidence:** high (mechanism deterministic given coalesced backlog + ack-before-return ordering).
+
+**Smallest useful action:** exclude `errors.Is(err, context.Canceled)` before `setPersistenceErr`; add the missing guard on the ack branch; issue the final flush on a detached context as both terminal paths already do; regression-test a spy runtime succeeding while the fence sees `CancellationRequested` and `progressOmitted > 0`.
+
+---
+
+**ID: CHAIR-02-F02**
+**Priority: P2**
+**Verdict: CONFIRMED WITH ONE LEG REFUTED (chair re-derived both owner loops firsthand; corrects CHALLENGE-02-F02 / SPECIALIST-07A-F02 / SPECIALIST-07B-F02 / FAILURE-03-F01)**
+
+**Claim:** Both owner supervision loops treat one unretried `Snapshot`/`Heartbeat`/`Reconcile` error — including errors the repository itself classifies retryable, and including workspace-wide `Reconcile` maintenance unrelated to this run — as instant, irreversible loss of authority, while data-plane writes get a 5 s retry budget. **Corrected:** the tribunal's further claim that normal-path terminal proposals get only ~250 ms is FALSE — terminal proposals retry until the caller's finish context expires.
+
+**Evidence (REALITY):**
+- Runtime loop: first error from Snapshot/Ack/Heartbeat/Reconcile → `setPersistenceErr` → `cancel()` (run_control.go:223–258; each site has the self-cancel guard, so only genuine store faults are blamed). Operation loop: same calls → bare `owned.cancel(); return` (durable_operations.go:190–216) — the error object is dropped entirely; the manager holds no logger and captures no cause.
+- Retry asymmetry inside the same files: `appendRunEventWithRetry` retries `ErrBusy|ErrUnavailable` for 5 s (run_control.go:305–316); `classifyStoreError` maps SQLITE_BUSY/LOCKED to retryable busy (sqlite.go:1090–1091); `busy_timeout=5000` (sqlite.go:23/:74/:215).
+- **Refuted leg:** `proposeRunTerminalWithRetry` passes a fresh `time.Now().Add(250ms)` deadline per iteration into a helper whose waits are capped at 100 ms (run_control.go:318–328, :334–350); there is no outer budget check, so it loops until the caller's 30 s finish context dies (run_control.go:283/:295; durable_operations.go:63/:110). The real terminal budget is 30 s, not 250 ms. The ambiguity is real but behavioral consequences attributed to it ("successful run recorded interrupted") require >30 s continuous contention — far less reachable than claimed.
+- Contention coupling is designed-in: every owner reconciles the whole workspace every 10 s (run_control.go:249–257), every repository open reconciles at startup (:64–68), heartbeat cadence 5 s vs lease 15 s vs expiry predicate grace 45 s (model.go:477–481; sqlite.go:1140).
+
+**Architectural reason:** failure-semantics — fail-closed doctrine correctly covers required writes (accept/claim/start) but is applied to observation/maintenance calls that couple global store health to every active run's continuation.
+
+**Concrete consequence (corrected):** one >5 s writer stall (WAL checkpoint pressure, fsync burst under `synchronous=FULL`, compaction tx) kills all healthy operations in every attached process mid-flight; the runtime path then stamps false `persistence_degraded` (compounding F01). Bounded retry is provably safe here: lease math leaves room (heartbeat 5 s against 15 s lease, 45 s grace), and `verifyFence` catches genuine authority loss during any retry window.
+
+**Counter-evidence searched:** whether fail-fast-on-heartbeat was a considered tradeoff — formally unanswered: TRD:2223 lists safe-heartbeat-failure behavior under "required reasoning decisions", sprint-35 requirements.md question #13 asks exactly this, and no reasoning/plan artifact answers it (worker searched workspace-wide). No doc or comment declares it intentional.
+
+**Confidence:** high (asymmetry code-certain); medium (operational frequency).
+
+**Smallest useful action:** route loop calls through the existing bounded-busy retry helper (immediate abort reserved for `ErrStaleFence`/`ErrPermission`/`ErrCorrupt`); stop treating global `Reconcile` failure as fatal to the owning run; make the terminal-retry budget explicit instead of implicit in caller contexts (the current shape already caused one review stage to misreport it).
+
+---
+
+**ID: CHAIR-02-F03**
+**Priority: P1**
+**Verdict: CONFIRMED end-to-end (chair verified adapter, pinned library, consumer, mutex inventory, and test blindness firsthand; confirms GENERALIST-03-F01 via CHALLENGE-02-F03)**
+
+**Claim:** `platform/runtime.Adapter.StartRun` provides no quiescence guarantee for `OnEvent` — two exits return while a live event-delivery goroutine persists — and sprint execute mutates/persists shared execute-state from that callback without mutual exclusion against its main loop: a genuine Go data race with lost-update potential on state feeding review fingerprints and verify gates.
+
+**Evidence (REALITY):**
+- Adapter abandonment exit 1: `ctx.Done()` with unreaped wait returns after 5 s while the events goroutine still ranges and invokes `req.OnEvent` (runtime.go:308–321 vs :278–290). Exit 2: success path waits only 1 s for the drained collection (`case <-time.After(time.Second)`, :339).
+- Library linchpin verified at the pinned version `agentwrap@v0.0.0-20260821190033-e79a38a58da3`: `run()` LIFO defers execute `r.cancel()` → `close(r.done)` → `close(r.events)` (opencode/runtime.go:289–291), so `Wait` unblocks before the events channel closes and producer finalization outlives cancellation.
+- Consumer race: OnEvent closure mutates `task.Runtime`/`task.UpdatedAt`/`state.UpdatedAt` and saves the whole file under `sessionMu` (execute.go:244–259); the main loop mutates the same fields and saves WITHOUT it (:266–306; mutex taken only to read `checkpointErr`, :261–263). No Service-level mutex covers `SaveExecuteRunState` (service.go:32–33: `mutations` is the lease map, `metricsMu` guards metrics only).
+- Test blindness verified: all sprint fakes deliver synchronously inside StartRun; fresh `go test -race -count=1 ./internal/sprint` passes because nothing constructs the abandonment interleaving.
+
+**Architectural reason:** boundary / lifecycle — a volatile-boundary seam exports an implicit concurrency postcondition its implementation does not provide; the one consumer that keeps working after return does so unlocked. Review and study defend the same hazard with their own serialization; only execute is exposed.
+
+**Concrete consequence:** operator cancels an execute whose agentwrap finalization exceeds 5 s, or a stream drains >1 s past completion: abandoned callbacks interleave whole-file atomic renames and pointer-field writes with the main loop marking the task cancelled/completed. Last-writer-wins loses the session checkpoint or terminal diagnostic; concurrent field writes are UB under `-race`; corrupted `.run-state.json` feeds review input fingerprints and `requireCompleteExecute` gates.
+
+**Counter-evidence searched:** channel-close ordering disproves any "events stop before Wait" defense; no serializer exists around the save path; race-detector silence traced to synchronous fakes, not absence of the race. Residual risk to flag: the ordering guarantee lives in an external module at a floating-ish pin — any agentwrap bump can change quiescence semantics silently.
+
+**Confidence:** high (structure), medium-high (trigger frequency).
+
+**Smallest useful action:** extend `sessionMu` to cover all main-loop task mutations and saves in execute.go, and state the OnEvent postcondition explicitly in `Adapter.StartRun` (or bound-drain `eventsCh` unconditionally — the channel always closes LIFO).
+
+---
+
+**ID: CHAIR-02-F04**
+**Priority: P2**
+**Verdict: CONFIRMED, AGGRAVATED (chair read both finish paths firsthand; confirms SPECIALIST-07A-F01 / SPECIALIST-07B-F03 / FAILURE-06-F03 via CHALLENGE-02-F04, adds three aggravators)**
+
+**Claim:** The owner-supervision protocol exists twice in the same package family with already-divergent terminal taxonomy: identical persistence faults produce `persistence_degraded` for runtime-backed runs but `cancelled`/"operation cancelled" for operations — and a failed final flush demotes a *completed* operation to `failed`.
+
+**Evidence (REALITY):**
+- Runtime path: persistence error → `TerminalPersistenceLost`/"durable event persistence failed" (run_control.go:156–163, :282–291).
+- Operation path: `controlOperation` cancels silently, cause dropped (durable_operations.go:190–216 — no logger field on the manager, :13–18); `FinishOperation`'s switch has no persistence case, so `Context.Err()!=nil` collapses to `TerminalCancelled`/"operation cancelled" (:246–247); `durableCLICommand.Finish` derives cancelled purely from `accepted.Context.Err()` (:56–62), conflating user Ctrl-C with system-initiated cancel.
+- Demotion: flush failure with `owned.omitted > 0` overwrites a nil `runErr` (:230–234) and the switch lands on `TerminalFailed`/"operation failed" (:248–249) — for work that finished.
+- Both loops live simultaneously over one repository (serve_commands.go:55–65; tui_commands.go:42–47). No test pins either mapping (inventories verified).
+- **New aggravators from verification:** (1) the operation loop lacks even the self-cancel guard its runtime twin has, so a legitimate product-cancel racing a store call is also silently fatalized; (2) error dropping contradicts sprint-35's own "event loss or persistence failure is never silent" requirement; (3) the two surfaces use incompatible shutdown vocabularies — web accepts reason `server_shutdown` (web/operations.go:625) while CLI accepts `shutdown_requested` (run_commands.go:396) — neither reaching the other's canonical set.
+
+**Architectural reason:** change-surface / drift — one lifecycle protocol (tick cadence, ack semantics, fail-closed policy, outcome vocabulary) maintained as two hand-copies; every fix to one (including F01/F02 remedies) will predictably miss the other.
+
+**Concrete consequence:** the same quota/busy incident durably records different truths depending on which entry point owned the work, breaking cross-surface triage against the field recovery.md tells operators to trust; future protocol changes must be re-derived twice.
+
+**Counter-evidence searched:** considered whether products warrant different outcomes — they share the repository, fence machinery, `TerminalOutcome` enum, and recovery docs; considered whether wholesale loop merge is warranted — rejected (structural duplication is currently load-bearing for different consumption models); the remedy is classification parity, not unification.
+
+**Confidence:** high (divergence certain), medium (impact).
+
+**Smallest useful action:** capture loop failure cause in closure state and map persistence-class causes to `TerminalPersistenceLost` in both finish paths (mirroring run_control.go:282–291); unify the shutdown reason vocabulary; keep the loops separate.
+
+---
+
+**ID: CHAIR-02-F05**
+**Priority: P2**
+**Verdict: CONFIRMED WITH EVIDENCE CORRECTION (corrects CHALLENGE-02-F05 / SCOUT-05-F01 / SCOUT-06-F01 / SPECIALIST-07B-F01)**
+
+**Claim:** The durable-event payload contract is jointly owned by producer layers, a storage gate, and consumers with no shared definition or round-trip test — and it has drifted: both promotion layers emit display keys the storage gate drops, while consumers read exactly the dropped keys.
+
+**Evidence (REALITY, corrected):**
+- Correction: `allowedEventPayloadFields` has **27 keys**, not the 5 the tribunal reported (sanitize.go:10–17) — the mechanism claim survives because none of `title/detail/text/delta/content/native_type/line` is among them; the file is untouched since initial commit e09d394.
+- Promotion layer 1: nested flattening + forced extraction of `tool/action/title/detail/text/delta` with comments claiming durable carriage "that the run timeline JS expects" (run_control.go:407–486). Promotion layer 2: `promoteObservablePayloadFields` in platform/runtime — added by HEAD commit eeaa034 itself, deepening the drift in the very commit under review.
+- Sole production write path applies the gate first (sqlite.go:617); non-allowlisted keys fold into `"unsafe event detail omitted"` (sanitize.go:30–45) — security-redaction language misreporting benign observability truncation.
+- Consumers read dropped keys: `newRunEventView` prefers `text,delta,detail,message,content,title,output` (run_handlers.go:288) — of those seven, only `message` can ever match. Commit c455510 ("surface agent stream details in durable run events… now carries tool/action/title") states the defeated intent verbatim. No test asserts survival or intentional dropping of any promoted key (only sanitize_test.go's sensitive-key assertions exist).
+
+**Architectural reason:** drift / change-surface — adding one observable field requires synchronized edits across platform/runtime promotion, app promotion, and runcontrol's gate, with nothing connecting the lists; the gate's failure semantics actively misreport ("unsafe").
+
+**Concrete consequence:** durable timelines render sparse rows while omission counters inflate, making healthy runs look redacted; the next contributor repeats c455510's exact mistake (eeaa034 already did).
+
+**Counter-evidence searched:** strict-allowlist-as-security-policy cannot explain the consumer expectations and two commit messages contradicting it; browser JS reads mostly surviving keys, so degradation is partial; no aliasing/normalization downstream of Append.
+
+**Confidence:** high (facts), medium-high (unintentionality).
+
+**Smallest useful action:** add the promoted observable keys to the allowlist (or derive all sides from one definition) plus one draft→Append→Events→view round-trip test.
+
+---
+
+**ID: CHAIR-02-F06**
+**Priority: P2**
+**Verdict: CONFIRMED AND STRENGTHENED (confirms CHANGE-04-F02 mechanics via CHALLENGE-02-F06)**
+
+**Claim:** Per-run compaction removes only `progress/message/omission` while `EventWarning` is quota-exempt but non-removable — so a run emitting more than 4096 warnings/errors permanently wedges its journal, and the wedge kills the run: every subsequent append fails non-retryably inside Append, the owner sets `persistenceErr`, cancels, and stamps false `persistence_degraded`.
+
+**Evidence (REALITY):**
+- Removable sets are inline SQL literals excluding `warning`/`finding` (retention.go:75–77; tombstone list :185–188 also excludes them — warnings survive even tombstoning and are reclaimed only by cascade delete at run-row expiry).
+- Compaction runs inside Append's transaction after insert (sqlite.go:687–689); when it frees nothing, Append returns non-retryable `CodeQuota` "required durable event history reached its bounded capacity" (retention.go:85–86) and the deferred rollback discards the inserted event too.
+- `reservedEventType` exempts warnings only from the global byte gate (sqlite.go:620 vs :713–720) — exemption without removability.
+- Producer maps `warning|warn|error` to EventWarning with no dedup/coalescing (run_control.go:382–383); the 250 ms coalescer applies only to identical-progress payloads (:180).
+- Counter-evidence found in the wild: retention_test.go:59–76 actually codifies warning survival while deleting the progress event — the asymmetry is asserted, never questioned; no exhaustion test exists for warning-dominant journals.
+
+**Architectural reason:** change-surface / failure-semantics — per-type retention policy scattered across SQL literals plus a Go switch with no single table or guard test; bounded-capacity doctrine turns a bookkeeping gap into run termination with a lying label (same triage poison as F01, different trigger).
+
+**Concrete consequence:** a long agent session dominated by provider/tool warnings wedges mid-run; storage was healthy; the record says otherwise. A newly registered-but-uncompactable event type reproduces this identically (change-04 probe-verified on synthetic volume).
+
+**Counter-evidence searched:** mixed streams survive (progress/message free space), bounding frequency — why P2 stands rather than P1; the bound itself and fail-closed direction are defensible doctrine; no doc documents tier policy anywhere.
+
+**Confidence:** high (mechanism read directly), medium (real-world frequency).
+
+**Smallest useful action:** centralize per-type retention class in one Go table rendered into the SQL literals and `reservedEventType`; make `warning` compactable-or-tombstoneable; add a fill-past-capacity test per declared type.
+
+---
+
+**ID: CHAIR-02-F07**
+**Priority: P2**
+**Verdict: CONFIRMED (CURRENT-CONTRACT grounded; confirms FAILURE-06-F01 with corrected priority via CHALLENGE-02-F07)**
+
+**Claim:** Graceful server shutdown cancels server-owned operations in memory only — it never persists a cancellation request carrying reason `server_shutdown` to the authoritative journal — so the durable record reads generic `cancelled`/"operation cancelled", and a crash inside the drain window loses shutdown context entirely until reconciliation writes attribution-blind `interrupted`.
+
+**Evidence (REALITY + CURRENT-CONTRACT):**
+- CURRENT-CONTRACT verbatim (workspace TRD.md:2132): shutdown must "**request canonical cancellation exactly once with reason `server_shutdown` … and persist one truthful terminal outcome**."
+- REALITY: `drainAndWait` cancels via hub-only `cancelOperation(id, "server_shutdown")` mutating the ephemeral doc (web/operations.go:477–501, :345–372); the `DurableOperationManager` interface exposes Accept/Record/Finish only (app/operations.go:40–44); repo-wide grep confirms production `RequestCancellation` callers are CLI/user/web-user pages, never shutdown; `FinishOperation` hardcodes "operation cancelled" (durable_operations.go:246–247) and takes no reason parameter.
+- Only the drain-deadline escape hatch records the reason durably — as a filesystem cleanup marker (persistCleanupUncertain → `.cleanup-uncertain.json`, covered by web_operations_test.go:124–146), bypassing run-control entirely; crash-in-drain reconciles to `interrupted`/`owner_process_missing_after_grace` with no shutdown attribution (lifecycle.go:400, :483).
+
+**Architectural reason:** authority / boundary — the journal is the designated truth owner for lifecycle, but the shutdown actor cannot reach it through the interface it holds; attribution lives only in ephemeral projection and product markers.
+
+**Concrete consequence:** support export and `run show` cannot distinguish shutdown-cancelled from user-cancelled work in the normal-drain case; state remains truthful (`cancelled` is terminal), so this is attribution loss — hence P2, not P1.
+
+**Counter-evidence searched:** volunteered `Reason` in RecordOperationEvent payloads is incidental presentation, not authoritative lifecycle; local-web.md phrasing is SSE-scoped but TRD:2132 governs durable wording unambiguously.
+
+**Confidence:** high (mechanism), medium (materiality).
+
+**Smallest useful action:** add a narrow optional `OperationCancelRequester` backed by `repository.RequestCancellation(runID, "server_shutdown")`, invoked from `drainAndWait` before `record.cancel()`; let `FinishOperation` prefer the snapshot's cancellation reason.
+
+---
+
+**ID: CHAIR-02-F08**
+**Priority: P2**
+**Verdict: CONFIRMED, AGGRAVATED (consolidates SCOUT-06-F02 / FAILURE-02-FN1/FN2 / FAILURE-03-F02 / GENERALIST-03-F03 via CHALLENGE-02-F08; adds reachability and swallow-path evidence)**
+
+**Claim:** Product-scope locking identifies processes by bare PID and its takeover protocols are unfenced, against the repo's own solved pattern and CURRENT-CONTRACT (TRD:2208: "A PID alone is insufficient because of PID reuse"): cross-process study cancel SIGINTs a recycled PID; `--force-unlock` deletes a possibly-live holder's lock producing two concurrent mutators; stale-reclaim has a remove/create TOCTOU in both implementations; and a reused PID blocks sprint mutation indefinitely with no escape hatch.
+
+**Evidence (REALITY):**
+- Bare liveness duplicated byte-for-byte in study and sprint (`kill(pid,0)` + EPERM-as-alive: study/locks.go:17–23; sprint/verification_lock.go:95–101); neither LockInfo variant carries birth identity.
+- `CancelRunLoop` SIGINTs the recorded PID behind only a study-name check (with an empty-string bypass weakening even that: locks.go:149) and a self-PID check (:152); production-reachable from browser click and TUI keypress via `OperationStudyCancel` (web/operation_handlers.go:682–683 → app/operation_runner.go:133–143; tui/app.go:139).
+- `ForceUnlockRunLoop` removes unconditionally (locks.go:161–167) behind CLI-only `--force-unlock` (docs correctly scope it to operator-confirmed-stale — but nothing checks staleness on the force path); sprint has NO force path at all, and startup reconciliation deliberately swallows verification conflicts (sprint/locks.go:28–30 `return false, nil`), so a recycled-PID ghost blocks flow/execute/review/smoke indefinitely with recourse limited to undocumented hand-deletion.
+- Reclaim TOCTOU in both packages: liveness judged on a pre-remove snapshot, then unconditional remove, then O_EXCL recreate — two reclaimers can interleave such that R2 deletes R1's freshly-created live lock (study/locks.go:62–81; verification_lock.go:32–59).
+- Possession is checked only at release (run_loop.go:31–39; refusal at locks.go:116–118) — after a mid-run force-unlock the original run keeps mutating unprotected for its whole duration.
+- The cure exists in-repo: runcontrol records host+boot+PID+birth-token and tests PID reuse explicitly (process_linux.go:16–45; migration.go:159 "Exact birth mismatch proves PID reuse"; lifecycle_test.go:176/:186/:313). Docs elsewhere assert the principle the product locks violate (architecture.md:174–175; recovery.md:197–198 "Do not kill a PID based only on the number").
+
+**Architectural reason:** authority / drift / failure-semantics — run-control owns run fencing with birth-token rigor while the modules serializing actual product mutation kept a weaker identity oracle; both writers can hold valid fenced run-control records simultaneously, so reconciliation structurally cannot arbitrate the force-unlock case.
+
+**Concrete consequence:** crash + PID reuse (the exact scenario recovery docs walk operators through) yields SIGINT delivered to an innocent same-user process, duplicate run-loops interleaving task transitions, or indefinite sprint lockout. Low probability per event, silent and severe when hit.
+
+**Counter-evidence searched:** docs scope force-unlock as operator-confirmed-stale (mitigates intent, not mechanics — no staleness check exists); EPERM-as-alive makes cross-user recycling fail safely at signal time but not same-user; modern pid_max lowers frequency — P2 stands.
+
+**Confidence:** high (mechanism), medium (incidence).
+
+**Smallest useful action:** record proc birth-time identity in both lock formats and require a match before stale-removal, SIGINT, or release-refusal fallback; consult liveness on the force path; stat-and-compare inode before remove.
+
+---
+
+**ID: CHAIR-02-F09**
+**Priority: P2**
+**Verdict: CONFIRMED, SURFACE WIDENED, BLAST RADIUS RE-VERIFIED AS LATENT (confirms CHANGE-08-F01 via CHALLENGE-02-F09)**
+
+**Claim:** The durable→web compatibility surface projects raw `runcontrol.Lifecycle` through an envelope its own documentation, contract test, and classifier define as an 8-state closed set; the reachable extra terminals `timed_out` and `persistence_degraded` escape it, and `terminalOperationState` misclassifies them as non-terminal.
+
+**Evidence (REALITY):**
+- Raw pass-through with no normalization: operation_handlers.go:415/:424.
+- Reachability: start persistence failures → `TerminalPersistenceLost` (durable_operations.go:110–111; run_control.go:285); deadlines → `TerminalTimedOut` (durable_operations.go:244–245; run_control.go:628–629); outcome→lifecycle is a direct cast persisted by ProposeTerminal (model.go:116–118; sqlite.go:774).
+- Documented set excludes both: local-web.md:146–149 lists exactly 8 stable states; operations_contract_test.go:83/:110–112 pins the same list as a self-described producer/consumer contract; `terminalOperationState` recognizes 5 terminals (operations.go:614–621).
+- Widened escape surface found by verification: raw lifecycles also leak through the replay 202 body (operations.go:194), TUI projection (tui/app.go:247), and SSE payload fields (operation_handlers.go:513) even though SSE event *names* are strictly normalized (:501–512; operations.go:468–475) — normalization discipline exists for names, not values.
+- Blast radius today: latent, verified — all `terminalOperationState` callers read only hub-created records (closed writer switch; the raw-lifecycle accept path returns before inserting a record), HTML redirects durable ops to `/runs`, browser JS branches on event names not states. No live misroute.
+
+**Architectural reason:** boundary / drift — the package owns a compatibility envelope but projects an unowned superset through it; the guard test enshrines the stale contract, making future consumers trust a broken invariant.
+
+**Concrete consequence:** any future consumer applying `terminalOperationState` to a durable document treats a finished run as ongoing; documented API returns states the docs declare impossible.
+
+**Counter-evidence searched:** traced every feed into the classifier — closed switch today; browser terminal array complete; redirect generic. None repairs the JSON contract.
+
+**Confidence:** high (facts), medium (impact).
+
+**Smallest useful action:** decide the envelope once — extend doc/test/classifier to the full vocabulary, or normalize at `durableOperationDocument` as the event-name projection already does.
+
+---
+
+**ID: CHAIR-02-F10**
+**Priority: P2**
+**Verdict: CONFIRMED (confirms FAILURE-06-F02 via CHALLENGE-02-F10)**
+
+**Claim:** Production `WriteTimeout=30s` caps two of three SSE streaming paths at 30 s wall clock — `followRunSSE` and `followDurableOperationEvents` — contradicting the 30-minute `MaxStreamLifetime`/heartbeat design; only `handleOperationEvents` extends the write deadline.
+
+**Evidence (REALITY):** server.go:19/:104 set one absolute per-server WriteTimeout; the single `SetWriteDeadline` extension (operation_handlers.go:242 = MaxStreamLifetime+SSEHeartbeat) executes only on the hub-subscription path; `followDurableOperationEvents` is invoked *before* that line (:226) and contains none; `followRunSSE` (run_handlers.go:473–527) contains none. No middleware renews deadlines (repo-wide single hit). Browser EventSource consumes both uncovered endpoints (static/app.js:850/:1410) — and the durable fallback path is precisely selected in the long-watch scenario (server restarted, run owned elsewhere) where the cap bites hardest. No test serves SSE through production timeouts (recorder-based only).
+
+**Architectural reason:** change-surface / failure-semantics — one concern implemented three times with divergent deadline handling, invisible to CI.
+
+**Concrete consequence:** streams die ~30 s in; browsers self-heal via reconnect churn (re-entering replay/gap logic), scripted/API consumers see closure indistinguishable from a crashed server.
+
+**Counter-evidence searched:** IdleTimeout/ReadTimeout ruled out; reconnect masks impact for the bundled UI — severity medium, certainty high.
+
+**Confidence:** high.
+
+**Smallest useful action:** the same one-line deadline extension in both handlers, plus one integration test through production timeouts.
+
+---
+
+**ID: CHAIR-02-F11**
+**Priority: P3**
+**Verdict: CONFIRMED (confirms SPECIALIST-07A-F03 / SCOUT-05-F05 via CHALLENGE-02-F11)**
+
+**Claim:** `cancellation_state='uncertain'` is write-dead — zero producers repo-wide (exhaustive grep: constant, IsValid, CHECK constraint, health count query sqlite.go:877, web cue run_handlers.go:345–346, CLI counter run_commands.go:269–271 are its only references) — while Health/CLI present it as an observable operator signal; the one real uncertainty case (dead owner with pending requested cancellation) surfaces only as generic `interrupted`/`cleanup_uncertain` with `cancellation_state` frozen at `requested`.
+
+**Evidence (REALITY):** writers of cancellation_state are exactly Accept→none, RequestCancellation→requested, AcknowledgeCancellation→acknowledged (sqlite.go:433–443; lifecycle.go:110–114/:171–175); no dynamic SQL constructs the value; reconciliation consults only terminal/attempt/probe state — never pending cancellation (lifecycle.go:443, :481–495; ProposeTerminal's UPDATE sets no cancellation fields, sqlite.go:769–776).
+
+**Architectural reason:** lifecycle / drift — declared state space exceeds reachable state space; Sprint-35's health distinction requirement remains unserved.
+
+**Concrete consequence:** the metric is structurally always 0; genuine cancel-then-death is indistinguishable in health output from ordinary interruption.
+
+**Counter-evidence searched:** forward-compat reservation plausible but CHECK membership alone preserves it; no later-sprint producer in the workspace — if one arrives this converts to future-risk-only.
+
+**Confidence:** high (zero-writer fact), medium (intent).
+
+**Smallest useful action:** give the reconciler a writer (expired owner + `cancellation_state='requested'` → mark `uncertain` pre-terminal), or remove the counter/state and annotate as reserved.
+
+---
+
+**ID: CHAIR-02-F12**
+**Priority: P3**
+**Verdict: CONFIRMED (chair verified both defects firsthand; confirms FAILURE-03-F03 / SPECIALIST-07B-F04 via CHALLENGE-02-F12)**
+
+**Claim:** Two diagnostic-truth defects in the durable layer: `Heartbeat` checks the hard-quota gate *before* verifying the fence (lifecycle.go:24–28 precede :35), so a stale owner against a full store gets retryable `CodeQuota` instead of `CodeStaleFence`; and reconciliation evidence writes are fire-and-forget (`_ = r.recordReconciliation(...)` at :352 and :411), so third-party terminal decisions can take effect with their audit row silently lost — failures surface nowhere (`ReconcileReport` counts scans/stalls/terminals only; `finishReconciliationLog` logs counters).
+
+**Architectural reason:** failure-semantics (misattributed causality) / observability — the reconciliation log is the auditable "why" behind an immutable reconciler-written terminal.
+
+**Concrete consequence:** logs attribute a takeover to quota pressure; support bundles show terminals with missing `reconciliation_log` rows — degrading exactly the forensic path `run diagnostics --support-export` exists for. Decisions remain visible in snapshots; harm is evidentiary.
+
+**Counter-evidence searched:** no production caller distinguishes quota from stale-fence heartbeat failures today (`ErrStaleFence` checked only in reconciliation internals + unit test) — the ordering is incidental, not load-bearing, which is also why the fix is trivially safe.
+
+**Confidence:** high.
+
+**Smallest useful action:** move `verifyFence` above the quota pre-check; count evidence-write failures into `ReconcileReport` and surface via Health.
+
+---
+
+**ID: CHAIR-02-F13**
+**Priority: P3**
+**Verdict: CONFIRMED (confirms SCOUT-06-F05 via CHALLENGE-02-F13)**
+
+**Claim:** The TUI operation-event handoff breaks two repo-wide observability conventions at once: the cap-128 channel drops silently with an empty `default:` (tui/app.go:266, :296–299) — no counter exists on Model — and a failed durable `RecordOperationEvent` (non-`ErrWebUnavailable`) returns *before* the live send (:287–291), freezing visible output on a transient DB hiccup while the run continues.
+
+**Architectural reason:** failure-semantics / drift — comparable paths all count losses (process dispatcher `dropped` → `Result.DroppedEvents`, surfaced in smoke diagnostics; web hub `slowSubscribers` atomic counter); durability-first ordering mitigates post-hoc inspection but not live fidelity.
+
+**Concrete consequence:** bursty output silently under-renders; a transient append failure blanks live progress with no surfaced error — indistinguishable from a quiet run.
+
+**Counter-evidence searched:** dropped events remain in the journal (real mitigation, noted); no test asserts TUI stream completeness under saturation.
+
+**Confidence:** high (mechanism), medium (impact).
+
+**Smallest useful action:** count drops on the model; forward-or-count on the record-error branch instead of bare `return`.
+
+### Defended architecture / rejected hypotheses
+
+1. **Terminal arbitration impersonation / double-winner.** Rejected: fence verify precedes a single-row CAS on `current_attempt_id + terminal_outcome IS NULL` (sqlite.go:746–786, re-read firsthand); losers get the winner idempotently (:753–757); raced in `TestCancellationAndTerminalRacePreservesOneWinnerAndIdempotentCommand`. The core deserves protection, not rework.
+2. **"`proposeRunTerminalWithRetry` budgets ~250 ms."** Rejected — the tribunal's own sub-claim, disproved firsthand: the helper loops until the caller's 30 s finish context expires; 250 ms is a per-wait sleep-deadline capped at 100 ms (run_control.go:318–328, :334–350). F02's consequence narrative corrected accordingly. The legible-budget concern survives only as a readability note inside F02's action.
+3. **"`reconcileUnclaimed`'s direct INSERT+CAS is a live double-arbiter bug."** Rejected as present defect (chair read :427–479 firsthand): `ProposeTerminal` structurally requires a bound attempt an unclaimed run lacks; predicates equivalent today. Stands only as duplication risk if adoption is ever introduced — P3 hygiene at most.
+4. **"Adapter discarding the result when `ctx.Done()` wins the ready-select is a bug."** Rejected: deliberate conservatism applied consistently (runtime.go:304–325); distinct from F03, which concerns callbacks *after* return.
+5. **"Unwired `Notifier` undermines push delivery."** Rejected: best-effort optimization over correctness-guaranteed replay (interfaces.go:41–45); nil-guarded notify (sqlite.go:1143–1147).
+6. **"Single-attempt/generation-1 fencing is dead weight."** Rejected: fences bind zombie writers of the same attempt on every mutation (Append sequence CAS sqlite.go:677–685 firsthand); adoption refused by design; late claims fail with ErrTerminal (tested).
+7. **"`go test -race` passing disproves F03."** Rejected: reran fresh `-race` across runcontrol/app/sprint — passes because every fake delivers synchronously inside StartRun; detector silence is coverage absence.
+8. **"Sanitize strictness is author-intended security policy, refuting F05."** Rejected as full defense: the 27-key allowlist is broad, yet precisely the seven promoted display keys are absent; the gate predates both promotion commits whose messages claim carriage; consumers read what the gate drops. At most an undocumented policy — drift and misleading "unsafe" accounting stand.
+9. **"Web degraded mode runs unfenced duplicates."** Rejected: `ErrWebUnavailable` arises only without the durable manager; serve/TUI production wiring always installs it (serve_commands.go:65, tui_commands.go:47).
+10. **"Shutdown drain deadlocks or double-terminalizes."** Rejected: shared bounded shutdownCtx forces `server.Close()`; in-memory terminal checks + durable CAS make cancel/completion races idempotent (tested at both layers).
+11. **"Hub holding `mu` across SQLite admission serializes all traffic — defect."** Rejected: WAL + busy_timeout + single loopback user + ≤8 ops makes serialized admission defensible.
+12. **"The operation supervisor's plain-cancel ack handling proves the fix for F01 exists in-tree."** Refined, not accepted: it avoids the false persistence label but silently discards the cause and lands in the opposite wrong bucket (`cancelled`) — it is evidence the *shape* exists, and simultaneously more evidence for F04's divergence thesis.
+
+Excluded as style-only (per doctrine, not findings): hand-rolled `sortStrings` insertion sort and `jsonMarshalTruncated` delegating to `fmt.Sprintf` (run_control.go:570–623) — behaviorally odd but observability-peripheral; flagged here solely so synth stages don't rediscover them as new.
+
+### Open questions
+
+1. **Ratify or repair fail-fast heartbeats?** Verification settled that no authoritative rationale exists (TRD:2223 marks it a required reasoning decision; sprint-35 question #13 unanswered; no reasoning.md shipped). Remaining uncertainty is directional, not factual: if the team ratifies fail-fast as policy, F02 becomes documentation debt; if not, it is the behavior change described. Downstream arbiter should force the decision rather than leave it implied.
+2. **Is the sanitize gate widening slated in unfinished sprint-35 slices?** Requirements exist; no plan/review artifacts do. If the strict gate is ratified, F05's remedy flips from "extend list" to "document gate as authoritative + fix commit/consumer expectations."
+3. **Are mixed-binary workspaces (two versions sharing `run-control.db`) supported?** Bears on CHECK-constraint/migration consequences reported by change-04/change-08 (outside this tribunal's P-set but adjacent); if supported, those escalate materially.
+4. **Empirical frequency of `progressOmitted > 0` at completion/cancellation** calibrates F01's trigger rate against retained journals; a targeted count would rank F01 vs F02 as the dominant source of false `persistence_degraded` records.
+5. **agentwrap version-pin policy:** F03's close-ordering linchpin is external-module-owned; whether upgrades are reviewed for quiescence-semantics changes determines whether the adapter postcondition should be enforced locally (bound-drain) rather than documented.

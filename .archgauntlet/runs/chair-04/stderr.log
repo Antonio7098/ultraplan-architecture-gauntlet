@@ -1,0 +1,1585 @@
+[93m[1m! [0m agent "arch-chair" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/finding-contract.md[90m [command=ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/.archgauntlet/runs 2>/dev/null || ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet][0m
+[0m
+[0m$ [0mls -la /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/.archgauntlet/runs/ 2>/dev/null && echo "---" && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet
+(no output)
+[0m
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/synthesis-contract.md
+[0m
+[0m$ [0mls -la /home/antonioborgerees/coding/ultraplan/gauntlet-run/ 2>&1; echo "==="; ls -la /home/antonioborgerees/coding/ultraplan/ 2>&1
+total 0
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  62 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees 490 Aug 23 19:29 ..
+drwxr-xr-x. 1 antonioborgerees antonioborgerees 136 Aug 22 16:23 ultraplan-go
+drwxr-xr-x. 1 antonioborgerees antonioborgerees 158 Aug 22 16:23 ultraplan-workspace
+===
+total 441976
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       490 Aug 23 19:29 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       524 Aug 23 14:47 ..
+drwxr-xr-x. 1 antonioborgerees antonioborgerees        72 Aug 24 17:42 Aren
+drwxr-xr-x. 1 antonioborgerees antonioborgerees        62 Aug 22 16:23 gauntlet-run
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       226 Aug 24 20:54 ultraplan-architecture-gauntlet
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       234 Aug 24 22:24 ultraplan-go
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       644 Aug 19 14:22 ultraplan-go-smoke
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       136 Aug 21 10:18 ultraplan-go-sprint-efficiency
+drwxr-xr-x. 1 antonioborgerees antonioborgerees        32 Aug 22 14:52 .ultraplan-go-ultraplan-worktrees
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       204 Aug 24 20:10 ultraplan-go-workspace
+-rw-r--r--. 1 antonioborgerees antonioborgerees 452582581 Aug 21 17:58 ultraplan-go-workspace-pre-product-state-20260821T165813Z.tar.gz
+drwxr-xr-x. 1 antonioborgerees antonioborgerees       178 Aug 22 16:17 ultraplan-workspace
+[0m
+[0m$ [0mls -la /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/ && echo "===" && ls -la /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/ 2>/dev/null
+total 24
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  226 Aug 24 20:54 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  490 Aug 23 19:29 ..
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   12 Aug 22 16:22 .agents
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   70 Aug 24 22:50 .archgauntlet
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   24 Aug 22 16:25 bin
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   24 Aug 22 16:22 cmd
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  166 Aug 24 22:21 .git
+-rw-r--r--. 1 antonioborgerees antonioborgerees   27 Aug 22 16:22 .gitignore
+-rw-r--r--. 1 antonioborgerees antonioborgerees   71 Aug 22 16:22 go.mod
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   16 Aug 22 16:22 internal
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   32 Aug 22 16:26 logs
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  114 Aug 22 16:26 .opencode
+-rw-r--r--. 1 antonioborgerees antonioborgerees   93 Aug 22 16:22 opencode.json
+-rwxr-xr-x. 1 antonioborgerees antonioborgerees 3706 Aug 24 17:34 orchestrate.sh
+-rw-r--r--. 1 antonioborgerees antonioborgerees    0 Aug 24 20:54 .orch.lock
+-rw-r--r--. 1 antonioborgerees antonioborgerees 5470 Aug 22 16:22 README.md
+===
+total 60
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    70 Aug 24 22:50 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   226 Aug 24 20:54 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees    95 Aug 24 22:21 index.md
+-rw-r--r--. 1 antonioborgerees antonioborgerees 10795 Aug 24 22:21 INDEX.md
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   768 Aug 24 22:21 logs
+-rw-r--r--. 1 antonioborgerees antonioborgerees 44593 Aug 24 22:50 review.json
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  2236 Aug 22 16:22 runs
+[0m
+[0m$ [0mls -la /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/
+total 0
+drwxr-xr-x. 1 antonioborgerees antonioborgerees 2236 Aug 22 16:22 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   70 Aug 24 22:50 ..
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 arbiter-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 22:21 chair-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 22:21 chair-02
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 22:23 chair-03
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 22:50 chair-04
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 chair-05
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 chair-06
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 19:55 challenge-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 19:55 challenge-02
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 20:17 challenge-03
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 20:20 challenge-04
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 21:34 challenge-05
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 24 22:01 challenge-06
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-02
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-03
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-04
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-05
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-06
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-07
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 change-08
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-02
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-03
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-04
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-05
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-06
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-07
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-08
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-09
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-10
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-11
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 failure-12
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 generalist-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 generalist-02
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 generalist-03
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 generalist-04
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 scout-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 scout-02
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 scout-03
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 scout-04
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 scout-05
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 scout-06
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-01a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-01b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-02a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-02b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-03a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-03b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-04a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-04b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-05a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-05b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-06a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-06b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-07a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-07b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-08a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-08b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-09a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-09b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-10a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-10b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-11a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-11b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-12a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-12b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-13a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-13b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-14a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-14b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-15a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-15b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-16a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-16b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-17a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-17b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-18a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-18b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-19a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-19b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-20a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-20b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-21a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-21b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-22a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-22b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-23a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-23b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-24a
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   56 Aug 22 16:25 specialist-24b
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 synth-01
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 synth-02
+drwxr-xr-x. 1 antonioborgerees antonioborgerees   18 Aug 22 16:25 synth-03
+[0m
+[0m→ [0mRead .archgauntlet/index.md
+[0m→ [0mRead .archgauntlet/INDEX.md
+[0m
+[0m$ [0mls -la /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-04/ && cat /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-04/*.json 2>/dev/null | head -50
+total 16
+drwxr-xr-x. 1 antonioborgerees antonioborgerees    56 Aug 24 22:50 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  2236 Aug 22 16:22 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees  3584 Aug 22 16:25 prompt.md
+-rw-r--r--. 1 antonioborgerees antonioborgerees 12157 Aug 24 22:51 stderr.log
+-rw-r--r--. 1 antonioborgerees antonioborgerees     0 Aug 24 22:50 stdout.md
+[0m
+[0m→ [0mRead .archgauntlet/runs/challenge-04/stdout.md
+[0m→ [0mRead .archgauntlet/runs/chair-04/prompt.md
+[0m→ [0mRead orchestrate.sh
+[0m
+[0m$ [0mgit log --oneline -3 && ls internal/ && ls internal/app/ | head -40
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+app
+codeextract
+platform
+productstate
+project
+runcontrol
+sprint
+study
+tui
+web
+workspace
+app.go
+app_test.go
+code_commands.go
+code_commands_test.go
+config_commands.go
+defaults_commands.go
+durable_operations.go
+durable_operations_test.go
+health_commands.go
+health_commands_test.go
+json_output.go
+markdown.go
+markdown_test.go
+operation_runner.go
+operations.go
+project_commands.go
+project_commands_test.go
+project_usecases.go
+run_commands.go
+run_commands_test.go
+run_control.go
+run_control_inventory_test.go
+run_control_test.go
+run_usecases.go
+serve_commands.go
+serve_commands_test.go
+skills_commands.go
+skills_commands_test.go
+sprint_commands.go
+sprint_commands_test.go
+sprint_error_test.go
+sprint_usecases.go
+sprint_usecases_test.go
+sprint_verify_commands_test.go
+status_json.go
+storage_commands.go
+study_commands.go
+study_commands_test.go
+study_init_commands_test.go
+study_prompt_commands_test.go
+[0m
+[0m• [0mDigest interface-domain prior outputs[90m Explore Agent[0m
+[0m✗ [0mDigest interface-domain prior outputs failed[90m Explore Agent[0m
+[91m[1mError: [0mSubagent failed (task_id: ses_fca3d2485ffe6WS1SiM3NiIzNg): [Stealth] stealth/ox-alpha is temporarily rate-limited upstream. Please retry shortly.
+[0m• [0mDigest interface-domain prior outputs[90m Explore Agent[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go
+[0m✗ [0mDigest interface-domain prior outputs failed[90m Explore Agent[0m
+[91m[1mError: [0mSubagent failed (task_id: ses_fca3bca72ffeFxuWwtwI6joZ5o): [Stealth] stealth/ox-alpha is temporarily rate-limited upstream. Please retry shortly.
+[0m
+[0m$ [0mgrep -n "sprintRuntimeService" internal/app/sprint_commands.go | head -5; echo "==="; sed -n '480,520p' internal/app/sprint_commands.go; echo "=== smoke_author"; sed -n '1,40p' internal/sprint/smoke_author.go; echo "=== smoke.go 20-70"; sed -n '20,70p' internal/sprint/smoke.go
+232:			flowService, err = sprintRuntimeService(deps, root)
+287:			verifyService, err = sprintRuntimeService(deps, root)
+333:			execService, err = sprintRuntimeService(deps, root)
+380:			reviewService, err = sprintRuntimeService(deps, root)
+436:			smokeService, err = sprintRuntimeService(deps, root)
+===
+		return sprint.Service{}, err
+	}
+	req, err := runtimepkg.RequestFromConfig(effective.Config, root.Path)
+	if err != nil {
+		return sprint.Service{}, classified(ExitConfig, "runtime.config: %w", err)
+	}
+	rt, err := deps.sprintRuntimeFactory(effective.Config)
+	if err != nil {
+		return sprint.Service{}, classified(ExitRuntime, "runtime.init: %w", err)
+	}
+	controlled, err := controlledRuntimeFor(deps, root.Path, effective.Config, rt)
+	if err != nil {
+		return sprint.Service{}, classified(ExitRuntime, "run-control.init: %w", err)
+	}
+	progress := renderSprintRuntimeProgress(deps)
+	if len(observers) > 0 {
+		progress = observers[0]
+	}
+	return sprint.NewService(root.Path).WithRuntime(controlled, req).WithRuntimeProgress(progress).WithStageRuntime(planningStageRuntime(effective.Config)).WithReviewConcurrency(effective.Config.Execution.DefaultParallel).WithSmokeSettings(smokeSettings(effective, envLookup(deps.env))), nil
+}
+
+func renderSprintFlowProgress(deps dependencies) func(sprint.FlowProgress) {
+	return func(progress sprint.FlowProgress) {
+		fmt.Fprintf(deps.stderr, "[sprint] %-18s %-8s %s\n", progress.Stage, progress.State, config.RedactValue("sprint.progress", progress.Message))
+	}
+}
+
+func renderSprintRuntimeProgress(deps dependencies) func(sprint.RuntimeProgress) {
+	var mu sync.Mutex
+	return func(progress sprint.RuntimeProgress) {
+		if !runtimeEventIsProgress(progress.Event) {
+			return
+		}
+		mu.Lock()
+		defer mu.Unlock()
+		fmt.Fprintf(deps.stderr, "[runtime] %-18s", progress.Stage)
+		if progress.Task != "" {
+			fmt.Fprintf(deps.stderr, " task=%s", progress.Task)
+		}
+		if progress.CoverageID != "" {
+			fmt.Fprintf(deps.stderr, " coverage=%s", progress.CoverageID)
+=== smoke_author
+package sprint
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"io/fs"
+	"os"
+	"os/exec"
+	"path/filepath"
+	"sort"
+	"strings"
+	"sync/atomic"
+
+	pruntime "github.com/Antonio7098/ultraplan-go/internal/platform/runtime"
+)
+
+const maxSmokeAuthoringFiles = 20000
+
+func (s Service) authorSmokeSuite(ctx context.Context, prepared smokePrepared, result *SmokeResult) error {
+	if s.runtime == nil {
+		return smokeError("smoke_author_runtime", "runtime", "runtime is required to author deep-smoke coverage", "Configure the smoke model/runtime and rerun smoke.", nil)
+	}
+	inputs, err := s.store.ReadPlanningInputs(prepared.Sprint)
+	if err != nil {
+		return smokeError("smoke_author_context", "authoring", "shared sprint context could not be loaded", "Restore the governed planning inputs and rerun smoke.", err)
+	}
+	sharedPrefix, err := s.prepareSharedPromptContext(ctx, prepared.Sprint, inputs, true)
+	if err != nil {
+		return smokeError("smoke_author_context", "authoring", "shared sprint context could not be prepared", "Repair the selected source reference or prompt budget failure and rerun smoke.", err)
+	}
+	harnessBefore, err := smokeHarnessSnapshot(prepared)
+	if err != nil {
+		return smokeError("smoke_author_snapshot", "authoring", "harness could not be snapshotted before authoring", "Restore a readable bounded smoke harness.", err)
+	}
+	projectRoot := filepath.Join(s.root, "projects", prepared.Sprint.Project)
+	var targetBefore, projectBefore string
+	var targetFilesBefore, projectFilesBefore map[string]string
+	if strictSmokeAuthorProtectedSnapshots {
+		targetBefore, err = targetIdentity(prepared.Target)
+=== smoke.go 20-70
+func (s Service) RunSmoke(ctx context.Context, projectRef, sprintRef string, req SmokeRequest) (result SmokeResult, err error) {
+	if req.DryRun {
+		return s.runSmoke(ctx, projectRef, sprintRef, req)
+	}
+	lockedCtx, release, lockErr := s.acquireMutationContext(ctx, projectRef, sprintRef)
+	if lockErr != nil {
+		return SmokeResult{Project: projectRef, Sprint: sprintRef, Status: SmokeFailed}, lockErr
+	}
+	defer release()
+	ctx = lockedCtx
+	if saveErr := s.saveSmokeAttempt(projectRef, sprintRef, SmokeResult{Project: projectRef, Sprint: sprintRef, Status: SmokeRunning}, nil, false); saveErr != nil {
+		return SmokeResult{Project: projectRef, Sprint: sprintRef, Status: SmokeFailed}, smokeError("smoke_state_write", "persistence", "smoke attempt could not be recorded", "Repair flow-state persistence before retrying; no harness work was started.", saveErr)
+	}
+	result, err = s.runSmoke(ctx, projectRef, sprintRef, req)
+	if saveErr := s.saveSmokeAttempt(projectRef, sprintRef, result, err, true); saveErr != nil {
+		stateErr := smokeError("smoke_state_write", "persistence", "terminal smoke state could not be recorded", "Inspect and repair flow-state persistence before retrying.", saveErr)
+		return result, errors.Join(err, stateErr)
+	}
+	return result, err
+}
+
+func (s Service) runSmoke(ctx context.Context, projectRef, sprintRef string, req SmokeRequest) (SmokeResult, error) {
+	result := SmokeResult{Project: projectRef, Sprint: sprintRef, Status: SmokeReady, DryRun: req.DryRun, OverrideRationale: strings.TrimSpace(req.OverrideRationale)}
+	emit := func(p SmokeProgress) {
+		if req.Progress != nil {
+			req.Progress(p)
+		}
+	}
+	emit(SmokeProgress{Phase: SmokePhasePreflight, Message: "validating review gate and harness manifest"})
+	prepared, err := s.prepareSmokeStatic(projectRef, sprintRef, req)
+	if err != nil {
+		return smokeFailedResult(result, err)
+	}
+	result.Project, result.Sprint = prepared.Sprint.Project, prepared.Sprint.Slug
+	result.Harness, result.Protocol = prepared.Manifest.Harness.ID, prepared.Manifest.ProtocolVersion
+	result.Artifact = ArtifactRelPath(prepared.Sprint, StageSmoke)
+	result.ReviewVerdict, result.ReviewFingerprint = prepared.Review.Verdict, prepared.Review.Fingerprint
+	result.ReviewOverride = req.ForceReview
+	result.Ready = true
+	result.EffectiveTimeout, result.TimeoutSource = smokeTimeout(s.smokeSettings, prepared.Manifest, req)
+	if !req.DryRun {
+		emit(SmokeProgress{Phase: SmokePhaseAuthoring, Message: "authoring sprint-specific deep-smoke coverage"})
+		if err := s.authorSmokeSuite(ctx, prepared, &result); err != nil {
+			return smokeFailedResult(result, err)
+		}
+	}
+
+	getenv := s.smokeSettings.Getenv
+	if getenv == nil {
+		getenv = os.Getenv
+	}
+[0m
+[0m$ [0mgrep -rn "DryRun" internal/web/ internal/tui/ internal/app/operations.go | grep -iv test | head -20; echo "=== server.go"; sed -n '1,40p' internal/web/server.go; echo "=== SetWriteDeadline sites"; grep -rn "SetWriteDeadline\|MaxStreamLifetime\|SSEHeartbeat" internal/web/*.go | grep -v _test
+internal/web/operation_handlers.go:28:	DryRun            bool     `json:"dry_run,omitempty"`
+internal/web/operation_handlers.go:114:	if confirmation.Request.Kind == app.OperationSmokeStart || confirmation.Request.Kind == app.OperationSmokeDryRun {
+internal/web/operation_handlers.go:610:		req.Kind = app.OperationFlowDryRun
+internal/web/operation_handlers.go:612:		if options.DryRun {
+internal/web/operation_handlers.go:613:			req.Kind = app.OperationFlowDryRun
+internal/web/operation_handlers.go:618:		if options.DryRun {
+internal/web/operation_handlers.go:619:			req.Kind = app.OperationStageDryRun
+internal/web/operation_handlers.go:624:		req.Kind = app.OperationStageDryRun
+internal/web/operation_handlers.go:629:		case options.DryRun:
+internal/web/operation_handlers.go:630:			req.Kind = app.OperationExecuteDryRun
+internal/web/operation_handlers.go:639:		req.Kind = app.OperationExecuteDryRun
+internal/web/operation_handlers.go:645:		} else if options.DryRun {
+internal/web/operation_handlers.go:646:			req.Kind = app.OperationReviewDryRun
+internal/web/operation_handlers.go:653:		req.Kind = app.OperationReviewDryRun
+internal/web/operation_handlers.go:657:		} else if options.DryRun {
+internal/web/operation_handlers.go:658:			req.Kind = app.OperationSmokeDryRun
+internal/web/operation_handlers.go:665:		req.Kind = app.OperationSmokeDryRun
+internal/web/operation_handlers.go:667:		if options.DryRun {
+internal/web/operation_handlers.go:668:			req.Kind = app.OperationVerifyDryRun
+internal/web/operation_handlers.go:673:		req.Kind = app.OperationVerifyDryRun
+=== server.go
+package web
+
+import (
+	"context"
+	"errors"
+	"fmt"
+	"io"
+	"net"
+	"net/http"
+	"sync"
+	"time"
+
+	"github.com/Antonio7098/ultraplan-go/internal/app"
+)
+
+const (
+	ReadHeaderTimeout = 5 * time.Second
+	ReadTimeout       = 15 * time.Second
+	WriteTimeout      = 30 * time.Second
+	IdleTimeout       = 60 * time.Second
+	ShutdownTimeout   = 10 * time.Second
+	MaxInFlight       = 32
+)
+
+type Options struct {
+	Listen        string
+	OpenBrowser   bool
+	Queries       app.WebQueries
+	Operations    app.WebOperations
+	Runs          app.RunUseCases
+	Stdout        io.Writer
+	Diagnostics   io.Writer
+	ListenFunc    func(string, string) (net.Listener, error)
+	LaunchBrowser func(context.Context, string) error
+	Now           func() time.Time
+	RequestID     func() string
+}
+
+func Run(ctx context.Context, opts Options) error {
+	if ctx == nil {
+=== SetWriteDeadline sites
+internal/web/operation_handlers.go:242:	_ = http.NewResponseController(w).SetWriteDeadline(h.now().Add(MaxStreamLifetime + SSEHeartbeat))
+internal/web/operation_handlers.go:253:	heartbeat := time.NewTicker(SSEHeartbeat)
+internal/web/operation_handlers.go:255:	lifetime := time.NewTimer(MaxStreamLifetime)
+internal/web/operation_handlers.go:458:	heartbeat := time.NewTicker(SSEHeartbeat)
+internal/web/operation_handlers.go:460:	lifetime := time.NewTimer(MaxStreamLifetime)
+internal/web/operations.go:30:	SSEHeartbeat               = 15 * time.Second
+internal/web/operations.go:31:	MaxStreamLifetime          = 30 * time.Minute
+internal/web/server_policy.go:16:	PreparationTTL, TerminalRetention, SSEHeartbeat, MaxStreamLifetime         time.Duration
+internal/web/server_policy.go:27:		TerminalRetention: TerminalRetention, SSEHeartbeat: SSEHeartbeat, MaxStreamLifetime: MaxStreamLifetime,
+internal/web/server_policy.go:35:	durations := []time.Duration{policy.ReadHeaderTimeout, policy.ReadTimeout, policy.WriteTimeout, policy.IdleTimeout, policy.ShutdownTimeout, policy.PreparationTTL, policy.TerminalRetention, policy.SSEHeartbeat, policy.MaxStreamLifetime}
+internal/web/server_policy.go:47:	if policy.ReadHeaderTimeout > policy.ReadTimeout || policy.SSEHeartbeat >= policy.MaxStreamLifetime ||
+[0m
+[0m$ [0msed -n '225,255p' internal/tui/app.go; echo "=== security.go 440-455"; sed -n '438,455p' internal/web/security.go; echo "=== durable_operations.go 35-55"; sed -n '35,55p' internal/app/durable_operations.go; echo "=== sqlite.go 440-490"; sed -n '440,490p' internal/runcontrol/sqlite.go
+}
+		return m, nil
+	default:
+		return m, nil
+	}
+}
+
+func (m teaModel) beginOperation(req app.OperationRequest) (tea.Model, tea.Cmd) {
+	opctx, cancel := context.WithCancel(m.ctx)
+	acceptedRunID := ""
+	if manager, ok := m.model.UseCases.(app.DurableOperationManager); ok && m.model.Confirmation != nil {
+		basis := m.model.Confirmation.CanonicalRequest + "\x00" + m.model.Confirmation.InputFingerprint
+		digest := sha256.Sum256([]byte(basis))
+		accepted, err := manager.AcceptOperation(opctx, *m.model.Confirmation, hex.EncodeToString(digest[:]))
+		if err != nil {
+			cancel()
+			m.model.Error = err.Error()
+			m.model.Loading = false
+			return m, nil
+		}
+		if accepted.Existing {
+			cancel()
+			m.model.Operation = &app.OperationResult{State: app.OperationState(accepted.Lifecycle), RunID: accepted.RunID, Message: "matching durable operation already exists"}
+			m.model.Confirmation = nil
+			return m, nil
+		}
+		acceptedRunID = accepted.RunID
+		if accepted.Context != nil {
+			opctx = accepted.Context
+		}
+	}
+=== security.go 440-455
+func (s *preparationStore) reapLocked() {
+	now := s.now().UTC()
+	for token, record := range s.records {
+		if !now.Before(record.ExpiresAt) {
+			delete(s.records, token)
+		}
+	}
+}
+
+func confirmationDedupKey(session, token string) string {
+	digest := sha256.Sum256([]byte(session + "\x00" + token))
+	return hex.EncodeToString(digest[:])
+}
+
+var (
+	errConfirmationExpired  = errors.New("confirmation expired")
+	errConfirmationMismatch = errors.New("confirmation mismatch")
+	errConfirmationReplayed = errors.New("confirmation replayed")
+=== durable_operations.go 35-55
+// gives product code the cancellation-aware context owned by the durable run.
+type durableCLICommand struct {
+	manager  *durableOperationManager
+	accepted AcceptedOperation
+}
+
+func beginDurableCLICommand(deps dependencies, request OperationRequest) (*durableCLICommand, error) {
+	repository, _, err := runRepository(deps)
+	if err != nil {
+		return nil, err
+	}
+	manager := newDurableOperationManager(repository, deps.runControl.owner)
+	accepted, err := manager.AcceptOperation(deps.ctx, Confirmation{Request: request}, "")
+	if err != nil {
+		return nil, classifiedCause(ExitRuntime, err, "run-control.accept")
+	}
+	return &durableCLICommand{manager: manager, accepted: accepted}, nil
+}
+
+func (c *durableCLICommand) Context() context.Context { return c.accepted.Context }
+
+=== sqlite.go 440-490
+		if isConstraint(err) {
+			return Snapshot{}, runError(CodeConflict, "accept", runID, "run identity or acceptance key already exists", false, err)
+		}
+		return Snapshot{}, classifyStoreError("accept", "persist durable acceptance failed", err)
+	}
+	if input.OperationAlias != "" {
+		if len(input.OperationAlias) > MaxSafeValueBytes || strings.ContainsAny(input.OperationAlias, "\x00\r\n") {
+			return Snapshot{}, invalidField("operation_alias", "must be a bounded opaque value")
+		}
+		if _, err := tx.ExecContext(ctx, `INSERT INTO operation_aliases (alias_id, run_id, alias_kind, created_at) VALUES (?, ?, 'operation', ?)`, input.OperationAlias, string(runID), formatTime(now)); err != nil {
+			if isConstraint(err) {
+				return Snapshot{}, runError(CodeConflict, "accept_alias", runID, "operation alias already exists", false, err)
+			}
+			return Snapshot{}, classifyStoreError("accept_alias", "persist operation alias failed", err)
+		}
+	}
+	snapshot, err := loadSnapshot(ctx, tx, runID)
+	if err != nil {
+		return Snapshot{}, err
+	}
+	if err := snapshot.Validate(); err != nil {
+		return Snapshot{}, err
+	}
+	if err := tx.Commit(); err != nil {
+		return Snapshot{}, classifyStoreError("accept_commit", "commit durable acceptance failed", err)
+	}
+	r.log(ctx, LogInfo, "run accepted",
+		LogField{Key: "run_id", Value: string(runID)}, LogField{Key: "target_kind", Value: input.Target.Kind},
+		LogField{Key: "operation", Value: input.Target.Operation}, LogField{Key: "lifecycle", Value: string(snapshot.Lifecycle)})
+	return snapshot, nil
+}
+
+func (r *SQLiteRepository) ResolveOperationAlias(ctx context.Context, alias string) (Snapshot, error) {
+	if strings.TrimSpace(alias) == "" || len(alias) > MaxSafeValueBytes || strings.ContainsAny(alias, "\x00\r\n") {
+		return Snapshot{}, invalidField("operation_alias", "must be a bounded opaque value")
+	}
+	var runID RunID
+	if err := r.db.QueryRowContext(ctx, `SELECT run_id FROM operation_aliases WHERE alias_id = ?`, alias).Scan(&runID); err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return Snapshot{}, wrapError(CodeNotFound, "resolve_alias", "operation alias is not retained", false, err)
+		}
+		return Snapshot{}, classifyStoreError("resolve_alias", "resolve operation alias failed", err)
+	}
+	return r.Snapshot(ctx, runID)
+}
+
+func (r *SQLiteRepository) Claim(ctx context.Context, input Claim) (Attempt, Snapshot, error) {
+	if ctx == nil {
+		ctx = context.Background()
+	}
+	if err := input.RunID.Validate(); err != nil {
+[0m
+[0m$ [0msed -n '60,80p' internal/sprint/service.go; echo "=== service.go 180-220"; sed -n '180,220p' internal/sprint/service.go; echo "=== state.go 195-220"; sed -n '195,220p' internal/sprint/state.go; echo "=== sprint_usecases.go 90-115"; sed -n '90,115p' internal/app/sprint_usecases.go
+Variant string
+}
+
+func NewService(root string) Service {
+	return Service{root: root, store: NewFSStore(root), now: func() time.Time { return time.Now().UTC() }, processRunner: pprocess.DirectRunner{}, smokeSettings: DefaultSmokeSettings(), mutations: &sync.Map{}, metricsMu: &sync.Mutex{}, statusWrites: true}
+}
+
+// WithoutStatusWrites derives status from current artifacts without creating a
+// missing flow-state file. It is used by strictly read-only presentation
+// surfaces; existing CLI/TUI status behavior remains unchanged.
+func (s Service) WithoutStatusWrites() Service {
+	s.statusWrites = false
+	return s
+}
+
+var ErrVerificationConflict = errors.New("verification mutation already in progress")
+
+func (s Service) acquireMutation(projectRef, sprintRef string) (func(), error) {
+	sp, err := s.resolveMutationSprint(projectRef, sprintRef)
+	if err != nil {
+		return nil, err
+=== service.go 180-220
+		}
+		if refreshed.Smoke != nil {
+			smokePath, pathErr := ArtifactPath(s.root, sp, StageSmoke)
+			data, readErr := os.ReadFile(smokePath)
+			invalid := pathErr != nil || readErr != nil || len(ValidateSmokeContent(string(data))) > 0
+			fingerprintMismatch := readErr == nil && refreshed.Smoke.SmokeFingerprint != "" && refreshed.Smoke.SmokeFingerprint != hashBytes(data)
+			reviewMismatch := refreshed.Review == nil || refreshed.Review.Stale || refreshed.Smoke.ReviewFingerprint != refreshed.Review.Fingerprint
+			refreshed.Smoke.Stale = invalid || fingerprintMismatch || reviewMismatch
+			refreshed.Smoke.Reconciliation = fingerprintMismatch || (readErr == nil && refreshed.Smoke.SmokeFingerprint == "")
+		}
+	}
+	if s.statusWrites && !legacyCodeContextState {
+		if err := SaveFlowState(s.root, sp, refreshed); err != nil {
+			return StatusSummary{}, err
+		}
+	}
+	flowPath, err := FlowStatePath(s.root, sp)
+	if err != nil {
+		return StatusSummary{}, err
+	}
+	var executeState *ExecuteRunState
+	var historicalExecutionStatus string
+	loadedExecute, executeErr := LoadExecuteRunState(s.root, sp)
+	if executeErr != nil && !errors.Is(executeErr, ErrExecuteRunStateMissing) {
+		if legacyStatus, ok := LegacyTerminalExecuteStatus(s.root, sp); ok {
+			historicalExecutionStatus = legacyStatus
+		} else {
+			return StatusSummary{}, executeErr
+		}
+	}
+	if executeErr == nil {
+		executeState = &loadedExecute
+	}
+	runStatePath, err := ExecuteRunStatePath(s.root, sp)
+	if err != nil {
+		return StatusSummary{}, err
+	}
+	verification := VerificationStatus{Project: sp.Project, Sprint: sp.Slug}
+	if historicalExecutionStatus == "" {
+		var verificationErr error
+		verification, verificationErr = s.VerificationStatus(projectRef, sprintRef)
+=== state.go 195-220
+	if value == nil {
+		return time.Time{}
+	}
+	return value.UTC()
+}
+
+func SaveFlowState(root string, s Sprint, state FlowState) error {
+	// Planning-stage refreshes must not erase the last complete verification
+	// evidence. Explicit stage writers load and replace their own record.
+	if state.Review == nil || state.Smoke == nil {
+		if prior, err := LoadFlowState(root, s); err == nil {
+			if state.Review == nil {
+				state.Review = prior.Review
+			}
+			if state.Smoke == nil {
+				state.Smoke = prior.Smoke
+			}
+		} else if !errors.Is(err, ErrFlowStateMissing) {
+			return err
+		}
+	}
+	if authoritative, err := FlowStateInDatabase(root, s); err != nil {
+		return err
+	} else if authoritative {
+		if err := saveFlowStateDatabase(root, s, state); err != nil {
+			return err
+=== sprint_usecases.go 90-115
+func (u dashboardUseCases) SprintSummaries(ctx context.Context) ([]SprintSummary, error) {
+	if err := ctx.Err(); err != nil {
+		return nil, err
+	}
+	projects, err := project.DiscoverProjects(u.root)
+	if err != nil {
+		return nil, mapProjectError("project.list", err)
+	}
+	service := u.sprintService()
+	var out []SprintSummary
+	for _, p := range projects {
+		sprints, err := sprint.DiscoverSprints(u.root, p)
+		if err != nil {
+			return nil, mapSprintError("sprint.list", err)
+		}
+		for _, sp := range sprints {
+			if err := ctx.Err(); err != nil {
+				return nil, err
+			}
+			status, err := service.Status(p.Name, sp.Slug)
+			if err != nil {
+				out = append(out, SprintSummary{
+					Project:           p.Name,
+					Slug:              sp.Slug,
+					Status:            "status unavailable",
+					RefreshMayWrite:   !u.readOnly,
+[0m
+[0m$ [0mgrep -rn "DELETE FROM operation_aliases" internal/ ; echo "---aliases-delete-done"; sed -n '38,48p' internal/app/operations.go; echo "=== web/operations.go 80-160"; sed -n '80,160p' internal/web/operations.go; echo "=== main.go BaseContext"; sed -n '1,30p' cmd/ultraplan/main.go
+---aliases-delete-done
+// adapters to persist acceptance and the first owner claim before they create
+// an execution goroutine. The confirmation digest is already non-reversible.
+type DurableOperationManager interface {
+	AcceptOperation(context.Context, Confirmation, string) (AcceptedOperation, error)
+	RecordOperationEvent(context.Context, string, OperationEvent) (bool, error)
+	FinishOperation(context.Context, string, OperationState, error) error
+}
+
+type AcceptedOperation struct {
+	RunID     string
+	Context   context.Context
+=== web/operations.go 80-160
+	ID   uint64
+	Name string
+	Data []byte
+}
+
+type operationSubscriber struct {
+	id uint64
+	ch chan operationEvent
+}
+
+type operationRecord struct {
+	doc         operationDocument
+	session     string
+	request     app.OperationRequest
+	cancel      context.CancelFunc
+	cancelOnce  sync.Once
+	done        chan struct{}
+	nextEventID uint64
+	events      []operationEvent
+	eventBytes  int
+	subscribers map[uint64]*operationSubscriber
+	nextSubID   uint64
+	dedupKey    string
+}
+
+type operationHub struct {
+	rootCtx context.Context
+	ops     app.WebOperations
+	now     func() time.Time
+	id      func() string
+
+	mu       sync.Mutex
+	records  map[string]*operationRecord
+	dedup    map[string]string
+	active   int
+	streams  int
+	draining bool
+	counters operationCounters
+}
+
+type operationCounters struct {
+	starts             atomic.Int64
+	active             atomic.Int64
+	terminal           atomic.Int64
+	capacityRejections atomic.Int64
+	cancellations      atomic.Int64
+	activeStreams      atomic.Int64
+	slowSubscribers    atomic.Int64
+	replayGaps         atomic.Int64
+	projectionDrops    atomic.Int64
+	shutdownCleanups   atomic.Int64
+}
+
+func newOperationHub(rootCtx context.Context, ops app.WebOperations, now func() time.Time, id func() string) *operationHub {
+	if rootCtx == nil {
+		rootCtx = context.Background()
+	}
+	if now == nil {
+		now = time.Now
+	}
+	if id == nil {
+		id = randomRequestID
+	}
+	return &operationHub{rootCtx: rootCtx, ops: ops, now: now, id: id, records: make(map[string]*operationRecord), dedup: make(map[string]string)}
+}
+
+func (h *operationHub) start(session string, prepared app.Confirmation) (operationDocument, error) {
+	return h.startConfirmed(session, "", func() (app.Confirmation, error) { return prepared, nil })
+}
+
+func (h *operationHub) startConfirmed(session, dedupKey string, confirm func() (app.Confirmation, error)) (operationDocument, error) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	h.reapLocked()
+	if id := h.dedup[dedupKey]; dedupKey != "" && id != "" {
+		if record := h.records[id]; record != nil && record.session == session {
+			return cloneOperationDocument(record.doc), nil
+		}
+		delete(h.dedup, dedupKey)
+	}
+	if h.draining {
+=== main.go BaseContext
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	"os/exec"
+	"os/signal"
+	"runtime"
+	"syscall"
+	"time"
+
+	"github.com/Antonio7098/ultraplan-go/internal/app"
+	"github.com/Antonio7098/ultraplan-go/internal/tui"
+	"github.com/Antonio7098/ultraplan-go/internal/web"
+)
+
+func main() {
+	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
+	defer stop()
+	os.Exit(app.Run(app.Config{
+		Args:    os.Args[1:],
+		Stdout:  os.Stdout,
+		Stderr:  os.Stderr,
+		Context: ctx,
+		Version: app.DefaultVersion(),
+		TUIRunner: func(ctx context.Context, opts app.TUIRunOptions) error {
+			return tui.Run(ctx, tui.Options{UseCases: opts.UseCases, Stdout: opts.Stdout, Width: opts.Width})
+		},
+		WebRunner: func(ctx context.Context, opts app.ServeRunOptions) error {
+[0m
+[0m$ [0msed -n '15,32p' internal/runcontrol/model.go; echo "=== op_handlers 405-425"; sed -n '405,425p' internal/web/operation_handlers.go; echo "=== terminalOperationState 608-625"; sed -n '605,625p' internal/web/operations.go; echo "=== durable_operations 185-220"; sed -n '185,220p' internal/app/durable_operations.go; echo "=== run_control 218-330"; sed -n '218,262p' internal/app/run_control.go; sed -n '300,330p' internal/app/run_control.go
+type Lifecycle string
+
+const (
+	LifecycleAccepted         Lifecycle = "accepted"
+	LifecycleQueued           Lifecycle = "queued"
+	LifecycleRunning          Lifecycle = "running"
+	LifecycleCancelling       Lifecycle = "cancelling"
+	LifecycleSucceeded        Lifecycle = "succeeded"
+	LifecycleFailed           Lifecycle = "failed"
+	LifecycleCancelled        Lifecycle = "cancelled"
+	LifecycleTimedOut         Lifecycle = "timed_out"
+	LifecycleInterrupted      Lifecycle = "interrupted"
+	LifecycleCleanupUncertain Lifecycle = "cleanup_uncertain"
+	LifecyclePersistenceLost  Lifecycle = "persistence_degraded"
+)
+
+func (s Lifecycle) IsValid() bool {
+=== op_handlers 405-425
+}
+
+func legacyOperationID(id string) bool { return strings.HasPrefix(id, "op_") }
+
+func durableOperationDocument(snapshot app.RunSnapshot) operationDocument {
+	reason := snapshot.Cancellation.Reason
+	if snapshot.Terminal != nil && snapshot.Terminal.Reason != "" {
+		reason = snapshot.Terminal.Reason
+	}
+	return operationDocument{
+		ID: string(snapshot.RunID), Kind: app.OperationKind(snapshot.Target.Operation), State: string(snapshot.Lifecycle), Reason: reason,
+		CreatedAt: snapshot.AcceptedAt, StartedAt: snapshot.StartedAt, FinishedAt: snapshot.FinishedAt,
+		LastEventID:   strconv.FormatUint(snapshot.LastSequence, 10),
+		DurableStatus: durableStatusDTO{Available: true, RefreshPath: "/runs/" + string(snapshot.RunID)},
+	}
+}
+
+func durableActiveOperation(snapshot app.RunSnapshot) activeOperationDTO {
+	return activeOperationDTO{
+		ID: string(snapshot.RunID), Kind: app.OperationKind(snapshot.Target.Operation), State: string(snapshot.Lifecycle),
+		Project: snapshot.Target.Project, Sprint: snapshot.Target.Sprint, Study: snapshot.Target.Study, StartedAt: snapshot.StartedAt,
+=== terminalOperationState 608-625
+		if doc.Result.Error != nil {
+			err := *doc.Result.Error
+			result.Error = &err
+		}
+		clone.Result = &result
+	}
+	return clone
+}
+
+func terminalOperationState(state string) bool {
+	switch state {
+	case "succeeded", "failed", "cancelled", "interrupted", "cleanup_uncertain":
+		return true
+	default:
+		return false
+	}
+}
+
+func canonicalCancelReason(reason string) string {
+	switch reason {
+	case "server_shutdown", "timeout", "recovery":
+=== durable_operations 185-220
+		case <-ctx.Done():
+			return
+		case <-owned.stop:
+			return
+		case now := <-ticker.C:
+			snapshot, err := m.repository.Snapshot(ctx, owned.fence.RunID)
+			if err != nil {
+				owned.cancel()
+				return
+			}
+			if snapshot.Cancellation.State == runcontrol.CancellationRequested {
+				if _, _, err := m.repository.AcknowledgeCancellation(ctx, owned.fence); err != nil {
+					owned.cancel()
+					return
+				}
+				owned.cancel()
+				return
+			}
+			if now.Sub(lastHeartbeat) >= runcontrol.HeartbeatInterval {
+				if _, err := m.repository.Heartbeat(ctx, owned.fence, runcontrol.OwnerLeaseDuration); err != nil {
+					owned.cancel()
+					return
+				}
+				lastHeartbeat = now
+			}
+			if now.Sub(lastReconcile) >= runcontrol.ReconciliationInterval {
+				if _, err := m.repository.Reconcile(ctx, runcontrol.NativeProcessProbe{}, runcontrol.ReconcileOptions{}); err != nil {
+					owned.cancel()
+					return
+				}
+				lastReconcile = now
+			}
+		}
+	}
+}
+
+=== run_control 218-330
+		for {
+			select {
+			case <-runCtx.Done():
+				return
+			case now := <-ticker.C:
+				snapshot, err := r.repository.Snapshot(runCtx, fence.RunID)
+				if err != nil {
+					if runCtx.Err() != nil {
+						return
+					}
+					setPersistenceErr(fmt.Errorf("poll durable run control: %w", err))
+					return
+				}
+				if snapshot.Cancellation.State == runcontrol.CancellationRequested {
+					if _, _, err := r.repository.AcknowledgeCancellation(runCtx, fence); err != nil {
+						setPersistenceErr(fmt.Errorf("acknowledge durable cancellation: %w", err))
+						return
+					}
+					cancel()
+					return
+				}
+				if now.Sub(lastHeartbeat) >= runcontrol.HeartbeatInterval {
+					if _, err := r.repository.Heartbeat(runCtx, fence, runControlLease); err != nil {
+						if runCtx.Err() != nil {
+							return
+						}
+						setPersistenceErr(fmt.Errorf("persist owner heartbeat: %w", err))
+						return
+					}
+					lastHeartbeat = now
+				}
+				if now.Sub(lastReconcile) >= runcontrol.ReconciliationInterval {
+					if _, err := r.repository.Reconcile(runCtx, runcontrol.NativeProcessProbe{}, runcontrol.ReconcileOptions{}); err != nil {
+						if runCtx.Err() != nil {
+							return
+						}
+						setPersistenceErr(fmt.Errorf("reconcile durable runs: %w", err))
+						return
+					}
+					lastReconcile = now
+				}
+			}
+		}
+	}()
+	result, runErr := r.base.StartRun(runCtx, req)
+		return result, errors.Join(runErr, fmt.Errorf("persist terminal run outcome: %w", err))
+	}
+	return result, runErr
+}
+
+func appendRunEventWithRetry(ctx context.Context, repository runcontrol.Repository, fence runcontrol.Fence, draft runcontrol.EventDraft) (runcontrol.Event, runcontrol.Snapshot, error) {
+	deadline := time.Now().Add(5 * time.Second)
+	for {
+		event, snapshot, err := repository.Append(ctx, fence, draft)
+		if err == nil || !retryableRunControlError(err) || !time.Now().Before(deadline) {
+			return event, snapshot, err
+		}
+		if err := waitRunControlRetry(ctx, deadline); err != nil {
+			return runcontrol.Event{}, runcontrol.Snapshot{}, err
+		}
+	}
+}
+
+func proposeRunTerminalWithRetry(ctx context.Context, repository runcontrol.Repository, fence runcontrol.Fence, proposal runcontrol.TerminalProposal) (runcontrol.Snapshot, bool, error) {
+	for {
+		snapshot, won, err := repository.ProposeTerminal(ctx, fence, proposal)
+		if err == nil || !retryableRunControlError(err) {
+			return snapshot, won, err
+		}
+		if err := waitRunControlRetry(ctx, time.Now().Add(250*time.Millisecond)); err != nil {
+			return runcontrol.Snapshot{}, false, err
+		}
+	}
+}
+
+func retryableRunControlError(err error) bool {
+[0m
+[0m$ [0mgrep -n "setPersistenceErr\|func.*controlledRuntime\|cancel()" internal/app/run_control.go | head -20; echo "=== serve/tui assembly"; sed -n '40,70p' internal/app/serve_commands.go; echo "--- tui"; sed -n '30,55p' internal/app/tui_commands.go; echo "=== TUI tick"; grep -n "runViewTickCmd\|time.Second\|tickCmd" internal/tui/app.go | head -12; echo "=== confirmationDedupKey uses"; grep -rn "confirmationDedupKey\|AcceptOperation" internal/web/*.go | grep -v _test
+103:func controlledRuntimeFor(deps dependencies, workspaceRoot string, effectiveConfig config.Config, base interface {
+122:func (r controlledRuntime) StartRun(ctx context.Context, req runtimepkg.Request) (runtimepkg.Result, error) {
+145:	defer cancel()
+156:	setPersistenceErr := func(value error) {
+161:			cancel()
+199:			cancel()
+228:					setPersistenceErr(fmt.Errorf("poll durable run control: %w", err))
+233:						setPersistenceErr(fmt.Errorf("acknowledge durable cancellation: %w", err))
+236:					cancel()
+244:						setPersistenceErr(fmt.Errorf("persist owner heartbeat: %w", err))
+254:						setPersistenceErr(fmt.Errorf("reconcile durable runs: %w", err))
+277:	cancel()
+=== serve/tui assembly
+	effective, err := loadEffectiveConfig(root, deps, configOverridesForServe())
+	if err != nil {
+		return err
+	}
+	if deps.webRunner == nil {
+		return classified(ExitError, "serve.start: web runner is not configured")
+	}
+	dashboard := dashboardUseCases{
+		root: root.Path, stageRuntime: planningStageRuntime(effective.Config),
+		reviewConcurrency: effective.Config.Execution.DefaultParallel,
+		smokeSettings:     smokeSettings(effective, envLookup(deps.env)), readOnly: true,
+	}
+	if errors.Is(deps.ctx.Err(), context.Canceled) {
+		return nil
+	}
+	repository, _, err := runRepository(deps)
+	if err != nil {
+		return err
+	}
+	useCases := NewWebUseCases(root.Path, WebUseCaseOptions{
+		StageRuntime:      planningStageRuntime(effective.Config),
+		ReviewConcurrency: effective.Config.Execution.DefaultParallel,
+		SmokeSettings:     smokeSettings(effective, envLookup(deps.env)),
+		Runner:            sharedOperationRunner(deps, root, effective, dashboard),
+		RunControl:        repositoryRunUseCases{repository: repository},
+		DurableOperations: newDurableOperationManager(repository, deps.runControl.owner),
+	})
+	err = deps.webRunner(deps.ctx, ServeRunOptions{
+		Listen:      *listen,
+		OpenBrowser: *openBrowser,
+		UseCases:    useCases,
+--- tui
+	if err != nil {
+		return err
+	}
+	effective, err := loadEffectiveConfig(root, deps, config.CLIOverrides{})
+	if err != nil {
+		return err
+	}
+	useCases := dashboardUseCases{
+		root: root.Path, stageRuntime: planningStageRuntime(effective.Config),
+		reviewConcurrency: effective.Config.Execution.DefaultParallel,
+		smokeSettings:     smokeSettings(effective, envLookup(deps.env)),
+	}
+	repository, _, err := runRepository(deps)
+	if err != nil {
+		return err
+	}
+	useCases.runs = repositoryRunUseCases{repository: repository}
+	useCases.durable = newDurableOperationManager(repository, deps.runControl.owner)
+	useCases.runner = sharedOperationRunner(deps, root, effective, useCases)
+	if deps.tuiRunner == nil {
+		return classified(ExitError, "tui.start: tui runner is not configured")
+	}
+	if err := deps.tuiRunner(deps.ctx, TUIRunOptions{UseCases: useCases, Stdout: deps.stdout, Width: 100}); err != nil {
+		return classified(ExitError, "tui.start: %w", err)
+	}
+	return nil
+=== TUI tick
+168:				return m, tea.Batch(m.refreshCmd(), runViewTickCmd())
+190:				return m, tea.Batch(m.refreshCmd(), runViewTickCmd())
+224:			return m, tea.Batch(m.refreshCmd(), runViewTickCmd())
+271:func runViewTickCmd() tea.Cmd {
+272:	return tea.Tick(time.Second, func(time.Time) tea.Msg { return runViewTickMsg{} })
+303:			finishCtx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+=== confirmationDedupKey uses
+internal/web/operation_handlers.go:144:	doc, err := h.hub.startConfirmed(sessionID(r.Context()), confirmationDedupKey(sessionID(r.Context()), payload.ConfirmationToken), func() (app.Confirmation, error) {
+internal/web/operation_handlers.go:336:	doc, err := h.hub.startConfirmed(sessionID(r.Context()), confirmationDedupKey(sessionID(r.Context()), token), func() (app.Confirmation, error) {
+internal/web/operations.go:182:		accepted, acceptErr := manager.AcceptOperation(ctx, prepared, dedupKey)
+internal/web/security.go:447:func confirmationDedupKey(session, token string) string {
+[0m
+[0m$ [0msed -n '140,205p' internal/app/run_control.go; echo "=== acquireMutation sites"; grep -n "acquireMutation" internal/sprint/*.go | grep -v _test; echo "=== server.go Run ctx/BaseContext"; sed -n '95,130p' internal/web/server.go; echo "=== shutdown/drainAndWait"; grep -n "drainAndWait\|Shutdown\|server_shutdown" internal/web/operations.go internal/web/server.go | grep -v _test
+RunID: snapshot.RunID, AttemptID: attempt.ID, OwnerID: r.owner.ID,
+		FencingGeneration: attempt.FencingGeneration,
+	}
+
+	runCtx, cancel := context.WithCancel(ctx)
+	defer cancel()
+	req.Metadata = cloneRuntimeMetadata(req.Metadata)
+	req.Metadata["run_control_run_id"] = string(snapshot.RunID)
+	configuredOnEvent := req.OnEvent
+	var eventMu sync.Mutex
+	var persistenceErr error
+	var progressKey string
+	var progressCommittedAt time.Time
+	var progressOmitted uint64
+	var progressOmittedFirst time.Time
+	var progressOmittedLast time.Time
+	setPersistenceErr := func(value error) {
+		eventMu.Lock()
+		defer eventMu.Unlock()
+		if persistenceErr == nil {
+			persistenceErr = value
+			cancel()
+		}
+	}
+	req.OnEvent = func(event runtimepkg.Event) {
+		eventMu.Lock()
+		defer eventMu.Unlock()
+		if persistenceErr != nil {
+			return
+		}
+		draft := runtimeEventDraft(req, event)
+		eventAt := event.Time.UTC()
+		if eventAt.IsZero() {
+			eventAt = time.Now().UTC()
+		}
+		// Content-aware coalescing: only collapse identical progress payloads within the window.
+		// Reasoning/text deltas and tool calls have distinct payload hashes and will not coalesce.
+		hash := payloadHash(draft.Payload)
+		key := string(draft.Type) + "\x00" + draft.Stage + "\x00" + draft.Task + "\x00" + hash
+		elapsed := eventAt.Sub(progressCommittedAt)
+		if draft.Type == runcontrol.EventProgress && key == progressKey && elapsed >= 0 && elapsed < runcontrol.ProgressCoalesceWindow {
+			if progressOmitted == 0 {
+				progressOmittedFirst = eventAt
+			}
+			progressOmitted++
+			progressOmittedLast = eventAt
+			return
+		}
+		if progressOmitted > 0 {
+			if draft.Omission == nil {
+				draft.Omission = &runcontrol.Omission{Reason: "equivalent progress coalesced"}
+			}
+			draft.Omission.Count += progressOmitted
+			draft.Omission.FirstAt = &progressOmittedFirst
+			draft.Omission.LastAt = &progressOmittedLast
+			progressOmitted = 0
+		}
+		if _, _, appendErr := appendRunEventWithRetry(runCtx, r.repository, fence, draft); appendErr != nil {
+			persistenceErr = fmt.Errorf("persist runtime event: %w", appendErr)
+			cancel()
+			return
+		}
+		if draft.Type == runcontrol.EventProgress {
+			progressKey = key
+			progressCommittedAt = eventAt
+		}
+=== acquireMutation sites
+internal/sprint/execute.go:36:	ctx, release, err := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/execute.go:129:		lockedCtx, release, lockErr := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/flow.go:71:		ctx, release, err = s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/flow.go:129:		ctx, release, err = s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/locks.go:26:	lockedCtx, release, err := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/locks.go:90:func (s Service) acquireMutationContext(ctx context.Context, projectRef, sprintRef string) (context.Context, func(), error) {
+internal/sprint/locks.go:99:	release, err := s.acquireMutation(projectRef, sprintRef)
+internal/sprint/review.go:407:		lockedCtx, release, lockErr := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/service.go:77:func (s Service) acquireMutation(projectRef, sprintRef string) (func(), error) {
+internal/sprint/smoke.go:24:	lockedCtx, release, lockErr := s.acquireMutationContext(ctx, projectRef, sprintRef)
+internal/sprint/verify.go:41:		lockedCtx, release, lockErr := s.acquireMutationContext(ctx, projectRef, sprintRef)
+=== server.go Run ctx/BaseContext
+		Hub:         hub,
+	})
+	if err != nil {
+		return fmt.Errorf("initialize web presentation: %w", err)
+	}
+	server := &http.Server{
+		Handler:           handler,
+		ReadHeaderTimeout: ReadHeaderTimeout,
+		ReadTimeout:       ReadTimeout,
+		WriteTimeout:      WriteTimeout,
+		IdleTimeout:       IdleTimeout,
+		BaseContext:       func(net.Listener) context.Context { return ctx },
+	}
+
+	if _, err := fmt.Fprintf(opts.Stdout, "Dashboard: %s/\n", origin); err != nil {
+		return fmt.Errorf("write dashboard URL: %w", err)
+	}
+	serveErr := make(chan error, 1)
+	go func() {
+		serveErr <- server.Serve(listener)
+	}()
+	fmt.Fprintf(diagnostics, "event=server_started listen=%s\n", authority)
+	if opts.OpenBrowser {
+		if opts.LaunchBrowser == nil {
+			fmt.Fprintln(diagnostics, "event=browser_launch warning=launcher_unavailable")
+		} else if err := opts.LaunchBrowser(ctx, origin+"/"); err != nil {
+			fmt.Fprintln(diagnostics, "event=browser_launch warning=launch_failed")
+		}
+	}
+
+	select {
+	case err := <-serveErr:
+		if errors.Is(err, http.ErrServerClosed) {
+			return nil
+		}
+		return fmt.Errorf("serve HTTP: %w", err)
+=== shutdown/drainAndWait
+internal/web/operations.go:477:func (h *operationHub) drainAndWait(ctx context.Context) error {
+internal/web/operations.go:488:		_, _, _ = h.cancelOperation("", record.doc.ID, "server_shutdown")
+internal/web/operations.go:520:			Reason:      "server_shutdown",
+internal/web/operations.go:540:		record.doc.Reason = "server_shutdown"
+internal/web/operations.go:625:	case "server_shutdown", "timeout", "recovery":
+internal/web/server.go:21:	ShutdownTimeout   = 10 * time.Second
+internal/web/server.go:133:		shutdownCtx, cancel := context.WithTimeout(context.Background(), ShutdownTimeout)
+internal/web/server.go:135:		cleanupErr := hub.drainAndWait(shutdownCtx)
+internal/web/server.go:137:		err := server.Shutdown(shutdownCtx)
+[0m
+[0m$ [0msed -n '75,115p' internal/web/operations_contract_test.go; echo "=== local-web.md states"; grep -n -A12 '"state"' docs/local-web.md | head -25
+Options: operationOptionsRequest{Stage: "code-context", DryRun: true},
+	})
+	if err != nil || dry.Kind != app.OperationStageDryRun || dry.Stage != "code-context" {
+		t.Fatalf("generic code-context dry-run mapping=%+v err=%v", dry, err)
+	}
+}
+
+func TestBrowserLifecycleDocumentContract(t *testing.T) {
+	states := []string{"accepted", "running", "cancelling", "succeeded", "failed", "cancelled", "interrupted", "cleanup_uncertain"}
+	for _, state := range states {
+		doc := operationDocument{
+			ID: "op_contract", Kind: app.OperationFlow, State: state,
+			CreatedAt: time.Date(2026, 8, 17, 12, 0, 0, 0, time.UTC), LastEventID: "7",
+			DurableStatus: durableStatusDTO{Available: true, RefreshPath: "/api/v1/projects/alpha/sprints/31-web"},
+		}
+		data, err := json.Marshal(doc)
+		if err != nil {
+			t.Fatal(err)
+		}
+		var browser struct {
+			ID            string `json:"id"`
+			Kind          string `json:"kind"`
+			State         string `json:"state"`
+			LastEventID   string `json:"last_event_id"`
+			DurableStatus struct {
+				Available   bool   `json:"available"`
+				RefreshPath string `json:"refresh_path"`
+			} `json:"durable_status"`
+		}
+		if err := json.Unmarshal(data, &browser); err != nil {
+			t.Fatal(err)
+		}
+		if browser.ID == "" || browser.Kind != string(app.OperationFlow) || browser.State != state || browser.LastEventID != "7" || !browser.DurableStatus.Available || browser.DurableStatus.RefreshPath == "" {
+			t.Fatalf("state %q projection=%+v json=%s", state, browser, data)
+		}
+		if terminalOperationState(state) != (state == "succeeded" || state == "failed" || state == "cancelled" || state == "interrupted" || state == "cleanup_uncertain") {
+			t.Fatalf("terminal classification drift for %q", state)
+		}
+	}
+}
+
+=== local-web.md states
+[0m
+[0m$ [0msed -n '760,820p' internal/web/operation_handlers.go; echo "=== OperationError"; sed -n '155,170p' internal/app/operations.go; echo "=== capability assertions"; sed -n '178,186p;232,250p' internal/web/operations.go; echo "=== study argv"; sed -n '205,212p' internal/app/study_commands.go
+w.Header().Set("Retry-After", "2")
+	case errors.Is(err, errServerDraining):
+		status, code, message, retryable = http.StatusServiceUnavailable, "server_draining", "The server is shutting down and is not accepting new work.", true
+		w.Header().Set("Retry-After", "2")
+	case errors.Is(err, context.Canceled), errors.Is(err, context.DeadlineExceeded):
+		status, code, message, retryable = http.StatusServiceUnavailable, "server_draining", "The server is shutting down.", true
+	case strings.Contains(strings.ToLower(err.Error()), "validation"), strings.Contains(strings.ToLower(err.Error()), "incomplete"), strings.Contains(strings.ToLower(err.Error()), "prerequisite"):
+		status, code, message = http.StatusUnprocessableEntity, "validation_failed", "The governed inputs failed validation."
+	case strings.Contains(strings.ToLower(err.Error()), "lock"), strings.Contains(strings.ToLower(err.Error()), "in progress"):
+		status, code, message, retryable = http.StatusConflict, "operation_conflict", "A conflicting operation is already running.", true
+	case strings.Contains(strings.ToLower(err.Error()), "unavailable"):
+		status, code, message, retryable = http.StatusFailedDependency, "prerequisite_unavailable", "A required operation prerequisite is unavailable.", true
+	case !isClientOperationError(err):
+		status, code, message = http.StatusInternalServerError, "internal_failure", "The operation could not be completed."
+	}
+	if cause := safeOperationCause(err); cause != "" && status < http.StatusInternalServerError {
+		details["reason"] = cause
+		details["guidance"] = operationFailureGuidance(code)
+	}
+	h.writeErrorDetails(w, r, status, errorBody{Code: code, Message: message, Retryable: retryable, Details: details})
+}
+
+func safeOperationCause(err error) string {
+	if err == nil {
+		return ""
+	}
+	text := strings.ToLower(err.Error())
+	if isClientOperationError(err) || strings.Contains(text, "validation") || strings.Contains(text, "incomplete") || strings.Contains(text, "prerequisite") || strings.Contains(text, "lock") || strings.Contains(text, "in progress") || strings.Contains(text, "unavailable") {
+		return safeWebText(err.Error())
+	}
+	return ""
+}
+
+func operationFailureGuidance(code string) string {
+	switch code {
+	case "validation_failed":
+		return "Open the sprint Plan and Delivery pages, correct the reported incomplete or invalid evidence, then retry."
+	case "operation_conflict":
+		return "Wait for the active operation to finish or inspect and cancel it before retrying."
+	case "prerequisite_unavailable":
+		return "Restore the missing prerequisite or runtime capability, then prepare the operation again."
+	default:
+		return "Correct the reported reason and prepare the operation again."
+	}
+}
+
+func htmlOperationFailure(summary string, err error) string {
+	cause := safeOperationCause(err)
+	if cause == "" {
+		return summary
+	}
+	return summary + " Reason: " + cause + " Correct the reported prerequisite or governed artifact, then retry."
+}
+
+func isClientOperationError(err error) bool {
+	text := strings.ToLower(err.Error())
+	return strings.Contains(text, "required") || strings.Contains(text, "invalid") || strings.Contains(text, "unsupported") || strings.Contains(text, "json") || strings.Contains(text, "content-type") || strings.Contains(text, "scope")
+}
+
+func (h *handler) writeErrorDetails(w http.ResponseWriter, r *http.Request, status int, body errorBody) {
+	meta := responseMeta{APIVersion: "v1", RequestID: requestID(r.Context()), GeneratedAt: h.now().UTC().Format(time.RFC3339Nano)}
+=== OperationError
+	Truncated                 bool
+	Findings                  []DisplayFinding
+	Error                     *OperationError
+}
+type OperationError struct {
+	Code, Category, Operation, Component, Message, Cause, Guidance string
+	Retryable                                                      bool
+}
+
+var ErrStaleOperation = errors.New("operation inputs changed after preparation")
+
+func (u dashboardUseCases) PrepareOperation(ctx context.Context, req OperationRequest) (Confirmation, error) {
+	if err := ctx.Err(); err != nil {
+		return Confirmation{}, err
+	}
+	req.ExpectedFingerprint = ""
+=== capability assertions
+	}
+	created := h.now().UTC()
+	ctx, cancel := context.WithCancel(h.rootCtx)
+	if manager, ok := h.ops.(app.DurableOperationManager); ok {
+		accepted, acceptErr := manager.AcceptOperation(ctx, prepared, dedupKey)
+		if acceptErr != nil {
+			if !errors.Is(acceptErr, app.ErrWebUnavailable) {
+				cancel()
+				return operationDocument{}, acceptErr
+		h.publishAppEvent(record, event)
+	})
+	if manager, ok := h.ops.(app.DurableOperationManager); ok {
+		finishCtx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+		finishErr := manager.FinishOperation(finishCtx, record.doc.ID, result.State, runErr)
+		cancel()
+		if finishErr != nil && !errors.Is(finishErr, app.ErrWebUnavailable) {
+			runErr = errors.Join(runErr, finishErr)
+		}
+	}
+	h.finish(record, result, runErr)
+}
+
+func (h *operationHub) publishAppEvent(record *operationRecord, event app.OperationEvent) {
+	if manager, ok := h.ops.(app.DurableOperationManager); ok {
+		committed, err := manager.RecordOperationEvent(context.Background(), record.doc.ID, event)
+		if err != nil && !errors.Is(err, app.ErrWebUnavailable) {
+			record.cancel()
+			return
+=== study argv
+	service, parallelism, summary, err := runLoopService(deps, root, flags)
+	if err != nil {
+		return finishDurableCLICommand(durable, err)
+	}
+	command := append([]string{"ultraplan", "study", studyRef, "run-loop"}, args...)
+	result, err := service.RunLoop(durable.Context(), study.RunLoopRequest{
+		StudyRef:      studyRef,
+		DimensionRefs: flags.dimensions,
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs && grep -l "smoke" generalist-01/stdout.md failure-11/stdout.md challenge-01/stdout.md 2>/dev/null; echo "---"; grep -n "WithRuntime\|runtime gate\|smoke_author_runtime\|never succeed" generalist-01/stdout.md | head -4; echo "---f11"; grep -n "F01" failure-11/stdout.md | head -3; echo "---c1"; grep -n "smoke.*runtime\|runtime.*smoke" challenge-01/stdout.md | head -3; echo "---s12"; grep -n "WriteTimeout" specialist-12a/stdout.md specialist-12b/stdout.md failure-05/stdout.md failure-06/stdout.md failure-08/stdout.md | head -8
+generalist-01/stdout.md
+failure-11/stdout.md
+challenge-01/stdout.md
+---
+38:- **Claim:** Sprint smoke **start** offered on web and TUI can never succeed: `sharedOperationRunner`'s `OperationSmokeStart` branch builds the sprint service without a runtime, while non-dry-run smoke always authors coverage and authoring fails closed on nil runtime. The CLI attaches the controlled runtime for the identical operation.
+39:- **Evidence:** `internal/app/operation_runner.go:74-75` (`case OperationSmokeStart: service := sprint.NewService(root.Path).WithSmokeSettings(...)` — no `WithRuntime`), versus sibling branches at `:23, :36, :49, :60, :93` using `sprintRuntimeService` (controlled runtime). Non-dry-run smoke unconditionally authors: `internal/sprint/smoke.go:60-64`; nil-runtime failure: `internal/sprint/smoke_author.go:21-23`. A running smoke attempt is persisted **before** authoring (`smoke.go:30`), so every web/TUI attempt durably records a failed attempt. Web/TUI advertise the op as runtime+mutating: `operations.go:210-222`. CLI contrast: `sprint_commands.go:431-445` attaches `sprintRuntimeService` when `!req.DryRun`. History: branch introduced in a221683 and never gained `WithRuntime` (`git log -S "WithRuntime" -- operation_runner.go` empty). No test exercises a successful web/TUI smoke start (`operations_contract_test.go:46` maps the kind only).
+42:- **Counter-evidence searched:** Searched for a dry-run-only design intent for web/TUI smoke (PrepareOperation forces `DryRun:true` only during prepare, not start); docs claiming interactive smoke is unsupported (none found); tests asserting the `smoke_author_runtime` error on this path (none); alternative web route to full smoke (none — kind maps straight to the shared runner). Challenger subagent returned empty; falsification performed directly by me (git history, call graph, test grep above).
+---f11
+23:### FAILURE-11-F01
+77:- Does agentwrap treat `Timeout: 0` as unbounded? (Only relevant if F01 is "fixed" by injecting a bare runtime without `runtimeConfig`; reinforces using `sprintRuntimeService`.)
+---c1
+30:tarts, gets "configure the smoke model/runtime" though config is fine and CLI works — and flow-state already holds a running→failed smoke attempt needing recovery.
+31:- **Counter-evidence searched:** Default runtime in `NewService` (none); alternate injection via `SmokeSettings` (none); forced-dry-run on interactive start (only prepare forces `DryRun:true`); docs disabling interactive smoke (none); tests driving `OperationSmokeStart` through the runner (none — fakes bypass it).
+33:- **Smallest useful action:** Build the smoke case via `sprintRuntimeService(deps, root, ...)` like its siblings; add one integration test asserting `OperationSmokeStart` reaches authoring with a non-nil runtime.
+---s12
+specialist-12a/stdout.md:2:Let me empirically verify the Go `WriteTimeout` vs SSE streaming interaction, since two of three SSE paths don't extend the write deadline.
+specialist-12a/stdout.md:4:Confirmed empirically: without `SetWriteDeadline`, a stream dies with `i/o timeout` at the server `WriteTimeout`; with it, the stream survives. Now checking remaining loose ends:
+specialist-12a/stdout.md:14:- Empirical verification: Go 1.26 program reproducing `http.Server.WriteTimeout` vs `SetWriteDeadline` streaming behavior
+specialist-12a/stdout.md:28:- **Claim:** `followRunSSE` and `followDurableOperationEvents` never extend the response write deadline, so `http.Server.WriteTimeout = 30s` force-closes both stream types ~30 seconds after connect, contradicting the documented 15s-heartbeat / 30-minute stream-lifetime contract.
+specialist-12a/stdout.md:30:  - server.go:19,104 (`WriteTimeout = 30 * time.Second`, applied to the server); net/http sets an absolute write deadline before the handler runs (verified empirically: non-extended stream dies with `i/o timeout` at the deadline; extended stream survives).
+specialist-12a/stdout.md:86:- **“WriteTimeout also kills the primary operation stream.”** Disproved for that path by the explicit `SetWriteDeadline` at operation_handlers.go:242 — which is precisely why its absence in the other two loops reads as an oversight (F01).
+specialist-12b/stdout.md:20:**Claim:** Two of the three SSE endpoints are hard-capped at ~30 seconds by the server's `WriteTimeout`, defeating the documented/policy 30-minute stream lifetime and 15-second heartbeat model; the enforcement logic exists in only one of three duplicated stream loops, which is drift introduced when the durable paths were added.
+specialist-12b/stdout.md:23:- `server.go:19,104` — `WriteTimeout = 30 * time.Second` applied to the whole server. In `net/http` this is an absolute per-request write deadline set when headers are read; once it lapses every subsequent write errors and the handler returns.
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run && grep -rn "idempoten" ultraplan-workspace/system/contracts/runtime/workflows.md | head -8; echo "=== api-contracts idem"; grep -rn -i "idempot" ultraplan-workspace/system/contracts/surfaces/api-contracts.md | head -8
+28:| WF-IDEMPOTENCY-001 | Retried workflow steps must be idempotent or protected by dedupe or idempotency keys | workflow retry behavior | High |
+101:Retried workflow steps must be idempotent or protected by dedupe or idempotency keys so that retry does not produce duplicate side effects.
+104:- design workflow steps for idempotent execution where retry is expected
+105:- use dedupe or idempotency keys to prevent duplicate side effects when idempotent design is not practical
+106:- make idempotency stance explicit in the workflow design and documentation
+109:- retrying non-idempotent operations without explicit dedupe or idempotency key protection
+113:- workflow step design documents idempotency strategy or explicit dedupe protection
+=== api-contracts idem
+12:- idempotency
+24:- changes public behaviour, status codes, auth, pagination, filtering, idempotency, or errors
+34:| API-IDEMP-001 | Non-idempotent operations must define replay behaviour | writes/retries | High |
+117:### API-IDEMP-001: Non-Idempotent Operations Must Define Replay Behaviour
+120:Write operations that may be retried, duplicated, or resumed must define idempotency semantics.
+123:- use idempotency keys, dedupe keys, natural constraints, or explicit no-retry policy where appropriate
+128:- retrying non-idempotent writes by default
+197:- document auth, errors, pagination, idempotency, and rate limits where relevant
+[0m
+[0m$ [0mgrep -n -B2 -A12 "func (u dashboardUseCases) sprintService\|sprintService()" internal/app/sprint_usecases.go internal/app/web_usecases.go 2>/dev/null | head -40; echo "=== shutdown contract"; sed -n '1,40p' docs/plans/server-shutdown-run-cancellation-contract.md 2>/dev/null | head -45
+internal/app/sprint_usecases.go-96-		return nil, mapProjectError("project.list", err)
+internal/app/sprint_usecases.go-97-	}
+internal/app/sprint_usecases.go:98:	service := u.sprintService()
+internal/app/sprint_usecases.go-99-	var out []SprintSummary
+internal/app/sprint_usecases.go-100-	for _, p := range projects {
+internal/app/sprint_usecases.go-101-		sprints, err := sprint.DiscoverSprints(u.root, p)
+internal/app/sprint_usecases.go-102-		if err != nil {
+internal/app/sprint_usecases.go-103-			return nil, mapSprintError("sprint.list", err)
+internal/app/sprint_usecases.go-104-		}
+internal/app/sprint_usecases.go-105-		for _, sp := range sprints {
+internal/app/sprint_usecases.go-106-			if err := ctx.Err(); err != nil {
+internal/app/sprint_usecases.go-107-				return nil, err
+internal/app/sprint_usecases.go-108-			}
+internal/app/sprint_usecases.go-109-			status, err := service.Status(p.Name, sp.Slug)
+internal/app/sprint_usecases.go-110-			if err != nil {
+--
+internal/app/web_usecases.go-504-		InputContract: sprint.InputContract(stage),
+internal/app/web_usecases.go-505-	}
+internal/app/web_usecases.go:506:	service := u.dashboard.sprintService()
+internal/app/web_usecases.go-507-	var (
+internal/app/web_usecases.go-508-		preview sprint.PromptPreview
+internal/app/web_usecases.go-509-		err     error
+internal/app/web_usecases.go-510-	)
+internal/app/web_usecases.go-511-	switch stage {
+internal/app/web_usecases.go-512-	case sprint.StageRequirements:
+internal/app/web_usecases.go-513-		preview, err = service.PromptRequirements(project, slug)
+internal/app/web_usecases.go-514-	case sprint.StageCodeContext:
+internal/app/web_usecases.go-515-		preview, err = service.PromptCodeContext(project, slug)
+internal/app/web_usecases.go-516-	case sprint.StageSprintIndex:
+internal/app/web_usecases.go-517-		preview, err = service.PromptSprintIndex(project, slug)
+internal/app/web_usecases.go-518-	case sprint.StageTechnicalHandbook:
+=== shutdown contract
+# Server Shutdown and Active Run Cancellation Contract
+
+**Status:** Proposed, normative addendum  
+**Applies to:** `docs/plans/integrated-roadmap.md` and `docs/plans/ultraplan-local-server-experiment-plan.md`  
+**Scope:** Filesystem-backed local server and all later server-backed UltraPlan modes
+
+## 1. Core rule
+
+> Gracefully stopping the UltraPlan server cancels every active run owned by that server.
+
+The initial local server must not leave agent processes, study run loops, sprint flows, verification attempts, repairs, shell commands, or other server-started operations running after the server that owns their lifecycle, locks, progress streams, and cancellation controls has stopped.
+
+This rule applies whether shutdown begins through:
+
+- a browser or administrative stop action;
+- `SIGINT`;
+- `SIGTERM`;
+- normal process shutdown initiated by the application.
+
+A browser tab closing, navigating away, losing its SSE connection, or temporarily disconnecting does **not** cancel a run. Runs are owned by the server operation lifecycle, not by an individual HTTP request or browser connection.
+
+## 2. Ownership boundary
+
+For the filesystem-backed local product, an operation started through CLI, TUI, or HTTP is owned by the process executing that operation.
+
+A server-owned operation includes:
+
+- its root `context.Context` and cancellation function;
+- runtime and provider calls;
+- child processes and process groups;
+- retries and rate-limit waits;
+- task or shard workers;
+- scope locks and leases;
+- progress publication;
+- durable attempt and stage state;
+- cleanup and reconciliation responsibility.
+
+The initial server does not support detached background execution that intentionally survives server termination.
+
+A future durable worker architecture may change ownership so runs survive control-plane restart, but that must be introduced as an explicit later contract with durable workers, leases, heartbeats, and reconciliation. It must not emerge accidentally from orphaned local processes.
+[0m
+[0m$ [0mgrep -rn -A8 "func (u dashboardUseCases) sprintService" internal/app/*.go; echo "=== WithoutStatusWrites uses"; grep -rn "WithoutStatusWrites" internal/ --include=*.go | grep -v _test; echo "=== shutdown doc SSE section"; grep -n -i "sse\|terminal event\|publish" docs/plans/server-shutdown-run-cancellation-contract.md | head -10
+internal/app/usecases.go:121:func (u dashboardUseCases) sprintService() sprint.Service {
+internal/app/usecases.go-122-	service := sprint.NewService(u.root).WithStageRuntime(u.stageRuntime).WithReviewConcurrency(u.reviewConcurrency)
+internal/app/usecases.go-123-	if u.smokeSettings.DiscoveryTimeout > 0 {
+internal/app/usecases.go-124-		service = service.WithSmokeSettings(u.smokeSettings)
+internal/app/usecases.go-125-	}
+internal/app/usecases.go-126-	if u.readOnly {
+internal/app/usecases.go-127-		service = service.WithoutStatusWrites()
+internal/app/usecases.go-128-	}
+internal/app/usecases.go-129-	return service
+=== WithoutStatusWrites uses
+internal/app/usecases.go:127:		service = service.WithoutStatusWrites()
+internal/sprint/service.go:67:// WithoutStatusWrites derives status from current artifacts without creating a
+internal/sprint/service.go:70:func (s Service) WithoutStatusWrites() Service {
+=== shutdown doc SSE section
+11:The initial local server must not leave agent processes, study run loops, sprint flows, verification attempts, repairs, shell commands, or other server-started operations running after the server that owns their lifecycle, locks, progress streams, and cancellation controls has stopped.
+20:A browser tab closing, navigating away, losing its SSE connection, or temporarily disconnecting does **not** cancel a run. Runs are owned by the server operation lifecycle, not by an individual HTTP request or browser connection.
+30:- child processes and process groups;
+40:A future durable worker architecture may change ownership so runs survive control-plane restart, but that must be introduced as an explicit later contract with durable workers, leases, heartbeats, and reconciliation. It must not emerge accidentally from orphaned local processes.
+52:  -> HTTP/SSE shutdown
+70:- persist or publish `cancellation_requested` where durable operation state exists;
+86:- the SSE client disconnected;
+132:Where possible, publish a final bounded event for each affected operation, such as:
+143:- close SSE responses;
+176:- an SSE timeout;
+[0m
+[0m$ [0msed -n '470,530p' internal/web/run_handlers.go
+h.followRunSSE(w, r, snapshot, after)
+}
+
+func (h *handler) followRunSSE(w http.ResponseWriter, r *http.Request, snapshot app.RunSnapshot, after uint64) {
+	flusher, ok := w.(http.Flusher)
+	if !ok {
+		h.writeError(w, r, http.StatusInternalServerError, "stream_unavailable", "Streaming is unavailable.")
+		return
+	}
+	w.Header().Set("Content-Type", "text/event-stream")
+	w.Header().Set("Cache-Control", "no-store")
+	w.Header().Set("X-Accel-Buffering", "no")
+	w.WriteHeader(http.StatusOK)
+	flusher.Flush()
+	idle := time.NewTimer(0)
+	if !idle.Stop() {
+		<-idle.C
+	}
+	defer idle.Stop()
+	for {
+		events, err := h.runs.RunEvents(r.Context(), snapshot.RunID, after, 512)
+		if err != nil {
+			return
+		}
+		for _, event := range events {
+			encoded, err := json.Marshal(event)
+			if err != nil {
+				return
+			}
+			if _, err := fmt.Fprintf(w, "id: %d\nevent: run\ndata: %s\n\n", event.Sequence, encoded); err != nil {
+				return
+			}
+			after = event.Sequence
+		}
+		flusher.Flush()
+		current, err := h.runs.Run(r.Context(), snapshot.RunID)
+		if err != nil {
+			return
+		}
+		if current.Lifecycle.IsTerminal() && after >= current.LastSequence {
+			return
+		}
+		wait := time.Second
+		if len(events) == 512 || after < current.LastSequence {
+			wait = 250 * time.Millisecond
+		}
+		idle.Reset(wait)
+		select {
+		case <-r.Context().Done():
+			return
+		case <-idle.C:
+			if _, err := fmt.Fprint(w, ": heartbeat\n\n"); err != nil {
+				return
+			}
+			flusher.Flush()
+		}
+	}
+}
+
+func (h *handler) handleRunControlError(w http.ResponseWriter, r *http.Request, err error) {
+	switch {
+[0m
