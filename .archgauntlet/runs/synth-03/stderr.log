@@ -1,0 +1,1594 @@
+[93m[1m! [0m agent "arch-synth" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go | head -50
+ultraplan-go
+ultraplan-workspace
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+[0m
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/synthesis-contract.md
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/.archgauntlet/runs/ 2>/dev/null && find /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go -type f -name "*.go" | wc -l
+(no output)
+[0m
+[0m$ [0mls -la /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/.archgauntlet/ 2>&1; echo "---"; ls -la /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/ 2>&1 | head; echo "---"; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal 2>/dev/null
+ls: cannot access '/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/.archgauntlet/': No such file or directory
+---
+ls: cannot access '/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/': No such file or directory
+---
+app
+codeextract
+platform
+productstate
+project
+runcontrol
+sprint
+study
+tui
+web
+workspace
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go -type f -name "*.go" | wc -l; cd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && git log --oneline -3 && git status --short | head
+291
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/ 2>&1; echo "---"; ls /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/ 2>&1
+arbiter-01
+chair-01
+chair-02
+chair-03
+chair-04
+chair-05
+chair-06
+challenge-01
+challenge-02
+challenge-03
+challenge-04
+challenge-05
+challenge-06
+change-01
+change-02
+change-03
+change-04
+change-05
+change-06
+change-07
+change-08
+failure-01
+failure-02
+failure-03
+failure-04
+failure-05
+failure-06
+failure-07
+failure-08
+failure-09
+failure-10
+failure-11
+failure-12
+generalist-01
+generalist-02
+generalist-03
+generalist-04
+scout-01
+scout-02
+scout-03
+scout-04
+scout-05
+scout-06
+specialist-01a
+specialist-01b
+specialist-02a
+specialist-02b
+specialist-03a
+specialist-03b
+specialist-04a
+specialist-04b
+specialist-05a
+specialist-05b
+specialist-06a
+specialist-06b
+specialist-07a
+specialist-07b
+specialist-08a
+specialist-08b
+specialist-09a
+specialist-09b
+specialist-10a
+specialist-10b
+specialist-11a
+specialist-11b
+specialist-12a
+specialist-12b
+specialist-13a
+specialist-13b
+specialist-14a
+specialist-14b
+specialist-15a
+specialist-15b
+specialist-16a
+specialist-16b
+specialist-17a
+specialist-17b
+specialist-18a
+specialist-18b
+specialist-19a
+specialist-19b
+specialist-20a
+specialist-20b
+specialist-21a
+specialist-21b
+specialist-22a
+specialist-22b
+specialist-23a
+specialist-23b
+specialist-24a
+specialist-24b
+synth-01
+synth-02
+synth-03
+---
+index.md
+INDEX.md
+logs
+review.json
+runs
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-03/ /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-01/ 2>&1
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-01/:
+prompt.md
+stderr.log
+stdout.md
+
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-03/:
+prompt.md
+stderr.log
+stdout.md
+[0m
+[0m→ [0mRead .archgauntlet/index.md
+[0m→ [0mRead .archgauntlet/INDEX.md
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && ls internal/* -d && find internal -maxdepth 2 -type d | sort && echo "---DOCS---" && ls docs scripts 2>/dev/null
+internal/app
+internal/codeextract
+internal/platform
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/workspace
+internal
+internal/app
+internal/codeextract
+internal/platform
+internal/platform/config
+internal/platform/filesystem
+internal/platform/logging
+internal/platform/process
+internal/platform/runtime
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/web/static
+internal/web/templates
+internal/workspace
+internal/workspace/scaffold
+---DOCS---
+docs:
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+
+scripts:
+install-ultraplan.sh
+migrate-legacy-sprint-state.sh
+migrate-product-state.sh
+reset-opencode-db.sh
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/ && find /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace -maxdepth 2 -type d | head -40
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/hooks
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/info
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/objects
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/refs
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/logs
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.agents
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.agents/skills
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/previews
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/scripts
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/go-cli-study
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning
+[0m
+[0m$ [0mwc -l /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-0{1,2,3}/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-06/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-04/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-01/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-02/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-24a/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-24b/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/change-01/stdout.md
+1 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-01/stdout.md
+     0 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-02/stdout.md
+     0 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-03/stdout.md
+   170 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-06/stdout.md
+   263 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-04/stdout.md
+   138 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-01/stdout.md
+   150 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-02/stdout.md
+    72 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-24a/stdout.md
+   121 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-24b/stdout.md
+    62 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/change-01/stdout.md
+   977 total
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/ && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning | head -20
+docs
+project-index.md
+roadmap.md
+sprints
+api-design-reasoning-template.md
+architecture_reasoning_template.md
+cli-design-reasoning-template.md
+data-privacy-reasoning-template.md
+errors_reasoning_template.md
+eval-design-reasoning-template.md
+frontend-design-reasoning-template.md
+frontend-reasoning-template.md
+frontend-state-placement-template.md
+llm-feature-reasoning-template.md
+observability-reasoning-template.md
+package-api-reasoning-template.md
+performance-reasoning-template.md
+persistence-reasoning-template.md
+prompt-change-reasoning-template.md
+release-reasoning-template.md
+security-threat-reasoning-template.md
+testing-strategy-reasoning-template.md
+[0m
+[0m$ [0mcat /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-03/prompt.md | head -30; echo "===STDERR==="; cat /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-03/stderr.log; echo "===SYNTH1==="; cat /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-01/stdout.md
+# UltraPlan Architecture Gauntlet — Independent system synthesis 3
+
+ROLE: arch-synth
+STAGE: synth
+TASK ID: synth-03
+
+## Target
+
+- implementation repository: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go
+- implementation commit: eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
+- authoritative planning workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+- planning workspace commit: 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
+
+## Assignment
+
+Whole-system synthesis emphasizing evolution, change locality, agent legibility, roadmap fit, and fitness-function opportunities.
+
+This is a BROAD assignment. Use subagents aggressively for independent discovery and evidence gathering when the host supports them. Delegate bounded questions (package maps, lifecycle traces, counter-evidence searches, specific subsystems) rather than trying to hold the entire repository in one context. Re-derive conclusions yourself from returned evidence. Do not ask subagents to rubber-stamp a draft.
+
+## Review doctrine
+
+UltraPlan is module-driven, not global-layer-driven. Judge architecture by ownership, authority, lifecycle coherence, dependency direction, failure behaviour, and change locality. Do not penalize the repository for not resembling Clean Architecture folder diagrams. Deep cohesive modules are valid. Abstractions must be earned.
+
+Every finding is a hypothesis. Before reporting it, actively search for counter-evidence: tests, runtime wiring, docs, reasoning, local invariants, intentional debt, necessary boundary translation, or evidence that your proposed alternative merely adds indirection.
+
+Distinguish evidence:
+- REALITY: current source/tests/runtime wiring
+- CURRENT-CONTRACT: requirements applicable to implemented behaviour
+- FUTURE-INTENT: roadmap/future sprint requirements
+- HISTORY: superseded decisions or migration context
+===STDERR===
+[93m[1m! [0m agent "arch-synth" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go | head -50
+ultraplan-go
+ultraplan-workspace
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+[0m
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/synthesis-contract.md
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/.archgauntlet/runs/ 2>/dev/null && find /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go -type f -name "*.go" | wc -l
+(no output)
+[0m
+[0m$ [0mls -la /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/.archgauntlet/ 2>&1; echo "---"; ls -la /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/ 2>&1 | head; echo "---"; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal 2>/dev/null
+ls: cannot access '/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/.archgauntlet/': No such file or directory
+---
+ls: cannot access '/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-architecture-gauntlet/': No such file or directory
+---
+app
+codeextract
+platform
+productstate
+project
+runcontrol
+sprint
+study
+tui
+web
+workspace
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go -type f -name "*.go" | wc -l; cd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && git log --oneline -3 && git status --short | head
+291
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/ 2>&1; echo "---"; ls /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/ 2>&1
+arbiter-01
+chair-01
+chair-02
+chair-03
+chair-04
+chair-05
+chair-06
+challenge-01
+challenge-02
+challenge-03
+challenge-04
+challenge-05
+challenge-06
+change-01
+change-02
+change-03
+change-04
+change-05
+change-06
+change-07
+change-08
+failure-01
+failure-02
+failure-03
+failure-04
+failure-05
+failure-06
+failure-07
+failure-08
+failure-09
+failure-10
+failure-11
+failure-12
+generalist-01
+generalist-02
+generalist-03
+generalist-04
+scout-01
+scout-02
+scout-03
+scout-04
+scout-05
+scout-06
+specialist-01a
+specialist-01b
+specialist-02a
+specialist-02b
+specialist-03a
+specialist-03b
+specialist-04a
+specialist-04b
+specialist-05a
+specialist-05b
+specialist-06a
+specialist-06b
+specialist-07a
+specialist-07b
+specialist-08a
+specialist-08b
+specialist-09a
+specialist-09b
+specialist-10a
+specialist-10b
+specialist-11a
+specialist-11b
+specialist-12a
+specialist-12b
+specialist-13a
+specialist-13b
+specialist-14a
+specialist-14b
+specialist-15a
+specialist-15b
+specialist-16a
+specialist-16b
+specialist-17a
+specialist-17b
+specialist-18a
+specialist-18b
+specialist-19a
+specialist-19b
+specialist-20a
+specialist-20b
+specialist-21a
+specialist-21b
+specialist-22a
+specialist-22b
+specialist-23a
+specialist-23b
+specialist-24a
+specialist-24b
+synth-01
+synth-02
+synth-03
+---
+index.md
+INDEX.md
+logs
+review.json
+runs
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-03/ /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-01/ 2>&1
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-01/:
+prompt.md
+stderr.log
+stdout.md
+
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-03/:
+prompt.md
+stderr.log
+stdout.md
+[0m
+[0m→ [0mRead .archgauntlet/index.md
+[0m→ [0mRead .archgauntlet/INDEX.md
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && ls internal/* -d && find internal -maxdepth 2 -type d | sort && echo "---DOCS---" && ls docs scripts 2>/dev/null
+internal/app
+internal/codeextract
+internal/platform
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/workspace
+internal
+internal/app
+internal/codeextract
+internal/platform
+internal/platform/config
+internal/platform/filesystem
+internal/platform/logging
+internal/platform/process
+internal/platform/runtime
+internal/productstate
+internal/project
+internal/runcontrol
+internal/sprint
+internal/study
+internal/tui
+internal/web
+internal/web/static
+internal/web/templates
+internal/workspace
+internal/workspace/scaffold
+---DOCS---
+docs:
+architecture.md
+cli-reference.md
+configuration.md
+local-web.md
+migration-from-ultra-cli.md
+migration-product-state.md
+opencode-smoke.md
+phase3-json-schemas.md
+phase3-migration.md
+planning-smoke.md
+plans
+recovery.md
+release-checklist.md
+reports
+stage-skills.md
+ui-audit.md
+user-guide.md
+web-compatibility-baseline.md
+
+scripts:
+install-ultraplan.sh
+migrate-legacy-sprint-state.sh
+migrate-product-state.sh
+reset-opencode-db.sh
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/ && find /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace -maxdepth 2 -type d | head -40
+previews
+projects
+README.md
+scripts
+studies
+system
+ultraplan.yml
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/hooks
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/info
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/objects
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/refs
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.git/logs
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.agents
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.agents/skills
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/previews
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/aren-phase-01-execution-lifecycle
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/scripts
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/agent-harness-study
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/go-cli-study
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/studies/ultraplan-daemon-events-study
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/contracts
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/protocols
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning
+[0m
+[0m$ [0mwc -l /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-0{1,2,3}/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-06/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-04/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-01/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-02/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-24a/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-24b/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/change-01/stdout.md
+1 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-01/stdout.md
+     0 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-02/stdout.md
+     0 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-03/stdout.md
+   170 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-06/stdout.md
+   263 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-04/stdout.md
+   138 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-01/stdout.md
+   150 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-02/stdout.md
+    72 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-24a/stdout.md
+   121 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/specialist-24b/stdout.md
+    62 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/change-01/stdout.md
+   977 total
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/ && ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/system/reasoning | head -20
+docs
+project-index.md
+roadmap.md
+sprints
+api-design-reasoning-template.md
+architecture_reasoning_template.md
+cli-design-reasoning-template.md
+data-privacy-reasoning-template.md
+errors_reasoning_template.md
+eval-design-reasoning-template.md
+frontend-design-reasoning-template.md
+frontend-reasoning-template.md
+frontend-state-placement-template.md
+llm-feature-reasoning-template.md
+observability-reasoning-template.md
+package-api-reasoning-template.md
+performance-reasoning-template.md
+persistence-reasoning-template.md
+prompt-change-reasoning-template.md
+release-reasoning-template.md
+security-threat-reasoning-template.md
+testing-strategy-reasoning-template.md
+[0m
+===SYNTH1===
+I'm running synth-01 (independent system synthesis #1, emphasis on correctness/failure safety/state authority). Plan: read the six tribunal chairs myself, delegate raw-stage evidence extraction to subagents, re-derive key claims against the code, then write `synth-01/stdout.md`.
+All six chairs read (~1,350 lines). Now I'll (a) personally re-verify the P1 linchpins in `ultraplan-go`, and (b) dispatch bounded subagents for gap coverage and adversarial counter-evidence. First, the direct checks:
+[0m
+[0m→ [0mRead .archgauntlet/runs/chair-06/stdout.md
+[0m→ [0mRead .archgauntlet/runs/scout-01/stdout.md
+[0m→ [0mRead .archgauntlet/runs/scout-02/stdout.md
+[0m→ [0mRead .archgauntlet/runs/specialist-24a/stdout.md
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs && wc -l change-0{1..8}/stdout.md challenge-06/stdout.md generalist-04/stdout.md
+62 change-01/stdout.md
+   127 change-02/stdout.md
+    81 change-03/stdout.md
+    60 change-04/stdout.md
+    72 change-05/stdout.md
+    54 change-06/stdout.md
+    63 change-07/stdout.md
+    89 change-08/stdout.md
+   153 challenge-06/stdout.md
+   263 generalist-04/stdout.md
+  1024 total
+[0m
+[0m→ [0mRead .archgauntlet/runs/specialist-24b/stdout.md
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs && for d in change-01 change-02 change-03 change-04; do echo "########## $d"; cat $d/stdout.md; done
+########## change-01
+This is valuable HISTORY evidence — the repo contains the actual plan used when `code-context` was last added. Now let me trace the real current edit surface. Reading core stage-consuming files in parallel:
+Two notable drift signals in the app layer. Let me verify them and look at prompt_bundle.go plus the remaining surfaces:
+Final verification greps before writing the report:
+# CHANGE-01 — Add a governed sprint stage: edit-surface trace
+
+## Scope inspected
+
+**Implementation repo** (`ultraplan-go` @ eeaa034, clean): `internal/sprint/{domain,state,artifacts,flow,service,prompts,prompt_bundle,prompt_context,input_contract,store_fs,validation,verify,review,smoke,smoke_author,direct_inputs}.go`; `internal/app/{sprint_commands,sprint_usecases,operations,web_usecases,usecases,skills_commands,config_commands}.go`; `internal/platform/config/{config,redaction}.go`; `internal/workspace/{skills,defaults,init}.go` + `scaffold/prompts|templates`; `internal/web/templates/sprint.html`, `static/js/app.js`, web operation tests; `internal/runcontrol`, `internal/productstate` (stage-name checks); tests (`sprint_test.go`, `sprint_usecases.go` history via `git log -L`, commit `2d10aba "Add code context planning stage"` diff-stat); docs: `docs/architecture.md`, `docs/stage-skills.md`, `docs/plans/sprint-code-context-stage.md`.
+
+**Planning workspace** (@ 368a789): `system/contracts/**` stage references; persisted `projects/ultraplan-go/sprints/35-durable-run-observability/flow-state.json` (schemaVersion 2, 7 stages: requirements → code-context → sprint-index → technical-handbook → area-reasoning → reasoning → plan).
+
+## Architecture assessment
+
+**Sound.** The stage state machine has one clear owner: `internal/sprint`. A canonical ordered list (`PlanningStages()`, domain.go:264-274) derives several behaviors automatically: validity (domain.go:284), flow-state shape enforcement (state.go:307-313 fails closed on length/order mismatch), empty/failed stage matrices (flow.go:304-323), and status derivation (service.go:1352). Execute/review/smoke are correctly modeled as governed non-planning stages outside that list (domain.go:135-143 separate FlowState records). Several surfaces are genuinely generic and need **zero** edits: session state (keyed by `PlanningStage`), mutation locks, run-control (opaque `sprint.*` operation strings — no stage enumeration in `internal/runcontrol` or `internal/productstate`), web JS (`app.js` contains no stage names; stages arrive server-rendered), web operations mapping (`"sprint-stage"` + string, operations_contract_test.go:65-78), skills materialisation (single registry entry + renderer, workspace/skills.go:38-229).
+
+**Stressed.** Beyond the owning module, the stage sequence is re-enumerated by hand in ~12 Go-side lists plus template/config/help/doc surfaces. The repo's own HISTORY proves both the cost and the pattern: adding `code-context` (commit `2d10aba`) touched 46 files (+2001/−186) across five packages, guided by a thorough plan doc (`docs/plans/sprint-code-context-stage.md:259-445`) that itself enumerates the required surface. Drift from these parallel lists has already occurred for an existing stage (finding F2).
+
+**Ambiguous.** Whether a new stage's artifact joins the cacheable shared prompt prefix (requirements + code-context frames, prompts.go:27-33, prompt_context.go:164-226) is a design decision that changes the blast radius: joining it touches the documented fixed prefix order (docs/architecture.md:143) and cache-key identity (prompt_bundle.go:87 `"ultraplan-sprint-v1-"`); not joining keeps locality high.
+
+## Candidate findings
+
+### CHANGE-01-F1
+- **Priority:** P2
+- **Claim:** Cumulative flow ordering is encoded as hand-maintained positional indices that must be renumbered whenever a stage is inserted, duplicating order information already owned by `PlanningStages()`.
+- **Evidence:** flow.go:176-201 — `ordered := append(PlanningStages(), StageExecute)` then a literal `end` switch (1..8) per target; sibling enumerations `validateFlowTarget` (flow.go:348-353, including an error string listing all ten stages), `validatePlanningStageTarget` (flow.go:167-174), `runFlowStage` dispatch (flow.go:145-165).
+- **Architectural reason:** change-surface / lifecycle.
+- **Concrete consequence:** Inserting a stage mid-chain without incrementing every later literal makes `flow --to execute/review/smoke` silently run the wrong prefix (skipping or mis-ordering stages) instead of failing — durable state advances on a truncated chain. No table-driven test asserts cumulative dispatch order per target (checked `sprint_commands_test.go`, `reasoning_test.go`: only per-stage coverage).
+- **Counter-evidence searched:** The constants sit adjacent to the list edit and `TestDomainStagesStatusesAndArtifactPaths` pins `PlanningStages()` exactly (sprint_test.go:16-20), forcing a domain-level test update; per-stage flows are individually tested. This bounds but does not eliminate the risk, since the failure mode is silent mis-scheduling of *other* targets.
+- **Confidence:** medium-high
+- **Smallest useful action:** Replace the literal `end` switch with index lookup against `PlanningStages()` (e.g., `slices.Index`+offset) so insertion shifts boundaries mechanically; add one table test asserting the cumulative stage list per target.
+
+### CHANGE-01-F2
+- **Priority:** P2
+- **Claim:** App-layer presentation/fingerprint lists re-enumerate stages independently of `internal/sprint` and have already drifted: `area-reasoning` is absent from four of them, and nothing forces a new-stage author to revisit them.
+- **Evidence:** `SprintSummaries` artifact lists omit area-reasoning twice (sprint_usecases.go:119-127, 193-205); validation sweep omits `StageAreaReasoning` while its own dispatcher supports it (sprint_usecases.go:206 vs :264-265); sort map lacks it (sprint_usecases.go:240); governed-operation fingerprint inputs omit `reasoning/` outputs entirely (operations.go:504-519). Sprint status JSON includes all seven stages, so summaries show the stage yet never its findings/artifacts. History confirms this predates code-context and survived three stage additions unnoticed (`git log -L` on sprint_usecases.go: f142a73 → 2d10aba added code-context to the same lists without noticing area-reasoning's absence).
+- **Architectural reason:** drift / change-surface.
+- **Concrete consequence:** A new governed stage added today will appear in `sprint status --json` but silently miss TUI/web artifact links, summary findings, and operation input fingerprints unless the author independently discovers each list; the same class of gap already exists for area-reasoning, where invalid artifacts produce no user-visible findings in dashboards.
+- **Counter-evidence searched:** Deliberate-exclusion evidence exists partially: project page surfaces area-reasoning docs separately (project_usecases.go:61-62); multi-file `reasoning/` output does not fit the single-file `DisplayArtifact` model; `operations.go:765` keeps the area-reasoning validate case reachable via explicit web Validate. None of this explains the sweep omission, and nothing in code or docs marks the exclusions intentional.
+- **Confidence:** high (drift is factual; deliberateness unresolved)
+- **Smallest useful action:** Derive Go-side lists (artifact labels, validation sweep, fingerprint inputs) from `sprint.PlanningStages()`/`ArtifactRelPath` plus a small per-stage capability record, or at minimum add a test asserting every planning stage appears in `SprintSummaries` artifacts and the fingerprint inventory.
+
+### CHANGE-01-F3
+- **Priority:** P3
+- **Claim:** Persisted-flow-state compatibility for stage insertion relies on a bespoke, hard-coded shim keyed to the exact pre-`code-context` shape; each future insertion stacks another named interpretation whose composition with earlier shims is untested.
+- **Evidence:** state.go:74-76 triggers `interpretPreCodeContextStages` only when `len(stages) == len(PlanningStages())-1` and the exact legacy sequence matches (state.go:83-113); service.go:150 carries a parallel guard (`preCodeContextFlowState`). After inserting stage N+1, old states must pass through both interpretations to reach the new canonical shape.
+- **Architectural reason:** lifecycle / boundary.
+- **Concrete consequence:** `ValidateFlowState` fails closed on any length/order mismatch (state.go:307-313), so skipping the shim bricks status refresh for every existing sprint (the authoritative workspace's persisted states are verifiably 7-stage). Composed shims risk subtle status mis-derivation (e.g., double-inserted `skipped` inference) with no fixture covering a doubly-legacy state.
+- **Counter-evidence searched:** The established pattern makes the next insertion cheap (copy shim, adjust detection) and deliberately avoided a schema bump to keep v2 stable — a defensible trade for one insertion; migration-on-load with fail-closed validation is otherwise coherent (state.go:53-77).
+- **Confidence:** medium
+- **Smallest useful action:** Generalize detection to "canonical list minus one stage" (insert as missing/skipped by predecessor status) or add a regression fixture exercising two sequential insertions before the second one ships.
+
+## Defended architecture / rejected hypotheses
+
+- **"The fan-out to ~20 files means ownership is broken."** Rejected. Non-Go surfaces (CLI help text sprint_commands.go:1131-1310, template select options sprint.html:40, config keys config.go:40-59/:303-341, redaction redaction.go:51-64, docs) are genuine boundary translation across different languages/contracts; a cross-cutting "stage registry" generating all of them would add indirection without removing the edits. The Go-side duplicates (F1/F2) are the real, fixable subset.
+- **"Review/smoke should be folded into `PlanningStages()`."** Rejected. They have distinct durable record types, freshness/fingerprint semantics, and gates (domain.go:135-143, verify.go:49-110); folding them into the planning list would corrupt flow-state shape validation for no gain.
+- **"Skills/defaults materialisation needs structural change."** Rejected — single registry entries plus auto-sync tests (workspace_test.go:136-165) make this the best-localized part of the surface; `2d10aba` confirms (init.go +10, scaffold files additive).
+- **"Commit `2d10aba` bundling study runtime-summary changes proves module coupling."** Rejected as architecture: the +48 lines in study_commands.go are orthogonal progress summarisation riding along in one commit — process hygiene, not a dependency between modules.
+
+## Open questions
+
+- Is area-reasoning's exclusion from sprint-summary artifacts/findings intentional (project-page dedup, multi-file model)? If yes, a one-line comment or contract note would prevent a new-stage author from copying the ambiguity; if no, F2 is stronger than stated.
+- Should a new stage's artifact join the shared cacheable prompt prefix? This single design decision determines whether prompts/prompt_context/prompt_bundle and the architecture doc's fixed-prefix contract (docs/architecture.md:143) are in scope; the probe cannot answer intent.
+########## change-02
+### Scope inspected
+
+Implementation repo (`ultraplan-go` @ eeaa034):
+
+- Composition root and dispatch: `cmd/ultraplan/main.go`, `internal/app/app.go`
+- Surface boundary types: `internal/app/surfaces.go`, `tui_commands.go`, `serve_commands.go`
+- Shared use-case layer: `internal/app/usecases.go`, `operations.go`, `operation_runner.go`, `web_usecases.go`, `run_usecases.go`, `durable_operations.go`, `run_control.go`
+- Existing local surfaces: `internal/tui` (`app.go`, `model.go`, `doc.go`, `test_fakes_test.go`), `internal/web` (`operations.go`, `operation_handlers.go`, `security.go`, `import_boundary_test.go`, `operations_contract_test.go`)
+- Durable substrate: `internal/runcontrol/sqlite.go` (accept/alias path)
+- Boundary tests: `app/run_control_inventory_test.go`, `app/tui_commands_test.go`, `app/serve_commands_test.go`
+
+Planning workspace: `system/contracts/**` grep for surface/TUI-parity contracts (`review-sprint-protocol.md:78-80`, `deep-smoke-sprint-protocol.md:55-57`); repo docs `docs/architecture.md`, `docs/local-web.md`, `docs/ui-audit.md`.
+
+Probe traced: change-probe #2 — "Add another local interface."
+
+### Architecture assessment
+
+**The sanctioned extension path is real and narrow.** For a hypothetical third local surface (`ultraplan console`), the required edit surface is:
+
+1. New `internal/<surface>` package importing only `internal/app` (contract in `internal/tui/doc.go:7-9`; enforced for web by `internal/web/import_boundary_test.go:12-36`).
+2. `cmd/ultraplan/main.go`: one runner closure in `app.Config` (pattern at main.go:27-41).
+3. `internal/app`: option struct + `Runner` func type (pattern: `surfaces.go:10-20`, `tui_commands.go:13-19`), a `Config` field (app.go:36-38), `dependencies` fields (app.go:188-190), one switch case (app.go:169-174), help text (app.go:250-276).
+4. `internal/app/<surface>_commands.go`: preflight composing the stack.
+
+Product modules (`sprint`, `study`, `project`, `runcontrol`), platform modules, `internal/tui`, and `internal/web` need **zero edits**. Workflow semantics are genuinely shared today: `PrepareOperation`/`RunOperation` (`operations.go:166-407`) and the runtime-backed runner (`operation_runner.go:15-18`, explicitly documented as the single implementation for terminal and browser adapters). The web's wire-string→kind table is boundary translation, pinned by `operations_contract_test.go:22-61`. Locality verdict: structurally sound.
+
+**Where the probe's "without duplicating workflow semantics" condition is stressed:** the *client side* of the durable-operation protocol — accept with digest → adopt accepted context → gate each event on commit → finish with 30 s deadline — exists once per surface, hand-orchestrated in surface code, with divergent digest policy. A third surface author cannot call this protocol; they can only copy one of two variants that already disagree.
+
+### Candidate findings
+
+---
+
+#### ID: CHANGE-02-F01
+**Priority:** P2
+
+**Claim:** The durable-operation client protocol (accept → adopt context → committed-event gating → bounded finish) is re-implemented independently by each interactive surface with divergent idempotency semantics; adding a second new local UI requires copying workflow semantics that `app` already owns the inputs for.
+
+**Evidence:**
+- TUI: `internal/tui/app.go:232-269` (`beginOperation`: digest = `sha256(CanonicalRequest + "\x00" + InputFingerprint)` at :236-238, `AcceptOperation`, `Existing` short-circuit, context adoption), `:282-312` (`operationCmd`: per-event `RecordOperationEvent` gating at :287-295; `FinishOperation` with `context.Background()` + 30 s timeout + `errors.Join` at :302-309).
+- Web: `internal/web/operations.go:150-219` (`startConfirmed`: hub dedup map then `manager.AcceptOperation(ctx, prepared, dedupKey)`), `:245-255` (same commit gating), `:234-241` (same 30 s finish + join). Digest basis differs: `confirmationDedupKey(session, token)` (`internal/web/security.go:447-450`).
+- A third variant already lives app-side for sync CLI: `durableCLICommand` (`internal/app/durable_operations.go:33-76`) — proof the protocol is expressible as an app-owned unit.
+- The digest is persisted permanently as a unique alias (`runcontrol/sqlite.go:445-454`; no code ever deletes `operation_aliases`), so the basis choice is semantically load-bearing: TUI's content basis makes an identically-confirmed operation idempotent **forever**; web's session-token basis makes cross-process dedupe effectively unreachable and permits distinct sessions to accept duplicate targets (serialized later only by the product lease).
+
+**Architectural reason:** boundary / lifecycle / change-surface. `DurableOperationManager` was designed as the shared capability ("used by interactive adapters to persist acceptance … before they create an execution goroutine", `operations.go:37-44`), but the abstraction stops at per-call granularity; the orchestration sequence around it drifted into each adapter.
+
+**Concrete consequence:** Surface #3 copies whichever variant its author reads first. If the finish timeout, gating rule, or alias policy changes (e.g., "digest must be content-derived so retries across surfaces dedupe"), three files in two packages must change in lockstep, and nothing fails loudly if one is missed — the surfaces will simply disagree about what constitutes "the same confirmed operation." Cross-surface: a TUI-refused rerun is accepted by `serve`.
+
+**Counter-evidence searched:** Checked whether the manager itself enforces the sequence (it does cancel on event-append failure, `durable_operations.go:165-171`, but does not perform accept/gate/finish ordering); checked `docs/local-web.md:130-136` — it documents web's token-replay contract but nowhere blesses per-surface ownership of the accept/finish protocol; `docs/architecture.md:162-165` says CLI, TUI, and web "share that boundary," which supports centralizing the client sequence rather than refuting it. Checked tests: none pin either digest basis (`grep AcceptOperation` in `internal/tui/*_test.go` → zero hits; web tests cover token store, not alias policy).
+
+**Confidence:** high (duplication facts), medium (that digest-basis divergence is unintentional rather than a deliberate per-surface policy).
+
+**Smallest useful action:** Give `Confirmation` its durable dedup digest at preparation time (inputs already exist at `operations.go:270-277`) and collapse the four-step sequence into one app-owned call (generalize `durableCLICommand` or add `Begin/EmitCommitted/Finish` helpers beside `DurableOperationManager`). Both surfaces shrink; surface #3 gets semantics by construction, not by copying.
+
+---
+
+#### ID: CHANGE-02-F02
+**Priority:** P2
+
+**Claim:** The TUI's declared capability type understates what the surface actually requires; the missing capabilities (`RunUseCases`, `DurableOperationManager`) are discovered by unchecked runtime type assertions, and no test or compiler check forces the composition root to supply them. A new local surface cloned from this pattern compiles while silently skipping durable acceptance and durable cancellation.
+
+**Evidence:**
+- `TUIRunOptions.UseCases` is `OperationalUseCases` = `ReadOnlyUseCases + WebOperations` only (`tui_commands.go:13-19`; `operations.go:22-27`).
+- The implementation additionally asserts `app.RunUseCases` (`internal/tui/app.go:109,123,362`) and `app.DurableOperationManager` (`:235,287,302`); on failed assertion the durable paths are skipped without error (`beginOperation` falls through to plain execution at :256).
+- Contrast with the newer surface: `app.WebUseCases` declares everything it needs in the type (`web_usecases.go:58-64` embeds `WebQueries`, `WebOperations`, `RunUseCases`; hub uses direct calls, `operations.go:181,231,234`).
+- The trap is exported: `NewOperationalUseCases(root)` (`operations.go:724`) returns a value satisfying the declared TUI interface with nil `runs`/`durable`/`runner`.
+- Wiring is manual and unguarded: `runTUI` sets `useCases.runs/.durable/.runner` as three extra steps (`tui_commands.go:46-48`); `TestTUICommandHelpAndRunner` asserts only `opts.UseCases != nil` (`tui_commands_test.go:24-28`); `TestServePreflightAndRunnerOptions` likewise only checks `UseCases != nil` plus `Health` (`serve_commands_test.go:42-48`); the durable inventory test covers only CLI files (`run_control_inventory_test.go:22-35`).
+
+**Architectural reason:** authority / change-surface. Durability-before-execution is stated as universal ("Each start is accepted and claimed in SQLite before a goroutine… Direct CLI commands, TUI actions, web operations… share that boundary", `docs/architecture.md:162-165`), but for interactive surfaces it is enforced by injection convention, not by type or test.
+
+**Concrete consequence:** Adding surface #3 via the documented minimal interface (option struct typed `OperationalUseCases`, or the convenience constructor) yields a working dashboard whose runtime-backed mutations execute with no durable run record — losing observability, cross-surface run visibility, and durable cancellation — with zero compile-time or test-time signal. The product lease still guards the mutation itself, so this degrades auditability and recovery, not safety.
+
+**Counter-evidence searched:** Looked for an intentional optional-capability rationale: the assertion pattern does keep test fakes tiny (`test_fakes_test.go:9-43`) and would permit a pure-read TUI mode; however, every production wiring supplies the full set, and `docs/local-web.md:46-49` describes full capability parity as the contract, not an option. Searched for a test asserting the wired dynamic type satisfies the wider interfaces — none exists.
+
+**Confidence:** high.
+
+**Smallest useful action:** Declare the full interactive capability set in the option type (e.g., `TUIRunOptions.UseCases` becomes an interface embedding `OperationalUseCases + RunUseCases + DurableOperationManager`), update the one fake, and add compile-time `var _` assertions in the preflight files — or route all interactive preflights through one app-owned constructor that returns the complete value. ~30-line diff, removes assertion-based discovery entirely.
+
+---
+
+#### ID: CHANGE-02-F03
+**Priority:** P3
+
+**Claim:** Interactive-surface preflight composition is duplicated per command and will grow a third copy; it also embeds an undocumented per-surface policy bit (`readOnly`).
+
+**Evidence:** `runTUI` (`tui_commands.go:29-52`) and `runServe` (`serve_commands.go:36-66`) repeat the same eight-step composition: `discoverWorkspace` → `loadEffectiveConfig` → `dashboardUseCases{root, stageRuntime, reviewConcurrency, smokeSettings}` → `runRepository` → `repositoryRunUseCases` → `newDurableOperationManager` → `sharedOperationRunner`. `runServe` additionally computes `planningStageRuntime(effective.Config)` and `smokeSettings(...)` twice (:48/:50 and :60-62) — visible copy-paste. The only semantic delta is `readOnly: true` (serve, :50) vs unset (TUI), i.e., whether status refresh may write `flow-state.json` (`usecases.go:121-130`); this policy survives only in help prose (`tui_commands.go:78-84`).
+
+**Architectural reason:** change-surface / drift.
+
+**Concrete consequence:** Surface #3's preflight author must re-derive the ingredient list and make an undocumented write-policy decision; omitting `.runs`/`.durable` reproduces CHANGE-02-F02's silent degradation, and choosing `readOnly` wrong changes governed-state write behavior with no failing test.
+
+**Counter-evidence searched:** Considered rejecting as trivially small duplication (~12 lines, in-package, each step a named function). It stays reportable only because two of the steps are the exact ones implicated in F01/F02 and because the `readOnly` bit is a real semantic fork with no owner; a shared `composeInteractiveUseCases(deps, root, effective, readOnly)` is earned, unlike generic abstraction.
+
+**Confidence:** high (facts), medium (that a third surface is ever built).
+
+**Smallest useful action:** One app-private constructor used by both existing preflights; document the `readOnly` fork at its parameter.
+
+---
+
+#### ID: CHANGE-02-F04
+**Priority:** P3
+
+**Claim:** Surface-neutral workflow plumbing is filed under one surface's name, misdirecting the next surface's author.
+
+**Evidence:** `sharedOperationRunner` — documented as "used by terminal and browser adapters" (`operation_runner.go:15-18`) — routes all runtime progress mapping through `tuiSprintRuntimeProgress` (`tui_commands.go:58-66`), called five times from the shared runner (`operation_runner.go:23,36,49,60,93`). The symbol is neither TUI-specific nor located where shared code lives.
+
+**Architectural reason:** change-surface (naming-induced locality error only; no behavioral issue).
+
+**Concrete consequence:** An author tracing "what does surface #3 receive on the progress path" starts in the wrong surface's file, reinforcing the belief that this mapper belongs to the terminal adapter.
+
+**Counter-evidence searched:** Verified it carries no TUI-specific state (pure closure over `emit`); verified web consumes the same events via the same runner, so the name is factually wrong, not merely stylistic.
+
+**Confidence:** high.
+
+**Smallest useful action:** Rename to `runtimeProgressMapper` and move next to `sharedOperationRunner`.
+
+### Defended architecture / rejected hypotheses
+
+- **"Web's `mapOperationRequest` kind table and DTO family duplicate workflow semantics."** Rejected. It is one-directional wire translation into app-owned `OperationKind`s, compatibility-pinned (`operations_contract_test.go:22-61`), with scope validation mirroring `validateOperationScope` as transport input filtering. App remains the sole semantics owner.
+- **"`WebDashboardResult` vs `DashboardResult` means two read paths."** Rejected. Web projections wrap the same `dashboardUseCases` summaries (`web_usecases.go:416-654`); the extra types are presentation shaping (bounds, HMAC artifact refs, nil-normalization), matching `docs/architecture.md:31-36`'s assignment of the query facade to app.
+- **"`readOnly` asymmetry between TUI and serve is drift."** Rejected as intentional: `WithoutStatusWrites` is explicit service configuration (`usecases.go:126-128`), and TUI help documents status refresh recomputation (`tui_commands.go:78-84`). Only its documentation locus is a problem (F03).
+- **"TUI drops failed durability events while web cancels — material failure-semantics drift."** Investigated and rejected as material: `RecordOperationEvent` cancels the owned context itself on append failure (`durable_operations.go:165-171`), so both surfaces converge on cancellation; the residual difference (local pane messaging) is presentational. Web's extra `record.cancel()` (`operations.go:248-251`) is redundant, not divergent.
+- **"Adding surface #3 requires editing `internal/web` or `internal/tui`."** Rejected. Runner injection plus the import boundary keep both untouched; the probe's expected-vs-actual edit surface matches.
+
+### Open questions
+
+1. Is the TUI's content-derived, retention-immutable alias idempotency (an identically-confirmed completed operation is refused until governed inputs change, steering reruns to `*-resume` kinds) an intended product rule or incidental? The answer decides which digest basis F01's consolidation should standardize on.
+2. Should a future non-HTTP local surface share the web hub's capacity/draining model (max 8 active, graceful-drain cleanup markers), or is that transport-lifecycle-only per `docs/architecture.md:62-67`? If the latter, F01's extraction should deliberately exclude it.
+########## change-03
+### Scope inspected
+
+**Implementation repo** (`ultraplan-go` @ eeaa034):
+- `internal/platform/runtime/`: `runtime.go`, `opencode.go`, `health.go`, `agentwrap.go`, `events.go`, `policy.go`, plus `runtime_test.go`, `opencode_test.go`, `cache_test.go`
+- Consumers: `internal/sprint/` (`flow.go`, `service.go`, `session_state.go`, `execute.go`, `runtime_metrics.go`, `review_runtime_validation.go`, `smoke_author.go`, `code_context.go`), `internal/study/` (`run.go`, `service.go`), `internal/app/` (`sprint_commands.go`, `study_commands.go`, `health_commands.go`, `run_control.go`, `app.go`, `operations.go`)
+- Config/scaffold: `internal/platform/config/config.go`, `internal/workspace/init.go`
+- Docs: `docs/architecture.md`
+
+**Authoritative workspace**: `projects/ultraplan-go/docs/TRD.md` §11–12, §13 (change log)
+
+**External dependency**: `/home/agentwrap` source (`runtime.go`, `events.go`, `config.go`, `health.go`, `observability.go`, `opencode/projector.go`, `opencode/health.go`) to verify how `RuntimeContext.RuntimeKind` is actually consumed
+
+### Architecture assessment
+
+The change is unusually well-localized; the seam is real and already load-bearing:
+
+- **Generic contract lives where it should.** `Runtime` (runtime.go:245-249) wraps `agentwrap.Runtime`; all request/result/event/error translation (`toAgentwrapRequest`, `mapResult`, `mapEvent`, `mapError`, payload sanitization in `agentwrap.go`) is runtime-neutral and tested against a synthetic fake via `NewAdapter(fakeRuntime{...})` in `runtime_test.go`. A second adapter reuses all of it.
+- **Product modules depend on minimal interfaces, not the adapter.** `sprint.Runtime` is `StartRun`-only (flow.go:13-15); `study.Runtime` likewise (service.go:25-26). Both are exercised almost exclusively through hand-written fakes (`WithRuntime(...)` across ~20 test files), proving the coupling surface is exactly one method.
+- **Adapter-specific knowledge is quarantined in one file.** `opencode.go` is the only opencode-importing file; even reasoning-effort translation (`requestVariantRuntime`, opencode.go:65-83) lives here, fed by runtime-neutral metadata keys `variant`/`reasoning_effort` set by product code (service.go:1039-1041).
+- **Composition matches the mandated stack** (TRD §11.2): `Observing(Validating(Policy(concrete)))` at opencode.go:53-61.
+- **Selection authority exists but is pinned.** `runtime.default` config field (config.go:170) is validated to `"opencode"` (config.go:409-411). Per TRD §11.1 ("first concrete runtime adapter") this pinning is CURRENT-CONTRACT, not a defect.
+- **Stressed points** are at the state/wiring edges, detailed below: persisted session compatibility keys, health identity stamping inside the generic `Adapter`, triplicated construction seams, and substring-based tool attribution.
+
+### Candidate findings
+
+#### CHANGE-03-F01
+- **Priority:** P2
+- **Claim:** Adding a second adapter silently enables mid-sprint `runtime.default` switches, but every persisted session-reuse path identifies sessions by provider/model/workdir only — no runtime identity — and the sprint planning-stage continuation path has no fresh-session fallback, so a foreign session ID becomes an opaque stage failure.
+- **Evidence:**
+  - `session_state.go:21-28` — `stageSessionRecord{SessionID, Provider, Model, WorkDir}`; `:87-92` — `stageSessionCompatible` checks exactly those fields; `:97-101` resumes with `SessionAction="continue"` unconditionally; `:48,56` — `DisallowUnknownFields` + schema v1 means adding a field requires a deliberate bump.
+  - `execute.go:539-549` — `reusableExecuteSession` matches model + non-empty session ID only; architecture.md:151 documents reuse as "model and target compatibility".
+  - `study/run.go:115,175` — fingerprint includes provider/model/workdir but not runtime kind; contrast study's graceful `studyContinuationNeedsFreshFallback` (run.go:157-171) and review repair's `AllowFreshSessionFallback` (review_runtime_validation.go:77-78). Planning stages (session_state.go:94-131) have neither.
+  - Today unreachable because config.go:409 rejects non-opencode — the gate is removed by precisely this change.
+- **Architectural reason:** lifecycle / failure-semantics (product-owned durable state vs. adapter-owned session namespaces)
+- **Concrete consequence:** operator flips `runtime.default` between interrupted stage runs; resume sends an OpenCode session ID into a different CLI's continue semantics; planning stage fails with a runtime-classified error attributed to the stage, retryable loop persists the same incompatible session until manual `.stage-sessions.json` surgery.
+- **Counter-evidence searched:** study/review paths do fall back (so the pattern exists and its absence in `session_state.go` is not uniform carelessness); TRD §11.3 permits sessions "only when UltraPlan intentionally continues ... a related run" — a cross-runtime continue is not that, so no current contract is violated; runtime metrics (runtime_metrics.go:135-137) also omit runtime kind, confirming this is systemic, not a one-off.
+- **Confidence:** high on mechanics, medium on severity (requires operator action post-change)
+- **Smallest useful action:** when the second constructor lands, extend session-compat predicates (stage sessions, execute records, study fingerprints) with resolved runtime identity — or clear persisted sessions on runtime switch — as part of the same change, with the schema-v2 bump `DisallowUnknownFields` forces anyway.
+
+#### CHANGE-03-F02
+- **Priority:** P3
+- **Claim:** The generic `Adapter` stamps `RuntimeKind/RuntimeName: "opencode"` in `Health()` regardless of which runtime it wraps, while `Capabilities()` derives kind from the underlying runtime — inconsistent identity sources in the same file.
+- **Evidence:** health.go:56 hardcoded literal vs. health.go:105-111 pass-through `caps.RuntimeKind`; `NewAdapter` (runtime.go:256-262) records nothing.
+- **Architectural reason:** drift (identity authority split between call site and wrapped runtime)
+- **Concrete consequence:** a second adapter built via `NewAdapter(claudeRuntime)` reports `producer_runtime_kind=opencode` in observability artifacts (agentwrap observability.go:736-737) and policy summaries (policy.go:626), poisoning diagnostics during exactly the period a new adapter is least trustworthy. Not behavior-breaking: concrete adapters stamp their own effective-config kind (opencode/health.go:315), and today only `NewOpenCode` builds production Adapters.
+- **Counter-evidence searched:** verified `CheckHealth` consumers don't branch on `req.Context.RuntimeKind` behaviorally; TRD pins opencode so the literal is currently truthful.
+- **Confidence:** high (code fact), low impact
+- **Smallest useful action:** carry kind/name on `Adapter` set at construction (`NewOpenCode` supplies "opencode"); `Health()` uses the field.
+
+#### CHANGE-03-F03
+- **Priority:** P3
+- **Claim:** Runtime construction is triplicated at the app layer in two different seam styles, none consulting `c.Runtime.Default`; the config field's only readers are validation and display.
+- **Evidence:** injectable `SprintRuntimeFactory` via Dependencies (sprint_commands.go:21-25, app.go:38/119-123) vs. package var (study_commands.go:22-24) vs. direct call with no factory (health_commands.go:113) plus hardcoded `"runtime.opencode"` check IDs (health_commands.go:115,119,144). `rg 'Runtime\.Default'` shows only config.go:280/399/409, config_commands.go:47, health_commands.go:77, study_commands.go:332.
+- **Architectural reason:** change-surface (drift risk among composition-root twins)
+- **Concrete consequence:** the second-adapter change requires synchronized edits in three functions; missing one produces e.g. health probing opencode while sprints execute on the new runtime — reported healthy, behaving differently.
+- **Counter-evidence searched:** all sites sit in `internal/app`, which owns wiring by doctrine; each already has some test seam; surface is small. This is expected edit surface — the finding is only the triplication, not the layering.
+- **Confidence:** high
+- **Smallest useful action:** add one dispatcher in `platform/runtime` (e.g., `New(c config.Config)` switching on `c.Runtime.Default`) and delegate all three factories to it; derive health-check IDs from the configured name.
+
+#### CHANGE-03-F04
+- **Priority:** P3
+- **Claim:** Smoke protected-path write attribution scrapes JSON-serialized event payloads for tool-name substrings instead of using agentwrap's normalized `ToolObservation`, so a second runtime's tool vocabulary escapes the lexicon.
+- **Evidence:** smoke_author.go:139-156 (`event.Kind != "tool"` then `strings.Contains` over marshaled payload for `"tool":"write`, `apply_patch`, `filesystem_write`, ...) vs. agentwrap events.go:55-110 (`Event.ToolObservation()` exposing normalized Name/Arguments/Status, projected by adapters per TRD §11/§12); `promoteObservablePayloadFields` (runtime.go:592-604) already normalizes nesting but not vocabulary.
+- **Architectural reason:** boundary (product reimplements projection-adjacent vocabulary) / drift
+- **Concrete consequence:** degraded diagnostics only — a new runtime's differently named write tools yield "changed ... without an observed OpenCode protected-path write" instead of attribution; the hard failure still fires via before/after identity comparison (smoke_author.go:93-104), and architecture.md:127-132 explicitly defines attribution as best-effort diagnosis, not the safety mechanism.
+- **Counter-evidence searched:** confirmed safety does not depend on attribution; noted `ToolObservation.Name` is still raw adapter-projected vocabulary, so porting wouldn't fully solve lexicon coverage either — it would mainly give structured Arguments/path extraction.
+- **Confidence:** medium
+- **Smallest useful action:** match on `Event.ToolObservation()` first, keep substring scrape as fallback; fix the now-stale "OpenCode" wording in the diagnostic.
+
+### Defended architecture / rejected hypotheses
+
+- **"Product code parses OpenCode stdout/events directly."** Disproven. All native interaction flows through `platform/runtime`'s mapping layer; TRD §11.4 forbids otherwise; grep found no raw parsing outside the adapter package.
+- **"Adding a second adapter requires touching sprint/study internals."** Largely disproven. Product modules consume `StartRun(Request)(Result)` through narrow interfaces with pervasive fake-based tests; review validation explicitly anticipates runtime differences in output retention (review_runtime_validation.go:30-33). Edit surface concentrates in `platform/runtime` (+1 file), app factories, config allowlist, scaffold templates (init.go:139,170) — good locality.
+- **"`CacheDirective`/metadata transport leaks OpenCode specifics into the generic contract."** Disproven as a defect: the contract comment (runtime.go:43-45) and architecture.md:149 define metadata transport as the current honest limitation with a documented native-support evolution path; cohort-key derivation (runtime.go:505-519) is runtime-neutral.
+- **"`requestVariantRuntime` should be generalized now."** Rejected — it is the necessary boundary translation TRD-style architectures want (opencode.go:65-67 documents why); generalizing before a second consumer exists would add indirection without a user.
+- **"Health mislabeling breaks health checks under a second adapter."** Disproven behaviorally: concrete runtimes own effective-config identity (opencode/health.go:315); impact is observability-only (hence P3).
+
+### Open questions
+
+- Will the second runtime be implemented inside `agentwrap` (as a sibling of `agentwrap/opencode`) or locally in ultraplan-go against `agentwrap.Runtime`? TRD §11.1 mandates agentwrap as *the* implementation boundary but doesn't forbid a local adapter; placement changes who owns event projection and where F01/F02 fixes belong.
+- Does agentwrap intend to normalize semantic tool capabilities (e.g., "mutates filesystem") beyond raw names? If yes, CHANGE-03-F04's lexicon problem dissolves at the SDK layer and the product-side action shrinks further.
+########## change-04
+The recent commit history shows event evolution happening via payload fields, not new types. Now let me empirically verify two hypotheses about the enum-widening path: (1) what happens when a new `EventType` meets a v1 schema's CHECK constraint, and (2) whether a chatty non-whitelisted event type wedges per-run compaction.
+Probe 1 confirmed: v1 CHECK rejects new types. Now let me verify how that constraint error is classified by `classifyStoreError`, then run the compaction-wedge probe.
+Both probes confirmed. Let me complete the trace: find all Append call sites (other producers), check the web/TUI DTO layer, and look for any doc/test guarding the enum-vs-policy coupling.
+I have a complete trace plus empirical verification. Writing the report.
+
+### Scope inspected
+
+- **Implementation repo** (`ultraplan-go` @ eeaa034): `internal/runcontrol/{sqlite,model,migration,retention,sanitize,local_log,errors,interfaces}.go`, producers `internal/app/{run_control,durable_operations,operation_runner}.go`, surfaces `internal/app/{run_commands,run_usecases,tui_commands}.go`, `internal/web/run_handlers.go`, `internal/web/templates/run.html` (via c455510 diff), `internal/tui/{views,model,app}.go`; recent commits eeaa034/c455510 (`git show --stat`); docs/architecture.md "Durable run control".
+- **Planning workspace** (`ultraplan-workspace` @ 368a789): `studies/ultraplan-daemon-events-study/dimensions/*` (esp. 01.06 typed facts/schema evolution).
+- **Experiments** (on a `/tmp/opencode` copy; target untouched): two Go probes against the real `SQLiteRepository`.
+
+### Architecture assessment
+
+The event pipeline is well-layered for *content* evolution: closed 12-value `EventType` vocabulary with open `map[string]string` payloads; a single storage sanitization gate; fully generic replay (`Events` sqlite.go:809), SSE (`followRunSSE` run_handlers.go:473), CLI follow (run_commands.go:172), TUI (views.go:337), and web timeline (newRunEventView run_handlers.go:282). Recent history confirms the intended evolution path: c455510 and eeaa034 added rich observability by widening payloads inside existing types, touching only producer mapping + view rendering — good locality.
+
+What is stressed is *vocabulary* evolution. The type set is independently encoded in at least six places with no single authority and no guard test, and the schema has create-only migration machinery (`CurrentSchemaVersion = 1`, `migrateSchema` handles only version 0). Two probes confirmed the forgotten-step failure modes are severe: a schema-misaligned append misclassifies as retryable unavailability, and a retention-unregistered type permanently wedges all further appends to the run at sequence 4097.
+
+### Candidate findings
+
+**ID: CHANGE-04-F01**
+- **Priority:** P2
+- **Claim:** Widening the event-type vocabulary requires simultaneously authoring the first stepwise schema migration, and there is no test or shared constant keeping the Go enum and the SQL CHECK aligned; the divergence failure mode is misclassified as retryable infrastructure unavailability.
+- **Evidence:** Enum duplicated in `model.go:137-146` (`EventType.IsValid`) and `sqlite.go:296` (`CHECK (event_type IN (...))`). Migration machinery is create-only: `migration.go:20` (`CurrentSchemaVersion = 1`), `migration.go:58-74` (only `version == 0` branch); bumping the constant alone makes existing v1 workspaces fail `verifySchemaRecord` (`migration.go:244-246`) with `CodeUnsupportedSchema` on every open. Probe on v1 DB: `INSERT ... 'metrics'` → `constraint failed: CHECK constraint failed: event_type IN (...) (275)`; `classifyStoreError` maps extended code 19 to `unavailable, retryable=true` (`sqlite.go:1085-1108`, verified empirically).
+- **Architectural reason:** change-surface | drift | failure-semantics
+- **Concrete consequence:** A developer adds `EventMetrics` to `IsValid()` but defers the migration: every append of the new type spins in `appendRunEventWithRetry` (~5s, `app/run_control.go:305-316`) then fails as "durable event persistence failed … unavailable", cancelling the run into `persistence_degraded` (`run_control.go:282-292`) — masking a binary/schema vocabulary mismatch as transient infra trouble. Doing it "right" instead requires inventing the v1→v2 rebuild path (SQLite cannot ALTER a CHECK) before the feature itself.
+- **Counter-evidence searched:** Backup/checkpoint/lock scaffolding in `migration.go` shows future steps were anticipated (intent, not neglect); the closed-vocabulary-plus-open-payload design is deliberate and recently exercised (c455510, eeaa034 evolve payloads, not types), so the expensive path is rarely taken — this mitigates frequency, not cost when taken.
+- **Confidence:** high
+- **Smallest useful action:** Derive both enumerations from one package-level `[]EventType` constant rendered into `initialSchema`, and add a test appending every declared type against a freshly opened v1 DB; separately map SQLITE_CONSTRAINT(19) from the `append_event` insert to non-retryable `CodeInvariant` instead of `unavailable`.
+
+**ID: CHANGE-04-F02**
+- **Priority:** P1
+- **Claim:** Retention tier membership is three inline SQL literals; any event type not registered defaults to "required forever", and a chatty unregistered (or existing non-disposable) type permanently wedges the run's journal at 4096 events — including today's vocabulary.
+- **Evidence:** Removable sets hardcoded at `retention.go:76` (`IN ('progress','message','omission')`), `retention.go:185` and `retention.go:187` (compacted/tombstone tiers); quota bypass set separately at `sqlite.go:713-720` (`reservedEventType`); capacity constants `model.go:427-428`. When compaction can't delete, `Append` fails (`retention.go:86`) and is invoked inside `Append` itself (`sqlite.go:687`). Probe result: 4096 `finding` appends succeed, append #4097 fails `quota_exceeded: required durable event history reached its bounded capacity`, and a subsequent `progress` append **also fails** — permanent, unrecoverable except via terminal proposal.
+- **Architectural reason:** change-surface | failure-semantics | drift
+- **Concrete consequence:** For the assigned change: add a new event type, forget the three retention lists, emit it at runtime volume → mid-run the journal saturates, every later event (including heartbeats' coalesced progress) is rejected, the producer marks `persistenceErr` and cancels the run into `persistence_degraded`. Same mechanics already reachable today: a long agent session emitting >4096 warnings/errors mapped to `EventWarning` (`run_control.go:382-383`) wedges identically. Nothing in `docs/` documents the tier policy or this fail-closed bound.
+- **Counter-evidence searched:** Bounded-capacity fail-closed doctrine ("required durable event history") suggests intent for genuinely required facts; `reservedEventType` shows type-specific policy is a recognized axis. But intent does not explain the scattered encoding or the absence of any exhaustive registration test (`retention_test.go` exercises only progress/warning).
+- **Confidence:** high
+- **Smallest useful action:** Centralize per-type retention class in one Go table (e.g., `typeRetention map[EventType]Tier`) next to the `EventType` declarations, generate the SQL `IN` lists and `reservedEventType` from it, and add a test that fills a run past `MaxRetainedEventsPerRun` with each declared type asserting either successful compaction or a documented, deliberate refusal.
+
+**ID: CHANGE-04-F03**
+- **Priority:** P3
+- **Claim:** Two independent producer mappings with duplicated progress-coalescing bookkeeping must both learn a new event type if operations and runtime streams should emit it.
+- **Evidence:** `runtimeEventDraft` switch (`app/run_control.go:377-399`) vs `RecordOperationEvent` state→type mapping (`app/durable_operations.go:133-136`); parallel coalescing state machines (`run_control.go:151-205`: key/hash/window bookkeeping; `durable_operations.go:131-175,230`: near-identical `progressKey/omitted` logic). Only the window constant is shared (`ProgressCoalesceWindow`, model.go:13).
+- **Architectural reason:** drift | change-surface
+- **Concrete consequence:** A new type with coalescing or payload-shape semantics gets inconsistent treatment across CLI/web/TUI operations versus runtime-backed runs; omission accounting diverges silently between the two journals.
+- **Counter-evidence searched:** The producers serve different sources with different payload shapes (`runtimepkg.Event` vs `app.OperationEvent`), so full unification risks indirection; duplication is currently small and both funnel through the same `appendRunEventWithRetry`/sanitize gate, bounding the blast radius.
+- **Confidence:** medium
+- **Smallest useful action:** At minimum, extract the coalescing decision (key construction + window check) into one helper owned beside `ProgressCoalesceWindow`; defer deeper unification until a third producer appears.
+
+### Defended architecture / rejected hypotheses
+
+- **"Surfaces will fan out the edit."** Rejected. `RunUseCases` is pass-through aliases over `runcontrol` types (`run_usecases.go:13-24`); web/TUI/CLI/SSE render `Type` as an opaque string and select payload keys generically (`run_handlers.go:282-303`, `views.go:336-337`, `run_commands.go:172`, SSE raw JSON at `run_handlers.go:494-503`). A new type with no special presentation needs zero surface edits. Strong locality.
+- **"The sanitizer allowlist is another scattered enum to update."** Rejected as a defect: `allowedEventPayloadFields` (`sanitize.go:10-17`) is a deliberate single storage gate with explicit omission accounting (`sanitize.go:19-22`); producer pre-filtering in `run_control.go:411-486` is boundary translation, not drift.
+- **"Closed vocabulary is over-engineering."** Rejected. Bounded safe-journal doctrine (`docs/architecture.md` "Durable run control"; doc.go ownership statement) plus demonstrated payload-based content evolution show the cheap path covers most needs; the finding is about guarding the rare widening, not replacing the design.
+- **"Missing v1→v2 migration means neglect."** Partially rejected: backup/WAL-checkpoint/lock/prune scaffolding anticipates future steps; what's missing is only the first step function plus its guard test — hence F01's small action.
+
+### Open questions
+
+- Is the >4096-required-events fail-closed bound documented as accepted doctrine anywhere authoritative (sprint notes outside `docs/`)? If yes, F02 downgrades to the registration-locality half; the wedge mechanics remain as probed.
+- Does `studies/ultraplan-daemon-events-study` dimension 01.06 (typed facts, schema evolution) represent FUTURE-INTENT to widen the vocabulary soon? If scheduled, F01 rises to P1 since the migration machinery becomes a blocking prerequisite rather than contingent debt.
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs && for d in change-05 change-06 change-07 change-08; do echo "########## $d"; cat $d/stdout.md; done
+########## change-05
+# CHANGE-05 — Evolve a product-state schema
+
+## Scope inspected
+
+- `internal/productstate/store.go` (schema DDL, Record model, Save/Load/Has, open caching)
+- `internal/study/state.go`, `internal/study/state_database.go`, `internal/study/run_state_domain.go`, `internal/study/domain.go`, `internal/study/run_state.go`, `internal/study/discovery.go`
+- `internal/sprint/state.go`, `internal/sprint/state_database.go`, `internal/sprint/domain.go`, `internal/sprint/execute_state.go`
+- `internal/app/storage_commands.go`, `scripts/migrate-product-state.sh`, `internal/app/app.go` (command wiring)
+- `internal/runcontrol/migration.go`, `internal/runcontrol/sqlite.go` (shared DB file, schema governance)
+- Docs: `docs/migration-product-state.md`, `docs/recovery.md`; workspace contract `system/contracts/runtime/persistence-and-migrations.md`
+- Git history: `02e2ec4` ("Move mutable product state to SQLite") vs `f4d6d38` (FlowState v2) ordering; test-surface greps for `productstate`/`storage migrate`
+
+## Architecture assessment
+
+Sound: each product state kind is owned by its producing module (`study_run` in study, `sprint_flow`/`sprint_execute` in sprint) with scope conventions local to each; the generic `productstate` store knows nothing about payloads. Every load path validates (`ValidateRunState`, `ValidateFlowState`, `ValidateExecuteRunState`), file writes are temp+rename+fsync, and `storage migrate` imports through the normal `Load*` functions, so imported records are always current-version at import time. The file path for FlowState demonstrates a complete in-place schema evolution (v1→v2 via `migrateFlowStateV1`), including legacy-shape detection and recovery-preserving semantics.
+
+Stressed: the same physical database (`.ultraplan/run-control.db`) hosts two schema regimes — a fully governed one (`runcontrol`: `user_version` gate, `app_schema` ledger, lock, backups, restore) and an ungoverned one (`productstate`: bare `CREATE TABLE IF NOT EXISTS` on every open). Version handling is asymmetric between the file and DB backends of the *same* logical record, and none of the product-state persistence surface has tests.
+
+## Candidate findings
+
+### ID: CHANGE-05-F1
+- **Priority:** P1
+- **Claim:** `product_states` tables live inside the run-control database but outside the repo's only migration-governance machinery, so a DDL-level product-state schema evolution has no ordered, reviewed, backed-up home.
+- **Evidence:** `productstate.DatabaseRelativePath = ".ultraplan/run-control.db"` (store.go:19) equals `runcontrol.DatabaseRelativePath` (sqlite.go:22). `createSchema` (store.go:92-116) is create-only DDL executed on *every* `Ensure`/`Existing` open (e.g., state_database.go:63, 92, 122), with zero references to `user_version` or `app_schema` outside runcontrol (grep). Meanwhile runcontrol owns `PRAGMA user_version` (migration.go:84-90), the `app_schema` component ledger with `component TEXT PRIMARY KEY` (sqlite.go:231, :356 inserts only `'run_control'`), a migration file-lock (migration.go:92-138), bounded backups (migration.go:186-200), and `RestoreBackup`.
+- **Architectural reason:** boundary / drift — two owners share one durable file; the persistence contract's migration regime (PERSIST-MIG-001) maps to only half the schema.
+- **Concrete consequence:** adding a column/index/constraint to `product_states` must be done as ad-hoc DDL in `createSchema` running on ordinary saves (mid-run-loop), outside the migration lock and backup regime, with no idempotency guard beyond `IF NOT EXISTS`. Older binaries still pass runcontrol's `user_version == 1` gate (migration.go:30-31 unchanged) and then fail with opaque SQL errors instead of `CodeUnsupportedSchema`. `PRAGMA user_version` is per-file and already claimed, so the natural version marker is taken.
+- **Counter-evidence searched:** initial mixed-schema creation *is* handled carefully — `migrateSchema` backs up a pre-existing foreign schema before initial create (migration.go:58-74) and `storage migrate` deliberately opens runcontrol before `Ensure` (storage_commands.go:59-67); `RestoreBackup` restores the whole file including product rows under "matching binary" discipline (recovery.md:217-224). None of this covers *future* product-state DDL changes. The `app_schema` component PK is a ready-made extension point that is simply unused.
+- **Confidence:** high (structure verified; consequence is the standard next iteration of this probe)
+- **Smallest useful action:** register and verify a `product_state` component row in `app_schema` inside `createSchema`/`Ensure`, giving future DDL evolutions an ordered, gated home; state the convention in `docs/migration-product-state.md`.
+
+### ID: CHANGE-05-F2
+- **Priority:** P1
+- **Claim:** Legacy-version upgrade support exists only on the file backend; the DB backend has no version gate or migration hook, so the *next* schema bump permanently hard-fails DB-authoritative records that the file path would auto-heal — the evolution edit surface is not localized and one required site has no extension point.
+- **Evidence:** File path: `state.go:53` accepts `PreviousFlowStateSchemaVersion`, `state.go:68-73` applies `migrateFlowStateV1` (state.go:150-192) — seamless v1→v2. DB path: `loadFlowStateDatabase` (sprint/state_database.go:19-36) and `loadRunStateDatabase` (study/state_database.go:17-41) ignore `record.SchemaVersion` entirely and apply no migration; the subsequent `ValidateFlowState`/`ValidateRunState` accept *only* the current constant (state.go:295-296, state.go:125-126, execute_state.go:188-189). No command upgrades stored records: `storage migrate` skips anything already stored (storage_commands.go:98-100, 150-152).
+- **Architectural reason:** lifecycle / drift — one logical record, two backends, upgrade logic wired into one branch only; the precedent (`migrateFlowStateV1`) lives exclusively in the file branch, inviting copy-paste evolutions that miss the DB branch.
+- **Concrete consequence:** after bumping `FlowStateSchemaVersion` to 3, every migrated workspace's DB rows become unloadable (`ErrFlowStateUnsupported` on every status/verify/flow operation) while an identical non-imported workspace self-heals via `migrateFlowStateV1`-style logic. The only operator remedies are deleting `.ultraplan/run-control.db` (losing run-control history) or hand-editing SQLite. Study and execute states have no previous-version concept at all, so their first evolution has no precedent on either backend.
+- **Counter-evidence searched:** not a *live* defect today — the SQLite feature (commit `02e2ec4`) postdates the v2 bump (`f4d6d38`), so no supported path ever wrote a v1 DB row, and import goes through `Load*` so stored rows are import-time-current. Terminal checkpoint files provide a fallback if the DB is deleted (`Existing` returns disabled when the file is absent, store.go:41-51; checkpoints written only at terminal states, state.go:222-225 / state.go:66-68). But that fallback sacrifices run-control history and is documented nowhere as an upgrade remedy.
+- **Confidence:** high (asymmetry is structural and verified; reachability is the next iteration of this exact change)
+- **Smallest useful action:** route DB loads through the same version gate + migrate function as file loads (extract one validated-decode helper per state type), and add a test asserting a previous-version DB record upgrades identically to its file twin.
+
+### ID: CHANGE-05-F3
+- **Priority:** P2
+- **Claim:** The entire product-state persistence surface — store, both `_database.go` modules, and `storage migrate` — has zero test coverage, despite being the layer where PERSIST-MIG-001 explicitly demands "migration tests or dry-runs cover upgrade path".
+- **Evidence:** grep for `productstate|storage migrate|run-control.db` across `*_test.go` matches only `internal/runcontrol/migration_test.go` and `retention_test.go`. Nothing covers `Save`'s hash-based skip and stale-item deletion (store.go:160-205), `Load`'s item reassembly, either DB loader, or the imported/skipped/partial-exit behaviour of `runStorage` (storage_commands.go:69-140).
+- **Architectural reason:** change-surface / failure-semantics — the newest, least-boring persistence code is the only durable-state code with no regression harness.
+- **Concrete consequence:** any schema evolution here (this probe) lands blind; the F2 gap class is invisible to CI, and subtle store behaviours (stale-item cleanup, version-overwrite-on-hash-change) can regress unnoticed.
+- **Counter-evidence searched:** no indirect coverage via app-level tests found; runcontrol's fault/benchmark tests do not exercise productstate.
+- **Confidence:** high
+- **Smallest useful action:** add a store round-trip test (save/load/delete-stale), one previous-version-record test per owning module, and a `storage migrate` dry-run/import/skip/partial-failure test.
+
+### ID: CHANGE-05-F4
+- **Priority:** P3
+- **Claim:** Version/validation failures on DB-authoritative records are misattributed to the JSON checkpoint file path, misleading recovery.
+- **Evidence:** DB branches compute `FlowStatePath`/`ExecuteRunStatePath`/`RunStatePath` purely for diagnostics and pass it to validators (state.go:24-31; execute_state.go:39-46; study/state.go:28-34); validator errors embed that path (e.g., state.go:295-297) while the offending bytes are in `product_states`. `recovery.md` remedies ("restore version N or regenerate state", state.go:54) point at files.
+- **Architectural reason:** failure-semantics.
+- **Concrete consequence:** during the F2 scenario, an operator inspecting a perfectly valid (stale) checkpoint file chases the wrong artifact; the actual record is a DB row keyed `(kind, scope)`.
+- **Counter-evidence searched:** reusing the path keeps messages uniform for the dominant file case; acknowledged, but the DB branch could annotate origin cheaply.
+- **Confidence:** high
+- **Smallest useful action:** wrap DB-origin validation failures with the record origin (`kind/scope in .ultraplan/run-control.db`) instead of (or alongside) the file path.
+
+## Defended architecture / rejected hypotheses
+
+1. **"Migration imports raw stale-version files into the DB."** Rejected: `runStorage` imports via `LoadRunState`/`LoadFlowState`/`LoadExecuteRunState` (storage_commands.go:102, 153, 176), which validate and, for FlowState, apply `migrateFlowStateV1` first. Stored rows are import-time-current by construction.
+2. **"Read-modify-write across versions silently strips fields."** Rejected: validate-on-load rejects any non-current version before a save can occur on either backend, so an old binary cannot round-trip degrade a newer record; `productstate.Save`'s unconditional version overwrite is therefore largely unreachable in supported flows (folded into F1 as a missing belt-and-braces gate).
+3. **"Two packages opening one SQLite file is a corruption hazard."** Rejected: both DSNs use WAL, busy timeout, immediate txlock, FULL sync (store.go:67-78; runcontrol sqlite.go), the deployment model is single-user local (recovery.md:226-228), and runcontrol explicitly handles the foreign-pre-existing-schema case with backup-before-create (migration.go:58-74).
+4. **"Kind/scope strings duplicated across modules need a central registry."** Rejected: each owner defines its kind beside its domain (`study/state_database.go:13`, `sprint/state_database.go:12-15`) — proper module cohesion; only `storage migrate`, whose job is aggregation, enumerates kinds.
+5. **"File checkpoints going stale after import breaks recovery."** Rejected as designed behaviour: checkpoints are written only at terminal states (`flowStateCheckpoint`, `executeStateCheckpoint`, `state.Complete`), the file path retains full legacy-upgrade capability, and deleting the DB cleanly re-enables file fallback (`productstate.Existing`). Undocumented, but coherent.
+
+## Open questions
+
+- Is the intended evolution model for `product_states` payload-shape-only (opaque JSON blobs, stable DDL forever)? If yes and it's written down somewhere I didn't find, F1 reduces to documentation debt; the generic blob design hints this was intended but no doc states it.
+- Is old-binary/new-data compatibility for DB-authoritative workspaces in scope at all (single-user CLI, but workspace restore-after-upgrade and multi-checkout sharing make it plausible)? An explicit out-of-scope statement would downgrade F2 toward documentation.
+########## change-06
+### Scope inspected
+
+Implementation repo `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go` @ eeaa034:
+
+- `internal/sprint/review.go` (PrepareReview, Review, render/validate, `reviewRelevantProjectIndexContent`, `loadReviewAsset`), `internal/sprint/smoke.go`, `internal/sprint/smoke_protocol.go`, `internal/sprint/smoke_author.go`, `internal/sprint/smoke_types.go`, `internal/sprint/index.go`, `internal/sprint/validation.go`, `internal/sprint/flow.go`, `internal/sprint/prompts.go`, `internal/sprint/review_runtime_validation.go`
+- `internal/project/domain.go`, `index.go`, `validation.go`
+- Consumer layers: `internal/app/sprint_commands.go`, `internal/web/operation_handlers.go`, `internal/app/web_usecases.go`, `internal/tui/doc.go`, `internal/app/run_control_inventory_test.go`
+- Workspace scaffold: `internal/workspace/scaffold/{templates,prompts}/…` (project-index, sprint-index, review/smoke prompts/templates)
+- Authoritative workspace docs: `system/protocols/review-sprint-protocol.md`, `system/protocols/deep-smoke-sprint-protocol.md` (+ `sprint-review-protocol.md` alias), `projects/ultraplan-go/project-index.md`
+- Verification: `go test ./internal/sprint ./internal/project` — green. Read-only; no target files modified.
+
+### Architecture assessment
+
+The probe decomposes into five concrete change scenarios, each with a distinct owner and edit surface:
+
+1. **New review protocol document** (content-level strategy): pure data. Add a row under `## Review Protocols` in project-index.md, select it under `## Required Review Protocols` in sprint-index.md (`internal/project/domain.go:15`, `internal/sprint/index.go:31`). Zero Go changes. Membership is enforced once (`validateSubset`, `internal/sprint/validation.go:14`) and re-resolved against the catalog during manifest preparation (`internal/sprint/review.go:292–317`); content is hashed into the review fingerprint (`review.go:365–367`).
+2. **Strategy emphasis via prompt/template**: workspace overrides `prompts/review.md` / `templates/review.md` are loaded and marker-checked (`review.go:192–199`, required markers "Automated Sprint Review", "Review Context"/"Final Assessment"), with embedded defaults in scaffold. Data-only; deterministic verdict computation stays product-owned, matching the protocol doc ("An LLM may summarize but cannot choose or override the verdict").
+3. **Add/replace smoke harness**: the catalog requires exactly one `## Smoke Harnesses` row (`internal/sprint/smoke_protocol.go:116–124`); swapping it plus providing a protocol-v1 manifest (capabilities `discovery/run/evidence-v1/scope-mapping/authoring-v1`, `smoke_protocol.go:213–258`; entry validation `internal/project/validation.go:103–131`) is zero-Go-change.
+4. **New suites/tests/levels within the harness**: external discovery data only; relationships are validated generically (`validateSmokeDiscovery`, `smoke_protocol.go:260–373`), selection generically (`selectSmoke`, `:441–540`). Zero Go changes.
+5. **Structural extension** (new scope-kind axis, new reviewer coverage class): confined to `internal/sprint` — request fields, `selectSmoke` precedence, `expectedSmokeTests` switch, or `PrepareReview`/`RenderReviewMarkdown`/`ValidateReviewContent`. App/web/TUI only plumb typed requests; they are declared non-authorities (`internal/tui/doc.go:12–17`; both workspace protocol docs' "TUI Parity" sections), and the durable-boundary inventory test (`run_control_inventory_test.go:11–54`) prevents bypasses.
+
+What makes this sound is the deliberate authority topology around fingerprints: `reviewRelevantProjectIndexContent` (`review.go:1341–1369`) strips the smoke-harness section from the review's frozen view so replacing a smoke strategy never invalidates implementation review evidence, while smoke's preflight independently re-validates review freshness and digest (`smoke_protocol.go:177–209`). Coupling is directional (smoke gates on review; review ignores smoke identity), which prevents mutual-invalidation churn when either strategy changes.
+
+Ambiguity worth recording: review protocols are fingerprinted *inputs*, never *reviewer coverage* (`resolve(..., reviewer=false)`, `review.go:321–322`; only contracts and handbook get reviewers, `:318–331`). A newcomer might expect a "required protocol" to be enforced by its own reviewer. This matches CURRENT-CONTRACT (review-sprint-protocol.md §4: "one structured reviewer per selected contract and one for the technical handbook") — see rejected hypotheses.
+
+### Candidate findings
+
+**CHANGE-06-F1**
+- Priority: P3
+- Claim: The artifact-section contract exists twice as parallel literal lists — renderer vs validator — for both stages: `RenderReviewMarkdown` sections (`internal/sprint/review.go:1050`) vs `ValidateReviewContent` headings (`review.go:1102`); `RenderSmoke` emitted headings (`internal/sprint/smoke.go:464–551`) vs `ValidateSmokeContent` heading list (`smoke.go:560`).
+- Evidence: file:line above; also `"## Smoke Harnesses"` literal vs `project.SectionSmokeHarnesses` constant at `review.go:1350` despite `internal/sprint` already importing `internal/project`.
+- Architectural reason: drift / duplicated mapping (change-surface)
+- Concrete consequence: Adding a structural section/kind and updating only the renderer quietly weakens enforcement (validator stops short); updating only the validator fails every run loudly. The quiet direction is the risky one when the two lists diverge over time.
+- Counter-evidence searched: Same-file adjacency; runtime self-reconciliation (`Review` validates its own render output, `review.go:608`; `commitSmoke` validates before write, `smoke.go:419`); end-to-end pinning via `service.ValidateReview` after `service.Review` (`review_test.go:142–154`) and smoke gate reuse (`smoke_protocol.go:193`, `verify.go:197,229`, `service.go:178,184`). Drift in existing sections therefore fails CI immediately; only additive omission is silent. Consequence is real but small.
+- Confidence: high (facts), low-to-medium (materiality)
+- Smallest useful action: Define each required-section list once as a package-level slice consumed by both functions (or add one round-trip test asserting `RenderX` output passes `ValidateX`); use `project.SectionSmokeHarnesses` at `review.go:1350`.
+
+That is the complete finding list. No P0–P2 findings were sustained.
+
+### Defended architecture / rejected hypotheses
+
+1. **"Review protocols without their own reviewer is an enforcement gap."** Rejected. CURRENT-CONTRACT explicitly scopes reviewers to contracts + handbook (review-sprint-protocol.md §4); code implements exactly that (`review.go:318–331`, comment at `:327` "independent reviewer even though it is also a governed input"). Protocols shape reviewer context and the fingerprint; making them coverage classes would be new intent, not a defect.
+2. **"Exactly-one-smoke-harness blocks adding smoke strategies."** Rejected. Strategy variety lives inside the harness (suites/tests/levels/mappings via discovery) and the single catalog row *is* the anti-parallel-authority mechanism. HISTORY confirms intent: the legacy `Smoke Harness Directory:` Project Scope field is actively rejected as a "duplicate smoke harness source … the Smoke Harnesses catalog is authoritative" (`internal/project/validation.go:14,43–45`).
+3. **"Two harness validations (`project/validation.go:103–131` and `prepareSmokeStatic`) are parallel authorities."** Rejected. They execute at different lifecycle points (catalog authorship vs stage preflight), re-resolve symlinks canonically because filesystem state can change in between, and the sprint package cannot trust a prior project-package pass. Necessary boundary translation, not duplication of decision-making.
+4. **"UI layers duplicate review/smoke workflow policy."** Rejected. TUI/Web emit typed `OperationRequest`s into app use cases; `tui/doc.go:12–17` forbids owning execution; `run_control_inventory_test.go` enforces the durable boundary; scope-kind semantics exist only in `selectSmoke`/`expectedSmokeTests`.
+5. **"`smoke_author.go:221` hardcoded governed-input list duplicates flow authority."** Rejected for this probe. It is an agent-facing presentation list inside the author prompt, not a resolution path; actual reads go through the store/artifact APIs. It would matter only for probe 1 (new governed stage), not strategy addition.
+6. **"Adding a strategy requires touching config authorities."** Partially rejected: `smoke.*` config keys (`internal/platform/config/config.go:125–144`) cover timeouts/limits/environment only; strategy identity (harness, suites, protocols) is entirely workspace-catalog-owned. Config is not a second registry of strategies.
+
+**Locality verdict:** authoritative owner for review strategy = project catalog + sprint-index selection (data) with `internal/sprint/review.go` as the sole structural owner; for smoke strategy = the single cataloged harness (data/external) with `internal/sprint/smoke_protocol.go|smoke.go` as sole structural owners. Actual edit surface matches expected surface in all five scenarios; no unrelated modules touched for data-level changes; UI plumbing changes only when a new request axis is introduced, and then only additively. Architecture defended.
+
+### Open questions
+
+- The workspace project-index marks "versioned Phase 3 manifest planned in Sprint 27" for the smoke harness. If a protocol-v2 lands, `SmokeProtocolMajor`/capability list (`smoke_protocol.go:213–231`) is the single gate — no action needed now, but whether old harnesses must remain runnable concurrently is unstated (FUTURE-INTENT, not a current defect).
+- Whether review protocols are ever intended to become mandatory reviewer coverage classes (they currently are context+fingerprint only). If yes, that intent should eventually be recorded in the protocol doc; today's behavior is contract-conformant.
+########## change-07
+Probe #7 is mine: "Change reasoning/prompt override resolution". Let me find the resolution code.
+Two distinct resolution chains already visible. Let me map all override-resolution sites and the shared builtin mechanism.
+TRD:1111 states the lookup contract. Let me read the architecture doc section and trace how `sprintPromptTemplate` failures reach runtime.
+One last sweep for bypass sites and shared helpers before writing up.
+### Scope inspected
+
+- `internal/project/reasoning_defaults.go` (+ `reasoning_defaults_test.go`, `service.go:25-36`, `validation.go:80-93`)
+- `internal/sprint/prompts.go` (`sprintPromptTemplate`, `projectReasoningPromptTemplate`, `renderPromptFromDefault`, `appendInjectedWorkspaceFile`) + `reasoning_test.go`, `service.go` prompt/flow call sites
+- `internal/study/prompts.go` (`readWorkspaceFile`) + `prompts_test.go`
+- `internal/sprint/review.go` (`loadReviewAsset`:1739, manifest build :192-199); `internal/sprint/smoke_author.go:213`
+- `internal/workspace/init.go` (embedded registry, `DefaultOverrideFile`:315), `defaults.go`, `validation.go`; `workspace_test.go`
+- App-level CLI tests pinning source labels (`app/sprint_commands_test.go`, `app/project_commands_test.go`, `app/study_prompt_commands_test.go`)
+- Authoritative planning workspace: `docs/ARCHITECTURE.md` (workspace ownership section), `docs/TRD.md` §10.2 (:1111) and §18.7, `docs/PRD.md` :233/:984
+- Git history probes (`git log -S sprintPromptTemplate|ResolveReasoningDefault|readWorkspaceFile`)
+- Verified via grep: these four are the complete set of default-resolution sites; no bypassing readers; web package has no label coupling.
+
+### Architecture assessment
+
+The **reasoning** path is the model citizen: one authoritative 3-tier resolver (`project.ResolveReasoningDefault`, project > workspace > builtin) with an explicit allowlist, strict content validation, status surfacing of `Source` per tier, and a two-layer test surface — unit precedence (`TestResolveReasoningDefaultPrecedence`, including cross-project non-inheritance and invalid-override rejection) plus integration assertions through rendered prompts (`TestReasoningPromptsUseProjectThenWorkspaceThenBuiltinDefaults`, including the shadowing assertion at reasoning_test.go:98). Changing precedence for reasoning defaults is genuinely local.
+
+The **mechanical** two-step rule that ARCHITECTURE.md assigns to `workspace` (“Embedded prompt/template default registry and override resolution … readable workspace file → intentional local override, otherwise embedded binary default”) is not owned by `workspace`. The package only owns the embedded map. Every consumer re-implements the lookup, each with different failure semantics — including three different behaviors *inside the sprint module* depending on whether the path is in the reasoning allowlist. For probe #7 (change override resolution), locality is good for reasoning paths but poor for any change that touches the shared mechanical rule.
+
+### Candidate findings
+
+#### CHANGE-07-F01
+
+- **Priority:** P1
+- **Claim:** The documented workspace-owned mechanical override lookup (workspace file → else builtin) is duplicated across four sites in three packages with divergent error contracts; a change to resolution policy requires synchronized edits in all of them.
+- **Evidence:** Four independent implementations of the identical mechanical rule:
+  - `internal/project/reasoning_defaults.go:52-86` (3-tier, fail-closed, strict validation)
+  - `internal/study/prompts.go:175-191` `readWorkspaceFile` (2-tier, propagates errors)
+  - `internal/sprint/prompts.go:241-257` `sprintPromptTemplate` (2-tier, converts read errors to inline `"# Prompt Load Error"` text at :250 and missing-default to `"# Missing Prompt Default"` at :256; silently falls through to builtin on `ResolveInside` error at :244)
+  - `internal/sprint/review.go:1739-1765` `loadReviewAsset` (2-tier + placeholder/required-substring validation)
+  - Source-label construction `"builtin:"+rel` duplicated at reasoning_defaults.go:82-83, study/prompts.go:188, sprint/prompts.go:254. Contract assigning this mechanism to workspace: planning-workspace `docs/ARCHITECTURE.md` “workspace owns … Embedded prompt/template default registry and override resolution” with the exact two-step policy spelled out.
+- **Architectural reason:** drift / change-surface / ownership
+- **Concrete consequence:** Probe #7 measured: reordering tiers, adding a tier (e.g., user-global), or renaming source labels touches ≥4 code files in 3 packages plus ~5 test files (`project/reasoning_defaults_test.go`, `sprint/reasoning_test.go`, `study/prompts_test.go`, `app/*_test.go` label assertions). Nothing forces coherence: skipping one site compiles and passes its siblings' tests, yielding per-stage inconsistent precedence (e.g., plan honors project overrides while smoke does not). History shows this already happened: `sprintPromptTemplate`/`readWorkspaceFile` date from 50a065e/d1e4ab4/a5dcb78; the strict resolver arrived later (0e7294e) and older sites were never migrated.
+- **Counter-evidence searched:** Each site's extra behavior is partly justified boundary translation — review assets add product-owned required-content validation (consistent with ARCHITECTURE.md "product modules own semantics"); study legitimately lacks a project tier (studies are workspace-scoped; PRD/TRD define only workspace overrides); project's allowlist check in `projectReasoningPromptTemplate` (sprint/prompts.go:260) gives good extension locality for new reasoning paths. None of this explains four copies of the fallback step itself.
+- **Confidence:** high
+- **Smallest useful action:** Add one helper in `internal/workspace` (e.g., `ResolveOverrideFile(root, rel) (content, source string, err error)`) implementing the documented rule once; have the four sites delegate and keep their own semantic validation layers on top. No new layer invented — it just moves the mechanism into its documented owner.
+
+#### CHANGE-07-F02
+
+- **Priority:** P2
+- **Claim:** On the non-reasoning sprint planning paths, an unreadable existing override (or a default missing from the embedded registry) neither fails nor prefers a readable source — it embeds error text into the runtime prompt and proceeds.
+- **Evidence:** `sprint/prompts.go:249-256`: non-NotExist read error → returns `"# Prompt Load Error\n\nCould not read …"` as template body; unknown rel → `"# Missing Prompt Default"`. These bodies flow unvalidated into `RenderPlanPrompt`/`RenderSprintIndexPrompt`/etc. and are used at execution time (`service.go:568,653,1126,1263` feed actual run flows, not only previews). Contrast within the same module: reasoning renderers fail closed first (`prompts.go:123-126,148-153`). Review assets fail via validation findings (`review.go:192-199`). Study propagates errors (`study/prompts.go:184-186`). Contract: TRD §10.2 :1111 — lookup must prefer “an intentional **readable** workspace override and otherwise use the embedded default.”
+- **Architectural reason:** failure-semantics
+- **Concrete consequence:** A chmod mishap or a directory placed at `templates/sprint-plan.md` makes the plan stage execute against instructions reading "# Prompt Load Error…" instead of the template; tokens are spent, the agent produces off-contract artifacts, and failure surfaces much later in stage validation with misleading attribution. Same for a newly added prompt path forgotten in the `defaultOverrideFiles` registry — every affected stage silently sends the missing-default page, whereas the strict resolver catches exactly this class at reasoning_defaults.go:78 with a hard error.
+- **Counter-evidence searched:** Searched for downstream guards: no validator inspects rendered prompt text (`session_state_test.go:58` explicitly rejects an exact-match gate); nothing consumes the literal error strings. Checked whether inline rendering is an intentional dry-run affordance — no doc, comment, or test pins it; the same function serves preview and runtime. Edge-triggered (requires unreadable override or registry omission), hence P2 not P1.
+- **Confidence:** medium (code facts verified high; impact conditional on edge trigger)
+- **Smallest useful action:** In `sprintPromptTemplate`, treat non-NotExist read failures as errors returned from the Render* functions (which already return errors on reasoning paths) or fall back to the builtin; add one test covering the unreadable-override branch — currently no test anywhere references the `"# Prompt Load Error"`/`"invalid:"` branches.
+
+### Defended architecture / rejected hypotheses
+
+- **“Study prompts need a project tier”** — rejected: studies are workspace-scoped; PRD:233/TRD define workspace-level overrides only; the project tier was introduced specifically for project-bound reasoning defaults (commit 0e7294e). Two-tier study lookup matches scope.
+- **“`appendInjectedReasoningTemplate` lacking builtin fallback is drift”** — rejected: it reads catalog-selected user-authored templates (`system/reasoning/*.md`), not shipped defaults; the registry cannot own them, and its failure-to-finding rendering is deliberate manifest reporting.
+- **“Review asset substring validation is duplicated policy”** — rejected: it is product-semantic validation layered above the mechanical lookup, exactly the split ARCHITECTURE.md prescribes; only the lookup beneath it is duplicated (F01).
+- **“Silent builtin fallback when `ResolveInside` errors is wrong”** — rejected as written: rel values are hardcoded literals, so that branch is effectively unreachable defensive code.
+- **“Reasoning double-resolution (pre-check then re-resolve inside `renderPromptFromDefault`) is a defect”** — downgraded to noise: redundant but consistent today; consolidating per F01 removes it as a side effect.
+
+### Open questions
+
+- Was inline-error-text rendering chosen so dry-run previews always render deterministically (TRD “prompt builders must be deterministic”)? If intentional, it is undocumented and untested; the answer could downgrade F02 to a documentation gap.
+- Do any external consumers (scripts/previews snapshots, web JSON passthrough) depend on exact source-label strings beyond the app tests? This would widen F01's edit surface if labels change.
+########## change-08
+### Scope inspected
+
+Implementation repo `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go` @ eeaa034 (clean):
+
+- **Run control (owner):** `internal/runcontrol/model.go` (Lifecycle/Liveness/CancellationState/TerminalOutcome vocabularies, `IsValid`/`IsActive`/`IsTerminal`, `TerminalOutcome.Lifecycle()`), `lifecycle.go` (Heartbeat, RequestCancellation, List, Reconcile, markStalled), `sqlite.go` (DDL CHECK constraints :245–269/:287/:296, Accept/Claim/Append/ProposeTerminal, `validActiveTransition` :1028–1044, health query :871, `validateEventDraft` :1005–1026), `interfaces.go`, `doc.go`, `migration.go`
+- **App layer:** `internal/app/run_control.go` (controlledRuntime acceptance→claim→events→terminal), `durable_operations.go`, `run_commands.go` (`parseLifecycleFilter`, snapshot rendering), `run_usecases.go`, `operation_runner.go`, `sprint_usecases.go` (product-status summarization)
+- **Surfaces:** `internal/web/run_handlers.go` (`runLifecycleView` :312–336, `webLifecycleFilter` :565), `operation_handlers.go` (:176, :409–427, :501–519), `operations.go` (`finish`, `activeOperations`, `terminalOperationState` :614–621), templates `runs.html`, `run.html`, `operation.html`, `components.html`; static `js/app.js` (:271–296, :710, :1377–1414), `js/sse.js`; TUI `views.go` :319–350
+- **Product state:** `internal/productstate/store.go` (opaque kind/scope records)
+- **Docs:** `architecture.md` §Durable run control, `local-web.md` :126–152, `cli-reference.md` :444–453, `recovery.md` :184–217, `phase3-json-schemas.md`
+- **Tests:** `runcontrol/{lifecycle,model,sqlite,fault}_test.go`, `web/operations_contract_test.go`, `web/run_handlers_test.go`, `app/run_control_inventory_test.go`, `tui/run_view_test.go`; `go test ./internal/runcontrol/... ./internal/web/...` green.
+
+Probe measured (change-probes.md #8): add/change an execution lifecycle status.
+
+---
+
+### Architecture assessment
+
+**Sound.** The lifecycle vocabulary has a single authoritative owner: `runcontrol` defines the values, validity, active/terminal classification (`model.go:16–52`), enforces terminal coherence in `Snapshot.Validate` (`model.go:343–356`), gates active-only transitions at Append (`sqlite.go:1009`, `validActiveTransition`), routes all terminal entry through one-arbitration-wins `ProposeTerminal` with a 1:1 `TerminalOutcome↔Lifecycle` identity (`model.go:116–118`, `sqlite.go:771–774`), and freezes the same truth into DDL CHECK constraints plus a table-level terminal invariant (`sqlite.go:245–269`). CLI/TUI filtering validates via `IsValid()` (`run_commands.go:379–392`, `run_handlers.go:565–578`) rather than copied lists, and the run-detail surface renders values generically through the `component/run-state` pill with a cue lookup, degrading gracefully to "Unknown" (verified by the TUI unknown-matrix test). The product-state axis is cleanly separated: `productstate` stores opaque kind/scope records, `ProductStatus` rides snapshots as a length-bounded opaque correlation string (`sqlite.go:402`, `model.go:328`), and product stage/task/review/smoke statuses stay owned by `internal/sprint`/`internal/study` domain enums — adding a *product* status does not touch run control at all, matching `doc.go:3–6` and `architecture.md:156–160`.
+
+**Stressed.** The *operational* vocabulary leaks out of its owner through four hand-copied active-set literals and two hand-copied terminal-set literals in web/template/JS layers, and the web operation compatibility layer models only an 8-state subset of the 11-state producer vocabulary. The schema-version gate that exists precisely to coordinate vocabulary change cannot actually execute a vocabulary-changing migration.
+
+---
+
+### Candidate findings
+
+#### CHANGE-08-F01
+
+- **Priority:** P1
+- **Claim:** The durable→web operation projection passes raw `runcontrol.Lifecycle` through to clients, but the operation compatibility surface (docs, contract test, `terminalOperationState`) models only 8 of 11 states. Two *reachable* terminal outcomes — `timed_out` and `persistence_degraded` — escape the documented stable-state set and are misclassified as non-terminal by the web package's own classifier.
+- **Evidence:**
+  - Producer: `State: string(snapshot.Lifecycle)` with no normalization — `internal/web/operation_handlers.go:415` and `:424`; also seeded from an existing run's lifecycle at `operations.go:194`.
+  - Reachability: `FinishOperation` maps `DeadlineExceeded → TerminalTimedOut` (`internal/app/durable_operations.go:244–245`) and start-persistence failures → `persistence_degraded` (`durable_operations.go:111`); same mapping for runtime-backed runs at `internal/app/run_control.go:285, 628–629`.
+  - Contract that doesn't hold: `docs/local-web.md:146–147` ("Stable states are `accepted`, `running`, `cancelling`, `succeeded`, `failed`, `cancelled`, `interrupted`, `cleanup_uncertain`") omits `queued`, `timed_out`, `persistence_degraded`; the self-described "producer/consumer contract" test pins exactly that stale list (`internal/web/operations_contract_test.go:83`) including the terminal classification assertion at `:110`.
+  - Misclassification: `terminalOperationState` recognizes only 5 terminals (`internal/web/operations.go:614–621`).
+  - Contrast proving the asymmetry is drift, not design: the sibling projection `durableOperationEvent` deliberately normalizes unknown inputs into the documented 8-event SSE vocabulary (`operation_handlers.go:501–512`, default→`progress`); the state projection does not normalize.
+- **Architectural reason:** boundary / drift / failure-semantics — the web package owns a compatibility envelope but projects an unowned superset through it.
+- **Concrete consequence:** Operation times out (user-supplied `Timeout` option, `operation_handlers.go:33/:597`) → durable run reaches `lifecycle=timed_out` → server restarts → `GET /api/v1/operations/{id}` falls back to `durableOperationDocument` and returns a state value that `local-web.md` declares impossible and `TestBrowserLifecycleDocumentContract` never verified. Any consumer written against the documented set (including future in-repo code feeding durable docs into `terminalOperationState`-guarded paths at `operations.go:271/281/326/352/482/511/536`) treats a finished run as ongoing.
+- **Counter-evidence searched:** Hub-created records can never hold the extra states today (`operations.go:193–196` returns early without storing; `finish` derives states from a closed switch `:284–292`), so no live hub corruption occurs now; the browser's duplicated terminal list happens to include all 7 (`static/js/app.js:1392`); the HTML operation page redirects durable operations to `/runs` which handles all 11 values generically (`operation_handlers.go:347–352`). These reduce blast radius but do not repair the JSON contract.
+- **Confidence:** high
+- **Smallest useful action:** Decide the envelope once: either extend the stable set to the full run-control vocabulary in `local-web.md` + `operations_contract_test.go` + `terminalOperationState`, or normalize at `durableOperationDocument` (as `durableOperationEvent` already does). One boundary function, one test-table update, one doc paragraph.
+
+#### CHANGE-08-F02
+
+- **Priority:** P2
+- **Claim:** The active-lifecycle set is enumerated as string literals in four places outside `runcontrol`, one copy has already diverged, and the SQL copy structurally defeats the defensive `IsActive()` re-check next to it.
+- **Evidence:**
+  - `internal/web/operation_handlers.go:176`: `RunQuery{Lifecycle: []app.RunLifecycle{"accepted", "queued", "running", "cancelling"} …}` followed at `:183` by `!snapshot.Lifecycle.IsActive()` — rows excluded by the literal IN-list can never reach the re-check, so the guard provides false confidence.
+  - `internal/web/static/app.js:281`: `fetch("/api/v1/runs?lifecycle=accepted,queued,running,cancelling…")`.
+  - `internal/web/templates/operation.html:14`: `$active := or (eq .State "accepted") (eq .State "running") (eq .State "cancelling")` — **omits `queued`**, unlike every other copy (existing divergence, harmless only because no writer currently sets `queued`).
+  - `internal/web/static/app.js:1392`: full 7-element terminal array duplicated in JS (complete today; hand-maintained).
+  - Owner-side duplicates that are acceptable locality but part of the sync burden: health query `sqlite.go:871`, claim mapping `sqlite.go:539–542`.
+- **Architectural reason:** drift / change-surface — `Lifecycle.IsActive()` is the classification authority, yet the gating decisions that matter most (what appears as "active work") read copied literals instead.
+- **Concrete consequence:** Add an active status (probe: e.g., `paused`/`draining`). Compile passes everywhere; `parseLifecycleFilter`/`webLifecycleFilter` accept it; runs pages render it. But durable operations in the new state silently vanish from `GET /api/v1/operations` navigation (`operation_handlers.go:176`), the dashboard active fetch (`app.js:281`), and the operation page's live panel/cancel affordance (`operation.html:14`) — no test fails, users see running work as absent.
+- **Counter-evidence searched:** The SQL IN-list could be justified purely by index usage (`idx_runs_active_updated`, `sqlite.go:333`) — but deriving arguments from one exported slice (e.g., `runcontrol.ActiveLifecycles()`) keeps the index benefit; server-side code already consumes `IsActive()` directly elsewhere (`run_handlers.go:278`, `tui/views.go:343`), proving the pattern works. The `operation.html` omission shows the copies are not being kept aligned by review or tests.
+- **Confidence:** high
+- **Smallest useful action:** Export the active set once from `runcontrol`, build the SQL args and the runs-page default filter from it, and inject it into templates/JS (or at minimum add a parity test asserting `IsActive()` ⇔ every literal list). Fix `operation.html:14`.
+
+#### CHANGE-08-F03
+
+- **Priority:** P2
+- **Claim:** The schema-version gate does not actually gate vocabulary change: lifecycle values are frozen into CHECK constraints, but `migrateSchema` implements only initial creation (v0→v1) — there is no step mechanism for v1→v2 — so the naive additive edit (consts + `IsValid` + CHECK strings, version unchanged) ships mixed-binary semantics that the version-refusal logic exists to prevent, while the honest path (bump version) bricks workspace open until someone hand-writes a table rebuild.
+- **Evidence:**
+  - Values baked into DDL: `runs.lifecycle` CHECK `sqlite.go:245`; terminal coherence invariant `:268–269`; `terminal_outcome` CHECK `:264`; `attempts.outcome` CHECK `:287` (SQLite cannot ALTER a CHECK; changing it requires table rebuild).
+  - Migration machinery is create-only: `CurrentSchemaVersion = 1` (`migration.go:20`), newer-version refusal `:30–31, :55–57`, exact-match schema record `verifySchemaRecord :236–248`, and the only write branch is `version == 0 → createInitialSchema` (`:58–74`). A bump to 2 with no step makes every existing workspace fail open with `unsupported_run_schema` (`app/run_control.go` error path surfaced at `run_handlers.go:537–538`).
+  - Mixed-binary semantics when version stays 1: for an unknown lifecycle value `IsValid()==false` ⇒ `IsTerminal()==false` (`model.go:43–52`), so an older binary will (a) poll a finished run forever via `IsTerminal()` SSE exit conditions (`run_handlers.go:509`, `operation_handlers.go:480`), and (b) happily `Claim` a run sitting in a new pre-running active state — `Claim` rejects only `IsTerminal()` (`sqlite.go:533`) and stomps lifecycle to `running` (`:539–542`) — while its write-path `snapshot.Validate()` then rejects what it just wrote (`sqlite.go:460/576/694` call sites), and a reconciler touching such a row propagates a non-terminal-classified error out of `Reconcile` (`lifecycle.go:401–403`) into startup failure (`app/run_control.go:64–68`).
+  - Docs advertise migration behavior: "Schema migrations create private timestamped backups next to…" (`docs/recovery.md:217`); backup/lock/prune/restore tooling all exist (`migration.go:92–234, :268–291, :296–352`) but no step runner consumes them for v≥1.
+- **Architectural reason:** lifecycle / change-surface — ownership of the vocabulary is correct, but the evolution protocol for the owned artifact is unfinished, so the cheapest-looking edit path is the wrong one and nothing (compiler, test, or version check) says so.
+- **Concrete consequence:** First real status addition proceeds as a "small enum change," tests pass (fresh DBs in tests always build the new DDL), and the failure appears later as cross-version weirdness in a long-lived workspace or as an unplanned mid-change project to build the migration framework under pressure.
+- **Counter-evidence searched:** Reads degrade softly — `loadSnapshot` does **not** call `Snapshot.Validate` (`sqlite.go:920–983`), so old binaries don't hard-fail merely by listing runs in a new state; single-operator local workspaces make mixed binaries less likely, and the system already refuses forward-compat explicitly, showing coexistence is not a supported goal. `docs/phase3-json-schemas.md:3` freezes enums only for Phase-3 JSON, not the run-control DB. None of this supplies the missing v1→v2 path or forces a version bump on vocabulary edits.
+- **Confidence:** medium
+- **Smallest useful action:** Two cheap moves, either order: (1) add a parity test asserting the Go vocabulary (`Lifecycle`/`TerminalOutcome` consts) equals the embedded DDL CHECK lists, so any drift fails in CI instead of in a workspace; (2) write down the rule — vocabulary change ⇒ schema bump ⇒ table-rebuild step in `migrateSchema` (the backup/restore scaffolding is already in place) — before the first real status change needs it.
+
+---
+
+### Defended architecture / rejected hypotheses
+
+1. **"Runs-page lifecycle cue switch and the runs.html dropdown should be generated from a registry."** Rejected as premature indirection. The cue mapping (`run_handlers.go:312–323`) is presentation editorializing (Active/Complete/Attention) over a value-generic pill primitive (`components.html:3`), unknown values degrade to a designed "Unknown" fallback covered by the TUI unknown-matrix test (`tui/run_view_test.go:73+`), and the API/filter paths validate via `IsValid()` so a dropped-down-but-valid value remains fully usable. The real gaps are the literal *classification* lists in F01/F02, not this display mapping.
+2. **"`ProductStatus` should be a typed enum like `Lifecycle`."** Rejected — it would violate the repository's stated ownership split. Run control deliberately records product status as opaque bounded correlation data (`doc.go:3–6`, `architecture.md:156–160`, bound at `sqlite.go:402`); product vocabularies are typed where they are owned (`sprint/domain.go:47–190`, `study/run_state_domain.go:11+`). Typing product status inside run control would recentralize product semantics and grow run control on every product change — the opposite of the probe's goal.
+3. **"`terminalOperationState` is a live routing bug."** Partially rejected: I traced every feed and hub-record states are drawn only from the closed 8-value set (`operations.go:193–196` early return; `:224–225`, `:293`, `:360`, `:539` writers; `finish` switch `:284–292`), so no current code path misroutes. Retained as the latent half of CHANGE-08-F01 because the durable projection feeds the same field and the function sits in shared code.
+4. **"Every surface needs exhaustive per-status tests."** Partially rejected: graceful degradation is intentional and tested (`run_view_test.go` unknown matrix); demanding positive coverage everywhere would be ceremony. The targeted fixes are the compatibility table (F01) and set-parity (F02/F03 action 1).
+5. **"`queued` is dead vocabulary and should be deleted."** Investigated and left alone: no production writer sets `LifecycleQueued` (repo-wide grep: only transitions `sqlite.go:1034–1035`, filters, and UI options), but reserving a state with full plumbing is consistent with how the vocabulary treats reconciliation-driven futures; deletion would churn DDL/CHECK/docs for zero behavioral gain. Noted as speculative surface cost feeding F02's parity concern.
+
+---
+
+### Open questions
+
+1. Does the operation API intend to **widen** its stable-state contract to the full run-control vocabulary or **narrow** the producer via boundary translation? This decides whether CHANGE-08-F01 resolves by extension or by mapping (`timed_out→failed`, `persistence_degraded→cleanup_uncertain`?) — both are legitimate; silence is what currently breaks the contract.
+2. Are **mixed-binary workspaces** (two ultraplan versions sharing `.ultraplan/run-control.db`) a supported operational scenario? If yes, CHANGE-08-F03's cross-version consequences move from P2 toward P1; if explicitly unsupported, a one-line doc statement plus the parity test suffices.
+3. Is `queued` awaiting a writer on the roadmap (e.g., deferred/staged starts)? If it is FUTURE-INTENT, surfaces must keep enumerating it (and `operation.html:14` should stop omitting it); if it is vestigial, it should be retired deliberately rather than copied.
+[0m
+[0m→ [0mRead .archgauntlet/runs/generalist-04/stdout.md
+[0m• [0mRoadmap fit + FUTURE-INTENT inventory[90m Arch-Worker Agent[0m
+[0m• [0mFitness-function enforcement inventory[90m Arch-Worker Agent[0m
+[0m• [0mAgent-legibility and docs-drift audit[90m Arch-Worker Agent[0m
+[0m✗ [0mFitness-function enforcement inventory failed[90m Arch-Worker Agent[0m
+[91m[1mError: [0mSubagent failed (task_id: ses_fc7cd7967ffeIhkwwgTrGfwwKL): [Stealth] stealth/ox-alpha is temporarily rate-limited upstream. Please retry shortly.
+[0m✓ [0mRoadmap fit + FUTURE-INTENT inventory[90m Arch-Worker Agent[0m
+[0m✓ [0mAgent-legibility and docs-drift audit[90m Arch-Worker Agent[0m
+[0m• [0mFitness-function enforcement inventory[90m Arch-Worker Agent[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/model.go[90m [offset=440, limit=30][0m
+[0m✓ [0mFitness-function enforcement inventory[90m Arch-Worker Agent[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go[90m [limit=50][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform/runtime/runtime.go[90m [limit=30, offset=585][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=65, offset=425][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/run_handlers.go[90m [limit=25, offset=280][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go[90m [limit=120, offset=728][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/state.go[90m [limit=45, offset=195][0m
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && grep -n "DatabaseRelativePath" internal/productstate/store.go internal/runcontrol/sqlite.go && grep -rn "code-context" internal/tui/ | wc -l && grep -c "SaveFlowState" internal/sprint/service.go
+internal/productstate/store.go:19:const DatabaseRelativePath = ".ultraplan/run-control.db"
+internal/productstate/store.go:42:	path := filepath.Join(root, filepath.FromSlash(DatabaseRelativePath))
+internal/productstate/store.go:63:	path := filepath.Join(root, filepath.FromSlash(DatabaseRelativePath))
+internal/runcontrol/sqlite.go:22:	DatabaseRelativePath = ".ultraplan/run-control.db"
+internal/runcontrol/sqlite.go:857:	health := Health{Status: HealthOK, DatabasePath: DatabaseRelativePath, BusyTimeout: BusyTimeout, SoftQuotaBytes: r.softQuota, HardQuotaBytes: r.retention.HardQuotaBytes, ReservedHeadroomBytes: ReservedHeadroomBytes}
+0
+56
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && ls -la .github/workflows/ 2>&1 && cat .github/workflows/*.yml 2>/dev/null | head -40 && gofmt -l . 2>/dev/null
+total 4
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  12 Aug 22 16:23 .
+drwxr-xr-x. 1 antonioborgerees antonioborgerees  18 Aug 22 16:23 ..
+-rw-r--r--. 1 antonioborgerees antonioborgerees 488 Aug 22 16:23 ci.yml
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+
+      - name: Check formatting
+        run: test -z "$(gofmt -l .)"
+
+      - name: Run tests
+        run: go test ./...
+
+      - name: Build CLI
+        run: go build -buildvcs=false ./cmd/ultraplan
+internal/platform/runtime/runtime.go
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && git log --oneline --follow -- .github/workflows/ci.yml && git log -1 --format="%h %ci %s" && git log --format="%h %ci" -5
+20bc939 ci: add Go foundation checks
+eeaa034 2026-08-22 11:01:06 +0100 observability: promote nested runtime payload facts to top level
+eeaa034 2026-08-22 11:01:06 +0100
+c455510 2026-08-22 10:48:48 +0100
+4f440ca 2026-08-21 20:17:25 +0100
+0bf3d2c 2026-08-21 20:09:03 +0100
+f067727 2026-08-21 20:01:59 +0100
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && git log --oneline | grep -n "20bc939" && git log --oneline | wc -l && git show --stat 20bc939 --format="%h %ci %s" | head -12
+194:20bc939 ci: add Go foundation checks
+195
+20bc939 2026-05-30 11:15:02 +0100 ci: add Go foundation checks
+
+ .github/workflows/ci.yml | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n '1,15p' README.md && sed -n '125,142p' README.md
+# UltraPlan Go
+
+UltraPlan Go is a local-first CLI for durable architecture studies and governed sprint delivery. It initializes study workspaces, runs source and dimension analyses through agentwrap/OpenCode, synthesizes reports, validates artifacts, executes sprint plans, runs resumable automated reviews, drives review-gated smoke verification, and embeds manually invoked skills for every sprint stage.
+
+This release includes study workflows and the grounded governed sprint chain `requirements -> code-context -> sprint-index -> technical-handbook -> area-reasoning -> reasoning -> plan -> execute -> review -> smoke`, including integrated `sprint verify`, durable review resume, focused review reruns, and explicit diagnostic smoke overrides. `code-context.md` stores repository-relative references only; later agent-backed stages receive one byte-stable shared prefix containing the exact requirements and context-pack bytes plus bounded transient live source evidence. Agents may still inspect additional repository files. Issue management, hosted SaaS, multi-user collaboration, automatic Git mutation, retrieval/indexing, UltraPlan cache ownership, signing, notarization, tags, and artifact upload remain deferred.
+
+Phase 3 operators should start with the [CLI reference](docs/cli-reference.md), [recovery runbook](docs/recovery.md), [JSON schema contract](docs/phase3-json-schemas.md), and [legacy verification migration guide](docs/phase3-migration.md). The authoritative product requirements, technical requirements, architecture, roadmap, and sprint plans live in the adjacent `ultraplan-go-workspace/projects/ultraplan-go/` planning workspace; this repository does not duplicate them.
+
+## Install
+
+Install to your user bin directory, which keeps the `ultraplan` command in the same place for future upgrades:
+
+```bash
+./scripts/install-ultraplan.sh
+```
+ultraplan sprint <project> <sprint> flow --to plan --dry-run
+ultraplan sprint <project> <sprint> flow --to execute --dry-run
+ultraplan sprint <project> <sprint> execute --resume
+```
+
+## Documentation
+
+- [User guide](docs/user-guide.md): end-to-end study workflow.
+- [CLI reference](docs/cli-reference.md): public commands, flags, exit classes, and stable JSON surfaces.
+- [Configuration](docs/configuration.md): `ultraplan.yml`, environment overrides, precedence, redaction, and runtime mapping.
+- [Stage skills](docs/stage-skills.md): manual invocation, prerequisite interaction, materialisation, and state ownership.
+- [Recovery runbook](docs/recovery.md): validation failures, stale locks, cancellation, partial runs, and safe retry.
+- [OpenCode smoke](docs/opencode-smoke.md): gated real-runtime smoke procedure outside default tests.
+- [Planning smoke](docs/planning-smoke.md): gated planning flow smoke procedure.
+- [Migration from `.ultra/cli`](docs/migration-from-ultra-cli.md): planning artifact migration notes.
+- [Release checklist](docs/release-checklist.md): local release gates, packaging, checksums, and security review.
+
+## Workspace Model
+[0m
+[0m$ [0mcd /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go && sed -n '204,210p' internal/app/sprint_usecases.go && sed -n '116,132p' internal/app/sprint_usecases.go && sed -n '504,520p' internal/app/operations.go && sed -n '213,219p' internal/app/usecases.go
+DisplayArtifact{Label: "run-state", Path: sprint.ExecuteRunStateRelPath(sp), Kind: "json"},
+			)
+			for _, stage := range []sprint.PlanningStage{sprint.StageRequirements, sprint.StageCodeContext, sprint.StageSprintIndex, sprint.StageTechnicalHandbook, sprint.StageReasoning, sprint.StagePlan, sprint.StageExecute, sprint.StageReview, sprint.StageSmoke} {
+				result, err := validateSprintStage(service, p.Name, sp.Slug, stage)
+				if err != nil {
+					continue
+				}
+					RefreshActionNote: "refresh recomputes deterministic flow-state.json status when existing state is valid",
+					Findings:          []DisplayFinding{{Severity: "error", Section: "sprint.status", Problem: displaySafe(err.Error()), Suggestion: "Inspect or regenerate sprint flow-state.json outside the read-only TUI."}},
+					Artifacts: []DisplayArtifact{
+						{Label: "requirements", Path: sprint.ArtifactRelPath(sp, sprint.StageRequirements), Kind: "markdown"},
+						{Label: "code-context", Path: sprint.ArtifactRelPath(sp, sprint.StageCodeContext), Kind: "markdown"},
+						{Label: "sprint-index", Path: sprint.ArtifactRelPath(sp, sprint.StageSprintIndex), Kind: "markdown"},
+						{Label: "technical-handbook", Path: sprint.ArtifactRelPath(sp, sprint.StageTechnicalHandbook), Kind: "markdown"},
+						{Label: "reasoning", Path: sprint.ArtifactRelPath(sp, sprint.StageReasoning), Kind: "markdown"},
+						{Label: "plan", Path: sprint.ArtifactRelPath(sp, sprint.StagePlan), Kind: "markdown"},
+						{Label: "execute", Path: sprint.ArtifactRelPath(sp, sprint.StageExecute), Kind: "markdown"},
+						{Label: "review", Path: sprint.ArtifactRelPath(sp, sprint.StageReview), Kind: "markdown"},
+						{Label: "smoke", Path: sprint.ArtifactRelPath(sp, sprint.StageSmoke), Kind: "markdown"},
+						{Label: "flow-state", Path: sprint.FlowStateRelPath(sp), Kind: "json"},
+						{Label: "run-state", Path: sprint.ExecuteRunStateRelPath(sp), Kind: "json"},
+					},
+					Execute: ExecuteSummary{Message: "execute status unavailable because sprint status failed"},
+				})
+func governedOperationInputs(req OperationRequest) []string {
+	if req.Project != "" {
+		base := filepath.ToSlash(filepath.Join("projects", req.Project))
+		inputs := []string{
+			filepath.ToSlash(filepath.Join(base, "project-index.md")),
+			filepath.ToSlash(filepath.Join(base, "roadmap.md")),
+			filepath.ToSlash(filepath.Join(base, "docs")),
+			filepath.ToSlash(filepath.Join(base, "sprints", req.Sprint, "requirements.md")),
+			filepath.ToSlash(filepath.Join(base, "sprints", req.Sprint, "code-context.md")),
+			filepath.ToSlash(filepath.Join(base, "sprints", req.Sprint, "sprint-index.md")),
+			filepath.ToSlash(filepath.Join(base, "sprints", req.Sprint, "technical-handbook.md")),
+			filepath.ToSlash(filepath.Join(base, "sprints", req.Sprint, "reasoning.md")),
+			filepath.ToSlash(filepath.Join(base, "sprints", req.Sprint, "plan.md")),
+		}
+		return append([]string{"ultraplan.yml"}, inputs...)
+	}
+	if req.Study != "" {
+	}
+	base := filepath.Base(rel)
+	if base == "project-index.md" || base == "roadmap.md" || base == "requirements.md" || base == "code-context.md" || base == "sprint-index.md" ||
+		base == "technical-handbook.md" || base == "reasoning.md" || base == "plan.md" || base == "execute.md" || base == "review.md" || base == "smoke.md" ||
+		base == "flow-state.json" || base == ".run-state.json" {
+		return true
+	}
+[0m
+[0m$ [0mcat > /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-03/stdout.md << 'SYNTH_EOF'
+# SYNTH-03 — Independent system synthesis (evolution, change locality, agent legibility, roadmap fit, fitness functions)
+
+### Scope inspected
+
+**Prior-stage outputs** (`.archgauntlet/runs/`, read this session): scout-01, scout-02 (cartography); generalist-04 (whole-system evolution); specialist-24a/b (evolution/change locality); change-01..08 (change probes, read in full); challenge-06 + chair-06 (evolution tribunal). Synth-01/02 are empty/pending — no sibling-synthesis input existed; independence preserved.
+
+**Implementation repo** `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go` @ `eeaa034` (clean). Personally re-read and verified at HEAD: `internal/tui/model.go:441-469`; `internal/runcontrol/sanitize.go:10-50`; `internal/platform/runtime/runtime.go:585-614`; `internal/app/run_control.go:425-489`; `internal/web/run_handlers.go:280-303`; `internal/sprint/service.go:728-845`; `internal/sprint/state.go:195-239`; `internal/productstate/store.go:19` vs `internal/runcontrol/sqlite.go:22`; `internal/app/sprint_usecases.go:116-132,204-210`; `internal/app/operations.go:504-520`; `internal/app/usecases.go:213-219`; `README.md:1-14,125-141`; `.github/workflows/ci.yml`; `gofmt -l .`; repo-wide greps (`code-context` in internal/tui → 0 hits; `SaveFlowState` count in service.go → 56; `DatabaseRelativePath` twins). Commands: `git log --follow .github/workflows/ci.yml` (bootstrap commit `20bc939`, position 194/195).
+
+**Delegated bounded discovery** (3 arch-worker subagents, evidence returned with citations; spot-checked against my own reads):
+1. *Roadmap fit / FUTURE-INTENT*: workspace `roadmap.md` gates A–E and Sprint-35 fence (verbatim), sprint inventory 01–35, sprint-35 contents, workspace-wide authorization search, TUI-deferral search, daemon-events study dimension 01.06.
+2. *Fitness-function inventory*: existence/verification of all six claimed enforcement tests; repo-wide absence proofs for five missing contracts; executed `go build ./...` (pass), `go test ./internal/study/ -run TestRunLoopStartsPriorityTierBeforeLaterTiers -count=3` (**fail 3/3**), `go test ./... -count=1` (only study fails), CI wiring, test census (112 test files; productstate/cmd/platform.filesystem have zero).
+3. *Agent-legibility / docs-drift audit*: skill-count drift, local-web states vs Lifecycle, recovery expiry, doc.go charter census, misleading names, entry-point trace, architecture.md numeric spot-checks, stage-skills inventory.
+
+**Planning workspace** `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace` @ `368a789`: quotes and inventories consumed via delegated probes with line-level citations; timeline cross-checked against implementation `git log`.
+
+### Architecture assessment
+
+The evolution story is genuinely strong where ownership was designed, and this is not praise-by-default: the import graph is a clean DAG matching `docs/architecture.md`; two boundaries are machine-enforced (`runcontrol/import_boundary_test.go:12-39`, `web/import_boundary_test.go:12-36`) and both pass; adding a review/smoke strategy or harness is zero-Go-change data work (change-06 verdict); runcontrol owns one lifecycle vocabulary with DDL-frozen transitions and graceful degradation everywhere else; `platform/runtime` is earned translation, not ceremony. Abstractions are generally earned (~25 non-test interfaces, nearly all consumer-side with live fakes).
+
+**Keep exactly as-is if rebuilding today:** module charters + dependency direction (products never import surfaces; runcontrol leaf), injected-runner composition breaking the app↔web cycle, runcontrol as fenced operational leaf with its sanitize/omission discipline, `platform/runtime` adapter seam, review/smoke strategy-as-data topology, and the atomic-write persistence idiom.
+
+The sustained stress reduces to four mechanisms, each now verified at HEAD:
+
+1. **Enumeration without authority.** Ordered vocabularies owned by one module are re-declared by hand elsewhere with no parity fitness function. This failed twice in opposite directions (TUI never received `code-context`; five app lists omit `area-reasoning`) — while the repo invented the cure elsewhere (`import_boundary_test.go`, `operations_contract_test.go`, `run_control_inventory_test.go`, `TestDomainStagesStatusesAndArtifactPaths`) without applying it to stages.
+2. **Vocabulary coordination by nothing.** Event payload keys are promoted at two producer layers, deleted by a frozen storage allowlist, and read back by a consumer expecting the deleted keys — the feature shipped by the final two commits is defeated at the durable gate.
+3. **Authority pre-empted from the roadmap.** Product-state SQLite crossed the Sprint-35 fence and Gate D sequencing with no recorded decision, and the governing sprint has no `reasoning.md`.
+4. **Enforcement that exists nominally but did not gate reality.** CI (tests + gofmt) has existed since the bootstrap commit, yet HEAD is deterministically red on both checks; the newest canonical persistence layer (`productstate`) has zero tests.
+
+**Which decisions now cost enough to justify change:** surface-facing vocabularies must flow from their owning modules plus one parity test each (F01); the event payload pipeline needs one promotion owner and an extended allowlist (F02); productstate needs an authority record and schema governance (F03); the study suite and gofmt must be green before the next commit lands (F04); persist-on-failure policy must live once (F05). Everything else in this report is documentation or hygiene.
+
+### Candidate findings
+
+---
+
+**ID: SYNTH-03-F01**
+- **Priority**: P1
+- **Claim**: The ordered planning-stage vocabulary is re-enumerated by hand in ~15 places outside `sprint.PlanningStages()` with no parity test tying any of them to the canonical list; the defect class is realized twice in opposite directions — the TUI has zero occurrences of `code-context` (capability silently removed), and five app-layer inventories omit `area-reasoning` (findings/fingerprints silently narrowed).
+- **Evidence**: REALITY, verified firsthand: `internal/tui/model.go:453` hardcodes 8 stages without `code-context` (driving Validate/Preview/Flow nav at :455-466); artifact nav :441-451 lacks both `code-context` and `area-reasoning` labels; `grep -r "code-context" internal/tui/` → 0 hits. App omissions verified firsthand: validation sweep `app/sprint_usecases.go:206` lists `{Requirements, CodeContext, SprintIndex, TechnicalHandbook, Reasoning, Plan, Execute, Review, Smoke}` — no `StageAreaReasoning`; artifact lists `:118-130` (and the twin at `:193-205`); `governedOperationInputs` `app/operations.go:506-518` fingerprints individual `.md` inputs but not the `reasoning/` output directory reviewers actually consume (`sprint/review.go:253-274`, per specialist-24b); preview allowlist `app/usecases.go:215-217`. Owner: `PlanningStages()` at `sprint/domain.go:264-274`, pinned only inside the package by `sprint_test.go:15-20`. No production code outside `internal/sprint` calls `PlanningStages()`; repo-wide search confirms no stage-parity test exists (fitness census). CURRENT-CONTRACT: workspace `sprints/34-shared-context/requirements.md:52` ("CLI, TUI, and browser continue to agree on code-context readiness…") and `roadmap.md:1392` release gate ("CLI, JSON, TUI, and browser agree"). Web is currently complete (`templates/sprint.html:40` carries all ten options) — proof the lists are maintained by memory, not mechanism. HISTORY: commit `2d10aba` ("Add code context planning stage") touched 46 files across 5 packages and still missed the TUI entirely.
+- **Architectural reason**: change-surface / drift
+- **Concrete consequence**: Every future stage insertion repeats a multi-surface lottery whose misses are silent — the missed surface simply lacks the feature, and a fingerprint miss weakens `ErrStaleOperation` guarantees without error. Roadmap explicitly anticipates more stages ("Product Phase 5 adds the *first* new workflow", `roadmap.md:58`), so the lottery will be redrawn.
+- **Counter-evidence searched**: Sprint-24 staged-evolution TUI charter (`sprints/24-tui-foundations/requirements.md:62` — read-only foundation) predates the Sprint 33/34 tri-surface contracts and cannot cover them; delegated workspace-wide search found **no deferral record** for TUI code-context support (hypothesis CONFIRMED: none exists — sprint-33 review `review.md:139` affirms inclusion); partial intent for some area-reasoning exclusions exists (project page dedup `project_usecases.go:61-62`; multi-file `reasoning/` doesn't fit single-file artifact labels) but explains neither the sweep nor the fingerprint omission; considered whether server-side `SprintSummary.Stages` already carries the data (it does — only consumption is missing).
+- **Confidence**: high
+- **Smallest useful action**: Export the ordered stage list through `app` once (derived from `PlanningStages()`); derive TUI nav, the validation sweep, artifact lists, and `governedOperationInputs` from it; add one inventory test asserting every canonical stage appears in TUI nav, the sweep, and fingerprint inputs. Fix `model.go:453` immediately regardless. Do **not** build a generator for templates/help/config/docs — those are boundary translation (rejected below).
+
+---
+
+**ID: SYNTH-03-F02**
+- **Priority**: P1
+- **Claim**: The durable-event payload vocabulary has three uncoordinated owners plus a storage gate that deletes exactly what producers promote and consumers read: `platform/runtime` promotes `title/detail/text/delta/output/name/phase` (`runtime.go:592-604`, shipped in `eeaa034`), `app` re-promotes an overlapping key set and force-extracts display keys (`app/run_control.go:435`, `:479-486`, shipped in `c455510`), the frozen storage allowlist drops them all (`runcontrol/sanitize.go:10-17`), and the replay view reads precisely the dropped keys (`web/run_handlers.go:288` reads `text,delta,detail,message,content,title,output` — only `message` survives). The observability feature of the last two commits is defeated at durability, and every dropped value accrues a misleading `"unsafe event detail omitted"` row (`sanitize.go:29-45`).
+- **Evidence**: All four layers personally re-read at HEAD (quotes above). Allowlist contains only identity/status/token/tool/action-style keys; `title,detail,text,delta,content,output,phase,name,native_type,line` absent. No round-trip test asserts promoted-key survival: `promoteObservablePayloadFields` has zero test references (fitness census); `web/run_handlers_test.go` fixtures carry only `kind/type/tool` (survives the gate, masking the gap). Live SSE renders `detail` directly from unsanitized `OperationEvent` (`web/operations.go:264`, corroborated by specialist-24b + chair-06 independently), so live and replay timelines diverge.
+- **Architectural reason**: boundary / drift (vocabulary with three uncoordinated owners plus a gate)
+- **Concrete consequence**: Replayed run history loses precisely the fields the observability work added; operators see omission noise instead of content; every future observable fact requires synchronized edits in ≥3 packages with zero compiler or test signal, because each layer is individually self-consistent.
+- **Counter-evidence searched**: The allowlist is a deliberate sanitization gate (change-04 defense accepted — scoping is valid) but nothing explains promoting upstream what the gate deletes; searched for a second unsanitized durable read path (none — page/pagination/SSE all consume repository events); searched for documented two-tier fidelity intent (nothing found — open question below); checked whether `message` subsumes the others (it does not — distinct agentwrap payload keys are why both promote lists exist).
+- **Confidence**: high
+- **Smallest useful action**: Make `platform/runtime` the single promotion owner (delete the duplicate map in `app/run_control.go`), extend `allowedEventPayloadFields` to the promoted set (existing sensitivity/size filters still apply), and add one round-trip test: promoted producer key survives `Append`→`Events`→`newRunEventView`.
+
+---
+
+**ID: SYNTH-03-F03**
+- **Priority**: P1
+- **Claim**: Mutable product state moved into SQLite ahead of the workspace's reserved authority decision: commit `02e2ec4` (2026-08-21 17:57) stores `sprint_flow`/`sprint_execute`/`study_run` kinds and makes loads DB-first when present (`sprint/state.go:216-227`, verified firsthand; JSON demoted to terminal-state checkpoints, `flowStateCheckpoint` at `:230-237`) — crossing the Sprint-35 fence ("must not move … flow outcomes … into a new canonical store", `roadmap.md:1368`) and pre-empting Gate D ("Select one authoritative storage mode … Compare filesystem and SQLite modes on real work", `roadmap.md:1462-1469`) — while Sprint 35 has no `reasoning.md`/`plan.md` (its `flow-state.json` marks reasoning/plan "missing"), and no authorizing artifact exists anywhere in either repo. Compounding it: product tables ride inside `.ultraplan/run-control.db` (identical constants `productstate/store.go:19` ≡ `runcontrol/sqlite.go:22`, verified firsthand) outside the only migration-governance machinery — `app_schema` ledger registers only `'run_control'` (`sqlite.go:356`), `PRAGMA user_version` is claimed, and `docs/architecture.md:158-160` still says modules "remain authoritative for their own product state" without naming the co-tenancy.
+- **Evidence**: CURRENT-CONTRACT quotes and timeline established by delegated probe with verbatim citations (`roadmap.md:1368,1435,1462-1469`; `TRD.md:57`; `sprints/35-*/requirements.md:13,20,72-73`; workspace `2dc3b74` 09:15 precedes `02e2ec4` 17:57 same day); workspace-wide search of `system/`, `projects/`, `studies/`, README plus implementation `docs/plans/` found no deviation record or decision log (probe hypothesis CONFIRMED). REALITY citations verified firsthand as noted above.
+- **Architectural reason**: authority / lifecycle (roadmap fitness)
+- **Concrete consequence**: Gate D's evidence-gated comparison is pre-decided by shipped code before its experiment runs; mid-run crash recovery now depends on the new store implicitly (any run-control use creates the DB, flipping authority without operator action); the first product-state schema change must invent ad-hoc DDL inside a file whose versioning, backups, and integrity contract another module owns.
+- **Counter-evidence searched**: The fence explicitly permits operational run records in SQLite — the violation is scoped to product artifacts and sequencing, not mechanism; migration is opt-in via `storage migrate` and Markdown artifacts were not moved (`migration-product-state.md:28-30`); dual persistence is coherent per-record at runtime (DB-first deterministic loads; split-brain hypothesis rejected); Sprint 35 may simply be mid-flight (HISTORY-in-progress) — which is why the remedy is a record, not a revert.
+- **Confidence**: high (facts, timeline); medium (violation vs unrecorded-decision framing)
+- **Smallest useful action**: Backfill a dated decision into the workspace (pull Gate D scope forward for productstate, or add a Sprint-36 requirement owning it) plus the missing Sprint-35 `reasoning.md` storage selection; register a `product_state` component in `app_schema`; name the co-tenancy in `docs/architecture.md` and `docs/migration-product-state.md`.
+
+---
+
+**ID: SYNTH-03-F04**
+- **Priority**: P1
+- **Claim**: The repository's declared verification gates are red at HEAD while its newest canonical persistence layer ships with zero tests: CI gating `go test ./...` plus gofmt has existed since the bootstrap commit (`20bc939`, position 194/195), yet `go test ./...` fails deterministically (`TestRunLoopStartsPriorityTierBeforeLaterTiers`, 3/3 runs) and `gofmt -l` flags `internal/platform/runtime/runtime.go` (import block misordered by `eeaa034`) — while `internal/productstate`, the `storage migrate` command, and the DB-authoritative halves of sprint/study state have no test files anywhere.
+- **Evidence**: REALITY: `.github/workflows/ci.yml:21,24` (format check + test gate, push/PR triggers); `gofmt -l .` → `internal/platform/runtime/runtime.go` (run firsthand); delegated execution: `go test ./internal/study/ -run TestRunLoopStartsPriorityTierBeforeLaterTiers -count=3` → FAIL 3/3 with identical output; `go test ./... -count=1` → only `study` fails (17.2s); test census: 112 test files; zero-test packages = `cmd/ultraplan`, `platform/filesystem`, **`productstate`**; no test references `productstate.` or `runStorage` (repo-wide grep). Failure mechanism per generalist-04 (consistent with my read of the scheduler): tasks spawn as goroutines (`study/run_loop.go:357-364`) and Started events emit on those goroutines, so the test over-specifies emission order; the priority ranking itself is correct. No Makefile/pre-commit hooks; CI is the only gate. Note: this **corrects** GENERALIST-04-F03's claim that "no CI configuration exists" — CI exists; it just demonstrably did not gate commits `c455510`/`eeaa034`.
+- **Architectural reason**: change-surface / failure-semantics (fitness functions exist but were not effective; newest authority layer undefended)
+- **Concrete consequence**: Regression protection is nominal exactly where cadence is fastest (84 commits in August); a red suite masks genuine future failures in `study`; the DB-authoritative half of dual-write persistence — crash-recovery-critical mapping and authority-flip logic — can regress with no signal, in the same week it became canonical.
+- **Counter-evidence searched**: Verified the failing assertion is deterministic on this host, not flaky (so a local gate run would have caught it); verified the scheduling function still orders correctly (test defect, not product defect); searched for indirect productstate coverage via integration tests (none — app/web tests use file-based fixtures or open the DB only for runcontrol concerns).
+- **Confidence**: high
+- **Smallest useful action**: Land the two-line hygiene fixes immediately (restore race-tolerant assertion via the existing `orderedRuntime` seam; gofmt `runtime.go`), then add productstate round-trip tests (save/load/stale-delete/hash-skip), a previous-version-record upgrade test per kind, and a `storage migrate` import/skip/partial test mirroring existing `state_test.go` patterns.
+
+---
+
+**ID: SYNTH-03-F05**
+- **Priority**: P1
+- **Claim**: Persist-on-failure timing is re-decided per copied branch — 56 `SaveFlowState` sites in `service.go` alone — and two failure branches already diverged: `service.go:740` (FlowTechnicalHandbook, evidence-validation-failure) and `service.go:818` (FlowReasoning, placeholder-requirements) call `_ = SaveFlowState(...)` **unguarded**, while structurally identical sibling branches guard with `if !req.DryRun` (`:729-731`, `:746-748`, `:836-838`). Dry runs acquire no mutation lease (`flow.go:121-132`) and both branches sit before their dry-run early returns (`:751`), so a failing preview mutates governed product state lease-free.
+- **Evidence**: Personally re-derived at HEAD: both unguarded branches and all three guarded siblings read in context; `grep -c SaveFlowState internal/sprint/service.go` → 56. Sibling behavior is test-pinned (`handbook_test.go:71`, `reasoning_test.go:150` assert no `flow-state.json` after dry runs — per specialist-23a/chair-06, mutually corroborating). Contract basis: serve-surface confirmations promise "runtime-free; no runtime-backed writes" (`app/operations.go:178-183`, per chair-06) in contrast to `OperationSprintStatus`'s explicit "MAY REFRESH FLOW-STATE.JSON".
+- **Architectural reason**: failure-semantics / drift (copied policy instead of owned policy)
+- **Concrete consequence**: With a real run active (lease held), `sprint flow --to technical-handbook --dry-run` against failing evidence — or `--to reasoning --dry-run` against placeholder requirements — rewrites flow-state from a stale snapshot, reverting the lease holder's recorded stage progress; from the browser the same happens while the UI promises no writes.
+- **Counter-evidence searched**: No test/doc records intent that failing previews persist; `WithoutStatusWrites` gates only `Status()`, not flows; git history (via specialist-23a) shows the unguarded lines predate the guard convention — drift by accumulation, not decision.
+- **Confidence**: high
+- **Smallest useful action**: Add `if !req.DryRun` guards at `service.go:740` and `:818` plus one regression test per branch. If budget allows, extract one parameterized helper where the dry-run check and failure persistence live exactly once — nothing more elaborate.
+
+---
+
+**ID: SYNTH-03-F06**
+- **Priority**: P2
+- **Claim**: Documentation contracts describe older vocabularies than the code emits, and contract *tests* pin the stale docs — the repo mechanically enforces its own doc drift. Instances verified this session: `docs/local-web.md:146-147` declares 8 stable operation states while `runcontrol/model.go:19-29` defines 11 (`queued`, `timed_out`, `persistence_degraded` omitted; the latter two are produced at `app/durable_operations.go:111,244-245` and projected raw at `web/operation_handlers.go:415,424`, while `terminalOperationState` at `web/operations.go:614-621` recognizes only 5 terminals and `operations_contract_test.go:82-110` freezes the stale 8); `docs/recovery.md:75` says attempts expire after "more than 24 hours" where `sprint/verify.go:455-467` enforces 2 hours plus immediate dead-PID expiry; `docs/release-checklist.md:110` says "nine embedded stage skills" vs `cli-reference.md:53-56` "eleven" (code truth: 11 entries in `workspace/skills.go`); `README.md:7` points agents at "the adjacent `ultraplan-go-workspace/…`" — the actual adjacent workspace is named `ultraplan-workspace` (verified firsthand) — and the README documentation index omits `docs/architecture.md` entirely.
+- **Evidence**: As above; local-web/recovery/checklist/cli-reference quotes and `model.go:19-29` enumeration verified by delegated legibility audit; README pointer and index verified firsthand; `verify.go:459-466` dead-PID + 2 h logic quoted by the audit.
+- **Architectural reason**: drift (contracts not derived from, nor reconciled with, owner vocabularies)
+- **Concrete consequence**: An operator following `recovery.md` waits 12× longer than actual stall expiry; an envelope-following client never treats `timed_out` as finished (the classifier disagrees with the producer); a fresh agent is pointed at a nonexistent workspace path and never discovers the authoritative architecture doc; updating the doc "the obvious way" breaks the frozen contract test instead of revealing that doc, test, and classifier must move together.
+- **Counter-evidence searched**: Checked whether extras are normalized elsewhere (they pass through raw; the sibling SSE mapper *does* normalize unknown events to `"progress"` — proving the asymmetry is drift, per change-08); checked whether another threshold supersedes 2 h (none); checked whether the workspace dir is renamed elsewhere (no reference resolves `ultraplan-go-workspace`).
+- **Confidence**: high
+- **Smallest useful action**: Decide the operation-state envelope once (extend doc+contract test+`terminalOperationState` to the owner vocabulary, or normalize at `durableOperationDocument` as the SSE mapper already does); correct `recovery.md:75`; reconcile the skill counts; fix the README workspace pointer and add the architecture.md link.
+
+---
+
+**ID: SYNTH-03-F07**
+- **Priority**: P2
+- **Claim**: The authoritative planning workspace cannot invoke the code-context skill that the implementation embeds, documents, and (per Sprint-34 acceptance) required materialized: `workspace/skills.go` registers 11 skills including `ultraplan-code-context` (`:102-118`), `docs/stage-skills.md:8` tells agents to use `$ultraplan-code-context`, but the workspace's `.agents/skills/` contains 10 directories and no code-context skill — and nothing validates deployed workspaces against the registry.
+- **Evidence**: Registry entries enumerated by delegated audit (names listed, count 11, matching `stage-skills.md` table exactly); workspace `.agents/skills/` listing verified by two independent probes (this session's audit + generalist-04); Sprint-34 acceptance "all-skill materialization includes code-context" (`sprints/34-shared-context/requirements.md:53-54`, per chair-06). Corroborating count drift captured in SYNTH-03-F06.
+- **Architectural reason**: drift / change-surface (materialisation is manual and ends the stage-addition checklist with no diff check)
+- **Concrete consequence**: Workspace-driven agents hit a missing skill for a fully implemented stage — the exact stage whose roadmap purpose is proving multi-surface absorption; the same gap recurs silently at the next stage insertion.
+- **Counter-evidence searched**: Materialisation is deliberately manual/user-overridable (so this is not a materialise bug), but no deferral record exists for code-context; Sprint 33 deferred only docs/skill packaging and Sprint 34 then required it (delegated sprint-history probe); spot-check confirms the other 10 materialized skills are current, isolating the miss to the newest stage.
+- **Confidence**: high (state), medium (intent)
+- **Smallest useful action**: Re-run skill materialisation against the authoritative workspace; add a registry-vs-directory diff surfaced by `skills materialise --dry-run` so the gap cannot recur silently.
+
+---
+
+**ID: SYNTH-03-F08**
+- **Priority**: P2
+- **Claim**: Version evolution for product state exists only on the file backend: the file path migrates (`migrateFlowStateV1` via `PreviousFlowStateSchemaVersion`, `sprint/state.go:53,68-73`), but DB loads ignore `record.SchemaVersion` entirely (`sprint/state_database.go:19-36`; `study/state_database.go:17-41`) and validators accept only the current constant — so the next `FlowStateSchemaVersion` bump permanently hard-fails DB-authoritative workspaces (`ErrFlowStateUnsupported` on every status/flow operation) while identical file-based workspaces self-heal. Relatedly, mid-pipeline stage insertion is absorbed by bespoke positional shims (`isPreCodeContextStages`/`interpretPreCodeContextStages`, `state.go:74-113`) that exist only on the file path and must be hand-stacked per insertion.
+- **Evidence**: File-path migration and DB-load asymmetry per change-05 (structural reads consistent with my `state.go` verification); `storage migrate` skips already-stored records (`storage_commands.go:98-100,150-152`), so no upgrade command exists for stored rows; roadmap anticipates further insertions (`roadmap.md:58` "first new workflow").
+- **Architectural reason**: lifecycle / drift (one logical record, two backends, evolution logic wired into one branch)
+- **Concrete consequence**: After the next bump, the only documented remedies are deleting `.ultraplan/run-control.db` (losing run-control history; fallback undocumented) or hand-editing SQLite; each additional stage insertion grows a family of positional predicates whose DB-side absence turns any legacy-shaped DB row into unrecoverable malformed state.
+- **Counter-evidence searched**: Not reachable today — the SQLite feature postdates the v2 bump, and imports go through validating `Load*` functions, so stored rows are import-time-current (change-05); terminal checkpoint files provide a recovery fallback if the DB is removed (`productstate.Existing` disables without the file) but this is documented nowhere; the positional-shim trade deliberately avoided a schema bump for one insertion (defensible once, not a pattern).
+- **Confidence**: medium-high
+- **Smallest useful action**: Route DB loads through the same version gate + migrate chain as file loads (one validated-decode helper per state type, keyed like `runcontrol/migration.go`), and add one previous-version-record test per kind per backend before the next bump.
+
+---
+
+**ID: SYNTH-03-F09**
+- **Priority**: P2
+- **Claim**: Widening the durable-event *type* vocabulary has no protocol: the enum is duplicated between Go (`EventType.IsValid`, `runcontrol/model.go:137-146`) and a DDL CHECK (`sqlite.go:296`) with create-only migration machinery (`CurrentSchemaVersion = 1`, `migration.go:20`, only a v0 branch), constraint violations from schema-misaligned appends are misclassified as retryable unavailability (`sqlite.go:1085-1108` maps SQLITE_CONSTRAINT to `unavailable`), and retention tier membership is three inline SQL literals (`retention.go:76,185,187`) plus a separate quota-exempt switch (`sqlite.go:713-720`). Probes against the real `SQLiteRepository` (change-04, scratch copy) demonstrated: a new-type append spins in retry then cancels the run into `persistence_degraded`; and a run emitting >4096 events of any non-disposable type wedges the journal permanently — subsequent `progress` appends also fail, recoverable only via terminal proposal.
+- **Evidence**: Probe-verified mechanics per change-04 (commands and outputs reported in that stage); enum/CHECK textual agreement today confirmed by the fitness census, which also confirms no parity test exists; retention tests exercise only progress/warning.
+- **Architectural reason**: change-surface / failure-semantics / lifecycle (vocabulary evolution protocol unfinished)
+- **Concrete consequence**: The first real status/event addition either bricks existing workspace opens (honest version bump with no step runner) or ships mixed-binary semantics (naive additive edit); a chatty warning-class session can wedge a run's journal today. Payload-key evolution (the common case, F02) stays cheap — the cost concentrates on exactly the rare widening the design reserves types for.
+- **Counter-evidence searched**: Backup/WAL-checkpoint/lock scaffolding anticipates future steps (intent present, first step absent); closed-vocabulary-plus-open-payload is deliberate doctrine and recent commits evolved payloads, not types (mitigates frequency, not cost when taken); mixed binaries are plausible (single-user tool, but restore-after-upgrade and multi-checkout sharing exist) though not documented as supported.
+- **Confidence**: medium-high (mechanics probe-verified; reachability of the wedge today requires volume)
+- **Smallest useful action**: Derive the CHECK string, `reservedEventType`, and retention tier lists from one Go table beside the enum declarations; add a test appending every declared type against a fresh v1 DB; map append-time SQLITE_CONSTRAINT to non-retryable `CodeInvariant`.
+
+---
+
+**ID: SYNTH-03-F10**
+- **Priority**: P3
+- **Claim**: Composition-layer seams drifted into inconsistent ownership stories: runtime construction uses three idioms in one package — injected `dependencies.SprintRuntimeFactory` (`app/app.go:38`, honored `sprint_commands.go:21-25`), mutable package-global `var studyRuntimeFactory` (`study_commands.go:22-24`, mutated by three test files), and direct construction ignoring the seam (`health_commands.go:112-113`) — while interactive-surface capability negotiation relies on unchecked type assertions (`tui/app.go:109,235,287,302` assert `RunUseCases`/`DurableOperationManager`, silently skipping durable acceptance on failure) even though `NewOperationalUseCases` (`operations.go:724`) exports a value satisfying the declared type without those capabilities. `docs/architecture.md:22-24` declares "no package-global mutable registry".
+- **Evidence**: Three-idiom census independently produced by specialist-24b, chair-06, and change-03 (mutually consistent line cites); capability-assertion analysis per change-02-F02 (high confidence there); production wiring currently supplies full capabilities via `main.go:34-36`, so no live degradation.
+- **Architectural reason**: drift / authority (several ownership stories for one concern)
+- **Concrete consequence**: A second runtime requires discovering three wiring sites (risking health probing one runtime while sprints execute another); a future surface cloned from the documented minimal interface compiles while silently skipping durable acceptance — degrading auditability, not safety (product leases still guard mutations).
+- **Counter-evidence searched**: Single-runtime scope is documented CURRENT-CONTRACT (`config.go:409-411` rejects alternatives; `configuration.md`), so absence of dispatch today is intentional and not charged; type assertions keep test fakes tiny and degrade gracefully by design (`durableStatusDTO.Available` surfaces availability) — the residual charge is that the *declared* types understate requirements and the doc's absolute claim is false as written.
+- **Confidence**: high
+- **Smallest useful action**: Add `StudyRuntimeFactory` to `dependencies` mirroring the sprint factory and route health through it (delete the global); declare the full interactive capability set in the TUI option type (or one app-owned constructor returning it) with compile-time `var _` assertions; soften or make true the architecture-doc sentence.
+
+### Defended architecture / rejected hypotheses
+
+1. **"Module boundaries are aspirational; app is a god package."** Rejected. The DAG matches `docs/architecture.md` everywhere cross-checked; fan-in to `app` is 3 (cmd/tui/web); its bulk is typed projection/boundary translation, which the doctrine values. Boundary tests exist *and pass* (fitness census verified all six claimed mechanisms).
+2. **"Generate templates/help/config/docs from a stage registry."** Rejected as unearned indirection: non-Go surfaces are genuine boundary translation across different contracts (change-01 verdict, which I adopt after checking its reasoning against the template/JS evidence). The earned fix is Go-side derivation plus one parity test (F01).
+3. **"Consolidate sprint/study twins (locks, cleanup markers, run engines, atomic writers)."** Rejected except the mechanical primitive: policies materially differ (central retry locks vs per-study force-unlock/fsync; sequential queue vs parallel workers), charters assign each module its own exclusion, and comments document divergence as intentional. Only the six-copy atomic-write protocol crosses the TRD §18.2 extraction threshold into the reserved-but-empty `platform/filesystem` (chair-06-F08; adopted, P3-scale).
+4. **"Dual JSON+SQLite persistence splits authority (split-brain)."** Rejected at runtime: loads deterministically prefer the DB when present (`state.go:216-227`, firsthand); JSON is written only at terminal checkpoints by design. The surviving charge is authority *timing and governance* (F03), not dual truth.
+5. **"Roadmap forbids SQLite."** Rejected as stated: `roadmap.md:1368,1398` permit operational records via proven reasoning; the violation scope is product artifacts and sequencing (F03). Precision here prevents arbiter overreach.
+6. **"`flowStages` ordinal switch is a standalone defect."** Rejected standalone: fail-closed shape validation (`state.go:307-314`) plus position-pinning tests bound it; folded into F01's shared-list remedy and F08's version-discipline remedy only where lists cross package lines.
+7. **"TUI code-context omission is legitimate staged evolution."** Rejected: the Sprint-24 read-only charter predates the Sprint 33/34 tri-surface contracts; no deferral record exists anywhere in either repo (delegated search, hypothesis confirmed); sprint-33's own review language affirms TUI discovery through the shared projection.
+8. **"There is no CI."** Rejected (correction to GENERALIST-04-F03): `.github/workflows/ci.yml` has gated tests+gofmt since the bootstrap commit. The corrected finding — gates exist but are red at HEAD — is stronger, not weaker (F04).
+9. **"Review/smoke protocols without their own reviewer are an enforcement gap."** Rejected: CURRENT-CONTRACT scopes reviewers to contracts+handbook; protocols are fingerprinted inputs by design (change-06 verdict, consistent with protocol doc §4).
+
+### Open questions
+
+1. Does any artifact outside both repositories authorize productstate adoption before Gate D? If produced, F03 downgrades to process debt plus the co-tenancy documentation gap.
+2. Is live-SSE-shows-`detail`-vs-replay-drops-it an intended two-tier fidelity posture? This decides whether F02's fix extends the allowlist or retracts producer/consumer expectations.
+3. Was persisting state on *failing* handbook/reasoning dry runs ever an explicit requirement? If yes, F05 becomes a docs/test gap; history suggests the lines simply predate the guard convention.
+4. Are the area-reasoning exclusions partly deliberate (project-page dedup, multi-file artifact model)? A recorded rationale would shrink F01's realized-drift list to the TUI instance; the missing parity mechanism remains either way.
+5. Are mixed-binary workspaces (two versions sharing one `run-control.db`) supported? If yes, F09's cross-version consequences rise toward P1; if explicitly unsupported, a one-line statement plus the parity test suffices.
+6. Will Sprint 35's `reasoning.md` land retroactively (normal mid-sprint state), confirming F03's mildest framing?
+SYNTH_EOF
+wc -l /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-03/stdout.md
+172 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-03/stdout.md
+[0m

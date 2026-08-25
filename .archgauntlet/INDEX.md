@@ -115,9 +115,9 @@ Target: `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go`
 
 ## Synth
 
-- `synth-01` — **pending** — Independent system synthesis 1 — [result](runs/synth-01/stdout.md)
-- `synth-02` — **pending** — Independent system synthesis 2 — [result](runs/synth-02/stdout.md)
-- `synth-03` — **pending** — Independent system synthesis 3 — [result](runs/synth-03/stdout.md)
+- `synth-01` — **succeeded** — Independent system synthesis 1 — [result](runs/synth-01/stdout.md)
+- `synth-02` — **succeeded** — Independent system synthesis 2 — [result](runs/synth-02/stdout.md)
+- `synth-03` — **succeeded** — Independent system synthesis 3 — [result](runs/synth-03/stdout.md)
 
 ## Arbiter
 

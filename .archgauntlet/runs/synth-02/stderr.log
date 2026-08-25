@@ -1,0 +1,611 @@
+[93m[1m! [0m agent "arch-synth" is a subagent, not a primary agent. Falling back to default agent
+[0m
+> build · stealth/ox-alpha
+[0m
+[0m→ [0mSkill "ultraplan-architecture-gauntlet"
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/finding-contract.md
+[0m→ [0mRead .agents/skills/ultraplan-architecture-gauntlet/references/synthesis-contract.md
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs 2>/dev/null; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run 2>/dev/null
+arbiter-01
+chair-01
+chair-02
+chair-03
+chair-04
+chair-05
+chair-06
+challenge-01
+challenge-02
+challenge-03
+challenge-04
+challenge-05
+challenge-06
+change-01
+change-02
+change-03
+change-04
+change-05
+change-06
+change-07
+change-08
+failure-01
+failure-02
+failure-03
+failure-04
+failure-05
+failure-06
+failure-07
+failure-08
+failure-09
+failure-10
+failure-11
+failure-12
+generalist-01
+generalist-02
+generalist-03
+generalist-04
+scout-01
+scout-02
+scout-03
+scout-04
+scout-05
+scout-06
+specialist-01a
+specialist-01b
+specialist-02a
+specialist-02b
+specialist-03a
+specialist-03b
+specialist-04a
+specialist-04b
+specialist-05a
+specialist-05b
+specialist-06a
+specialist-06b
+specialist-07a
+specialist-07b
+specialist-08a
+specialist-08b
+specialist-09a
+specialist-09b
+specialist-10a
+specialist-10b
+specialist-11a
+specialist-11b
+specialist-12a
+specialist-12b
+specialist-13a
+specialist-13b
+specialist-14a
+specialist-14b
+specialist-15a
+specialist-15b
+specialist-16a
+specialist-16b
+specialist-17a
+specialist-17b
+specialist-18a
+specialist-18b
+specialist-19a
+specialist-19b
+specialist-20a
+specialist-20b
+specialist-21a
+specialist-21b
+specialist-22a
+specialist-22b
+specialist-23a
+specialist-23b
+specialist-24a
+specialist-24b
+synth-01
+synth-02
+synth-03
+ultraplan-go
+ultraplan-workspace
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go 2>/dev/null && git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go log --oneline -3 2>/dev/null
+cmd
+dist
+docs
+go.mod
+go.sum
+internal
+README.md
+scripts
+eeaa034 observability: promote nested runtime payload facts to top level
+c455510 observability: surface agent stream details in durable run events
+4f440ca Show session continuation and harness session ID in run agent modal
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-02 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-01 2>/dev/null
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-01:
+prompt.md
+stderr.log
+stdout.md
+
+/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-02:
+prompt.md
+stderr.log
+stdout.md
+[0m
+[0m$ [0m/home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/bin/archgauntlet status 2>/dev/null | head -60
+Target: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go @ eeaa034cb1e520ea10e806870f6026cf1bb6c4f7 (dirty=false)
+Workspace: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace @ 368a78926ad81abd6f566e9d860df6c3e324c312 (dirty=false)
+Model: openrouter/stealth/ox-alpha
+Tasks: 94
+
+scout      total=6   pending=0   running=0   succeeded=6   failed=0  
+generalist total=4   pending=0   running=0   succeeded=4   failed=0  
+specialist total=48  pending=0   running=0   succeeded=48  failed=0  
+failure    total=12  pending=0   running=0   succeeded=12  failed=0  
+change     total=8   pending=0   running=0   succeeded=8   failed=0  
+challenge  total=6   pending=0   running=0   succeeded=6   failed=0  
+chair      total=6   pending=0   running=0   succeeded=6   failed=0  
+synth      total=3   pending=0   running=1   succeeded=2   failed=0  
+arbiter    total=1   pending=1   running=0   succeeded=0   failed=0
+[0m
+[0m→ [0mRead .archgauntlet/runs/synth-02/prompt.md[90m [command=find /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go -name '*.go' | wc -l && find /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal -maxdepth 1 -type d | sort][0m
+[0m
+[0m$ [0mwc -c /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-0*/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-0*/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-0*/stdout.md /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-0*/stdout.md 2>/dev/null | tail -30
+39294 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-01/stdout.md
+ 49988 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-02/stdout.md
+ 29760 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-03/stdout.md
+ 26626 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-04/stdout.md
+ 37079 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-05/stdout.md
+ 30249 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-06/stdout.md
+ 38762 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-01/stdout.md
+ 45435 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-02/stdout.md
+ 24300 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-03/stdout.md
+ 26042 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-04/stdout.md
+ 28518 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-05/stdout.md
+ 32767 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/challenge-06/stdout.md
+ 22449 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-01/stdout.md
+ 15789 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-02/stdout.md
+ 19048 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-03/stdout.md
+ 20931 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-04/stdout.md
+ 22010 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-05/stdout.md
+ 26288 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/scout-06/stdout.md
+ 28108 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-01/stdout.md
+ 24321 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-02/stdout.md
+ 23635 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-03/stdout.md
+ 31850 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/generalist-04/stdout.md
+643249 total
+[0m
+[0m$ [0mhead -15 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-01/stdout.md; echo ---; head -8 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-02/stdout.md; echo ---; head -8 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/chair-03/stdout.md
+# CHAIR-01 — Product/domain tribunal synthesis
+
+## Scope inspected
+
+**Prior-stage evidence**: `challenge-01/stdout.md` (primary candidate set; note: its file is corrupted mid-stream — F01's claim text and the assessment tail are interleaved with process chatter; findings F02–F17 intact). Provenance chains to generalist-01..04, scout-01/02/03/05, specialist-03b/05b/23a/23b, change-01/change-07 as cited therein. I did not re-read all specialist transcripts; every promoted claim below was re-derived from primary source (mine or a delegated verifier's) against the target tree.
+
+**Method**: five parallel bounded verification agents (persistence semantics; stage-inventory drift; prompt/context ownership; healing/lifecycle/recovery; mechanical duplication + test stability), each briefed to kill rather than confirm, plus my own firsthand re-derivation of the corrupted F01 and spot-checks of every load-bearing contract quote behind verdict changes.
+
+**Implementation repo** (`ultraplan-go` @ eeaa034, verified clean): read directly — `internal/app/operation_runner.go`, `internal/app/sprint_commands.go` (:425–499), `internal/sprint/service.go` (:53–112), `internal/sprint/smoke.go` (:30–79), `inteChair-01 synthesis written to `.archgauntlet/runs/chair-01/stdout.md` (209 lines). Method: five parallel kill-oriented verification subagents plus firsthand re-derivation of the corrupted F01 claim and every load-bearing contract quote.
+
+**Verdicts on challenge-01's 17 candidates — 14 survive, 2 demoted, 1 reframed:**
+
+- **P1 ×2 confirmed**: F01 smoke-start via TUI/web can never succeed (runner builds runtime-less service at `operation_runner.go:75`; `authorSmokeSuite` fails closed; `NonInteractive` field is dead code) and F02 dry-run failure branches persist *fabricated* flow-state without lease (`service.go:740/:818`).
+- **Demotions**: F03 status-write P2→P3 (documented intentional policy: `service.go:67-69`, TUI help disclosure, recovery docs prescribe it) and F08 healing-authority P2→P3 (`web-compatibility-baseline.md:79-81` explicitly delegates startup reconciliation to serve).
+- **Strengthened**: F05 TUI code-context omission is CURRENT-CONTRACT violation, test-locked at `model_test.go:81`; F06 prompt resolution violates TRD.md:1111 fail-before-runtime verbatim; F07 test failed 5/5 runs (worse than claimed flaky); F16 undercounted — 8 copies incl. one missing fsync entirely.
+---
+I'm arch-chair for chair-02 (execution tribunal synthesis). Let me start by orienting: check the gauntlet index, verify target repo state, and map my scope.
+Commits verified clean and matching. Now let me map the target repo structure and start my own re-derivation of the highest-stakes claims while dispatching subagents for bounded verification.
+Now I'll dispatch parallel verification subagents for the bounded finding clusters while I re-derive the P1/P2 core (F01–F04) firsthand.
+One subagent returned (F09/F10/F13 cluster confirmed with extra surprises); two hit rate limits. Retrying those and adding the locks-verification worker now.
+Strong verification returned with material corrections (the "~250ms terminal budget" in F02 is actually a 30s-bounded backoff loop). Now retrying the retention/payload/uncertain worker and dispatching the locks worker.
+Retention/payload/uncertain cluster verified with corrections (allowlist is 27 keys, not 5 — but the drift gap is real; the wedge additionally kills the run). Now dispatching the locks worker while I read the core owner-loop files myself for F01/F02/F04 re-derivation.
+run_control.go fully read — F01 windows A/B confirmed firsthand (flush on dead `runCtx` at :264-274; missing `ctx.Err()` guard on ack branch :232-235), and F02's "~250ms terminal budget" is disproved firsthand (`proposeRunTerminalWithRetry` loops until the 30s caller ctx dies; only the sleep cap is 100ms). Now reading durable_operations.go and the runtime adapter + sprint execute path for F03/F04.
+Adapter abandonment exits confirmed firsthand (runtime.go:314-320, :339). Now the consumer side — sprint execute's OnEvent closure and main loop:
+---
+# CHAIR-03 — State tribunal synthesis (filesystem, SQLite/productstate, migrations, durable/derived/ephemeral truth, consistency, recovery)
+
+Input: challenge-03 (five candidate findings) plus standing state-domain outputs from scout-05, specialist-08a/08b, failure-09/10/12, change-05. Every load-bearing claim below was re-derived firsthand from source at eeaa034, and the highest-consequence mechanism (restore vs stale WAL) was settled empirically, not by argument. Cross-tribunal items are marked as owned elsewhere, not duplicated.
+
+### Scope inspected
+
+**Implementation repo** `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go` @ eeaa034 (clean, read-only):
+[0m
+[0m$ [0mfor d in chair-04 chair-05 chair-06; do echo "=== $d ==="; sed -n '1,6p' /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/$d/stdout.md; done
+=== chair-04 ===
+I'm chair-04 for the interface tribunal synthesis. The challenge-04 tribunal produced 10 candidate findings; my job is to re-derive them against real code before promoting any. Let me start by grounding myself in the target repo and launching parallel evidence-gathering.
+Subagent hit a rate limit; I'll retry it while verifying the P1 claim myself.
+F01's core claim is confirmed firsthand at operation_runner.go:74-75 (smoke case bypasses `sprintRuntimeService`). Subagents are rate-limited, so I'll verify directly. Checking the runtime wiring and smoke authoring path:
+F01 fully verified. Now checking whether web/TUI smoke requests could set DryRun (counter-evidence), plus F02's WriteTimeout claims:
+F02's mechanism confirmed (single `SetWriteDeadline` site at operation_handlers.go:242). Now verifying F03 digests and F04 status-write claims:
+F03/F04 core mechanisms verified. Checking remaining claims in one batch — F05 shutdown attribution, F06 state vocabulary, F07 retry asymmetry:
+=== chair-05 ===
+# Chair-05 — Quality tribunal synthesis (security, errors, observability, testing, performance, operational claims)
+
+### Scope inspected
+
+**Primary input:** challenge-05 (10 candidate findings F01–F10), re-derived against the target rather than accepted.
+
+=== chair-06 ===
+The runs live in the working-directory repo, not the `gauntlet-run` path. Let me inspect them there.
+Now let me read the key prior outputs for my domain: specialists 23/24 (simplicity, evolution), change probes, and challenges.
+Now the change probes. Reading all eight change-stage outputs.
+Now the challenge-stage outputs (all six domains).
+challenge-06 is my exact domain — my job is to adversarially re-verify it plus the specialist/change-probe evidence. Let me check sibling chairs for format and boundary, then verify claims in the repo.
+chair-01 is empty and chair-05 died mid-run, so my domain must stand on its own verification. Launching parallel bounded evidence-gathering subagents while I re-derive the highest-stakes claims myself.
+[0m
+[0m$ [0mfind /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal -maxdepth 1 -type d | sort && find /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal -name '*.go' | wc -l
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/codeextract
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/platform
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/project
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/workspace
+290
+[0m
+[0m• [0mDistill domain-01 findings[90m Arch-Worker Agent[0m
+[0m• [0mDistill domain-02 findings[90m Arch-Worker Agent[0m
+[0m• [0mPackage map and intent docs[90m Arch-Scout Agent[0m
+[0m✓ [0mDistill domain-01 findings[90m Arch-Worker Agent[0m
+[0m✗ [0mPackage map and intent docs failed[90m Arch-Scout Agent[0m
+[91m[1mError: [0mSubagent failed (task_id: ses_fc7aaed9cffeOtdwSXlYr4HCW6): [Stealth] stealth/ox-alpha is temporarily rate-limited upstream. Please retry shortly.
+[0m✓ [0mDistill domain-02 findings[90m Arch-Worker Agent[0m
+[0m• [0mDistill domain-04 findings[90m Arch-Worker Agent[0m
+[0m✓ [0mDistill domain-04 findings[90m Arch-Worker Agent[0m
+[0m• [0mDistill domain-03 findings[90m Arch-Worker Agent[0m
+[0m✓ [0mDistill domain-03 findings[90m Arch-Worker Agent[0m
+[0m• [0mDistill domain-05 findings[90m Arch-Worker Agent[0m
+[0m✓ [0mDistill domain-05 findings[90m Arch-Worker Agent[0m
+[0m• [0mDistill domain-06 findings[90m Arch-Worker Agent[0m
+[0m✓ [0mDistill domain-06 findings[90m Arch-Worker Agent[0m
+[0m• [0mPackage map and intent docs[90m Arch-Scout Agent[0m
+[0m✓ [0mPackage map and intent docs[90m Arch-Scout Agent[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/operation_runner.go[90m [offset=15, limit=135][0m
+[0m✱ [0mGrep "func sprintRuntimeService|func runLoopService"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app · 2 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/smoke_author.go[90m [limit=40][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/service.go[90m [limit=115, offset=726][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sanitize.go[90m [limit=50][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=90, offset=400][0m
+[0m✱ [0mGrep "firstNonEmptyPayload"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web · 2 matches[0m
+[0m✗ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/run_control.go failed[90m [limit=75, offset=218][0m
+[91m[1mError: [0mFile not found: /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/run_control.go
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/durable_operations.go[90m [limit=70, offset=185][0m
+[0m✱ [0mGlob "internal/runcontrol/*.go"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 28 matches[0m
+[0m✱ [0mGrep "func proposeRunTerminalWithRetry|func (r \*Runtime) |setPersistenceErr|TerminalPersistenceLost"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol · 3 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/model.go[90m [limit=45, offset=15][0m
+[0m✱ [0mGrep "cancel\(\)|Flush|Acknowledge|runCtx|persistErr|proposeRunTerminal"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/lifecycle.go · 18 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/app/run_control.go[90m [limit=150, offset=150][0m
+[0m✱ [0mGrep "PlanningStages\(\)"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal · 20 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/tui/model.go[90m [limit=25, offset=443][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/study/locks.go[90m [limit=30, offset=14][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/verification_lock.go[90m [limit=20, offset=92][0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/process_linux.go
+[0m✱ [0mGrep "app_schema|product_state"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go · 5 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go[90m [limit=40][0m
+[0m✱ [0mGrep "stableStates|operations_contract|"queued"|"timed_out"|"persistence_degraded""[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web · 5 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/operations_contract_test.go[90m [limit=45, offset=75][0m
+[0m
+[0m$ [0mgrep -n "run-control.db\|_txlock\|busy_timeout" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go | head -12
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go:19:const DatabaseRelativePath = ".ultraplan/run-control.db"
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go:68:	values.Set("_busy_timeout", strconv.FormatInt((5*time.Second).Milliseconds(), 10))
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/productstate/store.go:72:	values.Set("_txlock", "immediate")
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go:22:	DatabaseRelativePath = ".ultraplan/run-control.db"
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go:74:	values.Set("_busy_timeout", strconv.FormatInt(BusyTimeout.Milliseconds(), 10))
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go:78:	values.Set("_txlock", "immediate")
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go:171:	path := filepath.Join(directory, "run-control.db")
+/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/sqlite.go:215:		{name: "busy_timeout", want: "5000"},
+[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/migration.go[90m [limit=60, offset=296][0m
+[0m
+[0m$ [0mgo test ./internal/app/ -run 'TestRunLoopStartsPriorityTierBeforeLaterTiers' -count=1 2>&1 | tail -15
+ok  	github.com/Antonio7098/ultraplan-go/internal/app	0.009s [no tests to run]
+[0m
+[0m✱ [0mGrep "PriorityTierBefore|priority tier"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go · 4 matches[0m
+[0m
+[0m$ [0mgo test ./internal/study/ -run 'TestRunLoopStartsPriorityTierBeforeLaterTiers' -count=3 2>&1 | tail -12
+--- FAIL: TestRunLoopStartsPriorityTierBeforeLaterTiers (1.78s)
+    run_loop_test.go:303: first starts = []string{"analysis:01-structure", "analysis:02-runtime"}, want the priority dimension; all starts []string{"analysis:01-structure", "analysis:02-runtime", "analysis:02-runtime", "analysis:01-structure", "synthesis:01-structure", "synthesis:02-runtime"}
+--- FAIL: TestRunLoopStartsPriorityTierBeforeLaterTiers (1.77s)
+    run_loop_test.go:303: first starts = []string{"analysis:01-structure", "analysis:02-runtime"}, want the priority dimension; all starts []string{"analysis:01-structure", "analysis:02-runtime", "analysis:02-runtime", "analysis:01-structure", "synthesis:02-runtime", "synthesis:01-structure"}
+--- FAIL: TestRunLoopStartsPriorityTierBeforeLaterTiers (1.77s)
+    run_loop_test.go:303: first starts = []string{"analysis:01-structure", "analysis:02-runtime"}, want the priority dimension; all starts []string{"analysis:01-structure", "analysis:02-runtime", "analysis:02-runtime", "analysis:01-structure", "synthesis:02-runtime", "synthesis:01-structure"}
+FAIL
+FAIL	github.com/Antonio7098/ultraplan-go/internal/study	5.336s
+FAIL
+[0m
+[0m$ [0mls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.agents/skills/ 2>/dev/null | wc -l; ls /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/.agents/skills/ 2>/dev/null
+10
+ultraplan-area-reasoning
+ultraplan-execute
+ultraplan-plan
+ultraplan-reasoning
+ultraplan-reconcile-review-smoke
+ultraplan-requirements
+ultraplan-review
+ultraplan-smoke
+ultraplan-sprint-index
+ultraplan-technical-handbook
+[0m
+[0m✱ [0mGrep "builtin:|reasoningDefault|defaultReasoning"[90m in /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/sprint/prompts.go · 5 matches[0m
+[0m→ [0mRead /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/runcontrol/interfaces.go[90m [limit=20, offset=60][0m
+[0m
+[0m$ [0mgrep -rn "productstate.DatabaseRelativePath" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go --include='*.go' | head; grep -n "import" -A6 /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal/web/import_boundary_test.go | head -14
+3:import (
+4-	"go/parser"
+5-	"go/token"
+6-	"path/filepath"
+7-	"strconv"
+8-	"strings"
+9-	"testing"
+--
+33:			t.Errorf("%s imports forbidden package %q", file, path)
+34-		}
+35-	}
+36-}
+37-
+38-func standardLibraryImport(path string) bool {
+[0m
+[0m$ [0mgrep -rn "productstate\.DatabaseRelativePath\|productstate.DatabaseRelativePath" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/internal --include='*.go' | head -8; grep -rln "runcontrol.Control\b" /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go --include='*.go' | grep -v interfaces.go | head
+(no output)
+[0m
+[0m$ [0msed -n '150,162p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go/docs/architecture.md; echo ===; sed -n '1703,1720p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/TRD.md; echo ===; sed -n '21,26p' /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace/projects/ultraplan-go/docs/ARCHITECTURE.md
+Execute owns one reusable runtime session for the ordered pending-task queue rather than one independent agent per task. Its initial turn carries the shared sprint prefix, queue primer, current task, safety instructions, and optional handbook examples. After each task UltraPlan persists task-specific evidence and status, then submits only the next task delta with `SessionAction=continue`. A missing runtime session ID degrades safely to another complete prompt; failure or cancellation stops queue advancement, while explicit deferral may advance to the next task. Cross-command session reuse is based on model and target compatibility, not exact artifact fingerprints.
+
+## Durable run control
+
+UltraPlan records runtime-backed and asynchronous work in the workspace-local
+`.ultraplan/run-control.db`. `internal/runcontrol` owns operational identity,
+lifecycle, owner leases, fencing, cancellation commands, sanitized event
+ordering, retention, and terminal arbitration. Sprint, study, smoke, runtime,
+lock, artifact, and Git modules remain authoritative for their own product
+state; run control only projects their safe correlations and status.
+
+Each start is accepted and claimed in SQLite before a goroutine, runtime child,
+===
+- command exit code and output conventions
+- generic runtime prompt execution
+- filesystem helpers that are genuinely cross-module, such as atomic writes
+- small validation/result structs when they do not carry study semantics
+
+Phase 2 must not prematurely abstract study behavior into shared packages. Keep these local to `study`:
+
+- study `Service`
+- source and dimension models
+- study prompt builders
+- report validation
+- rating parsing
+- summary generation
+- task scheduling and run-loop state
+
+If sprint and study both need the same mechanical file operation, extract the file operation. If they both happen to validate Markdown headings, implement locally first and extract only after the second concrete use proves the shared behavior is stable.
+
+### 18.3 Project Model
+===
+This means study behavior should stay with the study module. Project catalog behavior should stay with the project module. Sprint planning, execute, review, and smoke behavior should stay with the sprint module. Code extraction behavior should stay with the code extraction module. Workspace behavior should stay with the workspace module. Shared platform packages should exist only for genuinely cross-cutting infrastructure.
+
+CLI, TUI, and the Phase 4 local browser surface are interfaces over the same product core. They should share application use cases and dependency construction instead of duplicating workflow logic or using CLI output as an integration protocol. Phase 5 proves that boundary by adding `code-context` as a new sprint stage surfaced uniformly through all three interfaces. Phase 6 strengthens it by making run identity and observation workspace-wide instead of coupling them to an interface process or browser session.
+
+## Core Rule
+[0m
+[0m$ [0mwc -c /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-02/stdout.md
+2582 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-02/stdout.md
+[0m
+[0m→ [0mRead .archgauntlet/runs/synth-02/stdout.md
+[0m→ [0mRead .archgauntlet/runs/synth-02/stdout.md
+[0m
+[0m$ [0mcat > /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-02/stdout.md << 'SYNTH_EOF'
+# SYNTH-02 — Whole-system synthesis: ownership, cohesion, simplicity, boundaries, drift
+
+Target: `/home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go` @ eeaa034 (clean) against workspace @ 368a789 (clean). Read-only review; no target files modified.
+
+Provenance legend: **[FH]** = verified firsthand by this synthesis against the target tree at eeaa034; **[chair-N, obs M]** = re-derived and confirmed by chair tribunal N with M independent observers behind it. No claim below rests on an unverified challenge-stage assertion alone.
+
+### Scope inspected
+
+**Directly (firsthand):** `internal/app/operation_runner.go` (:15-149), `internal/app/run_control.go` (:150-299), `internal/app/durable_operations.go` (:185-254), `internal/app/run_control.go` promotion block (:400-489), `internal/sprint/service.go` (:726-840), `internal/sprint/smoke_author.go` (:1-40), `internal/sprint/prompts.go` (:241-257 region), `internal/sprint/verification_lock.go` (:92-101), `internal/study/locks.go` (:14-43), `internal/study/run_loop_test.go` (red test executed 3×), `internal/runcontrol/sanitize.go` (:1-50), `internal/runcontrol/model.go` (:15-59), `internal/runcontrol/interfaces.go` (:60-72), `internal/runcontrol/process_linux.go` (full), `internal/runcontrol/migration.go` RestoreBackup (:296-352), `internal/runcontrol/sqlite.go` app_schema sites (:230, :356), `internal/productstate/store.go` (:1-40 + DSN constants), `internal/tui/model.go` (:443-467), `internal/web/operations_contract_test.go` (:75-119), `internal/web/run_handlers.go`, `run_handlers_test.go` grep, `static/app.js:1392`, `templates/runs.html`, both `import_boundary_test.go` files, repo-A `docs/architecture.md` (:150-162); workspace `docs/ARCHITECTURE.md` (:21-26), `docs/TRD.md` §18.2 (:1703-1720).
+
+**Commands:** `go test ./internal/study/ -run TestRunLoopStartsPriorityTierBeforeLaterTiers -count=3` (FAIL 3/3), skills directory listing of the workspace, greps for `PlanningStages()` callers, `productstate.DatabaseRelativePath` references, `runcontrol.Control` references.
+
+**Delegated (bounded distillation, six parallel workers):** all six chair outputs (`chair-01..06/stdout.md`) cross-read against their challenge inputs (`challenge-01..06/stdout.md`), each distilled to per-finding verdicts, rejections, corrections, and themes; one scout produced the package/import map and doc inventory. ~640KB of prior output consumed via delegation; every load-bearing claim promoted below was either re-verified firsthand or carries named chair provenance.
+
+### Architecture assessment
+
+**Sound and worth keeping exactly as-is if rebuilding today:**
+
+- The module-driven dependency structure is a clean DAG: `app → {sprint, study, project, productstate, runcontrol, codeextract, platform, workspace}`; `tui → app`, `web → app`; platform imports no product modules; zero internal cycles [scout census + FH import-boundary tests]. `web` is mechanically restricted to stdlib+app by parser-enforced tests (`web/import_boundary_test.go:30-36`) [FH]. This is real enforcement, not aspirational layering.
+- Composition-once authority selection matches ARCHITECTURE.md's rule ("Persistence selection occurs once at composition"); DB-vs-file precedence is deterministic and identical across sprint/study/execute loaders (`state.go:21-32`, `execute_state.go:36-47`, `study/state.go:26-35`) [chair-03].
+- The runcontrol storage gate is genuinely unbypassable: `Append` is the sole write path and sanitization happens inside it (`sanitize.go:19-22` "final storage gate") [FH + chair-05]. Lease+fencing+CAS terminal arbitration in runcontrol is well-designed and race-tested (`lifecycle_test.go` one-winner/idempotent-command) [chair-02 rejected-hypotheses].
+- `platform/runtime` is earned translation, not speculative abstraction; per-module lock/cleanup twins are sanctioned local policy under TRD §18A [chair-01/chair-06 rejections].
+
+**Stressed:** The failures concentrate at exactly three seams, not in the modules:
+
+1. **Cross-package policy lists with no owner.** Stage vocabulary, payload-promotion keys, sanitize allowlist, consumer key lists, lifecycle vocabularies — each exists as hand-maintained literals in 2-4 packages with no shared definition and no round-trip/parity test (F02, F03, F07).
+2. **Per-surface re-implementation of workflow concerns.** The shared runner exists precisely so surfaces can't diverge; each confirmed interface defect is a seam where one surface (or one operation kind) re-decided transport/wiring/identity locally (F01, F08).
+3. **Two authorities for identity and terminal truth.** Bare-PID product locks vs runcontrol birth-token fencing; two supervision loops with divergent terminal taxonomies; presentation writes racing mutation leases (F04, F05, F08).
+
+**Ambiguous in the docs themselves:** ARCHITECTURE.md deliberately leaves Phase-6 package placement and SQLite adoption to "sprint reasoning" without requiring the decision be recorded; productstate then crossed into run-control.db with no record (F06). The docs' open-endedness, not the code, created the governance gap.
+
+**Drift direction:** drift here is not decay — it is *unowned vocabulary*. Every P1/P2 finding above is a list, digest, taxonomy, or wiring decision made twice with no mechanism forcing agreement.
+
+### Candidate findings
+
+---
+
+**SYNTH-02-F01**
+
+- Priority: **P1**
+- Claim: The shared operation runner — the documented single runtime-backed implementation for TUI and web — wires runtime into five of six operation kinds but not smoke, so deep-smoke started from TUI or web deterministically fails after being accepted.
+- Evidence: [FH] `internal/app/operation_runner.go:74-75` builds `sprint.NewService(root.Path)` directly while sibling kinds route through `sprintRuntimeService(deps, ...)` (:23, :36, :49, :60, :93); fail-closed authoring at `smoke_author.go:21-22` requires non-nil runtime; web maps dry-runs to a separate kind (`operation_handlers.go:657-665`), so only real starts are affected. Same seam also fabricates the nonexistent lock-owner command `"ultraplan", "operation"` for study ops (`operation_runner.go:115` vs truthful argv `study_commands.go:209`) [chair-04-F08].
+- Architectural reason: ownership / boundary — the parity seam itself leaks per-kind wiring decisions.
+- Concrete consequence: TUI/web users get a guaranteed-failing operation that has already persisted running→failed state; the failure mode is invisible until used because only kind-mapping is tested (`operations_contract_test.go:46`).
+- Counter-evidence searched: dry-run escape hatch exists but only transiently during prepare; CLI path is correct (`sprint_commands.go:436`), isolating the defect to the shared runner; corroborated independently by chair-01-F01, chair-04-F01, FAILURE-11-F01 [4 observers total].
+- Confidence: high
+- Smallest useful action: add `.WithRuntime(...)` to the OperationSmokeStart case (one line), plus a runner-level test asserting every runtime-requiring kind receives the runtime.
+
+---
+
+**SYNTH-02-F02**
+
+- Priority: **P1**
+- Claim: The planning-stage catalog has a declared single owner (`sprint.PlanningStages()`, `domain.go:264`) with zero production callers outside `internal/sprint` [FH grep], so ~15 hand-maintained stage lists across tui/app/templates have already diverged in two opposite directions: TUI omits `code-context`; five app-layer lists omit `area-reasoning`.
+- Evidence: [FH] `tui/model.go:453` hardcodes 8 stages (no code-context), pinned stale by `model_test.go:81`; app omissions at `sprint_usecases.go:118-130,:193-205,:206,:240` and fingerprints `operations.go:504-518` [chair-06-F01, chair-01-F09]; contract text ARCHITECTURE.md:23 explicitly demands uniform tri-surface surfacing of code-context (quoted and verified) [FH]; area-reasoning omission means area edits never invalidate operation fingerprints [chair-01-F09].
+- Architectural reason: drift / change-surface / ownership — vocabulary owned in name, re-owned in practice by every consumer.
+- Concrete consequence: adding stage N+1 repeats the historical change probe (commit 2d10aba touched 46 files across 5 packages and still missed the TUI); parity regressions are invisible because the stale lists are themselves test-pinned.
+- Counter-evidence searched: staged-evolution charter (Sprint 24) predates Sprint 33/34 contracts and cannot excuse it [chair-06]; no deferral record in `docs/plans/` (7 checked) [chair-06]; possible deliberate area-reasoning exclusion partially explicable by dedup labeling (`project_usecases.go:61-62`) but not the fingerprint omission. Fix adds no new dependency edge: tui→app→sprint already exist [FH].
+- Confidence: high
+- Smallest useful action: expose the stage inventory through `app` (it already imports sprint) and add one parity test comparing every surface enumeration to `sprint.PlanningStages()`.
+
+---
+
+**SYNTH-02-F03**
+
+- Priority: **P1**
+- Claim: The durable observability feature shipped by c455510/eeaa034 is defeated at the storage gate: two producer layers promote payload keys that the frozen 27-key allowlist deletes, and the replay consumer reads exactly those deleted keys.
+- Evidence: [FH end-to-end] promotion maps `app/run_control.go:435` (`title/detail/text/delta/content/native_type/line...`) and force-add loop :479-486 whose own comment says "the run timeline JS expects (payload.tool, payload.action, payload.title, etc.)"; allowlist `runcontrol/sanitize.go:10-17` contains none of those display keys; consumer `web/run_handlers.go:288` reads `"text","delta","detail","message","content","title","output"` — only `message` survives. HEAD commit eeaa034 itself added the second promotion layer plus namespaced `<field>_<sub>` keys (:438) that a fixed allowlist structurally cannot pin.
+- Architectural reason: boundary / ownership / drift — three unsynchronized policy lists across three packages; nothing connects them and no round-trip test exists (`run_handlers_test.go` fixtures carry only kind/type/tool) [chair-05-F01].
+- Concrete consequence: durable replay shows sparse events while live SSE renders full detail (`operations.go:264`); commit messages claim observability the journal does not retain; every future producer key addition silently degrades.
+- Counter-evidence searched: strict-gate-as-security-policy rejected as full defense (exactly the promoted keys absent is not scoping, it is disconnect) [chair-02]; no alternative unsanitized read path (Append sole writer) [FH]; live CLI reads pre-sanitize memory, compensating only for live viewing [chair-05].
+- Confidence: high
+- Smallest useful action: make `platform/runtime` (or runcontrol) the single owner of the observable-key vocabulary, extend the allowlist once, and pin producer→storage→consumer survival with one round-trip test.
+
+---
+
+**SYNTH-02-F04**
+
+- Priority: **P1**
+- Claim: Two hand-copied owner supervision loops hold identical responsibility (lease, heartbeat, cancellation ack, terminal proposal) but classify the same fault differently: a store error during cancellation/completion races durably records `persistence_degraded` in the runtime loop yet plain `cancelled`/`failed` in the operations loop, which has no persistence-loss concept at all.
+- Evidence: [FH] `app/run_control.go:156-163` (setPersistenceErr cancels ctx), :262-276 (post-run flush on possibly-dead `runCtx`), :282-291 (persistErr branch proposes TerminalPersistenceLost, never consulting `terminalOutcome`), ack branch :232-235 missing the `runCtx.Err()` guard its siblings have (:225-227, :241-243, :251-253); contrast `durable_operations.go:190-216` (same errors → bare `owned.cancel()`), :241-252 (taxonomy switch without persistence case, cause dropped). ≥6 terminal-classification sites total across hub/reconcilers/shutdown [chair-05-F03].
+- Architectural reason: ownership / lifecycle / failure-semantics — "why did this run end" has two owners with different vocabularies and evidentiary standards; `TerminalProposal` carries no structured cause field (`model.go`).
+- Concrete consequence: a user cancelling a run at the wrong moment gets a permanently wrong durable verdict (persistence_degraded implies data loss when none occurred); cross-loop incidents are non-comparable; shutdown attribution lands as generic `cancelled` [chair-02-F07/chair-04-F05].
+- Counter-evidence searched: wholesale engine merge REJECTED by two chairs (genuinely different event envelopes) — remedy is classification parity, not consolidation [chair-02/04]; `-race` silence explained by synchronous fakes [chair-02]; twin plain-cancel shape recast as "half a correct precedent".
+- Confidence: high
+- Smallest useful action: add the missing `runCtx.Err()` guards, classify context.Canceled before persistence loss, and give `TerminalProposal` a structured cause so all loops share one taxonomy function.
+
+---
+
+**SYNTH-02-F05**
+
+- Priority: **P2**
+- Claim: Product locks (study run-loop, sprint verification) use bare-PID liveness with kill-based signalling while runcontrol owns a correct birth-token process-identity implementation one package away — two process-identity authorities that disagree, violating TRD:2208's explicit "PID alone is insufficient".
+- Evidence: [FH] near-duplicate `processAlive` closures at `study/locks.go:17-23` and `verification_lock.go:95-101` (kill(pid,0), EPERM=alive); correct pattern at `runcontrol/process_linux.go:16-45` (PID + boot_id + /proc starttime token), used only by reconciliation; study cancel signals a bare PID via SIGINT (`locks.go:141-158`) — the product's only user-facing signalling path.
+- Architectural reason: authority / boundary / drift — the safe mechanism exists in-tree; the modules that need it most don't use it.
+- Concrete consequence: PID reuse makes a recycled unrelated process look alive, blocking new run loops (or misdirecting SIGINT at it); recovery guidance points at stale owners.
+- Counter-evidence searched: TRD §18A legitimately keeps locks module-owned — the violation is identity mechanism, not file placement [chair-01]; EPERM-as-alive fails safe cross-user; frequency lowered by pid_max [chair-02]. Unification target narrowed to the identity primitive only [chair-01 rejected broader consolidation].
+- Confidence: high
+- Smallest useful action: move the birth-token probe to `platform/process` and have both lock implementations record/check it alongside PID.
+
+---
+
+**SYNTH-02-F06**
+
+- Priority: **P2**
+- Claim: One physical SQLite file has two schema owners, one unaware: productstate co-locates in `.ultraplan/run-control.db` via its own duplicated path constant, registers no `app_schema` component row, has zero tests, and the restore path renames the DB without WAL-sidecar handling.
+- Evidence: [FH] `productstate/store.go:19` vs `runcontrol/sqlite.go:22` declare the same relative path as independent constants (no reference, no equality-pinning test — grep empty); `sqlite.go:356` registers only `'run_control'`; RestoreBackup renames over the live DB with no `-wal`/`-shm` removal (`migration.go:296-352`) and chair-03 proved empirically (modernc driver, exact DSNs) that a stale WAL resurrects pre-restore commits precisely in the post-crash scenario restores exist for; sole restore caller is its own test [chair-03-F01/F02].
+- Architectural reason: ownership / lifecycle — "one substrate, two owners, one unaware"; recovery is the least-governed lifecycle stage.
+- Concrete consequence: restore can silently return pre-backup product truth; schema versioning, quota attribution, and backup semantics skip half the file's contents; a constant edit in one package splits the store in two with no failing test.
+- Counter-evidence searched: co-tenancy mechanics are sound (matching pragmas serialize writers; shared-sqlite-kit extraction rejected — ~5 lines DSN overlap, revisit at third copy [chair-03]); roadmap fence permits operational records, so scope limited to product artifacts + missing authorization record [chair-06-F02]; remedy is a record + registration, not revert.
+- Confidence: high (mechanism), medium (governance leg)
+- Smallest useful action: register a `product_state` app_schema row, delete one of the two path constants, teach RestoreBackup to remove sidecars, and add a minimal productstate test file.
+
+---
+
+**SYNTH-02-F07**
+
+- Priority: **P2**
+- Claim: Documentation drift is mechanically enforced by the repo's own contract tests: the web contract test pins an 8-state lifecycle vocabulary while the transport layer handles all 11 runcontrol states, so correcting the doc breaks CI.
+- Evidence: [FH] `operations_contract_test.go:83` pins `{accepted,running,cancelling,succeeded,failed,cancelled,interrupted,cleanup_uncertain}` and :110-112 asserts timed_out/persistence_degraded classify as non-terminal, while `runcontrol/model.go:18-30` defines 11 states and web handlers/static JS/filters handle the full set (`run_handlers.go:315,:319`, `app.js:1392`, `runs.html` options); raw lifecycles pass through `operation_handlers.go:415,:424`. Second instance: `recovery.md:75` documents 24h staleness vs implemented 2h + immediate dead-PID expiry (`verify.go:455-467`) [chair-01-F14].
+- Architectural reason: drift — the test suite freezes yesterday's contract, making documentation correction a compile error.
+- Concrete consequence: agents and integrators trust the documented envelope, then meet undocumented terminals; fixing the doc requires touching the very test that was supposed to protect the contract.
+- Counter-evidence searched: blast radius bounded (HTML redirects to /runs; active lists use `IsActive()` correctly) [chair-04-F06, P3 there]; no renaming occurs — values pass through verbatim, so consumers see valid states; severity calibrated P2 here because the *enforcement mechanism* is the finding, spanning multiple docs.
+- Confidence: high
+- Smallest useful action: regenerate contract fixtures from `runcontrol.Lifecycle` values (single source), then let docs/tests both derive from it.
+
+---
+
+**SYNTH-02-F08**
+
+- Priority: **P2**
+- Claim: Presentation paths persist durable flow-state outside the mutation lease: `Status()` saves derived state when status-writes are enabled and the TUI polls at 1Hz, making the dashboard a continuous unleased writer racing lease-holding operations.
+- Evidence: [chair-04-F04 ×2 observers, chair-01-F03] `service.go:151`, save `:191-195`, no `acquireMutation` in any Status/TUI path (lock census over execute/flow/locks/review/smoke/verify); web opts out via `WithoutStatusWrites()` iff readOnly (`usecases.go:121-129`); TUI tick `tui/app.go:271-275`.
+- Architectural reason: authority / lifecycle — single-writer discipline holds for every mutating path except the loudest one (the UI).
+- Concrete consequence: a polled status refresh can overwrite stage truth mid-operation, destroying concurrent lease-holder progress; blast radius bounded by the merge guard preserving nil-only Review/Smoke (`state.go:199-215`) but not other fields.
+- Counter-evidence searched: chair-01 demoted the Status-write itself to P3 on documented intentional policy (`service.go:67-73` opt-out comment frames CLI/TUI writes as legacy-behavior preservation; TUI help discloses it; recovery.md prescribes refresh). This synthesis reconciles the two verdicts: the documented policy legitimizes occasional convenience refresh, not a 1Hz continuous write loop from an interactive surface — the residual hazard stands at P2, mechanism uncontested by any domain.
+- Confidence: medium-high
+- Smallest useful action: apply the existing `WithoutStatusWrites()` option to the TUI service construction (mirroring web), keeping CLI one-shot refresh as documented behavior.
+
+---
+
+**SYNTH-02-F09**
+
+- Priority: **P2**
+- Claim: Main is red at HEAD and nothing notices: `TestRunLoopStartsPriorityTierBeforeLaterTiers` fails deterministically (executed 3/3 FAIL [FH], `study/run_loop_test.go:276-304` — note it lives in `internal/study`, correcting digests that placed it in app) because commit 734eb5d replaced tier-barrier semantics with documented tier-backfill semantics (`run_loop.go:529-531`), updated the sibling test, and left this twin stale; there is no CI to catch the red baseline.
+- Evidence: [FH execution] failure message "want the priority dimension" with backfill-order starts; root cause established by chair-05-F02 from commit evidence (scheduler-regression hypothesis rejected); strict ordering assertions across concurrent goroutines add brittleness [chair-05].
+- Architectural reason: change-surface / drift — the suite is the only regression net, and its baseline state is unmonitored.
+- Concrete consequence: every green-looking subset run hides real regressions behind a known-red test; cached CI signals built on this tree are worthless until the twin is fixed.
+- Counter-evidence searched: flaky-vs-deterministic dispute resolved by measurement (5/0 runs historically, 3/3 here) [chair-01]; property itself still correctly implemented (`runnableTaskIDs` :518-549) [chair-01-F07] — the defect is the stale expectation, not the scheduler.
+- Confidence: high
+- Smallest useful action: update the stale twin to assert backfill semantics (mirroring its renamed sibling), then wire the suite into any CI hook available.
+
+---
+
+**SYNTH-02-F10**
+
+- Priority: **P2**
+- Claim: Prompt-default resolution is implemented four times with divergent failure semantics despite docs assigning ownership to the workspace; the sprint variant embeds literal error pages into runtime prompts, contrary to TRD.md:1111's fail-before-runtime requirement.
+- Evidence: [chair-01-F06, strong; FH spot-check of `prompts.go:241-257` `builtin:` resolution] four resolvers with differing fallback/validation layers; sprint variant fail-open; owner assigned at ARCHITECTURE.md:471-479.
+- Architectural reason: authority / drift — a documented owner exists and four consumers overrode it.
+- Concrete consequence: identical inputs yield different prompts (or embedded error text) depending on which surface resolves defaults; validation guarantees differ invisibly per surface.
+- Counter-evidence searched: per-surface semantic validation layers differ legitimately — only the fallback step duplicates [chair-01]; no downstream guard catches embedded error pages [chair-01].
+- Confidence: medium-high
+- Smallest useful action: extract the fallback-resolution step into `project` (already imported by sprint) and make the sprint variant fail closed per TRD.md:1111.
+
+---
+
+**SYNTH-02-F11**
+
+- Priority: **P3**
+- Claim: Small simplicity residue with cheap mechanical fixes: dead speculative alias `runcontrol.Control` (zero references [FH]), three divergent runtime-construction idioms in `app` (injected factory / package-global `var studyRuntimeFactory` test-mutated / direct construction) against the repo's own no-global-mutable-registry rule, and the atomic-write protocol copied six times (+ one variant missing fsync at `session_state.go:62-85`) although TRD §18.2 pre-authorizes extraction into the reserved-but-empty `internal/platform/filesystem` (doc.go stub [FH]).
+- Evidence: [FH] `interfaces.go:67-72`; `app.go:38` vs `study_commands.go:22-24` vs `health_commands.go:112-113` [chair-06-F10]; six writer sites enumerated by chair-06-F08 with zero semantic differences found.
+- Architectural reason: simplicity / change-surface — accepted debt with a pre-paid extraction path.
+- Concrete consequence: a cloned third surface compiles with durability silently nil (type-assertion capability discovery); the degraded fsync-less variant can lose a summary on power loss; otherwise low.
+- Counter-evidence searched: larger stage-engine registry and template generation rejected as unearned indirection [chair-06]; per-copy tests currently pin semantics, keeping this P3 [chair-01-F16].
+- Confidence: high
+- Smallest useful action: delete `Control`, unify the runtime-factory seam, and perform the already-sanctioned `WriteFileAtomic` extraction (retiring the fsync-less variant first).
+
+---
+
+### Defended architecture / rejected hypotheses
+
+Investigated and disproved — these should not re-enter as findings:
+
+- **"Layering violations / needs Clean Architecture split."** Rejected: import graph is a clean DAG, mechanically enforced by parser-based boundary tests in `web` and `runcontrol` [FH + scout]. All structural criticism above targets seams and vocabularies, never layer placement.
+- **Wholesale merge of the two supervision engines.** Rejected by chairs 02/04: different event vocabularies and failure envelopes; classification parity is the correct-sized fix.
+- **Dual JSON+SQLite persistence as split-brain.** Rejected: all three loaders deterministically prefer DB rows; JSON mirrors at terminal states; documented in migration-product-state.md [chair-01/03]. Residual gap (staleness signalling on checkpoint fallback) tracked separately in chair-03-F02.
+- **Consolidating sprint/study lock/cleanup twins.** Rejected: materially different policies per TRD §18A; only the process-identity primitive crosses the duplication threshold (folded into F05).
+- **Unified redaction classifier.** Rejected twice: import-boundary test pins runcontrol to stdlib; sinks legitimately filter different domains. Correct scope is value-marker superset alignment [chair-05].
+- **RunAll-unlocked as ownership defect; TUI mutations as charter violation.** Both CURRENT-CONTRACT/HISTORY: lock-free ephemeral run-all is a documented Non-Goal; read-only TUI was superseded Sprint-24 history (`tui/doc.go` mutation console) [chair-01].
+- **agentwrap environment leak (strong form).** Defended: harness consumes provider credentials by design; residual kernel is the empty-allowlist env inversion (chair-05-F05, P3).
+- **Web security posture.** Endorsed clean by specialist-21B and chairs 04/05 (loopback binding, HttpOnly+SameSite=Strict, HMAC artifact refs, origin proofs); no finding.
+- **Stage fan-out across ~20 non-Go surfaces as broken ownership.** Rejected: templates/help/config/docs are genuine boundary translation; only Go-side inventories are chargeable (F02).
+- **Scheduler regression behind F09.** Disproved by commit archaeology: stale test twin of 734eb5d [chair-05, FH-executed].
+
+### Open questions
+
+1. **Shutdown-contract bindingness** (affects F04 consequence sizing): `docs/plans/server-shutdown-run-cancellation-contract.md` is marked "Proposed, normative addendum". If non-binding, the shutdown-attribution leg drops toward accepted debt/P3 [chair-04 open question].
+2. **Was persisting failed previews during dry runs ever required?** If yes, `service.go:740/:818` becomes documented debt instead of defect [chair-06 open question 3]. The guarded siblings argue no.
+3. **Is the area-reasoning exclusion from app inventories deliberate?** Would shrink F02's realized-divergence list; the missing parity mechanism stands regardless [chair-06 open question 4].
+4. **External authorization artifact for productstate's fence crossing?** A workspace record would reduce F06's governance leg to process debt; the code-level ownership gaps (schema registration, sidecar handling, path-constant duplication) stand either way [chair-06 open question 1].
+5. **Coverage holes from dead specialists:** SPECIALIST-20 (test architecture) died with no output and `internal/productstate` has zero tests anywhere — the arbiter may want a targeted re-run before treating "no further test-architecture findings" as settled [chair-05 provenance warning; chair-03 flagged the same for filesystem/artifact persistence].
+SYNTH_EOF
+wc -c /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-02/stdout.md
+27523 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-02/stdout.md
+[0m
+[0m$ [0mtail -5 /home/antonioborgerees/coding/ultraplan/ultraplan-architecture-gauntlet/.archgauntlet/runs/synth-02/stdout.md; git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-go status --porcelain | wc -l; git -C /home/antonioborgerees/coding/ultraplan/gauntlet-run/ultraplan-workspace status --porcelain | wc -l
+1. **Shutdown-contract bindingness** (affects F04 consequence sizing): `docs/plans/server-shutdown-run-cancellation-contract.md` is marked "Proposed, normative addendum". If non-binding, the shutdown-attribution leg drops toward accepted debt/P3 [chair-04 open question].
+2. **Was persisting failed previews during dry runs ever required?** If yes, `service.go:740/:818` becomes documented debt instead of defect [chair-06 open question 3]. The guarded siblings argue no.
+3. **Is the area-reasoning exclusion from app inventories deliberate?** Would shrink F02's realized-divergence list; the missing parity mechanism stands regardless [chair-06 open question 4].
+4. **External authorization artifact for productstate's fence crossing?** A workspace record would reduce F06's governance leg to process debt; the code-level ownership gaps (schema registration, sidecar handling, path-constant duplication) stand either way [chair-06 open question 1].
+5. **Coverage holes from dead specialists:** SPECIALIST-20 (test architecture) died with no output and `internal/productstate` has zero tests anywhere — the arbiter may want a targeted re-run before treating "no further test-architecture findings" as settled [chair-05 provenance warning; chair-03 flagged the same for filesystem/artifact persistence].
+0
+0
+[0m
